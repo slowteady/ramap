@@ -1,26 +1,35 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* 라맵 디자인 토큰 — docs/planning/13.UI설계원칙.md A절. 토큰 외 값 사용 금지 */
+@theme {
+  --color-accent: #e8442e; /* 라멘 레드 — 유일한 유채색 */
+  --color-ink: #1a1b1f; /* 근흑 텍스트 (순흑 금지) */
+  --color-gray-500: #3d4048;
+  --color-gray-400: #6b6e76; /* 보조 텍스트 */
+  --color-gray-300: #9aa0a8;
+  --color-gray-200: #c9cdd3;
+  --color-gray-150: #e4e6ea; /* 보더 */
+  --color-gray-100: #f0f1f3; /* 구분선 */
+  --color-gray-050: #f9fafb; /* 서피스 */
+  --color-open: #1b8a4b; /* 시맨틱: 영업중 */
+
+  --radius-card: 8px;
+  --radius-card-lg: 12px;
+
+  --font-sans: "Pretendard Variable", Pretendard, -apple-system,
+    "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+
+  --text-caption: 11px;
+  --text-secondary: 13px;
+  --text-body: 15px;
+  --text-title: 18px;
+  --text-heading: 22px;
+  --text-display: 26px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* 라이트 고정 (다크모드 v1 미지원 — 카카오맵 다크 타일 부재) */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #ffffff;
+  color: var(--color-ink);
+  font-family: var(--font-sans);
 }
