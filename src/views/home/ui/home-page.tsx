@@ -18,7 +18,9 @@ export async function HomePage() {
           </span>
           <nav className="flex gap-3 text-body font-semibold">
             <span className="text-ink">지도</span>
-            <span className="text-gray-300">신규 오픈</span>
+            <Link href="/new" className="text-gray-300">
+              신규 오픈
+            </Link>
           </nav>
         </div>
         <button
