@@ -23,6 +23,7 @@ export interface MapAdapter {
   setClusters(clusters: MapClusterMarker[], onTap: (id: string) => void): void;
   onViewportChange(cb: (level: number) => void): void;
   panTo(pos: LatLng): void;
+  setLevel(level: number): void;
 }
 
 declare global {
@@ -48,6 +49,7 @@ declare global {
 
 export type KakaoMap = {
   getLevel(): number;
+  setLevel(level: number): void;
   panTo(pos: unknown): void;
   relayout(): void;
 };

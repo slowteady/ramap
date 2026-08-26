@@ -88,5 +88,8 @@ export async function createKakaoAdapter(key: string | undefined): Promise<MapAd
     panTo(pos) {
       map?.panTo(new window.kakao.maps.LatLng(pos.lat, pos.lng));
     },
+    setLevel(level) {
+      map?.setLevel(level);
+    },
   };
 }
