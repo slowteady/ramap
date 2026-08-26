@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css";
 import "./globals.css";
+import { Toaster } from "@/shared/ui/sonner";
 
 export const metadata: Metadata = {
   title: {
@@ -18,6 +19,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <div className="mx-auto min-h-dvh w-full max-w-app bg-white">
           {children}
         </div>
+        <Toaster position="top-center" />
       </body>
     </html>
   );

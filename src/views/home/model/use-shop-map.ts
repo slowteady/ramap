@@ -18,6 +18,7 @@ export function useShopMap(
   pins: ShopPin[],
   filters: MapFilters,
   focusId: string | null = null,
+  visitedIds: ReadonlySet<string> = new Set(),
 ) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const adapterRef = useRef<MapAdapter | null>(null);
@@ -83,8 +84,8 @@ export function useShopMap(
       return;
     }
 
-    adapter.setMarkers(toMarkers(visiblePins, selectedId), setSelectedId);
-  }, [status, level, visiblePins, selectedId]);
+    adapter.setMarkers(toMarkers(visiblePins, selectedId, visitedIds), setSelectedId);
+  }, [status, level, visiblePins, selectedId, visitedIds]);
 
   const selectPin = useCallback((id: string | null) => setSelectedId(id), []);
   const clearSelection = useCallback(() => setSelectedId(null), []);

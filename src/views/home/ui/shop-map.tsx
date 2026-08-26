@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import type { ShopPin } from "@/entities/shop";
+import { useRecords } from "@/features/records";
 import { useMapFilters } from "../model/use-map-filters";
 import { useShopMap } from "../model/use-shop-map";
 import type { FilterAxis } from "../model/filter-axes";
@@ -14,8 +15,14 @@ import { ShopPeekCard } from "./shop-peek-card";
 export function ShopMap({ pins }: { pins: ShopPin[] }) {
   const { filters, apply } = useMapFilters();
   const focusId = useSearchParams().get("focus");
+  const { records } = useRecords();
+  const visitedIds = useMemo(
+    () =>
+      new Set(records.filter((r) => r.status === "visited").map((r) => r.shopId)),
+    [records],
+  );
   const { containerRef, status, visiblePins, selectedShop, selectPin, clearSelection } =
-    useShopMap(pins, filters, focusId);
+    useShopMap(pins, filters, focusId, visitedIds);
   const [sheetAxis, setSheetAxis] = useState<FilterAxis | null>(null);
 
   const selectSibling = (offset: number) => {
