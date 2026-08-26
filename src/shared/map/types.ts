@@ -25,6 +25,7 @@ export interface MapAdapter {
   onMapClick(cb: () => void): void;
   panTo(pos: LatLng): void;
   setLevel(level: number): void;
+  setUserLocation(pos: LatLng | null): void;
 }
 
 declare global {

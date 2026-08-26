@@ -90,5 +90,32 @@ export function useShopMap(
   const selectPin = useCallback((id: string | null) => setSelectedId(id), []);
   const clearSelection = useCallback(() => setSelectedId(null), []);
 
-  return { containerRef, status, visiblePins, selectedShop, selectPin, clearSelection };
+  const locate = useCallback((onDenied: () => void) => {
+    if (!navigator.geolocation) {
+      onDenied();
+      return;
+    }
+    navigator.geolocation.getCurrentPosition(
+      ({ coords }) => {
+        const adapter = adapterRef.current;
+        if (!adapter) return;
+        const pos = { lat: coords.latitude, lng: coords.longitude };
+        adapter.setUserLocation(pos);
+        adapter.setLevel(CLUSTER_LEVEL_THRESHOLD - 2);
+        adapter.panTo(pos);
+        setLevel(CLUSTER_LEVEL_THRESHOLD - 2);
+      },
+      () => onDenied(),
+    );
+  }, []);
+
+  return {
+    containerRef,
+    status,
+    visiblePins,
+    selectedShop,
+    selectPin,
+    clearSelection,
+    locate,
+  };
 }
