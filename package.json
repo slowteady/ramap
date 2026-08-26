@@ -12,7 +12,8 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "sync-sheet": "tsx scripts/sync-sheet.ts",
-    "seed-candidates": "tsx scripts/seed-candidates.ts"
+    "seed-candidates": "tsx scripts/seed-candidates.ts",
+    "diff-localdata": "tsx scripts/diff-localdata.ts"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",
