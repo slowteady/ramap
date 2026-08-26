@@ -60,7 +60,7 @@ export function ShopPeekCard({ shop, onClose, onPrev, onNext }: ShopPeekCardProp
     >
       <DrawerContent
         overlay={false}
-        className="border-t-0 shadow-[0_-2px_12px_rgba(26,27,31,0.1)]"
+        className="h-dvh border-t-0 shadow-[0_-2px_12px_rgba(26,27,31,0.1)] data-[vaul-drawer-direction=bottom]:mt-0 data-[vaul-drawer-direction=bottom]:max-h-none"
       >
         <div
           className="flex h-full flex-col gap-1.5 px-4 pt-2 pb-6"

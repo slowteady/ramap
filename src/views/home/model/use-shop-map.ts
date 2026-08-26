@@ -61,8 +61,8 @@ export function useShopMap(pins: ShopPin[], filters: MapFilters) {
       adapter.setClusters(toClusterMarkers(clusters), (area) => {
         const target = clusters.find((c) => c.area === area);
         if (!target) return;
-        adapter.panTo({ lat: target.lat, lng: target.lng });
         adapter.setLevel(CLUSTER_LEVEL_THRESHOLD - 1);
+        adapter.panTo({ lat: target.lat, lng: target.lng });
         setLevel(CLUSTER_LEVEL_THRESHOLD - 1);
       });
       return;
