@@ -1,17 +1,19 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-/* 라맵 디자인 토큰 — docs/planning/13.UI설계원칙.md A절. 토큰 외 값 사용 금지 */
+/* 토큰 외 값 사용 금지 (docs/planning/13). 브랜드 레드는 시맨틱 primary로, --color-ramen은 마커·SVG 원시값용 */
 @theme {
-  --color-accent: #e8442e; /* 라멘 레드 — 유일한 유채색 */
-  --color-ink: #1a1b1f; /* 근흑 텍스트 (순흑 금지) */
+  --color-ramen: #e8442e; /* 유일한 유채색 */
+  --color-ink: #1a1b1f; /* 순흑 금지 */
   --color-gray-500: #3d4048;
-  --color-gray-400: #6b6e76; /* 보조 텍스트 */
+  --color-gray-400: #6b6e76;
   --color-gray-300: #9aa0a8;
   --color-gray-200: #c9cdd3;
-  --color-gray-150: #e4e6ea; /* 보더 */
-  --color-gray-100: #f0f1f3; /* 구분선 */
-  --color-gray-050: #f9fafb; /* 서피스 */
-  --color-open: #1b8a4b; /* 시맨틱: 영업중 */
+  --color-gray-150: #e4e6ea;
+  --color-gray-100: #f0f1f3;
+  --color-gray-050: #f9fafb;
+  --color-open: #1b8a4b;
 
   --radius-card: 8px;
   --radius-card-lg: 12px;
@@ -27,9 +29,59 @@
   --text-display: 26px;
 }
 
-/* 라이트 고정 (다크모드 v1 미지원 — 카카오맵 다크 타일 부재) */
-body {
-  background: #ffffff;
-  color: var(--color-ink);
-  font-family: var(--font-sans);
+/* 다크모드 미지원 — 카카오맵 다크 타일 부재. .dark 블록 추가 금지 */
+:root {
+  --background: #ffffff;
+  --foreground: #1a1b1f;
+  --card: #ffffff;
+  --card-foreground: #1a1b1f;
+  --popover: #ffffff;
+  --popover-foreground: #1a1b1f;
+  --primary: #e8442e;
+  --primary-foreground: #ffffff;
+  --secondary: #f0f1f3;
+  --secondary-foreground: #1a1b1f;
+  --muted: #f9fafb;
+  --muted-foreground: #6b6e76;
+  --accent: #f9fafb; /* 호버 서피스 — 브랜드색 아님 */
+  --accent-foreground: #1a1b1f;
+  --destructive: #d1362a;
+  --border: #e4e6ea;
+  --input: #e4e6ea;
+  --ring: #9aa0a8;
+  --radius: 8px;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.5);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
 }

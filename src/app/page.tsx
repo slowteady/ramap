@@ -1,4 +1,3 @@
-/* 토큰 스모크 화면 — Plan 3에서 지도 홈으로 교체 */
 const grays = [
   ["gray-500", "bg-gray-500"],
   ["gray-400", "bg-gray-400"],
@@ -20,7 +19,7 @@ export default function Home() {
       <section className="flex flex-col gap-3">
         <h2 className="text-title font-bold">색</h2>
         <div className="flex items-center gap-3">
-          <div className="size-10 rounded-card bg-accent" />
+          <div className="size-10 rounded-card bg-ramen" />
           <div className="size-10 rounded-card bg-ink" />
           <div className="size-10 rounded-card bg-open" />
           {grays.map(([name, cls]) => (
@@ -48,7 +47,7 @@ export default function Home() {
           <span className="rounded-full border border-gray-150 px-3 py-2 text-secondary font-semibold">
             형태
           </span>
-          <span className="rounded-full bg-accent px-3.5 py-2 text-secondary font-bold text-white">
+          <span className="rounded-full bg-primary px-3.5 py-2 text-secondary font-bold text-white">
             제보하기
           </span>
         </div>
