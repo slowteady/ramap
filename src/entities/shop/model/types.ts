@@ -3,7 +3,7 @@ import type {
   FormSlug,
   LineageSlug,
   SoupSlug,
-} from "@/lib/taxonomy";
+} from "@/entities/shop/model/taxonomy";
 
 export type ShopStatus = "open" | "paused" | "closed";
 export type Verification = "confirmed" | "pending";

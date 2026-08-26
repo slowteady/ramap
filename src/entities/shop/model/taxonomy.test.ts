@@ -1,5 +1,11 @@
 import { describe, it, expect } from "vitest";
-import { SOUPS, FORMS, LINEAGES, AMENITIES, soupBySlug } from "@/lib/taxonomy";
+import {
+  SOUPS,
+  FORMS,
+  LINEAGES,
+  AMENITIES,
+  soupBySlug,
+} from "@/entities/shop/model/taxonomy";
 
 describe("taxonomy v2.1", () => {
   it("스프 계열은 기타 포함 9종이며 슬러그가 유일하다", () => {

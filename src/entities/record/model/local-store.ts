@@ -2,7 +2,7 @@ import type {
   RecordExport,
   RecordStore,
   ShopRecord,
-} from "@/lib/records/types";
+} from "@/entities/record/model/types";
 
 const KEY = "ramap.records.v1";
 

@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach } from "vitest";
-import { createLocalRecordStore } from "@/lib/records/local-store";
+import { createLocalRecordStore } from "@/entities/record/model/local-store";
 
 const mem = (): Storage => {
   const m = new Map<string, string>();
