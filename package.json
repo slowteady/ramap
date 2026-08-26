@@ -11,7 +11,8 @@
     "test:watch": "vitest",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "sync-sheet": "tsx scripts/sync-sheet.ts"
+    "sync-sheet": "tsx scripts/sync-sheet.ts",
+    "seed-candidates": "tsx scripts/seed-candidates.ts"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",
