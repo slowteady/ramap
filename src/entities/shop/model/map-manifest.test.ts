@@ -51,7 +51,9 @@ describe("toMapManifest", () => {
   });
 
   it("지도에 필요한 필드만 담는다", () => {
-    const pin = toMapManifest([shop({})])[0];
+    const pin = toMapManifest([
+      shop({ menus: [{ name: "니보시 소바", price: 11000 }] }),
+    ])[0];
     expect(pin).toEqual({
       id: "kinka",
       name: "킨카",
@@ -63,6 +65,7 @@ describe("toMapManifest", () => {
       lineages: [],
       areaLabel: "성수",
       status: "open",
+      topMenu: { name: "니보시 소바", price: 11000 },
     });
   });
 });

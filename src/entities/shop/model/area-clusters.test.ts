@@ -4,6 +4,7 @@ import { buildAreaClusters } from "./area-clusters";
 
 const pin = (id: string, area: string | null, lat: number, lng: number): ShopPin => ({
   id,
+  topMenu: null,
   name: id,
   lat,
   lng,

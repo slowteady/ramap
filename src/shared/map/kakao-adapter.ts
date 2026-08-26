@@ -85,6 +85,10 @@ export async function createKakaoAdapter(key: string | undefined): Promise<MapAd
         if (map) cb(map.getLevel());
       });
     },
+    onMapClick(cb) {
+      if (!map) return;
+      window.kakao.maps.event.addListener(map, "click", cb);
+    },
     panTo(pos) {
       map?.panTo(new window.kakao.maps.LatLng(pos.lat, pos.lng));
     },

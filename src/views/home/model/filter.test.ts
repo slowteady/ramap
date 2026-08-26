@@ -19,6 +19,7 @@ const pin = (id: string, over: Partial<ShopPin> = {}): ShopPin => ({
   lineages: [],
   areaLabel: "성수",
   status: "open",
+  topMenu: null,
   ...over,
 });
 

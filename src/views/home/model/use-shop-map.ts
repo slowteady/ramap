@@ -37,6 +37,7 @@ export function useShopMap(pins: ShopPin[], filters: MapFilters) {
         if (cancelled) return;
         adapter.mount(el, MAP_DEFAULT_CENTER, MAP_DEFAULT_LEVEL);
         adapter.onViewportChange(setLevel);
+        adapter.onMapClick(() => setSelectedId(null));
         adapterRef.current = adapter;
         setStatus("ready");
       })

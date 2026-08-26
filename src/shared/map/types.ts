@@ -22,6 +22,7 @@ export interface MapAdapter {
   setMarkers(markers: MapMarker[], onTap: (id: string) => void): void;
   setClusters(clusters: MapClusterMarker[], onTap: (id: string) => void): void;
   onViewportChange(cb: (level: number) => void): void;
+  onMapClick(cb: () => void): void;
   panTo(pos: LatLng): void;
   setLevel(level: number): void;
 }

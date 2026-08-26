@@ -2,6 +2,7 @@ export type TaxonomyItem = {
   slug: string;
   label: string;
   labelJa?: string;
+  description?: string;
 };
 
 export const FORMS = [
@@ -24,10 +25,29 @@ export const SOUPS = [
 ] as const satisfies readonly TaxonomyItem[];
 
 export const LINEAGES = [
-  { slug: "iekei", label: "이에케", labelJa: "家系" },
-  { slug: "jiro", label: "지로계", labelJa: "二郎系" },
-  { slug: "jikaseimen", label: "자가제면", labelJa: "自家製麺" },
-  { slug: "honto", label: "본토직영" },
+  {
+    slug: "iekei",
+    label: "이에케",
+    labelJa: "家系",
+    description: "돈코츠쇼유 국물에 굵은 면, 시금치·김 토핑의 요코하마 계열",
+  },
+  {
+    slug: "jiro",
+    label: "지로계",
+    labelJa: "二郎系",
+    description: "산더미 야채·마늘·굵은 면의 볼륨 계열",
+  },
+  {
+    slug: "jikaseimen",
+    label: "자가제면",
+    labelJa: "自家製麺",
+    description: "매장에서 직접 뽑는 면",
+  },
+  {
+    slug: "honto",
+    label: "본토직영",
+    description: "일본 본점이 직접 낸 한국 지점",
+  },
 ] as const satisfies readonly TaxonomyItem[];
 
 export const AMENITIES = [

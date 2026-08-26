@@ -1,5 +1,5 @@
 import type { FormSlug, LineageSlug, SoupSlug } from "./taxonomy";
-import type { Shop, ShopStatus } from "./types";
+import type { Menu, Shop, ShopStatus } from "./types";
 
 export type ShopPin = {
   id: string;
@@ -12,6 +12,7 @@ export type ShopPin = {
   lineages: LineageSlug[];
   areaLabel: string | null;
   status: ShopStatus;
+  topMenu: Menu | null;
 };
 
 export function toMapManifest(shops: Shop[]): ShopPin[] {
@@ -29,6 +30,7 @@ export function toMapManifest(shops: Shop[]): ShopPin[] {
       lineages: s.lineages,
       areaLabel: s.areaLabel,
       status: s.status,
+      topMenu: s.menus[0] ?? null,
     });
   }
   return pins;
