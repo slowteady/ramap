@@ -10,7 +10,10 @@
     "test": "vitest run --passWithNoTests",
     "test:watch": "vitest",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "sync-sheet": "tsx scripts/sync-sheet.ts",
+    "seed-candidates": "tsx scripts/seed-candidates.ts",
+    "diff-localdata": "tsx scripts/diff-localdata.ts"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",
@@ -19,6 +22,7 @@
     "next": "16.3.3",
     "next-themes": "^0.4.6",
     "pretendard": "^1.3.9",
+    "proj4": "^2.21.0",
     "radix-ui": "^1.6.7",
     "react": "19.2.8",
     "react-dom": "19.2.8",
@@ -31,6 +35,7 @@
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
+    "@types/proj4": "^2.5.6",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@vitest/coverage-v8": "^4.1.11",
@@ -39,6 +44,7 @@
     "jsdom": "^29.1.1",
     "prettier": "^3.9.6",
     "tailwindcss": "^4",
+    "tsx": "^4.23.12",
     "typescript": "^5",
     "vitest": "^4.1.11"
   }

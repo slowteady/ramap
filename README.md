@@ -9,3 +9,9 @@
 
 - `npm run dev` — 개발 서버
 - `npm test` — 단위 테스트 (vitest)
+
+## 데이터 파이프라인
+
+1. `npm run seed-candidates -- <localdata.csv>` — 인허가 데이터에서 라멘 후보 TSV 추출 (파트너 시트에 붙여넣기)
+2. 파트너 태깅 후 시트를 TSV로 내보내 `npm run sync-sheet -- <시트.tsv>` — 검증 통과 시 data/shops.json 갱신
+3. `npm run diff-localdata -- <이전.csv> <최신.csv>` — 신규 오픈·폐업 감지 (월 1~2회)
