@@ -10,6 +10,7 @@ import type { FilterAxis } from "../model/filter-axes";
 import { FilterChips } from "./filter-chips";
 import { FilterSheet } from "./filter-sheet";
 import { MapFallback } from "./map-fallback";
+import { Onboarding } from "./onboarding";
 import { ShopPeekCard } from "./shop-peek-card";
 
 export function ShopMap({ pins }: { pins: ShopPin[] }) {
@@ -34,6 +35,7 @@ export function ShopMap({ pins }: { pins: ShopPin[] }) {
 
   return (
     <div className="flex flex-col">
+      <Onboarding pins={pins} />
       <FilterChips filters={filters} onOpenAxis={setSheetAxis} />
       {status === "failed" ? (
         <MapFallback pins={visiblePins} />
