@@ -23,12 +23,12 @@ export async function HomePage() {
             </Link>
           </nav>
         </div>
-        <button
-          type="button"
+        <Link
+          href="/report"
           className="rounded-pill bg-ramen px-3.5 py-1.5 text-secondary font-bold text-white"
         >
           제보하기
-        </button>
+        </Link>
       </header>
       <Suspense>
         <ShopMap pins={pins} />
