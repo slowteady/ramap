@@ -4,7 +4,10 @@ export type DiffResult = { opened: LocalDataRow[]; closed: LocalDataRow[] };
 
 const key = (r: LocalDataRow) => `${r.name}|${r.roadAddress}`;
 
-export function diffLocalData(prev: LocalDataRow[], next: LocalDataRow[]): DiffResult {
+export function diffLocalData(
+  prev: LocalDataRow[],
+  next: LocalDataRow[],
+): DiffResult {
   const prevMap = new Map(prev.map((r) => [key(r), r]));
   const opened: LocalDataRow[] = [];
   const closed: LocalDataRow[] = [];
@@ -15,8 +18,11 @@ export function diffLocalData(prev: LocalDataRow[], next: LocalDataRow[]): DiffR
       if (isRamenCandidate(row)) opened.push(row);
       continue;
     }
-    const wasCandidate = isRamenCandidate(before) || isRamenCandidate({ ...before, status: "open" });
-    if (before.status === "open" && row.status === "closed" && wasCandidate) closed.push(row);
+    const wasCandidate =
+      isRamenCandidate(before) ||
+      isRamenCandidate({ ...before, status: "open" });
+    if (before.status === "open" && row.status === "closed" && wasCandidate)
+      closed.push(row);
   }
   return { opened, closed };
 }

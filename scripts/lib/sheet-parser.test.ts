@@ -44,7 +44,9 @@ describe("parseSheetTsv", () => {
   });
 
   it("미지의 택소노미 라벨은 행 이슈로 수집하고 그 행을 제외한다", () => {
-    const r = parseSheetTsv(`${H}\n${row({ 스프: "어패계", 스프_대표: "어패계" })}\n${row({ id: "ok" })}`);
+    const r = parseSheetTsv(
+      `${H}\n${row({ 스프: "어패계", 스프_대표: "어패계" })}\n${row({ id: "ok" })}`,
+    );
     expect(r.shops.map((s) => s.id)).toEqual(["ok"]);
     expect(r.issues.some((i) => i.field === "스프")).toBe(true);
   });
@@ -67,7 +69,9 @@ describe("parseSheetTsv", () => {
   });
 
   it("좌표는 숫자로 파싱되고 비숫자는 이슈다", () => {
-    const ok = parseSheetTsv(`${H}\n${row({ lat: "37.5446", lng: "127.0559", 좌표출처: "수동핀" })}`);
+    const ok = parseSheetTsv(
+      `${H}\n${row({ lat: "37.5446", lng: "127.0559", 좌표출처: "수동핀" })}`,
+    );
     expect(ok.shops[0].lat).toBeCloseTo(37.5446);
     const bad = parseSheetTsv(`${H}\n${row({ lat: "abc" })}`);
     expect(bad.issues.some((i) => i.field === "lat")).toBe(true);

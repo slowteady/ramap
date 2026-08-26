@@ -56,10 +56,23 @@ export const SHEET_HEADER = [
 export type RowIssue = { row: number; field: string; message: string };
 export type ParseResult = { shops: Shop[]; issues: RowIssue[] };
 
-const STATUS_MAP: Record<string, ShopStatus> = { 영업: "open", 휴업: "paused", 폐업: "closed" };
-const VERIFICATION_MAP: Record<string, Verification> = { 운영자확인: "confirmed", 제보검토중: "pending" };
-const CONFIDENCE_MAP: Record<string, Confidence> = { 확정: "certain", 추정: "estimated" };
-const COORD_SOURCE_MAP: Record<string, CoordSource> = { LOCALDATA: "localdata", 수동핀: "manual-pin" };
+const STATUS_MAP: Record<string, ShopStatus> = {
+  영업: "open",
+  휴업: "paused",
+  폐업: "closed",
+};
+const VERIFICATION_MAP: Record<string, Verification> = {
+  운영자확인: "confirmed",
+  제보검토중: "pending",
+};
+const CONFIDENCE_MAP: Record<string, Confidence> = {
+  확정: "certain",
+  추정: "estimated",
+};
+const COORD_SOURCE_MAP: Record<string, CoordSource> = {
+  LOCALDATA: "localdata",
+  수동핀: "manual-pin",
+};
 
 function slugMap(items: readonly TaxonomyItem[]): Map<string, string> {
   return new Map(items.map((i) => [i.label, i.slug]));
@@ -79,7 +92,12 @@ function splitList(raw: string): string[] {
     .filter(Boolean);
 }
 
-function mapLabels(raw: string, field: string, map: Map<string, string>, ctx: Ctx): string[] {
+function mapLabels(
+  raw: string,
+  field: string,
+  map: Map<string, string>,
+  ctx: Ctx,
+): string[] {
   const slugs: string[] = [];
   for (const label of splitList(raw)) {
     const slug = map.get(label);
@@ -115,7 +133,11 @@ function parseMenus(cells: Record<string, string>, ctx: Ctx): Menu[] {
     if (!raw) continue;
     const [name, price] = raw.split("|").map((s) => s.trim());
     if (!name || price === undefined || Number.isNaN(Number(price))) {
-      ctx.issues.push({ row: ctx.row, field, message: `형식은 "이름|가격": ${raw}` });
+      ctx.issues.push({
+        row: ctx.row,
+        field,
+        message: `형식은 "이름|가격": ${raw}`,
+      });
       continue;
     }
     menus.push({ name, price: Number(price) });
@@ -148,7 +170,11 @@ export function parseSheetTsv(tsv: string): ParseResult {
 
   const header = lines[0]?.split("\t") ?? [];
   if (header.join("\t") !== SHEET_HEADER.join("\t")) {
-    issues.push({ row: 1, field: "header", message: "헤더가 15번 스키마와 다름" });
+    issues.push({
+      row: 1,
+      field: "header",
+      message: "헤더가 15번 스키마와 다름",
+    });
     return { shops, issues };
   }
 
@@ -163,7 +189,11 @@ export function parseSheetTsv(tsv: string): ParseResult {
 
     const id = cells.id.trim();
     if (!/^[a-z0-9][a-z0-9-]*$/.test(id)) {
-      ctx.issues.push({ row: rowNo, field: "id", message: `로마자 슬러그 형식 아님: ${id}` });
+      ctx.issues.push({
+        row: rowNo,
+        field: "id",
+        message: `로마자 슬러그 형식 아님: ${id}`,
+      });
     } else if (seenIds.has(id)) {
       ctx.issues.push({ row: rowNo, field: "id", message: `중복 id: ${id}` });
     }
@@ -171,12 +201,20 @@ export function parseSheetTsv(tsv: string): ParseResult {
     const forms = mapLabels(cells.형태, "형태", FORM_SLUGS, ctx);
     const primaryForm = FORM_SLUGS.get(cells.형태_대표.trim());
     if (!primaryForm || !forms.includes(primaryForm)) {
-      ctx.issues.push({ row: rowNo, field: "형태_대표", message: `형태 목록에 없는 대표값: ${cells.형태_대표}` });
+      ctx.issues.push({
+        row: rowNo,
+        field: "형태_대표",
+        message: `형태 목록에 없는 대표값: ${cells.형태_대표}`,
+      });
     }
     const soups = mapLabels(cells.스프, "스프", SOUP_SLUGS, ctx);
     const primarySoup = SOUP_SLUGS.get(cells.스프_대표.trim());
     if (!primarySoup || !soups.includes(primarySoup)) {
-      ctx.issues.push({ row: rowNo, field: "스프_대표", message: `스프 목록에 없는 대표값: ${cells.스프_대표}` });
+      ctx.issues.push({
+        row: rowNo,
+        field: "스프_대표",
+        message: `스프 목록에 없는 대표값: ${cells.스프_대표}`,
+      });
     }
     const lineages = mapLabels(cells.계보, "계보", LINEAGE_SLUGS, ctx);
     const amenities = mapLabels(cells.편의, "편의", AMENITY_SLUGS, ctx);
@@ -186,12 +224,29 @@ export function parseSheetTsv(tsv: string): ParseResult {
     const menus = parseMenus(cells, ctx);
 
     const status = mapEnum(cells.상태, "상태", STATUS_MAP, "open", ctx);
-    const verification = mapEnum(cells.검증상태, "검증상태", VERIFICATION_MAP, "pending", ctx);
-    const confidence = mapEnum(cells.태깅확신도, "태깅확신도", CONFIDENCE_MAP, "estimated", ctx);
+    const verification = mapEnum(
+      cells.검증상태,
+      "검증상태",
+      VERIFICATION_MAP,
+      "pending",
+      ctx,
+    );
+    const confidence = mapEnum(
+      cells.태깅확신도,
+      "태깅확신도",
+      CONFIDENCE_MAP,
+      "estimated",
+      ctx,
+    );
     const coordSourceRaw = cells.좌표출처.trim();
-    const coordSource = coordSourceRaw === "" ? null : (COORD_SOURCE_MAP[coordSourceRaw] ?? null);
+    const coordSource =
+      coordSourceRaw === "" ? null : (COORD_SOURCE_MAP[coordSourceRaw] ?? null);
     if (coordSourceRaw !== "" && coordSource === null) {
-      ctx.issues.push({ row: rowNo, field: "좌표출처", message: `허용되지 않는 값: ${coordSourceRaw}` });
+      ctx.issues.push({
+        row: rowNo,
+        field: "좌표출처",
+        message: `허용되지 않는 값: ${coordSourceRaw}`,
+      });
     }
 
     if (ctx.issues.length > 0) {

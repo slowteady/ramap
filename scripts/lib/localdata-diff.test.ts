@@ -2,7 +2,10 @@ import { describe, it, expect } from "vitest";
 import type { LocalDataRow } from "./localdata";
 import { diffLocalData } from "./localdata-diff";
 
-const row = (name: string, status: "open" | "closed" = "open"): LocalDataRow => ({
+const row = (
+  name: string,
+  status: "open" | "closed" = "open",
+): LocalDataRow => ({
   name,
   roadAddress: `서울 어딘가 ${name}`,
   status,

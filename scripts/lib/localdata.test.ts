@@ -10,7 +10,10 @@ import {
 import { SHEET_HEADER } from "./sheet-parser";
 
 const fixture = () =>
-  readFileSync(resolve(__dirname, "../../data/fixtures/localdata.sample.csv"), "utf8");
+  readFileSync(
+    resolve(__dirname, "../../data/fixtures/localdata.sample.csv"),
+    "utf8",
+  );
 
 describe("parseLocalData", () => {
   it("인허가 CSV에서 관련 컬럼을 추출한다", () => {

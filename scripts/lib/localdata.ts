@@ -78,7 +78,8 @@ export function tmToWgs84(x: number, y: number): { lat: number; lng: number } {
 export function toSheetTsv(rows: LocalDataRow[]): string {
   const lines = [SHEET_HEADER.join("\t")];
   for (const row of rows) {
-    const coords = row.x !== null && row.y !== null ? tmToWgs84(row.x, row.y) : null;
+    const coords =
+      row.x !== null && row.y !== null ? tmToWgs84(row.x, row.y) : null;
     const cells: Record<string, string> = {
       id: "",
       상호: row.name,

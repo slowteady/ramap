@@ -13,7 +13,8 @@ const { shops, issues } = parseSheetTsv(tsv);
 
 if (issues.length > 0) {
   console.error(`검증 실패 ${issues.length}건 — data/shops.json 미변경`);
-  for (const i of issues) console.error(`  ${i.row}행 [${i.field}] ${i.message}`);
+  for (const i of issues)
+    console.error(`  ${i.row}행 [${i.field}] ${i.message}`);
   console.error(`통과 ${shops.length}건은 이슈 해결 후 함께 반영됩니다`);
   process.exit(1);
 }
