@@ -7,6 +7,7 @@ import {
   soupBySlug,
   type Shop,
 } from "@/entities/shop";
+import { RecordButtons } from "@/features/records";
 
 function tagLine(shop: Shop): string {
   const labels = [
@@ -90,6 +91,9 @@ export function ShopDetailPage({ shop }: { shop: Shop }) {
           {status.label}
         </p>
         {shop.tagline && <p className="text-body text-gray-500">{shop.tagline}</p>}
+        <div className="pt-2">
+          <RecordButtons shopId={shop.id} />
+        </div>
       </div>
 
       {rows.length > 0 && (

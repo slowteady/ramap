@@ -43,6 +43,7 @@ export async function createKakaoAdapter(key: string | undefined): Promise<MapAd
   await loadKakaoSdk(key);
   let map: KakaoMap | null = null;
   let overlays: KakaoOverlay[] = [];
+  let userOverlay: KakaoOverlay | null = null;
 
   const clearOverlays = () => {
     for (const o of overlays) o.setMap(null);
@@ -69,6 +70,8 @@ export async function createKakaoAdapter(key: string | undefined): Promise<MapAd
     },
     destroy() {
       clearOverlays();
+      userOverlay?.setMap(null);
+      userOverlay = null;
       map = null;
     },
     setMarkers(markers, onTap) {
@@ -94,6 +97,21 @@ export async function createKakaoAdapter(key: string | undefined): Promise<MapAd
     },
     setLevel(level) {
       map?.setLevel(level);
+    },
+    setUserLocation(pos) {
+      userOverlay?.setMap(null);
+      userOverlay = null;
+      if (!pos || !map) return;
+      const dot = document.createElement("div");
+      dot.style.cssText =
+        "width:14px;height:14px;border-radius:9999px;background:#4285f4;border:3px solid #fff;box-shadow:0 1px 4px rgba(26,27,31,.3)";
+      userOverlay = new window.kakao.maps.CustomOverlay({
+        position: new window.kakao.maps.LatLng(pos.lat, pos.lng),
+        content: dot,
+        yAnchor: 0.5,
+        clickable: false,
+      });
+      userOverlay.setMap(map);
     },
   };
 }

@@ -42,3 +42,5 @@ export {
   breadcrumbJsonLd,
   faqJsonLd,
 } from "@/entities/shop/model/structured-data";
+export { GUIDES, guideBySlug } from "@/entities/shop/model/guide-content";
+export type { GuideContent } from "@/entities/shop/model/guide-content";

@@ -8,6 +8,7 @@ import {
   LINEAGES,
   type ShopPin,
 } from "@/entities/shop";
+import { RecordButtons } from "@/features/records";
 import { cn } from "@/shared/lib/utils";
 import { Drawer, DrawerContent, DrawerTitle } from "@/shared/ui/drawer";
 
@@ -96,6 +97,9 @@ export function ShopPeekCard({ shop, onClose, onPrev, onNext }: ShopPeekCardProp
           {shop.areaLabel && (
             <span className="text-secondary text-gray-400">{shop.areaLabel}</span>
           )}
+          <div className="pt-2">
+            <RecordButtons shopId={shop.id} />
+          </div>
           {snap === HALF && shop.topMenu && (
             <div className="mt-3 flex items-center justify-between rounded-card bg-gray-050 px-3 py-2.5">
               <span className="text-body font-semibold text-ink">

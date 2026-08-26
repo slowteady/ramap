@@ -2,13 +2,22 @@ import type { AreaCluster, ShopPin } from "@/entities/shop";
 import { SOUP_COLORS } from "@/shared/config/map";
 import type { MapClusterMarker, MapMarker } from "@/shared/map/types";
 
-export function toMarkers(pins: ShopPin[], selectedId: string | null): MapMarker[] {
+export function toMarkers(
+  pins: ShopPin[],
+  selectedId: string | null,
+  visitedIds: ReadonlySet<string> = new Set(),
+): MapMarker[] {
   return pins.map((p) => ({
     id: p.id,
     pos: { lat: p.lat, lng: p.lng },
     label: p.name,
     color: SOUP_COLORS[p.primarySoup],
-    state: p.id === selectedId ? "selected" : "default",
+    state:
+      p.id === selectedId
+        ? "selected"
+        : visitedIds.has(p.id)
+          ? "visited"
+          : "default",
   }));
 }
 

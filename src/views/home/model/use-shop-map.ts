@@ -18,6 +18,7 @@ export function useShopMap(
   pins: ShopPin[],
   filters: MapFilters,
   focusId: string | null = null,
+  visitedIds: ReadonlySet<string> = new Set(),
 ) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const adapterRef = useRef<MapAdapter | null>(null);
@@ -83,11 +84,38 @@ export function useShopMap(
       return;
     }
 
-    adapter.setMarkers(toMarkers(visiblePins, selectedId), setSelectedId);
-  }, [status, level, visiblePins, selectedId]);
+    adapter.setMarkers(toMarkers(visiblePins, selectedId, visitedIds), setSelectedId);
+  }, [status, level, visiblePins, selectedId, visitedIds]);
 
   const selectPin = useCallback((id: string | null) => setSelectedId(id), []);
   const clearSelection = useCallback(() => setSelectedId(null), []);
 
-  return { containerRef, status, visiblePins, selectedShop, selectPin, clearSelection };
+  const locate = useCallback((onDenied: () => void) => {
+    if (!navigator.geolocation) {
+      onDenied();
+      return;
+    }
+    navigator.geolocation.getCurrentPosition(
+      ({ coords }) => {
+        const adapter = adapterRef.current;
+        if (!adapter) return;
+        const pos = { lat: coords.latitude, lng: coords.longitude };
+        adapter.setUserLocation(pos);
+        adapter.setLevel(CLUSTER_LEVEL_THRESHOLD - 2);
+        adapter.panTo(pos);
+        setLevel(CLUSTER_LEVEL_THRESHOLD - 2);
+      },
+      () => onDenied(),
+    );
+  }, []);
+
+  return {
+    containerRef,
+    status,
+    visiblePins,
+    selectedShop,
+    selectPin,
+    clearSelection,
+    locate,
+  };
 }
