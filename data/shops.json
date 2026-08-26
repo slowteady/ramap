@@ -16,11 +16,19 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "tsukemen"],
+    "forms": [
+      "ramen",
+      "tsukemen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["niboshi", "shio"],
+    "soups": [
+      "niboshi",
+      "shio"
+    ],
     "primarySoup": "niboshi",
-    "soupDetail": ["니보시파이탄"],
+    "soupDetail": [
+      "니보시파이탄"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -52,11 +60,18 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["niboshi", "shio"],
+    "soups": [
+      "niboshi",
+      "shio"
+    ],
     "primarySoup": "niboshi",
-    "soupDetail": ["니보시시오"],
+    "soupDetail": [
+      "니보시시오"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -88,9 +103,14 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["niboshi", "shoyu"],
+    "soups": [
+      "niboshi",
+      "shoyu"
+    ],
     "primarySoup": "niboshi",
     "soupDetail": [],
     "lineages": [],
@@ -124,11 +144,18 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["niboshi", "tonkotsu-shoyu"],
+    "soups": [
+      "niboshi",
+      "tonkotsu-shoyu"
+    ],
     "primarySoup": "tonkotsu-shoyu",
-    "soupDetail": ["니보시 돈코츠쇼유"],
+    "soupDetail": [
+      "니보시 돈코츠쇼유"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -160,12 +187,18 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["niboshi"],
+    "soups": [
+      "niboshi"
+    ],
     "primarySoup": "niboshi",
     "soupDetail": [],
-    "lineages": ["honto"],
+    "lineages": [
+      "honto"
+    ],
     "amenities": [],
     "confidence": "estimated",
     "menus": [],

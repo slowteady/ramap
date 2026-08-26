@@ -10,7 +10,8 @@
     "test": "vitest run --passWithNoTests",
     "test:watch": "vitest",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "sync-sheet": "tsx scripts/sync-sheet.ts"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",
