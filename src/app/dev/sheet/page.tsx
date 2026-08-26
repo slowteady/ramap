@@ -27,16 +27,21 @@ export default function SheetDemo() {
             <div className="mx-auto mt-2 h-1 w-9 rounded-full bg-gray-150" />
             <div className="flex flex-col gap-2 p-5">
               <span className="text-caption font-bold text-open">
-                영업중 <span className="font-medium text-gray-400">· 21:00까지</span>
+                영업중{" "}
+                <span className="font-medium text-gray-400">· 21:00까지</span>
               </span>
               <div className="flex items-center gap-2.5">
                 <span className="text-title font-extrabold">킨카</span>
-                <span className="text-secondary text-gray-400">니보시 · 시오 · 자가제면</span>
+                <span className="text-secondary text-gray-400">
+                  니보시 · 시오 · 자가제면
+                </span>
               </div>
-              <span className="text-secondary text-gray-400">성수동 · 서울숲역 도보 6분</span>
+              <span className="text-secondary text-gray-400">
+                성수동 · 서울숲역 도보 6분
+              </span>
               <p className="mt-3 text-body text-gray-500">
-                (half에서 보이는 영역) 위로 끌면 half, 아래로 끌면 peek로 스냅됩니다. 현재 스냅:{" "}
-                {String(snap)}
+                (half에서 보이는 영역) 위로 끌면 half, 아래로 끌면 peek로
+                스냅됩니다. 현재 스냅: {String(snap)}
               </p>
             </div>
           </Drawer.Content>

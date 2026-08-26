@@ -1,9 +1,15 @@
-import type { RecordExport, RecordStore, ShopRecord } from "@/lib/records/types";
+import type {
+  RecordExport,
+  RecordStore,
+  ShopRecord,
+} from "@/lib/records/types";
 
 const KEY = "ramap.records.v1";
 
 export function createLocalRecordStore(storage?: Storage): RecordStore {
-  const backing = storage ?? (typeof window !== "undefined" ? window.localStorage : undefined);
+  const backing =
+    storage ??
+    (typeof window !== "undefined" ? window.localStorage : undefined);
   let memory: Map<string, ShopRecord> | null = null;
 
   function load(): Map<string, ShopRecord> {
@@ -30,7 +36,11 @@ export function createLocalRecordStore(storage?: Storage): RecordStore {
     }
   }
 
-  function upsertVisited(map: Map<string, ShopRecord>, shopId: string, at?: Date): ShopRecord {
+  function upsertVisited(
+    map: Map<string, ShopRecord>,
+    shopId: string,
+    at?: Date,
+  ): ShopRecord {
     const iso = at ? at.toISOString() : null;
     const prev = map.get(shopId);
     let next: ShopRecord;
@@ -65,7 +75,13 @@ export function createLocalRecordStore(storage?: Storage): RecordStore {
       const map = load();
       const prev = map.get(shopId);
       if (prev?.status === "visited") return prev;
-      const next: ShopRecord = { shopId, status: "want", count: 0, firstAt: null, lastAt: null };
+      const next: ShopRecord = {
+        shopId,
+        status: "want",
+        count: 0,
+        firstAt: null,
+        lastAt: null,
+      };
       map.set(shopId, next);
       persist(map);
       return next;
@@ -87,12 +103,17 @@ export function createLocalRecordStore(storage?: Storage): RecordStore {
       let imported = 0;
       try {
         const parsed = JSON.parse(json) as Partial<RecordExport>;
-        if (parsed.version !== 1 || !Array.isArray(parsed.records)) return { imported: 0 };
+        if (parsed.version !== 1 || !Array.isArray(parsed.records))
+          return { imported: 0 };
         const map = load();
         for (const r of parsed.records) {
           if (!r || typeof r.shopId !== "string") continue;
           const prev = map.get(r.shopId);
-          if (!prev || r.count > prev.count || (prev.status === "want" && r.status === "visited")) {
+          if (
+            !prev ||
+            r.count > prev.count ||
+            (prev.status === "want" && r.status === "visited")
+          ) {
             map.set(r.shopId, r);
           }
           imported += 1;

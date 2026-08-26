@@ -17,9 +17,19 @@
 - 네이버·카카오 플랫폼 데이터 크롤링 금지. 타사는 아웃바운드 링크·사실 기록까지만 (docs/planning/09 경계선)
 - 기록(완식·위시) 접근은 RecordStore 인터페이스 경유만 — localStorage 직접 호출 금지 (로그인 도입 대비 이음새)
 
+## 개발 컨벤션
+
+- **브랜치:** 작업 단위마다 `feat/`·`fix/`·`chore/` 브랜치 → 완료 시 main에 squash 없이 머지 후 브랜치 삭제. main 직접 커밋 금지 (docs·설정 1파일 수정만 예외)
+- **폴더:** `src/app` 라우트 / `src/components/ui` shadcn 원본(수정 시 주석 없이 최소 변경) / `src/components` 도메인 컴포넌트 / `src/lib` 로직·타입 / `data` 정적 데이터 / `scripts` 파이프라인
+- **네이밍:** 파일 kebab-case(`shop-card.tsx`), 컴포넌트 PascalCase, 함수·변수 camelCase, 상수 UPPER_SNAKE. 도메인 용어는 코드에선 영어(soup, form, lineage), UI 문자열만 한국어
+- **타입:** `type` 기본. `interface`는 구현체가 여럿 생길 계약(RecordStore 등 이음새)에만
+- **import:** `@/` 절대경로만, 상대경로는 같은 폴더 내부만 허용
+- **테스트:** 대상 파일 옆에 `*.test.ts` co-location. 로직(lib·scripts)은 테스트 필수, 컴포넌트는 로직 분리로 대응
+- **포맷:** Prettier 기본 설정 — 스타일 논쟁 금지, `npm run format`으로 통일
+
 ## 명령
 
-- `npm run dev` / `npm run build` / `npm test` (vitest)
+- `npm run dev` / `npm run build` / `npm test` (vitest) / `npm run format`
 
 ## 커밋
 

@@ -1,4 +1,9 @@
-import type { AmenitySlug, FormSlug, LineageSlug, SoupSlug } from "@/lib/taxonomy";
+import type {
+  AmenitySlug,
+  FormSlug,
+  LineageSlug,
+  SoupSlug,
+} from "@/lib/taxonomy";
 
 export type ShopStatus = "open" | "paused" | "closed";
 export type Verification = "confirmed" | "pending";

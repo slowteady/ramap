@@ -33,9 +33,15 @@ export default function Home() {
         <p className="text-display font-extrabold">display 26 완식</p>
         <p className="text-heading font-bold">heading 22 니보시</p>
         <p className="text-title font-bold">title 18 킨카</p>
-        <p className="text-body">body 15 — 멸치와 정어리를 말린 니보시로 낸 육수</p>
-        <p className="text-secondary text-gray-400">secondary 13 — 성수동 · 도보 6분</p>
-        <p className="text-caption text-gray-300">caption 11 — 최종 확인 2026-08-26</p>
+        <p className="text-body">
+          body 15 — 멸치와 정어리를 말린 니보시로 낸 육수
+        </p>
+        <p className="text-secondary text-gray-400">
+          secondary 13 — 성수동 · 도보 6분
+        </p>
+        <p className="text-caption text-gray-300">
+          caption 11 — 최종 확인 2026-08-26
+        </p>
       </section>
 
       <section className="flex flex-col gap-3">
@@ -56,7 +62,8 @@ export default function Home() {
           <div className="flex flex-col">
             <span className="text-body font-bold">킨카</span>
             <span className="text-secondary text-gray-400">
-              니보시 · 시오 · <span className="font-bold text-open">영업중</span>
+              니보시 · 시오 ·{" "}
+              <span className="font-bold text-open">영업중</span>
             </span>
           </div>
         </div>
