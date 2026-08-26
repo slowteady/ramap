@@ -22,6 +22,7 @@
 - **아키텍처: FSD(Feature-Sliced Design) 필수.** 레이어: `src/app`(Next 라우팅+전역, 얇게) → `src/views`(FSD pages — Next 충돌 회피 명명) → `src/widgets` → `src/features` → `src/entities` → `src/shared`. **import는 상위→하위 방향만**, 역방향·동일 레이어 슬라이스 간 금지. 슬라이스는 `index.ts` public API로만 외부 노출. shadcn은 `src/shared/ui`, 유틸 `src/shared/lib`, 도메인은 `entities/shop`·`entities/record`. `data`(정적 데이터)·`scripts`(파이프라인)는 src 밖
 - **브랜치:** 작업 단위마다 `feat/`·`fix/`·`chore/` 브랜치 → 완료 시 main에 squash 없이 머지 후 브랜치 삭제. main 직접 커밋 금지 (docs·설정 1파일 수정만 예외)
 - **네이밍:** 파일 kebab-case(`shop-card.tsx`), 컴포넌트 PascalCase, 함수·변수 camelCase, 상수 UPPER_SNAKE. 도메인 용어는 코드에선 영어(soup, form, lineage), UI 문자열만 한국어
+- **로직은 view-model 훅으로:** 비즈니스 로직은 커스텀 훅(`use-*`)에만 두고 슬라이스의 `model/` 세그먼트에 배치. 훅은 `{ 상태, 파생 불린, 핸들러 }` 객체를 반환하고, `ui/` 컴포넌트는 그 객체를 소비해 렌더만 한다. 컴포넌트 본문에 비즈니스 로직·스토어 직접 접근 금지
 - **타입:** `type` 기본. `interface`는 구현체가 여럿 생길 계약(RecordStore 등 이음새)에만
 - **import:** `@/` 절대경로만, 상대경로는 같은 폴더 내부만 허용
 - **테스트:** 대상 파일 옆에 `*.test.ts` co-location. 로직(lib·scripts)은 테스트 필수, 컴포넌트는 로직 분리로 대응
