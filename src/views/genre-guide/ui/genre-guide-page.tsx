@@ -98,9 +98,7 @@ export function GenreGuidePage({ guide, shops }: GenreGuidePageProps) {
                     {shop.name}
                   </span>
                   <span className="text-secondary text-gray-400">
-                    {[shop.areaLabel, shop.tagline ?? shop.note]
-                      .filter(Boolean)
-                      .join(" · ")}
+                    {[shop.areaLabel, shop.tagline].filter(Boolean).join(" · ")}
                   </span>
                 </Link>
               </li>

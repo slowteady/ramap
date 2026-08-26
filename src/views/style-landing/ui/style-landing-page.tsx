@@ -86,6 +86,12 @@ export function StyleLandingPage({ lineage, shops }: StyleLandingPageProps) {
 
       <StyleProgress label={lineage.label} shopIds={shops.map((s) => s.id)} />
 
+      {shops.length === 0 && (
+        <p className="px-4 pt-6 text-body text-gray-400">
+          아직 등록된 {lineage.label} 매장이 없어요. 알고 계신 곳이 있다면
+          제보해 주세요.
+        </p>
+      )}
       <ul className="flex flex-col px-4 pt-2">
         {shops.map((shop) => (
           <li key={shop.id} className="border-b border-gray-050">
