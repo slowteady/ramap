@@ -7,20 +7,28 @@
     "city": "서울",
     "district": "성동구",
     "areaLabel": "성수",
-    "lat": null,
-    "lng": null,
-    "coordSource": null,
+    "lat": 37.5446,
+    "lng": 127.0559,
+    "coordSource": "manual-pin",
     "hours": null,
     "breakTime": null,
     "closedDays": null,
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "tsukemen"],
+    "forms": [
+      "ramen",
+      "tsukemen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["niboshi", "shio"],
+    "soups": [
+      "niboshi",
+      "shio"
+    ],
     "primarySoup": "niboshi",
-    "soupDetail": ["니보시파이탄"],
+    "soupDetail": [
+      "니보시파이탄"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -33,7 +41,7 @@
     "verification": "pending",
     "lastVerifiedAt": "2026-08-26",
     "source": "갤러리·구글 실측 (세션 조사)",
-    "note": "니보시파이탄으로 갤러리 언급"
+    "note": "니보시파이탄으로 갤러리 언급 / 좌표는 동네 중심 임시 핀 — 파트너 실측 대기"
   },
   {
     "id": "menya-konoha",
@@ -43,20 +51,27 @@
     "city": "서울",
     "district": "성동구",
     "areaLabel": "서울숲",
-    "lat": null,
-    "lng": null,
-    "coordSource": null,
+    "lat": 37.5445,
+    "lng": 127.0374,
+    "coordSource": "manual-pin",
     "hours": null,
     "breakTime": null,
     "closedDays": null,
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["niboshi", "shio"],
+    "soups": [
+      "niboshi",
+      "shio"
+    ],
     "primarySoup": "niboshi",
-    "soupDetail": ["니보시시오"],
+    "soupDetail": [
+      "니보시시오"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -69,7 +84,7 @@
     "verification": "pending",
     "lastVerifiedAt": "2026-08-26",
     "source": "블로그 실측 (세션 조사)",
-    "note": null
+    "note": "좌표는 동네 중심 임시 핀 — 파트너 실측 대기"
   },
   {
     "id": "ramen-daiya",
@@ -79,18 +94,23 @@
     "city": "서울",
     "district": "광진구",
     "areaLabel": "자양",
-    "lat": null,
-    "lng": null,
-    "coordSource": null,
+    "lat": 37.5372,
+    "lng": 127.0827,
+    "coordSource": "manual-pin",
     "hours": null,
     "breakTime": null,
     "closedDays": null,
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["niboshi", "shoyu"],
+    "soups": [
+      "niboshi",
+      "shoyu"
+    ],
     "primarySoup": "niboshi",
     "soupDetail": [],
     "lineages": [],
@@ -105,30 +125,37 @@
     "verification": "pending",
     "lastVerifiedAt": "2026-08-26",
     "source": "갤러리·블로그 실측 (세션 조사)",
-    "note": null
+    "note": "좌표는 동네 중심 임시 핀 — 파트너 실측 대기"
   },
   {
     "id": "wasshoiken",
     "name": "왓쇼이켄",
     "branch": null,
     "address": null,
-    "city": null,
-    "district": null,
-    "areaLabel": null,
-    "lat": null,
-    "lng": null,
-    "coordSource": null,
+    "city": "서울",
+    "district": "마포구",
+    "areaLabel": "연남",
+    "lat": 37.5563,
+    "lng": 126.9236,
+    "coordSource": "manual-pin",
     "hours": null,
     "breakTime": null,
     "closedDays": null,
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["niboshi", "tonkotsu-shoyu"],
+    "soups": [
+      "niboshi",
+      "tonkotsu-shoyu"
+    ],
     "primarySoup": "tonkotsu-shoyu",
-    "soupDetail": ["니보시 돈코츠쇼유"],
+    "soupDetail": [
+      "니보시 돈코츠쇼유"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -141,7 +168,7 @@
     "verification": "pending",
     "lastVerifiedAt": "2026-08-26",
     "source": "갤러리 실측 (세션 조사)",
-    "note": "지역 미확인"
+    "note": "지역 미확인 / 좌표는 동네 중심 임시 핀 — 파트너 실측 대기"
   },
   {
     "id": "nagao-chukasoba",
@@ -151,21 +178,27 @@
     "city": "서울",
     "district": "마포구",
     "areaLabel": "동교동",
-    "lat": null,
-    "lng": null,
-    "coordSource": null,
+    "lat": 37.5573,
+    "lng": 126.9235,
+    "coordSource": "manual-pin",
     "hours": null,
     "breakTime": null,
     "closedDays": null,
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["niboshi"],
+    "soups": [
+      "niboshi"
+    ],
     "primarySoup": "niboshi",
     "soupDetail": [],
-    "lineages": ["honto"],
+    "lineages": [
+      "honto"
+    ],
     "amenities": [],
     "confidence": "estimated",
     "menus": [],
@@ -177,6 +210,6 @@
     "verification": "pending",
     "lastVerifiedAt": "2026-08-26",
     "source": "구글 실측 (세션 조사) — 아오모리 니보시 명가 진출점",
-    "note": "본토직영 태그 실사례"
+    "note": "본토직영 태그 실사례 / 좌표는 동네 중심 임시 핀 — 파트너 실측 대기"
   }
 ]
