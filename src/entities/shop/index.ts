@@ -27,3 +27,18 @@ export { toMapManifest } from "@/entities/shop/model/map-manifest";
 export type { ShopPin } from "@/entities/shop/model/map-manifest";
 export { buildAreaClusters } from "@/entities/shop/model/area-clusters";
 export type { AreaCluster } from "@/entities/shop/model/area-clusters";
+export {
+  shopById,
+  shopsByArea,
+  shopsByAreaGenre,
+  listAreaGenrePages,
+  groupByOpenedMonth,
+  isNewOpen,
+} from "@/entities/shop/model/derive";
+export type { GenreSlug } from "@/entities/shop/model/derive";
+export {
+  restaurantJsonLd,
+  itemListJsonLd,
+  breadcrumbJsonLd,
+  faqJsonLd,
+} from "@/entities/shop/model/structured-data";

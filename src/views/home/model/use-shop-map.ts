@@ -14,12 +14,17 @@ import { toClusterMarkers, toMarkers } from "./markers";
 
 type MapStatus = "loading" | "ready" | "failed";
 
-export function useShopMap(pins: ShopPin[], filters: MapFilters) {
+export function useShopMap(
+  pins: ShopPin[],
+  filters: MapFilters,
+  focusId: string | null = null,
+) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const adapterRef = useRef<MapAdapter | null>(null);
   const [status, setStatus] = useState<MapStatus>("loading");
   const [level, setLevel] = useState(MAP_DEFAULT_LEVEL);
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const focusApplied = useRef(false);
 
   const visiblePins = useMemo(() => applyFilters(pins, filters), [pins, filters]);
   const selectedShop = useMemo(
@@ -39,6 +44,16 @@ export function useShopMap(pins: ShopPin[], filters: MapFilters) {
         adapter.onViewportChange(setLevel);
         adapter.onMapClick(() => setSelectedId(null));
         adapterRef.current = adapter;
+        if (focusId && !focusApplied.current) {
+          const target = pins.find((p) => p.id === focusId);
+          if (target) {
+            focusApplied.current = true;
+            adapter.setLevel(CLUSTER_LEVEL_THRESHOLD - 1);
+            adapter.panTo({ lat: target.lat, lng: target.lng });
+            setLevel(CLUSTER_LEVEL_THRESHOLD - 1);
+            setSelectedId(focusId);
+          }
+        }
         setStatus("ready");
       })
       .catch(() => {
