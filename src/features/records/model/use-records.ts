@@ -47,7 +47,8 @@ function wireAuth() {
   client.auth.onAuthStateChange((_event, session) => {
     const userId = session?.user?.id ?? null;
     if (userId && userId !== adoptedUserId) {
-      void adoptServer(client, userId);
+      /* 콜백 내 Supabase 호출은 내부 락과 교착 가능(supabase-js 문서) — 다음 틱으로 */
+      setTimeout(() => void adoptServer(client, userId), 0);
     } else if (!userId && adoptedUserId) {
       adoptedUserId = null;
       activeStore = localStore;
