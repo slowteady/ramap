@@ -12,6 +12,17 @@ import type {
 
 const KEY = "ramap.records.v1";
 
+export function clearLocalRecords(storage?: Storage): void {
+  const backing =
+    storage ??
+    (typeof window !== "undefined" ? window.localStorage : undefined);
+  try {
+    backing?.removeItem(KEY);
+  } catch {
+    /* 스토리지 불가 환경에선 무시 */
+  }
+}
+
 export function createLocalRecordStore(storage?: Storage): RecordStore {
   const backing =
     storage ??

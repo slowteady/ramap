@@ -12,7 +12,7 @@ import {
 } from "@/shared/ui/drawer";
 
 export function AuthEntry() {
-  const { enabled, user, signInWithKakao, signOut } = useAuth();
+  const { enabled, user, ready, signInWithKakao, signOut } = useAuth();
   const { records, exportDownload } = useRecords();
   const [open, setOpen] = useState(false);
 
@@ -24,8 +24,9 @@ export function AuthEntry() {
       <button
         type="button"
         aria-label={user ? "내 기록" : "로그인"}
-        onClick={() => setOpen(true)}
-        className="flex size-8 items-center justify-center rounded-pill bg-gray-050 text-ink"
+        disabled={!ready}
+        onClick={() => ready && setOpen(true)}
+        className="flex size-8 items-center justify-center rounded-pill bg-gray-050 text-ink disabled:opacity-40"
       >
         <UserRound className="size-4.5" />
       </button>

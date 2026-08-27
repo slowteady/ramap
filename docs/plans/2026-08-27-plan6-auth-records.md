@@ -80,6 +80,16 @@ supabaseSink(client, userId): RecordSink
 - [ ] `build && test && tsc` 클린 + 브라우저: env 없는 상태에서 로그인 UI 미노출·기존 동작 불변 확인
 - [ ] 커밋·푸시, main 머지는 사용자 확인
 
+## 재검수(2026-08-27) 반영 및 잔여 미결
+
+반영: fetch 실패=로컬 유지(서버 덮어쓰기 방지) / push 실패=로컬 유지 / adopt 성공 시 로컬 스토리지 이관·클리어(로그아웃 부활 차단) / adopt 대기 중 조작 pending 재적용 / adopt 실행 토큰화(이중 실행 방지) / ready 전 진입점 비활성 / 완식 버튼 날짜 기록 / 로그인 상태 첫 완식 토스트 생략 / 전역 auth 구독은 subscribe로 이동
+
+미결(수용, v1.5 재검토):
+- 다중 탭 동시 완식 시 count 덮어쓰기 — 원자 증가 RPC 필요
+- fetchRecords 페이지네이션 없음 — PostgREST 기본 상한(1000행) 초과 시 절단
+- reports 익명 insert 레이트리밋 없음 — 스팸 시 캡차/엣지 검토
+- isNewOpen의 dayjs 전환으로 타임존 경계 ±1일 이동 가능 — 현재 미사용 함수
+
 ## Self-Review 결과
 
 - 실 로그인 E2E는 외부 의존(사용자: Supabase 프로젝트 생성 → Auth에 카카오 프로바이더 등록(ramap 앱 REST 키) → schema.sql 실행 → env 2개) — 코드·스키마까지가 이번 스코프, 활성화는 env 주입 즉시

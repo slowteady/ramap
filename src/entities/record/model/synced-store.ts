@@ -70,18 +70,23 @@ export function createSyncedRecordStore(
   };
 }
 
+/* null = 조회 실패 — 빈 기록과 구분해야 로컬로 서버를 덮어쓰지 않는다 */
 export async function fetchRecords(
   client: SupabaseClient,
   userId: string,
-): Promise<ShopRecord[]> {
-  const { data, error } = await client
-    .from("records")
-    .select("user_id, shop_id, status, count, first_at, last_at")
-    .eq("user_id", userId);
-  if (error || !data) return [];
-  return (data as RecordRow[])
-    .map(fromRow)
-    .filter((r): r is ShopRecord => r !== null);
+): Promise<ShopRecord[] | null> {
+  try {
+    const { data, error } = await client
+      .from("records")
+      .select("user_id, shop_id, status, count, first_at, last_at")
+      .eq("user_id", userId);
+    if (error || !data) return null;
+    return (data as RecordRow[])
+      .map(fromRow)
+      .filter((r): r is ShopRecord => r !== null);
+  } catch {
+    return null;
+  }
 }
 
 export function supabaseSink(client: SupabaseClient, userId: string): RecordSink {
@@ -107,12 +112,17 @@ export async function pushRecords(
   client: SupabaseClient,
   userId: string,
   records: ShopRecord[],
-): Promise<void> {
-  if (records.length === 0) return;
-  await client
-    .from("records")
-    .upsert(
-      records.map((r) => toRow(r, userId)),
-      { onConflict: "user_id,shop_id" },
-    );
+): Promise<boolean> {
+  if (records.length === 0) return true;
+  try {
+    const { error } = await client
+      .from("records")
+      .upsert(
+        records.map((r) => toRow(r, userId)),
+        { onConflict: "user_id,shop_id" },
+      );
+    return !error;
+  } catch {
+    return false;
+  }
 }

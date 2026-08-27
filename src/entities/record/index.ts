@@ -1,4 +1,7 @@
-export { createLocalRecordStore } from "@/entities/record/model/local-store";
+export {
+  createLocalRecordStore,
+  clearLocalRecords,
+} from "@/entities/record/model/local-store";
 export type {
   RecordStore,
   ShopRecord,
