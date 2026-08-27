@@ -1,3 +1,8 @@
+import {
+  shouldReplace,
+  visitedNext,
+  wantNext,
+} from "@/entities/record/model/record-ops";
 import type {
   RecordExport,
   RecordStore,
@@ -36,28 +41,6 @@ export function createLocalRecordStore(storage?: Storage): RecordStore {
     }
   }
 
-  function upsertVisited(
-    map: Map<string, ShopRecord>,
-    shopId: string,
-    at?: Date,
-  ): ShopRecord {
-    const iso = at ? at.toISOString() : null;
-    const prev = map.get(shopId);
-    let next: ShopRecord;
-    if (!prev || prev.status === "want") {
-      next = { shopId, status: "visited", count: 1, firstAt: iso, lastAt: iso };
-    } else {
-      next = {
-        ...prev,
-        count: prev.count + 1,
-        firstAt: prev.firstAt ?? iso,
-        lastAt: iso ?? prev.lastAt,
-      };
-    }
-    map.set(shopId, next);
-    return next;
-  }
-
   return {
     get(shopId) {
       return load().get(shopId) ?? null;
@@ -67,21 +50,16 @@ export function createLocalRecordStore(storage?: Storage): RecordStore {
     },
     markVisited(shopId, at) {
       const map = load();
-      const r = upsertVisited(map, shopId, at);
+      const next = visitedNext(map.get(shopId), shopId, at);
+      map.set(shopId, next);
       persist(map);
-      return r;
+      return next;
     },
     markWant(shopId) {
       const map = load();
       const prev = map.get(shopId);
-      if (prev?.status === "visited") return prev;
-      const next: ShopRecord = {
-        shopId,
-        status: "want",
-        count: 0,
-        firstAt: null,
-        lastAt: null,
-      };
+      const next = wantNext(prev, shopId);
+      if (!next) return prev!;
       map.set(shopId, next);
       persist(map);
       return next;
@@ -108,14 +86,7 @@ export function createLocalRecordStore(storage?: Storage): RecordStore {
         const map = load();
         for (const r of parsed.records) {
           if (!r || typeof r.shopId !== "string") continue;
-          const prev = map.get(r.shopId);
-          if (
-            !prev ||
-            r.count > prev.count ||
-            (prev.status === "want" && r.status === "visited")
-          ) {
-            map.set(r.shopId, r);
-          }
+          if (shouldReplace(map.get(r.shopId), r)) map.set(r.shopId, r);
           imported += 1;
         }
         persist(map);
