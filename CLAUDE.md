@@ -44,7 +44,9 @@ scripts/        # 파이프라인 (LOCALDATA 시딩·시트 동기화)
 
 | 라이브러리              | v1     | 도입 트리거                                                         |
 | ----------------------- | ------ | ------------------------------------------------------------------- |
-| TanStack Query          | 미도입 | 로그인 도입(기록이 server state화) 또는 지도 뷰포트 런타임 API 전환 |
+| TanStack Query          | 미도입 | 지도 뷰포트 런타임 API 전환, 또는 기록 외 server state가 늘어날 때. 로그인 도입(2026-08-27) 시 재검토했으나 기록은 1회 로드+write-through(캐시·리페치 없음)라 보류 |
+| @supabase/supabase-js   | 도입   | 2026-08-27 도입 — Auth(카카오)·기록·제보. 백엔드 서버 없이 브라우저 직호출 + RLS. 스키마는 `supabase/schema.sql` |
+| dayjs                   | 도입   | 2026-08-27 도입 — 날짜 파싱·포맷·차이 계산 단일 창구. `new Date` 직접 연산 금지 |
 | 전역 스토어(zustand 등) | 미도입 | URL+useState로 부족한 공유 상태가 실증될 때                         |
 | framer-motion           | 미도입 | CSS+vaul로 부족한 모션이 실증될 때                                  |
 | steiger(FSD 린터)       | 미도입 | 베타 안정화 + 팀 확장 시                                            |

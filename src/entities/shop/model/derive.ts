@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 import type { LineageSlug, SoupSlug } from "./taxonomy";
 import type { Shop } from "./types";
 
@@ -54,7 +55,7 @@ export function groupByOpenedMonth(
     .sort((a, b) => (a.openedAt < b.openedAt ? 1 : -1));
   const groups: { month: string; shops: Shop[] }[] = [];
   for (const s of opened) {
-    const month = s.openedAt.slice(0, 7);
+    const month = dayjs(s.openedAt).format("YYYY-MM");
     const last = groups[groups.length - 1];
     if (last?.month === month) last.shops.push(s);
     else groups.push({ month, shops: [s] });
@@ -66,6 +67,5 @@ const NEW_OPEN_DAYS = 90;
 
 export function isNewOpen(shop: Shop, now: Date): boolean {
   if (!shop.openedAt) return false;
-  const opened = new Date(shop.openedAt).getTime();
-  return now.getTime() - opened <= NEW_OPEN_DAYS * 24 * 60 * 60 * 1000;
+  return dayjs(now).diff(dayjs(shop.openedAt), "day") <= NEW_OPEN_DAYS;
 }

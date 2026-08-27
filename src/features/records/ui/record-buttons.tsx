@@ -8,13 +8,15 @@ import { useRecords } from "../model/use-records";
 const FIRST_TOAST_KEY = "ramap.first-visit-toast.v1";
 
 export function RecordButtons({ shopId }: { shopId: string }) {
-  const { get, markVisited, markWant, remove, exportDownload } = useRecords();
+  const { get, markVisited, markWant, remove, exportDownload, isSynced } =
+    useRecords();
   const record = get(shopId);
   const visited = record?.status === "visited";
   const want = record?.status === "want";
 
   const handleVisited = () => {
-    markVisited(shopId);
+    markVisited(shopId, new Date());
+    if (isSynced) return;
     try {
       if (!localStorage.getItem(FIRST_TOAST_KEY)) {
         localStorage.setItem(FIRST_TOAST_KEY, "1");

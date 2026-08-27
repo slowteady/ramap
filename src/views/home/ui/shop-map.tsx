@@ -43,13 +43,15 @@ export function ShopMap({ pins }: { pins: ShopPin[] }) {
   };
 
   return (
-    <div className="flex flex-col">
+    <div className="flex min-h-0 flex-1 flex-col">
       <Onboarding pins={pins} />
       <FilterChips filters={filters} onOpenAxis={setSheetAxis} />
       {status === "failed" ? (
-        <MapFallback pins={visiblePins} />
+        <div className="min-h-0 flex-1 overflow-y-auto">
+          <MapFallback pins={visiblePins} />
+        </div>
       ) : (
-        <div className="relative h-[calc(100dvh-148px)]">
+        <div className="relative min-h-0 flex-1">
           <div ref={containerRef} className="size-full" />
           {status === "loading" && (
             <div className="absolute inset-0 flex items-center justify-center bg-gray-050 text-secondary text-gray-400">
