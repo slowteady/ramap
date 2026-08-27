@@ -33,7 +33,9 @@ async function adoptServer(client: SupabaseClient, userId: string) {
   const merged = mergeRecords(server, localStore?.all() ?? []);
   await pushRecords(client, userId, merged).catch(() => {});
   if (adoptedUserId !== userId) return;
-  activeStore = createSyncedRecordStore(merged, supabaseSink(client, userId));
+  /* push 동안 들어온 로컬 쓰기 유실 방지 — 교체 직전 재병합 */
+  const finalMerged = mergeRecords(merged, localStore?.all() ?? []);
+  activeStore = createSyncedRecordStore(finalMerged, supabaseSink(client, userId));
   notify();
 }
 

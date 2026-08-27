@@ -7,6 +7,7 @@ export type RecordRow = {
   count: number;
   first_at: string | null;
   last_at: string | null;
+  updated_at?: string;
 };
 
 export function toRow(record: ShopRecord, userId: string): RecordRow {
@@ -17,6 +18,7 @@ export function toRow(record: ShopRecord, userId: string): RecordRow {
     count: record.count,
     first_at: record.firstAt,
     last_at: record.lastAt,
+    updated_at: new Date().toISOString(),
   };
 }
 
