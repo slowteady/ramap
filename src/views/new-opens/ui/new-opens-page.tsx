@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 import Link from "next/link";
 import {
   buildAreaClusters,
@@ -19,13 +20,11 @@ function tagLine(shop: Shop): string {
 }
 
 function monthTitle(month: string): string {
-  const [year, m] = month.split("-");
-  return `${year}년 ${Number(m)}월`;
+  return dayjs(month).format("YYYY년 M월");
 }
 
 function openDate(openedAt: string): string {
-  const [, m, d] = openedAt.split("-");
-  return `${Number(m)}/${Number(d)} 오픈`;
+  return dayjs(openedAt).format("M/D 오픈");
 }
 
 export function NewOpensPage({ shops }: { shops: Shop[] }) {

@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 import type { RecordStatus, ShopRecord } from "./types";
 
 export type RecordRow = {
@@ -18,7 +19,7 @@ export function toRow(record: ShopRecord, userId: string): RecordRow {
     count: record.count,
     first_at: record.firstAt,
     last_at: record.lastAt,
-    updated_at: new Date().toISOString(),
+    updated_at: dayjs().toISOString(),
   };
 }
 

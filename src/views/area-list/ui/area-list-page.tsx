@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 import Link from "next/link";
 import {
   breadcrumbJsonLd,
@@ -57,7 +58,7 @@ export function AreaListPage({
   pageUrl,
   crossLinks,
 }: AreaListPageProps) {
-  const year = 2026;
+  const year = dayjs().year();
   const h1 = genreLabel
     ? `${area} ${genreLabel} 라멘 맛집 ${shops.length}곳 (${year})`
     : `${area} 라멘 맛집 ${shops.length}곳 (${year})`;

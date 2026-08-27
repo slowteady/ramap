@@ -1,4 +1,5 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
+import dayjs from "dayjs";
 import { shouldReplace, visitedNext, wantNext } from "./record-ops";
 import { fromRow, toRow, type RecordRow } from "./row-mapping";
 import type { RecordExport, RecordStore, ShopRecord } from "./types";
@@ -42,7 +43,7 @@ export function createSyncedRecordStore(
     exportJson() {
       const payload: RecordExport = {
         version: 1,
-        exportedAt: new Date().toISOString(),
+        exportedAt: dayjs().toISOString(),
         records: [...map.values()],
       };
       return JSON.stringify(payload);

@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 import {
   shouldReplace,
   visitedNext,
@@ -72,7 +73,7 @@ export function createLocalRecordStore(storage?: Storage): RecordStore {
     exportJson() {
       const payload: RecordExport = {
         version: 1,
-        exportedAt: new Date().toISOString(),
+        exportedAt: dayjs().toISOString(),
         records: [...load().values()],
       };
       return JSON.stringify(payload);

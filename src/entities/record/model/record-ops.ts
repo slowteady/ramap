@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 import type { ShopRecord } from "./types";
 
 export function visitedNext(
@@ -5,7 +6,7 @@ export function visitedNext(
   shopId: string,
   at?: Date,
 ): ShopRecord {
-  const iso = at ? at.toISOString() : null;
+  const iso = at ? dayjs(at).toISOString() : null;
   if (!prev || prev.status === "want") {
     return { shopId, status: "visited", count: 1, firstAt: iso, lastAt: iso };
   }
