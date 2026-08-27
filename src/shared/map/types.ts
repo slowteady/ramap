@@ -6,8 +6,13 @@ export type MapMarker = {
   id: string;
   pos: LatLng;
   label: string;
+  kind: "pill" | "dot";
   state: MarkerState;
 };
+
+export type LatLngBounds = { sw: LatLng; ne: LatLng };
+
+export type MapView = { level: number; bounds: LatLngBounds };
 
 export type MapClusterMarker = {
   id: string;
@@ -18,9 +23,13 @@ export type MapClusterMarker = {
 export interface MapAdapter {
   mount(el: HTMLElement, center: LatLng, level: number): void;
   destroy(): void;
-  setMarkers(markers: MapMarker[], onTap: (id: string) => void): void;
-  setClusters(clusters: MapClusterMarker[], onTap: (id: string) => void): void;
-  onViewportChange(cb: (level: number) => void): void;
+  render(
+    markers: MapMarker[],
+    clusters: MapClusterMarker[],
+    onMarkerTap: (id: string) => void,
+    onClusterTap: (id: string) => void,
+  ): void;
+  onViewportChange(cb: (view: MapView) => void): void;
   onMapClick(cb: () => void): void;
   panTo(pos: LatLng): void;
   setLevel(level: number): void;
@@ -49,6 +58,10 @@ declare global {
 }
 
 export type KakaoMap = {
+  getBounds(): {
+    getSouthWest(): { getLat(): number; getLng(): number };
+    getNorthEast(): { getLat(): number; getLng(): number };
+  };
   getLevel(): number;
   setLevel(level: number): void;
   panTo(pos: unknown): void;
@@ -57,4 +70,5 @@ export type KakaoMap = {
 
 export type KakaoOverlay = {
   setMap(map: KakaoMap | null): void;
+  setContent(content: HTMLElement): void;
 };

@@ -8,11 +8,14 @@ import {
   MAP_DEFAULT_LEVEL,
 } from "@/shared/config/map";
 import { createKakaoAdapter } from "@/shared/map/kakao-adapter";
-import type { MapAdapter } from "@/shared/map/types";
+import type { MapAdapter, MapView } from "@/shared/map/types";
 import { applyFilters, type MapFilters } from "./filter";
-import { toClusterMarkers, toMarkers } from "./markers";
+import { expandBounds, planMarkers, withinBounds } from "./label-collision";
+import { toClusterMarkers } from "./markers";
 
 type MapStatus = "loading" | "ready" | "failed";
+
+const BOUNDS_BUFFER_RATIO = 0.3;
 
 export function useShopMap(
   pins: ShopPin[],
@@ -23,7 +26,7 @@ export function useShopMap(
   const containerRef = useRef<HTMLDivElement | null>(null);
   const adapterRef = useRef<MapAdapter | null>(null);
   const [status, setStatus] = useState<MapStatus>("loading");
-  const [level, setLevel] = useState(MAP_DEFAULT_LEVEL);
+  const [view, setView] = useState<MapView | null>(null);
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const focusApplied = useRef(false);
 
@@ -42,7 +45,7 @@ export function useShopMap(
       .then((adapter) => {
         if (cancelled) return;
         adapter.mount(el, MAP_DEFAULT_CENTER, MAP_DEFAULT_LEVEL);
-        adapter.onViewportChange(setLevel);
+        adapter.onViewportChange(setView);
         adapter.onMapClick(() => setSelectedId(null));
         adapterRef.current = adapter;
         if (focusId && !focusApplied.current) {
@@ -51,7 +54,6 @@ export function useShopMap(
             focusApplied.current = true;
             adapter.setLevel(CLUSTER_LEVEL_THRESHOLD - 1);
             adapter.panTo({ lat: target.lat, lng: target.lng });
-            setLevel(CLUSTER_LEVEL_THRESHOLD - 1);
             setSelectedId(focusId);
           }
         }
@@ -70,22 +72,28 @@ export function useShopMap(
 
   useEffect(() => {
     const adapter = adapterRef.current;
-    if (status !== "ready" || !adapter) return;
+    if (status !== "ready" || !adapter || !view) return;
 
-    if (level >= CLUSTER_LEVEL_THRESHOLD) {
+    if (view.level >= CLUSTER_LEVEL_THRESHOLD) {
       const clusters = buildAreaClusters(visiblePins);
-      adapter.setClusters(toClusterMarkers(clusters), (area) => {
+      adapter.render([], toClusterMarkers(clusters), () => {}, (area) => {
         const target = clusters.find((c) => c.area === area);
         if (!target) return;
         adapter.setLevel(CLUSTER_LEVEL_THRESHOLD - 1);
         adapter.panTo({ lat: target.lat, lng: target.lng });
-        setLevel(CLUSTER_LEVEL_THRESHOLD - 1);
       });
       return;
     }
 
-    adapter.setMarkers(toMarkers(visiblePins, selectedId, visitedIds), setSelectedId);
-  }, [status, level, visiblePins, selectedId, visitedIds]);
+    const buffered = expandBounds(view.bounds, BOUNDS_BUFFER_RATIO);
+    const inView = visiblePins.filter((p) => withinBounds(p, buffered));
+    adapter.render(
+      planMarkers(inView, view.level, selectedId, visitedIds),
+      [],
+      setSelectedId,
+      () => {},
+    );
+  }, [status, view, visiblePins, selectedId, visitedIds]);
 
   const selectPin = useCallback((id: string | null) => setSelectedId(id), []);
   const clearSelection = useCallback(() => setSelectedId(null), []);
@@ -103,7 +111,6 @@ export function useShopMap(
         adapter.setUserLocation(pos);
         adapter.setLevel(CLUSTER_LEVEL_THRESHOLD - 2);
         adapter.panTo(pos);
-        setLevel(CLUSTER_LEVEL_THRESHOLD - 2);
       },
       () => onDenied(),
     );
