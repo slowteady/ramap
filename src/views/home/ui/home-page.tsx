@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import Link from "next/link";
 import { buildAreaClusters, toMapManifest } from "@/entities/shop";
 import { getShops } from "@/entities/shop/api/get-shops";
+import { AuthEntry } from "./auth-entry";
 import { ShopMap } from "./shop-map";
 
 export async function HomePage() {
@@ -23,12 +24,15 @@ export async function HomePage() {
             </Link>
           </nav>
         </div>
-        <Link
-          href="/report"
-          className="rounded-pill bg-ramen px-3.5 py-1.5 text-secondary font-bold text-white"
-        >
-          제보하기
-        </Link>
+        <div className="flex items-center gap-2">
+          <AuthEntry />
+          <Link
+            href="/report"
+            className="rounded-pill bg-ramen px-3.5 py-1.5 text-secondary font-bold text-white"
+          >
+            제보하기
+          </Link>
+        </div>
       </header>
       <Suspense>
         <ShopMap pins={pins} />
