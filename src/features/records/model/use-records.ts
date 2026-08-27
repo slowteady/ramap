@@ -1,27 +1,67 @@
 "use client";
 
 import { useCallback, useSyncExternalStore } from "react";
+import type { SupabaseClient } from "@supabase/supabase-js";
 import {
   createLocalRecordStore,
+  createSyncedRecordStore,
+  fetchRecords,
+  mergeRecords,
+  pushRecords,
+  supabaseSink,
   type RecordStore,
   type ShopRecord,
 } from "@/entities/record";
+import { getSupabase } from "@/shared/api/supabase";
 
-let store: RecordStore | null = null;
+let localStore: RecordStore | null = null;
+let activeStore: RecordStore | null = null;
 let snapshot: ShopRecord[] = [];
+let authWired = false;
+let adoptedUserId: string | null = null;
 const listeners = new Set<() => void>();
 
-function getStore(): RecordStore {
-  if (!store) {
-    store = createLocalRecordStore();
-    snapshot = store.all();
-  }
-  return store;
+function notify() {
+  snapshot = activeStore?.all() ?? [];
+  for (const listener of listeners) listener();
 }
 
-function notify() {
-  snapshot = getStore().all();
-  for (const listener of listeners) listener();
+async function adoptServer(client: SupabaseClient, userId: string) {
+  adoptedUserId = userId;
+  const server = await fetchRecords(client, userId);
+  if (adoptedUserId !== userId) return;
+  const merged = mergeRecords(server, localStore?.all() ?? []);
+  await pushRecords(client, userId, merged).catch(() => {});
+  if (adoptedUserId !== userId) return;
+  activeStore = createSyncedRecordStore(merged, supabaseSink(client, userId));
+  notify();
+}
+
+function wireAuth() {
+  if (authWired) return;
+  authWired = true;
+  const client = getSupabase();
+  if (!client) return;
+  client.auth.onAuthStateChange((_event, session) => {
+    const userId = session?.user?.id ?? null;
+    if (userId && userId !== adoptedUserId) {
+      void adoptServer(client, userId);
+    } else if (!userId && adoptedUserId) {
+      adoptedUserId = null;
+      activeStore = localStore;
+      notify();
+    }
+  });
+}
+
+function getStore(): RecordStore {
+  if (!activeStore) {
+    localStore = createLocalRecordStore();
+    activeStore = localStore;
+    snapshot = activeStore.all();
+    wireAuth();
+  }
+  return activeStore;
 }
 
 function subscribe(listener: () => void): () => void {
