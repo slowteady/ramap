@@ -4,6 +4,9 @@ import { shouldReplace, visitedNext, wantNext } from "./record-ops";
 import { fromRow, toRow, type RecordRow } from "./row-mapping";
 import type { RecordExport, RecordStore, ShopRecord } from "./types";
 
+/* 응답이 영영 안 오면 adopt가 재시도 불가로 고착되므로 타임아웃을 실패로 취급 */
+const ADOPT_TIMEOUT_MS = 10_000;
+
 export type RecordSink = {
   upsert(record: ShopRecord): void;
   remove(shopId: string): void;
@@ -79,7 +82,8 @@ export async function fetchRecords(
     const { data, error } = await client
       .from("records")
       .select("user_id, shop_id, status, count, first_at, last_at")
-      .eq("user_id", userId);
+      .eq("user_id", userId)
+      .abortSignal(AbortSignal.timeout(ADOPT_TIMEOUT_MS));
     if (error || !data) return null;
     return (data as RecordRow[])
       .map(fromRow)
@@ -120,7 +124,8 @@ export async function pushRecords(
       .upsert(
         records.map((r) => toRow(r, userId)),
         { onConflict: "user_id,shop_id" },
-      );
+      )
+      .abortSignal(AbortSignal.timeout(ADOPT_TIMEOUT_MS));
     return !error;
   } catch {
     return false;

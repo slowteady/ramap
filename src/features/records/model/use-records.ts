@@ -61,8 +61,12 @@ async function adoptServer(
     return;
   }
 
-  /* merge 입력은 스토리지 재읽기 — 다른 탭이 이관·클리어한 경우 메모리 캐시의 옛 기록 부활 방지 */
-  const merged = mergeRecords(server, createLocalRecordStore().all());
+  /* merge 입력 = 스토리지 재읽기(다른 탭 이관·클리어 반영) + 메모리(스토리지 쓰기 불가 폴백 보존) */
+  const local = mergeRecords(
+    createLocalRecordStore().all(),
+    localStore?.all() ?? [],
+  );
+  const merged = mergeRecords(server, local);
   /* 큐는 merge 스냅샷 이후부터 — fetch 창의 조작은 이미 merged에 포함돼 재적용하면 이중 계산 */
   pendingOps = [];
   const pushed = await pushRecords(client, userId, merged);
