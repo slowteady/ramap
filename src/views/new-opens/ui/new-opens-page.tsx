@@ -1,8 +1,10 @@
 import Link from "next/link";
 import {
+  buildAreaClusters,
   formBySlug,
   groupByOpenedMonth,
   soupBySlug,
+  toMapManifest,
   type Shop,
 } from "@/entities/shop";
 
@@ -28,6 +30,7 @@ function openDate(openedAt: string): string {
 
 export function NewOpensPage({ shops }: { shops: Shop[] }) {
   const groups = groupByOpenedMonth(shops);
+  const areas = buildAreaClusters(toMapManifest(shops));
 
   return (
     <div className="flex min-h-dvh flex-col pb-10">
@@ -109,6 +112,21 @@ export function NewOpensPage({ shops }: { shops: Shop[] }) {
         <span className="text-body text-gray-500">새 라멘집을 발견하셨나요?</span>
         <span className="text-body font-bold text-ramen">제보하기 →</span>
       </Link>
+
+      <section className="flex flex-col gap-2 px-4 pt-8">
+        <h2 className="text-title font-bold text-ink">동네로 찾기</h2>
+        <div className="flex flex-wrap gap-2">
+          {areas.map((a) => (
+            <Link
+              key={a.area}
+              href={`/area/${encodeURIComponent(a.area)}`}
+              className="rounded-pill bg-gray-050 px-3.5 py-1.5 text-secondary font-semibold text-ink"
+            >
+              {a.area} {a.count}
+            </Link>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }
