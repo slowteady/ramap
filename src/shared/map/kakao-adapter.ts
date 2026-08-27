@@ -14,7 +14,7 @@ function markerEl(marker: MapMarker, onTap: (id: string) => void): HTMLElement {
   const selected = marker.state === "selected";
   const visited = marker.state === "visited";
   el.style.cssText = [
-    "display:flex;align-items:center;gap:5px;padding:6px 10px;border-radius:9999px;border:0;cursor:pointer",
+    "display:flex;align-items:center;padding:6px 10px;border-radius:9999px;border:0;cursor:pointer",
     "font:700 12px Pretendard,-apple-system,sans-serif;box-shadow:0 1px 5px rgba(26,27,31,.18)",
     selected
       ? "background:#1a1b1f;color:#fff"
@@ -22,9 +22,7 @@ function markerEl(marker: MapMarker, onTap: (id: string) => void): HTMLElement {
         ? "background:#f4f5f7;color:#9aa0a8"
         : "background:#fff;color:#1a1b1f",
   ].join(";");
-  const dot = document.createElement("span");
-  dot.style.cssText = `width:8px;height:8px;border-radius:9999px;background:${visited ? "#c9cdd3" : marker.color}`;
-  el.append(dot, document.createTextNode(marker.label));
+  el.append(document.createTextNode(marker.label));
   el.addEventListener("click", () => onTap(marker.id));
   return el;
 }

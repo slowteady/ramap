@@ -6,7 +6,6 @@ export type MapMarker = {
   id: string;
   pos: LatLng;
   label: string;
-  color: string;
   state: MarkerState;
 };
 
