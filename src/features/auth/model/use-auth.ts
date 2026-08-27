@@ -15,10 +15,11 @@ export function useAuth() {
       setReady(true);
       return;
     }
-    void client.auth.getSession().then(({ data }) => {
-      setUser(data.session?.user ?? null);
-      setReady(true);
-    });
+    void client.auth
+      .getSession()
+      .then(({ data }) => setUser(data.session?.user ?? null))
+      .catch(() => {})
+      .finally(() => setReady(true));
     const { data: sub } = client.auth.onAuthStateChange((_event, session) => {
       setUser(session?.user ?? null);
     });

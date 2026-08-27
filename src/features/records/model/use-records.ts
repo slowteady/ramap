@@ -47,10 +47,12 @@ function abortAdopt() {
   pendingOps = null;
 }
 
-async function adoptServer(client: SupabaseClient, userId: string) {
-  const token = ++adoptSeq;
-  currentAdopt = token;
-  pendingOps = [];
+async function adoptServer(
+  client: SupabaseClient,
+  userId: string,
+  token: number,
+) {
+  if (currentAdopt !== token) return;
 
   const server = await fetchRecords(client, userId);
   if (currentAdopt !== token) return;
@@ -59,7 +61,10 @@ async function adoptServer(client: SupabaseClient, userId: string) {
     return;
   }
 
-  const merged = mergeRecords(server, localStore?.all() ?? []);
+  /* merge 입력은 스토리지 재읽기 — 다른 탭이 이관·클리어한 경우 메모리 캐시의 옛 기록 부활 방지 */
+  const merged = mergeRecords(server, createLocalRecordStore().all());
+  /* 큐는 merge 스냅샷 이후부터 — fetch 창의 조작은 이미 merged에 포함돼 재적용하면 이중 계산 */
+  pendingOps = [];
   const pushed = await pushRecords(client, userId, merged);
   if (currentAdopt !== token) return;
   if (!pushed) {
@@ -87,8 +92,11 @@ function wireAuth() {
   client.auth.onAuthStateChange((_event, session) => {
     const userId = session?.user?.id ?? null;
     if (userId && userId !== adoptedUserId && currentAdopt === 0) {
+      /* 예약 시점에 토큰 선점 — 예약~실행 사이의 SIGNED_OUT이 취소할 수 있게 */
+      const token = ++adoptSeq;
+      currentAdopt = token;
       /* 콜백 내 Supabase 호출은 내부 락과 교착 가능(supabase-js 문서) — 다음 틱으로 */
-      setTimeout(() => void adoptServer(client, userId), 0);
+      setTimeout(() => void adoptServer(client, userId, token), 0);
     } else if (!userId && (adoptedUserId || currentAdopt !== 0)) {
       abortAdopt();
       adoptedUserId = null;

@@ -13,7 +13,7 @@ import {
 
 export function AuthEntry() {
   const { enabled, user, ready, signInWithKakao, signOut } = useAuth();
-  const { records, exportDownload } = useRecords();
+  const { records, exportDownload, isSynced } = useRecords();
   const [open, setOpen] = useState(false);
 
   if (!enabled) return null;
@@ -41,7 +41,9 @@ export function AuthEntry() {
             {user ? (
               <div className="flex flex-col gap-3 px-4 pb-6">
                 <p className="text-body text-gray-500">
-                  지금까지 완식 {visitedCount}곳 — 기록은 계정에 자동 저장돼요.
+                  {isSynced
+                    ? `지금까지 완식 ${visitedCount}곳 — 기록은 계정에 자동 저장돼요.`
+                    : `지금까지 완식 ${visitedCount}곳 — 서버 연결을 확인하는 중이라 지금은 이 기기에 저장돼요.`}
                 </p>
                 <button
                   type="button"
