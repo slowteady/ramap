@@ -13,7 +13,7 @@ type GenreChipsProps = {
   className?: string;
 };
 
-/* 축별 색 구분: 국물=레드 틴트 / 종류=회색 / 스타일=네이비 틴트 */
+/* 조사 결론(2026-08-28): 유채는 1차 축(국물)에만 — 종류=회색 채움, 스타일=무채 아웃라인으로 축 구분 */
 export function GenreChips({ soups, forms, lineages, className }: GenreChipsProps) {
   const chips = [
     ...soups.map((s) => ({
@@ -31,7 +31,7 @@ export function GenreChips({ soups, forms, lineages, className }: GenreChipsProp
     ...lineages.map((l) => ({
       key: `l:${l}`,
       label: LINEAGES.find((x) => x.slug === l)?.label ?? l,
-      cls: "bg-navy-050 text-navy",
+      cls: "border border-gray-150 text-gray-500",
     })),
   ];
   if (chips.length === 0) return null;

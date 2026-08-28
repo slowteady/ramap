@@ -13,8 +13,6 @@ body {
   --color-ramen: #e8442e; /* 유일한 유채색 */
   --color-ramen-050: #fdf1ef; /* 활성 칩 틴트 배경 (캐치테이블 5% 공식) */
   --color-ramen-100: #fbe0da; /* 선택 칩 틴트 배경 */
-  --color-navy: #3e5463; /* 보조 무채축 — 스타일 칩 (캐치테이블 정보성 네이비) */
-  --color-navy-050: #eef2f6;
   --color-ink: #1a1b1f; /* 순흑 금지 */
   --color-gray-500: #3d4048;
   --color-gray-400: #6b6e76;
