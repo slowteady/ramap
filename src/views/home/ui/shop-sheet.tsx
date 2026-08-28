@@ -16,6 +16,7 @@ import { Drawer, DrawerContent, DrawerTitle } from "@/shared/ui/drawer";
 
 /* 접힘은 주소창 변동에 흔들리지 않게 고정 px, 나머지는 dvh 비율 (미결 5 — 실기기 확정 전) */
 const SNAP_COLLAPSED = "96px";
+const SNAP_CARD = "280px";
 const SNAP_MID = 0.45;
 const SNAP_FULL = 0.88;
 
@@ -130,9 +131,6 @@ function ShopCardBody({ shop, onClose }: { shop: ShopPin; onClose: () => void })
           ))}
         </div>
       )}
-      <div className="pt-2">
-        <RecordButtons shopId={shop.id} />
-      </div>
       {shop.topMenu && (
         <div className="mt-2 flex items-baseline justify-between rounded-card bg-gray-050 px-3 py-2.5">
           <span className="text-body font-semibold text-ink">
@@ -145,12 +143,15 @@ function ShopCardBody({ shop, onClose }: { shop: ShopPin; onClose: () => void })
           )}
         </div>
       )}
-      <Link
-        href={`/shop/${shop.id}`}
-        className="mt-3 flex w-full items-center justify-center rounded-pill bg-ink py-3 text-body font-bold text-white"
-      >
-        상세 보기
-      </Link>
+      <div className="mt-3 flex items-center gap-2">
+        <RecordButtons shopId={shop.id} />
+        <Link
+          href={`/shop/${shop.id}`}
+          className="flex flex-1 items-center justify-center rounded-pill bg-ink py-2 text-secondary font-bold text-white"
+        >
+          상세 보기
+        </Link>
+      </div>
     </div>
   );
 }
@@ -158,9 +159,12 @@ function ShopCardBody({ shop, onClose }: { shop: ShopPin; onClose: () => void })
 export function ShopSheet({ listPins, selectedShop, onSelectPin, onClose }: ShopSheetProps) {
   const [snap, setSnap] = useState<number | string | null>(SNAP_COLLAPSED);
 
-  /* 매장 선택 시 접힘 상태면 카드가 보이게 중간 스냅으로 */
+  /* 카드는 콘텐츠 높이 스냅으로 — 풀 스냅은 사용자 의도로 보고 유지 */
   useEffect(() => {
-    if (selectedShop) setSnap((prev) => (prev === SNAP_COLLAPSED ? SNAP_MID : prev));
+    setSnap((prev) => {
+      if (selectedShop) return prev === SNAP_FULL ? prev : SNAP_CARD;
+      return prev === SNAP_CARD ? SNAP_MID : prev;
+    });
   }, [selectedShop]);
 
   return (
@@ -168,7 +172,7 @@ export function ShopSheet({ listPins, selectedShop, onSelectPin, onClose }: Shop
       open
       modal={false}
       dismissible={false}
-      snapPoints={[SNAP_COLLAPSED, SNAP_MID, SNAP_FULL]}
+      snapPoints={[SNAP_COLLAPSED, SNAP_CARD, SNAP_MID, SNAP_FULL]}
       activeSnapPoint={snap}
       setActiveSnapPoint={setSnap}
     >
