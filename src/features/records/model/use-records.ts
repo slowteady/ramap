@@ -27,12 +27,13 @@ let authWired = false;
 let adoptSeq = 0;
 let currentAdopt = 0;
 let adoptedUserId: string | null = null;
+let sessionUserId: string | null = null;
 let synced = false;
 let pendingOps: PendingOp[] | null = null;
 const listeners = new Set<() => void>();
 
 function notify() {
-  snapshot = activeStore?.all() ?? [];
+  snapshot = [...(activeStore?.all() ?? [])];
   for (const listener of listeners) listener();
 }
 
@@ -95,6 +96,10 @@ function wireAuth() {
   if (!client) return;
   client.auth.onAuthStateChange((_event, session) => {
     const userId = session?.user?.id ?? null;
+    if (userId !== sessionUserId) {
+      sessionUserId = userId;
+      notify();
+    }
     if (userId && userId !== adoptedUserId && currentAdopt === 0) {
       /* 예약 시점에 토큰 선점 — 예약~실행 사이의 SIGNED_OUT이 취소할 수 있게 */
       const token = ++adoptSeq;
@@ -187,5 +192,6 @@ export function useRecords() {
     remove,
     exportDownload,
     isSynced: synced,
+    isAuthed: sessionUserId !== null,
   };
 }

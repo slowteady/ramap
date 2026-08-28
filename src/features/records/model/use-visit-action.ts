@@ -1,29 +1,35 @@
 "use client";
 
-import { useCallback } from "react";
-import { toast } from "sonner";
+import { useCallback, useState } from "react";
+import { getSupabase } from "@/shared/api/supabase";
 import { useRecords } from "./use-records";
-
-const FIRST_TOAST_KEY = "ramap.first-visit-toast.v1";
 
 export function useVisitAction(shopId: string) {
   const records = useRecords();
-  const { markVisited, exportDownload, isSynced } = records;
+  const { get, markVisited, markWant, remove, isAuthed } = records;
+  const [authPrompt, setAuthPrompt] = useState(false);
+
+  const requireAuth = useCallback(() => {
+    if (getSupabase() === null || isAuthed) return true;
+    setAuthPrompt(true);
+    return false;
+  }, [isAuthed]);
 
   const visit = useCallback(() => {
-    markVisited(shopId, new Date());
-    if (isSynced) return;
-    try {
-      if (!localStorage.getItem(FIRST_TOAST_KEY)) {
-        localStorage.setItem(FIRST_TOAST_KEY, "1");
-        toast("기록은 이 기기에 저장돼요", {
-          action: { label: "백업하기", onClick: exportDownload },
-        });
-      }
-    } catch {
-      /* 스토리지 불가 환경에선 토스트 생략 */
-    }
-  }, [shopId, markVisited, exportDownload, isSynced]);
+    if (!requireAuth()) return;
+    const visited = get(shopId)?.status === "visited";
+    if (visited) remove(shopId);
+    else markVisited(shopId, new Date());
+  }, [shopId, requireAuth, get, markVisited, remove]);
 
-  return { ...records, visit };
+  const save = useCallback(() => {
+    if (!requireAuth()) return;
+    const want = get(shopId)?.status === "want";
+    if (want) remove(shopId);
+    else markWant(shopId);
+  }, [shopId, requireAuth, get, markWant, remove]);
+
+  const closeAuthPrompt = useCallback(() => setAuthPrompt(false), []);
+
+  return { ...records, visit, save, authPrompt, closeAuthPrompt };
 }

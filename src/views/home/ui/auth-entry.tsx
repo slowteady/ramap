@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { UserRound } from "lucide-react";
 import { displayName, useAuth } from "@/features/auth";
+import { KakaoLoginButton } from "@/shared/ui/kakao-login-button";
 import { useRecords } from "@/features/records";
 import {
   Drawer,
@@ -12,7 +13,7 @@ import {
 } from "@/shared/ui/drawer";
 
 export function AuthEntry() {
-  const { enabled, user, ready, signInWithKakao, signOut } = useAuth();
+  const { enabled, user, ready, signOut } = useAuth();
   const { records, exportDownload, isSynced } = useRecords();
   const [open, setOpen] = useState(false);
 
@@ -43,7 +44,7 @@ export function AuthEntry() {
                 <p className="text-body text-gray-500">
                   {isSynced
                     ? `지금까지 완식 ${visitedCount}곳 — 기록은 계정에 자동 저장돼요.`
-                    : `지금까지 완식 ${visitedCount}곳 — 서버 연결을 확인하는 중이라 지금은 이 기기에 저장돼요.`}
+                    : `지금까지 완식 ${visitedCount}곳 — 서버 연결을 확인하는 중이에요.`}
                 </p>
                 <button
                   type="button"
@@ -67,16 +68,9 @@ export function AuthEntry() {
               <div className="flex flex-col gap-3 px-4 pb-6">
                 <p className="text-body text-gray-500">
                   로그인하면 완식 기록이 계정에 저장되고 기기를 바꿔도
-                  이어집니다. 지금 기기의 기록은 자동으로 합쳐져요.
+                  이어집니다.
                 </p>
-                {/* #FEE500은 카카오 브랜드 가이드 고정색 — 단일 유채색 원칙의 명시적 예외 */}
-                <button
-                  type="button"
-                  onClick={signInWithKakao}
-                  className="w-full rounded-pill bg-[#FEE500] py-3 text-body font-bold text-[#191919]"
-                >
-                  카카오로 시작하기
-                </button>
+                <KakaoLoginButton />
               </div>
             )}
           </DrawerContent>

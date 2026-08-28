@@ -7,14 +7,12 @@ export function visitedNext(
   at?: Date,
 ): ShopRecord {
   const iso = at ? dayjs(at).toISOString() : null;
-  if (!prev || prev.status === "want") {
-    return { shopId, status: "visited", count: 1, firstAt: iso, lastAt: iso };
-  }
   return {
-    ...prev,
-    count: prev.count + 1,
-    firstAt: prev.firstAt ?? iso,
-    lastAt: iso ?? prev.lastAt,
+    shopId,
+    status: "visited",
+    count: 1,
+    firstAt: prev?.firstAt ?? iso,
+    lastAt: iso ?? prev?.lastAt ?? null,
   };
 }
 
