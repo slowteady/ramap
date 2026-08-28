@@ -4,9 +4,9 @@ import type { LatLng, LatLngBounds, MapMarker } from "@/shared/map/types";
 /* 카카오 레벨별 1px 근사 도(度) — level 1에서 1px≈0.25m, 위도 1도≈111,320m */
 const BASE_DEG_PER_PX = 0.25 / 111320;
 const LNG_SCALE = 1 / Math.cos((37.5 * Math.PI) / 180);
-const PILL_HEIGHT_PX = 34;
-const PILL_BASE_PX = 26;
-const PILL_CHAR_PX = 13;
+const DOT_HALF_PX = 12;
+const LABEL_BLOCK_PX = 40;
+const LABEL_CHAR_PX = 13;
 
 export function degPerPx(level: number): number {
   return BASE_DEG_PER_PX * 2 ** (level - 1);
@@ -15,13 +15,23 @@ export function degPerPx(level: number): number {
 type Box = { x1: number; x2: number; y1: number; y2: number };
 
 function pillBox(pin: ShopPin, unit: number): Box {
-  const halfW = ((PILL_BASE_PX + pin.name.length * PILL_CHAR_PX) / 2) * unit;
-  const halfH = (PILL_HEIGHT_PX / 2) * unit;
+  const halfW =
+    Math.max(DOT_HALF_PX, (pin.name.length * LABEL_CHAR_PX) / 2) * unit;
   return {
     x1: pin.lng - halfW * LNG_SCALE,
     x2: pin.lng + halfW * LNG_SCALE,
-    y1: pin.lat - halfH,
-    y2: pin.lat + halfH,
+    y1: pin.lat - (LABEL_BLOCK_PX - DOT_HALF_PX) * unit,
+    y2: pin.lat + DOT_HALF_PX * unit,
+  };
+}
+
+function dotBox(pin: ShopPin, unit: number): Box {
+  const half = DOT_HALF_PX * unit;
+  return {
+    x1: pin.lng - half * LNG_SCALE,
+    x2: pin.lng + half * LNG_SCALE,
+    y1: pin.lat - half,
+    y2: pin.lat + half,
   };
 }
 
@@ -49,7 +59,7 @@ export function planMarkers(
     const box = pillBox(pin, unit);
     const collides = kept.some((k) => intersects(k, box));
     const pill = pin.id === selectedId || !collides;
-    if (pill) kept.push(box);
+    kept.push(pill ? box : dotBox(pin, unit));
     markers.push({
       id: pin.id,
       pos: { lat: pin.lat, lng: pin.lng },

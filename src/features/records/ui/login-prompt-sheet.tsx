@@ -26,13 +26,14 @@ export function LoginPromptSheet({
         </DrawerHeader>
         <div className="flex flex-col gap-3 px-4 pb-6">
           <p className="text-body text-gray-500">
-            완식·저장 기록은 계정에 저장되고 기기를 바꿔도 이어집니다.
+            완식한 라멘집이 나만의 지도에 쌓여요. 가고 싶은 집은 저장해
+            두고 하나씩 정복해 보세요.
           </p>
           <KakaoLoginButton />
           <button
             type="button"
             onClick={onClose}
-            className="text-secondary text-gray-400"
+            className="py-1 text-body text-gray-400"
           >
             다음에 할게요
           </button>

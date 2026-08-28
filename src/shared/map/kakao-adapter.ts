@@ -31,7 +31,7 @@ function markerEl(marker: MapMarker, onTap: (id: string) => void): HTMLElement {
   const visited = marker.state === "visited";
   const ring = visited ? "#c9cdd3" : "#e8442e";
   const size = selected ? 26 : 20;
-  el.style.cssText = `display:flex;align-items:center;gap:5px;padding:${HIT_PAD}px;border:0;background:none;cursor:pointer;margin-left:-${HIT_PAD + size / 2 + 2}px`;
+  el.style.cssText = `display:flex;flex-direction:column;align-items:center;gap:2px;padding:${HIT_PAD}px;border:0;background:none;cursor:pointer;margin-top:-${HIT_PAD + size / 2}px`;
   const dot = document.createElement("span");
   dot.style.cssText = donut(size, ring);
   el.append(dot);
@@ -146,13 +146,12 @@ export async function createKakaoAdapter(key: string | undefined): Promise<MapAd
           anchor: { x: number; y: number };
         }
       >();
-      /* 도넛 중심이 좌표에 앉도록 — 도넛 폭만큼 왼쪽 여백 앵커 보정은 content margin으로 */
       for (const m of markers) {
         next.set(`m:${m.id}`, {
           pos: m.pos,
           el: () => markerEl(m, onMarkerTap),
           sig: markerSig(m),
-          anchor: { x: 0, y: 0.5 },
+          anchor: { x: 0.5, y: 0 },
         });
       }
       for (const c of clusters) {
