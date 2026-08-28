@@ -1,45 +1,32 @@
 "use client";
 
 import { KakaoLoginButton } from "@/shared/ui/kakao-login-button";
-import {
-  Drawer,
-  DrawerContent,
-  DrawerHeader,
-  DrawerTitle,
-} from "@/shared/ui/drawer";
-import type { RecordAction } from "../model/use-visit-action";
-
-const COPY = {
-  visit: { title: "로그인으로 완식한 라멘집을 모아보세요" },
-  save: { title: "로그인으로 가고 싶은 라멘집을 모아보세요" },
-} as const;
+import { Drawer, DrawerContent, DrawerTitle } from "@/shared/ui/drawer";
 
 export function LoginPromptSheet({
-  action,
+  open,
   onClose,
 }: {
-  action: RecordAction | null;
+  open: boolean;
   onClose: () => void;
 }) {
-  if (!action) return null;
-  const copy = COPY[action];
+  if (!open) return null;
   return (
     <Drawer open onOpenChange={(next) => !next && onClose()}>
       <DrawerContent>
-        <DrawerHeader className="text-left">
-          <DrawerTitle className="text-title font-bold text-ink">
-            {copy.title}
+        <div className="flex flex-col items-center gap-2 px-4 pt-8 pb-8 text-center">
+          <span aria-hidden className="text-5xl">
+            🍜
+          </span>
+          <DrawerTitle className="pt-3 text-heading font-extrabold text-ink">
+            라맵과 함께할까요?
           </DrawerTitle>
-        </DrawerHeader>
-        <div className="flex flex-col gap-3 px-4 pt-2 pb-6">
-          <KakaoLoginButton />
-          <button
-            type="button"
-            onClick={onClose}
-            className="py-1 text-body text-gray-400"
-          >
-            다음에 할게요
-          </button>
+          <p className="text-body text-gray-400">
+            카카오 계정으로 3초 만에 시작해요
+          </p>
+          <div className="w-full pt-4">
+            <KakaoLoginButton />
+          </div>
         </div>
       </DrawerContent>
     </Drawer>
