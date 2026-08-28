@@ -3,6 +3,11 @@
 @import "shadcn/tailwind.css";
 
 /* 토큰 외 값 사용 금지 (docs/planning/13). 브랜드 레드는 시맨틱 primary로, --color-ramen은 마커·SVG 원시값용 */
+html,
+body {
+  overscroll-behavior: none;
+}
+
 @theme {
   --container-app: 480px; /* 모바일 퍼스트 셸 최대 폭 — 시트·오버레이 포함 전 화면 공통 */
   --color-ramen: #e8442e; /* 유일한 유채색 */

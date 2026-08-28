@@ -177,7 +177,7 @@ export function ShopSheet({ listPins, selectedShop, onSelectPin, onClose }: Shop
               className={cn(
                 "min-h-0 flex-1",
                 /* 제스처 충돌 회피 — 목록 스크롤은 풀 스냅에서만 */
-                snap === SNAP_FULL ? "overflow-y-auto pb-10" : "overflow-hidden",
+                snap === SNAP_FULL ? "overflow-y-auto overscroll-contain pb-10" : "overflow-hidden",
               )}
             >
               {listPins.map((pin) => (
