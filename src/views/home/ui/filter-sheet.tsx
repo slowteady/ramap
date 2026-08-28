@@ -142,10 +142,7 @@ export function FilterSheet({ axis, pins, filters, onApply, onClose }: FilterShe
           })}
         </div>
 
-        <p className="px-4 pt-3 text-caption text-gray-400">
-          0곳인 값은 선택할 수 없어요
-        </p>
-        <div className="flex gap-2 p-4 pt-2">
+        <div className="flex gap-2 p-4">
           <button
             type="button"
             disabled={totalSelected === 0}
