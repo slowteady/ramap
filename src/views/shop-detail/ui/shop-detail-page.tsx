@@ -43,14 +43,7 @@ export function ShopDetailPage({ shop }: { shop: Shop }) {
       </div>
 
       <div className="flex flex-col gap-1.5 px-4 pt-4">
-        <div className="flex items-center gap-2">
-          <h1 className="text-heading font-extrabold text-ink">{shop.name}</h1>
-          {primarySoupLabel && (
-            <span className="rounded-pill bg-gray-050 px-2.5 py-1 text-caption font-bold text-gray-500">
-              {primarySoupLabel}
-            </span>
-          )}
-        </div>
+        <h1 className="text-heading font-extrabold text-ink">{shop.name}</h1>
         <div className="flex items-center gap-2">
           <GenreChips soups={shop.soups} forms={shop.forms} lineages={shop.lineages} />
           {shop.areaLabel && (
@@ -89,7 +82,7 @@ export function ShopDetailPage({ shop }: { shop: Shop }) {
             {amenityChips(shop).map((label) => (
               <span
                 key={label}
-                className="rounded-card border border-gray-100 px-2.5 py-1 text-caption font-semibold text-gray-500"
+                className="rounded-chip bg-gray-100 px-1.5 py-0.5 text-caption font-semibold text-gray-500"
               >
                 {label}
               </span>
@@ -99,7 +92,7 @@ export function ShopDetailPage({ shop }: { shop: Shop }) {
                 href={shop.waitingLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-card border border-gray-100 px-2.5 py-1 text-caption font-semibold text-ink underline underline-offset-2"
+                className="rounded-chip bg-gray-100 px-1.5 py-0.5 text-caption font-semibold text-ink underline underline-offset-2"
               >
                 원격 줄서기
               </a>

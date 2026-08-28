@@ -13,7 +13,7 @@ type GenreChipsProps = {
   className?: string;
 };
 
-/* 조사 결론(2026-08-28): 유채는 1차 축(국물)에만 — 종류=회색 채움, 스타일=무채 아웃라인으로 축 구분 */
+/* 조사 결론(2026-08-28): 유채는 1차 축(국물)에만 — 나머지 축은 회색 채움 단일 위계 */
 export function GenreChips({ soups, forms, lineages, className }: GenreChipsProps) {
   const chips = [
     ...soups
@@ -28,7 +28,7 @@ export function GenreChips({ soups, forms, lineages, className }: GenreChipsProp
       .map((f) => ({
         key: `f:${f}`,
         label: formBySlug(f)?.label ?? f,
-        cls: "bg-gray-050 text-gray-500",
+        cls: "bg-gray-100 text-gray-500",
       })),
     ...lineages.flatMap((l) => {
       const item = LINEAGES.find((x) => x.slug === l);
@@ -38,7 +38,7 @@ export function GenreChips({ soups, forms, lineages, className }: GenreChipsProp
         {
           key: `l:${l}`,
           label: item.label,
-          cls: "border border-gray-150 text-gray-500",
+          cls: "bg-gray-100 text-gray-500",
         },
       ];
     }),
@@ -51,7 +51,7 @@ export function GenreChips({ soups, forms, lineages, className }: GenreChipsProp
         <span
           key={chip.key}
           className={cn(
-            "rounded-card px-2 py-0.5 text-caption font-semibold",
+            "rounded-chip px-1.5 py-0.5 text-caption font-semibold",
             chip.cls,
           )}
         >

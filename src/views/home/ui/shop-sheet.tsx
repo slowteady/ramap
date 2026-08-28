@@ -102,7 +102,7 @@ function ShopCardBody({ shop, onClose }: { shop: ShopPin; onClose: () => void })
           {amenityLabels.map((label) => (
             <span
               key={label}
-              className="rounded-pill bg-gray-050 px-2.5 py-1 text-caption font-semibold text-gray-500"
+              className="rounded-chip bg-gray-100 px-1.5 py-0.5 text-caption font-semibold text-gray-500"
             >
               {label}
             </span>
