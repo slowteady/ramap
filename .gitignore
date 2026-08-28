@@ -40,3 +40,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 data/out/
+
+# playwright MCP 작업폴더
+.playwright-mcp/
