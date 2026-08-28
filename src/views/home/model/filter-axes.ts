@@ -6,6 +6,12 @@ import {
 } from "@/entities/shop";
 import type { MapFilters } from "./filter";
 
+const HIDDEN_SLUGS = new Set(["etc-form", "etc-soup"]);
+
+export function visibleItems(items: readonly TaxonomyItem[]): TaxonomyItem[] {
+  return items.filter((i) => !HIDDEN_SLUGS.has(i.slug) && i.kind !== "trait");
+}
+
 export type FilterAxis = "form" | "soup" | "lineage";
 
 export const FILTER_AXES: {

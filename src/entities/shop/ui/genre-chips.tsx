@@ -16,23 +16,32 @@ type GenreChipsProps = {
 /* 조사 결론(2026-08-28): 유채는 1차 축(국물)에만 — 종류=회색 채움, 스타일=무채 아웃라인으로 축 구분 */
 export function GenreChips({ soups, forms, lineages, className }: GenreChipsProps) {
   const chips = [
-    ...soups.map((s) => ({
+    ...soups
+      .filter((s) => s !== "etc-soup")
+      .map((s) => ({
       key: `s:${s}`,
       label: soupBySlug(s)?.label ?? s,
       cls: "bg-ramen-050 text-ramen",
     })),
     ...forms
-      .filter((f) => f !== "ramen")
+      .filter((f) => f !== "ramen" && f !== "etc-form")
       .map((f) => ({
         key: `f:${f}`,
         label: formBySlug(f)?.label ?? f,
         cls: "bg-gray-050 text-gray-500",
       })),
-    ...lineages.map((l) => ({
-      key: `l:${l}`,
-      label: LINEAGES.find((x) => x.slug === l)?.label ?? l,
-      cls: "border border-gray-150 text-gray-500",
-    })),
+    ...lineages.flatMap((l) => {
+      const item = LINEAGES.find((x) => x.slug === l);
+      /* 특징(자가제면·본토직영)은 맛 계보가 아니므로 장르 칩에서 제외 — 편의 칩 행에서 표시 */
+      if (!item || item.kind !== "taste") return [];
+      return [
+        {
+          key: `l:${l}`,
+          label: item.label,
+          cls: "border border-gray-150 text-gray-500",
+        },
+      ];
+    }),
   ];
   if (chips.length === 0) return null;
 

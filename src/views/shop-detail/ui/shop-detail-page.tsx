@@ -3,6 +3,7 @@ import { ChevronLeft, Clock, Users } from "lucide-react";
 import {
   AMENITIES,
   GenreChips,
+  LINEAGES,
   restaurantJsonLd,
   soupBySlug,
   type Shop,
@@ -10,10 +11,16 @@ import {
 import { RecordCtaBar } from "@/features/records";
 
 function amenityChips(shop: Shop): string[] {
-  return shop.amenities.flatMap((a) => {
-    const label = AMENITIES.find((x) => x.slug === a)?.label;
-    return label ? [label] : [];
-  });
+  return [
+    ...shop.lineages.flatMap((l) => {
+      const item = LINEAGES.find((x) => x.slug === l);
+      return item?.kind === "trait" ? [item.label] : [];
+    }),
+    ...shop.amenities.flatMap((a) => {
+      const label = AMENITIES.find((x) => x.slug === a)?.label;
+      return label ? [label] : [];
+    }),
+  ];
 }
 
 export function ShopDetailPage({ shop }: { shop: Shop }) {

@@ -18,7 +18,7 @@ import {
   EMPTY_FILTERS,
   type MapFilters,
 } from "../model/filter";
-import { FILTER_AXES, type FilterAxis } from "../model/filter-axes";
+import { FILTER_AXES, visibleItems, type FilterAxis } from "../model/filter-axes";
 
 type FilterSheetProps = {
   axis: FilterAxis | null;
@@ -64,6 +64,37 @@ export function FilterSheet({ axis, pins, filters, onApply, onClose }: FilterShe
       ? selected.filter((s) => s !== slug)
       : [...selected, slug];
     onApply({ ...filters, [config.filterKey]: next });
+  };
+
+  const renderItem = (item: (typeof config.items)[number]) => {
+    const isOn = selected.includes(item.slug);
+    const count = counts[item.slug] ?? 0;
+    const disabled = count === 0 && !isOn;
+    return (
+      <button
+        key={item.slug}
+        type="button"
+        disabled={disabled}
+        onClick={() => toggle(item.slug)}
+        className={cn(
+          "flex flex-col gap-0.5 rounded-card border px-3 py-2.5 text-left",
+          isOn
+            ? "border-ramen bg-ramen-050 text-ramen"
+            : disabled
+              ? "border-gray-100 bg-white text-gray-300"
+              : "border-gray-100 bg-white text-ink",
+        )}
+      >
+        <span className="text-body font-semibold">{item.label}</span>
+        {config.axis === "lineage" && item.description && (
+          <span
+            className={cn("text-caption", isOn ? "text-ramen/70" : "text-gray-400")}
+          >
+            {item.description}
+          </span>
+        )}
+      </button>
+    );
   };
 
   const removeValue = (item: (typeof applied)[number]) => {
@@ -120,39 +151,7 @@ export function FilterSheet({ axis, pins, filters, onApply, onClose }: FilterShe
             config.axis === "lineage" ? "grid-cols-2" : "grid-cols-3",
           )}
         >
-          {config.items.map((item) => {
-            const isOn = selected.includes(item.slug);
-            const count = counts[item.slug] ?? 0;
-            const disabled = count === 0 && !isOn;
-            return (
-              <button
-                key={item.slug}
-                type="button"
-                disabled={disabled}
-                onClick={() => toggle(item.slug)}
-                className={cn(
-                  "flex flex-col gap-0.5 rounded-card border px-3 py-2.5 text-left",
-                  isOn
-                    ? "border-ramen bg-ramen-050 text-ramen"
-                    : disabled
-                      ? "border-gray-100 bg-white text-gray-300"
-                      : "border-gray-100 bg-white text-ink",
-                )}
-              >
-                <span className="text-body font-semibold">{item.label}</span>
-                {config.axis === "lineage" && item.description && (
-                  <span
-                    className={cn(
-                      "text-caption",
-                      isOn ? "text-ramen/70" : "text-gray-400",
-                    )}
-                  >
-                    {item.description}
-                  </span>
-                )}
-              </button>
-            );
-          })}
+          {visibleItems(config.items).map((item) => renderItem(item))}
         </div>
 
         <div className="flex items-center gap-2 overflow-x-auto px-4 pt-4 [scrollbar-width:none]">

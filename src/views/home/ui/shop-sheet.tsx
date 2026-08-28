@@ -6,6 +6,7 @@ import { X } from "lucide-react";
 import {
   AMENITIES,
   GenreChips,
+  LINEAGES,
   OpenStatusBadge,
   type ShopPin,
 } from "@/entities/shop";
@@ -58,10 +59,16 @@ function ListRow({ pin, onTap }: { pin: ShopPin; onTap: () => void }) {
 }
 
 function ShopCardBody({ shop, onClose }: { shop: ShopPin; onClose: () => void }) {
-  const amenityLabels = shop.amenities.flatMap((a) => {
-    const label = AMENITIES.find((x) => x.slug === a)?.label;
-    return label ? [label] : [];
-  });
+  const amenityLabels = [
+    ...shop.lineages.flatMap((l) => {
+      const item = LINEAGES.find((x) => x.slug === l);
+      return item?.kind === "trait" ? [item.label] : [];
+    }),
+    ...shop.amenities.flatMap((a) => {
+      const label = AMENITIES.find((x) => x.slug === a)?.label;
+      return label ? [label] : [];
+    }),
+  ];
 
   return (
     <div className="flex flex-col gap-1.5">
