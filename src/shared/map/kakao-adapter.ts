@@ -11,15 +11,18 @@ import type {
 
 const VIEWPORT_DEBOUNCE_MS = 150;
 
-/* 캐치테이블 문법: 도넛(레드 링+흰 심) + 이름 라벨(흰 halo). 강등(dot)은 도넛만 */
+/* 캐치테이블 문법(실측 20px): 도넛(레드 링+흰 심) + 이름 라벨(흰 halo). 강등(dot)은 도넛만 */
 function donut(size: number, ring: string): string {
-  const core = Math.max(4, Math.round(size * 0.32));
+  const core = Math.max(3, Math.round(size * 0.16));
   return [
     `width:${size}px;height:${size}px;border-radius:9999px;flex:none`,
     `background:radial-gradient(circle, #fff 0 ${core}px, ${ring} ${core}px 100%)`,
-    "border:1px solid #fff;box-shadow:0 1px 3px rgba(26,27,31,.25)",
+    "border:2px solid #fff;box-shadow:0 1px 4px rgba(26,27,31,.3)",
   ].join(";");
 }
+
+/* 시각 크기와 별개로 터치 타깃 44px 확보(명세 §1) — 투명 패딩 + 앵커 마진 보정 */
+const HIT_PAD = 10;
 
 function markerEl(marker: MapMarker, onTap: (id: string) => void): HTMLElement {
   const el = document.createElement("button");
@@ -27,8 +30,8 @@ function markerEl(marker: MapMarker, onTap: (id: string) => void): HTMLElement {
   const selected = marker.state === "selected";
   const visited = marker.state === "visited";
   const ring = visited ? "#c9cdd3" : "#e8442e";
-  const size = selected ? 20 : 14;
-  el.style.cssText = `display:flex;align-items:center;gap:4px;padding:0;border:0;background:none;cursor:pointer;margin-left:-${size / 2 + 1}px`;
+  const size = selected ? 26 : 20;
+  el.style.cssText = `display:flex;align-items:center;gap:5px;padding:${HIT_PAD}px;border:0;background:none;cursor:pointer;margin-left:-${HIT_PAD + size / 2 + 2}px`;
   const dot = document.createElement("span");
   dot.style.cssText = donut(size, ring);
   el.append(dot);
@@ -37,15 +40,15 @@ function markerEl(marker: MapMarker, onTap: (id: string) => void): HTMLElement {
   } else {
     const label = document.createElement("span");
     label.style.cssText = [
-      `font:${selected ? 800 : 700} 12px Pretendard,-apple-system,sans-serif`,
+      `font:${selected ? 800 : 700} 13px Pretendard,-apple-system,sans-serif`,
       `color:${visited ? "#9aa0a8" : selected ? "#e8442e" : "#1a1b1f"}`,
-      "text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 4px #fff,0 0 4px #fff",
+      "text-shadow:0 1px 2px #fff,0 -1px 2px #fff,1px 0 2px #fff,-1px 0 2px #fff,0 0 4px #fff,0 0 6px #fff",
       "white-space:nowrap",
     ].join(";");
     if (marker.isNew && !visited) {
       const badge = document.createElement("span");
       badge.textContent = "NEW ";
-      badge.style.cssText = "color:#e8442e;font:800 10px Pretendard,-apple-system,sans-serif";
+      badge.style.cssText = "color:#e8442e;font:800 11px Pretendard,-apple-system,sans-serif";
       label.append(badge);
     }
     label.append(document.createTextNode(marker.label));
