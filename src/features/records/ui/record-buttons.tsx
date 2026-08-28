@@ -21,7 +21,7 @@ export function RecordButtons({ shopId }: { shopId: string }) {
         )}
       >
         <Check className="size-4" />
-        먹었다
+        완식
       </button>
       <button
         type="button"

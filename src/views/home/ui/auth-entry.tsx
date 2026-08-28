@@ -42,8 +42,8 @@ export function AuthEntry() {
               <div className="flex flex-col gap-3 px-4 pb-6">
                 <p className="text-body text-gray-500">
                   {isSynced
-                    ? `지금까지 ${visitedCount}곳 먹었어요 — 기록은 계정에 자동 저장돼요.`
-                    : `지금까지 ${visitedCount}곳 먹었어요 — 서버 연결을 확인하는 중이에요.`}
+                    ? `지금까지 완식 ${visitedCount}곳 — 기록은 계정에 자동 저장돼요.`
+                    : `지금까지 완식 ${visitedCount}곳 — 서버 연결을 확인하는 중이에요.`}
                 </p>
                 <button
                   type="button"
@@ -66,7 +66,7 @@ export function AuthEntry() {
             ) : (
               <div className="flex flex-col gap-3 px-4 pb-6">
                 <p className="text-body text-gray-500">
-                  로그인하면 먹은 기록이 계정에 저장되고 기기를 바꿔도
+                  로그인하면 완식 기록이 계정에 저장되고 기기를 바꿔도
                   이어집니다.
                 </p>
                 {/* #FEE500은 카카오 브랜드 가이드 고정색 — 단일 유채색 원칙의 명시적 예외 */}

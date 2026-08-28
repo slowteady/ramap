@@ -12,7 +12,7 @@ export function useVisitAction(shopId: string) {
   /* 어뷰징 방지 — 서버 저장이 가능한 환경에선 로그인해야 기록 (좋아요 문법) */
   const requireAuth = useCallback(() => {
     if (getSupabase() === null || isAuthed) return true;
-    toast("로그인하면 먹은 기록이 저장돼요", {
+    toast("로그인하면 완식 기록이 저장돼요", {
       action: { label: "카카오 로그인", onClick: signInWithKakao },
     });
     return false;

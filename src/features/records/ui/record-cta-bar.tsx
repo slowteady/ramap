@@ -40,7 +40,7 @@ export function RecordCtaBar({ shopId }: { shopId: string }) {
           )}
         >
           <Check className="size-4.5" />
-          {visited ? "먹었다 ✓" : "먹었다"}
+          {visited ? "완식 ✓" : "완식"}
         </button>
       </div>
     </div>
