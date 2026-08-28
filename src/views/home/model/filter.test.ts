@@ -20,6 +20,9 @@ const pin = (id: string, over: Partial<ShopPin> = {}): ShopPin => ({
   areaLabel: "성수",
   status: "open",
   topMenu: null,
+  hours: null,
+  amenities: [],
+  isNew: false,
   ...over,
 });
 

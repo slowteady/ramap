@@ -33,6 +33,13 @@ function markerEl(marker: MapMarker, onTap: (id: string) => void): HTMLElement {
           ? "background:#f4f5f7;color:#9aa0a8"
           : "background:#fff;color:#1a1b1f",
     ].join(";");
+    if (marker.isNew) {
+      const badge = document.createElement("span");
+      badge.textContent = "NEW";
+      badge.style.cssText =
+        "margin-right:4px;font:800 9px Pretendard,-apple-system,sans-serif;color:#e8442e;letter-spacing:.02em";
+      el.append(badge);
+    }
     el.append(document.createTextNode(marker.label));
   }
   el.addEventListener("click", () => onTap(marker.id));
@@ -50,7 +57,7 @@ function clusterEl(cluster: MapClusterMarker, onTap: (id: string) => void): HTML
 }
 
 function markerSig(m: MapMarker): string {
-  return `${m.kind}|${m.state}|${m.label}`;
+  return `${m.kind}|${m.state}|${m.label}|${m.isNew}`;
 }
 
 export async function createKakaoAdapter(key: string | undefined): Promise<MapAdapter> {

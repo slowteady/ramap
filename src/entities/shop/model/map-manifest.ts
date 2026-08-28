@@ -1,4 +1,5 @@
 import type { FormSlug, LineageSlug, SoupSlug } from "./taxonomy";
+import { isNewOpen } from "./derive";
 import type { Menu, Shop, ShopStatus } from "./types";
 
 export type ShopPin = {
@@ -13,9 +14,12 @@ export type ShopPin = {
   areaLabel: string | null;
   status: ShopStatus;
   topMenu: Menu | null;
+  hours: string | null;
+  amenities: Shop["amenities"];
+  isNew: boolean;
 };
 
-export function toMapManifest(shops: Shop[]): ShopPin[] {
+export function toMapManifest(shops: Shop[], now = new Date()): ShopPin[] {
   const pins: ShopPin[] = [];
   for (const s of shops) {
     if (s.lat === null || s.lng === null || s.status === "closed") continue;
@@ -31,6 +35,9 @@ export function toMapManifest(shops: Shop[]): ShopPin[] {
       areaLabel: s.areaLabel,
       status: s.status,
       topMenu: s.menus[0] ?? null,
+      hours: s.hours,
+      amenities: s.amenities,
+      isNew: isNewOpen(s, now),
     });
   }
   return pins;

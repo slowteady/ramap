@@ -1,46 +1,32 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { useSearchParams } from "next/navigation";
 import { LocateFixed } from "lucide-react";
 import { toast } from "sonner";
 import type { ShopPin } from "@/entities/shop";
 import { useRecords } from "@/features/records";
 import { useMapFilters } from "../model/use-map-filters";
+import { useSelectedShop } from "../model/use-selected-shop";
 import { useShopMap } from "../model/use-shop-map";
 import type { FilterAxis } from "../model/filter-axes";
 import { FilterChips } from "./filter-chips";
 import { FilterSheet } from "./filter-sheet";
 import { MapFallback } from "./map-fallback";
 import { Onboarding } from "./onboarding";
-import { ShopPeekCard } from "./shop-peek-card";
+import { ShopSheet } from "./shop-sheet";
 
 export function ShopMap({ pins }: { pins: ShopPin[] }) {
   const { filters, apply } = useMapFilters();
-  const focusId = useSearchParams().get("focus");
+  const { selectedId, select, clear } = useSelectedShop();
   const { records } = useRecords();
   const visitedIds = useMemo(
     () =>
       new Set(records.filter((r) => r.status === "visited").map((r) => r.shopId)),
     [records],
   );
-  const {
-    containerRef,
-    status,
-    visiblePins,
-    selectedShop,
-    selectPin,
-    clearSelection,
-    locate,
-  } = useShopMap(pins, filters, focusId, visitedIds);
+  const { containerRef, status, visiblePins, listPins, selectedShop, panToPin, locate } =
+    useShopMap(pins, filters, selectedId, visitedIds, select, clear);
   const [sheetAxis, setSheetAxis] = useState<FilterAxis | null>(null);
-
-  const selectSibling = (offset: number) => {
-    if (!selectedShop) return;
-    const index = visiblePins.findIndex((p) => p.id === selectedShop.id);
-    const next = visiblePins[index + offset];
-    if (next) selectPin(next.id);
-  };
 
   return (
     <div className="flex min-h-0 flex-1 flex-col">
@@ -65,7 +51,7 @@ export function ShopMap({ pins }: { pins: ShopPin[] }) {
               onClick={() =>
                 locate(() => toast("위치 권한이 없어 현위치를 표시할 수 없어요"))
               }
-              className="absolute right-3 bottom-6 z-10 flex size-11 items-center justify-center rounded-pill bg-white text-ink shadow-[0_1px_5px_rgba(26,27,31,0.2)]"
+              className="absolute right-3 bottom-28 z-10 flex size-11 items-center justify-center rounded-pill bg-white text-ink shadow-[0_1px_5px_rgba(26,27,31,0.2)]"
             >
               <LocateFixed className="size-5" />
             </button>
@@ -79,12 +65,15 @@ export function ShopMap({ pins }: { pins: ShopPin[] }) {
         onApply={apply}
         onClose={() => setSheetAxis(null)}
       />
-      {selectedShop && (
-        <ShopPeekCard
-          shop={selectedShop}
-          onClose={clearSelection}
-          onPrev={() => selectSibling(-1)}
-          onNext={() => selectSibling(1)}
+      {status === "ready" && (
+        <ShopSheet
+          listPins={listPins}
+          selectedShop={selectedShop}
+          onSelectPin={(pin) => {
+            select(pin.id);
+            panToPin(pin);
+          }}
+          onClose={clear}
         />
       )}
     </div>

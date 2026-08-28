@@ -56,9 +56,23 @@ export function FilterSheet({ axis, pins, filters, onApply, onClose }: FilterShe
     <Drawer open onOpenChange={(open) => !open && onClose()}>
       <DrawerContent>
         <DrawerHeader className="text-left">
-          <DrawerTitle className="text-title font-bold text-ink">
-            {config.title}
-          </DrawerTitle>
+          <div className="flex items-baseline justify-between">
+            <div className="flex items-baseline gap-2">
+              <DrawerTitle className="text-title font-bold text-ink">
+                {config.sheetTitle}
+              </DrawerTitle>
+              <span className="text-caption text-gray-400">복수 선택 가능</span>
+            </div>
+            {selected.length > 0 && (
+              <button
+                type="button"
+                onClick={() => onApply({ ...filters, [config.filterKey]: [] })}
+                className="text-secondary text-gray-400 underline underline-offset-2"
+              >
+                초기화
+              </button>
+            )}
+          </div>
         </DrawerHeader>
         <div className="grid grid-cols-2 gap-2 px-4">
           {config.items.map((item) => {
@@ -105,7 +119,10 @@ export function FilterSheet({ axis, pins, filters, onApply, onClose }: FilterShe
             );
           })}
         </div>
-        <div className="p-4">
+        <p className="px-4 pt-3 text-caption text-gray-400">
+          0곳인 값은 선택할 수 없어요
+        </p>
+        <div className="p-4 pt-2">
           <DrawerClose
             className="w-full rounded-pill bg-ramen py-3 text-body font-bold text-white"
             onClick={onClose}

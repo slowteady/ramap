@@ -66,6 +66,9 @@ describe("toMapManifest", () => {
       areaLabel: "성수",
       status: "open",
       topMenu: { name: "니보시 소바", price: 11000 },
+      hours: null,
+      amenities: [],
+      isNew: false,
     });
   });
 });

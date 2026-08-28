@@ -22,10 +22,13 @@ export function useMapFilters() {
 
   const apply = useCallback(
     (next: MapFilters) => {
-      const qs = serializeFilters(next);
+      const params = new URLSearchParams(serializeFilters(next));
+      const shop = searchParams.get("shop");
+      if (shop) params.set("shop", shop);
+      const qs = params.toString();
       router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
     },
-    [router, pathname],
+    [router, pathname, searchParams],
   );
 
   const clear = useCallback(() => apply(EMPTY_FILTERS), [apply]);

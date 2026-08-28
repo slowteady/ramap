@@ -149,7 +149,7 @@ export function ShopDetailPage({ shop }: { shop: Shop }) {
       <section className="flex flex-col gap-2 px-4 pt-6">
         <h2 className="text-title font-bold text-ink">오시는 길</h2>
         <Link
-          href={`/?focus=${shop.id}`}
+          href={`/?shop=${shop.id}`}
           className="flex h-28 items-center justify-center rounded-card bg-gray-100 text-body font-semibold text-ink"
         >
           지도에서 보기

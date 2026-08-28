@@ -8,6 +8,7 @@ export type MapMarker = {
   label: string;
   kind: "pill" | "dot";
   state: MarkerState;
+  isNew: boolean;
 };
 
 export type LatLngBounds = { sw: LatLng; ne: LatLng };

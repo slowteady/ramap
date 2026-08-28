@@ -10,7 +10,13 @@ import {
 import { createKakaoAdapter } from "@/shared/map/kakao-adapter";
 import type { MapAdapter, MapView } from "@/shared/map/types";
 import { applyFilters, type MapFilters } from "./filter";
-import { expandBounds, planMarkers, withinBounds } from "./label-collision";
+import {
+  boundsCenter,
+  expandBounds,
+  planMarkers,
+  sortByDistance,
+  withinBounds,
+} from "./label-collision";
 import { toClusterMarkers } from "./markers";
 
 type MapStatus = "loading" | "ready" | "failed";
@@ -20,20 +26,36 @@ const BOUNDS_BUFFER_RATIO = 0.3;
 export function useShopMap(
   pins: ShopPin[],
   filters: MapFilters,
-  focusId: string | null = null,
-  visitedIds: ReadonlySet<string> = new Set(),
+  selectedId: string | null,
+  visitedIds: ReadonlySet<string>,
+  onSelect: (id: string) => void,
+  onClear: () => void,
 ) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const adapterRef = useRef<MapAdapter | null>(null);
   const [status, setStatus] = useState<MapStatus>("loading");
   const [view, setView] = useState<MapView | null>(null);
-  const [selectedId, setSelectedId] = useState<string | null>(null);
   const focusApplied = useRef(false);
+  const onSelectRef = useRef(onSelect);
+  const onClearRef = useRef(onClear);
+  onSelectRef.current = onSelect;
+  onClearRef.current = onClear;
 
   const visiblePins = useMemo(() => applyFilters(pins, filters), [pins, filters]);
   const selectedShop = useMemo(
     () => visiblePins.find((p) => p.id === selectedId) ?? null,
     [visiblePins, selectedId],
+  );
+  /* 시트 목록: 버퍼 없는 실제 화면 범위, 중심 가까운 순 */
+  const listPins = useMemo(
+    () =>
+      view
+        ? sortByDistance(
+            visiblePins.filter((p) => withinBounds(p, view.bounds)),
+            boundsCenter(view.bounds),
+          )
+        : visiblePins,
+    [view, visiblePins],
   );
 
   useEffect(() => {
@@ -46,15 +68,14 @@ export function useShopMap(
         if (cancelled) return;
         adapter.mount(el, MAP_DEFAULT_CENTER, MAP_DEFAULT_LEVEL);
         adapter.onViewportChange(setView);
-        adapter.onMapClick(() => setSelectedId(null));
+        adapter.onMapClick(() => onClearRef.current());
         adapterRef.current = adapter;
-        if (focusId && !focusApplied.current) {
-          const target = pins.find((p) => p.id === focusId);
+        if (selectedId && !focusApplied.current) {
+          const target = pins.find((p) => p.id === selectedId);
           if (target) {
             focusApplied.current = true;
             adapter.setLevel(CLUSTER_LEVEL_THRESHOLD - 1);
             adapter.panTo({ lat: target.lat, lng: target.lng });
-            setSelectedId(focusId);
           }
         }
         setStatus("ready");
@@ -90,13 +111,17 @@ export function useShopMap(
     adapter.render(
       planMarkers(inView, view.level, selectedId, visitedIds),
       [],
-      setSelectedId,
+      (id) => onSelectRef.current(id),
       () => {},
     );
   }, [status, view, visiblePins, selectedId, visitedIds]);
 
-  const selectPin = useCallback((id: string | null) => setSelectedId(id), []);
-  const clearSelection = useCallback(() => setSelectedId(null), []);
+  const panToPin = useCallback((pin: ShopPin) => {
+    const adapter = adapterRef.current;
+    if (!adapter) return;
+    adapter.setLevel(CLUSTER_LEVEL_THRESHOLD - 1);
+    adapter.panTo({ lat: pin.lat, lng: pin.lng });
+  }, []);
 
   const locate = useCallback((onDenied: () => void) => {
     if (!navigator.geolocation) {
@@ -120,9 +145,9 @@ export function useShopMap(
     containerRef,
     status,
     visiblePins,
+    listPins,
     selectedShop,
-    selectPin,
-    clearSelection,
+    panToPin,
     locate,
   };
 }

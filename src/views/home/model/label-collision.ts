@@ -1,5 +1,5 @@
 import type { ShopPin } from "@/entities/shop";
-import type { LatLngBounds, MapMarker } from "@/shared/map/types";
+import type { LatLng, LatLngBounds, MapMarker } from "@/shared/map/types";
 
 /* 카카오 레벨별 1px 근사 도(度) — level 1에서 1px≈0.25m, 위도 1도≈111,320m */
 const BASE_DEG_PER_PX = 0.25 / 111320;
@@ -55,6 +55,7 @@ export function planMarkers(
       pos: { lat: pin.lat, lng: pin.lng },
       label: pin.name,
       kind: pill ? "pill" : "dot",
+      isNew: pin.isNew,
       state:
         pin.id === selectedId
           ? "selected"
@@ -82,4 +83,20 @@ export function withinBounds(pin: ShopPin, bounds: LatLngBounds): boolean {
     pin.lng >= bounds.sw.lng &&
     pin.lng <= bounds.ne.lng
   );
+}
+
+export function sortByDistance(pins: ShopPin[], center: LatLng): ShopPin[] {
+  const dist = (p: ShopPin) => {
+    const dLat = p.lat - center.lat;
+    const dLng = (p.lng - center.lng) / LNG_SCALE;
+    return dLat * dLat + dLng * dLng;
+  };
+  return [...pins].sort((a, b) => dist(a) - dist(b));
+}
+
+export function boundsCenter(bounds: LatLngBounds): LatLng {
+  return {
+    lat: (bounds.sw.lat + bounds.ne.lat) / 2,
+    lng: (bounds.sw.lng + bounds.ne.lng) / 2,
+  };
 }

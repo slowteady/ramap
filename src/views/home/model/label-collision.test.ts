@@ -19,6 +19,9 @@ const pin = (id: string, lat: number, lng: number): ShopPin => ({
   areaLabel: "성수",
   status: "open",
   topMenu: null,
+  hours: null,
+  amenities: [],
+  isNew: false,
 });
 
 describe("planMarkers", () => {
