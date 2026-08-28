@@ -1,13 +1,13 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { Trash2, X } from "lucide-react";
 import type { ShopPin } from "@/entities/shop";
 import { cn } from "@/shared/lib/utils";
 import {
   Drawer,
   DrawerClose,
   DrawerContent,
-  DrawerHeader,
   DrawerTitle,
 } from "@/shared/ui/drawer";
 import {
@@ -37,7 +37,6 @@ const COUNTERS = {
 export function FilterSheet({ axis, pins, filters, onApply, onClose }: FilterSheetProps) {
   const [tab, setTab] = useState<FilterAxis>("form");
 
-  /* 어느 칩으로 열어도 통합 시트가 해당 탭으로 */
   useEffect(() => {
     if (axis) setTab(axis);
   }, [axis]);
@@ -48,8 +47,14 @@ export function FilterSheet({ axis, pins, filters, onApply, onClose }: FilterShe
     [config, pins, filters],
   );
   const resultCount = useMemo(() => applyFilters(pins, filters).length, [pins, filters]);
-  const totalSelected =
-    filters.soups.length + filters.forms.length + filters.lineages.length;
+
+  const applied = FILTER_AXES.flatMap((a) =>
+    (filters[a.filterKey] as string[]).map((slug) => ({
+      axis: a,
+      slug,
+      label: a.items.find((i) => i.slug === slug)?.label ?? slug,
+    })),
+  );
 
   if (!axis) return null;
   const selected = filters[config.filterKey] as string[];
@@ -61,42 +66,60 @@ export function FilterSheet({ axis, pins, filters, onApply, onClose }: FilterShe
     onApply({ ...filters, [config.filterKey]: next });
   };
 
+  const removeValue = (item: (typeof applied)[number]) => {
+    onApply({
+      ...filters,
+      [item.axis.filterKey]: (filters[item.axis.filterKey] as string[]).filter(
+        (s) => s !== item.slug,
+      ),
+    });
+  };
+
   return (
     <Drawer open onOpenChange={(open) => !open && onClose()}>
       <DrawerContent>
-        <DrawerHeader className="pb-2 text-left">
-          <div className="flex items-baseline gap-2">
-            <DrawerTitle className="text-title font-bold text-ink">필터</DrawerTitle>
-            <span className="text-caption text-gray-400">복수 선택 가능</span>
-          </div>
-        </DrawerHeader>
-
-        <div className="flex gap-5 border-b border-gray-100 px-4">
+        <div className="flex gap-5 border-b border-gray-100 px-4 pt-4">
           {FILTER_AXES.map((a) => {
             const active = a.axis === tab;
-            const count = (filters[a.filterKey] as string[]).length;
             return (
               <button
                 key={a.axis}
                 type="button"
                 onClick={() => setTab(a.axis)}
                 className={cn(
-                  "-mb-px flex items-center gap-1 border-b-2 pb-2.5 text-body",
+                  "-mb-px border-b-2 pb-2.5 text-body",
                   active
                     ? "border-ink font-bold text-ink"
                     : "border-transparent text-gray-400",
                 )}
               >
                 {a.title}
-                {count > 0 && (
-                  <span className="text-secondary font-bold text-ramen">{count}</span>
-                )}
               </button>
             );
           })}
         </div>
 
-        <div className="grid grid-cols-2 gap-2 px-4 pt-4">
+        <div className="flex items-baseline justify-between px-4 pt-4">
+          <DrawerTitle className="text-title font-bold text-ink">
+            {config.sheetTitle}
+          </DrawerTitle>
+          {selected.length > 0 && (
+            <button
+              type="button"
+              onClick={() => onApply({ ...filters, [config.filterKey]: [] })}
+              className="text-secondary text-gray-400"
+            >
+              초기화
+            </button>
+          )}
+        </div>
+
+        <div
+          className={cn(
+            "grid gap-2 px-4 pt-3",
+            config.axis === "lineage" ? "grid-cols-2" : "grid-cols-3",
+          )}
+        >
           {config.items.map((item) => {
             const isOn = selected.includes(item.slug);
             const count = counts[item.slug] ?? 0;
@@ -110,24 +133,14 @@ export function FilterSheet({ axis, pins, filters, onApply, onClose }: FilterShe
                 className={cn(
                   "flex flex-col gap-0.5 rounded-card border px-3 py-2.5 text-left",
                   isOn
-                    ? "border-ramen bg-ramen-100 text-ramen"
+                    ? "border-ramen bg-ramen-050 text-ramen"
                     : disabled
                       ? "border-gray-100 bg-white text-gray-300"
                       : "border-gray-100 bg-white text-ink",
                 )}
               >
-                <span className="flex items-baseline justify-between">
-                  <span className="text-body font-semibold">{item.label}</span>
-                  <span
-                    className={cn(
-                      "text-caption",
-                      isOn ? "text-ramen/70" : "text-gray-400",
-                    )}
-                  >
-                    {count}
-                  </span>
-                </span>
-                {item.description && (
+                <span className="text-body font-semibold">{item.label}</span>
+                {config.axis === "lineage" && item.description && (
                   <span
                     className={cn(
                       "text-caption",
@@ -142,15 +155,36 @@ export function FilterSheet({ axis, pins, filters, onApply, onClose }: FilterShe
           })}
         </div>
 
-        <div className="flex gap-2 p-4">
+        <div className="flex items-center gap-2 overflow-x-auto px-4 pt-4 [scrollbar-width:none]">
           <button
             type="button"
-            disabled={totalSelected === 0}
+            aria-label="전체 초기화"
+            disabled={applied.length === 0}
             onClick={() => onApply(EMPTY_FILTERS)}
-            className="shrink-0 rounded-card border border-gray-100 bg-white px-5 py-3 text-body font-semibold text-ink disabled:text-gray-300"
+            className="flex size-9 shrink-0 items-center justify-center rounded-card border border-gray-100 text-gray-500 disabled:text-gray-200"
           >
-            초기화
+            <Trash2 className="size-4" />
           </button>
+          {applied.map((item) => (
+            <button
+              key={`${item.axis.axis}:${item.slug}`}
+              type="button"
+              onClick={() => removeValue(item)}
+              className="flex shrink-0 items-center gap-1 rounded-card border border-ramen bg-ramen-050 px-2.5 py-1.5 text-secondary font-semibold text-ramen"
+            >
+              {item.label}
+              <X className="size-3.5" />
+            </button>
+          ))}
+        </div>
+
+        <div className="flex gap-2 p-4 pt-3">
+          <DrawerClose
+            className="shrink-0 rounded-card border border-gray-100 bg-white px-6 py-3 text-body font-semibold text-ink"
+            onClick={onClose}
+          >
+            닫기
+          </DrawerClose>
           <DrawerClose
             className="flex-1 rounded-card bg-ramen py-3 text-body font-bold text-white"
             onClick={onClose}

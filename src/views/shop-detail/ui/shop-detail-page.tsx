@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { ChevronLeft } from "lucide-react";
+import { ChevronLeft, Clock, Users } from "lucide-react";
 import {
+  AMENITIES,
   formBySlug,
   LINEAGES,
-  OpenStatusBadge,
   restaurantJsonLd,
   soupBySlug,
   type Shop,
@@ -20,37 +20,14 @@ function tagLine(shop: Shop): string {
   return labels.join(" · ");
 }
 
-function infoRows(shop: Shop): { label: string; value: React.ReactNode }[] {
-  const rows: { label: string; value: React.ReactNode }[] = [];
-  if (shop.amenities.includes("ticket-machine"))
-    rows.push({ label: "주문 방식", value: "식권기" });
-  if (shop.amenities.includes("kaedama"))
-    rows.push({ label: "카에다마", value: "가능" });
-  if (shop.waitingLink)
-    rows.push({
-      label: "웨이팅",
-      value: (
-        <a
-          href={shop.waitingLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="font-semibold text-ink underline underline-offset-2"
-        >
-          원격 줄서기
-        </a>
-      ),
-    });
-  else if (shop.amenities.includes("remote-waiting"))
-    rows.push({ label: "웨이팅", value: "원격 웨이팅 지원" });
-  if (shop.seats) rows.push({ label: "좌석", value: shop.seats });
-  if (shop.hours) rows.push({ label: "영업시간", value: shop.hours });
-  if (shop.breakTime) rows.push({ label: "브레이크", value: shop.breakTime });
-  if (shop.closedDays) rows.push({ label: "휴무", value: shop.closedDays });
-  return rows;
+function amenityChips(shop: Shop): string[] {
+  return shop.amenities.flatMap((a) => {
+    const label = AMENITIES.find((x) => x.slug === a)?.label;
+    return label ? [label] : [];
+  });
 }
 
 export function ShopDetailPage({ shop }: { shop: Shop }) {
-  const rows = infoRows(shop);
   const primarySoupLabel = soupBySlug(shop.primarySoup)?.label;
 
   return (
@@ -79,31 +56,56 @@ export function ShopDetailPage({ shop }: { shop: Shop }) {
           )}
         </div>
         <p className="text-secondary text-gray-400">{tagLine(shop)}</p>
-        <OpenStatusBadge
-          status={shop.status}
-          hours={shop.hours}
-          breakTime={shop.breakTime}
-          closedDays={shop.closedDays}
-        />
+        {shop.status === "paused" && (
+          <p className="text-secondary font-semibold text-gray-400">휴업 중</p>
+        )}
         {shop.tagline && <p className="text-body text-gray-500">{shop.tagline}</p>}
       </div>
 
-      {rows.length > 0 && (
-        <section className="flex flex-col gap-2 px-4 pt-6">
-          <h2 className="text-title font-bold text-ink">정보</h2>
-          <dl className="flex flex-col">
-            {rows.map((row) => (
-              <div
-                key={row.label}
-                className="flex items-baseline justify-between border-b border-gray-050 py-2.5"
+      <section className="flex flex-col gap-2.5 px-4 pt-5">
+        {(shop.hours || shop.breakTime || shop.closedDays) && (
+          <div className="flex items-center gap-2 text-body text-ink">
+            <Clock className="size-4 shrink-0 text-gray-400" />
+            <span>
+              {[
+                shop.hours,
+                shop.breakTime && `브레이크 ${shop.breakTime}`,
+                shop.closedDays && `${shop.closedDays} 휴무`,
+              ]
+                .filter(Boolean)
+                .join(" · ")}
+            </span>
+          </div>
+        )}
+        {shop.seats && (
+          <div className="flex items-center gap-2 text-body text-ink">
+            <Users className="size-4 shrink-0 text-gray-400" />
+            <span>{shop.seats}</span>
+          </div>
+        )}
+        {(amenityChips(shop).length > 0 || shop.waitingLink) && (
+          <div className="flex flex-wrap gap-1.5 pt-1">
+            {amenityChips(shop).map((label) => (
+              <span
+                key={label}
+                className="rounded-card border border-gray-100 px-2.5 py-1 text-caption font-semibold text-gray-500"
               >
-                <dt className="text-secondary text-gray-400">{row.label}</dt>
-                <dd className="text-body text-ink">{row.value}</dd>
-              </div>
+                {label}
+              </span>
             ))}
-          </dl>
-        </section>
-      )}
+            {shop.waitingLink && (
+              <a
+                href={shop.waitingLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-card border border-gray-100 px-2.5 py-1 text-caption font-semibold text-ink underline underline-offset-2"
+              >
+                원격 줄서기
+              </a>
+            )}
+          </div>
+        )}
+      </section>
 
       {shop.menus.length > 0 && (
         <section className="flex flex-col gap-2 px-4 pt-6">
