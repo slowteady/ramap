@@ -31,11 +31,7 @@ export function ShopMap({ pins }: { pins: ShopPin[] }) {
   return (
     <div className="flex min-h-0 flex-1 flex-col">
       <Onboarding pins={pins} />
-      <FilterChips
-        filters={filters}
-        onOpenAxis={setSheetAxis}
-        onToggleNew={() => apply({ ...filters, newOnly: !filters.newOnly })}
-      />
+      <FilterChips filters={filters} onOpenAxis={setSheetAxis} />
       {status === "failed" ? (
         <div className="min-h-0 flex-1 overflow-y-auto">
           <MapFallback pins={visiblePins} />

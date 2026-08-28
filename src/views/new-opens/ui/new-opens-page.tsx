@@ -40,7 +40,7 @@ export function NewOpensPage({ shops }: { shops: Shop[] }) {
         >
           라맵
         </Link>
-        <Link href="/?new=1" className="text-secondary font-semibold text-ink">
+        <Link href="/" className="text-secondary font-semibold text-ink">
           지도로 보기
         </Link>
       </header>
