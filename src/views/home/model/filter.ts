@@ -12,9 +12,15 @@ export type MapFilters = {
   soups: SoupSlug[];
   forms: FormSlug[];
   lineages: LineageSlug[];
+  newOnly: boolean;
 };
 
-export const EMPTY_FILTERS: MapFilters = { soups: [], forms: [], lineages: [] };
+export const EMPTY_FILTERS: MapFilters = {
+  soups: [],
+  forms: [],
+  lineages: [],
+  newOnly: false,
+};
 
 const VALID = {
   soup: new Set(SOUPS.map((s) => s.slug)),
@@ -35,6 +41,7 @@ export function parseFilters(params: URLSearchParams): MapFilters {
     soups: parseAxis<SoupSlug>(params.get("soup"), VALID.soup),
     forms: parseAxis<FormSlug>(params.get("form"), VALID.form),
     lineages: parseAxis<LineageSlug>(params.get("lineage"), VALID.lineage),
+    newOnly: params.get("new") === "1",
   };
 }
 
@@ -43,6 +50,7 @@ export function serializeFilters(f: MapFilters): string {
   if (f.soups.length) params.set("soup", [...f.soups].sort().join(","));
   if (f.forms.length) params.set("form", [...f.forms].sort().join(","));
   if (f.lineages.length) params.set("lineage", [...f.lineages].sort().join(","));
+  if (f.newOnly) params.set("new", "1");
   return params.toString();
 }
 
@@ -50,6 +58,7 @@ function matches(pin: ShopPin, f: MapFilters): boolean {
   if (f.soups.length && !f.soups.some((s) => pin.soups.includes(s))) return false;
   if (f.forms.length && !f.forms.some((s) => pin.forms.includes(s))) return false;
   if (f.lineages.length && !f.lineages.some((s) => pin.lineages.includes(s))) return false;
+  if (f.newOnly && !pin.isNew) return false;
   return true;
 }
 
@@ -58,7 +67,7 @@ export function applyFilters(pins: ShopPin[], f: MapFilters): ShopPin[] {
 }
 
 export function isActive(f: MapFilters): boolean {
-  return f.soups.length + f.forms.length + f.lineages.length > 0;
+  return f.soups.length + f.forms.length + f.lineages.length > 0 || f.newOnly;
 }
 
 export function countBySoup(pins: ShopPin[], f: MapFilters): Record<SoupSlug, number> {

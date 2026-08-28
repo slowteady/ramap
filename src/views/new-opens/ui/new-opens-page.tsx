@@ -34,25 +34,14 @@ export function NewOpensPage({ shops }: { shops: Shop[] }) {
   return (
     <div className="flex min-h-dvh flex-col pb-10">
       <header className="flex items-center justify-between px-4 py-3">
-        <div className="flex items-baseline gap-4">
-          <Link
-            href="/"
-            className="text-heading font-extrabold tracking-tight text-ink"
-          >
-            라맵
-          </Link>
-          <nav className="flex gap-3 text-body font-semibold">
-            <Link href="/" className="text-gray-300">
-              지도
-            </Link>
-            <span className="text-ink">신규 오픈</span>
-          </nav>
-        </div>
         <Link
-          href="/report"
-          className="rounded-pill bg-ramen px-3.5 py-1.5 text-secondary font-bold text-white"
+          href="/"
+          className="text-heading font-extrabold tracking-tight text-ink"
         >
-          제보하기
+          라맵
+        </Link>
+        <Link href="/?new=1" className="text-secondary font-semibold text-ink">
+          지도로 보기
         </Link>
       </header>
 

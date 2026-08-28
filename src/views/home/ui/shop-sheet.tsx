@@ -189,6 +189,14 @@ export function ShopSheet({ listPins, selectedShop, onSelectPin, onClose }: Shop
                   풀어보세요.
                 </li>
               )}
+              <li className="py-3">
+                <Link
+                  href="/new"
+                  className="text-secondary font-semibold text-ink underline underline-offset-2"
+                >
+                  신규 오픈 전체 보기 →
+                </Link>
+              </li>
             </ul>
           </div>
         )}

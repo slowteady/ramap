@@ -12,17 +12,9 @@ export async function HomePage() {
   return (
     <div className="flex h-dvh flex-col overflow-hidden">
       <header className="flex shrink-0 items-center justify-between px-4 py-3">
-        <div className="flex items-baseline gap-4">
-          <span className="text-heading font-extrabold tracking-tight text-ink">
-            라맵
-          </span>
-          <nav className="flex gap-3 text-body font-semibold">
-            <span className="text-ink">지도</span>
-            <Link href="/new" className="text-gray-300">
-              신규 오픈
-            </Link>
-          </nav>
-        </div>
+        <span className="text-heading font-extrabold tracking-tight text-ink">
+          라맵
+        </span>
         <div className="flex items-center gap-2">
           <AuthEntry />
           <Link

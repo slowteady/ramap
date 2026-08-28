@@ -12,7 +12,7 @@ export const FILTER_AXES: {
   axis: FilterAxis;
   title: string;
   sheetTitle: string;
-  filterKey: keyof MapFilters;
+  filterKey: "soups" | "forms" | "lineages";
   items: readonly TaxonomyItem[];
 }[] = [
   { axis: "form", title: "형태", sheetTitle: "형태", filterKey: "forms", items: FORMS },

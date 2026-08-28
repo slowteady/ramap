@@ -41,6 +41,20 @@ describe("parse/serialize", () => {
   });
 });
 
+describe("newOnly", () => {
+  it("new=1을 파싱·직렬화한다", () => {
+    const f = parseFilters(new URLSearchParams("new=1"));
+    expect(f.newOnly).toBe(true);
+    expect(serializeFilters(f)).toBe("new=1");
+  });
+
+  it("newOnly면 isNew 핀만 통과한다", () => {
+    const pins = [pin("a", { isNew: true }), pin("b")];
+    const result = applyFilters(pins, { ...EMPTY_FILTERS, newOnly: true });
+    expect(result.map((p) => p.id)).toEqual(["a"]);
+  });
+});
+
 describe("applyFilters", () => {
   const pins = [
     pin("a", { soups: ["niboshi"], forms: ["ramen"] }),
