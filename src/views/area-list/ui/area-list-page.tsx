@@ -99,7 +99,7 @@ export function AreaListPage({
         <h1 className="text-heading font-extrabold text-ink">{h1}</h1>
         <p className="text-secondary text-gray-500">
           {genreLabel
-            ? `${area}에서 ${genreLabel} 국물을 내는 집만 모았습니다.`
+            ? `${area}에서 ${genreLabel}을 내는 집만 모았습니다.`
             : `${area}의 라멘집을 한 곳에 모았습니다.`}
         </p>
       </div>

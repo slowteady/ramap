@@ -86,12 +86,12 @@ export function FilterSheet({ axis, pins, filters, onApply, onClose }: FilterShe
                 disabled={disabled}
                 onClick={() => toggle(item.slug)}
                 className={cn(
-                  "flex flex-col gap-0.5 rounded-card px-3 py-2.5 text-left",
+                  "flex flex-col gap-0.5 rounded-card border px-3 py-2.5 text-left",
                   isOn
-                    ? "bg-ink text-white"
+                    ? "border-ramen bg-ramen-100 text-ramen"
                     : disabled
-                      ? "bg-gray-050 text-gray-300"
-                      : "bg-gray-050 text-ink",
+                      ? "border-gray-100 bg-white text-gray-300"
+                      : "border-gray-100 bg-white text-ink",
                 )}
               >
                 <span className="flex items-baseline justify-between">
@@ -99,7 +99,7 @@ export function FilterSheet({ axis, pins, filters, onApply, onClose }: FilterShe
                   <span
                     className={cn(
                       "text-caption",
-                      isOn ? "text-white/70" : "text-gray-400",
+                      isOn ? "text-ramen/70" : "text-gray-400",
                     )}
                   >
                     {count}
@@ -109,7 +109,7 @@ export function FilterSheet({ axis, pins, filters, onApply, onClose }: FilterShe
                   <span
                     className={cn(
                       "text-caption",
-                      isOn ? "text-white/70" : "text-gray-400",
+                      isOn ? "text-ramen/70" : "text-gray-400",
                     )}
                   >
                     {item.description}

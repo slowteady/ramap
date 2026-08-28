@@ -15,12 +15,12 @@ export const FILTER_AXES: {
   filterKey: "soups" | "forms" | "lineages";
   items: readonly TaxonomyItem[];
 }[] = [
-  { axis: "form", title: "형태", sheetTitle: "형태", filterKey: "forms", items: FORMS },
-  { axis: "soup", title: "스프", sheetTitle: "스프 계열", filterKey: "soups", items: SOUPS },
+  { axis: "form", title: "종류", sheetTitle: "종류", filterKey: "forms", items: FORMS },
+  { axis: "soup", title: "국물", sheetTitle: "국물", filterKey: "soups", items: SOUPS },
   {
     axis: "lineage",
-    title: "계보",
-    sheetTitle: "계보",
+    title: "스타일",
+    sheetTitle: "스타일",
     filterKey: "lineages",
     items: LINEAGES,
   },

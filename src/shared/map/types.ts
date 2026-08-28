@@ -47,6 +47,7 @@ declare global {
         CustomOverlay: new (opts: {
           position: unknown;
           content: HTMLElement;
+          xAnchor?: number;
           yAnchor?: number;
           clickable?: boolean;
         }) => KakaoOverlay;

@@ -43,7 +43,7 @@ function ListRow({ pin, onTap }: { pin: ShopPin; onTap: () => void }) {
           {pin.isNew && (
             <span className="text-caption font-extrabold text-ramen">NEW</span>
           )}
-          <span className="truncate text-body font-semibold text-ink">
+          <span className="truncate text-body font-bold text-ink">
             {pin.name}
           </span>
         </span>

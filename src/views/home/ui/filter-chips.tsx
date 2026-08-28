@@ -20,10 +20,10 @@ export function FilterChips({ filters, onOpenAxis }: FilterChipsProps) {
             type="button"
             onClick={() => onOpenAxis(axis.axis)}
             className={cn(
-              "shrink-0 rounded-pill px-3.5 py-1.5 text-secondary font-semibold whitespace-nowrap",
+              "shrink-0 rounded-pill border px-3.5 py-1.5 text-secondary font-semibold whitespace-nowrap",
               active
-                ? "bg-ink text-white"
-                : "border border-gray-100 bg-white text-ink shadow-[0_1px_4px_rgba(26,27,31,0.06)]",
+                ? "border-ramen bg-ramen-050 text-ramen"
+                : "border-gray-100 bg-white text-ink shadow-[0_1px_4px_rgba(26,27,31,0.06)]",
             )}
           >
             {axisChipLabel(axis, filters)}

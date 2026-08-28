@@ -1,0 +1,43 @@
+"use client";
+
+import { Bookmark, Check } from "lucide-react";
+import { cn } from "@/shared/lib/utils";
+import { useVisitAction } from "../model/use-visit-action";
+
+/* 상세 하단 고정 CTA — 보조 아이콘 + 주 버튼 1개 (캐치테이블 문법) */
+export function RecordCtaBar({ shopId }: { shopId: string }) {
+  const { get, visit, markWant, remove } = useVisitAction(shopId);
+  const record = get(shopId);
+  const visited = record?.status === "visited";
+  const want = record?.status === "want";
+
+  return (
+    <div className="fixed inset-x-0 bottom-0 z-40 mx-auto w-full max-w-app border-t border-gray-100 bg-white px-4 py-3">
+      <div className="flex items-center gap-3">
+        <button
+          type="button"
+          aria-label="가고싶다"
+          disabled={visited}
+          onClick={() => (want ? remove(shopId) : markWant(shopId))}
+          className={cn(
+            "flex size-12 shrink-0 items-center justify-center rounded-card border",
+            want
+              ? "border-ramen bg-ramen-050 text-ramen"
+              : "border-gray-100 bg-white text-gray-500",
+            visited && "opacity-40",
+          )}
+        >
+          <Bookmark className="size-5" />
+        </button>
+        <button
+          type="button"
+          onClick={visit}
+          className="flex h-12 flex-1 items-center justify-center gap-1.5 rounded-card bg-ramen text-body font-bold text-white"
+        >
+          <Check className="size-4.5" />
+          {visited && record ? `완식 기록 · ${record.count}` : "완식 기록하기"}
+        </button>
+      </div>
+    </div>
+  );
+}

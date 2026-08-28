@@ -11,6 +11,8 @@ body {
 @theme {
   --container-app: 480px; /* 모바일 퍼스트 셸 최대 폭 — 시트·오버레이 포함 전 화면 공통 */
   --color-ramen: #e8442e; /* 유일한 유채색 */
+  --color-ramen-050: #fdf1ef; /* 활성 칩 틴트 배경 (캐치테이블 5% 공식) */
+  --color-ramen-100: #fbe0da; /* 선택 칩 틴트 배경 */
   --color-ink: #1a1b1f; /* 순흑 금지 */
   --color-gray-500: #3d4048;
   --color-gray-400: #6b6e76;

@@ -11,39 +11,45 @@ import type {
 
 const VIEWPORT_DEBOUNCE_MS = 150;
 
+/* 캐치테이블 문법: 도넛(레드 링+흰 심) + 이름 라벨(흰 halo). 강등(dot)은 도넛만 */
+function donut(size: number, ring: string): string {
+  const core = Math.max(4, Math.round(size * 0.32));
+  return [
+    `width:${size}px;height:${size}px;border-radius:9999px;flex:none`,
+    `background:radial-gradient(circle, #fff 0 ${core}px, ${ring} ${core}px 100%)`,
+    "border:1px solid #fff;box-shadow:0 1px 3px rgba(26,27,31,.25)",
+  ].join(";");
+}
+
 function markerEl(marker: MapMarker, onTap: (id: string) => void): HTMLElement {
   const el = document.createElement("button");
   el.type = "button";
   const selected = marker.state === "selected";
   const visited = marker.state === "visited";
-  if (marker.kind === "dot") {
+  const ring = visited ? "#c9cdd3" : "#e8442e";
+  const size = selected ? 20 : 14;
+  el.style.cssText = `display:flex;align-items:center;gap:4px;padding:0;border:0;background:none;cursor:pointer;margin-left:-${size / 2 + 1}px`;
+  const dot = document.createElement("span");
+  dot.style.cssText = donut(size, ring);
+  el.append(dot);
+  if (marker.kind === "dot" && !selected) {
     el.setAttribute("aria-label", marker.label);
-    el.style.cssText = [
-      "width:12px;height:12px;border-radius:9999px;border:2px solid #fff;cursor:pointer;padding:0",
-      "box-shadow:0 1px 4px rgba(26,27,31,.25)",
-      `background:${visited ? "#c9cdd3" : marker.isNew ? "#e8442e" : "#1a1b1f"}`,
-    ].join(";");
   } else {
-    const fresh = marker.isNew && !selected && !visited;
-    el.style.cssText = [
-      "display:flex;align-items:center;padding:6px 10px;border-radius:9999px;border:0;cursor:pointer",
-      "font:700 12px Pretendard,-apple-system,sans-serif;box-shadow:0 1px 5px rgba(26,27,31,.18)",
-      selected
-        ? "background:#1a1b1f;color:#fff"
-        : visited
-          ? "background:#f4f5f7;color:#9aa0a8"
-          : fresh
-            ? "background:#e8442e;color:#fff"
-            : "background:#fff;color:#1a1b1f",
+    const label = document.createElement("span");
+    label.style.cssText = [
+      `font:${selected ? 800 : 700} 12px Pretendard,-apple-system,sans-serif`,
+      `color:${visited ? "#9aa0a8" : selected ? "#e8442e" : "#1a1b1f"}`,
+      "text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 4px #fff,0 0 4px #fff",
+      "white-space:nowrap",
     ].join(";");
-    if (fresh) {
+    if (marker.isNew && !visited) {
       const badge = document.createElement("span");
-      badge.textContent = "NEW";
-      badge.style.cssText =
-        "margin-right:4px;font:800 9px Pretendard,-apple-system,sans-serif;color:#fff;opacity:.85;letter-spacing:.02em";
-      el.append(badge);
+      badge.textContent = "NEW ";
+      badge.style.cssText = "color:#e8442e;font:800 10px Pretendard,-apple-system,sans-serif";
+      label.append(badge);
     }
-    el.append(document.createTextNode(marker.label));
+    label.append(document.createTextNode(marker.label));
+    el.append(label);
   }
   el.addEventListener("click", () => onTap(marker.id));
   return el;
@@ -52,9 +58,16 @@ function markerEl(marker: MapMarker, onTap: (id: string) => void): HTMLElement {
 function clusterEl(cluster: MapClusterMarker, onTap: (id: string) => void): HTMLElement {
   const el = document.createElement("button");
   el.type = "button";
-  el.textContent = cluster.label;
   el.style.cssText =
-    "padding:7px 12px;border-radius:9999px;border:0;cursor:pointer;background:#3d4048;color:#fff;font:700 12px Pretendard,-apple-system,sans-serif;box-shadow:0 1px 5px rgba(26,27,31,.2)";
+    "display:flex;align-items:center;gap:4px;padding:6px 11px;border-radius:9999px;border:2px solid #e8442e;cursor:pointer;background:#fff;font:700 12px Pretendard,-apple-system,sans-serif;color:#1a1b1f;box-shadow:0 1px 4px rgba(26,27,31,.15)";
+  const [name, count] = [cluster.label.replace(/ \d+$/, ""), cluster.label.match(/\d+$/)?.[0]];
+  el.append(document.createTextNode(name));
+  if (count) {
+    const n = document.createElement("span");
+    n.textContent = count;
+    n.style.cssText = "color:#e8442e";
+    el.append(n);
+  }
   el.addEventListener("click", () => onTap(cluster.id));
   return el;
 }
@@ -71,11 +84,16 @@ export async function createKakaoAdapter(key: string | undefined): Promise<MapAd
   let userOverlay: KakaoOverlay | null = null;
   let viewportTimer: ReturnType<typeof setTimeout> | null = null;
 
-  const makeOverlay = (pos: LatLng, content: HTMLElement): KakaoOverlay => {
+  const makeOverlay = (
+    pos: LatLng,
+    content: HTMLElement,
+    anchor: { x: number; y: number },
+  ): KakaoOverlay => {
     const overlay = new window.kakao.maps.CustomOverlay({
       position: new window.kakao.maps.LatLng(pos.lat, pos.lng),
       content,
-      yAnchor: 1.1,
+      xAnchor: anchor.x,
+      yAnchor: anchor.y,
       clickable: true,
     });
     if (map) overlay.setMap(map);
@@ -118,13 +136,20 @@ export async function createKakaoAdapter(key: string | undefined): Promise<MapAd
     render(markers, clusters, onMarkerTap, onClusterTap) {
       const next = new Map<
         string,
-        { pos: LatLng; el: () => HTMLElement; sig: string }
+        {
+          pos: LatLng;
+          el: () => HTMLElement;
+          sig: string;
+          anchor: { x: number; y: number };
+        }
       >();
+      /* 도넛 중심이 좌표에 앉도록 — 도넛 폭만큼 왼쪽 여백 앵커 보정은 content margin으로 */
       for (const m of markers) {
         next.set(`m:${m.id}`, {
           pos: m.pos,
           el: () => markerEl(m, onMarkerTap),
           sig: markerSig(m),
+          anchor: { x: 0, y: 0.5 },
         });
       }
       for (const c of clusters) {
@@ -132,6 +157,7 @@ export async function createKakaoAdapter(key: string | undefined): Promise<MapAd
           pos: c.pos,
           el: () => clusterEl(c, onClusterTap),
           sig: `cluster|${c.label}`,
+          anchor: { x: 0.5, y: 0.5 },
         });
       }
 
@@ -145,7 +171,7 @@ export async function createKakaoAdapter(key: string | undefined): Promise<MapAd
         const cached = cache.get(key);
         if (!cached) {
           cache.set(key, {
-            overlay: makeOverlay(item.pos, item.el()),
+            overlay: makeOverlay(item.pos, item.el(), item.anchor),
             sig: item.sig,
           });
         } else if (cached.sig !== item.sig) {

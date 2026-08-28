@@ -31,7 +31,7 @@ export function GenreGuidePage({ guide, shops }: GenreGuidePageProps) {
           라맵
         </Link>
         <span className="text-secondary text-gray-400">
-          {isSoup ? "스프 계열 가이드" : "계보 가이드"}
+          {isSoup ? "국물 가이드" : "스타일 가이드"}
         </span>
       </header>
 

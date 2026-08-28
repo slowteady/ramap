@@ -8,7 +8,7 @@ import {
   soupBySlug,
   type Shop,
 } from "@/entities/shop";
-import { RecordButtons } from "@/features/records";
+import { RecordCtaBar } from "@/features/records";
 
 function tagLine(shop: Shop): string {
   const labels = [
@@ -54,7 +54,7 @@ export function ShopDetailPage({ shop }: { shop: Shop }) {
   const primarySoupLabel = soupBySlug(shop.primarySoup)?.label;
 
   return (
-    <div className="flex min-h-dvh flex-col pb-10">
+    <div className="flex min-h-dvh flex-col pb-24">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(restaurantJsonLd(shop)) }}
@@ -86,9 +86,6 @@ export function ShopDetailPage({ shop }: { shop: Shop }) {
           closedDays={shop.closedDays}
         />
         {shop.tagline && <p className="text-body text-gray-500">{shop.tagline}</p>}
-        <div className="pt-2">
-          <RecordButtons shopId={shop.id} />
-        </div>
       </div>
 
       {rows.length > 0 && (
@@ -169,6 +166,7 @@ export function ShopDetailPage({ shop }: { shop: Shop }) {
           정보가 다른가요? 수정 제안하기
         </Link>
       </div>
+      <RecordCtaBar shopId={shop.id} />
     </div>
   );
 }
