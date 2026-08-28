@@ -37,7 +37,7 @@ export function RecordButtons({ shopId }: { shopId: string }) {
         <Bookmark className="size-4" />
         저장
       </button>
-      <LoginPromptSheet open={authPrompt} onClose={closeAuthPrompt} />
+      <LoginPromptSheet action={authPrompt} onClose={closeAuthPrompt} />
     </div>
   );
 }

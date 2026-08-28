@@ -44,7 +44,7 @@ export function RecordCtaBar({ shopId }: { shopId: string }) {
           {visited ? "완식 ✓" : "완식"}
         </button>
       </div>
-      <LoginPromptSheet open={authPrompt} onClose={closeAuthPrompt} />
+      <LoginPromptSheet action={authPrompt} onClose={closeAuthPrompt} />
     </div>
   );
 }
