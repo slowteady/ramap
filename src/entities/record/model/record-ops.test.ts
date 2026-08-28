@@ -31,13 +31,13 @@ describe("visitedNext", () => {
     });
   });
 
-  it("visited는 count를 올리고 firstAt을 보존한다", () => {
+  it("재클릭해도 count는 1로 고정되고 firstAt을 보존한다", () => {
     const next = visitedNext(
       record({ count: 2, firstAt: "2026-01-01T00:00:00.000Z" }),
       "kinka",
       new Date("2026-08-27"),
     );
-    expect(next.count).toBe(3);
+    expect(next.count).toBe(1);
     expect(next.firstAt).toBe("2026-01-01T00:00:00.000Z");
     expect(next.lastAt).toBe("2026-08-27T00:00:00.000Z");
   });

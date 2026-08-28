@@ -27,6 +27,7 @@ body {
   --radius-card-lg: 12px;
   --radius-pill: 9999px;
   --radius-chip: 5px;
+  --spacing-sheet-card: 260px;
 
   --font-sans:
     "Pretendard Variable", Pretendard, -apple-system, "Apple SD Gothic Neo",

@@ -5,7 +5,7 @@ import { cn } from "@/shared/lib/utils";
 import { useVisitAction } from "../model/use-visit-action";
 
 export function RecordButtons({ shopId }: { shopId: string }) {
-  const { get, visit, markWant, remove } = useVisitAction(shopId);
+  const { get, visit, save } = useVisitAction(shopId);
   const record = get(shopId);
   const visited = record?.status === "visited";
   const want = record?.status === "want";
@@ -21,11 +21,11 @@ export function RecordButtons({ shopId }: { shopId: string }) {
         )}
       >
         <Check className="size-4" />
-        {visited && record ? `완식 ${record.count}` : "완식"}
+        먹었다
       </button>
       <button
         type="button"
-        onClick={() => (want ? remove(shopId) : markWant(shopId))}
+        onClick={save}
         disabled={visited}
         className={cn(
           "flex items-center gap-1.5 rounded-pill px-3.5 py-2 text-secondary font-bold",
@@ -34,7 +34,7 @@ export function RecordButtons({ shopId }: { shopId: string }) {
         )}
       >
         <Bookmark className="size-4" />
-        가고싶다
+        저장
       </button>
     </div>
   );

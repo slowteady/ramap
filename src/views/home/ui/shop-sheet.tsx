@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { X } from "lucide-react";
+import { ChevronLeft } from "lucide-react";
 import {
   AMENITIES,
   GenreChips,
@@ -85,19 +85,19 @@ function ShopCardBody({ shop, onClose }: { shop: ShopPin; onClose: () => void })
   ];
 
   return (
-    <div className="flex flex-col gap-1.5">
-      <div className="flex items-start justify-between gap-2">
-        <DrawerTitle className="min-w-0 truncate text-title font-bold text-ink">
-          {shop.name}
-        </DrawerTitle>
+    <div className="flex h-full flex-col gap-1.5">
+      <div className="flex items-center gap-1">
         <button
           type="button"
           onClick={onClose}
           aria-label="목록으로"
-          className="shrink-0 rounded-pill p-1.5 text-gray-400"
+          className="-ml-1.5 shrink-0 rounded-pill p-1 text-ink"
         >
-          <X className="size-5" />
+          <ChevronLeft className="size-5" />
         </button>
+        <DrawerTitle className="min-w-0 truncate text-title font-bold text-ink">
+          {shop.name}
+        </DrawerTitle>
       </div>
       {(shop.areaLabel || hasStatusText(shop)) && (
         <span className="flex min-w-0 items-baseline gap-1.5">
@@ -143,7 +143,7 @@ function ShopCardBody({ shop, onClose }: { shop: ShopPin; onClose: () => void })
           )}
         </div>
       )}
-      <div className="mt-3 flex items-center gap-2">
+      <div className="mt-auto flex items-center gap-2 pt-3">
         <RecordButtons shopId={shop.id} />
         <Link
           href={`/shop/${shop.id}`}
@@ -181,7 +181,8 @@ export function ShopSheet({ listPins, selectedShop, onSelectPin, onClose }: Shop
         className="h-dvh border-t-0 shadow-[0_-2px_12px_rgba(26,27,31,0.1)] data-[vaul-drawer-direction=bottom]:mt-0 data-[vaul-drawer-direction=bottom]:max-h-none"
       >
         {selectedShop ? (
-          <div className="px-4 pt-2 pb-6">
+          /* h-sheet-card = SNAP_CARD 280px − 핸들 영역 20px — 액션 행이 시트 바닥에 붙도록 */
+          <div className="h-sheet-card px-4 pt-2 pb-4">
             <ShopCardBody shop={selectedShop} onClose={onClose} />
           </div>
         ) : (

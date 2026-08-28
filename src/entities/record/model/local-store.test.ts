@@ -23,10 +23,10 @@ describe("RecordStore(localStorage)", () => {
     store = createLocalRecordStore(mem());
   });
 
-  it("완식 1杯 = 1회, 재방문은 count 증가", () => {
+  it("먹었다는 토글 — 재클릭해도 count 1, 날짜는 최신화", () => {
     store.markVisited("kinka", new Date("2026-08-26"));
     const r = store.markVisited("kinka", new Date("2026-08-27"));
-    expect(r.count).toBe(2);
+    expect(r.count).toBe(1);
     expect(r.firstAt).toContain("2026-08-26");
     expect(r.lastAt).toContain("2026-08-27");
   });
@@ -49,10 +49,9 @@ describe("RecordStore(localStorage)", () => {
     expect(createLocalRecordStore(storage).get("kinka")?.count).toBe(1);
   });
 
-  it("export→import 왕복 보존, 병합은 count 큰 쪽", () => {
+  it("export→import 왕복 보존, 병합은 count 큰 쪽(구 데이터 호환)", () => {
     store.markVisited("kinka");
-    store.markVisited("kinka");
-    const json = store.exportJson();
+    const json = store.exportJson().replace('"count":1', '"count":2');
     const other = createLocalRecordStore(mem());
     other.markVisited("kinka");
     expect(other.importJson(json).imported).toBe(1);

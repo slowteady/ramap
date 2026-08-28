@@ -17,7 +17,7 @@ describe("createSyncedRecordStore", () => {
     store.markVisited("kinka");
     store.markWant("menya");
     store.remove("menya");
-    expect(store.get("kinka")?.count).toBe(2);
+    expect(store.get("kinka")?.count).toBe(1);
     expect(sink.upsert).toHaveBeenCalledTimes(3);
     expect(sink.remove).toHaveBeenCalledWith("menya");
   });
