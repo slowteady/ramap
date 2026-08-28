@@ -27,18 +27,35 @@ type ShopSheetProps = {
   onClose: () => void;
 };
 
-function tagLabels(shop: ShopPin): string {
+function tagLabels(shop: ShopPin): string[] {
   return [
     ...shop.soups.map((s) => soupBySlug(s)?.label ?? s),
     ...shop.forms.filter((f) => f !== "ramen").map((f) => formBySlug(f)?.label ?? f),
     ...shop.lineages.map((l) => LINEAGES.find((x) => x.slug === l)?.label ?? l),
-  ].join(" · ");
+  ];
+}
+
+function TagChips({ shop }: { shop: ShopPin }) {
+  const labels = tagLabels(shop);
+  if (labels.length === 0) return null;
+  return (
+    <span className="flex flex-wrap gap-1">
+      {labels.map((label) => (
+        <span
+          key={label}
+          className="rounded-card border border-gray-100 px-2 py-0.5 text-caption font-semibold text-gray-500"
+        >
+          {label}
+        </span>
+      ))}
+    </span>
+  );
 }
 
 function ListRow({ pin, onTap }: { pin: ShopPin; onTap: () => void }) {
   return (
     <li className="border-b border-gray-050">
-      <button type="button" onClick={onTap} className="flex w-full flex-col gap-0.5 py-3 text-left">
+      <button type="button" onClick={onTap} className="flex w-full flex-col gap-1 py-3 text-left">
         <span className="flex items-center gap-1.5">
           {pin.isNew && (
             <span className="text-caption font-extrabold text-ramen">NEW</span>
@@ -47,16 +64,21 @@ function ListRow({ pin, onTap }: { pin: ShopPin; onTap: () => void }) {
             {pin.name}
           </span>
         </span>
-        <span className="truncate text-secondary text-gray-400">
-          {[tagLabels(pin), pin.areaLabel].filter(Boolean).join(" · ")}
+        <TagChips shop={pin} />
+        <span className="flex min-w-0 items-baseline gap-2">
+          {pin.areaLabel && (
+            <span className="shrink-0 text-secondary text-gray-400">
+              {pin.areaLabel}
+            </span>
+          )}
+          <OpenStatusBadge
+            status={pin.status}
+            hours={pin.hours}
+            breakTime={pin.breakTime}
+            closedDays={pin.closedDays}
+            className="truncate"
+          />
         </span>
-        <OpenStatusBadge
-          status={pin.status}
-          hours={pin.hours}
-          breakTime={pin.breakTime}
-          closedDays={pin.closedDays}
-          className="truncate"
-        />
       </button>
     </li>
   );
@@ -91,9 +113,7 @@ function ShopCardBody({ shop, onClose }: { shop: ShopPin; onClose: () => void })
           <X className="size-5" />
         </button>
       </div>
-      <span className="truncate text-secondary text-gray-500">
-        {tagLabels(shop)}
-      </span>
+      <TagChips shop={shop} />
       {shop.areaLabel && (
         <span className="text-secondary text-gray-400">{shop.areaLabel}</span>
       )}
@@ -180,14 +200,6 @@ export function ShopSheet({ listPins, selectedShop, onSelectPin, onClose }: Shop
                   풀어보세요.
                 </li>
               )}
-              <li className="py-3">
-                <Link
-                  href="/new"
-                  className="text-secondary font-semibold text-ink underline underline-offset-2"
-                >
-                  신규 오픈 전체 보기 →
-                </Link>
-              </li>
             </ul>
           </div>
         )}
