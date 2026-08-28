@@ -1,4 +1,9 @@
-import { ShopCard, soupBySlug, type ShopPin } from "@/entities/shop";
+import {
+  OpenStatusBadge,
+  ShopCard,
+  soupBySlug,
+  type ShopPin,
+} from "@/entities/shop";
 
 function groupByArea(pins: ShopPin[]): Map<string, ShopPin[]> {
   const groups = new Map<string, ShopPin[]>();
@@ -25,7 +30,14 @@ export function MapFallback({ pins }: { pins: ShopPin[] }) {
               name={shop.name}
               tags={shop.soups.map((s) => soupBySlug(s)?.label ?? s)}
               area={area}
-              open={shop.status === "open"}
+              status={
+                <OpenStatusBadge
+                  status={shop.status}
+                  hours={shop.hours}
+                  breakTime={shop.breakTime}
+                  closedDays={shop.closedDays}
+                />
+              }
             />
           ))}
         </section>

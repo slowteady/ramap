@@ -44,3 +44,6 @@ export {
 } from "@/entities/shop/model/structured-data";
 export { GUIDES, guideBySlug } from "@/entities/shop/model/guide-content";
 export type { GuideContent } from "@/entities/shop/model/guide-content";
+export { openStatus, openStatusLabel } from "@/entities/shop/model/open-status";
+export type { OpenStatus } from "@/entities/shop/model/open-status";
+export { OpenStatusBadge } from "@/entities/shop/ui/open-status-badge";

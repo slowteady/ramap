@@ -1,13 +1,11 @@
-import { cn } from "@/shared/lib/utils";
-
 type ShopCardProps = {
   name: string;
   tags: string[];
   area: string;
-  open: boolean;
+  status?: React.ReactNode;
 };
 
-export function ShopCard({ name, tags, area, open }: ShopCardProps) {
+export function ShopCard({ name, tags, area, status }: ShopCardProps) {
   return (
     <div className="flex items-center gap-3 rounded-card bg-card p-3">
       <div className="size-18 shrink-0 rounded-card bg-gray-100" />
@@ -18,14 +16,7 @@ export function ShopCard({ name, tags, area, open }: ShopCardProps) {
         <span className="truncate text-secondary text-gray-400">
           {[...tags, area].join(" · ")}
         </span>
-        <span
-          className={cn(
-            "text-secondary font-semibold",
-            open ? "text-open" : "text-gray-400",
-          )}
-        >
-          {open ? "영업중" : "영업종료"}
-        </span>
+        {status}
       </div>
     </div>
   );

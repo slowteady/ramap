@@ -7,6 +7,7 @@ import {
   AMENITIES,
   formBySlug,
   LINEAGES,
+  OpenStatusBadge,
   soupBySlug,
   type ShopPin,
 } from "@/entities/shop";
@@ -34,13 +35,7 @@ function tagLabels(shop: ShopPin): string {
   ].join(" · ");
 }
 
-function statusLine(shop: ShopPin): { label: string; open: boolean } {
-  if (shop.status !== "open") return { label: "휴업 중", open: false };
-  return { label: shop.hours ? `영업중 · ${shop.hours}` : "영업중", open: true };
-}
-
 function ListRow({ pin, onTap }: { pin: ShopPin; onTap: () => void }) {
-  const status = statusLine(pin);
   return (
     <li className="border-b border-gray-050">
       <button type="button" onClick={onTap} className="flex w-full flex-col gap-0.5 py-3 text-left">
@@ -55,21 +50,19 @@ function ListRow({ pin, onTap }: { pin: ShopPin; onTap: () => void }) {
         <span className="truncate text-secondary text-gray-400">
           {[tagLabels(pin), pin.areaLabel].filter(Boolean).join(" · ")}
         </span>
-        <span
-          className={cn(
-            "truncate text-secondary font-semibold",
-            status.open ? "text-open" : "text-gray-400",
-          )}
-        >
-          {status.label}
-        </span>
+        <OpenStatusBadge
+          status={pin.status}
+          hours={pin.hours}
+          breakTime={pin.breakTime}
+          closedDays={pin.closedDays}
+          className="truncate"
+        />
       </button>
     </li>
   );
 }
 
 function ShopCardBody({ shop, onClose }: { shop: ShopPin; onClose: () => void }) {
-  const status = statusLine(shop);
   const amenityLabels = shop.amenities.flatMap((a) => {
     const label = AMENITIES.find((x) => x.slug === a)?.label;
     return label ? [label] : [];
@@ -79,14 +72,12 @@ function ShopCardBody({ shop, onClose }: { shop: ShopPin; onClose: () => void })
     <div className="flex flex-col gap-1.5">
       <div className="flex items-start justify-between gap-2">
         <div className="flex min-w-0 flex-col gap-0.5">
-          <span
-            className={cn(
-              "text-secondary font-semibold",
-              status.open ? "text-open" : "text-gray-400",
-            )}
-          >
-            {status.label}
-          </span>
+          <OpenStatusBadge
+            status={shop.status}
+            hours={shop.hours}
+            breakTime={shop.breakTime}
+            closedDays={shop.closedDays}
+          />
           <DrawerTitle className="truncate text-title font-bold text-ink">
             {shop.name}
           </DrawerTitle>

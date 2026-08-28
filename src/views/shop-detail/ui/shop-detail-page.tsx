@@ -3,6 +3,7 @@ import { ChevronLeft } from "lucide-react";
 import {
   formBySlug,
   LINEAGES,
+  OpenStatusBadge,
   restaurantJsonLd,
   soupBySlug,
   type Shop,
@@ -17,14 +18,6 @@ function tagLine(shop: Shop): string {
   ];
   if (shop.areaLabel) labels.push(shop.areaLabel);
   return labels.join(" · ");
-}
-
-function statusLine(shop: Shop): { label: string; open: boolean } {
-  if (shop.status === "paused") return { label: "휴업 중", open: false };
-  const parts = ["영업중"];
-  if (shop.hours) parts.push(shop.hours);
-  if (shop.closedDays) parts.push(`${shop.closedDays} 휴무`);
-  return { label: parts.join(" · "), open: true };
 }
 
 function infoRows(shop: Shop): { label: string; value: React.ReactNode }[] {
@@ -50,12 +43,13 @@ function infoRows(shop: Shop): { label: string; value: React.ReactNode }[] {
   else if (shop.amenities.includes("remote-waiting"))
     rows.push({ label: "웨이팅", value: "원격 웨이팅 지원" });
   if (shop.seats) rows.push({ label: "좌석", value: shop.seats });
+  if (shop.hours) rows.push({ label: "영업시간", value: shop.hours });
   if (shop.breakTime) rows.push({ label: "브레이크", value: shop.breakTime });
+  if (shop.closedDays) rows.push({ label: "휴무", value: shop.closedDays });
   return rows;
 }
 
 export function ShopDetailPage({ shop }: { shop: Shop }) {
-  const status = statusLine(shop);
   const rows = infoRows(shop);
   const primarySoupLabel = soupBySlug(shop.primarySoup)?.label;
 
@@ -85,11 +79,12 @@ export function ShopDetailPage({ shop }: { shop: Shop }) {
           )}
         </div>
         <p className="text-secondary text-gray-400">{tagLine(shop)}</p>
-        <p
-          className={`text-secondary font-semibold ${status.open ? "text-open" : "text-gray-400"}`}
-        >
-          {status.label}
-        </p>
+        <OpenStatusBadge
+          status={shop.status}
+          hours={shop.hours}
+          breakTime={shop.breakTime}
+          closedDays={shop.closedDays}
+        />
         {shop.tagline && <p className="text-body text-gray-500">{shop.tagline}</p>}
         <div className="pt-2">
           <RecordButtons shopId={shop.id} />

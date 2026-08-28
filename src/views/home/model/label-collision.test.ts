@@ -20,6 +20,8 @@ const pin = (id: string, lat: number, lng: number): ShopPin => ({
   status: "open",
   topMenu: null,
   hours: null,
+  breakTime: null,
+  closedDays: null,
   amenities: [],
   isNew: false,
 });

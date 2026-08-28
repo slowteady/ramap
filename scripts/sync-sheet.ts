@@ -1,5 +1,6 @@
 import { readFileSync, renameSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
+import { isParsableHours } from "../src/entities/shop/model/open-status";
 import { parseSheetTsv } from "./lib/sheet-parser";
 
 const input = process.argv[2];
@@ -10,6 +11,15 @@ if (!input) {
 
 const tsv = readFileSync(resolve(input), "utf8");
 const { shops, issues } = parseSheetTsv(tsv);
+
+for (const shop of shops) {
+  if (shop.hours && !isParsableHours(shop.hours))
+    console.warn(
+      `경고: ${shop.id} 영업시간 "${shop.hours}" — "11:00-21:00" 형식이 아니면 실시간 영업 표시가 꺼집니다`,
+    );
+  if (shop.breakTime && !isParsableHours(shop.breakTime))
+    console.warn(`경고: ${shop.id} 브레이크 "${shop.breakTime}" — 형식 확인 필요`);
+}
 
 if (issues.length > 0) {
   console.error(`검증 실패 ${issues.length}건 — data/shops.json 미변경`);

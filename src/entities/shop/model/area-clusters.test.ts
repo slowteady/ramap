@@ -6,6 +6,8 @@ const pin = (id: string, area: string | null, lat: number, lng: number): ShopPin
   id,
   topMenu: null,
   hours: null,
+  breakTime: null,
+  closedDays: null,
   amenities: [],
   isNew: false,
   name: id,

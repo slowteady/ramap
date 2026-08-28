@@ -15,6 +15,8 @@ export type ShopPin = {
   status: ShopStatus;
   topMenu: Menu | null;
   hours: string | null;
+  breakTime: string | null;
+  closedDays: string | null;
   amenities: Shop["amenities"];
   isNew: boolean;
 };
@@ -36,6 +38,8 @@ export function toMapManifest(shops: Shop[], now = new Date()): ShopPin[] {
       status: s.status,
       topMenu: s.menus[0] ?? null,
       hours: s.hours,
+      breakTime: s.breakTime,
+      closedDays: s.closedDays,
       amenities: s.amenities,
       isNew: isNewOpen(s, now),
     });

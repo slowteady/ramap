@@ -6,6 +6,7 @@ import {
   formBySlug,
   itemListJsonLd,
   LINEAGES,
+  OpenStatusBadge,
   soupBySlug,
   type GenreSlug,
   type Shop,
@@ -33,8 +34,6 @@ function cardTags(shop: Shop): string {
 
 function cardMeta(shop: Shop): string {
   const parts: string[] = [];
-  if (shop.status === "open") parts.push("영업중");
-  if (shop.status === "paused") parts.push("휴업 중");
   if (shop.amenities.includes("ticket-machine")) parts.push("식권기");
   if (shop.amenities.includes("kaedama")) parts.push("카에다마");
   if (shop.amenities.includes("remote-waiting")) parts.push("원격 웨이팅");
@@ -117,8 +116,17 @@ export function AreaListPage({
                 <span className="truncate text-secondary text-gray-400">
                   {cardTags(shop)}
                 </span>
-                <span className="truncate text-secondary text-gray-500">
-                  {cardMeta(shop)}
+                <span className="flex min-w-0 gap-2">
+                  <OpenStatusBadge
+                    status={shop.status}
+                    hours={shop.hours}
+                    breakTime={shop.breakTime}
+                    closedDays={shop.closedDays}
+                    className="shrink-0"
+                  />
+                  <span className="truncate text-secondary text-gray-500">
+                    {cardMeta(shop)}
+                  </span>
                 </span>
               </div>
             </Link>
