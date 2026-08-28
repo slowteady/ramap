@@ -3,7 +3,7 @@ import Link from "next/link";
 import {
   breadcrumbJsonLd,
   faqJsonLd,
-  formBySlug,
+  GenreChips,
   itemListJsonLd,
   LINEAGES,
   OpenStatusBadge,
@@ -23,14 +23,6 @@ type AreaListPageProps = {
   pageUrl: string;
   crossLinks: CrossLink[];
 };
-
-function cardTags(shop: Shop): string {
-  return [
-    ...shop.soups.map((s) => soupBySlug(s)?.label ?? s),
-    ...shop.forms.filter((f) => f !== "ramen").map((f) => formBySlug(f)?.label ?? f),
-    ...shop.lineages.map((l) => LINEAGES.find((x) => x.slug === l)?.label ?? l),
-  ].join(" · ");
-}
 
 function cardMeta(shop: Shop): string {
   const parts: string[] = [];
@@ -113,9 +105,11 @@ export function AreaListPage({
                 <span className="truncate text-body font-semibold text-ink">
                   {shop.name}
                 </span>
-                <span className="truncate text-secondary text-gray-400">
-                  {cardTags(shop)}
-                </span>
+                <GenreChips
+                  soups={shop.soups}
+                  forms={shop.forms}
+                  lineages={shop.lineages}
+                />
                 <span className="flex min-w-0 gap-2">
                   <OpenStatusBadge
                     status={shop.status}

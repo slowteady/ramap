@@ -5,10 +5,8 @@ import Link from "next/link";
 import { X } from "lucide-react";
 import {
   AMENITIES,
-  formBySlug,
-  LINEAGES,
+  GenreChips,
   OpenStatusBadge,
-  soupBySlug,
   type ShopPin,
 } from "@/entities/shop";
 import { RecordButtons } from "@/features/records";
@@ -27,31 +25,6 @@ type ShopSheetProps = {
   onClose: () => void;
 };
 
-function tagLabels(shop: ShopPin): string[] {
-  return [
-    ...shop.soups.map((s) => soupBySlug(s)?.label ?? s),
-    ...shop.forms.filter((f) => f !== "ramen").map((f) => formBySlug(f)?.label ?? f),
-    ...shop.lineages.map((l) => LINEAGES.find((x) => x.slug === l)?.label ?? l),
-  ];
-}
-
-function TagChips({ shop }: { shop: ShopPin }) {
-  const labels = tagLabels(shop);
-  if (labels.length === 0) return null;
-  return (
-    <span className="flex flex-wrap gap-1">
-      {labels.map((label) => (
-        <span
-          key={label}
-          className="rounded-card border border-gray-100 px-2 py-0.5 text-caption font-semibold text-gray-500"
-        >
-          {label}
-        </span>
-      ))}
-    </span>
-  );
-}
-
 function ListRow({ pin, onTap }: { pin: ShopPin; onTap: () => void }) {
   return (
     <li className="border-b border-gray-050">
@@ -64,7 +37,7 @@ function ListRow({ pin, onTap }: { pin: ShopPin; onTap: () => void }) {
             {pin.name}
           </span>
         </span>
-        <TagChips shop={pin} />
+        <GenreChips soups={pin.soups} forms={pin.forms} lineages={pin.lineages} />
         <span className="flex min-w-0 items-baseline gap-2">
           {pin.areaLabel && (
             <span className="shrink-0 text-secondary text-gray-400">
@@ -113,7 +86,7 @@ function ShopCardBody({ shop, onClose }: { shop: ShopPin; onClose: () => void })
           <X className="size-5" />
         </button>
       </div>
-      <TagChips shop={shop} />
+      <GenreChips soups={shop.soups} forms={shop.forms} lineages={shop.lineages} />
       {shop.areaLabel && (
         <span className="text-secondary text-gray-400">{shop.areaLabel}</span>
       )}

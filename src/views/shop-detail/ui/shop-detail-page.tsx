@@ -2,23 +2,12 @@ import Link from "next/link";
 import { ChevronLeft, Clock, Users } from "lucide-react";
 import {
   AMENITIES,
-  formBySlug,
-  LINEAGES,
+  GenreChips,
   restaurantJsonLd,
   soupBySlug,
   type Shop,
 } from "@/entities/shop";
 import { RecordCtaBar } from "@/features/records";
-
-function tagLine(shop: Shop): string {
-  const labels = [
-    ...shop.soups.map((s) => soupBySlug(s)?.label ?? s),
-    ...shop.forms.filter((f) => f !== "ramen").map((f) => formBySlug(f)?.label ?? f),
-    ...shop.lineages.map((l) => LINEAGES.find((x) => x.slug === l)?.label ?? l),
-  ];
-  if (shop.areaLabel) labels.push(shop.areaLabel);
-  return labels.join(" · ");
-}
 
 function amenityChips(shop: Shop): string[] {
   return shop.amenities.flatMap((a) => {
@@ -55,7 +44,12 @@ export function ShopDetailPage({ shop }: { shop: Shop }) {
             </span>
           )}
         </div>
-        <p className="text-secondary text-gray-400">{tagLine(shop)}</p>
+        <div className="flex items-center gap-2">
+          <GenreChips soups={shop.soups} forms={shop.forms} lineages={shop.lineages} />
+          {shop.areaLabel && (
+            <span className="text-secondary text-gray-400">{shop.areaLabel}</span>
+          )}
+        </div>
         {shop.status === "paused" && (
           <p className="text-secondary font-semibold text-gray-400">휴업 중</p>
         )}
