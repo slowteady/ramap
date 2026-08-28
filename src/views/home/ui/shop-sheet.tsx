@@ -29,7 +29,7 @@ type ShopSheetProps = {
 function ListRow({ pin, onTap }: { pin: ShopPin; onTap: () => void }) {
   return (
     <li className="border-b border-gray-050">
-      <button type="button" onClick={onTap} className="flex w-full flex-col gap-1 py-3 text-left">
+      <button type="button" onClick={onTap} className="flex w-full flex-col gap-1.5 py-3.5 text-left">
         <span className="flex items-center gap-1.5">
           {pin.isNew && (
             <span className="text-caption font-extrabold text-ramen">NEW</span>
