@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { Trash2, X } from "lucide-react";
+import { X } from "lucide-react";
 import type { ShopPin } from "@/entities/shop";
 import { cn } from "@/shared/lib/utils";
 import {
@@ -130,20 +130,9 @@ export function FilterSheet({ axis, pins, filters, onApply, onClose }: FilterShe
           })}
         </div>
 
-        <div className="flex items-baseline justify-between px-4 pt-4">
-          <DrawerTitle className="text-title font-bold text-ink">
-            {config.sheetTitle}
-          </DrawerTitle>
-          {selected.length > 0 && (
-            <button
-              type="button"
-              onClick={() => onApply({ ...filters, [config.filterKey]: [] })}
-              className="text-secondary text-gray-400"
-            >
-              초기화
-            </button>
-          )}
-        </div>
+        <DrawerTitle className="px-4 pt-4 text-title font-bold text-ink">
+          {config.sheetTitle}
+        </DrawerTitle>
 
         <div
           className={cn(
@@ -154,16 +143,8 @@ export function FilterSheet({ axis, pins, filters, onApply, onClose }: FilterShe
           {visibleItems(config.items).map((item) => renderItem(item))}
         </div>
 
+        {applied.length > 0 && (
         <div className="flex items-center gap-2 overflow-x-auto px-4 pt-4 [scrollbar-width:none]">
-          <button
-            type="button"
-            aria-label="전체 초기화"
-            disabled={applied.length === 0}
-            onClick={() => onApply(EMPTY_FILTERS)}
-            className="flex size-9 shrink-0 items-center justify-center rounded-card border border-gray-100 text-gray-500 disabled:text-gray-200"
-          >
-            <Trash2 className="size-4" />
-          </button>
           {applied.map((item) => (
             <button
               key={`${item.axis.axis}:${item.slug}`}
@@ -176,14 +157,17 @@ export function FilterSheet({ axis, pins, filters, onApply, onClose }: FilterShe
             </button>
           ))}
         </div>
+        )}
 
         <div className="flex gap-2 p-4 pt-3">
-          <DrawerClose
-            className="shrink-0 rounded-card border border-gray-100 bg-white px-6 py-3 text-body font-semibold text-ink"
-            onClick={onClose}
+          <button
+            type="button"
+            disabled={applied.length === 0}
+            onClick={() => onApply(EMPTY_FILTERS)}
+            className="shrink-0 rounded-card border border-gray-100 bg-white px-6 py-3 text-body font-semibold text-ink disabled:text-gray-300"
           >
-            닫기
-          </DrawerClose>
+            초기화
+          </button>
           <DrawerClose
             className="flex-1 rounded-card bg-ramen py-3 text-body font-bold text-white"
             onClick={onClose}
