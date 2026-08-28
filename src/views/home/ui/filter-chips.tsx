@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronDown, SlidersHorizontal } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { cn } from "@/shared/lib/utils";
 import type { MapFilters } from "../model/filter";
 import { axisChipCount, FILTER_AXES, type FilterAxis } from "../model/filter-axes";
@@ -13,14 +13,6 @@ type FilterChipsProps = {
 export function FilterChips({ filters, onOpenAxis }: FilterChipsProps) {
   return (
     <div className="flex gap-2 overflow-x-auto px-4 py-2 [scrollbar-width:none]">
-      <button
-        type="button"
-        aria-label="전체 필터"
-        onClick={() => onOpenAxis(FILTER_AXES[0].axis)}
-        className="flex size-8 shrink-0 items-center justify-center rounded-pill border border-gray-100 bg-white text-ink shadow-[0_1px_4px_rgba(26,27,31,0.06)]"
-      >
-        <SlidersHorizontal className="size-4" />
-      </button>
       {FILTER_AXES.map((axis) => {
         const count = axisChipCount(axis, filters);
         const active = count > 0;
