@@ -21,9 +21,10 @@ function markerEl(marker: MapMarker, onTap: (id: string) => void): HTMLElement {
     el.style.cssText = [
       "width:12px;height:12px;border-radius:9999px;border:2px solid #fff;cursor:pointer;padding:0",
       "box-shadow:0 1px 4px rgba(26,27,31,.25)",
-      `background:${visited ? "#c9cdd3" : "#e8442e"}`,
+      `background:${visited ? "#c9cdd3" : marker.isNew ? "#e8442e" : "#1a1b1f"}`,
     ].join(";");
   } else {
+    const fresh = marker.isNew && !selected && !visited;
     el.style.cssText = [
       "display:flex;align-items:center;padding:6px 10px;border-radius:9999px;border:0;cursor:pointer",
       "font:700 12px Pretendard,-apple-system,sans-serif;box-shadow:0 1px 5px rgba(26,27,31,.18)",
@@ -31,13 +32,15 @@ function markerEl(marker: MapMarker, onTap: (id: string) => void): HTMLElement {
         ? "background:#1a1b1f;color:#fff"
         : visited
           ? "background:#f4f5f7;color:#9aa0a8"
-          : "background:#fff;color:#1a1b1f",
+          : fresh
+            ? "background:#e8442e;color:#fff"
+            : "background:#fff;color:#1a1b1f",
     ].join(";");
-    if (marker.isNew) {
+    if (fresh) {
       const badge = document.createElement("span");
       badge.textContent = "NEW";
       badge.style.cssText =
-        "margin-right:4px;font:800 9px Pretendard,-apple-system,sans-serif;color:#e8442e;letter-spacing:.02em";
+        "margin-right:4px;font:800 9px Pretendard,-apple-system,sans-serif;color:#fff;opacity:.85;letter-spacing:.02em";
       el.append(badge);
     }
     el.append(document.createTextNode(marker.label));
