@@ -12,11 +12,11 @@ import type { RecordAction } from "../model/use-visit-action";
 const COPY = {
   visit: {
     title: "로그인으로 완식한 라멘집을 모아보세요",
-    body: "기록은 계정에 저장돼 기기를 바꿔도 이어져요.",
+    body: "기록은 계정에 저장되고 기기를 바꿔도 이어져요.",
   },
   save: {
     title: "로그인으로 가고 싶은 라멘집을 모아보세요",
-    body: "저장한 집은 언제든 다시 꺼내볼 수 있어요.",
+    body: "저장 목록은 계정에 보관되고 기기를 바꿔도 이어져요.",
   },
 } as const;
 
