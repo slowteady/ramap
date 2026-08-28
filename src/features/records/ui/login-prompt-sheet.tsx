@@ -10,14 +10,8 @@ import {
 import type { RecordAction } from "../model/use-visit-action";
 
 const COPY = {
-  visit: {
-    title: "로그인으로 완식한 라멘집을 모아보세요",
-    body: "기록은 계정에 저장되고 기기를 바꿔도 이어져요.",
-  },
-  save: {
-    title: "로그인으로 가고 싶은 라멘집을 모아보세요",
-    body: "저장 목록은 계정에 보관되고 기기를 바꿔도 이어져요.",
-  },
+  visit: { title: "로그인으로 완식한 라멘집을 모아보세요" },
+  save: { title: "로그인으로 가고 싶은 라멘집을 모아보세요" },
 } as const;
 
 export function LoginPromptSheet({
@@ -37,8 +31,7 @@ export function LoginPromptSheet({
             {copy.title}
           </DrawerTitle>
         </DrawerHeader>
-        <div className="flex flex-col gap-3 px-4 pb-6">
-          <p className="text-body text-gray-500">{copy.body}</p>
+        <div className="flex flex-col gap-3 px-4 pt-2 pb-6">
           <KakaoLoginButton />
           <button
             type="button"
