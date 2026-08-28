@@ -26,6 +26,14 @@ type ShopSheetProps = {
   onClose: () => void;
 };
 
+function hasStatusText(pin: ShopPin): boolean {
+  return (
+    pin.status === "paused" ||
+    (pin.status === "open" &&
+      Boolean(pin.hours || pin.breakTime || pin.closedDays))
+  );
+}
+
 function ListRow({ pin, onTap }: { pin: ShopPin; onTap: () => void }) {
   return (
     <li className="border-b border-gray-050">
@@ -38,21 +46,26 @@ function ListRow({ pin, onTap }: { pin: ShopPin; onTap: () => void }) {
             {pin.name}
           </span>
         </span>
+        {(pin.areaLabel || hasStatusText(pin)) && (
+          <span className="flex min-w-0 items-baseline gap-1.5">
+            {pin.areaLabel && (
+              <span className="shrink-0 text-secondary text-gray-400">
+                {pin.areaLabel}
+              </span>
+            )}
+            {pin.areaLabel && hasStatusText(pin) && (
+              <span className="text-secondary text-gray-300">·</span>
+            )}
+            <OpenStatusBadge
+              status={pin.status}
+              hours={pin.hours}
+              breakTime={pin.breakTime}
+              closedDays={pin.closedDays}
+              className="truncate"
+            />
+          </span>
+        )}
         <GenreChips soups={pin.soups} forms={pin.forms} lineages={pin.lineages} />
-        <span className="flex min-w-0 items-baseline gap-2">
-          {pin.areaLabel && (
-            <span className="shrink-0 text-secondary text-gray-400">
-              {pin.areaLabel}
-            </span>
-          )}
-          <OpenStatusBadge
-            status={pin.status}
-            hours={pin.hours}
-            breakTime={pin.breakTime}
-            closedDays={pin.closedDays}
-            className="truncate"
-          />
-        </span>
       </button>
     </li>
   );
@@ -73,17 +86,9 @@ function ShopCardBody({ shop, onClose }: { shop: ShopPin; onClose: () => void })
   return (
     <div className="flex flex-col gap-1.5">
       <div className="flex items-start justify-between gap-2">
-        <div className="flex min-w-0 flex-col gap-0.5">
-          <OpenStatusBadge
-            status={shop.status}
-            hours={shop.hours}
-            breakTime={shop.breakTime}
-            closedDays={shop.closedDays}
-          />
-          <DrawerTitle className="truncate text-title font-bold text-ink">
-            {shop.name}
-          </DrawerTitle>
-        </div>
+        <DrawerTitle className="min-w-0 truncate text-title font-bold text-ink">
+          {shop.name}
+        </DrawerTitle>
         <button
           type="button"
           onClick={onClose}
@@ -93,10 +98,26 @@ function ShopCardBody({ shop, onClose }: { shop: ShopPin; onClose: () => void })
           <X className="size-5" />
         </button>
       </div>
-      <GenreChips soups={shop.soups} forms={shop.forms} lineages={shop.lineages} />
-      {shop.areaLabel && (
-        <span className="text-secondary text-gray-400">{shop.areaLabel}</span>
+      {(shop.areaLabel || hasStatusText(shop)) && (
+        <span className="flex min-w-0 items-baseline gap-1.5">
+          {shop.areaLabel && (
+            <span className="shrink-0 text-secondary text-gray-400">
+              {shop.areaLabel}
+            </span>
+          )}
+          {shop.areaLabel && hasStatusText(shop) && (
+            <span className="text-secondary text-gray-300">·</span>
+          )}
+          <OpenStatusBadge
+            status={shop.status}
+            hours={shop.hours}
+            breakTime={shop.breakTime}
+            closedDays={shop.closedDays}
+            className="truncate"
+          />
+        </span>
       )}
+      <GenreChips soups={shop.soups} forms={shop.forms} lineages={shop.lineages} />
       {amenityLabels.length > 0 && (
         <div className="flex flex-wrap gap-1.5 pt-1">
           {amenityLabels.map((label) => (
