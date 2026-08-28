@@ -11,12 +11,12 @@ import type { RecordAction } from "../model/use-visit-action";
 
 const COPY = {
   visit: {
-    title: "완식 기록은 로그인이 필요해요",
-    body: "로그인하면 완식한 라멘집이 내 지도에 차곡차곡 쌓여요.",
+    title: "로그인으로 완식한 라멘집을 모아보세요",
+    body: "기록은 계정에 저장돼 기기를 바꿔도 이어져요.",
   },
   save: {
-    title: "저장은 로그인이 필요해요",
-    body: "로그인하면 가고 싶은 라멘집을 언제든 다시 꺼내볼 수 있어요.",
+    title: "로그인으로 가고 싶은 라멘집을 모아보세요",
+    body: "저장한 집은 언제든 다시 꺼내볼 수 있어요.",
   },
 } as const;
 
