@@ -26,13 +26,9 @@ export const FILTER_AXES: {
   },
 ];
 
-export function axisChipLabel(
+export function axisChipCount(
   axis: (typeof FILTER_AXES)[number],
   filters: MapFilters,
-): string {
-  const selected = filters[axis.filterKey];
-  if (selected.length === 0) return axis.title;
-  const first = axis.items.find((i) => i.slug === selected[0])?.label ?? selected[0];
-  const rest = selected.length > 1 ? ` 외 ${selected.length - 1}` : "";
-  return `${axis.title} · ${first}${rest}`;
+): number {
+  return filters[axis.filterKey].length;
 }

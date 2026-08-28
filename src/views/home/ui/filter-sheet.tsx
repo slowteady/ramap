@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import type { ShopPin } from "@/entities/shop";
 import { cn } from "@/shared/lib/utils";
 import {
@@ -15,6 +15,7 @@ import {
   countByForm,
   countByLineage,
   countBySoup,
+  EMPTY_FILTERS,
   type MapFilters,
 } from "../model/filter";
 import { FILTER_AXES, type FilterAxis } from "../model/filter-axes";
@@ -34,15 +35,23 @@ const COUNTERS = {
 } as const;
 
 export function FilterSheet({ axis, pins, filters, onApply, onClose }: FilterSheetProps) {
-  const config = FILTER_AXES.find((a) => a.axis === axis) ?? null;
+  const [tab, setTab] = useState<FilterAxis>("form");
 
+  /* 어느 칩으로 열어도 통합 시트가 해당 탭으로 */
+  useEffect(() => {
+    if (axis) setTab(axis);
+  }, [axis]);
+
+  const config = FILTER_AXES.find((a) => a.axis === tab) ?? FILTER_AXES[0];
   const counts = useMemo<Record<string, number>>(
-    () => (config ? COUNTERS[config.axis](pins, filters) : {}),
+    () => COUNTERS[config.axis](pins, filters),
     [config, pins, filters],
   );
   const resultCount = useMemo(() => applyFilters(pins, filters).length, [pins, filters]);
+  const totalSelected =
+    filters.soups.length + filters.forms.length + filters.lineages.length;
 
-  if (!config) return null;
+  if (!axis) return null;
   const selected = filters[config.filterKey] as string[];
 
   const toggle = (slug: string) => {
@@ -55,26 +64,39 @@ export function FilterSheet({ axis, pins, filters, onApply, onClose }: FilterShe
   return (
     <Drawer open onOpenChange={(open) => !open && onClose()}>
       <DrawerContent>
-        <DrawerHeader className="text-left">
-          <div className="flex items-baseline justify-between">
-            <div className="flex items-baseline gap-2">
-              <DrawerTitle className="text-title font-bold text-ink">
-                {config.sheetTitle}
-              </DrawerTitle>
-              <span className="text-caption text-gray-400">복수 선택 가능</span>
-            </div>
-            {selected.length > 0 && (
-              <button
-                type="button"
-                onClick={() => onApply({ ...filters, [config.filterKey]: [] })}
-                className="text-secondary text-gray-400 underline underline-offset-2"
-              >
-                초기화
-              </button>
-            )}
+        <DrawerHeader className="pb-2 text-left">
+          <div className="flex items-baseline gap-2">
+            <DrawerTitle className="text-title font-bold text-ink">필터</DrawerTitle>
+            <span className="text-caption text-gray-400">복수 선택 가능</span>
           </div>
         </DrawerHeader>
-        <div className="grid grid-cols-2 gap-2 px-4">
+
+        <div className="flex gap-5 border-b border-gray-100 px-4">
+          {FILTER_AXES.map((a) => {
+            const active = a.axis === tab;
+            const count = (filters[a.filterKey] as string[]).length;
+            return (
+              <button
+                key={a.axis}
+                type="button"
+                onClick={() => setTab(a.axis)}
+                className={cn(
+                  "-mb-px flex items-center gap-1 border-b-2 pb-2.5 text-body",
+                  active
+                    ? "border-ink font-bold text-ink"
+                    : "border-transparent text-gray-400",
+                )}
+              >
+                {a.title}
+                {count > 0 && (
+                  <span className="text-secondary font-bold text-ramen">{count}</span>
+                )}
+              </button>
+            );
+          })}
+        </div>
+
+        <div className="grid grid-cols-2 gap-2 px-4 pt-4">
           {config.items.map((item) => {
             const isOn = selected.includes(item.slug);
             const count = counts[item.slug] ?? 0;
@@ -119,12 +141,21 @@ export function FilterSheet({ axis, pins, filters, onApply, onClose }: FilterShe
             );
           })}
         </div>
+
         <p className="px-4 pt-3 text-caption text-gray-400">
           0곳인 값은 선택할 수 없어요
         </p>
-        <div className="p-4 pt-2">
+        <div className="flex gap-2 p-4 pt-2">
+          <button
+            type="button"
+            disabled={totalSelected === 0}
+            onClick={() => onApply(EMPTY_FILTERS)}
+            className="shrink-0 rounded-card border border-gray-100 bg-white px-5 py-3 text-body font-semibold text-ink disabled:text-gray-300"
+          >
+            초기화
+          </button>
           <DrawerClose
-            className="w-full rounded-pill bg-ramen py-3 text-body font-bold text-white"
+            className="flex-1 rounded-card bg-ramen py-3 text-body font-bold text-white"
             onClick={onClose}
           >
             매장 {resultCount}곳 보기
