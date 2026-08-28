@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { UserRound } from "lucide-react";
 import { displayName, useAuth } from "@/features/auth";
+import { KakaoLoginButton } from "@/shared/ui/kakao-login-button";
 import { useRecords } from "@/features/records";
 import {
   Drawer,
@@ -12,7 +13,7 @@ import {
 } from "@/shared/ui/drawer";
 
 export function AuthEntry() {
-  const { enabled, user, ready, signInWithKakao, signOut } = useAuth();
+  const { enabled, user, ready, signOut } = useAuth();
   const { records, exportDownload, isSynced } = useRecords();
   const [open, setOpen] = useState(false);
 
@@ -69,14 +70,7 @@ export function AuthEntry() {
                   로그인하면 완식 기록이 계정에 저장되고 기기를 바꿔도
                   이어집니다.
                 </p>
-                {/* #FEE500은 카카오 브랜드 가이드 고정색 — 단일 유채색 원칙의 명시적 예외 */}
-                <button
-                  type="button"
-                  onClick={signInWithKakao}
-                  className="w-full rounded-pill bg-[#FEE500] py-3 text-body font-bold text-[#191919]"
-                >
-                  카카오로 시작하기
-                </button>
+                <KakaoLoginButton />
               </div>
             )}
           </DrawerContent>

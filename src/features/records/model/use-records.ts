@@ -33,7 +33,6 @@ let pendingOps: PendingOp[] | null = null;
 const listeners = new Set<() => void>();
 
 function notify() {
-  /* 항상 새 참조 — auth 상태만 바뀌어도 리렌더되도록 */
   snapshot = [...(activeStore?.all() ?? [])];
   for (const listener of listeners) listener();
 }

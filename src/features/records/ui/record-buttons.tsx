@@ -3,9 +3,10 @@
 import { Bookmark, Check } from "lucide-react";
 import { cn } from "@/shared/lib/utils";
 import { useVisitAction } from "../model/use-visit-action";
+import { LoginPromptSheet } from "./login-prompt-sheet";
 
 export function RecordButtons({ shopId }: { shopId: string }) {
-  const { get, visit, save } = useVisitAction(shopId);
+  const { get, visit, save, authPrompt, closeAuthPrompt } = useVisitAction(shopId);
   const record = get(shopId);
   const visited = record?.status === "visited";
   const want = record?.status === "want";
@@ -36,6 +37,7 @@ export function RecordButtons({ shopId }: { shopId: string }) {
         <Bookmark className="size-4" />
         저장
       </button>
+      <LoginPromptSheet open={authPrompt} onClose={closeAuthPrompt} />
     </div>
   );
 }

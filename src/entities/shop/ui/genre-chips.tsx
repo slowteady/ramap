@@ -13,7 +13,6 @@ type GenreChipsProps = {
   className?: string;
 };
 
-/* 조사 결론(2026-08-28): 유채는 1차 축(국물)에만 — 나머지 축은 회색 채움 단일 위계 */
 export function GenreChips({ soups, forms, lineages, className }: GenreChipsProps) {
   const chips = [
     ...soups
@@ -32,7 +31,6 @@ export function GenreChips({ soups, forms, lineages, className }: GenreChipsProp
       })),
     ...lineages.flatMap((l) => {
       const item = LINEAGES.find((x) => x.slug === l);
-      /* 특징(자가제면·본토직영)은 맛 계보가 아니므로 장르 칩에서 제외 — 편의 칩 행에서 표시 */
       if (!item || item.kind !== "taste") return [];
       return [
         {

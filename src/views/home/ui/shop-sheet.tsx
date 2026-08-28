@@ -159,10 +159,9 @@ function ShopCardBody({ shop, onClose }: { shop: ShopPin; onClose: () => void })
 export function ShopSheet({ listPins, selectedShop, onSelectPin, onClose }: ShopSheetProps) {
   const [snap, setSnap] = useState<number | string | null>(SNAP_COLLAPSED);
 
-  /* 카드는 콘텐츠 높이 스냅으로 — 풀 스냅은 사용자 의도로 보고 유지 */
   useEffect(() => {
     setSnap((prev) => {
-      if (selectedShop) return prev === SNAP_FULL ? prev : SNAP_CARD;
+      if (selectedShop) return SNAP_CARD;
       return prev === SNAP_CARD ? SNAP_MID : prev;
     });
   }, [selectedShop]);
@@ -172,7 +171,9 @@ export function ShopSheet({ listPins, selectedShop, onSelectPin, onClose }: Shop
       open
       modal={false}
       dismissible={false}
-      snapPoints={[SNAP_COLLAPSED, SNAP_CARD, SNAP_MID, SNAP_FULL]}
+      snapPoints={
+        selectedShop ? [SNAP_CARD] : [SNAP_COLLAPSED, SNAP_MID, SNAP_FULL]
+      }
       activeSnapPoint={snap}
       setActiveSnapPoint={setSnap}
     >
@@ -181,7 +182,6 @@ export function ShopSheet({ listPins, selectedShop, onSelectPin, onClose }: Shop
         className="h-dvh border-t-0 shadow-[0_-2px_12px_rgba(26,27,31,0.1)] data-[vaul-drawer-direction=bottom]:mt-0 data-[vaul-drawer-direction=bottom]:max-h-none"
       >
         {selectedShop ? (
-          /* h-sheet-card = SNAP_CARD 280px − 핸들 영역 20px — 액션 행이 시트 바닥에 붙도록 */
           <div className="h-sheet-card px-4 pt-2 pb-4">
             <ShopCardBody shop={selectedShop} onClose={onClose} />
           </div>
