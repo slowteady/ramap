@@ -17,7 +17,7 @@ import type { LatLng } from "@/shared/map/types";
 import { distanceMeters, formatDistance } from "../model/label-collision";
 
 /* 접힘은 주소창 변동에 흔들리지 않게 고정 px, 나머지는 dvh 비율 (미결 5 — 실기기 확정 전) */
-const SNAP_COLLAPSED = "96px";
+const SNAP_COLLAPSED = "72px";
 const SNAP_CARD = "280px";
 const SNAP_MID = 0.45;
 const SNAP_FULL = 0.88;
