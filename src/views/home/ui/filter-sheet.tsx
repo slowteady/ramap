@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { X } from "lucide-react";
+import { CircleHelp, X } from "lucide-react";
 import type { ShopPin } from "@/entities/shop";
 import { cn } from "@/shared/lib/utils";
 import {
@@ -46,9 +46,11 @@ export function FilterSheet({
   onClose,
 }: FilterSheetProps) {
   const [tab, setTab] = useState<FilterAxis>("form");
+  const [helpOpen, setHelpOpen] = useState(false);
 
   useEffect(() => {
     if (axis) setTab(axis);
+    setHelpOpen(false);
   }, [axis]);
 
   const config = FILTER_AXES.find((a) => a.axis === tab) ?? FILTER_AXES[0];
@@ -90,7 +92,7 @@ export function FilterSheet({
         disabled={disabled}
         onClick={() => toggle(item.slug)}
         className={cn(
-          "flex flex-col gap-0.5 rounded-card border px-3 py-2.5 text-left",
+          "rounded-card border px-3 py-2.5 text-left text-body font-semibold transition-colors duration-150",
           isOn
             ? "border-ramen bg-ramen-050 text-ramen"
             : disabled
@@ -98,17 +100,7 @@ export function FilterSheet({
               : "border-gray-100 bg-white text-ink",
         )}
       >
-        <span className="text-body font-semibold">{item.label}</span>
-        {config.axis === "lineage" && item.description && (
-          <span
-            className={cn(
-              "text-caption",
-              isOn ? "text-ramen/70" : "text-gray-400",
-            )}
-          >
-            {item.description}
-          </span>
-        )}
+        {item.label}
       </button>
     );
   };
@@ -146,16 +138,41 @@ export function FilterSheet({
           })}
         </div>
 
-        <DrawerTitle className="px-4 pt-4 text-title font-bold text-ink">
-          {config.sheetTitle}
-        </DrawerTitle>
-
-        <div
-          className={cn(
-            "grid gap-2 px-4 pt-3",
-            config.axis === "lineage" ? "grid-cols-2" : "grid-cols-3",
+        <div className="flex items-center gap-1.5 px-4 pt-4">
+          <DrawerTitle className="text-title font-bold text-ink">
+            {config.sheetTitle}
+          </DrawerTitle>
+          {config.axis === "lineage" && (
+            <button
+              type="button"
+              aria-label="스타일 설명"
+              onClick={() => setHelpOpen((v) => !v)}
+              className={cn(
+                "transition-colors",
+                helpOpen ? "text-ink" : "text-gray-300",
+              )}
+            >
+              <CircleHelp className="size-4" />
+            </button>
           )}
-        >
+        </div>
+
+        {config.axis === "lineage" && helpOpen && (
+          <div className="mx-4 mt-3 flex flex-col gap-1.5 rounded-card bg-gray-050 px-3 py-2.5 duration-150 animate-in fade-in">
+            {visibleItems(config.items).map(
+              (item) =>
+                item.description && (
+                  <p key={item.slug} className="text-secondary text-gray-500">
+                    <span className="font-semibold text-ink">{item.label}</span>
+                    {" — "}
+                    {item.description}
+                  </p>
+                ),
+            )}
+          </div>
+        )}
+
+        <div className="grid grid-cols-3 gap-2 px-4 pt-3">
           {visibleItems(config.items).map((item) => renderItem(item))}
         </div>
 
@@ -166,7 +183,7 @@ export function FilterSheet({
                 key={`${item.axis.axis}:${item.slug}`}
                 type="button"
                 onClick={() => removeValue(item)}
-                className="flex shrink-0 items-center gap-1 rounded-card border border-ramen bg-ramen-050 px-2.5 py-1.5 text-secondary font-semibold text-ramen"
+                className="flex shrink-0 items-center gap-1 rounded-card border border-ramen bg-ramen-050 px-2.5 py-1.5 text-secondary font-semibold text-ramen duration-150 animate-in fade-in zoom-in-95"
               >
                 {item.label}
                 <X className="size-3.5" />
