@@ -1,10 +1,11 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { LocateFixed } from "lucide-react";
+import { LocateFixed, X } from "lucide-react";
 import { toast } from "sonner";
 import type { ShopPin } from "@/entities/shop";
 import { useRecords } from "@/features/records";
+import { useLocatePriming } from "../model/use-locate-priming";
 import { useMapFilters } from "../model/use-map-filters";
 import { useSelectedShop } from "../model/use-selected-shop";
 import { useShopMap } from "../model/use-shop-map";
@@ -37,6 +38,7 @@ export function ShopMap({ pins }: { pins: ShopPin[] }) {
     locate,
   } = useShopMap(pins, filters, selectedId, visitedIds, select, clear);
   const [sheetAxis, setSheetAxis] = useState<FilterAxis | null>(null);
+  const priming = useLocatePriming();
 
   return (
     <div className="flex min-h-0 flex-1 flex-col">
@@ -75,6 +77,30 @@ export function ShopMap({ pins }: { pins: ShopPin[] }) {
             >
               <LocateFixed className="size-5" />
             </button>
+          )}
+          {status === "ready" && priming.open && (
+            <div className="absolute top-3 left-1/2 z-10 flex -translate-x-1/2 items-center gap-0.5 rounded-pill bg-ink pr-2 pl-3.5 shadow-[0_2px_8px_rgba(26,27,31,0.25)] duration-200 animate-in fade-in slide-in-from-top-2">
+              <button
+                type="button"
+                onClick={() => {
+                  priming.dismiss();
+                  locate(() =>
+                    toast("위치 권한이 없어 현위치를 표시할 수 없어요"),
+                  );
+                }}
+                className="flex items-center gap-1.5 py-2.5 text-secondary font-semibold text-white"
+              >
+                <LocateFixed className="size-4" />내 주변 라멘집 보기
+              </button>
+              <button
+                type="button"
+                aria-label="닫기"
+                onClick={priming.dismiss}
+                className="p-1.5 text-gray-400"
+              >
+                <X className="size-4" />
+              </button>
+            </div>
           )}
         </div>
       )}
