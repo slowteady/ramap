@@ -32,7 +32,7 @@ export function EditReportForm({
     return (
       <DoneView
         title="수정 요청이 접수됐어요"
-        description="확인을 거쳐 반영돼요. 폐업·휴업은 한 번 더 확인해요."
+        description="라맵이 확인한 뒤 반영해 드려요. 폐업·휴업은 한 번 더 확인해요."
         onClose={onClose}
       />
     );
