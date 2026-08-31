@@ -35,7 +35,7 @@ export function ReportSheet({
           <X className="size-5" />
         </button>
         <h1 className="min-w-0 truncate text-title font-bold text-ink">
-          {edit ? `${edit.name} 정보 수정` : "새 라멘집 등록"}
+          {edit ? "정보 수정" : "새 라멘집 등록"}
         </h1>
       </header>
       {edit ? (
