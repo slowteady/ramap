@@ -29,7 +29,7 @@ function markerEl(marker: MapMarker, onTap: (id: string) => void): HTMLElement {
   el.type = "button";
   const selected = marker.state === "selected";
   const visited = marker.state === "visited";
-  const ring = visited ? "#c9cdd3" : "#e8442e";
+  const ring = visited ? "#c9cdd3" : "#e23c36";
   const size = selected ? 26 : 20;
   el.style.cssText = `display:flex;flex-direction:column;align-items:center;gap:2px;padding:${HIT_PAD}px;border:0;background:none;cursor:pointer;margin-top:-${HIT_PAD + size / 2}px`;
   const dot = document.createElement("span");
@@ -41,7 +41,7 @@ function markerEl(marker: MapMarker, onTap: (id: string) => void): HTMLElement {
     const label = document.createElement("span");
     label.style.cssText = [
       `font:${selected ? 800 : 700} 13px Pretendard,-apple-system,sans-serif`,
-      `color:${visited ? "#9aa0a8" : selected ? "#e8442e" : "#1a1b1f"}`,
+      `color:${visited ? "#9aa0a8" : selected ? "#e23c36" : "#1a1b1f"}`,
       "text-shadow:0 1px 2px #fff,0 -1px 2px #fff,1px 0 2px #fff,-1px 0 2px #fff,0 0 4px #fff,0 0 6px #fff",
       "white-space:nowrap",
     ].join(";");
@@ -49,7 +49,7 @@ function markerEl(marker: MapMarker, onTap: (id: string) => void): HTMLElement {
       const badge = document.createElement("span");
       badge.textContent = "NEW ";
       badge.style.cssText =
-        "color:#e8442e;font:800 11px Pretendard,-apple-system,sans-serif";
+        "color:#e23c36;font:800 11px Pretendard,-apple-system,sans-serif";
       label.append(badge);
     }
     label.append(document.createTextNode(marker.label));
@@ -66,7 +66,7 @@ function clusterEl(
   const el = document.createElement("button");
   el.type = "button";
   el.style.cssText =
-    "display:flex;align-items:center;gap:4px;padding:6px 11px;border-radius:9999px;border:2px solid #e8442e;cursor:pointer;background:#fff;font:700 12px Pretendard,-apple-system,sans-serif;color:#1a1b1f;box-shadow:0 1px 4px rgba(26,27,31,.15)";
+    "display:flex;align-items:center;gap:4px;padding:6px 11px;border-radius:9999px;border:2px solid #e23c36;cursor:pointer;background:#fff;font:700 12px Pretendard,-apple-system,sans-serif;color:#1a1b1f;box-shadow:0 1px 4px rgba(26,27,31,.15)";
   const [name, count] = [
     cluster.label.replace(/ \d+$/, ""),
     cluster.label.match(/\d+$/)?.[0],
@@ -75,7 +75,7 @@ function clusterEl(
   if (count) {
     const n = document.createElement("span");
     n.textContent = count;
-    n.style.cssText = "color:#e8442e";
+    n.style.cssText = "color:#e23c36";
     el.append(n);
   }
   el.addEventListener("click", () => onTap(cluster.id));
