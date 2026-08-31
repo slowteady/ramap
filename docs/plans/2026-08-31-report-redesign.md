@@ -91,6 +91,29 @@
 4. 상세 페이지 진입 행 교체
 5. 로컬 검수 → 머지
 
+## 구현 컨텍스트 (이어받는 에이전트용)
+
+**기존 코드:**
+
+- `src/views/report/ui/report-page.tsx` — 현행 페이지 폼 (유형 3탭). 시트로 이관 후 views/report 슬라이스는 축소·제거
+- `src/features/report/model/use-report-form.ts` — 폼 상태 훅, `report-sink.ts` — Supabase `reports` insert. 훅은 유형별 payload 구조로 확장
+- `src/app/report/page.tsx` — 홈 리다이렉트로 교체
+- 홈 진입점: `src/views/home/ui/shop-map.tsx`의 필터 행 [제보하기] Link — 시트 오픈으로 교체
+- 상세 진입점: `src/views/shop-detail/ui/shop-detail-page.tsx`의 "정보가 다른가요? 수정 제안하기" 링크 — 관례형 일급 행으로 교체
+
+**재사용:**
+
+- 값 칩 UI: `src/views/home/ui/filter-sheet.tsx`의 renderItem 패턴 (3열 사각 칩, 선택 시 레드 틴트) — 상세층 장르·편의 칩에 동일 언어. taxonomy는 `@/entities/shop`의 SOUPS/FORMS/LINEAGES/AMENITIES (etc-* 슬러그와 trait 구분은 `views/home/model/filter-axes.ts` visibleItems 참고)
+- URL 쿼리 훅 패턴: `src/views/home/model/use-selected-shop.ts` (?shop= push/replace) — ?report=도 같은 방식, 열기 push / 닫기 back
+- 풀스크린 시트 패턴: `src/views/home/ui/onboarding.tsx` (fixed inset-0 max-w-app) + 슬라이드 업은 tw-animate-css(`animate-in slide-in-from-bottom`). vaul Drawer는 홈 상시 시트와 중첩되므로 쓰지 않는 것 권장
+- 시트가 홈·상세 양쪽에서 열리므로 폼 UI는 `features/report/ui/`에 두고 각 뷰에서 마운트 (FSD: views→features 방향 준수)
+
+**작업 절차 (레포 규칙):**
+
+- 브랜치 `feat/report-sheet` → 구현 → `npx tsc --noEmit` + `npm test` + `npm run build` 통과 → localhost:3000 로컬 검수를 사용자에게 요청 (**머지·푸시는 사용자 OK 후에만** — 배포 워크플로우)
+- UI 작업 시 `.claude/skills/ramap-ui` 스킬 필수, 주석 금지 (CLAUDE.md)
+- 캐치테이블 실물 스크린샷 대조: 세션 스크래치패드 `report-refs/` (소실 시 캐치테이블 매장 상세 → "잘못된 정보가 있나요?" 행에서 재캡처)
+
 ## 미결
 
 - 매장 카드(2뎁스)에 수정 진입 행 추가 여부
