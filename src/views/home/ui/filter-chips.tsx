@@ -1,8 +1,8 @@
 "use client";
 
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, RotateCcw } from "lucide-react";
 import { cn } from "@/shared/lib/utils";
-import type { MapFilters } from "../model/filter";
+import { EMPTY_FILTERS, type MapFilters } from "../model/filter";
 import {
   axisChipCount,
   FILTER_AXES,
@@ -12,11 +12,26 @@ import {
 type FilterChipsProps = {
   filters: MapFilters;
   onOpenAxis: (axis: FilterAxis) => void;
+  onApply: (next: MapFilters) => void;
 };
 
-export function FilterChips({ filters, onOpenAxis }: FilterChipsProps) {
+export function FilterChips({ filters, onOpenAxis, onApply }: FilterChipsProps) {
+  const activeCount = FILTER_AXES.reduce(
+    (n, a) => n + axisChipCount(a, filters),
+    0,
+  );
   return (
-    <div className="flex min-w-0 flex-1 gap-2 overflow-x-auto px-4 py-2 [scrollbar-width:none]">
+    <div className="flex min-w-0 flex-1 items-center gap-2 overflow-x-auto px-4 py-2 [scrollbar-width:none]">
+      {activeCount > 0 && (
+        <button
+          type="button"
+          aria-label="필터 초기화"
+          onClick={() => onApply(EMPTY_FILTERS)}
+          className="flex size-8 shrink-0 items-center justify-center rounded-pill border border-gray-100 bg-white text-gray-500 shadow-[0_1px_4px_rgba(26,27,31,0.06)] duration-150 animate-in fade-in zoom-in-95"
+        >
+          <RotateCcw className="size-4" />
+        </button>
+      )}
       {FILTER_AXES.map((axis) => {
         const count = axisChipCount(axis, filters);
         const active = count > 0;

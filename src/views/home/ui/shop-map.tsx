@@ -42,7 +42,7 @@ export function ShopMap({ pins }: { pins: ShopPin[] }) {
     <div className="flex min-h-0 flex-1 flex-col">
       <Onboarding pins={pins} />
       <div className="flex items-center">
-        <FilterChips filters={filters} onOpenAxis={setSheetAxis} />
+        <FilterChips filters={filters} onOpenAxis={setSheetAxis} onApply={apply} />
         <Link
           href="/report"
           className="mr-4 shrink-0 rounded-pill bg-ramen px-3.5 py-1.5 text-secondary font-bold whitespace-nowrap text-white"
