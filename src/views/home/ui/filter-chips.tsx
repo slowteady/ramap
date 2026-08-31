@@ -16,7 +16,7 @@ type FilterChipsProps = {
 
 export function FilterChips({ filters, onOpenAxis }: FilterChipsProps) {
   return (
-    <div className="flex gap-2 overflow-x-auto px-4 py-2 [scrollbar-width:none]">
+    <div className="flex min-w-0 flex-1 gap-2 overflow-x-auto px-4 py-2 [scrollbar-width:none]">
       {FILTER_AXES.map((axis) => {
         const count = axisChipCount(axis, filters);
         const active = count > 0;

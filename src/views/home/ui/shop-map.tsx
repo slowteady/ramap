@@ -9,6 +9,7 @@ import { useMapFilters } from "../model/use-map-filters";
 import { useSelectedShop } from "../model/use-selected-shop";
 import { useShopMap } from "../model/use-shop-map";
 import type { FilterAxis } from "../model/filter-axes";
+import Link from "next/link";
 import { FilterChips } from "./filter-chips";
 import { FilterSheet } from "./filter-sheet";
 import { MapFallback } from "./map-fallback";
@@ -40,7 +41,15 @@ export function ShopMap({ pins }: { pins: ShopPin[] }) {
   return (
     <div className="flex min-h-0 flex-1 flex-col">
       <Onboarding pins={pins} />
-      <FilterChips filters={filters} onOpenAxis={setSheetAxis} />
+      <div className="flex items-center">
+        <FilterChips filters={filters} onOpenAxis={setSheetAxis} />
+        <Link
+          href="/report"
+          className="mr-4 shrink-0 rounded-pill bg-ramen px-3.5 py-1.5 text-secondary font-bold whitespace-nowrap text-white"
+        >
+          제보하기
+        </Link>
+      </div>
       {status === "failed" ? (
         <div className="min-h-0 flex-1 overflow-y-auto">
           <MapFallback pins={visiblePins} />
