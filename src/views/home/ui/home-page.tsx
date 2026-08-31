@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import { toMapManifest } from "@/entities/shop";
 import { getShops } from "@/entities/shop/api/get-shops";
+import { ReportSheet } from "@/features/report";
 import { AuthEntry } from "./auth-entry";
 import { ShopMap } from "./shop-map";
 
@@ -18,6 +19,7 @@ export async function HomePage() {
       </header>
       <Suspense>
         <ShopMap pins={pins} />
+        <ReportSheet />
       </Suspense>
     </div>
   );

@@ -5,11 +5,11 @@ import { LocateFixed } from "lucide-react";
 import { toast } from "sonner";
 import type { ShopPin } from "@/entities/shop";
 import { useRecords } from "@/features/records";
+import { useReportQuery } from "@/features/report";
 import { useMapFilters } from "../model/use-map-filters";
 import { useSelectedShop } from "../model/use-selected-shop";
 import { useShopMap } from "../model/use-shop-map";
 import type { FilterAxis } from "../model/filter-axes";
-import Link from "next/link";
 import { FilterChips } from "./filter-chips";
 import { FilterSheet } from "./filter-sheet";
 import { MapFallback } from "./map-fallback";
@@ -19,6 +19,7 @@ import { ShopSheet } from "./shop-sheet";
 export function ShopMap({ pins }: { pins: ShopPin[] }) {
   const { filters, apply } = useMapFilters();
   const { selectedId, select, clear } = useSelectedShop();
+  const { openNew: openReport } = useReportQuery();
   const { records } = useRecords();
   const visitedIds = useMemo(
     () =>
@@ -43,13 +44,18 @@ export function ShopMap({ pins }: { pins: ShopPin[] }) {
     <div className="flex min-h-0 flex-1 flex-col">
       <Onboarding pins={pins} />
       <div className="flex items-center">
-        <FilterChips filters={filters} onOpenAxis={setSheetAxis} onApply={apply} />
-        <Link
-          href="/report"
+        <FilterChips
+          filters={filters}
+          onOpenAxis={setSheetAxis}
+          onApply={apply}
+        />
+        <button
+          type="button"
+          onClick={openReport}
           className="mr-4 shrink-0 rounded-pill bg-ramen px-3.5 py-1.5 text-secondary font-bold whitespace-nowrap text-white"
         >
           제보하기
-        </Link>
+        </button>
       </div>
       {status === "failed" ? (
         <div className="min-h-0 flex-1 overflow-y-auto">

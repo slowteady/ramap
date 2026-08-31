@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import Link from "next/link";
 import { ChevronLeft, Clock, Users } from "lucide-react";
 import {
@@ -9,6 +10,7 @@ import {
   type Shop,
 } from "@/entities/shop";
 import { RecordCtaBar } from "@/features/records";
+import { ReportEntryRow, ReportSheet } from "@/features/report";
 
 function amenityChips(shop: Shop): string[] {
   return [
@@ -171,15 +173,19 @@ export function ShopDetailPage({ shop }: { shop: Shop }) {
         )}
       </section>
 
-      <div className="px-4 pt-8">
-        <Link
-          href="/report"
-          className="text-secondary text-gray-400 underline underline-offset-2"
-        >
-          정보가 다른가요? 수정 제안하기
-        </Link>
+      <div className="mt-8 border-t border-gray-050">
+        <ReportEntryRow shopId={shop.id} />
       </div>
       <RecordCtaBar shopId={shop.id} />
+      <Suspense>
+        <ReportSheet
+          editTarget={{
+            id: shop.id,
+            name: shop.name,
+            location: shop.address ?? shop.areaLabel,
+          }}
+        />
+      </Suspense>
     </div>
   );
 }

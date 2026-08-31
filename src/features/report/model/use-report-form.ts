@@ -1,53 +1,84 @@
 "use client";
 
-import { useState } from "react";
-import { toast } from "sonner";
-import { submitReport, type ReportType } from "./report-sink";
+import { useCallback, useState } from "react";
+import {
+  buildEditPayload,
+  buildNewPayload,
+  canSubmitEdit,
+  canSubmitNew,
+  EMPTY_EDIT_DRAFT,
+  EMPTY_NEW_DRAFT,
+  toReportRow,
+  type EditItem,
+  type EditReportDraft,
+  type NewReportDraft,
+  type ReportTarget,
+} from "./report-payload";
+import { toggleSlug } from "./report-options";
+import { useReportSubmit } from "./use-report-submit";
 
-type Phase = "editing" | "submitting" | "done";
+type ListKey<D> = {
+  [K in keyof D]: D[K] extends string[] ? K : never;
+}[keyof D];
 
-export function useReportForm() {
-  const [type, setType] = useState<ReportType>("new");
-  const [shopName, setShopName] = useState("");
-  const [location, setLocation] = useState("");
-  const [message, setMessage] = useState("");
-  const [phase, setPhase] = useState<Phase>("editing");
+function useDraft<D extends object>(initial: D) {
+  const [draft, setDraft] = useState(initial);
+  const set = useCallback(
+    <K extends keyof D>(key: K, value: D[K]) =>
+      setDraft((d) => ({ ...d, [key]: value })),
+    [],
+  );
+  const toggle = useCallback(
+    <K extends ListKey<D>>(key: K, slug: string) =>
+      setDraft((d) => ({
+        ...d,
+        [key]: toggleSlug(d[key] as string[], slug),
+      })),
+    [],
+  );
+  return { draft, set, toggle };
+}
 
-  const canSubmit =
-    phase === "editing" && shopName.trim() !== "" && location.trim() !== "";
+export function useNewReportForm() {
+  const { draft, set, toggle } = useDraft<NewReportDraft>(EMPTY_NEW_DRAFT);
+  const { phase, submit } = useReportSubmit();
+  const canSubmit = phase === "editing" && canSubmitNew(draft);
 
-  const submit = async () => {
+  const handleSubmit = useCallback(() => {
     if (!canSubmit) return;
-    setPhase("submitting");
-    const result = await submitReport({
-      type,
-      shopName: shopName.trim(),
-      location: location.trim(),
-      message: message.trim(),
-    });
-    if (result.ok) {
-      setPhase("done");
-      return;
-    }
-    setPhase("editing");
-    toast(
-      result.reason === "unconfigured"
-        ? "제보 접수를 준비 중이에요. 인스타그램 DM으로 보내주세요."
-        : "전송에 실패했어요. 잠시 후 다시 시도해 주세요.",
-    );
-  };
+    void submit(toReportRow(buildNewPayload(draft)));
+  }, [canSubmit, submit, draft]);
+
+  return { draft, set, toggle, phase, canSubmit, submit: handleSubmit };
+}
+
+export function useEditReportForm(target: ReportTarget) {
+  const { draft, set, toggle } = useDraft<EditReportDraft>(EMPTY_EDIT_DRAFT);
+  const { phase, submit } = useReportSubmit();
+  const canSubmit = phase === "editing" && canSubmitEdit(draft);
+
+  const toggleItem = useCallback(
+    (item: EditItem) => toggle("items", item),
+    [toggle],
+  );
+  const has = useCallback(
+    (item: EditItem) => draft.items.includes(item),
+    [draft.items],
+  );
+
+  const handleSubmit = useCallback(() => {
+    if (!canSubmit) return;
+    void submit(toReportRow(buildEditPayload(target, draft), target));
+  }, [canSubmit, submit, target, draft]);
 
   return {
-    type,
-    setType,
-    shopName,
-    setShopName,
-    location,
-    setLocation,
-    message,
-    setMessage,
+    draft,
+    set,
+    toggle,
+    toggleItem,
+    has,
     phase,
     canSubmit,
-    submit,
+    submit: handleSubmit,
   };
 }

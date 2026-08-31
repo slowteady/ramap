@@ -98,7 +98,7 @@ export function NewOpensPage({ shops }: { shops: Shop[] }) {
       )}
 
       <Link
-        href="/report"
+        href="/?report=new"
         className="mx-4 mt-8 flex items-center justify-between rounded-card bg-gray-050 px-4 py-4"
       >
         <span className="text-body text-gray-500">
