@@ -18,10 +18,10 @@ export function RecordButtons({ shopId }: { shopId: string }) {
         type="button"
         onClick={visit}
         className={cn(
-          "flex items-center gap-1.5 rounded-pill px-3.5 py-2 text-secondary font-bold",
+          "flex items-center gap-1.5 rounded-pill px-3.5 py-2 text-secondary font-bold transition-colors duration-150",
           visited
             ? "border border-ramen bg-ramen-050 text-ramen"
-            : "bg-gray-050 text-ink",
+            : "bg-ramen text-white",
         )}
       >
         <Check className="size-4" />
