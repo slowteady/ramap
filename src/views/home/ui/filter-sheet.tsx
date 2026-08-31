@@ -143,34 +143,48 @@ export function FilterSheet({
             {config.sheetTitle}
           </DrawerTitle>
           {config.axis === "lineage" && (
-            <button
-              type="button"
-              aria-label="스타일 설명"
-              onClick={() => setHelpOpen((v) => !v)}
-              className={cn(
-                "transition-colors",
-                helpOpen ? "text-ink" : "text-gray-300",
+            <div className="relative flex items-center">
+              <button
+                type="button"
+                aria-label="스타일 설명"
+                onClick={() => setHelpOpen((v) => !v)}
+                className={cn(
+                  "transition-colors",
+                  helpOpen ? "text-ink" : "text-gray-300",
+                )}
+              >
+                <CircleHelp className="size-4" />
+              </button>
+              {helpOpen && (
+                <>
+                  <button
+                    type="button"
+                    aria-label="설명 닫기"
+                    onClick={() => setHelpOpen(false)}
+                    className="fixed inset-0 z-40 cursor-default"
+                  />
+                  <div className="absolute top-full left-0 z-50 mt-2 flex w-72 flex-col gap-1.5 rounded-card bg-ink px-3 py-2.5 shadow-lg duration-150 animate-in fade-in zoom-in-95">
+                    {visibleItems(config.items).map(
+                      (item) =>
+                        item.description && (
+                          <p
+                            key={item.slug}
+                            className="text-secondary text-gray-150"
+                          >
+                            <span className="font-semibold text-white">
+                              {item.label}
+                            </span>
+                            {" — "}
+                            {item.description}
+                          </p>
+                        ),
+                    )}
+                  </div>
+                </>
               )}
-            >
-              <CircleHelp className="size-4" />
-            </button>
+            </div>
           )}
         </div>
-
-        {config.axis === "lineage" && helpOpen && (
-          <div className="mx-4 mt-3 flex flex-col gap-1.5 rounded-card bg-gray-050 px-3 py-2.5 duration-150 animate-in fade-in">
-            {visibleItems(config.items).map(
-              (item) =>
-                item.description && (
-                  <p key={item.slug} className="text-secondary text-gray-500">
-                    <span className="font-semibold text-ink">{item.label}</span>
-                    {" — "}
-                    {item.description}
-                  </p>
-                ),
-            )}
-          </div>
-        )}
 
         <div className="grid grid-cols-3 gap-2 px-4 pt-3">
           {visibleItems(config.items).map((item) => renderItem(item))}
