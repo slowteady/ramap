@@ -73,6 +73,7 @@ export function FilterSheet({
 
   if (!axis) return null;
   const selected = filters[config.filterKey] as string[];
+  const described = visibleItems(config.items).filter((i) => i.description);
 
   const toggle = (slug: string) => {
     const next = selected.includes(slug)
@@ -124,7 +125,10 @@ export function FilterSheet({
               <button
                 key={a.axis}
                 type="button"
-                onClick={() => setTab(a.axis)}
+                onClick={() => {
+                  setTab(a.axis);
+                  setHelpOpen(false);
+                }}
                 className={cn(
                   "-mb-px border-b-2 pb-2.5 text-body",
                   active
@@ -142,11 +146,11 @@ export function FilterSheet({
           <DrawerTitle className="text-title font-bold text-ink">
             {config.sheetTitle}
           </DrawerTitle>
-          {config.axis === "lineage" && (
+          {described.length > 0 && (
             <div className="relative flex items-center">
               <button
                 type="button"
-                aria-label="스타일 설명"
+                aria-label={`${config.sheetTitle} 설명`}
                 onClick={() => setHelpOpen((v) => !v)}
                 className={cn(
                   "transition-colors",
@@ -163,22 +167,19 @@ export function FilterSheet({
                     onClick={() => setHelpOpen(false)}
                     className="fixed inset-0 z-40 cursor-default"
                   />
-                  <div className="absolute top-full left-0 z-50 mt-2 flex w-72 flex-col gap-1.5 rounded-card bg-ink px-3 py-2.5 shadow-lg duration-150 animate-in fade-in zoom-in-95">
-                    {visibleItems(config.items).map(
-                      (item) =>
-                        item.description && (
-                          <p
-                            key={item.slug}
-                            className="text-secondary text-gray-150"
-                          >
-                            <span className="font-semibold text-white">
-                              {item.label}
-                            </span>
-                            {" — "}
-                            {item.description}
-                          </p>
-                        ),
-                    )}
+                  <div className="absolute top-full left-0 z-50 mt-2 flex max-h-64 w-72 flex-col gap-1.5 overflow-y-auto overscroll-contain rounded-card bg-ink px-3 py-2.5 shadow-lg duration-150 animate-in fade-in zoom-in-95">
+                    {described.map((item) => (
+                      <p
+                        key={item.slug}
+                        className="text-secondary text-gray-150"
+                      >
+                        <span className="font-semibold text-white">
+                          {item.label}
+                        </span>
+                        {" — "}
+                        {item.description}
+                      </p>
+                    ))}
                   </div>
                 </>
               )}
