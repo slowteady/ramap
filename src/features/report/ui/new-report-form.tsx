@@ -27,7 +27,7 @@ export function NewReportForm({
     return (
       <DoneView
         title="등록 요청이 접수됐어요"
-        description="라맵이 확인한 뒤 지도에 등록해 드려요. 보통 2~3일 걸려요."
+        description="라맵이 확인한 뒤 지도에 등록해 드려요."
         onClose={onClose}
       />
     );
