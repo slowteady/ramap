@@ -94,4 +94,9 @@ body {
   body {
     @apply bg-background text-foreground font-sans;
   }
+  /* Tailwind v4는 버튼 커서를 default로 바꿈 — 클릭 요소는 전부 pointer (공식 업그레이드 가이드 권장 규칙) */
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
 }

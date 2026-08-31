@@ -12,6 +12,8 @@ description: Use when writing, editing, or reviewing any UI code (components, st
 - radius: 카드 8~12px / 칩·버튼 pill(9999px) / 그 외 금지
 - 폰트: Pretendard, 스케일 5~6단 고정, 위계는 크기보다 굵기(400/600/700)
 - 카드 구획은 그림자·테두리 대신 여백. 아이콘은 lucide 단일 세트
+- 클릭 요소는 `<button>`/`<a>`로만 (div·span에 onClick 금지). 커서는 globals.css base 레이어가 일괄 pointer 처리 — 개별 `cursor-pointer` 유틸 금지, 예외(투명 백드롭 등)만 `cursor-default`
+- `cn()`은 커스텀 텍스트 스케일이 등록된 `shared/lib/utils`의 것만 사용 — `tailwind-merge`를 직접 import 금지 (text-body가 색으로 오인돼 삭제됨)
 
 ## 스타일 금지 시그니처
 
