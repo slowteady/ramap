@@ -58,7 +58,7 @@ export function TextArea({
     <textarea
       rows={3}
       {...props}
-      className={cn(INPUT_CLASS, "resize-none", className)}
+      className={cn(INPUT_CLASS, "shrink-0 resize-none", className)}
     />
   );
 }
