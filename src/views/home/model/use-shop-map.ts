@@ -50,7 +50,10 @@ export function useShopMap(
     [visiblePins, selectedId],
   );
   /* 시트 목록: 버퍼 없는 실제 화면 범위, 중심 가까운 순 */
-  const listCenter = view ? boundsCenter(view.bounds) : null;
+  const listCenter =
+    view && view.level < CLUSTER_LEVEL_THRESHOLD
+      ? boundsCenter(view.bounds)
+      : null;
   const listPins = useMemo(
     () =>
       view
