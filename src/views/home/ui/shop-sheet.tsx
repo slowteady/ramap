@@ -17,6 +17,7 @@ import type { LatLng } from "@/shared/map/types";
 import { distanceMeters, formatDistance } from "../model/label-collision";
 
 /* 접힘은 주소창 변동에 흔들리지 않게 고정 px, 나머지는 dvh 비율 (미결 5 — 실기기 확정 전) */
+const SNAP_HIDDEN = "32px";
 const SNAP_COLLAPSED = "72px";
 const SNAP_CARD = "280px";
 const SNAP_MID = 0.45;
@@ -234,7 +235,9 @@ export function ShopSheet({
       modal={false}
       dismissible={false}
       snapPoints={
-        selectedShop ? [SNAP_CARD] : [SNAP_COLLAPSED, SNAP_MID, SNAP_FULL]
+        selectedShop
+          ? [SNAP_CARD]
+          : [SNAP_HIDDEN, SNAP_COLLAPSED, SNAP_MID, SNAP_FULL]
       }
       activeSnapPoint={snap}
       setActiveSnapPoint={setSnap}
