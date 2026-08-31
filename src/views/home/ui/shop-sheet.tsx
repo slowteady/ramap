@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
 import {
@@ -35,7 +35,13 @@ function hasStatusText(pin: ShopPin): boolean {
   );
 }
 
-function ListRow({ pin, onTap }: { pin: ShopPin; onTap: () => void }) {
+function ListRow({
+  pin,
+  onTap,
+}: {
+  pin: ShopPin;
+  onTap: (e: React.MouseEvent) => void;
+}) {
   return (
     <li className="border-b border-gray-050">
       <button
@@ -181,6 +187,7 @@ export function ShopSheet({
   onClose,
 }: ShopSheetProps) {
   const [snap, setSnap] = useState<number | string | null>(SNAP_COLLAPSED);
+  const pointerDownY = useRef(0);
 
   useEffect(() => {
     setSnap((prev) => {
@@ -214,6 +221,9 @@ export function ShopSheet({
               이 지역 매장 {listPins.length}곳
             </span>
             <ul
+              onPointerDownCapture={(e) => {
+                pointerDownY.current = e.clientY;
+              }}
               className={cn(
                 "min-h-0 flex-1",
                 /* 제스처 충돌 회피 — 목록 스크롤은 풀 스냅에서만 */
@@ -226,7 +236,10 @@ export function ShopSheet({
                 <ListRow
                   key={pin.id}
                   pin={pin}
-                  onTap={() => onSelectPin(pin)}
+                  onTap={(e) => {
+                    if (Math.abs(e.clientY - pointerDownY.current) > 8) return;
+                    onSelectPin(pin);
+                  }}
                 />
               ))}
               {listPins.length === 0 && (
