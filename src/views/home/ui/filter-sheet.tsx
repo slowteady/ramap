@@ -167,7 +167,7 @@ export function FilterSheet({
                     onClick={() => setHelpOpen(false)}
                     className="fixed inset-0 z-40 cursor-default"
                   />
-                  <div className="absolute top-full left-0 z-50 mt-2 flex max-h-64 w-72 flex-col gap-1.5 overflow-y-auto overscroll-contain rounded-card bg-ink px-3 py-2.5 shadow-lg duration-150 animate-in fade-in zoom-in-95">
+                  <div className="absolute bottom-full left-0 z-50 mb-2 flex max-h-64 w-72 flex-col gap-1.5 overflow-y-auto overscroll-contain rounded-card bg-ink px-3 py-2.5 shadow-lg duration-150 animate-in fade-in zoom-in-95">
                     {described.map((item) => (
                       <p
                         key={item.slug}
