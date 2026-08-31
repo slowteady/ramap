@@ -6,7 +6,6 @@ import {
   GenreChips,
   LINEAGES,
   restaurantJsonLd,
-  soupBySlug,
   type Shop,
 } from "@/entities/shop";
 import { RecordCtaBar } from "@/features/records";
@@ -26,8 +25,6 @@ function amenityChips(shop: Shop): string[] {
 }
 
 export function ShopDetailPage({ shop }: { shop: Shop }) {
-  const primarySoupLabel = soupBySlug(shop.primarySoup)?.label;
-
   return (
     <div className="flex min-h-dvh flex-col pb-24">
       <script
@@ -63,6 +60,7 @@ export function ShopDetailPage({ shop }: { shop: Shop }) {
           soups={shop.soups}
           forms={shop.forms}
           lineages={shop.lineages}
+          linkGuides
           className="pt-1"
         />
         {shop.tagline && (
@@ -136,20 +134,6 @@ export function ShopDetailPage({ shop }: { shop: Shop }) {
             ))}
           </ul>
         </section>
-      )}
-
-      {primarySoupLabel && (
-        <Link
-          href={`/guide/${shop.primarySoup}`}
-          className="mx-4 mt-6 flex items-center justify-between rounded-card bg-gray-050 px-3 py-3"
-        >
-          <span className="text-body text-gray-500">
-            {primarySoupLabel}가 뭔가요?
-          </span>
-          <span className="text-secondary font-semibold text-ink">
-            장르 가이드 →
-          </span>
-        </Link>
       )}
 
       <section className="flex flex-col gap-2 px-4 pt-6">
