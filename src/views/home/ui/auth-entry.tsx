@@ -26,9 +26,11 @@ export function AuthEntry() {
         aria-label={user ? "내 기록" : "로그인"}
         disabled={!ready}
         onClick={() => ready && setOpen(true)}
-        className="flex size-8 items-center justify-center rounded-pill bg-gray-050 text-ink disabled:opacity-40"
+        className="-m-1.5 flex size-11 items-center justify-center rounded-pill disabled:opacity-40"
       >
-        <UserRound className="size-4.5" />
+        <span className="flex size-8 items-center justify-center rounded-pill bg-gray-050 text-ink">
+          <UserRound className="size-4.5" />
+        </span>
       </button>
       {!user && <LoginPromptSheet open={open} onClose={() => setOpen(false)} />}
       {open && user && (
