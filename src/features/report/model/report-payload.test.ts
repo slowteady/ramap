@@ -112,7 +112,48 @@ describe("새 라멘집 등록", () => {
 describe("정보 수정 제보", () => {
   it("항목을 하나도 안 고르면 제출 불가", () => {
     expect(canSubmitEdit(EMPTY_EDIT_DRAFT)).toBe(false);
-    expect(canSubmitEdit({ ...EMPTY_EDIT_DRAFT, items: ["hours"] })).toBe(true);
+  });
+
+  it("체크한 항목은 값이 있어야 제출 — 상세 내용으로 대신할 수 있다", () => {
+    expect(canSubmitEdit({ ...EMPTY_EDIT_DRAFT, items: ["hours"] })).toBe(
+      false,
+    );
+    expect(
+      canSubmitEdit({
+        ...EMPTY_EDIT_DRAFT,
+        items: ["hours"],
+        hours: "11:00-20:00",
+      }),
+    ).toBe(true);
+    expect(
+      canSubmitEdit({
+        ...EMPTY_EDIT_DRAFT,
+        items: ["hours"],
+        message: "주말만 단축",
+      }),
+    ).toBe(true);
+    expect(canSubmitEdit({ ...EMPTY_EDIT_DRAFT, items: ["genre"] })).toBe(
+      false,
+    );
+    expect(
+      canSubmitEdit({
+        ...EMPTY_EDIT_DRAFT,
+        items: ["genre"],
+        soups: ["shoyu"],
+      }),
+    ).toBe(true);
+    expect(canSubmitEdit({ ...EMPTY_EDIT_DRAFT, items: ["amenities"] })).toBe(
+      false,
+    );
+    expect(
+      canSubmitEdit({ ...EMPTY_EDIT_DRAFT, items: ["closed", "menu"] }),
+    ).toBe(false);
+  });
+
+  it("폐업·휴업은 상태 자체가 값이라 바로 제출 가능", () => {
+    expect(canSubmitEdit({ ...EMPTY_EDIT_DRAFT, items: ["closed"] })).toBe(
+      true,
+    );
   });
 
   it("기타만 고르면 상세 내용이 있어야 제출 가능", () => {

@@ -171,10 +171,30 @@ export function buildNewPayload(
   };
 }
 
+/* 체크한 항목은 값이 있어야 제출 — 값 대신 상세 내용에 적은 경우도 인정. 폐업·휴업은 상태 자체가 값 */
+function editItemFilled(d: EditReportDraft, item: EditItem): boolean {
+  switch (item) {
+    case "closed":
+      return true;
+    case "hours":
+      return d.hours.trim() !== "";
+    case "menu":
+      return d.menu.trim() !== "";
+    case "location":
+      return d.location.trim() !== "";
+    case "genre":
+      return d.soups.length + d.forms.length + d.lineages.length > 0;
+    case "amenities":
+      return d.amenities.length > 0;
+    case "etc":
+      return false;
+  }
+}
+
 export function canSubmitEdit(d: EditReportDraft): boolean {
   if (d.items.length === 0) return false;
-  const onlyEtc = d.items.length === 1 && d.items[0] === "etc";
-  return !onlyEtc || d.message.trim() !== "";
+  const hasMessage = d.message.trim() !== "";
+  return d.items.every((item) => editItemFilled(d, item) || hasMessage);
 }
 
 export function buildEditPayload(
