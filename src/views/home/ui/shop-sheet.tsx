@@ -24,7 +24,7 @@ const SNAP_FULL = 0.88;
 
 type ShopSheetProps = {
   listPins: ShopPin[];
-  listCenter: LatLng | null;
+  userLocation: LatLng | null;
   selectedShop: ShopPin | null;
   onSelectPin: (pin: ShopPin) => void;
   onClose: () => void;
@@ -213,7 +213,7 @@ function ShopCardBody({
 
 export function ShopSheet({
   listPins,
-  listCenter,
+  userLocation,
   selectedShop,
   onSelectPin,
   onClose,
@@ -269,7 +269,7 @@ export function ShopSheet({
                 <ListRow
                   key={pin.id}
                   pin={pin}
-                  center={listCenter}
+                  center={userLocation}
                   record={get(pin.id)?.status ?? null}
                   onTap={(e) => {
                     if (Math.abs(e.clientY - pointerDownY.current) > 8) return;

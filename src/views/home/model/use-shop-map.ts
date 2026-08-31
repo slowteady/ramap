@@ -8,7 +8,7 @@ import {
   MAP_DEFAULT_LEVEL,
 } from "@/shared/config/map";
 import { createKakaoAdapter } from "@/shared/map/kakao-adapter";
-import type { MapAdapter, MapView } from "@/shared/map/types";
+import type { LatLng, MapAdapter, MapView } from "@/shared/map/types";
 import { applyFilters, type MapFilters } from "./filter";
 import {
   boundsCenter,
@@ -35,6 +35,7 @@ export function useShopMap(
   const adapterRef = useRef<MapAdapter | null>(null);
   const [status, setStatus] = useState<MapStatus>("loading");
   const [view, setView] = useState<MapView | null>(null);
+  const [userLocation, setUserLocation] = useState<LatLng | null>(null);
   const focusApplied = useRef(false);
   const onSelectRef = useRef(onSelect);
   const onClearRef = useRef(onClear);
@@ -50,10 +51,6 @@ export function useShopMap(
     [visiblePins, selectedId],
   );
   /* 시트 목록: 버퍼 없는 실제 화면 범위, 중심 가까운 순 */
-  const listCenter =
-    view && view.level < CLUSTER_LEVEL_THRESHOLD
-      ? boundsCenter(view.bounds)
-      : null;
   const listPins = useMemo(
     () =>
       view
@@ -145,6 +142,7 @@ export function useShopMap(
         const adapter = adapterRef.current;
         if (!adapter) return;
         const pos = { lat: coords.latitude, lng: coords.longitude };
+        setUserLocation(pos);
         adapter.setUserLocation(pos);
         adapter.setLevel(CLUSTER_LEVEL_THRESHOLD - 2);
         adapter.panTo(pos);
@@ -158,7 +156,7 @@ export function useShopMap(
     status,
     visiblePins,
     listPins,
-    listCenter,
+    userLocation,
     selectedShop,
     panToPin,
     locate,

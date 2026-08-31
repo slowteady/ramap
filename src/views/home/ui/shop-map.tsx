@@ -32,7 +32,7 @@ export function ShopMap({ pins }: { pins: ShopPin[] }) {
     status,
     visiblePins,
     listPins,
-    listCenter,
+    userLocation,
     selectedShop,
     panToPin,
     locate,
@@ -89,7 +89,7 @@ export function ShopMap({ pins }: { pins: ShopPin[] }) {
       {status === "ready" && (
         <ShopSheet
           listPins={listPins}
-          listCenter={listCenter}
+          userLocation={userLocation}
           selectedShop={selectedShop}
           onSelectPin={(pin) => {
             select(pin.id);
