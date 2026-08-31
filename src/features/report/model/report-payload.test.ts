@@ -6,6 +6,7 @@ import {
   canSubmitNew,
   EMPTY_EDIT_DRAFT,
   EMPTY_NEW_DRAFT,
+  isLikelyUrl,
   toReportRow,
 } from "./report-payload";
 
@@ -13,7 +14,8 @@ const target = { id: "kinka", name: "킨카", location: "성수" };
 const pin = { lat: 37.5446, lng: 127.0559 };
 
 describe("새 라멘집 등록", () => {
-  it("이름 + (링크 또는 지도 핀)이 있어야 제출 가능", () => {
+  it("이름 + (링크·지도 핀·사진 중 하나)가 있어야 제출 가능", () => {
+    const photo = new File([""], "a.jpg", { type: "image/jpeg" });
     expect(canSubmitNew(EMPTY_NEW_DRAFT)).toBe(false);
     expect(canSubmitNew({ ...EMPTY_NEW_DRAFT, shopName: "무구" })).toBe(false);
     expect(
@@ -26,18 +28,22 @@ describe("새 라멘집 등록", () => {
     expect(canSubmitNew({ ...EMPTY_NEW_DRAFT, shopName: "무구", pin })).toBe(
       true,
     );
-    expect(canSubmitNew({ ...EMPTY_NEW_DRAFT, links: ["https://x"] })).toBe(
+    expect(
+      canSubmitNew({ ...EMPTY_NEW_DRAFT, shopName: "무구", photos: [photo] }),
+    ).toBe(true);
+    expect(canSubmitNew({ ...EMPTY_NEW_DRAFT, links: ["https://x.kr"] })).toBe(
       false,
     );
   });
 
-  it("사진을 붙이면 직접 촬영 동의가 있어야 제출 가능", () => {
-    const base = { ...EMPTY_NEW_DRAFT, shopName: "무구", links: ["https://x"] };
-    const photo = new File([""], "a.jpg", { type: "image/jpeg" });
-    expect(canSubmitNew({ ...base, photos: [photo] })).toBe(false);
-    expect(canSubmitNew({ ...base, photos: [photo], photoConsent: true })).toBe(
-      true,
-    );
+  it("형식이 아닌 링크는 링크로 치지 않는다", () => {
+    expect(isLikelyUrl("https://instagram.com/mugu")).toBe(true);
+    expect(isLikelyUrl("naver.me/abc")).toBe(true);
+    expect(isLikelyUrl("성수역 근처")).toBe(false);
+    expect(isLikelyUrl("http://a b")).toBe(false);
+    expect(
+      canSubmitNew({ ...EMPTY_NEW_DRAFT, shopName: "무구", links: ["성수역"] }),
+    ).toBe(false);
   });
 
   it("필수만 채우면 나머지는 payload에서 빠지고, 빈 링크 칸은 버린다", () => {
@@ -61,10 +67,9 @@ describe("새 라멘집 등록", () => {
       {
         ...EMPTY_NEW_DRAFT,
         shopName: "무구",
+        branch: " 성수점 ",
         links: [],
         pin,
-        soups: ["niboshi"],
-        lineages: ["iekei"],
         message: " 지로계 아님 ",
       },
       ["new/a.jpg"],
@@ -72,9 +77,8 @@ describe("새 라멘집 등록", () => {
     expect(payload).toEqual({
       type: "new",
       shopName: "무구",
+      branch: "성수점",
       pin,
-      soups: ["niboshi"],
-      lineages: ["iekei"],
       photos: ["new/a.jpg"],
       message: "지로계 아님",
     });
@@ -97,6 +101,11 @@ describe("새 라멘집 등록", () => {
       [],
     );
     expect(toReportRow(withPin).location).toBe("37.5446,127.0559");
+    const withPhoto = buildNewPayload(
+      { ...EMPTY_NEW_DRAFT, shopName: "무구" },
+      ["new/a.jpg"],
+    );
+    expect(toReportRow(withPhoto).location).toBe("사진 참고");
   });
 });
 

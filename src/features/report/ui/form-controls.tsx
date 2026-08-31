@@ -11,12 +11,16 @@ const INPUT_CLASS =
 export function Field({
   label,
   required,
+  optional,
   hint,
+  error,
   children,
 }: {
   label: string;
   required?: boolean;
+  optional?: boolean;
   hint?: string;
+  error?: string | null;
   children: React.ReactNode;
 }) {
   return (
@@ -24,11 +28,16 @@ export function Field({
       <span className="text-secondary font-semibold text-ink">
         {label}
         {required && <span className="text-ramen"> *</span>}
-        {hint && (
-          <span className="pl-1.5 font-normal text-gray-400">{hint}</span>
+        {optional && (
+          <span className="pl-1 font-normal text-gray-400">(선택)</span>
         )}
       </span>
       {children}
+      {error ? (
+        <span className="text-caption text-ramen">{error}</span>
+      ) : (
+        hint && <span className="text-caption text-gray-400">{hint}</span>
+      )}
     </label>
   );
 }
@@ -169,7 +178,7 @@ export function PhotoPicker({
 }: {
   files: File[];
   max: number;
-  onAdd: (files: FileList) => void;
+  onAdd: (files: File[]) => void;
   onRemove: (index: number) => void;
 }) {
   const urls = useMemo(() => files.map((f) => URL.createObjectURL(f)), [files]);
@@ -194,8 +203,10 @@ export function PhotoPicker({
             multiple
             className="sr-only"
             onChange={(e) => {
-              if (e.target.files) onAdd(e.target.files);
+              /* FileList는 live — value 초기화 전에 복사해야 지연 실행되는 상태 업데이터가 빈 목록을 받지 않는다 */
+              const picked = Array.from(e.target.files ?? []);
               e.target.value = "";
+              if (picked.length > 0) onAdd(picked);
             }}
           />
         </label>
@@ -212,7 +223,7 @@ export function PhotoPicker({
             type="button"
             aria-label="사진 삭제"
             onClick={() => onRemove(i)}
-            className="absolute -top-1.5 -right-1.5 flex size-6 items-center justify-center rounded-pill bg-ink text-white"
+            className="absolute top-1 right-1 flex size-6 items-center justify-center rounded-pill bg-ink/70 text-white"
           >
             <X className="size-3.5" />
           </button>

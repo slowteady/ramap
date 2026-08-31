@@ -2,13 +2,10 @@
 
 import { MapPin, Plus, X } from "lucide-react";
 import { cn } from "@/shared/lib/utils";
-import { GENRE_AXES } from "../model/report-options";
 import { MAX_LINKS, MAX_PHOTOS, type LatLng } from "../model/report-payload";
 import { useNewReportForm } from "../model/use-report-form";
 import {
   BottomCta,
-  CheckRow,
-  ChipGrid,
   DoneView,
   Field,
   PhotoPicker,
@@ -47,39 +44,60 @@ export function NewReportForm({
           </span>
         </div>
 
-        <Field label="가게 이름" required>
-          <TextInput
-            value={draft.shopName}
-            onChange={(e) => form.set("shopName", e.target.value)}
-            placeholder="예) 멘야코노하"
-          />
-        </Field>
+        <div className="grid grid-cols-3 gap-3">
+          <div className="col-span-2">
+            <Field label="가게 이름" required>
+              <TextInput
+                value={draft.shopName}
+                onChange={(e) => form.set("shopName", e.target.value)}
+              />
+            </Field>
+          </div>
+          <Field label="지점명" optional>
+            <TextInput
+              value={draft.branch}
+              onChange={(e) => form.set("branch", e.target.value)}
+            />
+          </Field>
+        </div>
 
         <div className="flex flex-col gap-1.5">
           <span className="text-secondary font-semibold text-ink">
             링크<span className="text-ramen"> *</span>
           </span>
-          {draft.links.map((link, i) => (
-            <div key={i} className="flex items-center gap-2">
-              <TextInput
-                value={link}
-                onChange={(e) => form.setLink(i, e.target.value)}
-                placeholder="인스타그램 · 카카오맵 · 네이버 지도"
-                inputMode="url"
-                className="flex-1"
-              />
-              {i > 0 && (
-                <button
-                  type="button"
-                  aria-label="링크 삭제"
-                  onClick={() => form.removeLink(i)}
-                  className="flex size-9 shrink-0 items-center justify-center rounded-pill text-gray-300"
-                >
-                  <X className="size-4" />
-                </button>
-              )}
-            </div>
-          ))}
+          {draft.links.map((link, i) => {
+            const error = form.linkError(i);
+            return (
+              <div key={i} className="flex flex-col gap-1">
+                <div className="flex items-center gap-2">
+                  <TextInput
+                    value={link}
+                    onChange={(e) => form.setLink(i, e.target.value)}
+                    onBlur={() => form.touchLink(i)}
+                    inputMode="url"
+                    aria-invalid={Boolean(error)}
+                    className="flex-1"
+                  />
+                  {i > 0 && (
+                    <button
+                      type="button"
+                      aria-label="링크 삭제"
+                      onClick={() => form.removeLink(i)}
+                      className="flex size-9 shrink-0 items-center justify-center rounded-pill text-gray-300"
+                    >
+                      <X className="size-4" />
+                    </button>
+                  )}
+                </div>
+                {error && (
+                  <span className="text-caption text-ramen">{error}</span>
+                )}
+              </div>
+            );
+          })}
+          <span className="text-caption text-gray-400">
+            인스타그램, 카카오맵, 네이버 지도 중 하나면 충분해요
+          </span>
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
             {draft.links.length < MAX_LINKS && (
               <button
@@ -108,44 +126,24 @@ export function NewReportForm({
           </div>
         </div>
 
-        {GENRE_AXES.map((axis) => (
-          <div key={axis.key} className="flex flex-col gap-1.5">
-            <span className="text-secondary font-semibold text-ink">
-              {axis.title}
-            </span>
-            <ChipGrid
-              items={axis.items}
-              selected={draft[axis.key]}
-              onToggle={(slug) => form.toggle(axis.key, slug)}
-            />
-          </div>
-        ))}
-
         <div className="flex flex-col gap-1.5">
-          <span className="text-secondary font-semibold text-ink">사진</span>
+          <span className="text-secondary font-semibold text-ink">
+            사진<span className="pl-1 font-normal text-gray-400">(선택)</span>
+          </span>
           <PhotoPicker
             files={draft.photos}
             max={MAX_PHOTOS}
             onAdd={form.addPhotos}
             onRemove={form.removePhoto}
           />
-          {draft.photos.length > 0 && (
-            <CheckRow
-              label="직접 촬영한 사진이며 라맵 게재에 동의해요"
-              checked={draft.photoConsent}
-              onToggle={() => form.set("photoConsent", !draft.photoConsent)}
-            />
-          )}
         </div>
 
-        <Field label="한마디">
-          <TextArea
-            value={draft.message}
-            onChange={(e) => form.set("message", e.target.value)}
-            placeholder="예) 지로계인데 라맵에 없어요"
-            maxLength={500}
-          />
-        </Field>
+        <TextArea
+          value={draft.message}
+          onChange={(e) => form.set("message", e.target.value)}
+          placeholder="더 알려주실 내용이 있다면 자유롭게 적어주세요"
+          maxLength={500}
+        />
       </div>
       <BottomCta
         label="등록하기"

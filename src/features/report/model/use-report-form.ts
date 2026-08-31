@@ -10,6 +10,7 @@ import {
   canSubmitNew,
   EMPTY_EDIT_DRAFT,
   EMPTY_NEW_DRAFT,
+  isLikelyUrl,
   MAX_LINKS,
   MAX_PHOTOS,
   toReportRow,
@@ -45,8 +46,7 @@ function useDraft<D extends object>(initial: D) {
 }
 
 export function useNewReportForm(mapCenter: LatLng | null) {
-  const { draft, setDraft, set, toggle } =
-    useDraft<NewReportDraft>(EMPTY_NEW_DRAFT);
+  const { draft, setDraft, set } = useDraft<NewReportDraft>(EMPTY_NEW_DRAFT);
   const { phase, submit } = useReportSubmit();
   const canSubmit = phase === "editing" && canSubmitNew(draft);
 
@@ -72,10 +72,10 @@ export function useNewReportForm(mapCenter: LatLng | null) {
   );
 
   const addPhotos = useCallback(
-    (files: FileList | File[]) =>
+    (files: File[]) =>
       setDraft((d) => ({
         ...d,
-        photos: [...d.photos, ...Array.from(files)].slice(0, MAX_PHOTOS),
+        photos: [...d.photos, ...files].slice(0, MAX_PHOTOS),
       })),
     [setDraft],
   );
@@ -91,6 +91,22 @@ export function useNewReportForm(mapCenter: LatLng | null) {
   const togglePin = useCallback(
     () => setDraft((d) => ({ ...d, pin: d.pin ? null : mapCenter })),
     [setDraft, mapCenter],
+  );
+
+  const [touchedLinks, setTouchedLinks] = useState<number[]>([]);
+  const touchLink = useCallback(
+    (index: number) =>
+      setTouchedLinks((t) => (t.includes(index) ? t : [...t, index])),
+    [],
+  );
+  const linkError = useCallback(
+    (index: number) => {
+      const value = draft.links[index]?.trim() ?? "";
+      return touchedLinks.includes(index) && value !== "" && !isLikelyUrl(value)
+        ? "링크 형식이 아니에요. 주소창의 URL을 붙여넣어 주세요."
+        : null;
+    },
+    [draft.links, touchedLinks],
   );
 
   const handleSubmit = useCallback(() => {
@@ -112,13 +128,14 @@ export function useNewReportForm(mapCenter: LatLng | null) {
   return {
     draft,
     set,
-    toggle,
     setLink,
     addLink,
     removeLink,
     addPhotos,
     removePhoto,
     togglePin,
+    touchLink,
+    linkError,
     canAttachPin: mapCenter !== null,
     phase,
     canSubmit,

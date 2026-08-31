@@ -19,13 +19,13 @@ type GenreDraft = {
   lineages: LineageSlug[];
 };
 
-/* 링크 우선(라멘투데이 모델): 영업시간·메뉴·주소는 링크에서 파트너가 확인 — 사용자에게 다시 묻지 않는다 */
-export type NewReportDraft = GenreDraft & {
+/* 링크 우선(라멘투데이 모델): 장르·영업시간·메뉴·주소는 링크에서 파트너가 판별 — 사용자에게 묻지 않는다 */
+export type NewReportDraft = {
   shopName: string;
+  branch: string;
   links: string[];
   pin: LatLng | null;
   photos: File[];
-  photoConsent: boolean;
   message: string;
 };
 
@@ -59,11 +59,9 @@ export type EditReportDraft = GenreDraft & {
 export type NewReportPayload = {
   type: "new";
   shopName: string;
+  branch?: string;
   links?: string[];
   pin?: LatLng;
-  soups?: SoupSlug[];
-  forms?: FormSlug[];
-  lineages?: LineageSlug[];
   photos?: string[];
   message?: string;
 };
@@ -98,13 +96,10 @@ export type ReportRow = {
 
 export const EMPTY_NEW_DRAFT: NewReportDraft = {
   shopName: "",
+  branch: "",
   links: [""],
   pin: null,
-  soups: [],
-  forms: [],
-  lineages: [],
   photos: [],
-  photoConsent: false,
   message: "",
 };
 
@@ -136,13 +131,29 @@ function genreOf(d: GenreDraft): Partial<GenreDraft> | undefined {
   return Object.keys(genre).length > 0 ? genre : undefined;
 }
 
-const cleanLinks = (links: string[]) =>
-  links.map((l) => l.trim()).filter((l) => l !== "");
+/* 조기 검증 금지(Baymard) — blur 시점과 제출 가능 판정에만 사용 */
+export function isLikelyUrl(raw: string): boolean {
+  const value = raw.trim();
+  if (value === "" || /\s/.test(value)) return false;
+  try {
+    const url = new URL(
+      /^[a-z]+:\/\//i.test(value) ? value : `https://${value}`,
+    );
+    return url.hostname.includes(".");
+  } catch {
+    return false;
+  }
+}
 
+const cleanLinks = (links: string[]) =>
+  links.map((l) => l.trim()).filter((l) => isLikelyUrl(l));
+
+/* 직접 촬영 안내는 문구로 처리(네이버 제보 기준·카카오맵 제보리워드 관례) — 체크박스 없음 */
 export function canSubmitNew(d: NewReportDraft): boolean {
   if (d.shopName.trim() === "") return false;
-  if (cleanLinks(d.links).length === 0 && !d.pin) return false;
-  return d.photos.length === 0 || d.photoConsent;
+  return (
+    cleanLinks(d.links).length > 0 || d.pin !== null || d.photos.length > 0
+  );
 }
 
 export function buildNewPayload(
@@ -152,9 +163,9 @@ export function buildNewPayload(
   return {
     type: "new",
     shopName: d.shopName.trim(),
+    ...field("branch", text(d.branch)),
     ...field("links", list(cleanLinks(d.links))),
     ...field("pin", d.pin ?? undefined),
-    ...genreOf(d),
     ...field("photos", list(photoPaths)),
     ...field("message", text(d.message)),
   };
@@ -201,7 +212,9 @@ export function toReportRow(
       ? [
           payload.shopName,
           payload.links?.[0] ??
-            (payload.pin ? `${payload.pin.lat},${payload.pin.lng}` : ""),
+            (payload.pin
+              ? `${payload.pin.lat},${payload.pin.lng}`
+              : "사진 참고"),
         ]
       : [
           target?.name ?? payload.shopName,
