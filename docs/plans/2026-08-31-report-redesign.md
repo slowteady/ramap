@@ -77,10 +77,11 @@
 
 ### 데이터
 
-- 기존 `reports` 테이블 유지, `payload` JSON에 유형별 구조 적재:
-  - A: `{ type: "new", shopName, location, soups?, forms?, lineages?, amenities?, hours?, topMenu?, message? }`
-  - B: `{ type: "edit", shopId, items: ["closed", "hours", ...], fields: {...}, message? }`
-- 스키마 변경 없으면 마이그레이션 불요 — 구현 시 `supabase/schema.sql` 확인
+- 기존 `reports` 테이블 유지 — **스키마 무변경 확정 (2026-08-31 구현)**: 유형별 구조는 기존 `details jsonb` 컬럼에 적재, `shop_name`/`location`은 대시보드에서 사람이 읽는 값(수정 제보는 대상 매장의 상호·주소/동네, 없으면 id). `type`은 `new`/`edit` 2종만 사용(폐업은 edit의 `items` 항목 — check 제약의 `closed` 값은 미사용 잔존)
+  - A: `{ type: "new", shopName, location, soups?, forms?, lineages?, amenities?, hours?, topMenu?: {name, price|null}, message? }`
+  - B: `{ type: "edit", shopId, shopName, items: ["closed", "hours", ...], fields: { closed?: {status: "closed"|"paused", evidence?}, hours?, menu?, location?, genre?: {soups?, forms?, lineages?}, amenities? }, message? }`
+- 전송은 raw fetch → `getSupabase().from("reports").insert()`로 전환 (Plan 6에서 supabase-js 도입됨). env 없으면 기존과 같은 `unconfigured` 안내 폴백
+- 순수 함수 `features/report/model/report-payload.ts`(빌더·검증·행 변환)·`report-query.ts`(URL 파서)에 Vitest 14건
 - 익명 제출 유지 (RLS insert-only)
 
 ### 구현 순서
@@ -114,8 +115,13 @@
 - UI 작업 시 `.claude/skills/ramap-ui` 스킬 필수, 주석 금지 (CLAUDE.md)
 - 캐치테이블 실물 스크린샷 대조: 세션 스크래치패드 `report-refs/` (소실 시 캐치테이블 매장 상세 → "잘못된 정보가 있나요?" 행에서 재캡처)
 
+## 구현 상태 (2026-08-31)
+
+브랜치 `feat/report-sheet`에 1~4단계 구현 완료, tsc·Vitest(96)·build 통과, Playwright로 두 플로우·뒤로가기 닫기·env 미설정 폴백 실측. 5단계(로컬 검수 → 머지)는 사용자 확인 대기. 스타일 축 칩은 필터와 동일하게 `taste`(이에케·지로계)만 노출 — 자가제면·본토직영 수집은 미결에 추가.
+
 ## 미결
 
 - 매장 카드(2뎁스)에 수정 진입 행 추가 여부
+- 제보 상세층에 `trait` 계보(자가제면·본토직영) 칩 노출 여부 — 현재는 필터 가시성 규칙을 따라 숨김
 - 사진 첨부 (Supabase Storage 파이프라인과 함께 — 별도 계획)
 - 제보 보상(포인트류)은 도입하지 않음 — 대형 3사 관례지만 라맵 규모에선 감사 문화(18 문서)로 갈음
