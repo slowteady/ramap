@@ -233,11 +233,15 @@ export function ShopSheet({
       dismissible={false}
       snapPoints={
         selectedShop
-          ? [SNAP_CARD]
+          ? [SNAP_COLLAPSED, SNAP_CARD]
           : [SNAP_HIDDEN, SNAP_COLLAPSED, SNAP_MID, SNAP_FULL]
       }
       activeSnapPoint={snap}
-      setActiveSnapPoint={setSnap}
+      setActiveSnapPoint={(next) => {
+        setSnap(next);
+        /* 카드를 끌어내리면 닫고 목록 접힘으로 — 카카오맵·캐치테이블 관례 */
+        if (selectedShop && next === SNAP_COLLAPSED) onClose();
+      }}
     >
       <DrawerContent
         overlay={false}
