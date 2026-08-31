@@ -5,8 +5,9 @@ import { Check, Plus, X } from "lucide-react";
 import type { TaxonomyItem } from "@/entities/shop";
 import { cn } from "@/shared/lib/utils";
 
+/* 포커스는 보더 반전으로 표시(토스·당근) — 유채색 링 금지, 색이 있는 곳 = 누를 수 있는 곳 */
 const INPUT_CLASS =
-  "w-full rounded-card bg-gray-050 px-3 py-2.5 text-body text-ink outline-none placeholder:text-gray-300";
+  "w-full rounded-card border border-transparent bg-gray-050 px-3 py-2.5 text-body text-ink outline-none transition-colors duration-150 placeholder:text-gray-300 focus:border-ink focus:bg-white aria-invalid:border-ramen";
 
 export function Field({
   label,
