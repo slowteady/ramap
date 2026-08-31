@@ -98,6 +98,18 @@ export function withinBounds(pin: ShopPin, bounds: LatLngBounds): boolean {
   );
 }
 
+export function distanceMeters(pin: ShopPin, center: LatLng): number {
+  const dLat = (pin.lat - center.lat) * 111320;
+  const dLng = ((pin.lng - center.lng) / LNG_SCALE) * 111320;
+  return Math.sqrt(dLat * dLat + dLng * dLng);
+}
+
+export function formatDistance(meters: number): string {
+  if (meters < 1000) return `${Math.round(meters)}m`;
+  if (meters < 10000) return `${(meters / 1000).toFixed(1)}km`;
+  return `${Math.round(meters / 1000)}km`;
+}
+
 export function sortByDistance(pins: ShopPin[], center: LatLng): ShopPin[] {
   const dist = (p: ShopPin) => {
     const dLat = p.lat - center.lat;

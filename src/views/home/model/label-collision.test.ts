@@ -5,6 +5,8 @@ import {
   expandBounds,
   planMarkers,
   withinBounds,
+  distanceMeters,
+  formatDistance,
 } from "./label-collision";
 
 const pin = (id: string, lat: number, lng: number): ShopPin => ({
@@ -105,5 +107,20 @@ describe("bounds", () => {
     const expanded = expandBounds(bounds, 0.3);
     expect(expanded.sw.lat).toBeCloseTo(36.7);
     expect(expanded.ne.lng).toBeCloseTo(128.6);
+  });
+});
+
+describe("distanceMeters / formatDistance", () => {
+  const center = { lat: 37.5, lng: 127.0 };
+
+  it("위도 0.01도 차이는 약 1,113m다", () => {
+    const pin = { lat: 37.51, lng: 127.0 } as Parameters<typeof distanceMeters>[0];
+    expect(distanceMeters(pin, center)).toBeCloseTo(1113.2, 0);
+  });
+
+  it("1km 미만은 m, 미만 10km는 소수 1자리 km, 이상은 정수 km", () => {
+    expect(formatDistance(450.4)).toBe("450m");
+    expect(formatDistance(1234)).toBe("1.2km");
+    expect(formatDistance(12345)).toBe("12km");
   });
 });

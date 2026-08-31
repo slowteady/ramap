@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { ChevronLeft } from "lucide-react";
+import { Bookmark, ChevronLeft } from "lucide-react";
 import {
   AMENITIES,
   GenreChips,
@@ -10,9 +10,11 @@ import {
   OpenStatusBadge,
   type ShopPin,
 } from "@/entities/shop";
-import { RecordButtons } from "@/features/records";
+import { RecordButtons, useRecords } from "@/features/records";
 import { cn } from "@/shared/lib/utils";
 import { Drawer, DrawerContent, DrawerTitle } from "@/shared/ui/drawer";
+import type { LatLng } from "@/shared/map/types";
+import { distanceMeters, formatDistance } from "../model/label-collision";
 
 /* 접힘은 주소창 변동에 흔들리지 않게 고정 px, 나머지는 dvh 비율 (미결 5 — 실기기 확정 전) */
 const SNAP_COLLAPSED = "96px";
@@ -22,6 +24,7 @@ const SNAP_FULL = 0.88;
 
 type ShopSheetProps = {
   listPins: ShopPin[];
+  listCenter: LatLng | null;
   selectedShop: ShopPin | null;
   onSelectPin: (pin: ShopPin) => void;
   onClose: () => void;
@@ -37,11 +40,40 @@ function hasStatusText(pin: ShopPin): boolean {
 
 function ListRow({
   pin,
+  center,
+  record,
   onTap,
 }: {
   pin: ShopPin;
+  center: LatLng | null;
+  record: "visited" | "want" | null;
   onTap: (e: React.MouseEvent) => void;
 }) {
+  const distance = center ? formatDistance(distanceMeters(pin, center)) : null;
+  const hasHours = pin.status === "paused" || (pin.status === "open" && Boolean(pin.hours));
+  const metaParts = [
+    distance && (
+      <span key="dist" className="shrink-0 text-secondary text-gray-500">
+        {distance}
+      </span>
+    ),
+    pin.areaLabel && (
+      <span key="area" className="shrink-0 text-secondary text-gray-400">
+        {pin.areaLabel}
+      </span>
+    ),
+    hasHours && (
+      <OpenStatusBadge
+        key="hours"
+        status={pin.status}
+        hours={pin.hours}
+        breakTime={null}
+        closedDays={null}
+        className="truncate"
+      />
+    ),
+  ].filter(Boolean);
+
   return (
     <li className="border-b border-gray-050">
       <button
@@ -56,24 +88,23 @@ function ListRow({
           <span className="truncate text-body font-bold text-ink">
             {pin.name}
           </span>
+          {record === "visited" && (
+            <span className="shrink-0 rounded-chip bg-ramen-050 px-1.5 py-0.5 text-caption font-semibold text-ramen">
+              완식
+            </span>
+          )}
+          {record === "want" && (
+            <Bookmark className="size-3.5 shrink-0 fill-current text-gray-300" />
+          )}
         </span>
-        {(pin.areaLabel || hasStatusText(pin)) && (
+        {metaParts.length > 0 && (
           <span className="flex min-w-0 items-baseline gap-1.5">
-            {pin.areaLabel && (
-              <span className="shrink-0 text-secondary text-gray-400">
-                {pin.areaLabel}
+            {metaParts.map((part, i) => (
+              <span key={i} className="contents">
+                {i > 0 && <span className="text-secondary text-gray-300">·</span>}
+                {part}
               </span>
-            )}
-            {pin.areaLabel && hasStatusText(pin) && (
-              <span className="text-secondary text-gray-300">·</span>
-            )}
-            <OpenStatusBadge
-              status={pin.status}
-              hours={pin.hours}
-              breakTime={pin.breakTime}
-              closedDays={pin.closedDays}
-              className="truncate"
-            />
+            ))}
           </span>
         )}
         <GenreChips
@@ -182,10 +213,12 @@ function ShopCardBody({
 
 export function ShopSheet({
   listPins,
+  listCenter,
   selectedShop,
   onSelectPin,
   onClose,
 }: ShopSheetProps) {
+  const { get } = useRecords();
   const [snap, setSnap] = useState<number | string | null>(SNAP_COLLAPSED);
   const pointerDownY = useRef(0);
 
@@ -236,6 +269,8 @@ export function ShopSheet({
                 <ListRow
                   key={pin.id}
                   pin={pin}
+                  center={listCenter}
+                  record={get(pin.id)?.status ?? null}
                   onTap={(e) => {
                     if (Math.abs(e.clientY - pointerDownY.current) > 8) return;
                     onSelectPin(pin);
