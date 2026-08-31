@@ -30,7 +30,9 @@ const pin = (id: string, over: Partial<ShopPin> = {}): ShopPin => ({
 
 describe("parse/serialize", () => {
   it("왕복 보존하며 미지 슬러그는 무시한다", () => {
-    const params = new URLSearchParams("soup=niboshi,shio,fake&form=tsukemen&lineage=iekei");
+    const params = new URLSearchParams(
+      "soup=niboshi,shio,fake&form=tsukemen&lineage=iekei",
+    );
     const f = parseFilters(params);
     expect(f.soups).toEqual(["niboshi", "shio"]);
     expect(f.forms).toEqual(["tsukemen"]);
@@ -60,12 +62,20 @@ describe("newOnly", () => {
 describe("applyFilters", () => {
   const pins = [
     pin("a", { soups: ["niboshi"], forms: ["ramen"] }),
-    pin("b", { soups: ["tonkotsu"], forms: ["ramen", "tsukemen"], lineages: ["iekei"] }),
+    pin("b", {
+      soups: ["tonkotsu"],
+      forms: ["ramen", "tsukemen"],
+      lineages: ["iekei"],
+    }),
     pin("c", { soups: ["niboshi", "shio"], forms: ["tsukemen"] }),
   ];
 
   it("축 내 OR, 축 간 AND", () => {
-    const f = { ...EMPTY_FILTERS, soups: ["niboshi" as const], forms: ["tsukemen" as const] };
+    const f = {
+      ...EMPTY_FILTERS,
+      soups: ["niboshi" as const],
+      forms: ["tsukemen" as const],
+    };
     expect(applyFilters(pins, f).map((p) => p.id)).toEqual(["c"]);
   });
 

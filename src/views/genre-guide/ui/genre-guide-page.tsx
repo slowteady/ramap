@@ -27,7 +27,10 @@ export function GenreGuidePage({ guide, shops }: GenreGuidePageProps) {
   return (
     <div className="flex min-h-dvh flex-col pb-10">
       <header className="flex items-center justify-between px-4 py-3">
-        <Link href="/" className="text-heading font-extrabold tracking-tight text-ink">
+        <Link
+          href="/"
+          className="text-heading font-extrabold tracking-tight text-ink"
+        >
           라맵
         </Link>
         <span className="text-secondary text-gray-400">
@@ -43,7 +46,10 @@ export function GenreGuidePage({ guide, shops }: GenreGuidePageProps) {
           )}
         </div>
         {guide.intro.map((paragraph) => (
-          <p key={paragraph.slice(0, 20)} className="text-body leading-relaxed text-gray-500">
+          <p
+            key={paragraph.slice(0, 20)}
+            className="text-body leading-relaxed text-gray-500"
+          >
             {paragraph}
           </p>
         ))}
@@ -89,11 +95,16 @@ export function GenreGuidePage({ guide, shops }: GenreGuidePageProps) {
 
       {shops.length > 0 && (
         <section className="flex flex-col gap-1 px-4 pt-8">
-          <h2 className="text-title font-bold text-ink">지금 가볼 수 있는 곳</h2>
+          <h2 className="text-title font-bold text-ink">
+            지금 가볼 수 있는 곳
+          </h2>
           <ul className="flex flex-col">
             {shops.slice(0, 3).map((shop) => (
               <li key={shop.id} className="border-b border-gray-050">
-                <Link href={`/shop/${shop.id}`} className="flex flex-col gap-0.5 py-3">
+                <Link
+                  href={`/shop/${shop.id}`}
+                  className="flex flex-col gap-0.5 py-3"
+                >
                   <span className="text-body font-semibold text-ink">
                     {shop.name}
                   </span>

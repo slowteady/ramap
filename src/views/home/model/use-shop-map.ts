@@ -41,7 +41,10 @@ export function useShopMap(
   onSelectRef.current = onSelect;
   onClearRef.current = onClear;
 
-  const visiblePins = useMemo(() => applyFilters(pins, filters), [pins, filters]);
+  const visiblePins = useMemo(
+    () => applyFilters(pins, filters),
+    [pins, filters],
+  );
   const selectedShop = useMemo(
     () => visiblePins.find((p) => p.id === selectedId) ?? null,
     [visiblePins, selectedId],
@@ -97,12 +100,17 @@ export function useShopMap(
 
     if (view.level >= CLUSTER_LEVEL_THRESHOLD) {
       const clusters = buildAreaClusters(visiblePins);
-      adapter.render([], toClusterMarkers(clusters), () => {}, (area) => {
-        const target = clusters.find((c) => c.area === area);
-        if (!target) return;
-        adapter.setLevel(CLUSTER_LEVEL_THRESHOLD - 1);
-        adapter.panTo({ lat: target.lat, lng: target.lng });
-      });
+      adapter.render(
+        [],
+        toClusterMarkers(clusters),
+        () => {},
+        (area) => {
+          const target = clusters.find((c) => c.area === area);
+          if (!target) return;
+          adapter.setLevel(CLUSTER_LEVEL_THRESHOLD - 1);
+          adapter.panTo({ lat: target.lat, lng: target.lng });
+        },
+      );
       return;
     }
 

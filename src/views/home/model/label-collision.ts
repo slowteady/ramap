@@ -77,7 +77,10 @@ export function planMarkers(
   return markers;
 }
 
-export function expandBounds(bounds: LatLngBounds, ratio: number): LatLngBounds {
+export function expandBounds(
+  bounds: LatLngBounds,
+  ratio: number,
+): LatLngBounds {
   const latPad = (bounds.ne.lat - bounds.sw.lat) * ratio;
   const lngPad = (bounds.ne.lng - bounds.sw.lng) * ratio;
   return {

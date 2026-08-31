@@ -1,6 +1,11 @@
 import type { ShopPin } from "./map-manifest";
 
-export type AreaCluster = { area: string; count: number; lat: number; lng: number };
+export type AreaCluster = {
+  area: string;
+  count: number;
+  lat: number;
+  lng: number;
+};
 
 export function buildAreaClusters(pins: ShopPin[]): AreaCluster[] {
   const groups = new Map<string, ShopPin[]>();

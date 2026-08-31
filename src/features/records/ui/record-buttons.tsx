@@ -6,7 +6,8 @@ import { useVisitAction } from "../model/use-visit-action";
 import { LoginPromptSheet } from "./login-prompt-sheet";
 
 export function RecordButtons({ shopId }: { shopId: string }) {
-  const { get, visit, save, authPrompt, closeAuthPrompt } = useVisitAction(shopId);
+  const { get, visit, save, authPrompt, closeAuthPrompt } =
+    useVisitAction(shopId);
   const record = get(shopId);
   const visited = record?.status === "visited";
   const want = record?.status === "want";
@@ -18,7 +19,9 @@ export function RecordButtons({ shopId }: { shopId: string }) {
         onClick={visit}
         className={cn(
           "flex items-center gap-1.5 rounded-pill px-3.5 py-2 text-secondary font-bold",
-          visited ? "border border-ramen bg-ramen-050 text-ramen" : "bg-gray-050 text-ink",
+          visited
+            ? "border border-ramen bg-ramen-050 text-ramen"
+            : "bg-gray-050 text-ink",
         )}
       >
         <Check className="size-4" />
@@ -30,7 +33,9 @@ export function RecordButtons({ shopId }: { shopId: string }) {
         disabled={visited}
         className={cn(
           "flex items-center gap-1.5 rounded-pill px-3.5 py-2 text-secondary font-bold",
-          want ? "border border-ramen bg-ramen-050 text-ramen" : "bg-gray-050 text-ink",
+          want
+            ? "border border-ramen bg-ramen-050 text-ramen"
+            : "bg-gray-050 text-ink",
           visited && "opacity-40",
         )}
       >

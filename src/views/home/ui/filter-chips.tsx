@@ -3,7 +3,11 @@
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/shared/lib/utils";
 import type { MapFilters } from "../model/filter";
-import { axisChipCount, FILTER_AXES, type FilterAxis } from "../model/filter-axes";
+import {
+  axisChipCount,
+  FILTER_AXES,
+  type FilterAxis,
+} from "../model/filter-axes";
 
 type FilterChipsProps = {
   filters: MapFilters;

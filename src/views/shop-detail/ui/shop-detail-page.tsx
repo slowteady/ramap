@@ -30,7 +30,9 @@ export function ShopDetailPage({ shop }: { shop: Shop }) {
     <div className="flex min-h-dvh flex-col pb-24">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(restaurantJsonLd(shop)) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(restaurantJsonLd(shop)),
+        }}
       />
       <div className="relative h-48 bg-gray-100">
         <Link
@@ -45,15 +47,23 @@ export function ShopDetailPage({ shop }: { shop: Shop }) {
       <div className="flex flex-col gap-1.5 px-4 pt-4">
         <h1 className="text-heading font-extrabold text-ink">{shop.name}</h1>
         <div className="flex items-center gap-2">
-          <GenreChips soups={shop.soups} forms={shop.forms} lineages={shop.lineages} />
+          <GenreChips
+            soups={shop.soups}
+            forms={shop.forms}
+            lineages={shop.lineages}
+          />
           {shop.areaLabel && (
-            <span className="text-secondary text-gray-400">{shop.areaLabel}</span>
+            <span className="text-secondary text-gray-400">
+              {shop.areaLabel}
+            </span>
           )}
         </div>
         {shop.status === "paused" && (
           <p className="text-secondary font-semibold text-gray-400">휴업 중</p>
         )}
-        {shop.tagline && <p className="text-body text-gray-500">{shop.tagline}</p>}
+        {shop.tagline && (
+          <p className="text-body text-gray-500">{shop.tagline}</p>
+        )}
       </div>
 
       <section className="flex flex-col gap-2.5 px-4 pt-5">
@@ -110,7 +120,9 @@ export function ShopDetailPage({ shop }: { shop: Shop }) {
                 key={menu.name}
                 className="flex items-baseline justify-between rounded-card bg-gray-050 px-3 py-2.5"
               >
-                <span className="text-body font-semibold text-ink">{menu.name}</span>
+                <span className="text-body font-semibold text-ink">
+                  {menu.name}
+                </span>
                 {menu.price !== null && (
                   <span className="text-secondary text-gray-500">
                     {menu.price.toLocaleString()}원
@@ -130,7 +142,9 @@ export function ShopDetailPage({ shop }: { shop: Shop }) {
           <span className="text-body text-gray-500">
             {primarySoupLabel}가 뭔가요?
           </span>
-          <span className="text-secondary font-semibold text-ink">장르 가이드 →</span>
+          <span className="text-secondary font-semibold text-ink">
+            장르 가이드 →
+          </span>
         </Link>
       )}
 
@@ -158,7 +172,10 @@ export function ShopDetailPage({ shop }: { shop: Shop }) {
       </section>
 
       <div className="px-4 pt-8">
-        <Link href="/report" className="text-secondary text-gray-400 underline underline-offset-2">
+        <Link
+          href="/report"
+          className="text-secondary text-gray-400 underline underline-offset-2"
+        >
           정보가 다른가요? 수정 제안하기
         </Link>
       </div>

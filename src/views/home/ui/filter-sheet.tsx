@@ -18,7 +18,11 @@ import {
   EMPTY_FILTERS,
   type MapFilters,
 } from "../model/filter";
-import { FILTER_AXES, visibleItems, type FilterAxis } from "../model/filter-axes";
+import {
+  FILTER_AXES,
+  visibleItems,
+  type FilterAxis,
+} from "../model/filter-axes";
 
 type FilterSheetProps = {
   axis: FilterAxis | null;
@@ -34,7 +38,13 @@ const COUNTERS = {
   lineage: countByLineage,
 } as const;
 
-export function FilterSheet({ axis, pins, filters, onApply, onClose }: FilterSheetProps) {
+export function FilterSheet({
+  axis,
+  pins,
+  filters,
+  onApply,
+  onClose,
+}: FilterSheetProps) {
   const [tab, setTab] = useState<FilterAxis>("form");
 
   useEffect(() => {
@@ -46,7 +56,10 @@ export function FilterSheet({ axis, pins, filters, onApply, onClose }: FilterShe
     () => COUNTERS[config.axis](pins, filters),
     [config, pins, filters],
   );
-  const resultCount = useMemo(() => applyFilters(pins, filters).length, [pins, filters]);
+  const resultCount = useMemo(
+    () => applyFilters(pins, filters).length,
+    [pins, filters],
+  );
 
   const applied = FILTER_AXES.flatMap((a) =>
     (filters[a.filterKey] as string[]).map((slug) => ({
@@ -88,7 +101,10 @@ export function FilterSheet({ axis, pins, filters, onApply, onClose }: FilterShe
         <span className="text-body font-semibold">{item.label}</span>
         {config.axis === "lineage" && item.description && (
           <span
-            className={cn("text-caption", isOn ? "text-ramen/70" : "text-gray-400")}
+            className={cn(
+              "text-caption",
+              isOn ? "text-ramen/70" : "text-gray-400",
+            )}
           >
             {item.description}
           </span>
@@ -144,19 +160,19 @@ export function FilterSheet({ axis, pins, filters, onApply, onClose }: FilterShe
         </div>
 
         {applied.length > 0 && (
-        <div className="flex items-center gap-2 overflow-x-auto px-4 pt-4 [scrollbar-width:none]">
-          {applied.map((item) => (
-            <button
-              key={`${item.axis.axis}:${item.slug}`}
-              type="button"
-              onClick={() => removeValue(item)}
-              className="flex shrink-0 items-center gap-1 rounded-card border border-ramen bg-ramen-050 px-2.5 py-1.5 text-secondary font-semibold text-ramen"
-            >
-              {item.label}
-              <X className="size-3.5" />
-            </button>
-          ))}
-        </div>
+          <div className="flex items-center gap-2 overflow-x-auto px-4 pt-4 [scrollbar-width:none]">
+            {applied.map((item) => (
+              <button
+                key={`${item.axis.axis}:${item.slug}`}
+                type="button"
+                onClick={() => removeValue(item)}
+                className="flex shrink-0 items-center gap-1 rounded-card border border-ramen bg-ramen-050 px-2.5 py-1.5 text-secondary font-semibold text-ramen"
+              >
+                {item.label}
+                <X className="size-3.5" />
+              </button>
+            ))}
+          </div>
         )}
 
         <div className="flex gap-2 p-4 pt-3">

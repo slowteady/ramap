@@ -2,7 +2,12 @@ import { describe, it, expect } from "vitest";
 import type { ShopPin } from "./map-manifest";
 import { buildAreaClusters } from "./area-clusters";
 
-const pin = (id: string, area: string | null, lat: number, lng: number): ShopPin => ({
+const pin = (
+  id: string,
+  area: string | null,
+  lat: number,
+  lng: number,
+): ShopPin => ({
   id,
   topMenu: null,
   hours: null,

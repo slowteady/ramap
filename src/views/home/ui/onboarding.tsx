@@ -42,7 +42,9 @@ export function Onboarding({ pins }: { pins: ShopPin[] }) {
           <br />
           먼저 찍어보세요
         </h1>
-        <p className="text-secondary text-gray-400">기록은 이 기기에만 저장돼요</p>
+        <p className="text-secondary text-gray-400">
+          기록은 이 기기에만 저장돼요
+        </p>
       </div>
 
       <div className="px-4 pt-4">

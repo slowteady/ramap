@@ -43,7 +43,10 @@ declare global {
       maps: {
         load(cb: () => void): void;
         LatLng: new (lat: number, lng: number) => unknown;
-        Map: new (el: HTMLElement, opts: { center: unknown; level: number }) => KakaoMap;
+        Map: new (
+          el: HTMLElement,
+          opts: { center: unknown; level: number },
+        ) => KakaoMap;
         CustomOverlay: new (opts: {
           position: unknown;
           content: HTMLElement;

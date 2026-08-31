@@ -93,7 +93,10 @@ export async function fetchRecords(
   }
 }
 
-export function supabaseSink(client: SupabaseClient, userId: string): RecordSink {
+export function supabaseSink(
+  client: SupabaseClient,
+  userId: string,
+): RecordSink {
   return {
     upsert(record) {
       void client

@@ -51,7 +51,9 @@ export function itemListJsonLd(shops: Shop[], url: string): object {
   };
 }
 
-export function breadcrumbJsonLd(items: { name: string; url: string }[]): object {
+export function breadcrumbJsonLd(
+  items: { name: string; url: string }[],
+): object {
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",

@@ -79,7 +79,10 @@ describe("planMarkers", () => {
 
   it("줌 아웃할수록 셀이 커진다 (같은 거리라도 강등 발생)", () => {
     const unit3 = degPerPx(3);
-    const pins = [pin("aaa", 37.5, 127.0), pin("bbb", 37.5 + unit3 * 40, 127.0)];
+    const pins = [
+      pin("aaa", 37.5, 127.0),
+      pin("bbb", 37.5 + unit3 * 40, 127.0),
+    ];
     const atLevel3 = planMarkers(pins, 3, null, new Set());
     const atLevel5 = planMarkers(pins, 5, null, new Set());
     expect(atLevel3.every((m) => m.kind === "pill")).toBe(true);
@@ -88,7 +91,10 @@ describe("planMarkers", () => {
 });
 
 describe("bounds", () => {
-  const bounds = { sw: { lat: 37.0, lng: 126.0 }, ne: { lat: 38.0, lng: 128.0 } };
+  const bounds = {
+    sw: { lat: 37.0, lng: 126.0 },
+    ne: { lat: 38.0, lng: 128.0 },
+  };
 
   it("경계 내부 판정", () => {
     expect(withinBounds(pin("a", 37.5, 127.0), bounds)).toBe(true);

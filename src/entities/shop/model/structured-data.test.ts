@@ -42,10 +42,9 @@ describe("itemList / breadcrumb / faq", () => {
       { name: "성수", url: "https://ramap.kr/area/성수" },
     ]) as Record<string, unknown>;
     expect(bc["@type"]).toBe("BreadcrumbList");
-    const faq = faqJsonLd([{ q: "니보시란?", a: "건어물 다시 계열" }]) as Record<
-      string,
-      unknown
-    >;
+    const faq = faqJsonLd([
+      { q: "니보시란?", a: "건어물 다시 계열" },
+    ]) as Record<string, unknown>;
     expect(faq["@type"]).toBe("FAQPage");
   });
 });

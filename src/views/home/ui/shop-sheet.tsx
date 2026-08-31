@@ -38,7 +38,11 @@ function hasStatusText(pin: ShopPin): boolean {
 function ListRow({ pin, onTap }: { pin: ShopPin; onTap: () => void }) {
   return (
     <li className="border-b border-gray-050">
-      <button type="button" onClick={onTap} className="flex w-full flex-col gap-1.5 py-3.5 text-left">
+      <button
+        type="button"
+        onClick={onTap}
+        className="flex w-full flex-col gap-1.5 py-3.5 text-left"
+      >
         <span className="flex items-center gap-1.5">
           {pin.isNew && (
             <span className="text-caption font-extrabold text-ramen">NEW</span>
@@ -66,13 +70,23 @@ function ListRow({ pin, onTap }: { pin: ShopPin; onTap: () => void }) {
             />
           </span>
         )}
-        <GenreChips soups={pin.soups} forms={pin.forms} lineages={pin.lineages} />
+        <GenreChips
+          soups={pin.soups}
+          forms={pin.forms}
+          lineages={pin.lineages}
+        />
       </button>
     </li>
   );
 }
 
-function ShopCardBody({ shop, onClose }: { shop: ShopPin; onClose: () => void }) {
+function ShopCardBody({
+  shop,
+  onClose,
+}: {
+  shop: ShopPin;
+  onClose: () => void;
+}) {
   const amenityLabels = [
     ...shop.lineages.flatMap((l) => {
       const item = LINEAGES.find((x) => x.slug === l);
@@ -118,7 +132,11 @@ function ShopCardBody({ shop, onClose }: { shop: ShopPin; onClose: () => void })
           />
         </span>
       )}
-      <GenreChips soups={shop.soups} forms={shop.forms} lineages={shop.lineages} />
+      <GenreChips
+        soups={shop.soups}
+        forms={shop.forms}
+        lineages={shop.lineages}
+      />
       {amenityLabels.length > 0 && (
         <div className="flex flex-wrap gap-1.5 pt-1">
           {amenityLabels.map((label) => (
@@ -156,7 +174,12 @@ function ShopCardBody({ shop, onClose }: { shop: ShopPin; onClose: () => void })
   );
 }
 
-export function ShopSheet({ listPins, selectedShop, onSelectPin, onClose }: ShopSheetProps) {
+export function ShopSheet({
+  listPins,
+  selectedShop,
+  onSelectPin,
+  onClose,
+}: ShopSheetProps) {
   const [snap, setSnap] = useState<number | string | null>(SNAP_COLLAPSED);
 
   useEffect(() => {
@@ -194,11 +217,17 @@ export function ShopSheet({ listPins, selectedShop, onSelectPin, onClose }: Shop
               className={cn(
                 "min-h-0 flex-1",
                 /* 제스처 충돌 회피 — 목록 스크롤은 풀 스냅에서만 */
-                snap === SNAP_FULL ? "overflow-y-auto overscroll-contain pb-10" : "overflow-hidden",
+                snap === SNAP_FULL
+                  ? "overflow-y-auto overscroll-contain pb-10"
+                  : "overflow-hidden",
               )}
             >
               {listPins.map((pin) => (
-                <ListRow key={pin.id} pin={pin} onTap={() => onSelectPin(pin)} />
+                <ListRow
+                  key={pin.id}
+                  pin={pin}
+                  onTap={() => onSelectPin(pin)}
+                />
               ))}
               {listPins.length === 0 && (
                 <li className="py-6 text-secondary text-gray-400">

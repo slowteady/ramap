@@ -18,7 +18,9 @@ for (const shop of shops) {
       `경고: ${shop.id} 영업시간 "${shop.hours}" — "11:00-21:00" 형식이 아니면 실시간 영업 표시가 꺼집니다`,
     );
   if (shop.breakTime && !isParsableHours(shop.breakTime))
-    console.warn(`경고: ${shop.id} 브레이크 "${shop.breakTime}" — 형식 확인 필요`);
+    console.warn(
+      `경고: ${shop.id} 브레이크 "${shop.breakTime}" — 형식 확인 필요`,
+    );
 }
 
 if (issues.length > 0) {

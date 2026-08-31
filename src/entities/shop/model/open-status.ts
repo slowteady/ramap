@@ -11,7 +11,12 @@ export type OpenStatus =
 const RANGE = /^(\d{1,2}):(\d{2})\s*[-–—~]\s*(\d{1,2}):(\d{2})$/;
 const DAY_KO = ["일", "월", "화", "수", "목", "금", "토"];
 
-type Range = { start: number; end: number; endLabel: string; startLabel: string };
+type Range = {
+  start: number;
+  end: number;
+  endLabel: string;
+  startLabel: string;
+};
 
 function parseRanges(text: string | null): Range[] | null {
   if (!text) return null;
@@ -55,7 +60,8 @@ export function openStatus(
   if (!ranges) return { kind: "unknown" };
 
   const day = DAY_KO[dayjs(now).day()];
-  if (closedDays?.split(",").some((d) => d.trim() === day)) return { kind: "dayoff" };
+  if (closedDays?.split(",").some((d) => d.trim() === day))
+    return { kind: "dayoff" };
 
   const minutes = dayjs(now).hour() * 60 + dayjs(now).minute();
   const current = within(ranges, minutes);
@@ -78,7 +84,9 @@ export function openStatusLabel(status: OpenStatus): string | null {
     case "break":
       return `브레이크 · ${status.until}부터`;
     case "closed":
-      return status.opensAt ? `영업 종료 · ${status.opensAt} 오픈` : "영업 종료";
+      return status.opensAt
+        ? `영업 종료 · ${status.opensAt} 오픈`
+        : "영업 종료";
     case "dayoff":
       return "오늘 휴무";
     case "unknown":
