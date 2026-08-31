@@ -156,48 +156,55 @@ function ShopCardBody({
         >
           <ChevronLeft className="size-5" />
         </button>
-        <DrawerTitle className="min-w-0 truncate text-title font-bold text-ink">
-          {shop.name}
+        <DrawerTitle className="min-w-0 flex-1 truncate text-title font-bold text-ink">
+          <Link href={`/shop/${shop.id}`}>{shop.name}</Link>
         </DrawerTitle>
-      </div>
-      <MetaRow pin={shop} center={center} full />
-      <GenreChips
-        soups={shop.soups}
-        forms={shop.forms}
-        lineages={shop.lineages}
-      />
-      {amenityLabels.length > 0 && (
-        <div className="flex flex-wrap gap-1.5 pt-1">
-          {amenityLabels.map((label) => (
-            <span
-              key={label}
-              className="rounded-chip bg-gray-100 px-1.5 py-0.5 text-caption font-semibold text-gray-500"
-            >
-              {label}
-            </span>
-          ))}
-        </div>
-      )}
-      {shop.topMenu && (
-        <div className="mt-2 flex items-baseline justify-between rounded-card bg-gray-050 px-3 py-2.5">
-          <span className="text-body font-semibold text-ink">
-            {shop.topMenu.name}
-          </span>
-          {shop.topMenu.price !== null && (
-            <span className="text-secondary text-gray-500">
-              {shop.topMenu.price.toLocaleString()}원
-            </span>
-          )}
-        </div>
-      )}
-      <div className="mt-auto flex items-center gap-2 pt-3">
-        <RecordButtons shopId={shop.id} />
-        <Link
-          href={`/shop/${shop.id}`}
-          className="flex flex-1 items-center justify-center rounded-pill bg-ink py-2 text-secondary font-bold text-white"
+        <a
+          href={`https://map.kakao.com/link/to/${encodeURIComponent(shop.name)},${shop.lat},${shop.lng}`}
+          target="_blank"
+          rel="noreferrer"
+          className="shrink-0 text-secondary font-semibold text-ramen"
         >
-          상세 보기
-        </Link>
+          길찾기 ›
+        </a>
+      </div>
+      <Link
+        href={`/shop/${shop.id}`}
+        className="flex min-w-0 flex-col gap-1.5"
+      >
+        <MetaRow pin={shop} center={center} full />
+        <GenreChips
+          soups={shop.soups}
+          forms={shop.forms}
+          lineages={shop.lineages}
+        />
+        {amenityLabels.length > 0 && (
+          <div className="flex flex-wrap gap-1.5 pt-1">
+            {amenityLabels.map((label) => (
+              <span
+                key={label}
+                className="rounded-chip bg-gray-100 px-1.5 py-0.5 text-caption font-semibold text-gray-500"
+              >
+                {label}
+              </span>
+            ))}
+          </div>
+        )}
+        {shop.topMenu && (
+          <div className="mt-2 flex items-baseline justify-between rounded-card bg-gray-050 px-3 py-2.5">
+            <span className="text-body font-semibold text-ink">
+              {shop.topMenu.name}
+            </span>
+            {shop.topMenu.price !== null && (
+              <span className="text-secondary text-gray-500">
+                {shop.topMenu.price.toLocaleString()}원
+              </span>
+            )}
+          </div>
+        )}
+      </Link>
+      <div className="mt-auto flex items-center gap-2 pt-3">
+        <RecordButtons shopId={shop.id} className="flex-1" />
       </div>
     </div>
   );
