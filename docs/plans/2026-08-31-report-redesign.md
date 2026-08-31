@@ -78,7 +78,7 @@
 ### 데이터
 
 - 기존 `reports` 테이블 유지 — **스키마 무변경 확정 (2026-08-31 구현)**: 유형별 구조는 기존 `details jsonb` 컬럼에 적재, `shop_name`/`location`은 대시보드에서 사람이 읽는 값(수정 제보는 대상 매장의 상호·주소/동네, 없으면 id). `type`은 `new`/`edit` 2종만 사용(폐업은 edit의 `items` 항목 — check 제약의 `closed` 값은 미사용 잔존)
-  - A (2차): `{ type: "new", shopName, location, branch?, pin?: {lat,lng}, soups?, forms?, lineages?, menus?: {name, price|null}[], hours?, breakTime?, closedDays?: string[], amenities?, seats?, photos?: string[](Storage 경로), instagram?, naverPlace?, waitingLink?, message? }`
+  - A (3차): `{ type: "new", shopName, links?: string[], pin?: {lat,lng}, soups?, forms?, lineages?, photos?: string[](Storage 경로), message? }` — `location` 컬럼 = 첫 링크(없으면 핀 좌표 문자열)
   - B: `{ type: "edit", shopId, shopName, items: ["closed", "hours", ...], fields: { closed?: {status: "closed"|"paused", evidence?}, hours?, menu?, location?, genre?: {soups?, forms?, lineages?}, amenities? }, message? }`
 - 전송은 raw fetch → `getSupabase().from("reports").insert()`로 전환 (Plan 6에서 supabase-js 도입됨). env 없으면 기존과 같은 `unconfigured` 안내 폴백
 - 순수 함수 `features/report/model/report-payload.ts`(빌더·검증·행 변환)·`report-query.ts`(URL 파서)에 Vitest 14건
@@ -120,7 +120,7 @@
 1차 구현의 "필수 2개 + '아는 만큼만 알려주세요' 접힘 토글 + CTA 아래 캡션"은 폐기. 근거 조사(웹 실측 2건):
 
 - **라벨**: "제보"는 카카오맵·포카맵·워시맵·Coffice에서 폐업·수정까지 뭉뚱그리는 말. 신규는 카카오맵·네이버 "신규 장소 등록", 다이닝코드 "식당 등록 요청" → 홈 버튼 **라멘집 등록** / 시트 **새 라멘집 등록** / CTA **등록하기**
-- **구조**: 5사 중 접힘은 구글뿐(카카오·당근·네이버 펼침). NN/g "자주 필요한 것을 숨기면 안티패턴", Baymard "접힘은 Address Line 2처럼 소수만 쓰는 필드에만" → 한 화면 세로 4섹션 전부 펼침. 필드 = 15번 시트 컬럼 1:1
+- **구조 (3차, PO 재검수)**: 시트 컬럼 1:1 펼침안(2차)은 **폐기** — 영업시간·메뉴·주소·좌석은 인스타·카카오맵·네이버 링크 하나면 파트너가 확인 가능한데 사용자에게 재타이핑시키는 설계였음. **링크 우선(라멘투데이 "가게명/링크만" 모델)**: 이름* + 링크*(최대 3, 또는 지도 핀) + 국물·종류·스타일(taste만) + 사진 + 한마디. 접힘 없음은 유지(필드가 적어 필요 없음)
 - **CTA**: TDS BottomCTA·캐치테이블 하단 고정. 버튼 아래 설명 캡션은 HIG 금지, 5사 중 폼 안에 검수 안내 두는 곳 없음 → 완료 화면으로 이동
 - **카피**: 5사 공통 해요체 1문장·행동 동사, 로그인·검수 같은 시스템 사정은 리드에 안 넣음 → "아직 라맵에 없는 라멘집을 알려주세요."
 - **사진**: 등록 폼에 최대 5장 + 직접 촬영 동의(09 경계선). 클라이언트 리사이즈·EXIF 제거 → Storage `report-photos`(비공개, 익명 insert만). `supabase/schema.sql`에 버킷·정책 추가 — **Supabase SQL Editor에서 1회 실행 필요**
@@ -129,7 +129,7 @@
 
 ## 구현 상태 (2026-08-31)
 
-브랜치 `feat/report-sheet`에 1차(시트 골격·두 플로우) + 2차 재설계(등록 폼 전면 개편·사진·지도 핀) 구현, tsc·Vitest(99)·build 통과, Playwright로 두 플로우·뒤로가기 닫기·env 미설정 폴백 실측. 로컬 검수 → 머지는 사용자 확인 대기. 스타일 축은 trait(자가제면·본토직영)까지 4개 전부 노출.
+브랜치 `feat/report-sheet`에 1차(시트 골격·두 플로우) + 2차 재설계(등록 폼 전면 개편·사진·지도 핀) 구현, tsc·Vitest(99)·build 통과, Playwright로 두 플로우·뒤로가기 닫기·env 미설정 폴백 실측. 로컬 검수 → 머지는 사용자 확인 대기. 스타일 축은 필터와 동일하게 taste(이에케·지로계)만 — trait는 운영자 태깅 영역.
 
 ## 미결
 

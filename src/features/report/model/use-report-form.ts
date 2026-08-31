@@ -9,15 +9,13 @@ import {
   canSubmitEdit,
   canSubmitNew,
   EMPTY_EDIT_DRAFT,
-  EMPTY_MENU,
   EMPTY_NEW_DRAFT,
-  MAX_MENUS,
+  MAX_LINKS,
   MAX_PHOTOS,
   toReportRow,
   type EditItem,
   type EditReportDraft,
   type LatLng,
-  type MenuDraft,
   type NewReportDraft,
   type ReportTarget,
 } from "./report-payload";
@@ -52,32 +50,24 @@ export function useNewReportForm(mapCenter: LatLng | null) {
   const { phase, submit } = useReportSubmit();
   const canSubmit = phase === "editing" && canSubmitNew(draft);
 
-  const setMenu = useCallback(
-    (index: number, patch: Partial<MenuDraft>) =>
+  const setLink = useCallback(
+    (index: number, value: string) =>
       setDraft((d) => ({
         ...d,
-        menus: d.menus.map((m, i) => (i === index ? { ...m, ...patch } : m)),
+        links: d.links.map((l, i) => (i === index ? value : l)),
       })),
     [setDraft],
   );
-  const addMenu = useCallback(
+  const addLink = useCallback(
     () =>
       setDraft((d) =>
-        d.menus.length >= MAX_MENUS
-          ? d
-          : { ...d, menus: [...d.menus, EMPTY_MENU] },
+        d.links.length >= MAX_LINKS ? d : { ...d, links: [...d.links, ""] },
       ),
     [setDraft],
   );
-  const removeMenu = useCallback(
+  const removeLink = useCallback(
     (index: number) =>
-      setDraft((d) => ({
-        ...d,
-        menus:
-          d.menus.length === 1
-            ? [EMPTY_MENU]
-            : d.menus.filter((_, i) => i !== index),
-      })),
+      setDraft((d) => ({ ...d, links: d.links.filter((_, i) => i !== index) })),
     [setDraft],
   );
 
@@ -123,9 +113,9 @@ export function useNewReportForm(mapCenter: LatLng | null) {
     draft,
     set,
     toggle,
-    setMenu,
-    addMenu,
-    removeMenu,
+    setLink,
+    addLink,
+    removeLink,
     addPhotos,
     removePhoto,
     togglePin,

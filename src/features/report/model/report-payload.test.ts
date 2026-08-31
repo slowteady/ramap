@@ -10,22 +10,29 @@ import {
 } from "./report-payload";
 
 const target = { id: "kinka", name: "킨카", location: "성수" };
+const pin = { lat: 37.5446, lng: 127.0559 };
 
 describe("새 라멘집 등록", () => {
-  it("이름·위치가 있어야 제출 가능", () => {
+  it("이름 + (링크 또는 지도 핀)이 있어야 제출 가능", () => {
     expect(canSubmitNew(EMPTY_NEW_DRAFT)).toBe(false);
     expect(canSubmitNew({ ...EMPTY_NEW_DRAFT, shopName: "무구" })).toBe(false);
     expect(
       canSubmitNew({
         ...EMPTY_NEW_DRAFT,
-        shopName: " 무구 ",
-        location: "성수",
+        shopName: "무구",
+        links: [" https://instagram.com/mugu "],
       }),
     ).toBe(true);
+    expect(canSubmitNew({ ...EMPTY_NEW_DRAFT, shopName: "무구", pin })).toBe(
+      true,
+    );
+    expect(canSubmitNew({ ...EMPTY_NEW_DRAFT, links: ["https://x"] })).toBe(
+      false,
+    );
   });
 
   it("사진을 붙이면 직접 촬영 동의가 있어야 제출 가능", () => {
-    const base = { ...EMPTY_NEW_DRAFT, shopName: "무구", location: "성수" };
+    const base = { ...EMPTY_NEW_DRAFT, shopName: "무구", links: ["https://x"] };
     const photo = new File([""], "a.jpg", { type: "image/jpeg" });
     expect(canSubmitNew({ ...base, photos: [photo] })).toBe(false);
     expect(canSubmitNew({ ...base, photos: [photo], photoConsent: true })).toBe(
@@ -33,81 +40,63 @@ describe("새 라멘집 등록", () => {
     );
   });
 
-  it("필수만 채우면 선택 필드는 payload에서 빠진다", () => {
+  it("필수만 채우면 나머지는 payload에서 빠지고, 빈 링크 칸은 버린다", () => {
     const payload = buildNewPayload(
-      { ...EMPTY_NEW_DRAFT, shopName: " 무구 ", location: " 성수역 " },
+      {
+        ...EMPTY_NEW_DRAFT,
+        shopName: " 무구 ",
+        links: [" https://instagram.com/mugu ", ""],
+      },
       [],
     );
     expect(payload).toEqual({
       type: "new",
       shopName: "무구",
-      location: "성수역",
+      links: ["https://instagram.com/mugu"],
     });
   });
 
-  it("채운 선택 필드는 시트 컬럼 이름 그대로 담기고 가격은 숫자로", () => {
+  it("선택 필드는 채운 것만 담긴다", () => {
     const payload = buildNewPayload(
       {
         ...EMPTY_NEW_DRAFT,
         shopName: "무구",
-        location: "성수",
-        branch: " 성수점 ",
+        links: [],
+        pin,
         soups: ["niboshi"],
-        lineages: ["jikaseimen"],
-        amenities: ["kaedama"],
-        hours: "11:00-21:00",
-        breakTime: "15:00-17:00",
-        closedDays: ["월", "둘째 화"],
-        seats: "카운터 9",
-        menus: [
-          { name: "니보시 시오", price: "12,000원" },
-          { name: "", price: "9000" },
-          { name: "츠케멘", price: "" },
-        ],
-        instagram: "https://instagram.com/mugu",
-        naverPlace: "",
-        waitingLink: " https://catchtable.co.kr/mugu ",
+        lineages: ["iekei"],
         message: " 지로계 아님 ",
-        pin: { lat: 37.5446, lng: 127.0559 },
       },
-      ["new/a.jpg", "new/b.jpg"],
+      ["new/a.jpg"],
     );
     expect(payload).toEqual({
       type: "new",
       shopName: "무구",
-      location: "성수",
-      branch: "성수점",
+      pin,
       soups: ["niboshi"],
-      lineages: ["jikaseimen"],
-      amenities: ["kaedama"],
-      hours: "11:00-21:00",
-      breakTime: "15:00-17:00",
-      closedDays: ["월", "둘째 화"],
-      seats: "카운터 9",
-      menus: [
-        { name: "니보시 시오", price: 12000 },
-        { name: "츠케멘", price: null },
-      ],
-      instagram: "https://instagram.com/mugu",
-      waitingLink: "https://catchtable.co.kr/mugu",
-      photos: ["new/a.jpg", "new/b.jpg"],
-      pin: { lat: 37.5446, lng: 127.0559 },
+      lineages: ["iekei"],
+      photos: ["new/a.jpg"],
       message: "지로계 아님",
     });
   });
 
-  it("행 변환: shop_name·location은 컬럼, 전체는 details", () => {
-    const payload = buildNewPayload(
-      { ...EMPTY_NEW_DRAFT, shopName: "무구", location: "성수" },
+  it("행 변환: location 컬럼은 첫 링크, 링크 없으면 핀 좌표", () => {
+    const withLink = buildNewPayload(
+      { ...EMPTY_NEW_DRAFT, shopName: "무구", links: ["https://naver.me/abc"] },
       [],
     );
-    expect(toReportRow(payload)).toEqual({
+    expect(toReportRow(withLink)).toEqual({
       type: "new",
       shop_name: "무구",
-      location: "성수",
+      location: "https://naver.me/abc",
       message: null,
-      details: payload,
+      details: withLink,
     });
+    const withPin = buildNewPayload(
+      { ...EMPTY_NEW_DRAFT, shopName: "무구", pin },
+      [],
+    );
+    expect(toReportRow(withPin).location).toBe("37.5446,127.0559");
   });
 });
 

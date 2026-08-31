@@ -8,10 +8,6 @@ import { cn } from "@/shared/lib/utils";
 const INPUT_CLASS =
   "w-full rounded-card bg-gray-050 px-3 py-2.5 text-body text-ink outline-none placeholder:text-gray-300";
 
-export function SectionTitle({ children }: { children: React.ReactNode }) {
-  return <h2 className="pt-2 text-title font-bold text-ink">{children}</h2>;
-}
-
 export function Field({
   label,
   required,
@@ -85,40 +81,6 @@ export function ChipGrid({
             )}
           >
             {item.label}
-          </button>
-        );
-      })}
-    </div>
-  );
-}
-
-export function DayToggles({
-  days,
-  selected,
-  onToggle,
-}: {
-  days: readonly string[];
-  selected: string[];
-  onToggle: (day: string) => void;
-}) {
-  return (
-    <div className="flex gap-1.5">
-      {days.map((day) => {
-        const on = selected.includes(day);
-        return (
-          <button
-            key={day}
-            type="button"
-            aria-pressed={on}
-            onClick={() => onToggle(day)}
-            className={cn(
-              "flex size-10 items-center justify-center rounded-pill border text-secondary font-semibold transition-colors duration-150",
-              on
-                ? "border-ramen bg-ramen-050 text-ramen"
-                : "border-gray-100 bg-white text-ink",
-            )}
-          >
-            {day}
           </button>
         );
       })}
