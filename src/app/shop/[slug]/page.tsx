@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { shopById, soupBySlug } from "@/entities/shop";
+import { nearbyShops, shopById, soupBySlug } from "@/entities/shop";
 import { getShops } from "@/entities/shop/api/get-shops";
 import { ShopDetailPage } from "@/views/shop-detail";
 
@@ -24,7 +24,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Page({ params }: Props) {
   const { slug } = await params;
-  const shop = shopById(await getShops(), slug);
+  const shops = await getShops();
+  const shop = shopById(shops, slug);
   if (!shop) notFound();
-  return <ShopDetailPage shop={shop} />;
+  return <ShopDetailPage shop={shop} nearby={nearbyShops(shops, shop, 3)} />;
 }

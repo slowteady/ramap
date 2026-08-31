@@ -69,3 +69,25 @@ export function isNewOpen(shop: Shop, now: Date): boolean {
   if (!shop.openedAt) return false;
   return dayjs(now).diff(dayjs(shop.openedAt), "day") <= NEW_OPEN_DAYS;
 }
+
+const LNG_SCALE = 1 / Math.cos((37.5 * Math.PI) / 180);
+
+export function nearbyShops(shops: Shop[], origin: Shop, n: number): Shop[] {
+  if (origin.lat === null || origin.lng === null) return [];
+  const [lat0, lng0] = [origin.lat, origin.lng];
+  const dist = (s: Shop & { lat: number; lng: number }) => {
+    const dLat = s.lat - lat0;
+    const dLng = (s.lng - lng0) / LNG_SCALE;
+    return dLat * dLat + dLng * dLng;
+  };
+  return shops
+    .filter(
+      (s): s is Shop & { lat: number; lng: number } =>
+        s.id !== origin.id &&
+        s.status !== "closed" &&
+        s.lat !== null &&
+        s.lng !== null,
+    )
+    .sort((a, b) => dist(a) - dist(b))
+    .slice(0, n);
+}

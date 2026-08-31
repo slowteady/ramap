@@ -4,6 +4,7 @@ import {
   groupByOpenedMonth,
   isNewOpen,
   listAreaGenrePages,
+  nearbyShops,
   shopById,
   shopsByArea,
   shopsByAreaGenre,
@@ -106,5 +107,23 @@ describe("groupByOpenedMonth / isNewOpen", () => {
     expect(isNewOpen(shop({ openedAt: "2026-08-01" }), now)).toBe(true);
     expect(isNewOpen(shop({ openedAt: "2026-04-01" }), now)).toBe(false);
     expect(isNewOpen(shop({}), now)).toBe(false);
+  });
+});
+
+describe("nearbyShops", () => {
+  const me = shop({ id: "me", lat: 37.54, lng: 127.05 });
+  const near = shop({ id: "near", lat: 37.541, lng: 127.051 });
+  const far = shop({ id: "far", lat: 37.6, lng: 127.1 });
+  const mid = shop({ id: "mid", lat: 37.545, lng: 127.06 });
+  const closed = shop({ id: "closed", lat: 37.5401, lng: 127.0501, status: "closed" });
+  const noCoord = shop({ id: "nocoord", lat: null, lng: null });
+
+  it("자기 자신·폐업·좌표 없음을 빼고 가까운 순으로 n곳", () => {
+    const result = nearbyShops([far, closed, me, noCoord, mid, near], me, 2);
+    expect(result.map((s) => s.id)).toEqual(["near", "mid"]);
+  });
+
+  it("기준 매장에 좌표가 없으면 빈 배열", () => {
+    expect(nearbyShops([near, far], noCoord, 3)).toEqual([]);
   });
 });
