@@ -31,8 +31,8 @@ export function EditReportForm({
   if (form.phase === "done")
     return (
       <DoneView
-        title="수정 요청을 받았어요"
-        description="확인 후 반영해드려요. 폐업·휴업은 한 번 더 확인하고 바꿔요."
+        title="수정 요청이 접수됐어요"
+        description="확인을 거쳐 반영돼요. 폐업·휴업은 한 번 더 확인해요."
         onClose={onClose}
       />
     );

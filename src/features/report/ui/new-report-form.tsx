@@ -26,8 +26,8 @@ export function NewReportForm({
   if (form.phase === "done")
     return (
       <DoneView
-        title="등록 요청을 받았어요"
-        description="확인 후 지도에 올려드려요. 보통 며칠 안에 반영돼요."
+        title="등록 요청이 접수됐어요"
+        description="확인을 거쳐 지도에 올라가요. 보통 며칠 걸려요."
         onClose={onClose}
       />
     );
