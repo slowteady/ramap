@@ -7,7 +7,8 @@ import { LoginPromptSheet } from "./login-prompt-sheet";
 
 /* 상세 하단 고정 CTA — 보조 아이콘 + 주 버튼 1개 (캐치테이블 문법) */
 export function RecordCtaBar({ shopId }: { shopId: string }) {
-  const { get, visit, save, authPrompt, closeAuthPrompt } = useVisitAction(shopId);
+  const { get, visit, save, authPrompt, closeAuthPrompt } =
+    useVisitAction(shopId);
   const record = get(shopId);
   const visited = record?.status === "visited";
   const want = record?.status === "want";

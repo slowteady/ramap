@@ -37,7 +37,10 @@ export function ReportPage() {
   return (
     <div className="flex min-h-dvh flex-col pb-10">
       <header className="flex items-center justify-between px-4 py-3">
-        <Link href="/" className="text-heading font-extrabold tracking-tight text-ink">
+        <Link
+          href="/"
+          className="text-heading font-extrabold tracking-tight text-ink"
+        >
           라맵
         </Link>
       </header>
@@ -70,7 +73,9 @@ export function ReportPage() {
 
       <div className="flex flex-col gap-4 px-4 pt-6">
         <label className="flex flex-col gap-1.5">
-          <span className="text-secondary font-semibold text-ink">가게 이름</span>
+          <span className="text-secondary font-semibold text-ink">
+            가게 이름
+          </span>
           <input
             value={form.shopName}
             onChange={(e) => form.setShopName(e.target.value)}
@@ -91,7 +96,8 @@ export function ReportPage() {
         </label>
         <label className="flex flex-col gap-1.5">
           <span className="text-secondary font-semibold text-ink">
-            하고 싶은 말 <span className="font-normal text-gray-300">(선택)</span>
+            하고 싶은 말{" "}
+            <span className="font-normal text-gray-300">(선택)</span>
           </span>
           <textarea
             value={form.message}

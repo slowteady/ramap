@@ -8,7 +8,7 @@ import {
   MAP_DEFAULT_LEVEL,
 } from "@/shared/config/map";
 import { createKakaoAdapter } from "@/shared/map/kakao-adapter";
-import type { MapAdapter, MapView } from "@/shared/map/types";
+import type { LatLng, MapAdapter, MapView } from "@/shared/map/types";
 import { applyFilters, type MapFilters } from "./filter";
 import {
   boundsCenter,
@@ -35,13 +35,17 @@ export function useShopMap(
   const adapterRef = useRef<MapAdapter | null>(null);
   const [status, setStatus] = useState<MapStatus>("loading");
   const [view, setView] = useState<MapView | null>(null);
+  const [userLocation, setUserLocation] = useState<LatLng | null>(null);
   const focusApplied = useRef(false);
   const onSelectRef = useRef(onSelect);
   const onClearRef = useRef(onClear);
   onSelectRef.current = onSelect;
   onClearRef.current = onClear;
 
-  const visiblePins = useMemo(() => applyFilters(pins, filters), [pins, filters]);
+  const visiblePins = useMemo(
+    () => applyFilters(pins, filters),
+    [pins, filters],
+  );
   const selectedShop = useMemo(
     () => visiblePins.find((p) => p.id === selectedId) ?? null,
     [visiblePins, selectedId],
@@ -97,12 +101,17 @@ export function useShopMap(
 
     if (view.level >= CLUSTER_LEVEL_THRESHOLD) {
       const clusters = buildAreaClusters(visiblePins);
-      adapter.render([], toClusterMarkers(clusters), () => {}, (area) => {
-        const target = clusters.find((c) => c.area === area);
-        if (!target) return;
-        adapter.setLevel(CLUSTER_LEVEL_THRESHOLD - 1);
-        adapter.panTo({ lat: target.lat, lng: target.lng });
-      });
+      adapter.render(
+        [],
+        toClusterMarkers(clusters),
+        () => {},
+        (area) => {
+          const target = clusters.find((c) => c.area === area);
+          if (!target) return;
+          adapter.setLevel(CLUSTER_LEVEL_THRESHOLD - 1);
+          adapter.panTo({ lat: target.lat, lng: target.lng });
+        },
+      );
       return;
     }
 
@@ -133,6 +142,7 @@ export function useShopMap(
         const adapter = adapterRef.current;
         if (!adapter) return;
         const pos = { lat: coords.latitude, lng: coords.longitude };
+        setUserLocation(pos);
         adapter.setUserLocation(pos);
         adapter.setLevel(CLUSTER_LEVEL_THRESHOLD - 2);
         adapter.panTo(pos);
@@ -146,6 +156,7 @@ export function useShopMap(
     status,
     visiblePins,
     listPins,
+    userLocation,
     selectedShop,
     panToPin,
     locate,

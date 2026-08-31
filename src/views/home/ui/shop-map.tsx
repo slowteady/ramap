@@ -9,6 +9,7 @@ import { useMapFilters } from "../model/use-map-filters";
 import { useSelectedShop } from "../model/use-selected-shop";
 import { useShopMap } from "../model/use-shop-map";
 import type { FilterAxis } from "../model/filter-axes";
+import Link from "next/link";
 import { FilterChips } from "./filter-chips";
 import { FilterSheet } from "./filter-sheet";
 import { MapFallback } from "./map-fallback";
@@ -21,17 +22,35 @@ export function ShopMap({ pins }: { pins: ShopPin[] }) {
   const { records } = useRecords();
   const visitedIds = useMemo(
     () =>
-      new Set(records.filter((r) => r.status === "visited").map((r) => r.shopId)),
+      new Set(
+        records.filter((r) => r.status === "visited").map((r) => r.shopId),
+      ),
     [records],
   );
-  const { containerRef, status, visiblePins, listPins, selectedShop, panToPin, locate } =
-    useShopMap(pins, filters, selectedId, visitedIds, select, clear);
+  const {
+    containerRef,
+    status,
+    visiblePins,
+    listPins,
+    userLocation,
+    selectedShop,
+    panToPin,
+    locate,
+  } = useShopMap(pins, filters, selectedId, visitedIds, select, clear);
   const [sheetAxis, setSheetAxis] = useState<FilterAxis | null>(null);
 
   return (
     <div className="flex min-h-0 flex-1 flex-col">
       <Onboarding pins={pins} />
-      <FilterChips filters={filters} onOpenAxis={setSheetAxis} />
+      <div className="flex items-center">
+        <FilterChips filters={filters} onOpenAxis={setSheetAxis} onApply={apply} />
+        <Link
+          href="/report"
+          className="mr-4 shrink-0 rounded-pill bg-ramen px-3.5 py-1.5 text-secondary font-bold whitespace-nowrap text-white"
+        >
+          제보하기
+        </Link>
+      </div>
       {status === "failed" ? (
         <div className="min-h-0 flex-1 overflow-y-auto">
           <MapFallback pins={visiblePins} />
@@ -47,13 +66,15 @@ export function ShopMap({ pins }: { pins: ShopPin[] }) {
           {status === "ready" && (
             <button
               type="button"
-              aria-label="현위치로 이동"
               onClick={() =>
-                locate(() => toast("위치 권한이 없어 현위치를 표시할 수 없어요"))
+                locate(() =>
+                  toast("위치 권한이 없어 현위치를 표시할 수 없어요"),
+                )
               }
-              className="absolute right-3 bottom-28 z-10 flex size-11 items-center justify-center rounded-pill bg-white text-ink shadow-[0_1px_5px_rgba(26,27,31,0.2)]"
+              className="absolute right-3 bottom-28 z-10 flex items-center gap-1 rounded-pill bg-white py-2.5 pr-3.5 pl-3 text-secondary font-semibold text-ink shadow-[0_1px_5px_rgba(26,27,31,0.2)]"
             >
-              <LocateFixed className="size-5" />
+              <LocateFixed className="size-4 text-ramen" />
+              내주변
             </button>
           )}
         </div>
@@ -68,6 +89,7 @@ export function ShopMap({ pins }: { pins: ShopPin[] }) {
       {status === "ready" && (
         <ShopSheet
           listPins={listPins}
+          userLocation={userLocation}
           selectedShop={selectedShop}
           onSelectPin={(pin) => {
             select(pin.id);

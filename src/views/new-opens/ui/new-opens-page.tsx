@@ -12,7 +12,9 @@ import {
 function tagLine(shop: Shop): string {
   return [
     ...shop.soups.map((s) => soupBySlug(s)?.label ?? s),
-    ...shop.forms.filter((f) => f !== "ramen").map((f) => formBySlug(f)?.label ?? f),
+    ...shop.forms
+      .filter((f) => f !== "ramen")
+      .map((f) => formBySlug(f)?.label ?? f),
     shop.areaLabel,
   ]
     .filter(Boolean)
@@ -46,7 +48,9 @@ export function NewOpensPage({ shops }: { shops: Shop[] }) {
       </header>
 
       <div className="flex flex-col gap-1 px-4">
-        <h1 className="text-heading font-extrabold text-ink">새로 문 연 라멘집</h1>
+        <h1 className="text-heading font-extrabold text-ink">
+          새로 문 연 라멘집
+        </h1>
         <p className="text-secondary text-gray-500">
           인허가 데이터와 제보로 확인된 신규 오픈입니다.
         </p>
@@ -97,7 +101,9 @@ export function NewOpensPage({ shops }: { shops: Shop[] }) {
         href="/report"
         className="mx-4 mt-8 flex items-center justify-between rounded-card bg-gray-050 px-4 py-4"
       >
-        <span className="text-body text-gray-500">새 라멘집을 발견하셨나요?</span>
+        <span className="text-body text-gray-500">
+          새 라멘집을 발견하셨나요?
+        </span>
         <span className="text-body font-bold text-ramen">제보하기 →</span>
       </Link>
 

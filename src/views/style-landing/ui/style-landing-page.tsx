@@ -16,8 +16,7 @@ type StyleLandingPageProps = {
 function dominantSoups(shops: Shop[]): string {
   const counts = new Map<string, number>();
   for (const s of shops)
-    for (const soup of s.soups)
-      counts.set(soup, (counts.get(soup) ?? 0) + 1);
+    for (const soup of s.soups) counts.set(soup, (counts.get(soup) ?? 0) + 1);
   return [...counts.entries()]
     .sort((a, b) => b[1] - a[1])
     .slice(0, 2)
@@ -28,7 +27,9 @@ function dominantSoups(shops: Shop[]): string {
 function cardTags(shop: Shop): string {
   return [
     ...shop.lineages.map((l) => LINEAGES.find((x) => x.slug === l)?.label ?? l),
-    ...shop.forms.filter((f) => f !== "ramen").map((f) => formBySlug(f)?.label ?? f),
+    ...shop.forms
+      .filter((f) => f !== "ramen")
+      .map((f) => formBySlug(f)?.label ?? f),
     shop.areaLabel,
   ]
     .filter(Boolean)
@@ -59,7 +60,9 @@ export function StyleLandingPage({ lineage, shops }: StyleLandingPageProps) {
           <div className="flex items-baseline gap-2">
             <h1 className="text-display font-extrabold">{lineage.label}</h1>
             {lineage.labelJa && (
-              <span className="text-title text-white/40">{lineage.labelJa}</span>
+              <span className="text-title text-white/40">
+                {lineage.labelJa}
+              </span>
             )}
           </div>
           {lineage.description && (
@@ -95,7 +98,10 @@ export function StyleLandingPage({ lineage, shops }: StyleLandingPageProps) {
       <ul className="flex flex-col px-4 pt-2">
         {shops.map((shop) => (
           <li key={shop.id} className="border-b border-gray-050">
-            <Link href={`/shop/${shop.id}`} className="flex flex-col gap-0.5 py-3">
+            <Link
+              href={`/shop/${shop.id}`}
+              className="flex flex-col gap-0.5 py-3"
+            >
               <span className="flex items-center gap-2">
                 <span className="text-body font-semibold text-ink">
                   {shop.name}

@@ -8,10 +8,11 @@ export type ReportPayload = {
 };
 
 export type ReportResult =
-  | { ok: true }
-  | { ok: false; reason: "unconfigured" | "network" };
+  { ok: true } | { ok: false; reason: "unconfigured" | "network" };
 
-export async function submitReport(payload: ReportPayload): Promise<ReportResult> {
+export async function submitReport(
+  payload: ReportPayload,
+): Promise<ReportResult> {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
   if (!url || !key) return { ok: false, reason: "unconfigured" };

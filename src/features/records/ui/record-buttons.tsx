@@ -5,20 +5,29 @@ import { cn } from "@/shared/lib/utils";
 import { useVisitAction } from "../model/use-visit-action";
 import { LoginPromptSheet } from "./login-prompt-sheet";
 
-export function RecordButtons({ shopId }: { shopId: string }) {
-  const { get, visit, save, authPrompt, closeAuthPrompt } = useVisitAction(shopId);
+export function RecordButtons({
+  shopId,
+  className,
+}: {
+  shopId: string;
+  className?: string;
+}) {
+  const { get, visit, save, authPrompt, closeAuthPrompt } =
+    useVisitAction(shopId);
   const record = get(shopId);
   const visited = record?.status === "visited";
   const want = record?.status === "want";
 
   return (
-    <div className="flex gap-2">
+    <div className={cn("flex gap-2", className)}>
       <button
         type="button"
         onClick={visit}
         className={cn(
-          "flex items-center gap-1.5 rounded-pill px-3.5 py-2 text-secondary font-bold",
-          visited ? "border border-ramen bg-ramen-050 text-ramen" : "bg-gray-050 text-ink",
+          "flex flex-1 items-center justify-center gap-1.5 rounded-pill px-3.5 py-2 text-secondary font-bold transition-colors duration-150",
+          visited
+            ? "border border-ramen bg-ramen-050 text-ramen"
+            : "bg-ramen text-white",
         )}
       >
         <Check className="size-4" />
@@ -29,8 +38,10 @@ export function RecordButtons({ shopId }: { shopId: string }) {
         onClick={save}
         disabled={visited}
         className={cn(
-          "flex items-center gap-1.5 rounded-pill px-3.5 py-2 text-secondary font-bold",
-          want ? "border border-ramen bg-ramen-050 text-ramen" : "bg-gray-050 text-ink",
+          "flex flex-1 items-center justify-center gap-1.5 rounded-pill px-3.5 py-2 text-secondary font-bold",
+          want
+            ? "border border-ramen bg-ramen-050 text-ramen"
+            : "bg-gray-050 text-ink",
           visited && "opacity-40",
         )}
       >

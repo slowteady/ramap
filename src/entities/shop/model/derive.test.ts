@@ -75,7 +75,9 @@ describe("shopsByAreaGenre / listAreaGenrePages", () => {
 
   it("스프와 계보 슬러그 모두로 필터한다", () => {
     expect(shopsByAreaGenre(shops, "성수", "niboshi")).toHaveLength(3);
-    expect(shopsByAreaGenre(shops, "성수", "iekei").map((s) => s.id)).toEqual(["c"]);
+    expect(shopsByAreaGenre(shops, "성수", "iekei").map((s) => s.id)).toEqual([
+      "c",
+    ]);
   });
 
   it("3곳 이상 조합만 정식 페이지로 생성한다", () => {

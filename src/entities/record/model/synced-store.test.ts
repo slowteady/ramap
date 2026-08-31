@@ -33,7 +33,13 @@ describe("createSyncedRecordStore", () => {
 
   it("seed에서 시작한다", () => {
     const seed: ShopRecord[] = [
-      { shopId: "kinka", status: "visited", count: 3, firstAt: null, lastAt: null },
+      {
+        shopId: "kinka",
+        status: "visited",
+        count: 3,
+        firstAt: null,
+        lastAt: null,
+      },
     ];
     const store = createSyncedRecordStore(seed, mockSink());
     expect(store.get("kinka")?.count).toBe(3);

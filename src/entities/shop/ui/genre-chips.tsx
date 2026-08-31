@@ -3,7 +3,11 @@ import {
   LINEAGES,
   soupBySlug,
 } from "@/entities/shop/model/taxonomy";
-import type { FormSlug, LineageSlug, SoupSlug } from "@/entities/shop/model/taxonomy";
+import type {
+  FormSlug,
+  LineageSlug,
+  SoupSlug,
+} from "@/entities/shop/model/taxonomy";
 import { cn } from "@/shared/lib/utils";
 
 type GenreChipsProps = {
@@ -13,15 +17,20 @@ type GenreChipsProps = {
   className?: string;
 };
 
-export function GenreChips({ soups, forms, lineages, className }: GenreChipsProps) {
+export function GenreChips({
+  soups,
+  forms,
+  lineages,
+  className,
+}: GenreChipsProps) {
   const chips = [
     ...soups
       .filter((s) => s !== "etc-soup")
       .map((s) => ({
-      key: `s:${s}`,
-      label: soupBySlug(s)?.label ?? s,
-      cls: "bg-ramen-050 text-ramen",
-    })),
+        key: `s:${s}`,
+        label: soupBySlug(s)?.label ?? s,
+        cls: "bg-ramen-050 text-ramen",
+      })),
     ...forms
       .filter((f) => f !== "ramen" && f !== "etc-form")
       .map((f) => ({

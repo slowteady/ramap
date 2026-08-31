@@ -1,11 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import {
-  GUIDES,
-  guideBySlug,
-  LINEAGES,
-  soupBySlug,
-} from "@/entities/shop";
+import { GUIDES, guideBySlug, LINEAGES, soupBySlug } from "@/entities/shop";
 import { getShops } from "@/entities/shop/api/get-shops";
 import { GenreGuidePage } from "@/views/genre-guide";
 
@@ -20,7 +15,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const guide = guideBySlug(slug);
   if (!guide) return {};
   const label =
-    soupBySlug(slug)?.label ?? LINEAGES.find((l) => l.slug === slug)?.label ?? slug;
+    soupBySlug(slug)?.label ??
+    LINEAGES.find((l) => l.slug === slug)?.label ??
+    slug;
   return {
     title: `${label} 가이드`,
     description: guide.intro[0],

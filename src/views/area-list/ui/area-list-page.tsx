@@ -76,7 +76,10 @@ export function AreaListPage({
         }}
       />
       <header className="flex items-center justify-between px-4 py-3">
-        <Link href="/" className="text-heading font-extrabold tracking-tight text-ink">
+        <Link
+          href="/"
+          className="text-heading font-extrabold tracking-tight text-ink"
+        >
           라맵
         </Link>
         <Link href={mapHref} className="text-secondary font-semibold text-ink">
@@ -99,7 +102,10 @@ export function AreaListPage({
       <ul className="flex flex-col px-4 pt-4">
         {shops.map((shop) => (
           <li key={shop.id} className="border-b border-gray-050">
-            <Link href={`/shop/${shop.id}`} className="flex items-center gap-3 py-3">
+            <Link
+              href={`/shop/${shop.id}`}
+              className="flex items-center gap-3 py-3"
+            >
               <div className="size-18 shrink-0 rounded-card bg-gray-100" />
               <div className="flex min-w-0 flex-1 flex-col gap-0.5">
                 <span className="truncate text-body font-semibold text-ink">

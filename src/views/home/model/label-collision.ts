@@ -77,7 +77,10 @@ export function planMarkers(
   return markers;
 }
 
-export function expandBounds(bounds: LatLngBounds, ratio: number): LatLngBounds {
+export function expandBounds(
+  bounds: LatLngBounds,
+  ratio: number,
+): LatLngBounds {
   const latPad = (bounds.ne.lat - bounds.sw.lat) * ratio;
   const lngPad = (bounds.ne.lng - bounds.sw.lng) * ratio;
   return {
@@ -93,6 +96,18 @@ export function withinBounds(pin: ShopPin, bounds: LatLngBounds): boolean {
     pin.lng >= bounds.sw.lng &&
     pin.lng <= bounds.ne.lng
   );
+}
+
+export function distanceMeters(pin: ShopPin, center: LatLng): number {
+  const dLat = (pin.lat - center.lat) * 111320;
+  const dLng = ((pin.lng - center.lng) / LNG_SCALE) * 111320;
+  return Math.sqrt(dLat * dLat + dLng * dLng);
+}
+
+export function formatDistance(meters: number): string {
+  if (meters < 1000) return `${Math.round(meters)}m`;
+  if (meters < 10000) return `${(meters / 1000).toFixed(1)}km`;
+  return `${Math.round(meters / 1000)}km`;
 }
 
 export function sortByDistance(pins: ShopPin[], center: LatLng): ShopPin[] {

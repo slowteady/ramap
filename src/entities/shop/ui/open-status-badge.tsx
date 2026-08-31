@@ -19,7 +19,9 @@ export function OpenStatusBadge({
 }: OpenStatusBadgeProps) {
   if (status === "paused") {
     return (
-      <span className={cn("text-secondary font-semibold text-gray-400", className)}>
+      <span
+        className={cn("text-secondary font-semibold text-gray-400", className)}
+      >
         휴업 중
       </span>
     );

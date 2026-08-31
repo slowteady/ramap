@@ -4,7 +4,9 @@ import { toClusterMarkers } from "./markers";
 
 describe("toClusterMarkers", () => {
   it("동네 이름과 개수를 라벨로 만든다", () => {
-    const clusters: AreaCluster[] = [{ area: "성수", count: 3, lat: 37.5, lng: 127 }];
+    const clusters: AreaCluster[] = [
+      { area: "성수", count: 3, lat: 37.5, lng: 127 },
+    ];
     expect(toClusterMarkers(clusters)).toEqual([
       { id: "성수", pos: { lat: 37.5, lng: 127 }, label: "성수 3" },
     ]);

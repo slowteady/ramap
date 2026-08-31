@@ -2,7 +2,10 @@
 
 import { useCallback, useEffect, useState } from "react";
 import type { User } from "@supabase/supabase-js";
-import { getSupabase, signInWithKakao as kakaoSignIn } from "@/shared/api/supabase";
+import {
+  getSupabase,
+  signInWithKakao as kakaoSignIn,
+} from "@/shared/api/supabase";
 
 export function useAuth() {
   const [user, setUser] = useState<User | null>(null);

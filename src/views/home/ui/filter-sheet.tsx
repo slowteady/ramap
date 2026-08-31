@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { X } from "lucide-react";
+import { CircleHelp, X } from "lucide-react";
 import type { ShopPin } from "@/entities/shop";
 import { cn } from "@/shared/lib/utils";
 import {
@@ -18,7 +18,11 @@ import {
   EMPTY_FILTERS,
   type MapFilters,
 } from "../model/filter";
-import { FILTER_AXES, visibleItems, type FilterAxis } from "../model/filter-axes";
+import {
+  FILTER_AXES,
+  visibleItems,
+  type FilterAxis,
+} from "../model/filter-axes";
 
 type FilterSheetProps = {
   axis: FilterAxis | null;
@@ -34,11 +38,19 @@ const COUNTERS = {
   lineage: countByLineage,
 } as const;
 
-export function FilterSheet({ axis, pins, filters, onApply, onClose }: FilterSheetProps) {
+export function FilterSheet({
+  axis,
+  pins,
+  filters,
+  onApply,
+  onClose,
+}: FilterSheetProps) {
   const [tab, setTab] = useState<FilterAxis>("form");
+  const [helpOpen, setHelpOpen] = useState(false);
 
   useEffect(() => {
     if (axis) setTab(axis);
+    setHelpOpen(false);
   }, [axis]);
 
   const config = FILTER_AXES.find((a) => a.axis === tab) ?? FILTER_AXES[0];
@@ -46,7 +58,10 @@ export function FilterSheet({ axis, pins, filters, onApply, onClose }: FilterShe
     () => COUNTERS[config.axis](pins, filters),
     [config, pins, filters],
   );
-  const resultCount = useMemo(() => applyFilters(pins, filters).length, [pins, filters]);
+  const resultCount = useMemo(
+    () => applyFilters(pins, filters).length,
+    [pins, filters],
+  );
 
   const applied = FILTER_AXES.flatMap((a) =>
     (filters[a.filterKey] as string[]).map((slug) => ({
@@ -58,6 +73,7 @@ export function FilterSheet({ axis, pins, filters, onApply, onClose }: FilterShe
 
   if (!axis) return null;
   const selected = filters[config.filterKey] as string[];
+  const described = visibleItems(config.items).filter((i) => i.description);
 
   const toggle = (slug: string) => {
     const next = selected.includes(slug)
@@ -77,7 +93,7 @@ export function FilterSheet({ axis, pins, filters, onApply, onClose }: FilterShe
         disabled={disabled}
         onClick={() => toggle(item.slug)}
         className={cn(
-          "flex flex-col gap-0.5 rounded-card border px-3 py-2.5 text-left",
+          "rounded-card border px-3 py-2.5 text-left text-body font-semibold transition-colors duration-150",
           isOn
             ? "border-ramen bg-ramen-050 text-ramen"
             : disabled
@@ -85,14 +101,7 @@ export function FilterSheet({ axis, pins, filters, onApply, onClose }: FilterShe
               : "border-gray-100 bg-white text-ink",
         )}
       >
-        <span className="text-body font-semibold">{item.label}</span>
-        {config.axis === "lineage" && item.description && (
-          <span
-            className={cn("text-caption", isOn ? "text-ramen/70" : "text-gray-400")}
-          >
-            {item.description}
-          </span>
-        )}
+        {item.label}
       </button>
     );
   };
@@ -116,7 +125,10 @@ export function FilterSheet({ axis, pins, filters, onApply, onClose }: FilterShe
               <button
                 key={a.axis}
                 type="button"
-                onClick={() => setTab(a.axis)}
+                onClick={() => {
+                  setTab(a.axis);
+                  setHelpOpen(false);
+                }}
                 className={cn(
                   "-mb-px border-b-2 pb-2.5 text-body",
                   active
@@ -130,33 +142,69 @@ export function FilterSheet({ axis, pins, filters, onApply, onClose }: FilterShe
           })}
         </div>
 
-        <DrawerTitle className="px-4 pt-4 text-title font-bold text-ink">
-          {config.sheetTitle}
-        </DrawerTitle>
-
-        <div
-          className={cn(
-            "grid gap-2 px-4 pt-3",
-            config.axis === "lineage" ? "grid-cols-2" : "grid-cols-3",
+        <div className="flex items-center gap-1.5 px-4 pt-4">
+          <DrawerTitle className="text-title font-bold text-ink">
+            {config.sheetTitle}
+          </DrawerTitle>
+          {described.length > 0 && (
+            <div className="relative flex items-center">
+              <button
+                type="button"
+                aria-label={`${config.sheetTitle} 설명`}
+                onClick={() => setHelpOpen((v) => !v)}
+                className={cn(
+                  "transition-colors",
+                  helpOpen ? "text-ink" : "text-gray-300",
+                )}
+              >
+                <CircleHelp className="size-4" />
+              </button>
+              {helpOpen && (
+                <>
+                  <button
+                    type="button"
+                    aria-label="설명 닫기"
+                    onClick={() => setHelpOpen(false)}
+                    className="fixed inset-0 z-40 cursor-default"
+                  />
+                  <div className="absolute bottom-full left-0 z-50 mb-2 flex w-72 flex-col gap-1.5 rounded-card bg-ink px-3 py-2.5 shadow-lg duration-150 animate-in fade-in zoom-in-95">
+                    {described.map((item) => (
+                      <p
+                        key={item.slug}
+                        className="text-secondary text-gray-150"
+                      >
+                        <span className="font-semibold text-white">
+                          {item.label}
+                        </span>
+                        {" — "}
+                        {item.description}
+                      </p>
+                    ))}
+                  </div>
+                </>
+              )}
+            </div>
           )}
-        >
+        </div>
+
+        <div className="grid grid-cols-3 gap-2 px-4 pt-3">
           {visibleItems(config.items).map((item) => renderItem(item))}
         </div>
 
         {applied.length > 0 && (
-        <div className="flex items-center gap-2 overflow-x-auto px-4 pt-4 [scrollbar-width:none]">
-          {applied.map((item) => (
-            <button
-              key={`${item.axis.axis}:${item.slug}`}
-              type="button"
-              onClick={() => removeValue(item)}
-              className="flex shrink-0 items-center gap-1 rounded-card border border-ramen bg-ramen-050 px-2.5 py-1.5 text-secondary font-semibold text-ramen"
-            >
-              {item.label}
-              <X className="size-3.5" />
-            </button>
-          ))}
-        </div>
+          <div className="flex items-center gap-2 overflow-x-auto px-4 pt-4 [scrollbar-width:none]">
+            {applied.map((item) => (
+              <button
+                key={`${item.axis.axis}:${item.slug}`}
+                type="button"
+                onClick={() => removeValue(item)}
+                className="flex shrink-0 items-center gap-1 rounded-card border border-ramen bg-ramen-050 px-2.5 py-1.5 text-secondary font-semibold text-ramen duration-150 animate-in fade-in zoom-in-95"
+              >
+                {item.label}
+                <X className="size-3.5" />
+              </button>
+            ))}
+          </div>
         )}
 
         <div className="flex gap-2 p-4 pt-3">

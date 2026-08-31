@@ -28,7 +28,10 @@ const VALID = {
   lineage: new Set(LINEAGES.map((l) => l.slug)),
 };
 
-function parseAxis<T extends string>(raw: string | null, valid: Set<string>): T[] {
+function parseAxis<T extends string>(
+  raw: string | null,
+  valid: Set<string>,
+): T[] {
   if (!raw) return [];
   return raw
     .split(",")
@@ -49,15 +52,19 @@ export function serializeFilters(f: MapFilters): string {
   const params = new URLSearchParams();
   if (f.soups.length) params.set("soup", [...f.soups].sort().join(","));
   if (f.forms.length) params.set("form", [...f.forms].sort().join(","));
-  if (f.lineages.length) params.set("lineage", [...f.lineages].sort().join(","));
+  if (f.lineages.length)
+    params.set("lineage", [...f.lineages].sort().join(","));
   if (f.newOnly) params.set("new", "1");
   return params.toString();
 }
 
 function matches(pin: ShopPin, f: MapFilters): boolean {
-  if (f.soups.length && !f.soups.some((s) => pin.soups.includes(s))) return false;
-  if (f.forms.length && !f.forms.some((s) => pin.forms.includes(s))) return false;
-  if (f.lineages.length && !f.lineages.some((s) => pin.lineages.includes(s))) return false;
+  if (f.soups.length && !f.soups.some((s) => pin.soups.includes(s)))
+    return false;
+  if (f.forms.length && !f.forms.some((s) => pin.forms.includes(s)))
+    return false;
+  if (f.lineages.length && !f.lineages.some((s) => pin.lineages.includes(s)))
+    return false;
   if (f.newOnly && !pin.isNew) return false;
   return true;
 }
@@ -70,24 +77,42 @@ export function isActive(f: MapFilters): boolean {
   return f.soups.length + f.forms.length + f.lineages.length > 0 || f.newOnly;
 }
 
-export function countBySoup(pins: ShopPin[], f: MapFilters): Record<SoupSlug, number> {
+export function countBySoup(
+  pins: ShopPin[],
+  f: MapFilters,
+): Record<SoupSlug, number> {
   const withoutSoup = { ...f, soups: [] };
   const base = applyFilters(pins, withoutSoup);
-  const counts = Object.fromEntries(SOUPS.map((s) => [s.slug, 0])) as Record<SoupSlug, number>;
+  const counts = Object.fromEntries(SOUPS.map((s) => [s.slug, 0])) as Record<
+    SoupSlug,
+    number
+  >;
   for (const pin of base) for (const soup of pin.soups) counts[soup] += 1;
   return counts;
 }
 
-export function countByForm(pins: ShopPin[], f: MapFilters): Record<FormSlug, number> {
+export function countByForm(
+  pins: ShopPin[],
+  f: MapFilters,
+): Record<FormSlug, number> {
   const base = applyFilters(pins, { ...f, forms: [] });
-  const counts = Object.fromEntries(FORMS.map((s) => [s.slug, 0])) as Record<FormSlug, number>;
+  const counts = Object.fromEntries(FORMS.map((s) => [s.slug, 0])) as Record<
+    FormSlug,
+    number
+  >;
   for (const pin of base) for (const form of pin.forms) counts[form] += 1;
   return counts;
 }
 
-export function countByLineage(pins: ShopPin[], f: MapFilters): Record<LineageSlug, number> {
+export function countByLineage(
+  pins: ShopPin[],
+  f: MapFilters,
+): Record<LineageSlug, number> {
   const base = applyFilters(pins, { ...f, lineages: [] });
-  const counts = Object.fromEntries(LINEAGES.map((s) => [s.slug, 0])) as Record<LineageSlug, number>;
+  const counts = Object.fromEntries(LINEAGES.map((s) => [s.slug, 0])) as Record<
+    LineageSlug,
+    number
+  >;
   for (const pin of base) for (const l of pin.lineages) counts[l] += 1;
   return counts;
 }

@@ -25,7 +25,9 @@ describe("visitedNext", () => {
   });
 
   it("want는 visited count 1로 전이한다", () => {
-    expect(visitedNext(record({ status: "want", count: 0 }), "kinka")).toMatchObject({
+    expect(
+      visitedNext(record({ status: "want", count: 0 }), "kinka"),
+    ).toMatchObject({
       status: "visited",
       count: 1,
     });
@@ -49,21 +51,31 @@ describe("wantNext", () => {
   });
 
   it("신규는 want 레코드를 만든다", () => {
-    expect(wantNext(undefined, "kinka")).toMatchObject({ status: "want", count: 0 });
+    expect(wantNext(undefined, "kinka")).toMatchObject({
+      status: "want",
+      count: 0,
+    });
   });
 });
 
 describe("shouldReplace / mergeRecords", () => {
   it("count 큰 쪽과 want→visited 승격만 교체한다", () => {
-    expect(shouldReplace(record({ count: 2 }), record({ count: 3 }))).toBe(true);
-    expect(shouldReplace(record({ count: 3 }), record({ count: 2 }))).toBe(false);
+    expect(shouldReplace(record({ count: 2 }), record({ count: 3 }))).toBe(
+      true,
+    );
+    expect(shouldReplace(record({ count: 3 }), record({ count: 2 }))).toBe(
+      false,
+    );
     expect(
       shouldReplace(record({ status: "want", count: 0 }), record({ count: 1 })),
     ).toBe(true);
   });
 
   it("병합은 base 위에 incoming을 규칙대로 얹는다", () => {
-    const base = [record({ shopId: "a", count: 3 }), record({ shopId: "b", count: 1 })];
+    const base = [
+      record({ shopId: "a", count: 3 }),
+      record({ shopId: "b", count: 1 }),
+    ];
     const incoming = [
       record({ shopId: "a", count: 1 }),
       record({ shopId: "b", count: 5 }),

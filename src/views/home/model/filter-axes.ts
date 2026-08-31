@@ -1,9 +1,4 @@
-import {
-  FORMS,
-  LINEAGES,
-  SOUPS,
-  type TaxonomyItem,
-} from "@/entities/shop";
+import { FORMS, LINEAGES, SOUPS, type TaxonomyItem } from "@/entities/shop";
 import type { MapFilters } from "./filter";
 
 const HIDDEN_SLUGS = new Set(["etc-form", "etc-soup"]);
@@ -21,8 +16,20 @@ export const FILTER_AXES: {
   filterKey: "soups" | "forms" | "lineages";
   items: readonly TaxonomyItem[];
 }[] = [
-  { axis: "form", title: "종류", sheetTitle: "종류", filterKey: "forms", items: FORMS },
-  { axis: "soup", title: "국물", sheetTitle: "국물", filterKey: "soups", items: SOUPS },
+  {
+    axis: "form",
+    title: "종류",
+    sheetTitle: "종류",
+    filterKey: "forms",
+    items: FORMS,
+  },
+  {
+    axis: "soup",
+    title: "국물",
+    sheetTitle: "국물",
+    filterKey: "soups",
+    items: SOUPS,
+  },
   {
     axis: "lineage",
     title: "스타일",

@@ -1,5 +1,9 @@
 import { describe, it, expect, beforeEach } from "vitest";
-import { buildSdkUrl, loadKakaoSdk, resetKakaoSdkForTest } from "./kakao-loader";
+import {
+  buildSdkUrl,
+  loadKakaoSdk,
+  resetKakaoSdkForTest,
+} from "./kakao-loader";
 
 describe("buildSdkUrl", () => {
   it("키를 포함하고 autoload=false로 구성한다", () => {

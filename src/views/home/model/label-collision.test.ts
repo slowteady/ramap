@@ -5,6 +5,8 @@ import {
   expandBounds,
   planMarkers,
   withinBounds,
+  distanceMeters,
+  formatDistance,
 } from "./label-collision";
 
 const pin = (id: string, lat: number, lng: number): ShopPin => ({
@@ -79,7 +81,10 @@ describe("planMarkers", () => {
 
   it("줌 아웃할수록 셀이 커진다 (같은 거리라도 강등 발생)", () => {
     const unit3 = degPerPx(3);
-    const pins = [pin("aaa", 37.5, 127.0), pin("bbb", 37.5 + unit3 * 40, 127.0)];
+    const pins = [
+      pin("aaa", 37.5, 127.0),
+      pin("bbb", 37.5 + unit3 * 40, 127.0),
+    ];
     const atLevel3 = planMarkers(pins, 3, null, new Set());
     const atLevel5 = planMarkers(pins, 5, null, new Set());
     expect(atLevel3.every((m) => m.kind === "pill")).toBe(true);
@@ -88,7 +93,10 @@ describe("planMarkers", () => {
 });
 
 describe("bounds", () => {
-  const bounds = { sw: { lat: 37.0, lng: 126.0 }, ne: { lat: 38.0, lng: 128.0 } };
+  const bounds = {
+    sw: { lat: 37.0, lng: 126.0 },
+    ne: { lat: 38.0, lng: 128.0 },
+  };
 
   it("경계 내부 판정", () => {
     expect(withinBounds(pin("a", 37.5, 127.0), bounds)).toBe(true);
@@ -99,5 +107,20 @@ describe("bounds", () => {
     const expanded = expandBounds(bounds, 0.3);
     expect(expanded.sw.lat).toBeCloseTo(36.7);
     expect(expanded.ne.lng).toBeCloseTo(128.6);
+  });
+});
+
+describe("distanceMeters / formatDistance", () => {
+  const center = { lat: 37.5, lng: 127.0 };
+
+  it("위도 0.01도 차이는 약 1,113m다", () => {
+    const pin = { lat: 37.51, lng: 127.0 } as Parameters<typeof distanceMeters>[0];
+    expect(distanceMeters(pin, center)).toBeCloseTo(1113.2, 0);
+  });
+
+  it("1km 미만은 m, 미만 10km는 소수 1자리 km, 이상은 정수 km", () => {
+    expect(formatDistance(450.4)).toBe("450m");
+    expect(formatDistance(1234)).toBe("1.2km");
+    expect(formatDistance(12345)).toBe("12km");
   });
 });

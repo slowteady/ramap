@@ -48,7 +48,8 @@ function markerEl(marker: MapMarker, onTap: (id: string) => void): HTMLElement {
     if (marker.isNew && !visited) {
       const badge = document.createElement("span");
       badge.textContent = "NEW ";
-      badge.style.cssText = "color:#e8442e;font:800 11px Pretendard,-apple-system,sans-serif";
+      badge.style.cssText =
+        "color:#e8442e;font:800 11px Pretendard,-apple-system,sans-serif";
       label.append(badge);
     }
     label.append(document.createTextNode(marker.label));
@@ -58,12 +59,18 @@ function markerEl(marker: MapMarker, onTap: (id: string) => void): HTMLElement {
   return el;
 }
 
-function clusterEl(cluster: MapClusterMarker, onTap: (id: string) => void): HTMLElement {
+function clusterEl(
+  cluster: MapClusterMarker,
+  onTap: (id: string) => void,
+): HTMLElement {
   const el = document.createElement("button");
   el.type = "button";
   el.style.cssText =
     "display:flex;align-items:center;gap:4px;padding:6px 11px;border-radius:9999px;border:2px solid #e8442e;cursor:pointer;background:#fff;font:700 12px Pretendard,-apple-system,sans-serif;color:#1a1b1f;box-shadow:0 1px 4px rgba(26,27,31,.15)";
-  const [name, count] = [cluster.label.replace(/ \d+$/, ""), cluster.label.match(/\d+$/)?.[0]];
+  const [name, count] = [
+    cluster.label.replace(/ \d+$/, ""),
+    cluster.label.match(/\d+$/)?.[0],
+  ];
   el.append(document.createTextNode(name));
   if (count) {
     const n = document.createElement("span");
@@ -79,7 +86,9 @@ function markerSig(m: MapMarker): string {
   return `${m.kind}|${m.state}|${m.label}|${m.isNew}`;
 }
 
-export async function createKakaoAdapter(key: string | undefined): Promise<MapAdapter> {
+export async function createKakaoAdapter(
+  key: string | undefined,
+): Promise<MapAdapter> {
   await loadKakaoSdk(key);
   let map: KakaoMap | null = null;
   /* diff 마운트 캐시 — 주 비용이 DOM 생성·삭제라 유지분은 건드리지 않는다 */
