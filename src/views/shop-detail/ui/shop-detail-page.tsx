@@ -48,21 +48,23 @@ export function ShopDetailPage({ shop }: { shop: Shop }) {
 
       <div className="flex flex-col gap-1.5 px-4 pt-4">
         <h1 className="text-heading font-extrabold text-ink">{shop.name}</h1>
-        <div className="flex items-center gap-2">
-          <GenreChips
-            soups={shop.soups}
-            forms={shop.forms}
-            lineages={shop.lineages}
-          />
-          {shop.areaLabel && (
-            <span className="text-secondary text-gray-400">
-              {shop.areaLabel}
-            </span>
-          )}
-        </div>
-        {shop.status === "paused" && (
-          <p className="text-secondary font-semibold text-gray-400">휴업 중</p>
+        {(shop.areaLabel || shop.status === "paused") && (
+          <p className="flex items-baseline gap-1.5 text-secondary text-gray-400">
+            {shop.areaLabel && <span>{shop.areaLabel}</span>}
+            {shop.areaLabel && shop.status === "paused" && (
+              <span className="text-gray-300">·</span>
+            )}
+            {shop.status === "paused" && (
+              <span className="font-semibold">휴업 중</span>
+            )}
+          </p>
         )}
+        <GenreChips
+          soups={shop.soups}
+          forms={shop.forms}
+          lineages={shop.lineages}
+          className="pt-1"
+        />
         {shop.tagline && (
           <p className="text-body text-gray-500">{shop.tagline}</p>
         )}
