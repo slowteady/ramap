@@ -30,28 +30,21 @@ type ShopSheetProps = {
   onClose: () => void;
 };
 
-function hasStatusText(pin: ShopPin): boolean {
-  return (
-    pin.status === "paused" ||
-    (pin.status === "open" &&
-      Boolean(pin.hours || pin.breakTime || pin.closedDays))
-  );
-}
-
-function ListRow({
+function MetaRow({
   pin,
   center,
-  record,
-  onTap,
+  full,
 }: {
   pin: ShopPin;
   center: LatLng | null;
-  record: "visited" | "want" | null;
-  onTap: (e: React.MouseEvent) => void;
+  full: boolean;
 }) {
   const distance = center ? formatDistance(distanceMeters(pin, center)) : null;
-  const hasHours = pin.status === "paused" || (pin.status === "open" && Boolean(pin.hours));
-  const metaParts = [
+  const hasHours =
+    pin.status === "paused" ||
+    (pin.status === "open" &&
+      Boolean(full ? pin.hours || pin.breakTime || pin.closedDays : pin.hours));
+  const parts = [
     distance && (
       <span key="dist" className="shrink-0 text-secondary text-gray-500">
         {distance}
@@ -67,13 +60,37 @@ function ListRow({
         key="hours"
         status={pin.status}
         hours={pin.hours}
-        breakTime={null}
-        closedDays={null}
+        breakTime={full ? pin.breakTime : null}
+        closedDays={full ? pin.closedDays : null}
         className="truncate"
       />
     ),
   ].filter(Boolean);
+  if (parts.length === 0) return null;
 
+  return (
+    <span className="flex min-w-0 items-baseline gap-1.5">
+      {parts.map((part, i) => (
+        <span key={i} className="contents">
+          {i > 0 && <span className="text-secondary text-gray-300">·</span>}
+          {part}
+        </span>
+      ))}
+    </span>
+  );
+}
+
+function ListRow({
+  pin,
+  center,
+  record,
+  onTap,
+}: {
+  pin: ShopPin;
+  center: LatLng | null;
+  record: "visited" | "want" | null;
+  onTap: (e: React.MouseEvent) => void;
+}) {
   return (
     <li className="border-b border-gray-050">
       <button
@@ -97,16 +114,7 @@ function ListRow({
             <Bookmark className="size-3.5 shrink-0 fill-current text-gray-300" />
           )}
         </span>
-        {metaParts.length > 0 && (
-          <span className="flex min-w-0 items-baseline gap-1.5">
-            {metaParts.map((part, i) => (
-              <span key={i} className="contents">
-                {i > 0 && <span className="text-secondary text-gray-300">·</span>}
-                {part}
-              </span>
-            ))}
-          </span>
-        )}
+        <MetaRow pin={pin} center={center} full={false} />
         <GenreChips
           soups={pin.soups}
           forms={pin.forms}
@@ -119,9 +127,11 @@ function ListRow({
 
 function ShopCardBody({
   shop,
+  center,
   onClose,
 }: {
   shop: ShopPin;
+  center: LatLng | null;
   onClose: () => void;
 }) {
   const amenityLabels = [
@@ -150,25 +160,7 @@ function ShopCardBody({
           {shop.name}
         </DrawerTitle>
       </div>
-      {(shop.areaLabel || hasStatusText(shop)) && (
-        <span className="flex min-w-0 items-baseline gap-1.5">
-          {shop.areaLabel && (
-            <span className="shrink-0 text-secondary text-gray-400">
-              {shop.areaLabel}
-            </span>
-          )}
-          {shop.areaLabel && hasStatusText(shop) && (
-            <span className="text-secondary text-gray-300">·</span>
-          )}
-          <OpenStatusBadge
-            status={shop.status}
-            hours={shop.hours}
-            breakTime={shop.breakTime}
-            closedDays={shop.closedDays}
-            className="truncate"
-          />
-        </span>
-      )}
+      <MetaRow pin={shop} center={center} full />
       <GenreChips
         soups={shop.soups}
         forms={shop.forms}
@@ -246,7 +238,7 @@ export function ShopSheet({
       >
         {selectedShop ? (
           <div className="h-sheet-card px-4 pt-2 pb-4">
-            <ShopCardBody shop={selectedShop} onClose={onClose} />
+            <ShopCardBody shop={selectedShop} center={userLocation} onClose={onClose} />
           </div>
         ) : (
           <div className="flex h-full min-h-0 flex-col px-4 pt-1">
