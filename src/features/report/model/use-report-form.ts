@@ -1,16 +1,23 @@
 "use client";
 
 import { useCallback, useState } from "react";
+import { toast } from "sonner";
+import { uploadReportPhotos } from "./photo-upload";
 import {
   buildEditPayload,
   buildNewPayload,
   canSubmitEdit,
   canSubmitNew,
   EMPTY_EDIT_DRAFT,
+  EMPTY_MENU,
   EMPTY_NEW_DRAFT,
+  MAX_MENUS,
+  MAX_PHOTOS,
   toReportRow,
   type EditItem,
   type EditReportDraft,
+  type LatLng,
+  type MenuDraft,
   type NewReportDraft,
   type ReportTarget,
 } from "./report-payload";
@@ -36,20 +43,97 @@ function useDraft<D extends object>(initial: D) {
       })),
     [],
   );
-  return { draft, set, toggle };
+  return { draft, setDraft, set, toggle };
 }
 
-export function useNewReportForm() {
-  const { draft, set, toggle } = useDraft<NewReportDraft>(EMPTY_NEW_DRAFT);
+export function useNewReportForm(mapCenter: LatLng | null) {
+  const { draft, setDraft, set, toggle } =
+    useDraft<NewReportDraft>(EMPTY_NEW_DRAFT);
   const { phase, submit } = useReportSubmit();
   const canSubmit = phase === "editing" && canSubmitNew(draft);
 
+  const setMenu = useCallback(
+    (index: number, patch: Partial<MenuDraft>) =>
+      setDraft((d) => ({
+        ...d,
+        menus: d.menus.map((m, i) => (i === index ? { ...m, ...patch } : m)),
+      })),
+    [setDraft],
+  );
+  const addMenu = useCallback(
+    () =>
+      setDraft((d) =>
+        d.menus.length >= MAX_MENUS
+          ? d
+          : { ...d, menus: [...d.menus, EMPTY_MENU] },
+      ),
+    [setDraft],
+  );
+  const removeMenu = useCallback(
+    (index: number) =>
+      setDraft((d) => ({
+        ...d,
+        menus:
+          d.menus.length === 1
+            ? [EMPTY_MENU]
+            : d.menus.filter((_, i) => i !== index),
+      })),
+    [setDraft],
+  );
+
+  const addPhotos = useCallback(
+    (files: FileList | File[]) =>
+      setDraft((d) => ({
+        ...d,
+        photos: [...d.photos, ...Array.from(files)].slice(0, MAX_PHOTOS),
+      })),
+    [setDraft],
+  );
+  const removePhoto = useCallback(
+    (index: number) =>
+      setDraft((d) => ({
+        ...d,
+        photos: d.photos.filter((_, i) => i !== index),
+      })),
+    [setDraft],
+  );
+
+  const togglePin = useCallback(
+    () => setDraft((d) => ({ ...d, pin: d.pin ? null : mapCenter })),
+    [setDraft, mapCenter],
+  );
+
   const handleSubmit = useCallback(() => {
     if (!canSubmit) return;
-    void submit(toReportRow(buildNewPayload(draft)));
+    void submit(async () => {
+      let paths: string[] = [];
+      if (draft.photos.length > 0) {
+        const uploaded = await uploadReportPhotos(draft.photos, "new");
+        if (!uploaded) {
+          toast("사진 업로드에 실패했어요. 사진을 빼거나 다시 시도해 주세요.");
+          return null;
+        }
+        paths = uploaded;
+      }
+      return toReportRow(buildNewPayload(draft, paths));
+    });
   }, [canSubmit, submit, draft]);
 
-  return { draft, set, toggle, phase, canSubmit, submit: handleSubmit };
+  return {
+    draft,
+    set,
+    toggle,
+    setMenu,
+    addMenu,
+    removeMenu,
+    addPhotos,
+    removePhoto,
+    togglePin,
+    canAttachPin: mapCenter !== null,
+    phase,
+    canSubmit,
+    submit: handleSubmit,
+  };
 }
 
 export function useEditReportForm(target: ReportTarget) {
@@ -68,7 +152,9 @@ export function useEditReportForm(target: ReportTarget) {
 
   const handleSubmit = useCallback(() => {
     if (!canSubmit) return;
-    void submit(toReportRow(buildEditPayload(target, draft), target));
+    void submit(async () =>
+      toReportRow(buildEditPayload(target, draft), target),
+    );
   }, [canSubmit, submit, target, draft]);
 
   return {

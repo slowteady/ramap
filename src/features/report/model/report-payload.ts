@@ -11,21 +11,38 @@ export type ReportTarget = {
   location: string | null;
 };
 
+export type LatLng = { lat: number; lng: number };
+
 type GenreDraft = {
   soups: SoupSlug[];
   forms: FormSlug[];
   lineages: LineageSlug[];
 };
 
+export type MenuDraft = { name: string; price: string };
+
+/* 필드는 15번 태깅 시트 컬럼과 1:1 — 검수가 조사가 아니라 복붙 확인이 되도록 */
 export type NewReportDraft = GenreDraft & {
   shopName: string;
+  branch: string;
   location: string;
-  amenities: AmenitySlug[];
+  pin: LatLng | null;
+  menus: MenuDraft[];
   hours: string;
-  menuName: string;
-  menuPrice: string;
+  breakTime: string;
+  closedDays: string[];
+  amenities: AmenitySlug[];
+  seats: string;
+  photos: File[];
+  photoConsent: boolean;
+  instagram: string;
+  naverPlace: string;
+  waitingLink: string;
   message: string;
 };
+
+export const MAX_MENUS = 3;
+export const MAX_PHOTOS = 5;
 
 export const EDIT_ITEMS = [
   { key: "closed", label: "폐업·휴업했어요" },
@@ -55,12 +72,21 @@ export type NewReportPayload = {
   type: "new";
   shopName: string;
   location: string;
+  branch?: string;
+  pin?: LatLng;
   soups?: SoupSlug[];
   forms?: FormSlug[];
   lineages?: LineageSlug[];
-  amenities?: AmenitySlug[];
+  menus?: { name: string; price: number | null }[];
   hours?: string;
-  topMenu?: { name: string; price: number | null };
+  breakTime?: string;
+  closedDays?: string[];
+  amenities?: AmenitySlug[];
+  seats?: string;
+  photos?: string[];
+  instagram?: string;
+  naverPlace?: string;
+  waitingLink?: string;
   message?: string;
 };
 
@@ -92,16 +118,27 @@ export type ReportRow = {
   details: ReportPayload;
 };
 
+export const EMPTY_MENU: MenuDraft = { name: "", price: "" };
+
 export const EMPTY_NEW_DRAFT: NewReportDraft = {
   shopName: "",
+  branch: "",
   location: "",
+  pin: null,
   soups: [],
   forms: [],
   lineages: [],
-  amenities: [],
+  menus: [EMPTY_MENU],
   hours: "",
-  menuName: "",
-  menuPrice: "",
+  breakTime: "",
+  closedDays: [],
+  amenities: [],
+  seats: "",
+  photos: [],
+  photoConsent: false,
+  instagram: "",
+  naverPlace: "",
+  waitingLink: "",
   message: "",
 };
 
@@ -121,6 +158,8 @@ export const EMPTY_EDIT_DRAFT: EditReportDraft = {
 
 const text = (s: string): string | undefined => s.trim() || undefined;
 const list = <T>(a: T[]): T[] | undefined => (a.length > 0 ? a : undefined);
+const field = <K extends string, V>(key: K, value: V | undefined) =>
+  value === undefined ? {} : ({ [key]: value } as Record<K, V>);
 
 function parsePrice(raw: string): number | null {
   const digits = raw.replace(/\D/g, "");
@@ -129,30 +168,43 @@ function parsePrice(raw: string): number | null {
 
 function genreOf(d: GenreDraft): Partial<GenreDraft> | undefined {
   const genre = {
-    ...(list(d.soups) && { soups: d.soups }),
-    ...(list(d.forms) && { forms: d.forms }),
-    ...(list(d.lineages) && { lineages: d.lineages }),
+    ...field("soups", list(d.soups)),
+    ...field("forms", list(d.forms)),
+    ...field("lineages", list(d.lineages)),
   };
   return Object.keys(genre).length > 0 ? genre : undefined;
 }
 
 export function canSubmitNew(d: NewReportDraft): boolean {
-  return d.shopName.trim() !== "" && d.location.trim() !== "";
+  if (d.shopName.trim() === "" || d.location.trim() === "") return false;
+  return d.photos.length === 0 || d.photoConsent;
 }
 
-export function buildNewPayload(d: NewReportDraft): NewReportPayload {
-  const menuName = text(d.menuName);
+export function buildNewPayload(
+  d: NewReportDraft,
+  photoPaths: string[],
+): NewReportPayload {
+  const menus = d.menus
+    .filter((m) => m.name.trim() !== "")
+    .map((m) => ({ name: m.name.trim(), price: parsePrice(m.price) }));
   return {
     type: "new",
     shopName: d.shopName.trim(),
     location: d.location.trim(),
+    ...field("branch", text(d.branch)),
+    ...field("pin", d.pin ?? undefined),
     ...genreOf(d),
-    ...(list(d.amenities) && { amenities: d.amenities }),
-    ...(text(d.hours) && { hours: d.hours.trim() }),
-    ...(menuName && {
-      topMenu: { name: menuName, price: parsePrice(d.menuPrice) },
-    }),
-    ...(text(d.message) && { message: d.message.trim() }),
+    ...field("menus", list(menus)),
+    ...field("hours", text(d.hours)),
+    ...field("breakTime", text(d.breakTime)),
+    ...field("closedDays", list(d.closedDays)),
+    ...field("amenities", list(d.amenities)),
+    ...field("seats", text(d.seats)),
+    ...field("photos", list(photoPaths)),
+    ...field("instagram", text(d.instagram)),
+    ...field("naverPlace", text(d.naverPlace)),
+    ...field("waitingLink", text(d.waitingLink)),
+    ...field("message", text(d.message)),
   };
 }
 
@@ -168,16 +220,15 @@ export function buildEditPayload(
 ): EditReportPayload {
   const has = (item: EditItem) => d.items.includes(item);
   const evidence = text(d.closedEvidence);
-  const genre = genreOf(d);
   const fields: EditReportFields = {
     ...(has("closed") && {
-      closed: { status: d.closedStatus, ...(evidence && { evidence }) },
+      closed: { status: d.closedStatus, ...field("evidence", evidence) },
     }),
-    ...(has("hours") && text(d.hours) && { hours: d.hours.trim() }),
-    ...(has("menu") && text(d.menu) && { menu: d.menu.trim() }),
-    ...(has("location") && text(d.location) && { location: d.location.trim() }),
-    ...(has("genre") && genre && { genre }),
-    ...(has("amenities") && list(d.amenities) && { amenities: d.amenities }),
+    ...(has("hours") && field("hours", text(d.hours))),
+    ...(has("menu") && field("menu", text(d.menu))),
+    ...(has("location") && field("location", text(d.location))),
+    ...(has("genre") && field("genre", genreOf(d))),
+    ...(has("amenities") && field("amenities", list(d.amenities))),
   };
   return {
     type: "edit",
@@ -185,7 +236,7 @@ export function buildEditPayload(
     shopName: target.name,
     items: d.items,
     fields,
-    ...(text(d.message) && { message: d.message.trim() }),
+    ...field("message", text(d.message)),
   };
 }
 

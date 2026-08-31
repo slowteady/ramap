@@ -5,7 +5,7 @@ import { LocateFixed } from "lucide-react";
 import { toast } from "sonner";
 import type { ShopPin } from "@/entities/shop";
 import { useRecords } from "@/features/records";
-import { useReportQuery } from "@/features/report";
+import { ReportSheet, useReportQuery } from "@/features/report";
 import { useMapFilters } from "../model/use-map-filters";
 import { useSelectedShop } from "../model/use-selected-shop";
 import { useShopMap } from "../model/use-shop-map";
@@ -34,6 +34,7 @@ export function ShopMap({ pins }: { pins: ShopPin[] }) {
     visiblePins,
     listPins,
     userLocation,
+    center,
     selectedShop,
     panToPin,
     locate,
@@ -54,7 +55,7 @@ export function ShopMap({ pins }: { pins: ShopPin[] }) {
           onClick={openReport}
           className="mr-4 shrink-0 rounded-pill bg-ramen px-3.5 py-1.5 text-secondary font-bold whitespace-nowrap text-white"
         >
-          제보하기
+          라멘집 등록
         </button>
       </div>
       {status === "failed" ? (
@@ -104,6 +105,7 @@ export function ShopMap({ pins }: { pins: ShopPin[] }) {
           onClose={clear}
         />
       )}
+      <ReportSheet mapCenter={center} />
     </div>
   );
 }

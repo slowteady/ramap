@@ -36,6 +36,10 @@ export function useShopMap(
   const [status, setStatus] = useState<MapStatus>("loading");
   const [view, setView] = useState<MapView | null>(null);
   const [userLocation, setUserLocation] = useState<LatLng | null>(null);
+  const center = useMemo(
+    () => (view ? boundsCenter(view.bounds) : null),
+    [view],
+  );
   const focusApplied = useRef(false);
   const onSelectRef = useRef(onSelect);
   const onClearRef = useRef(onClear);
@@ -157,6 +161,7 @@ export function useShopMap(
     visiblePins,
     listPins,
     userLocation,
+    center,
     selectedShop,
     panToPin,
     locate,

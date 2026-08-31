@@ -11,7 +11,7 @@ import {
 
 const target = { id: "kinka", name: "킨카", location: "성수" };
 
-describe("새 라멘집 제보", () => {
+describe("새 라멘집 등록", () => {
   it("이름·위치가 있어야 제출 가능", () => {
     expect(canSubmitNew(EMPTY_NEW_DRAFT)).toBe(false);
     expect(canSubmitNew({ ...EMPTY_NEW_DRAFT, shopName: "무구" })).toBe(false);
@@ -24,12 +24,20 @@ describe("새 라멘집 제보", () => {
     ).toBe(true);
   });
 
+  it("사진을 붙이면 직접 촬영 동의가 있어야 제출 가능", () => {
+    const base = { ...EMPTY_NEW_DRAFT, shopName: "무구", location: "성수" };
+    const photo = new File([""], "a.jpg", { type: "image/jpeg" });
+    expect(canSubmitNew({ ...base, photos: [photo] })).toBe(false);
+    expect(canSubmitNew({ ...base, photos: [photo], photoConsent: true })).toBe(
+      true,
+    );
+  });
+
   it("필수만 채우면 선택 필드는 payload에서 빠진다", () => {
-    const payload = buildNewPayload({
-      ...EMPTY_NEW_DRAFT,
-      shopName: " 무구 ",
-      location: " 성수역 ",
-    });
+    const payload = buildNewPayload(
+      { ...EMPTY_NEW_DRAFT, shopName: " 무구 ", location: " 성수역 " },
+      [],
+    );
     expect(payload).toEqual({
       type: "new",
       shopName: "무구",
@@ -37,47 +45,62 @@ describe("새 라멘집 제보", () => {
     });
   });
 
-  it("선택 상세층은 채운 것만 담기고 가격은 숫자로 변환", () => {
-    const payload = buildNewPayload({
-      ...EMPTY_NEW_DRAFT,
-      shopName: "무구",
-      location: "성수",
-      soups: ["niboshi"],
-      amenities: ["kaedama"],
-      hours: "11:00-21:00",
-      menuName: "니보시 시오",
-      menuPrice: "12,000원",
-      message: " 지로계 아님 ",
-    });
+  it("채운 선택 필드는 시트 컬럼 이름 그대로 담기고 가격은 숫자로", () => {
+    const payload = buildNewPayload(
+      {
+        ...EMPTY_NEW_DRAFT,
+        shopName: "무구",
+        location: "성수",
+        branch: " 성수점 ",
+        soups: ["niboshi"],
+        lineages: ["jikaseimen"],
+        amenities: ["kaedama"],
+        hours: "11:00-21:00",
+        breakTime: "15:00-17:00",
+        closedDays: ["월", "둘째 화"],
+        seats: "카운터 9",
+        menus: [
+          { name: "니보시 시오", price: "12,000원" },
+          { name: "", price: "9000" },
+          { name: "츠케멘", price: "" },
+        ],
+        instagram: "https://instagram.com/mugu",
+        naverPlace: "",
+        waitingLink: " https://catchtable.co.kr/mugu ",
+        message: " 지로계 아님 ",
+        pin: { lat: 37.5446, lng: 127.0559 },
+      },
+      ["new/a.jpg", "new/b.jpg"],
+    );
     expect(payload).toEqual({
       type: "new",
       shopName: "무구",
       location: "성수",
+      branch: "성수점",
       soups: ["niboshi"],
+      lineages: ["jikaseimen"],
       amenities: ["kaedama"],
       hours: "11:00-21:00",
-      topMenu: { name: "니보시 시오", price: 12000 },
+      breakTime: "15:00-17:00",
+      closedDays: ["월", "둘째 화"],
+      seats: "카운터 9",
+      menus: [
+        { name: "니보시 시오", price: 12000 },
+        { name: "츠케멘", price: null },
+      ],
+      instagram: "https://instagram.com/mugu",
+      waitingLink: "https://catchtable.co.kr/mugu",
+      photos: ["new/a.jpg", "new/b.jpg"],
+      pin: { lat: 37.5446, lng: 127.0559 },
       message: "지로계 아님",
     });
   });
 
-  it("메뉴명 없이 가격만 있으면 topMenu 생략, 가격 미입력은 null", () => {
-    const base = { ...EMPTY_NEW_DRAFT, shopName: "a", location: "b" };
-    expect(
-      buildNewPayload({ ...base, menuPrice: "9000" }).topMenu,
-    ).toBeUndefined();
-    expect(buildNewPayload({ ...base, menuName: "라멘" }).topMenu).toEqual({
-      name: "라멘",
-      price: null,
-    });
-  });
-
   it("행 변환: shop_name·location은 컬럼, 전체는 details", () => {
-    const payload = buildNewPayload({
-      ...EMPTY_NEW_DRAFT,
-      shopName: "무구",
-      location: "성수",
-    });
+    const payload = buildNewPayload(
+      { ...EMPTY_NEW_DRAFT, shopName: "무구", location: "성수" },
+      [],
+    );
     expect(toReportRow(payload)).toEqual({
       type: "new",
       shop_name: "무구",

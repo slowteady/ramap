@@ -78,7 +78,7 @@
 ### 데이터
 
 - 기존 `reports` 테이블 유지 — **스키마 무변경 확정 (2026-08-31 구현)**: 유형별 구조는 기존 `details jsonb` 컬럼에 적재, `shop_name`/`location`은 대시보드에서 사람이 읽는 값(수정 제보는 대상 매장의 상호·주소/동네, 없으면 id). `type`은 `new`/`edit` 2종만 사용(폐업은 edit의 `items` 항목 — check 제약의 `closed` 값은 미사용 잔존)
-  - A: `{ type: "new", shopName, location, soups?, forms?, lineages?, amenities?, hours?, topMenu?: {name, price|null}, message? }`
+  - A (2차): `{ type: "new", shopName, location, branch?, pin?: {lat,lng}, soups?, forms?, lineages?, menus?: {name, price|null}[], hours?, breakTime?, closedDays?: string[], amenities?, seats?, photos?: string[](Storage 경로), instagram?, naverPlace?, waitingLink?, message? }`
   - B: `{ type: "edit", shopId, shopName, items: ["closed", "hours", ...], fields: { closed?: {status: "closed"|"paused", evidence?}, hours?, menu?, location?, genre?: {soups?, forms?, lineages?}, amenities? }, message? }`
 - 전송은 raw fetch → `getSupabase().from("reports").insert()`로 전환 (Plan 6에서 supabase-js 도입됨). env 없으면 기존과 같은 `unconfigured` 안내 폴백
 - 순수 함수 `features/report/model/report-payload.ts`(빌더·검증·행 변환)·`report-query.ts`(URL 파서)에 Vitest 14건
@@ -115,13 +115,26 @@
 - UI 작업 시 `.claude/skills/ramap-ui` 스킬 필수, 주석 금지 (CLAUDE.md)
 - 캐치테이블 실물 스크린샷 대조: 세션 스크래치패드 `report-refs/` (소실 시 캐치테이블 매장 상세 → "잘못된 정보가 있나요?" 행에서 재캡처)
 
+## 2차 재설계 (2026-08-31, PO 검수 반영)
+
+1차 구현의 "필수 2개 + '아는 만큼만 알려주세요' 접힘 토글 + CTA 아래 캡션"은 폐기. 근거 조사(웹 실측 2건):
+
+- **라벨**: "제보"는 카카오맵·포카맵·워시맵·Coffice에서 폐업·수정까지 뭉뚱그리는 말. 신규는 카카오맵·네이버 "신규 장소 등록", 다이닝코드 "식당 등록 요청" → 홈 버튼 **라멘집 등록** / 시트 **새 라멘집 등록** / CTA **등록하기**
+- **구조**: 5사 중 접힘은 구글뿐(카카오·당근·네이버 펼침). NN/g "자주 필요한 것을 숨기면 안티패턴", Baymard "접힘은 Address Line 2처럼 소수만 쓰는 필드에만" → 한 화면 세로 4섹션 전부 펼침. 필드 = 15번 시트 컬럼 1:1
+- **CTA**: TDS BottomCTA·캐치테이블 하단 고정. 버튼 아래 설명 캡션은 HIG 금지, 5사 중 폼 안에 검수 안내 두는 곳 없음 → 완료 화면으로 이동
+- **카피**: 5사 공통 해요체 1문장·행동 동사, 로그인·검수 같은 시스템 사정은 리드에 안 넣음 → "아직 라맵에 없는 라멘집을 알려주세요."
+- **사진**: 등록 폼에 최대 5장 + 직접 촬영 동의(09 경계선). 클라이언트 리사이즈·EXIF 제거 → Storage `report-photos`(비공개, 익명 insert만). `supabase/schema.sql`에 버킷·정책 추가 — **Supabase SQL Editor에서 1회 실행 필요**
+- **지도 위치 첨부**: 홈에서 열면 현재 뷰포트 중심을 수동핀으로 첨부(09: 운영자 확정 수동 핀 = 저장 허용). `details.pin`
+- 완식 후 사진("먹고 나서 어디에 올리나")은 별도 플랜 — `record_photos` 테이블·검수 큐·매장 상세 "완식 사진" 섹션
+
 ## 구현 상태 (2026-08-31)
 
-브랜치 `feat/report-sheet`에 1~4단계 구현 완료, tsc·Vitest(96)·build 통과, Playwright로 두 플로우·뒤로가기 닫기·env 미설정 폴백 실측. 5단계(로컬 검수 → 머지)는 사용자 확인 대기. 스타일 축 칩은 필터와 동일하게 `taste`(이에케·지로계)만 노출 — 자가제면·본토직영 수집은 미결에 추가.
+브랜치 `feat/report-sheet`에 1차(시트 골격·두 플로우) + 2차 재설계(등록 폼 전면 개편·사진·지도 핀) 구현, tsc·Vitest(99)·build 통과, Playwright로 두 플로우·뒤로가기 닫기·env 미설정 폴백 실측. 로컬 검수 → 머지는 사용자 확인 대기. 스타일 축은 trait(자가제면·본토직영)까지 4개 전부 노출.
 
 ## 미결
 
 - 매장 카드(2뎁스)에 수정 진입 행 추가 여부
-- 제보 상세층에 `trait` 계보(자가제면·본토직영) 칩 노출 여부 — 현재는 필터 가시성 규칙을 따라 숨김
-- 사진 첨부 (Supabase Storage 파이프라인과 함께 — 별도 계획)
+- 완식 후 사진 첨부(`record_photos`) — 별도 플랜
+- 검색 도입 시 검색 결과 없음 화면의 등록 진입
+- 제출 결과 알림(이메일/카카오) — 카카오맵은 이메일 동의 시 처리 결과 발송. 개인정보 최소수집 원칙과 함께 로그인 사용자 한정으로 검토
 - 제보 보상(포인트류)은 도입하지 않음 — 대형 3사 관례지만 라맵 규모에선 감사 문화(18 문서)로 갈음

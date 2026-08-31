@@ -104,7 +104,7 @@ export function NewOpensPage({ shops }: { shops: Shop[] }) {
         <span className="text-body text-gray-500">
           새 라멘집을 발견하셨나요?
         </span>
-        <span className="text-body font-bold text-ramen">제보하기 →</span>
+        <span className="text-body font-bold text-ramen">라멘집 등록 →</span>
       </Link>
 
       <section className="flex flex-col gap-2 px-4 pt-8">

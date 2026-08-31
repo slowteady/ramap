@@ -1,13 +1,19 @@
 "use client";
 
 import { X } from "lucide-react";
-import type { ReportTarget } from "../model/report-payload";
+import type { LatLng, ReportTarget } from "../model/report-payload";
 import { useReportQuery } from "../model/use-report-query";
 import { EditReportForm } from "./edit-report-form";
 import { NewReportForm } from "./new-report-form";
 
 /* 홈 상시 시트(z-50) 위에 떠야 하므로 z-60 */
-export function ReportSheet({ editTarget }: { editTarget?: ReportTarget }) {
+export function ReportSheet({
+  editTarget,
+  mapCenter = null,
+}: {
+  editTarget?: ReportTarget;
+  mapCenter?: LatLng | null;
+}) {
   const { query, close } = useReportQuery();
   if (!query) return null;
 
@@ -29,16 +35,14 @@ export function ReportSheet({ editTarget }: { editTarget?: ReportTarget }) {
           <X className="size-5" />
         </button>
         <h1 className="min-w-0 truncate text-title font-bold text-ink">
-          {edit ? `${edit.name} 정보 수정` : "새 라멘집 제보"}
+          {edit ? `${edit.name} 정보 수정` : "새 라멘집 등록"}
         </h1>
       </header>
-      <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain">
-        {edit ? (
-          <EditReportForm key={edit.id} target={edit} onClose={close} />
-        ) : (
-          <NewReportForm onClose={close} />
-        )}
-      </div>
+      {edit ? (
+        <EditReportForm key={edit.id} target={edit} onClose={close} />
+      ) : (
+        <NewReportForm mapCenter={mapCenter} onClose={close} />
+      )}
     </div>
   );
 }
