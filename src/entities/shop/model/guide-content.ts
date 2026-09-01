@@ -5,10 +5,8 @@ export type GuideContent = {
   intro: string[];
   traits: { taste: string; body: string; firstOrder: string };
   comparisons: { name: string; text: string }[];
-  reviewed: boolean;
 };
 
-/* reviewed: false = 파트너 감수 전 초안 — 감수 완료 시 true로 전환 */
 export const GUIDES: GuideContent[] = [
   {
     slug: "niboshi",
@@ -27,7 +25,6 @@ export const GUIDES: GuideContent[] = [
         text: "어패 다시에 돼지뼈를 합친 W수프로, 주로 츠케멘에서 만나는 다른 갈래입니다.",
       },
     ],
-    reviewed: false,
   },
   {
     slug: "tonkotsu",
@@ -46,7 +43,6 @@ export const GUIDES: GuideContent[] = [
         text: "같은 백탕이지만 닭 기반이라 더 부드럽고 가볍게 떨어집니다.",
       },
     ],
-    reviewed: false,
   },
   {
     slug: "shoyu",
@@ -65,7 +61,6 @@ export const GUIDES: GuideContent[] = [
         text: "간장 다레는 같지만 돼지뼈 백탕이 베이스라 훨씬 묵직합니다.",
       },
     ],
-    reviewed: false,
   },
   {
     slug: "shio",
@@ -84,7 +79,6 @@ export const GUIDES: GuideContent[] = [
         text: "간장 향이 한 겹 얹히는 쇼유와 달리 시오는 다시가 정면에 나옵니다.",
       },
     ],
-    reviewed: false,
   },
   {
     slug: "miso",
@@ -102,7 +96,6 @@ export const GUIDES: GuideContent[] = [
         text: "같이 걸쭉해도 탄탄멘은 참깨·라유의 매콤 고소함이 중심입니다.",
       },
     ],
-    reviewed: false,
   },
   {
     slug: "tonkotsu-shoyu",
@@ -121,7 +114,6 @@ export const GUIDES: GuideContent[] = [
         text: "순수 돈코츠보다 간장이 세게 들어와 짠맛의 윤곽이 뚜렷합니다.",
       },
     ],
-    reviewed: false,
   },
   {
     slug: "toripaitan",
@@ -139,7 +131,6 @@ export const GUIDES: GuideContent[] = [
         text: "같은 백탕이지만 돼지 기반 돈코츠가 더 묵직하고 향이 셉니다.",
       },
     ],
-    reviewed: false,
   },
   {
     slug: "tantanmen",
@@ -157,7 +148,6 @@ export const GUIDES: GuideContent[] = [
         text: "같이 걸쭉해도 미소는 된장의 구수함, 탄탄멘은 참깨·라유가 중심입니다.",
       },
     ],
-    reviewed: false,
   },
   {
     slug: "iekei",
@@ -176,7 +166,6 @@ export const GUIDES: GuideContent[] = [
         text: "같은 볼륨 계열이지만 지로계는 야채 산과 마늘, 극태면이 중심입니다.",
       },
     ],
-    reviewed: false,
   },
   {
     slug: "jiro",
@@ -195,33 +184,6 @@ export const GUIDES: GuideContent[] = [
         text: "이에케는 김·시금치·밥 조합, 지로계는 야채 산과 볼륨이 정체성입니다.",
       },
     ],
-    reviewed: false,
-  },
-  {
-    slug: "jikaseimen",
-    intro: [
-      "매장에서 직접 면을 뽑는 집을 묶는 계보입니다. 특정 국물 스타일이 아니라 면에 대한 태도를 가리키며, 밀 향과 식감에서 차이가 납니다.",
-    ],
-    traits: {
-      taste: "국물보다 면의 밀 향이 포인트",
-      body: "가게마다 다름",
-      firstOrder: "츠케멘이 있다면 츠케멘 — 면 자체를 맛보기 좋습니다",
-    },
-    comparisons: [],
-    reviewed: false,
-  },
-  {
-    slug: "honto",
-    intro: [
-      "일본 본점이 한국에 직접 낸 지점을 묶는 계보입니다. 본토의 레시피와 오퍼레이션을 그대로 가져오는 경우가 많아 현지 맛의 기준점이 됩니다.",
-    ],
-    traits: {
-      taste: "본점 스타일 그대로",
-      body: "가게마다 다름",
-      firstOrder: "본점 대표 메뉴와 같은 것",
-    },
-    comparisons: [],
-    reviewed: false,
   },
 ];
 

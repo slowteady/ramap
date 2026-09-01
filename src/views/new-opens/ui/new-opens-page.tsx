@@ -4,10 +4,12 @@ import {
   buildAreaClusters,
   formBySlug,
   groupByOpenedMonth,
+  recentOpens,
   soupBySlug,
   toMapManifest,
   type Shop,
 } from "@/entities/shop";
+import { PageHeader } from "@/shared/ui/page-header";
 
 function tagLine(shop: Shop): string {
   return [
@@ -30,35 +32,31 @@ function openDate(openedAt: string): string {
 }
 
 export function NewOpensPage({ shops }: { shops: Shop[] }) {
-  const groups = groupByOpenedMonth(shops);
+  const groups = groupByOpenedMonth(recentOpens(shops, new Date()));
   const areas = buildAreaClusters(toMapManifest(shops));
 
   return (
     <div className="flex min-h-dvh flex-col pb-10">
-      <header className="flex items-center justify-between px-4 py-3">
-        <Link
-          href="/"
-          className="text-heading font-extrabold tracking-tight text-ink"
-        >
-          라맵
-        </Link>
-        <Link href="/" className="text-secondary font-semibold text-ink">
-          지도로 보기
-        </Link>
-      </header>
+      <PageHeader
+        action={
+          <Link href="/" className="text-secondary font-semibold text-ink">
+            지도로 보기
+          </Link>
+        }
+      />
 
       <div className="flex flex-col gap-1 px-4">
         <h1 className="text-heading font-extrabold text-ink">
           새로 문 연 라멘집
         </h1>
         <p className="text-secondary text-gray-500">
-          인허가 데이터와 제보로 확인된 신규 오픈입니다.
+          최근 90일 안에 문을 연 라멘집 — 인허가 데이터와 제보로 확인했어요.
         </p>
       </div>
 
       {groups.length === 0 ? (
         <p className="px-4 pt-8 text-body text-gray-400">
-          이번 달 확인된 신규 오픈이 없어요.
+          최근 90일 안에 확인된 신규 오픈이 없어요.
         </p>
       ) : (
         groups.map((group) => (

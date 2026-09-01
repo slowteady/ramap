@@ -22,7 +22,7 @@ type MenuSection = { label: string; items: MenuItem[]; authOnly?: boolean };
 
 const SECTIONS: MenuSection[] = [
   {
-    label: "라맵",
+    label: "둘러보기",
     items: [
       { icon: PenLine, label: "라멘집 등록하기", href: "/?report=new" },
       { icon: BookOpen, label: "장르 가이드", href: "/guide" },
@@ -30,7 +30,7 @@ const SECTIONS: MenuSection[] = [
     ],
   },
   {
-    label: "지원",
+    label: "약관 및 정책",
     items: [
       { icon: FileText, label: "이용약관", href: "/terms" },
       { icon: ShieldCheck, label: "개인정보 처리방침", href: "/privacy" },

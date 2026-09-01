@@ -67,7 +67,13 @@ const NEW_OPEN_DAYS = 90;
 
 export function isNewOpen(shop: Shop, now: Date): boolean {
   if (!shop.openedAt) return false;
-  return dayjs(now).diff(dayjs(shop.openedAt), "day") <= NEW_OPEN_DAYS;
+  const age = dayjs(now).diff(dayjs(shop.openedAt), "day");
+  return age >= 0 && age <= NEW_OPEN_DAYS;
+}
+
+/* 신규 오픈 페이지 기준 = NEW 마커와 동일한 90일 창 (13번 C절 NEW 배지) */
+export function recentOpens(shops: Shop[], now: Date): Shop[] {
+  return shops.filter((s) => s.status !== "closed" && isNewOpen(s, now));
 }
 
 const LNG_SCALE = 1 / Math.cos((37.5 * Math.PI) / 180);

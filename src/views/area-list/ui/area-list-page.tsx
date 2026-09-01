@@ -1,5 +1,6 @@
 import dayjs from "dayjs";
 import Link from "next/link";
+import { PageHeader } from "@/shared/ui/page-header";
 import {
   breadcrumbJsonLd,
   faqJsonLd,
@@ -75,17 +76,16 @@ export function AreaListPage({
           ]),
         }}
       />
-      <header className="flex items-center justify-between px-4 py-3">
-        <Link
-          href="/"
-          className="text-heading font-extrabold tracking-tight text-ink"
-        >
-          라맵
-        </Link>
-        <Link href={mapHref} className="text-secondary font-semibold text-ink">
-          지도로 보기
-        </Link>
-      </header>
+      <PageHeader
+        action={
+          <Link
+            href={mapHref}
+            className="text-secondary font-semibold text-ink"
+          >
+            지도로 보기
+          </Link>
+        }
+      />
 
       <div className="flex flex-col gap-1.5 px-4">
         <nav className="text-caption text-gray-400">

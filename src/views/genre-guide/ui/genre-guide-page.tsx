@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { PageHeader } from "@/shared/ui/page-header";
 import {
   GUIDES,
   LINEAGES,
@@ -26,17 +27,13 @@ export function GenreGuidePage({ guide, shops }: GenreGuidePageProps) {
 
   return (
     <div className="flex min-h-dvh flex-col pb-10">
-      <header className="flex items-center justify-between px-4 py-3">
-        <Link
-          href="/"
-          className="text-heading font-extrabold tracking-tight text-ink"
-        >
-          라맵
-        </Link>
-        <span className="text-secondary text-gray-400">
-          {isSoup ? "국물 가이드" : "스타일 가이드"}
-        </span>
-      </header>
+      <PageHeader
+        action={
+          <span className="text-secondary text-gray-400">
+            {isSoup ? "국물 가이드" : "스타일 가이드"}
+          </span>
+        }
+      />
 
       <div className="flex flex-col gap-3 px-4 pt-2">
         <div className="flex items-baseline gap-2">
@@ -126,12 +123,6 @@ export function GenreGuidePage({ guide, shops }: GenreGuidePageProps) {
           {label} 전체 지도에서 보기
         </Link>
       </div>
-
-      <p className="px-4 pt-6 text-caption text-gray-300">
-        {guide.reviewed
-          ? "이 가이드는 라오타 감수를 거쳤습니다."
-          : "이 가이드는 초안이며 라오타 감수로 계속 다듬어집니다."}
-      </p>
 
       <section className="flex flex-col gap-2 px-4 pt-8">
         <h2 className="text-title font-bold text-ink">다른 계열 보기</h2>

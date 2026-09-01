@@ -5,6 +5,7 @@ import {
   isNewOpen,
   listAreaGenrePages,
   nearbyShops,
+  recentOpens,
   shopById,
   shopsByArea,
   shopsByAreaGenre,
@@ -131,5 +132,26 @@ describe("nearbyShops", () => {
 
   it("기준 매장에 좌표가 없으면 빈 배열", () => {
     expect(nearbyShops([near, far], noCoord, 3)).toEqual([]);
+  });
+});
+
+describe("recentOpens", () => {
+  const now = new Date("2026-09-01T12:00:00+09:00");
+  it("90일 안에 연 영업 매장만, 미래 오픈일·폐업·오픈일 없음 제외", () => {
+    const fresh = shop({ id: "fresh", openedAt: "2026-08-01" });
+    const edge = shop({ id: "edge", openedAt: "2026-06-03" });
+    const old = shop({ id: "old", openedAt: "2026-05-01" });
+    const future = shop({ id: "future", openedAt: "2026-10-01" });
+    const closed = shop({
+      id: "closed",
+      openedAt: "2026-08-20",
+      status: "closed",
+    });
+    const none = shop({ id: "none", openedAt: null });
+    expect(
+      recentOpens([old, fresh, future, closed, none, edge], now).map(
+        (s) => s.id,
+      ),
+    ).toEqual(["fresh", "edge"]);
   });
 });

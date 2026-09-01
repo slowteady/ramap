@@ -1,10 +1,12 @@
 import Link from "next/link";
+import { PageHeader } from "@/shared/ui/page-header";
 import {
   formBySlug,
   LINEAGES,
   soupBySlug,
   type Shop,
   type TaxonomyItem,
+  guideBySlug,
 } from "@/entities/shop";
 import { StyleProgress, VisitedCheck } from "./style-progress";
 
@@ -44,17 +46,17 @@ export function StyleLandingPage({ lineage, shops }: StyleLandingPageProps) {
   return (
     <div className="flex min-h-dvh flex-col pb-10">
       <div className="bg-ink pb-6 text-white">
-        <header className="flex items-center justify-between px-4 py-3">
-          <Link href="/" className="text-heading font-extrabold tracking-tight">
-            라맵
-          </Link>
-          <Link
-            href={`/?lineage=${lineage.slug}`}
-            className="text-secondary font-semibold text-white/80"
-          >
-            지도로 보기
-          </Link>
-        </header>
+        <PageHeader
+          dark
+          action={
+            <Link
+              href={`/?lineage=${lineage.slug}`}
+              className="text-secondary font-semibold text-white/80"
+            >
+              지도로 보기
+            </Link>
+          }
+        />
         <div className="flex flex-col gap-2 px-4 pt-2">
           <span className="text-caption font-semibold tracking-wide text-white/50">
             스타일
@@ -126,12 +128,14 @@ export function StyleLandingPage({ lineage, shops }: StyleLandingPageProps) {
       <section className="flex flex-col gap-2 px-4 pt-8">
         <h2 className="text-title font-bold text-ink">더 알아보기</h2>
         <div className="flex flex-wrap gap-2">
-          <Link
-            href={`/guide/${lineage.slug}`}
-            className="rounded-pill bg-gray-050 px-3.5 py-1.5 text-secondary font-semibold text-ink"
-          >
-            {lineage.label}란? 가이드
-          </Link>
+          {guideBySlug(lineage.slug) && (
+            <Link
+              href={`/guide/${lineage.slug}`}
+              className="rounded-pill bg-gray-050 px-3.5 py-1.5 text-secondary font-semibold text-ink"
+            >
+              {lineage.label}란? 가이드
+            </Link>
+          )}
           {related.map((l) => (
             <Link
               key={l.slug}

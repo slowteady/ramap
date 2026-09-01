@@ -35,6 +35,7 @@ export {
   groupByOpenedMonth,
   isNewOpen,
   nearbyShops,
+  recentOpens,
 } from "@/entities/shop/model/derive";
 export type { GenreSlug } from "@/entities/shop/model/derive";
 export {
