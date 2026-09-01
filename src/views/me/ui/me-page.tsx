@@ -182,6 +182,15 @@ function MeBody({ shops }: { shops: Shop[] }) {
         >
           로그아웃
         </button>
+        <p className="flex gap-1.5 pt-2 text-caption text-gray-300">
+          <Link href="/terms" className="underline underline-offset-2">
+            이용약관
+          </Link>
+          ·
+          <Link href="/privacy" className="underline underline-offset-2">
+            개인정보 처리방침
+          </Link>
+        </p>
       </div>
     </div>
   );
