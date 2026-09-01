@@ -8,7 +8,12 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { GenreChips, type Shop } from "@/entities/shop";
 import { useAuth, useProfile } from "@/features/auth";
 import { LoginPromptSheet, useRecords } from "@/features/records";
-import { fetchMyRecordPhotos } from "@/features/records/index.client";
+import {
+  deleteMyRecordPhotoFiles,
+  fetchMyRecordPhotos,
+} from "@/features/records/index.client";
+import { toast } from "sonner";
+import { Drawer, DrawerContent, DrawerTitle } from "@/shared/ui/drawer";
 import { cn } from "@/shared/lib/utils";
 import { recordTime, sortRecordsByRecent } from "../model/sort-records";
 import { MeMenu } from "./me-menu";
@@ -23,10 +28,12 @@ type TabKey = (typeof TABS)[number]["key"];
 function MeBody({ shops }: { shops: Shop[] }) {
   const router = useRouter();
   const params = useSearchParams();
-  const { user, ready, signOut } = useAuth();
+  const { user, ready, signOut, deleteAccount } = useAuth();
   const { displayName, profileLoaded } = useProfile();
-  const { records, exportDownload } = useRecords();
+  const { records } = useRecords();
   const [loginOpen, setLoginOpen] = useState(false);
+  const [withdrawOpen, setWithdrawOpen] = useState(false);
+  const [withdrawing, setWithdrawing] = useState(false);
   const [thumbs, setThumbs] = useState<Map<string, string>>(new Map());
 
   useEffect(() => {
@@ -203,13 +210,59 @@ function MeBody({ shops }: { shops: Shop[] }) {
       <div className="mt-auto pt-10">
         <MeMenu
           authed
-          onExport={exportDownload}
+          onWithdraw={() => setWithdrawOpen(true)}
           onSignOut={() => {
             signOut();
             router.push("/");
           }}
         />
       </div>
+      {withdrawOpen && (
+        <Drawer open onOpenChange={(next) => !next && setWithdrawOpen(false)}>
+          <DrawerContent>
+            <div className="flex flex-col gap-4 px-4 pt-5 pb-8">
+              <div className="flex flex-col gap-1">
+                <DrawerTitle className="text-title font-bold text-ink">
+                  정말 탈퇴할까요?
+                </DrawerTitle>
+                <p className="text-secondary text-gray-500">
+                  완식·저장 기록과 남긴 사진이 모두 지워지고 되돌릴 수 없어요.
+                </p>
+              </div>
+              <div className="flex gap-2">
+                <button
+                  type="button"
+                  onClick={() => setWithdrawOpen(false)}
+                  className="h-13 flex-1 rounded-card-lg bg-gray-050 text-body font-semibold text-ink"
+                >
+                  취소
+                </button>
+                <button
+                  type="button"
+                  disabled={withdrawing}
+                  onClick={async () => {
+                    setWithdrawing(true);
+                    const ok =
+                      (await deleteMyRecordPhotoFiles()) &&
+                      (await deleteAccount());
+                    setWithdrawing(false);
+                    if (!ok) {
+                      toast("탈퇴에 실패했어요. 잠시 후 다시 시도해 주세요.");
+                      return;
+                    }
+                    setWithdrawOpen(false);
+                    toast("탈퇴가 완료됐어요");
+                    router.push("/");
+                  }}
+                  className="h-13 flex-1 rounded-card-lg bg-ramen text-body font-bold text-white disabled:opacity-40"
+                >
+                  {withdrawing ? "처리 중…" : "탈퇴하기"}
+                </button>
+              </div>
+            </div>
+          </DrawerContent>
+        </Drawer>
+      )}
     </div>
   );
 }

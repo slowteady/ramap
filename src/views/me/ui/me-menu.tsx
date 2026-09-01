@@ -4,19 +4,19 @@ import Link from "next/link";
 import {
   BookOpen,
   ChevronRight,
-  Download,
   FileText,
   LogOut,
   PenLine,
   ShieldCheck,
   Sparkles,
+  UserX,
   type LucideIcon,
 } from "lucide-react";
 
 type MenuItem = {
   icon: LucideIcon;
   label: string;
-} & ({ href: string } | { action: "export" | "signout" });
+} & ({ href: string } | { action: "withdraw" | "signout" });
 
 type MenuSection = { label: string; items: MenuItem[]; authOnly?: boolean };
 
@@ -40,24 +40,24 @@ const SECTIONS: MenuSection[] = [
     label: "계정",
     authOnly: true,
     items: [
-      { icon: Download, label: "기록 JSON 내려받기", action: "export" },
       { icon: LogOut, label: "로그아웃", action: "signout" },
+      { icon: UserX, label: "회원탈퇴", action: "withdraw" },
     ],
   },
 ];
 
 export function MeMenu({
   authed,
-  onExport,
+  onWithdraw,
   onSignOut,
 }: {
   authed: boolean;
-  onExport?: () => void;
+  onWithdraw?: () => void;
   onSignOut?: () => void;
 }) {
   const sections = SECTIONS.filter((s) => authed || !s.authOnly);
-  const run = (action: "export" | "signout") => {
-    if (action === "export") onExport?.();
+  const run = (action: "withdraw" | "signout") => {
+    if (action === "withdraw") onWithdraw?.();
     else onSignOut?.();
   };
 

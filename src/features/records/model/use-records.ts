@@ -177,17 +177,6 @@ export function useRecords() {
     return record;
   }, []);
 
-  const exportDownload = useCallback(() => {
-    const json = getStore().exportJson();
-    const blob = new Blob([json], { type: "application/json" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "ramap-records.json";
-    a.click();
-    URL.revokeObjectURL(url);
-  }, []);
-
   const get = useCallback(
     (shopId: string) => records.find((r) => r.shopId === shopId) ?? null,
     [records],
@@ -204,7 +193,6 @@ export function useRecords() {
     toggleVisited,
     toggleSaved,
     recordRevisit,
-    exportDownload,
     isSynced: synced,
     isAuthed: sessionUserId !== null,
   };

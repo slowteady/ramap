@@ -35,7 +35,17 @@ export function useAuth() {
     void getSupabase()?.auth.signOut();
   }, []);
 
-  return { enabled, user, ready, signInWithKakao, signOut };
+  /* 삭제 후에도 JWT는 만료까지 유효 — 로컬 세션을 즉시 정리 */
+  const deleteAccount = useCallback(async () => {
+    const client = getSupabase();
+    if (!client) return false;
+    const { error } = await client.rpc("delete_own_account");
+    if (error) return false;
+    await client.auth.signOut({ scope: "local" });
+    return true;
+  }, []);
+
+  return { enabled, user, ready, signInWithKakao, signOut, deleteAccount };
 }
 
 export function displayName(user: User | null): string {

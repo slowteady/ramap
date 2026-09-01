@@ -267,3 +267,24 @@ create policy "record-photos: 본인 경로 삭제" on storage.objects
 -- 닉네임 조인은 FK 변경 없이 클라이언트 2쿼리(user_id 수집 → profiles in 조회)로 처리
 create policy "profiles: 비로그인도 조회" on public.profiles
   for select to anon using (true);
+
+-- 회원탈퇴 (2026-09-01): 본인 auth.users 행 삭제 → profiles·records·record_photos cascade.
+-- 스토리지 객체는 소유자 삭제가 선행돼야 함(Supabase 제약) — 클라이언트가 본인 경로 파일을 먼저 지운 뒤 호출
+create or replace function public.delete_own_account()
+returns void
+language plpgsql
+security definer
+set search_path = public
+as $$
+declare
+  uid uuid := auth.uid();
+begin
+  if uid is null then
+    raise exception 'not authenticated';
+  end if;
+  delete from auth.users where id = uid;
+end;
+$$;
+
+revoke all on function public.delete_own_account() from public;
+grant execute on function public.delete_own_account() to authenticated;

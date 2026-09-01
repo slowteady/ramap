@@ -135,3 +135,19 @@ export async function fetchMyRecordPhotos(): Promise<RecordPhoto[] | null> {
   if (error || !data) return null;
   return attachMeta(client, (data as RecordPhotoRow[]).map(fromRow));
 }
+
+/* 회원탈퇴 선행 단계 — 스토리지 객체 소유자는 계정 삭제가 막히므로 본인 경로를 먼저 비운다 */
+export async function deleteMyRecordPhotoFiles(): Promise<boolean> {
+  const client = getSupabase();
+  if (!client) return false;
+  const { data } = await client.auth.getUser();
+  const uid = data.user?.id;
+  if (!uid) return false;
+  const { data: files, error } = await client.storage.from(BUCKET).list(uid);
+  if (error) return false;
+  if (!files || files.length === 0) return true;
+  const { error: removeError } = await client.storage
+    .from(BUCKET)
+    .remove(files.map((f) => `${uid}/${f.name}`));
+  return !removeError;
+}

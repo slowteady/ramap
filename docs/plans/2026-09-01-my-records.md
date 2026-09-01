@@ -88,7 +88,7 @@ public.profiles (
 
 - ~~약관·개인정보 처리방침~~ → 완료(2026-09-01, feat/terms-consent): /terms·/privacy 페이지, 전역 동의 시트, records RLS 게이트 활성(Plan 6 영문명 중복 정책 제거로 무력화 버그 해소). **방침의 보호책임자 연락처는 자리표시 상태 — 출시 전 실연락처 확정 필요.** 법률 검토 전 초안임
 - 닉네임 변경 화면(쿨다운 30일 트리거·검증 4단·확인 모달·비속어 필터) — 후속 플랜, keeper 정책 부록 참조
-- 회원탈퇴 — Supabase는 클라 삭제 불가, Edge Function 검토
+- ~~회원탈퇴 — Supabase는 클라 삭제 불가, Edge Function 검토~~ → 해소(2026-09-01): Edge Function 없이 `delete_own_account()` security definer RPC(공식 discussion #1066 패턴). 스토리지 객체 소유자는 삭제가 막히므로(공식 문서) 클라이언트가 본인 record-photos 파일을 먼저 지운 뒤 RPC → 로컬 signOut. 마이 > 계정 > 회원탈퇴 → 확인 시트. JSON 내보내기는 서버 저장 전환으로 폐기
 - 프로필 이미지 — 미도입 유지 (닉네임 텍스트만)
 - 애플 로그인 추가 시 identity linking 설정
 - 내 지도 모아보기·공유 이미지 — 14 문서 플랜과 함께
