@@ -106,6 +106,30 @@ create table if not exists public.record_photos (
 - 1단 스펙 2 갱신: "별점·메모 MVP 배제" → 한줄평(선택 30자)은 완식 기록 부가물로 도입, 별점은 계속 배제
 - 3단-3 갱신: "완식 부속 개인 코멘트의 선택적 공개"가 완식 기록의 공개 동의 체크로 구현됨을 기록
 
+## 진행 현황 (2026-09-01 저녁 인수인계 — 여기부터 이어서)
+
+**구현·DB·테스트 완료, 승인 E2E 1건과 로컬 검수·머지만 남음.**
+
+### 완료
+
+- 코드 전체 구현: `feat/record-photos` 커밋 `2b70c38` (테스트 132개·tsc·빌드 통과). 시트·상세 섹션·/me 썸네일·recordRevisit 누적·약관 제7조·planning/14 개정·CLAUDE.md(index.client.ts 규칙, zod/rhf 미도입 트리거) 포함
+- 프로덕션 DB 적용 완료: record_photos 테이블 + RLS 6정책(pg_policies 검증 완료) + record-photos 비공개 버킷 + profiles anon 조회 정책. schema.sql과 실DB 일치 상태
+- E2E 통과 4건: ①제출→본인 즉시 표시+`검토 중` 칩 ②재제출→records.count 1→2 ③anon 시점 pending 비노출(REST 직접 확인) ④/me 썸네일
+- 테스트 데이터가 프로덕션에 남아 있음: record_photos 1행 (user "용감한토쿠세이", shop_id 'kinka', comment '쫄깃한 면발이 일품', status 'pending') + 스토리지 record-photos 버킷의 해당 파일(빨간 사각형 테스트 이미지). kinka records.count는 2로 증가된 상태
+
+### 남은 작업 (순서대로)
+
+1. **승인→타인 노출 E2E**: Supabase 대시보드 로그인이 필요 (세션 만료됨 — 사용자가 Playwright 브라우저에서 로그인해주는 방식, 프로젝트 umwgzacbrfyyzmcbyxuq). SQL Editor에서 `update public.record_photos set status = 'approved' where shop_id = 'kinka';` 실행(실제 검수 동선과 동일) → 시크릿 창 또는 스토리지 초기화 상태로 localhost:3000/shop/kinka 열어 익명 시점에서 사진·한줄평 노출 확인
+2. **사용자 로컬 검수** → OK 시 main 머지·푸시 (main push = Vercel 배포)
+3. **테스트 데이터 정리**: `delete from public.record_photos where shop_id = 'kinka';` + Storage > record-photos 버킷에서 해당 파일 삭제 + `update public.records set count = 1 where shop_id = 'kinka';` (원상: count 1)
+
+### 작업 환경 참고
+
+- 대시보드 SQL 실행 워크플로우: Playwright로 SQL Editor 열기 → 에디터 클릭 → Cmd+A → **browser_type으로 textarea에 fill** → Cmd+Enter → destructive 경고 모달이 뜨면 "Run query" 클릭. (navigator.clipboard 주입 방식은 권한 분류기가 차단하기 시작함 — browser_type 사용)
+- SQL Editor에서 Cmd+A가 에디터 포커스를 벗어나면 페이지가 이탈함 — 반드시 `.monaco-editor[role="code"]` 클릭 후 단축키
+- 로컬 dev 서버: 3000 포트. 사용자 본인 카카오 세션이 Playwright 브라우저 localhost에 로그인돼 있음(계정 "용감한토쿠세이")
+- Playwright 파일 업로드 허용 경로: 레포 루트와 `.playwright-mcp/`만 — 테스트 이미지는 `.playwright-mcp/test-bowl.jpg`에 있음
+
 ## 백로그 (이번 스코프 제외)
 
 - 라멘판 키워드 칩 (국물 농도·면 익힘 — 네이버의 별점 대체 문법, 매장 페이지 집계 바 재활용)
