@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 
-export function useDragScroll() {
+export function useDragScroll({ snap = false }: { snap?: boolean } = {}) {
   const state = useRef({ down: false, moved: false, startX: 0, startLeft: 0 });
 
   const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
@@ -13,7 +13,7 @@ export function useDragScroll() {
       startX: e.clientX,
       startLeft: e.currentTarget.scrollLeft,
     };
-    e.currentTarget.style.scrollSnapType = "none";
+    if (snap) e.currentTarget.style.scrollSnapType = "none";
   };
 
   const onPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
@@ -26,16 +26,26 @@ export function useDragScroll() {
   const settle = (e: React.PointerEvent<HTMLDivElement>) => {
     if (!state.current.down) return;
     state.current.down = false;
+    if (!snap) return;
     const el = e.currentTarget;
     const startIndex = Math.round(state.current.startLeft / el.clientWidth);
     const delta = el.scrollLeft - state.current.startLeft;
     const last = Math.round(el.scrollWidth / el.clientWidth) - 1;
     const target = Math.min(
       last,
-      Math.max(0, Math.abs(delta) > 40 ? startIndex + Math.sign(delta) : startIndex),
+      Math.max(
+        0,
+        Math.abs(delta) > 40 ? startIndex + Math.sign(delta) : startIndex,
+      ),
     );
     el.style.scrollSnapType = "";
     el.scrollTo({ left: target * el.clientWidth, behavior: "smooth" });
+  };
+
+  const onClickCapture = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!state.current.moved) return;
+    e.preventDefault();
+    e.stopPropagation();
   };
 
   const dragged = () => state.current.moved;
@@ -48,6 +58,7 @@ export function useDragScroll() {
       onPointerUp: settle,
       onPointerLeave: settle,
       onPointerCancel: settle,
+      onClickCapture,
       onDragStart: (e: React.DragEvent<HTMLDivElement>) => e.preventDefault(),
     },
   };

@@ -13,7 +13,6 @@ import type { FilterAxis } from "../model/filter-axes";
 import { FilterChips } from "./filter-chips";
 import { FilterSheet } from "./filter-sheet";
 import { MapFallback } from "./map-fallback";
-import { Onboarding } from "./onboarding";
 import { ShopSheet } from "./shop-sheet";
 
 export function ShopMap({ pins }: { pins: ShopPin[] }) {
@@ -28,6 +27,11 @@ export function ShopMap({ pins }: { pins: ShopPin[] }) {
       ),
     [records],
   );
+  const [hideVisited, setHideVisited] = useState(false);
+  const basePins = useMemo(
+    () => (hideVisited ? pins.filter((p) => !visitedIds.has(p.id)) : pins),
+    [pins, hideVisited, visitedIds],
+  );
   const {
     containerRef,
     status,
@@ -38,17 +42,18 @@ export function ShopMap({ pins }: { pins: ShopPin[] }) {
     selectedShop,
     panToPin,
     locate,
-  } = useShopMap(pins, filters, selectedId, visitedIds, select, clear);
+  } = useShopMap(basePins, filters, selectedId, visitedIds, select, clear);
   const [sheetAxis, setSheetAxis] = useState<FilterAxis | null>(null);
 
   return (
     <div className="flex min-h-0 flex-1 flex-col">
-      <Onboarding pins={pins} />
       <div className="flex items-center">
         <FilterChips
           filters={filters}
           onOpenAxis={setSheetAxis}
           onApply={apply}
+          hideVisited={visitedIds.size > 0 ? hideVisited : null}
+          onToggleHideVisited={() => setHideVisited((v) => !v)}
         />
         <button
           type="button"

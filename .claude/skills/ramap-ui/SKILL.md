@@ -17,7 +17,7 @@ description: Use when writing, editing, or reviewing any UI code (components, st
 
 ## 스타일 금지 시그니처
 
-Inter/기본폰트 · 그라데이션 배경 · rounded-2xl 남발 · 이모지 아이콘 ·
+Inter/기본폰트 · 그라데이션 배경(예외: 가로 스크롤 에지 페이드 마스크 `mask-fade-r` — keeper FadeEdgesScrollView 실측) · rounded-2xl 남발 · 이모지 아이콘 ·
 유리효과 · 테두리+그림자 이중 카드 · shadcn 기본 팔레트 잔재 · 보라-파랑 액센트
 
 ## 구조 금지 패턴 (AI 단골 레이아웃)
