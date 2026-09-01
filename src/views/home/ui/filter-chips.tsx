@@ -2,6 +2,7 @@
 
 import { ChevronDown, RotateCcw } from "lucide-react";
 import { cn } from "@/shared/lib/utils";
+import { useDragScroll } from "@/shared/lib/use-drag-scroll";
 import { EMPTY_FILTERS, type MapFilters } from "../model/filter";
 import {
   axisChipCount,
@@ -24,12 +25,16 @@ export function FilterChips({
   hideVisited,
   onToggleHideVisited,
 }: FilterChipsProps) {
+  const drag = useDragScroll();
   const activeCount = FILTER_AXES.reduce(
     (n, a) => n + axisChipCount(a, filters),
     0,
   );
   return (
-    <div className="mask-fade-r flex min-w-0 flex-1 items-center gap-2 overflow-x-auto py-2 pr-8 pl-4 [scrollbar-width:none]">
+    <div
+      {...drag.handlers}
+      className="mask-fade-r flex min-w-0 flex-1 items-center gap-2 overflow-x-auto py-2 pr-8 pl-4 select-none [scrollbar-width:none]"
+    >
       {activeCount > 0 && (
         <button
           type="button"

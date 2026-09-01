@@ -49,6 +49,7 @@ scripts/        # 파이프라인 (LOCALDATA 시딩·시트 동기화)
 | dayjs                   | 도입   | 2026-08-27 도입 — 날짜 파싱·포맷·차이 계산 단일 창구. `new Date` 직접 연산 금지                                                                                                                                         |
 | 전역 스토어(zustand 등) | 미도입 | URL+useState로 부족한 공유 상태가 실증될 때                                                                                                                                                                             |
 | framer-motion           | 미도입 | CSS+vaul로 부족한 모션이 실증될 때                                                                                                                                                                                      |
+| @use-gesture            | 미도입 | 관성(플릭) 스크롤·핀치 줌·복합 제스처가 필요할 때 — 단순 드래그는 `shared/lib/use-drag-scroll` (2026-09-01) |
 | steiger(FSD 린터)       | 미도입 | 베타 안정화 + 팀 확장 시                                                                                                                                                                                                |
 | patch-package           | 도입   | 2026-08-31 도입 — vaul 1.1.2가 radix Dialog에 `modal`을 전달하지 않아 `modal={false}` 시트가 앱 셸 전체에 aria-hidden·포커스 트랩을 거는 버그(vaul #582·#497·#519, 미수정) 한 줄 패치. 업스트림 수정 시 `patches/` 제거 |
 

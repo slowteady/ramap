@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { useDragScroll } from "../model/use-drag-scroll";
+import { useDragScroll } from "@/shared/lib/use-drag-scroll";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { ChevronLeft, X } from "lucide-react";
 
@@ -27,8 +27,8 @@ export function PhotoGallery({ shopName, photos }: PhotoGalleryProps) {
     if (!el) return;
     setIndex(Math.round(el.scrollLeft / el.clientWidth));
   };
-  const heroDrag = useDragScroll();
-  const viewerDrag = useDragScroll();
+  const heroDrag = useDragScroll({ snap: true });
+  const viewerDrag = useDragScroll({ snap: true });
 
   return (
     <>
