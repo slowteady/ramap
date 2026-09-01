@@ -24,8 +24,14 @@ export function shopsByAreaGenre(
   );
 }
 
-/* 가이드의 매장 목록 — 운영자 확인분 먼저, 그다음 최근 확인일순 */
+/* 가이드 "대표 매장" 순위 — 대표 국물 일치 > 운영자 확인 > 한줄소개(파트너 픽) > 최근 확인일.
+   완식 집계가 쌓이면 집계 기준으로 전환(14번 문서: 랭킹은 완식 횟수) */
 export function shopsByGenre(shops: Shop[], genre: GenreSlug): Shop[] {
+  const rank = (s: Shop) => [
+    s.primarySoup === genre || (s.lineages as string[]).includes(genre) ? 0 : 1,
+    s.verification === "confirmed" ? 0 : 1,
+    s.tagline ? 0 : 1,
+  ];
   return shops
     .filter(
       (s) =>
@@ -34,9 +40,10 @@ export function shopsByGenre(shops: Shop[], genre: GenreSlug): Shop[] {
           (s.lineages as string[]).includes(genre)),
     )
     .sort((a, b) => {
-      const av = a.verification === "confirmed" ? 0 : 1;
-      const bv = b.verification === "confirmed" ? 0 : 1;
-      if (av !== bv) return av - bv;
+      const ra = rank(a);
+      const rb = rank(b);
+      for (let i = 0; i < ra.length; i++)
+        if (ra[i] !== rb[i]) return ra[i] - rb[i];
       return (b.lastVerifiedAt ?? "").localeCompare(a.lastVerifiedAt ?? "");
     });
 }

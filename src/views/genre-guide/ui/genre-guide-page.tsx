@@ -78,12 +78,7 @@ export function GenreGuidePage({ guide, shops }: GenreGuidePageProps) {
 
       {shops.length > 0 && (
         <section className="flex flex-col gap-1 px-4 pt-8">
-          <h2 className="text-title font-bold text-ink">
-            {label} 매장
-            <span className="pl-1.5 text-body font-semibold text-gray-400">
-              {shops.length}곳
-            </span>
-          </h2>
+          <h2 className="text-title font-bold text-ink">대표 {label} 매장</h2>
           <ul className="flex flex-col">
             {shops.slice(0, GUIDE_SHOP_MAX).map((shop) => (
               <li key={shop.id} className="border-b border-gray-050">

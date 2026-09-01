@@ -158,45 +158,67 @@ describe("recentOpens", () => {
 });
 
 describe("shopsByGenre", () => {
-  it("장르 태그 매장 중 폐업 제외, 운영자 확인 우선 → 최근 확인일순", () => {
-    const a = shop({
-      id: "a",
-      soups: ["niboshi"],
-      verification: "pending",
+  it("대표 국물 일치 > 운영자 확인 > 한줄소개 > 최근 확인일, 폐업 제외", () => {
+    const sub = shop({
+      id: "sub",
+      soups: ["tonkotsu", "niboshi"],
+      primarySoup: "tonkotsu",
+      verification: "confirmed",
+      tagline: "x",
       lastVerifiedAt: "2026-08-30",
     });
-    const b = shop({
-      id: "b",
+    const pending = shop({
+      id: "pending",
       soups: ["niboshi"],
+      primarySoup: "niboshi",
+      verification: "pending",
+      tagline: "x",
+      lastVerifiedAt: "2026-08-30",
+    });
+    const noTag = shop({
+      id: "notag",
+      soups: ["niboshi"],
+      primarySoup: "niboshi",
       verification: "confirmed",
+      tagline: null,
+      lastVerifiedAt: "2026-08-30",
+    });
+    const older = shop({
+      id: "older",
+      soups: ["niboshi"],
+      primarySoup: "niboshi",
+      verification: "confirmed",
+      tagline: "x",
       lastVerifiedAt: "2026-08-01",
     });
-    const c = shop({
-      id: "c",
-      lineages: ["iekei"],
-      soups: ["tonkotsu-shoyu"],
-      verification: "confirmed",
-      lastVerifiedAt: "2026-08-20",
-    });
-    const d = shop({
-      id: "d",
+    const newer = shop({
+      id: "newer",
       soups: ["niboshi"],
-      status: "closed",
+      primarySoup: "niboshi",
       verification: "confirmed",
-    });
-    const e = shop({
-      id: "e",
-      soups: ["niboshi"],
-      verification: "confirmed",
+      tagline: "x",
       lastVerifiedAt: "2026-08-25",
     });
-    expect(shopsByGenre([a, b, c, d, e], "niboshi").map((s) => s.id)).toEqual([
-      "e",
-      "b",
-      "a",
-    ]);
-    expect(shopsByGenre([a, b, c, d, e], "iekei").map((s) => s.id)).toEqual([
-      "c",
-    ]);
+    const closed = shop({
+      id: "closed",
+      soups: ["niboshi"],
+      primarySoup: "niboshi",
+      status: "closed",
+    });
+    expect(
+      shopsByGenre([sub, pending, noTag, older, newer, closed], "niboshi").map(
+        (s) => s.id,
+      ),
+    ).toEqual(["newer", "older", "notag", "pending", "sub"]);
+  });
+
+  it("계보는 lineages 포함이 대표 일치", () => {
+    const iekei = shop({
+      id: "iekei",
+      lineages: ["iekei"],
+      soups: ["tonkotsu-shoyu"],
+      primarySoup: "tonkotsu-shoyu",
+    });
+    expect(shopsByGenre([iekei], "iekei").map((s) => s.id)).toEqual(["iekei"]);
   });
 });
