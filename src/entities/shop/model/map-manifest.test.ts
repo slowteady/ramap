@@ -58,6 +58,8 @@ describe("toMapManifest", () => {
     expect(pin).toEqual({
       id: "kinka",
       name: "킨카",
+      branch: null,
+      soupDetail: [],
       lat: 37.54,
       lng: 127.05,
       primarySoup: "niboshi",

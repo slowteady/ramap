@@ -18,6 +18,7 @@ export function useReportQuery() {
   const openNew = useCallback(() => {
     const params = new URLSearchParams(searchParams.toString());
     params.set(REPORT_PARAM, "new");
+    params.delete("search");
     router.push(`${pathname}?${params.toString()}`, { scroll: false });
   }, [router, pathname, searchParams]);
 

@@ -12,6 +12,8 @@ import {
 const pin = (id: string, lat: number, lng: number): ShopPin => ({
   id,
   name: id,
+  branch: null,
+  soupDetail: [],
   lat,
   lng,
   primarySoup: "niboshi",
