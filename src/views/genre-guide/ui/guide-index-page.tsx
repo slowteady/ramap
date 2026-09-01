@@ -22,13 +22,7 @@ function guideDescription(slug: string) {
 export function GuideIndexPage() {
   return (
     <div className="flex min-h-dvh flex-col pb-16">
-      <PageHeader
-        action={
-          <Link href="/" className="text-secondary font-semibold text-gray-500">
-            지도로 보기
-          </Link>
-        }
-      />
+      <PageHeader />
 
       <div className="flex flex-col gap-1.5 px-4 pt-1">
         <h1 className="text-heading font-extrabold text-ink">장르 가이드</h1>
