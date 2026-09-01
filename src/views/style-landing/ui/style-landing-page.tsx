@@ -37,7 +37,9 @@ function cardTags(shop: Shop): string {
 }
 
 export function StyleLandingPage({ lineage, shops }: StyleLandingPageProps) {
-  const related = LINEAGES.filter((l) => l.slug !== lineage.slug);
+  const related = LINEAGES.filter(
+    (l) => l.slug !== lineage.slug && l.kind === "taste",
+  );
 
   return (
     <div className="flex min-h-dvh flex-col pb-10">
@@ -55,7 +57,7 @@ export function StyleLandingPage({ lineage, shops }: StyleLandingPageProps) {
         </header>
         <div className="flex flex-col gap-2 px-4 pt-2">
           <span className="text-caption font-semibold tracking-wide text-white/50">
-            계보
+            스타일
           </span>
           <div className="flex items-baseline gap-2">
             <h1 className="text-display font-extrabold">{lineage.label}</h1>

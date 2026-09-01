@@ -43,7 +43,7 @@ export function Onboarding({ pins }: { pins: ShopPin[] }) {
           먼저 찍어보세요
         </h1>
         <p className="text-secondary text-gray-400">
-          기록은 이 기기에만 저장돼요
+          로그인하면 기록이 계정에 저장돼요
         </p>
       </div>
 

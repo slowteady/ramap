@@ -7,7 +7,9 @@ import { StyleLandingPage } from "@/views/style-landing";
 type Props = { params: Promise<{ lineage: string }> };
 
 export function generateStaticParams() {
-  return LINEAGES.map((l) => ({ lineage: l.slug }));
+  return LINEAGES.filter((l) => l.kind === "taste").map((l) => ({
+    lineage: l.slug,
+  }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -23,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page({ params }: Props) {
   const { lineage: slug } = await params;
   const lineage = LINEAGES.find((l) => l.slug === slug);
-  if (!lineage) notFound();
+  if (!lineage || lineage.kind !== "taste") notFound();
 
   const shops = (await getShops()).filter(
     (s) => s.status !== "closed" && (s.lineages as string[]).includes(slug),
