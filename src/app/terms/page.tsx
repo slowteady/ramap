@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { LegalPage, TERMS_SECTIONS, TERMS_VERSION } from "@/views/legal";
+import { TERMS_VERSION } from "@/shared/config/legal";
+import { LegalPage, TERMS_SECTIONS } from "@/views/legal";
 
 export const metadata: Metadata = { title: "이용약관" };
 

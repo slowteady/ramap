@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { LegalPage, PRIVACY_SECTIONS, PRIVACY_VERSION } from "@/views/legal";
+import { PRIVACY_VERSION } from "@/shared/config/legal";
+import { LegalPage, PRIVACY_SECTIONS } from "@/views/legal";
 
 export const metadata: Metadata = { title: "개인정보 처리방침" };
 
