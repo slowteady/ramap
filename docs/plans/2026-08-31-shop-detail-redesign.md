@@ -55,11 +55,12 @@
 
 **절차:** 브랜치 `feat/report-sheet`에 이어서(상세 개편이 제보 진입 행과 결합) → `npx tsc --noEmit` + `npm test` + `npm run build` → Playwright 실측 → 사용자 검수 → 머지.
 
-## 2차 (사진 — 데이터 동반)
+## 2차 (사진) — 표시 계층 구현 완료 (2026-09-01, feat/shop-photos)
 
-- 15번 시트에 `사진` 컬럼(Storage 공개 버킷 경로, 콤마 복수) → `Shop.photos: string[]` → `sync-sheet` 파서 확장
-- 히어로 캐러셀(가로 스와이프, `1/N`) → 탭 → 앨범 그리드(URL 상태 `?photos=1`, 뒤로가기 닫힘) → 전체화면 뷰어
-- 완식 사진 플랜(`record_photos`)의 승인분이 같은 배열에 합류
+- `Shop.photos: string[]` + `sync-sheet` 파서(`사진` 컬럼, 콤마 복수, 컬럼 부재 방어) + 로더 기본값 [] — 완료
+- `src/views/shop-detail/ui/photo-gallery.tsx`: 히어로 캐러셀(스냅 스와이프, `1/N`) → 탭 → 앨범 3열 그리드(`?photos=1`, 뒤로가기 닫힘) → 전체화면 뷰어(스와이프·카운터·X). 0장이면 전 층 미렌더, ← 버튼은 사진 위 흰 원형 오버레이로 전환
+- 이미지는 plain `<img>`(lazy) — next/image는 Storage 도메인·Vercel 최적화 쿼터 결정과 함께 후속
+- 남은 것: 시트에 실제 사진 채우기(Storage 공개 버킷 — 완식 인증 파이프라인과 함께), 완식 사진 승인분 합류
 
 ## 미결
 

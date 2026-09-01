@@ -281,6 +281,7 @@ export function parseSheetTsv(tsv: string): ParseResult {
       amenities: amenities as Shop["amenities"],
       confidence,
       menus,
+      photos: splitList(cells.사진 ?? ""),
       seats: optional(cells.좌석),
       tagline: optional(cells.한줄소개),
       instagram: optional(cells.인스타),
