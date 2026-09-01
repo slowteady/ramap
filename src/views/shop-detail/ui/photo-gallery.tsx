@@ -19,7 +19,8 @@ export function PhotoGallery({ shopName, photos }: PhotoGalleryProps) {
   const trackRef = useRef<HTMLDivElement | null>(null);
 
   const albumOpen = params.get("photos") === "1";
-  const openAlbum = () => router.push(`${pathname}?photos=1`, { scroll: false });
+  const openAlbum = () =>
+    router.push(`${pathname}?photos=1`, { scroll: false });
   const closeAlbum = () => router.back();
 
   const onTrackScroll = () => {
