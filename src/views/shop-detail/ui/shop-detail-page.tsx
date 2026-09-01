@@ -18,6 +18,7 @@ import { genreMeta } from "../model/genre-meta";
 import { CopyAddress } from "./copy-address";
 import { DetailActions } from "./detail-actions";
 import { OpenStatusLine } from "./open-status-line";
+import { PhotoGallery } from "./photo-gallery";
 
 type ShopDetailPageProps = {
   shop: Shop;
@@ -158,15 +159,30 @@ export function ShopDetailPage({ shop, nearby }: ShopDetailPageProps) {
         }}
       />
 
-      <header className="flex items-center px-2 py-2">
-        <Link
-          href="/"
-          aria-label="지도로 돌아가기"
-          className="flex size-10 items-center justify-center rounded-pill text-ink"
-        >
-          <ChevronLeft className="size-5" />
-        </Link>
-      </header>
+      {shop.photos.length > 0 ? (
+        <div className="relative">
+          <Suspense>
+            <PhotoGallery shopName={shop.name} photos={shop.photos} />
+          </Suspense>
+          <Link
+            href="/"
+            aria-label="지도로 돌아가기"
+            className="absolute top-2 left-2 flex size-10 items-center justify-center rounded-pill bg-white/90 text-ink shadow-[0_1px_4px_rgba(26,27,31,0.15)]"
+          >
+            <ChevronLeft className="size-5" />
+          </Link>
+        </div>
+      ) : (
+        <header className="flex items-center px-2 py-2">
+          <Link
+            href="/"
+            aria-label="지도로 돌아가기"
+            className="flex size-10 items-center justify-center rounded-pill text-ink"
+          >
+            <ChevronLeft className="size-5" />
+          </Link>
+        </header>
+      )}
 
       <div className="flex flex-col gap-1.5 px-4 pt-1">
         <h1 className="text-heading font-extrabold text-ink">{shop.name}</h1>

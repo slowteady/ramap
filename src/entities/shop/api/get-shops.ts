@@ -6,5 +6,6 @@ import type { Shop } from "../model/types";
 
 export const getShops = cache(async (): Promise<Shop[]> => {
   const raw = readFileSync(resolve(process.cwd(), "data/shops.json"), "utf8");
-  return JSON.parse(raw) as Shop[];
+  const shops = JSON.parse(raw) as (Shop & { photos?: string[] })[];
+  return shops.map((s) => ({ ...s, photos: s.photos ?? [] }));
 });

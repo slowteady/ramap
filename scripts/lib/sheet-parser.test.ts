@@ -41,6 +41,7 @@ describe("parseSheetTsv", () => {
     expect(s.address).toBeNull();
     expect(s.lat).toBeNull();
     expect(s.instagram).toBeNull();
+    expect(s.photos).toEqual([]);
   });
 
   it("미지의 택소노미 라벨은 행 이슈로 수집하고 그 행을 제외한다", () => {

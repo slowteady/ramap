@@ -44,6 +44,7 @@ export type Shop = {
   confidence: Confidence;
 
   menus: Menu[];
+  photos: string[];
   seats: string | null;
   tagline: string | null;
   instagram: string | null;

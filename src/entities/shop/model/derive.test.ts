@@ -36,6 +36,7 @@ const shop = (over: Partial<Shop>): Shop => ({
   amenities: [],
   confidence: "certain",
   menus: [],
+  photos: [],
   seats: null,
   tagline: null,
   instagram: null,
