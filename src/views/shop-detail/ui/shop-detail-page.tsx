@@ -110,10 +110,40 @@ function infoRows(shop: Shop): InfoRow[] {
   return rows;
 }
 
-function nearbyMeta(shop: Shop): string {
-  return [shop.areaLabel, ...genreMeta(shop).map((g) => g.label)]
-    .filter(Boolean)
-    .join(" · ");
+/* 서브라인 장르 상한 2 — 실측(2026-09-01) 상한: 지도사 1, 다이닝코드 2, 3개 이상 없음 */
+const SUBLINE_GENRE_MAX = 2;
+
+function Subline({
+  areaLabel,
+  meta,
+  withLinks,
+}: {
+  areaLabel: string | null;
+  meta: ReturnType<typeof genreMeta>;
+  withLinks: boolean;
+}) {
+  const genres = meta.slice(0, SUBLINE_GENRE_MAX);
+  if (!areaLabel && genres.length === 0) return null;
+  return (
+    <span className="flex flex-wrap items-baseline gap-x-1.5">
+      {areaLabel && <span>{areaLabel}</span>}
+      {areaLabel && genres.length > 0 && (
+        <span className="h-3 w-px self-center bg-gray-200" />
+      )}
+      {genres.map((item, i) => (
+        <span key={item.key} className="flex items-baseline">
+          {withLinks && item.href ? (
+            <Link href={item.href} className="text-ink">
+              {item.label}
+            </Link>
+          ) : (
+            <span>{item.label}</span>
+          )}
+          {i < genres.length - 1 && ","}
+        </span>
+      ))}
+    </span>
+  );
 }
 
 export function ShopDetailPage({ shop, nearby }: ShopDetailPageProps) {
@@ -187,22 +217,8 @@ export function ShopDetailPage({ shop, nearby }: ShopDetailPageProps) {
       <div className="flex flex-col gap-1.5 px-4 pt-1">
         <h1 className="text-heading font-extrabold text-ink">{shop.name}</h1>
         {(shop.areaLabel || meta.length > 0) && (
-          <p className="flex flex-wrap items-baseline gap-x-1.5 text-secondary text-gray-500">
-            {shop.areaLabel && <span>{shop.areaLabel}</span>}
-            {meta.map((item, i) => (
-              <span key={item.key} className="contents">
-                {(i > 0 || shop.areaLabel) && (
-                  <span className="text-gray-300">·</span>
-                )}
-                {item.href ? (
-                  <Link href={item.href} className="text-ink">
-                    {item.label}
-                  </Link>
-                ) : (
-                  <span>{item.label}</span>
-                )}
-              </span>
-            ))}
+          <p className="text-secondary text-gray-500">
+            <Subline areaLabel={shop.areaLabel} meta={meta} withLinks />
           </p>
         )}
         {shop.status === "paused" ? (
@@ -305,7 +321,11 @@ export function ShopDetailPage({ shop, nearby }: ShopDetailPageProps) {
                     {s.name}
                   </span>
                   <span className="text-secondary text-gray-400">
-                    {nearbyMeta(s)}
+                    <Subline
+                      areaLabel={s.areaLabel}
+                      meta={genreMeta(s)}
+                      withLinks={false}
+                    />
                   </span>
                 </Link>
               </li>
