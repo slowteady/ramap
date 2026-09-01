@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css";
 import "./globals.css";
+import { ConsentSheet } from "@/features/auth";
 import { Toaster } from "@/shared/ui/sonner";
 
 export const metadata: Metadata = {
@@ -19,6 +20,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <div className="mx-auto min-h-dvh w-full max-w-app bg-white">
           {children}
         </div>
+        <ConsentSheet />
         <Toaster position="top-center" />
       </body>
     </html>
