@@ -14,6 +14,7 @@ export function useSelectedShop() {
     (id: string) => {
       const params = new URLSearchParams(searchParams.toString());
       params.set("shop", id);
+      params.delete("search");
       router.push(`${pathname}?${params.toString()}`, { scroll: false });
     },
     [router, pathname, searchParams],

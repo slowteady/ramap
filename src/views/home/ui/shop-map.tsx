@@ -7,18 +7,21 @@ import type { ShopPin } from "@/entities/shop";
 import { useRecords } from "@/features/records";
 import { ReportSheet, useReportQuery } from "@/features/report";
 import { useMapFilters } from "../model/use-map-filters";
+import { useSearchQuery } from "../model/use-search-query";
 import { useSelectedShop } from "../model/use-selected-shop";
 import { useShopMap } from "../model/use-shop-map";
 import type { FilterAxis } from "../model/filter-axes";
 import { FilterChips } from "./filter-chips";
 import { FilterSheet } from "./filter-sheet";
 import { MapFallback } from "./map-fallback";
+import { SearchOverlay } from "./search-overlay";
 import { ShopSheet } from "./shop-sheet";
 
 export function ShopMap({ pins }: { pins: ShopPin[] }) {
   const { filters, apply } = useMapFilters();
   const { selectedId, select, clear } = useSelectedShop();
   const { openNew: openReport } = useReportQuery();
+  const search = useSearchQuery();
   const { records } = useRecords();
   const visitedIds = useMemo(
     () =>
@@ -111,6 +114,20 @@ export function ShopMap({ pins }: { pins: ShopPin[] }) {
         />
       )}
       <ReportSheet mapCenter={center} />
+      {search.isOpen && (
+        <SearchOverlay
+          pins={pins}
+          onSelectShop={(pin) => {
+            select(pin.id);
+            panToPin(pin);
+          }}
+          onSelectGenre={(filterKey, slug) =>
+            apply({ ...filters, [filterKey]: [slug] })
+          }
+          onReport={openReport}
+          onClose={search.close}
+        />
+      )}
     </div>
   );
 }
