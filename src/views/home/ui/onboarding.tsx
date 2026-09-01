@@ -3,16 +3,19 @@
 import { useState } from "react";
 import { Check } from "lucide-react";
 import { soupBySlug, type ShopPin } from "@/entities/shop";
+import { useAuth, useProfile } from "@/features/auth";
 import { useRecords } from "@/features/records";
 import { cn } from "@/shared/lib/utils";
 import { useOnboarding } from "../model/use-onboarding";
 
 export function Onboarding({ pins }: { pins: ShopPin[] }) {
   const { open, dismiss } = useOnboarding();
+  const { user } = useAuth();
+  const { agreedAt } = useProfile();
   const { visitedIds, markVisited, remove } = useRecords();
   const [query, setQuery] = useState("");
 
-  if (!open) return null;
+  if (!open || !user || !agreedAt) return null;
 
   const filtered = query
     ? pins.filter((p) => p.name.includes(query.trim()))
@@ -43,7 +46,7 @@ export function Onboarding({ pins }: { pins: ShopPin[] }) {
           먼저 찍어보세요
         </h1>
         <p className="text-secondary text-gray-400">
-          로그인하면 기록이 계정에 저장돼요
+          기록은 계정에 저장돼요
         </p>
       </div>
 
