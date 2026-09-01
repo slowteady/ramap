@@ -70,7 +70,7 @@ function MeBody({ shops }: { shops: Shop[] }) {
           <button
             type="button"
             onClick={() => setLoginOpen(true)}
-            className="flex items-center gap-0.5 text-heading font-extrabold text-ink"
+            className="flex items-center gap-0.5 self-start text-heading font-extrabold text-ink"
           >
             로그인하기
             <ChevronRight className="size-5 text-gray-400" />
