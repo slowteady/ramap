@@ -33,10 +33,8 @@ export {
   shopsByAreaGenre,
   shopsByGenre,
   listAreaGenrePages,
-  groupByOpenedMonth,
   isNewOpen,
   nearbyShops,
-  recentOpens,
 } from "@/entities/shop/model/derive";
 export type { GenreSlug } from "@/entities/shop/model/derive";
 export {
@@ -51,3 +49,4 @@ export { openStatus, openStatusLabel } from "@/entities/shop/model/open-status";
 export type { OpenStatus } from "@/entities/shop/model/open-status";
 export { OpenStatusBadge } from "@/entities/shop/ui/open-status-badge";
 export { GenreChips } from "@/entities/shop/ui/genre-chips";
+export { NewChip } from "@/entities/shop/ui/new-chip";

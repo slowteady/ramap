@@ -26,6 +26,7 @@ const pin = (id: string, over: Partial<ShopPin> = {}): ShopPin => ({
   breakTime: null,
   closedDays: null,
   amenities: [],
+  openedAt: null,
   isNew: false,
   ...over,
 });

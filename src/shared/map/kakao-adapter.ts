@@ -47,9 +47,9 @@ function markerEl(marker: MapMarker, onTap: (id: string) => void): HTMLElement {
     ].join(";");
     if (marker.isNew && !visited) {
       const badge = document.createElement("span");
-      badge.textContent = "NEW ";
+      badge.textContent = "NEW";
       badge.style.cssText =
-        "color:#e23c36;font:800 11px Pretendard,-apple-system,sans-serif";
+        "display:inline-block;margin-right:3px;padding:1px 4px;border-radius:4px;background:#e23c36;color:#fff;font:800 9px Pretendard,-apple-system,sans-serif;vertical-align:1px";
       label.append(badge);
     }
     label.append(document.createTextNode(marker.label));

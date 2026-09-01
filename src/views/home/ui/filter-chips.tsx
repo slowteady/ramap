@@ -16,6 +16,7 @@ type FilterChipsProps = {
   onApply: (next: MapFilters) => void;
   hideVisited: boolean | null;
   onToggleHideVisited: () => void;
+  hasNew: boolean;
 };
 
 export function FilterChips({
@@ -24,6 +25,7 @@ export function FilterChips({
   onApply,
   hideVisited,
   onToggleHideVisited,
+  hasNew,
 }: FilterChipsProps) {
   const drag = useDragScroll();
   const activeCount = FILTER_AXES.reduce(
@@ -68,6 +70,20 @@ export function FilterChips({
           </button>
         );
       })}
+      {hasNew && (
+        <button
+          type="button"
+          onClick={() => onApply({ ...filters, newOnly: !filters.newOnly })}
+          className={cn(
+            "shrink-0 rounded-pill border px-3.5 py-1.5 text-secondary font-semibold whitespace-nowrap transition-colors duration-150",
+            filters.newOnly
+              ? "border-ramen bg-ramen-050 text-ramen"
+              : "border-gray-100 bg-white text-ink shadow-[0_1px_4px_rgba(26,27,31,0.06)]",
+          )}
+        >
+          새로 오픈
+        </button>
+      )}
       {hideVisited !== null && (
         <button
           type="button"

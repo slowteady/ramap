@@ -8,7 +8,6 @@ import {
   LogOut,
   PenLine,
   ShieldCheck,
-  Sparkles,
   UserX,
   type LucideIcon,
 } from "lucide-react";
@@ -26,7 +25,6 @@ const SECTIONS: MenuSection[] = [
     items: [
       { icon: PenLine, label: "라멘집 등록하기", href: "/?report=new" },
       { icon: BookOpen, label: "장르 가이드", href: "/guide" },
-      { icon: Sparkles, label: "신규 오픈", href: "/new" },
     ],
   },
   {

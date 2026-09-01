@@ -7,7 +7,9 @@ import {
   breadcrumbJsonLd,
   faqJsonLd,
   formBySlug,
+  isNewOpen,
   LINEAGES,
+  NewChip,
   restaurantJsonLd,
   soupBySlug,
   type Shop,
@@ -216,7 +218,12 @@ export function ShopDetailPage({ shop, nearby }: ShopDetailPageProps) {
       )}
 
       <div className="flex flex-col gap-1.5 px-4 pt-1">
-        <h1 className="text-heading font-extrabold text-ink">{shop.name}</h1>
+        <h1 className="flex items-center gap-2 text-heading font-extrabold text-ink">
+          {isNewOpen(shop, new Date()) && (
+            <NewChip className="text-secondary" />
+          )}
+          {shop.name}
+        </h1>
         {(shop.areaLabel || meta.length > 0) && (
           <p className="text-secondary text-gray-500">
             <Subline areaLabel={shop.areaLabel} meta={meta} withLinks />

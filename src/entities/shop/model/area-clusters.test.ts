@@ -14,6 +14,7 @@ const pin = (
   breakTime: null,
   closedDays: null,
   amenities: [],
+  openedAt: null,
   isNew: false,
   name: id,
   branch: null,

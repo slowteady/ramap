@@ -2,10 +2,12 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import dayjs from "dayjs";
 import { Bookmark, ChevronLeft } from "lucide-react";
 import {
   AMENITIES,
   GenreChips,
+  NewChip,
   LINEAGES,
   OpenStatusBadge,
   type ShopPin,
@@ -42,6 +44,10 @@ function MetaRow({
   full: boolean;
 }) {
   const distance = center ? formatDistance(distanceMeters(pin, center)) : null;
+  const opened =
+    pin.isNew && pin.openedAt
+      ? `${dayjs(pin.openedAt).format("M/D")} 오픈`
+      : null;
   const hasHours =
     pin.status === "paused" ||
     (pin.status === "open" &&
@@ -55,6 +61,14 @@ function MetaRow({
     pin.areaLabel && (
       <span key="area" className="shrink-0 text-secondary text-gray-400">
         {pin.areaLabel}
+      </span>
+    ),
+    opened && (
+      <span
+        key="opened"
+        className="shrink-0 text-secondary font-semibold text-ramen"
+      >
+        {opened}
       </span>
     ),
     hasHours && (
@@ -101,9 +115,7 @@ function ListRow({
         className="flex w-full flex-col gap-1.5 py-3.5 text-left"
       >
         <span className="flex items-center gap-1.5">
-          {pin.isNew && (
-            <span className="text-caption font-extrabold text-ramen">NEW</span>
-          )}
+          {pin.isNew && <NewChip />}
           <span className="truncate text-body font-bold text-ink">
             {pin.name}
           </span>
@@ -158,7 +170,8 @@ function ShopCardBody({
         >
           <ChevronLeft className="size-5" />
         </button>
-        <DrawerTitle className="min-w-0 flex-1 truncate text-title font-bold text-ink">
+        <DrawerTitle className="flex min-w-0 flex-1 items-center gap-1.5 truncate text-title font-bold text-ink">
+          {shop.isNew && <NewChip />}
           <Link href={`/shop/${shop.id}`}>{shop.name}</Link>
         </DrawerTitle>
         <a

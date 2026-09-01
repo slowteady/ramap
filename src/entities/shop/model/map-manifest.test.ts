@@ -73,6 +73,7 @@ describe("toMapManifest", () => {
       breakTime: null,
       closedDays: null,
       amenities: [],
+      openedAt: null,
       isNew: false,
     });
   });

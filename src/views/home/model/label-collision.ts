@@ -47,8 +47,9 @@ export function planMarkers(
   visitedIds: ReadonlySet<string>,
 ): MapMarker[] {
   const unit = degPerPx(level);
+  /* 신규 오픈은 라벨 충돌 시 점으로 강등되지 않게 일반보다 우선 (13번 C절 2단 위계) */
   const priority = (p: ShopPin) =>
-    p.id === selectedId ? 0 : visitedIds.has(p.id) ? 2 : 1;
+    p.id === selectedId ? 0 : p.isNew ? 1 : visitedIds.has(p.id) ? 3 : 2;
   const ordered = [...pins].sort(
     (a, b) => priority(a) - priority(b) || a.name.localeCompare(b.name),
   );

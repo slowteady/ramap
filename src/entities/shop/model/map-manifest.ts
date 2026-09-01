@@ -20,6 +20,7 @@ export type ShopPin = {
   breakTime: string | null;
   closedDays: string | null;
   amenities: Shop["amenities"];
+  openedAt: string | null;
   isNew: boolean;
 };
 
@@ -45,6 +46,7 @@ export function toMapManifest(shops: Shop[], now = new Date()): ShopPin[] {
       breakTime: s.breakTime,
       closedDays: s.closedDays,
       amenities: s.amenities,
+      openedAt: s.openedAt,
       isNew: isNewOpen(s, now),
     });
   }

@@ -55,6 +55,7 @@ export function ShopMap({ pins }: { pins: ShopPin[] }) {
           onApply={apply}
           hideVisited={visitedIds.size > 0 ? hideVisited : null}
           onToggleHideVisited={() => setHideVisited((v) => !v)}
+          hasNew={pins.some((p) => p.isNew)}
         />
         <button
           type="button"

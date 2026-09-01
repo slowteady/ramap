@@ -1,11 +1,9 @@
 import { describe, it, expect } from "vitest";
 import type { Shop } from "./types";
 import {
-  groupByOpenedMonth,
   isNewOpen,
   listAreaGenrePages,
   nearbyShops,
-  recentOpens,
   shopById,
   shopsByArea,
   shopsByAreaGenre,
@@ -92,19 +90,7 @@ describe("shopsByAreaGenre / listAreaGenrePages", () => {
   });
 });
 
-describe("groupByOpenedMonth / isNewOpen", () => {
-  it("openedAt 있는 영업 매장을 최신 월부터 그룹한다", () => {
-    const groups = groupByOpenedMonth([
-      shop({ id: "a", openedAt: "2026-08-18" }),
-      shop({ id: "b", openedAt: "2026-07-29" }),
-      shop({ id: "c", openedAt: "2026-08-02" }),
-      shop({ id: "no-date" }),
-      shop({ id: "closed", openedAt: "2026-08-01", status: "closed" }),
-    ]);
-    expect(groups.map((g) => g.month)).toEqual(["2026-08", "2026-07"]);
-    expect(groups[0].shops.map((s) => s.id)).toEqual(["a", "c"]);
-  });
-
+describe("isNewOpen", () => {
   it("90일 이내 오픈만 NEW", () => {
     const now = new Date("2026-08-26");
     expect(isNewOpen(shop({ openedAt: "2026-08-01" }), now)).toBe(true);
@@ -133,27 +119,6 @@ describe("nearbyShops", () => {
 
   it("기준 매장에 좌표가 없으면 빈 배열", () => {
     expect(nearbyShops([near, far], noCoord, 3)).toEqual([]);
-  });
-});
-
-describe("recentOpens", () => {
-  const now = new Date("2026-09-01T12:00:00+09:00");
-  it("90일 안에 연 영업 매장만, 미래 오픈일·폐업·오픈일 없음 제외", () => {
-    const fresh = shop({ id: "fresh", openedAt: "2026-08-01" });
-    const edge = shop({ id: "edge", openedAt: "2026-06-03" });
-    const old = shop({ id: "old", openedAt: "2026-05-01" });
-    const future = shop({ id: "future", openedAt: "2026-10-01" });
-    const closed = shop({
-      id: "closed",
-      openedAt: "2026-08-20",
-      status: "closed",
-    });
-    const none = shop({ id: "none", openedAt: null });
-    expect(
-      recentOpens([old, fresh, future, closed, none, edge], now).map(
-        (s) => s.id,
-      ),
-    ).toEqual(["fresh", "edge"]);
   });
 });
 

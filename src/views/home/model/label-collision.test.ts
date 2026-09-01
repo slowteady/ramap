@@ -27,6 +27,7 @@ const pin = (id: string, lat: number, lng: number): ShopPin => ({
   breakTime: null,
   closedDays: null,
   amenities: [],
+  openedAt: null,
   isNew: false,
 });
 
