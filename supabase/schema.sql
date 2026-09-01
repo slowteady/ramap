@@ -287,4 +287,5 @@ end;
 $$;
 
 revoke all on function public.delete_own_account() from public;
+revoke execute on function public.delete_own_account() from anon;
 grant execute on function public.delete_own_account() to authenticated;
