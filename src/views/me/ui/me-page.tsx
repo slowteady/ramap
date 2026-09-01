@@ -4,12 +4,13 @@ import { Suspense, useState } from "react";
 import dayjs from "dayjs";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { ChevronLeft } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { GenreChips, type Shop } from "@/entities/shop";
 import { useAuth, useProfile } from "@/features/auth";
 import { LoginPromptSheet, useRecords } from "@/features/records";
 import { cn } from "@/shared/lib/utils";
 import { recordTime, sortRecordsByRecent } from "../model/sort-records";
+import { MeMenu } from "./me-menu";
 
 const TABS = [
   { key: "visited", label: "완식" },
@@ -22,9 +23,9 @@ function MeBody({ shops }: { shops: Shop[] }) {
   const router = useRouter();
   const params = useSearchParams();
   const { user, ready, signOut } = useAuth();
-  const { displayName } = useProfile();
+  const { displayName, profileLoaded } = useProfile();
   const { records, exportDownload } = useRecords();
-  const [loginOpen, setLoginOpen] = useState(true);
+  const [loginOpen, setLoginOpen] = useState(false);
 
   const tab: TabKey = params.get("tab") === "want" ? "want" : "visited";
   const shopById = new Map(shops.map((s) => [s.id, s]));
@@ -38,7 +39,7 @@ function MeBody({ shops }: { shops: Shop[] }) {
 
   if (!user) {
     return (
-      <div className="flex min-h-dvh flex-col">
+      <div className="flex min-h-dvh flex-col pb-10">
         <header className="flex items-center px-2 py-2">
           <Link
             href="/"
@@ -48,21 +49,23 @@ function MeBody({ shops }: { shops: Shop[] }) {
             <ChevronLeft className="size-5" />
           </Link>
         </header>
+        <div className="flex flex-col gap-1 px-4 pt-1">
+          <button
+            type="button"
+            onClick={() => setLoginOpen(true)}
+            className="flex items-center gap-0.5 text-heading font-extrabold text-ink"
+          >
+            로그인하기
+            <ChevronRight className="size-5 text-gray-400" />
+          </button>
+          <p className="text-secondary text-gray-500">
+            로그인하면 완식·저장 기록이 여기에 모여요
+          </p>
+        </div>
+        <div className="pt-8">
+          <MeMenu authed={false} />
+        </div>
         <LoginPromptSheet open={loginOpen} onClose={() => setLoginOpen(false)} />
-        {!loginOpen && (
-          <div className="flex flex-1 flex-col items-center justify-center gap-3 px-4">
-            <p className="text-body text-gray-500">
-              로그인하면 완식·저장 기록이 여기에 모여요
-            </p>
-            <button
-              type="button"
-              onClick={() => setLoginOpen(true)}
-              className="rounded-pill bg-ink px-6 py-3 text-body font-bold text-white"
-            >
-              로그인
-            </button>
-          </div>
-        )}
       </div>
     );
   }
@@ -80,9 +83,13 @@ function MeBody({ shops }: { shops: Shop[] }) {
       </header>
 
       <div className="flex flex-col gap-1 px-4 pt-1">
-        <h1 className="text-heading font-extrabold text-ink">
-          {displayName}님
-        </h1>
+        {profileLoaded ? (
+          <h1 className="text-heading font-extrabold text-ink">
+            {displayName}님
+          </h1>
+        ) : (
+          <div className="h-7 w-36 animate-pulse rounded-card bg-gray-100" />
+        )}
         <p className="text-secondary text-gray-500">
           완식 {visitedCount} · 저장 {wantCount}
         </p>
@@ -164,24 +171,15 @@ function MeBody({ shops }: { shops: Shop[] }) {
         </div>
       )}
 
-      <div className="mt-auto flex flex-col items-start gap-3 px-4 pt-10">
-        <button
-          type="button"
-          onClick={exportDownload}
-          className="text-secondary text-gray-400 underline underline-offset-2"
-        >
-          기록 JSON 내려받기
-        </button>
-        <button
-          type="button"
-          onClick={() => {
+      <div className="mt-auto pt-10">
+        <MeMenu
+          authed
+          onExport={exportDownload}
+          onSignOut={() => {
             signOut();
             router.push("/");
           }}
-          className="text-secondary text-gray-400 underline underline-offset-2"
-        >
-          로그아웃
-        </button>
+        />
       </div>
     </div>
   );

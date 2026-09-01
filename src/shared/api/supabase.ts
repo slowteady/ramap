@@ -5,7 +5,7 @@ let client: SupabaseClient | null | undefined;
 export function signInWithKakao(): void {
   void getSupabase()?.auth.signInWithOAuth({
     provider: "kakao",
-    options: { redirectTo: window.location.origin },
+    options: { redirectTo: window.location.href },
   });
 }
 

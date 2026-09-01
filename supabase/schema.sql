@@ -144,3 +144,30 @@ insert into public.profiles (user_id, nickname)
 select u.id, public.generate_nickname()
 from auth.users u
 where not exists (select 1 from public.profiles p where p.user_id = u.id);
+
+-- 약관 동의 게이트 (2026-09-01): 미동의 유저는 기록 쓰기 불가
+drop policy if exists "records: 본인 것만 추가" on public.records;
+create policy "records: 본인 것만 추가" on public.records
+  for insert with check (
+    auth.uid() = user_id
+    and exists (
+      select 1 from public.profiles p
+      where p.user_id = auth.uid() and p.agreed_at is not null
+    )
+  );
+drop policy if exists "records: 본인 것만 수정" on public.records;
+create policy "records: 본인 것만 수정" on public.records
+  for update using (auth.uid() = user_id)
+  with check (
+    auth.uid() = user_id
+    and exists (
+      select 1 from public.profiles p
+      where p.user_id = auth.uid() and p.agreed_at is not null
+    )
+  );
+
+-- Plan 6 초기 적용분의 영문명 중복 정책 제거 (permissive OR 결합으로 동의 게이트가 무력화됨)
+drop policy if exists "records_select_own" on public.records;
+drop policy if exists "records_insert_own" on public.records;
+drop policy if exists "records_update_own" on public.records;
+drop policy if exists "records_delete_own" on public.records;
