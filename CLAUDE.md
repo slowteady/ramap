@@ -24,7 +24,7 @@ scripts/        # 파이프라인 (LOCALDATA 시딩·시트 동기화)
    - 순수 계산(필터 술어·정렬·집계·통계) → `model/`·`lib/`의 순수 TS 함수 — 훅을 호출하지 않는 로직은 훅으로 감싸지 않는다
    - 상태·이펙트·브라우저 API → 클라이언트 섬 한정 **view-model 훅** (`use-*`, `{ 상태, 파생 불린, 핸들러 }` 객체 반환, 계산은 순수 함수에 위임하는 얇은 계층). 이 레포에서 view-model 훅이란 이 정의를 말한다
 3. **기본은 Server Component.** `'use client'`는 인터랙션이 필요한 잎(leaf) 컴포넌트에만. 클라이언트 섬: 지도·필터 UI·바텀시트·완식 기록. localStorage 등 브라우저 전용 모듈엔 `import 'client-only'`
-4. **public API:** 슬라이스는 `index.ts`로만 외부 노출. 서버 전용 export는 `index.server.ts`로 분리(클라이언트 모듈 그래프 오염 방지). `shared/ui`는 배럴 강제 제외(shadcn CLI 호환)
+4. **public API:** 슬라이스는 `index.ts`로만 외부 노출. 서버 전용 export는 `index.server.ts`, 클라이언트 전용(비컴포넌트) export는 `index.client.ts`로 분리(상호 모듈 그래프 오염 방지 — `'use client'` 컴포넌트는 경계라 index.ts에 둬도 됨). `shared/ui`는 배럴 강제 제외(shadcn CLI 호환)
 5. **추출 조건:** 코드는 views 슬라이스에서 시작, 2개 페이지 이상 재사용 확인 시에만 features/entities로 내린다. widgets 레이어는 필요가 증명되기 전까지 만들지 않는다
 6. 뮤테이션(향후 서버 저장 전환 시): Server Action은 `features/*/api/`에 얇게, 로직은 함수 계층에 위임
 
@@ -47,7 +47,9 @@ scripts/        # 파이프라인 (LOCALDATA 시딩·시트 동기화)
 | TanStack Query          | 미도입 | 지도 뷰포트 런타임 API 전환, 또는 기록 외 server state가 늘어날 때. 로그인 도입(2026-08-27) 시 재검토했으나 기록은 1회 로드+write-through(캐시·리페치 없음)라 보류                                                      |
 | @supabase/supabase-js   | 도입   | 2026-08-27 도입 — Auth(카카오)·기록·제보. 백엔드 서버 없이 브라우저 직호출 + RLS. 스키마는 `supabase/schema.sql`                                                                                                        |
 | dayjs                   | 도입   | 2026-08-27 도입 — 날짜 파싱·포맷·차이 계산 단일 창구. `new Date` 직접 연산 금지                                                                                                                                         |
-| es-hangul               | 도입   | 2026-09-01 도입 — 검색 초성 추출(getChoseong)·영타 변환(convertQwertyToHangul). 토스 유지보수·의존성 0·트리셰이커블. 편집거리 폴백만 자체(`views/home/model/hangul.ts`) |
+| es-hangul               | 도입   | 2026-09-01 도입 — 검색 초성 추출(getChoseong)·영타 변환(convertQwertyToHangul). 토스 유지보수·의존성 0·트리셰이커블. 편집거리 폴백만 자체(`views/home/model/hangul.ts`)                                                 |
+| zod                     | 미도입 | 서버 응답 런타임 파싱 경계가 3곳 이상으로 늘 때 — 현재 records·record_photos 2곳은 수동 내로잉으로 충분(2026-09-01 검토). 폼 검증용으로는 도입 안 함(강제는 전부 DB 제약)                                               |
+| react-hook-form         | 미도입 | 필드 5개+ 폼 또는 필드 배열이 생길 때 — 제보 폼도 자체 훅(use-report-form)으로 충분함이 검증됨(2026-09-01 검토)                                                                                                         |
 | 전역 스토어(zustand 등) | 미도입 | URL+useState로 부족한 공유 상태가 실증될 때                                                                                                                                                                             |
 | framer-motion           | 미도입 | CSS+vaul로 부족한 모션이 실증될 때                                                                                                                                                                                      |
 | @use-gesture            | 미도입 | 관성(플릭) 스크롤·핀치 줌·복합 제스처가 필요할 때 — 단순 드래그는 `shared/lib/use-drag-scroll` (2026-09-01)                                                                                                             |

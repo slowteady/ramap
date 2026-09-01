@@ -4,11 +4,19 @@ import { Bookmark, Check } from "lucide-react";
 import { cn } from "@/shared/lib/utils";
 import { useVisitAction } from "../model/use-visit-action";
 import { LoginPromptSheet } from "./login-prompt-sheet";
+import { RecordLogSheet } from "./record-log-sheet";
 
 /* 상세 하단 고정 CTA — 보조 아이콘 + 주 버튼 1개 (캐치테이블 문법) */
 export function RecordCtaBar({ shopId }: { shopId: string }) {
-  const { get, visit, save, authPrompt, closeAuthPrompt } =
-    useVisitAction(shopId);
+  const {
+    get,
+    visit,
+    save,
+    authPrompt,
+    closeAuthPrompt,
+    logPrompt,
+    closeLogPrompt,
+  } = useVisitAction(shopId);
   const record = get(shopId);
   const visited = record?.visited ?? false;
   const saved = record?.saved ?? false;
@@ -44,6 +52,12 @@ export function RecordCtaBar({ shopId }: { shopId: string }) {
         </button>
       </div>
       <LoginPromptSheet open={authPrompt} onClose={closeAuthPrompt} />
+      <RecordLogSheet
+        shopId={shopId}
+        open={logPrompt}
+        revisit={false}
+        onClose={closeLogPrompt}
+      />
     </div>
   );
 }

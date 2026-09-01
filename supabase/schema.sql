@@ -198,3 +198,72 @@ create policy "records: 본인 것만 조회" on public.records
 drop policy if exists "records: 본인 것만 삭제" on public.records;
 create policy "records: 본인 것만 삭제" on public.records
   for delete using (auth.uid() = user_id);
+
+-- 완식 기록 (2026-09-01): 완식에 붙는 사진·한줄평 부가물 — 검수 승인분만 타인 노출
+create table if not exists public.record_photos (
+  id bigint generated always as identity primary key,
+  user_id uuid not null references auth.users (id) on delete cascade,
+  shop_id text not null,
+  photo_path text not null,
+  comment text check (char_length(comment) <= 30),
+  consent boolean not null default true,
+  status text not null default 'pending' check (status in ('pending', 'approved', 'rejected')),
+  reject_reason text,
+  created_at timestamptz not null default now()
+);
+
+alter table public.record_photos enable row level security;
+
+create policy "record_photos: 본인 전부, 타인은 승인·동의분만 조회" on public.record_photos
+  for select using (
+    auth.uid() = user_id
+    or (status = 'approved' and consent)
+  );
+create policy "record_photos: 본인만 추가 (동의 유저, pending 고정)" on public.record_photos
+  for insert with check (
+    auth.uid() = user_id
+    and status = 'pending'
+    and exists (
+      select 1 from public.profiles p
+      where p.user_id = auth.uid() and p.agreed_at is not null
+    )
+  );
+create policy "record_photos: 본인 것만 삭제" on public.record_photos
+  for delete using (auth.uid() = user_id);
+-- update 정책 없음 = 클라 수정 불가. status·reject_reason은 대시보드(service role)만
+
+-- 사진은 단일 비공개 버킷 + RLS로 노출 제어 — 승인 시 파일 이동 없이 status 변경만
+insert into storage.buckets (id, name, public, file_size_limit, allowed_mime_types)
+values ('record-photos', 'record-photos', false, 5242880, array['image/jpeg'])
+on conflict (id) do nothing;
+
+create policy "record-photos: 본인 경로에만 업로드" on storage.objects
+  for insert to authenticated
+  with check (
+    bucket_id = 'record-photos'
+    and (storage.foldername(name))[1] = auth.uid()::text
+  );
+create policy "record-photos: 본인 또는 승인·동의분 조회" on storage.objects
+  for select to anon, authenticated
+  using (
+    bucket_id = 'record-photos'
+    and (
+      (storage.foldername(name))[1] = auth.uid()::text
+      or exists (
+        select 1 from public.record_photos rp
+        where rp.photo_path = name and rp.status = 'approved' and rp.consent
+      )
+    )
+  );
+create policy "record-photos: 본인 경로 삭제" on storage.objects
+  for delete to authenticated
+  using (
+    bucket_id = 'record-photos'
+    and (storage.foldername(name))[1] = auth.uid()::text
+  );
+
+-- 완식 기록 닉네임 표시 (2026-09-01): 비로그인 열람(원칙: 열람 완전 개방)을 위해
+-- profiles 조회에 anon 정책 추가(기존 정책과 permissive OR 공존) — 민감정보 없음(닉네임·동의시각뿐).
+-- 닉네임 조인은 FK 변경 없이 클라이언트 2쿼리(user_id 수집 → profiles in 조회)로 처리
+create policy "profiles: 비로그인도 조회" on public.profiles
+  for select to anon using (true);

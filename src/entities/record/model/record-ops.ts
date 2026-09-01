@@ -21,6 +21,23 @@ export function toggledVisited(
   };
 }
 
+/* 재방문 누적 — 완식 기록 재제출 경로에서만 호출 (버튼 토글은 count 1 고정) */
+export function revisited(
+  prev: ShopRecord | null,
+  shopId: string,
+  at?: Date,
+): ShopRecord {
+  const iso = at ? dayjs(at).toISOString() : null;
+  return {
+    shopId,
+    visited: true,
+    saved: prev?.saved ?? false,
+    count: (prev?.visited ? prev.count : 0) + 1,
+    firstAt: prev?.firstAt ?? iso,
+    lastAt: iso ?? prev?.lastAt ?? null,
+  };
+}
+
 export function toggledSaved(
   prev: ShopRecord | null,
   shopId: string,

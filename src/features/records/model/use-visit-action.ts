@@ -8,6 +8,7 @@ export function useVisitAction(shopId: string) {
   const records = useRecords();
   const { toggleVisited, toggleSaved, isAuthed } = records;
   const [authPrompt, setAuthPrompt] = useState(false);
+  const [logPrompt, setLogPrompt] = useState(false);
 
   const requireAuth = useCallback(() => {
     if (getSupabase() === null || isAuthed) return true;
@@ -17,7 +18,8 @@ export function useVisitAction(shopId: string) {
 
   const visit = useCallback(() => {
     if (!requireAuth()) return;
-    toggleVisited(shopId, new Date());
+    const record = toggleVisited(shopId, new Date());
+    if (record?.visited && getSupabase() !== null) setLogPrompt(true);
   }, [shopId, requireAuth, toggleVisited]);
 
   const save = useCallback(() => {
@@ -26,6 +28,15 @@ export function useVisitAction(shopId: string) {
   }, [shopId, requireAuth, toggleSaved]);
 
   const closeAuthPrompt = useCallback(() => setAuthPrompt(false), []);
+  const closeLogPrompt = useCallback(() => setLogPrompt(false), []);
 
-  return { ...records, visit, save, authPrompt, closeAuthPrompt };
+  return {
+    ...records,
+    visit,
+    save,
+    authPrompt,
+    closeAuthPrompt,
+    logPrompt,
+    closeLogPrompt,
+  };
 }

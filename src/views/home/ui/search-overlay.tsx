@@ -64,7 +64,9 @@ export function SearchOverlay({
   const soupAxis = FILTER_AXES.find((a) => a.axis === "soup");
   const genreShortcuts = soupAxis
     ? visibleItems(soupAxis.items).filter((item) =>
-        pins.some((p) => p.soups.includes(item.slug as ShopPin["soups"][number])),
+        pins.some((p) =>
+          p.soups.includes(item.slug as ShopPin["soups"][number]),
+        ),
       )
     : [];
   const typing = query.trim().length > 0;
@@ -73,7 +75,11 @@ export function SearchOverlay({
     recent.add(pin.name);
     onSelectShop(pin);
   };
-  const pickGenre = (filterKey: keyof MapFilters, slug: string, label: string) => {
+  const pickGenre = (
+    filterKey: keyof MapFilters,
+    slug: string,
+    label: string,
+  ) => {
     recent.add(label);
     onSelectGenre(filterKey, slug);
   };
@@ -231,9 +237,7 @@ export function SearchOverlay({
           )}
           {suggestions.length === 0 && (
             <div className="flex flex-1 flex-col items-center justify-center gap-2 py-16">
-              <p className="text-body font-bold text-ink">
-                검색 결과가 없어요
-              </p>
+              <p className="text-body font-bold text-ink">검색 결과가 없어요</p>
               <p className="text-secondary text-gray-500">
                 찾는 라멘집이 라맵에 없다면 알려주세요
               </p>

@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import dayjs from "dayjs";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -8,6 +8,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { GenreChips, type Shop } from "@/entities/shop";
 import { useAuth, useProfile } from "@/features/auth";
 import { LoginPromptSheet, useRecords } from "@/features/records";
+import { fetchMyRecordPhotos } from "@/features/records/index.client";
 import { cn } from "@/shared/lib/utils";
 import { recordTime, sortRecordsByRecent } from "../model/sort-records";
 import { MeMenu } from "./me-menu";
@@ -26,6 +27,19 @@ function MeBody({ shops }: { shops: Shop[] }) {
   const { displayName, profileLoaded } = useProfile();
   const { records, exportDownload } = useRecords();
   const [loginOpen, setLoginOpen] = useState(false);
+  const [thumbs, setThumbs] = useState<Map<string, string>>(new Map());
+
+  useEffect(() => {
+    if (!user) return;
+    void fetchMyRecordPhotos().then((photos) => {
+      if (!photos) return;
+      const byShop = new Map<string, string>();
+      for (const p of photos) {
+        if (p.url && !byShop.has(p.shopId)) byShop.set(p.shopId, p.url);
+      }
+      setThumbs(byShop);
+    });
+  }, [user]);
 
   const tab: TabKey = params.get("tab") === "saved" ? "saved" : "visited";
   const shopById = new Map(shops.map((s) => [s.id, s]));
@@ -132,28 +146,37 @@ function MeBody({ shops }: { shops: Shop[] }) {
               <li key={record.shopId} className="border-b border-gray-050">
                 <Link
                   href={`/shop/${shop.id}`}
-                  className="flex w-full flex-col gap-1.5 py-3.5"
+                  className="flex w-full items-center gap-3 py-3.5"
                 >
-                  <span className="flex items-baseline gap-1.5">
-                    <span className="truncate text-body font-bold text-ink">
-                      {shop.name}
+                  <span className="flex min-w-0 flex-1 flex-col gap-1.5">
+                    <span className="flex items-baseline gap-1.5">
+                      <span className="truncate text-body font-bold text-ink">
+                        {shop.name}
+                      </span>
+                      {shop.areaLabel && (
+                        <span className="shrink-0 text-secondary text-gray-400">
+                          {shop.areaLabel}
+                        </span>
+                      )}
+                      {at && (
+                        <span className="ml-auto shrink-0 text-caption text-gray-400">
+                          {dayjs(at).format("YYYY.M.D")}
+                        </span>
+                      )}
                     </span>
-                    {shop.areaLabel && (
-                      <span className="shrink-0 text-secondary text-gray-400">
-                        {shop.areaLabel}
-                      </span>
-                    )}
-                    {at && (
-                      <span className="ml-auto shrink-0 text-caption text-gray-400">
-                        {dayjs(at).format("YYYY.M.D")}
-                      </span>
-                    )}
+                    <GenreChips
+                      soups={shop.soups}
+                      forms={shop.forms}
+                      lineages={shop.lineages}
+                    />
                   </span>
-                  <GenreChips
-                    soups={shop.soups}
-                    forms={shop.forms}
-                    lineages={shop.lineages}
-                  />
+                  {tab === "visited" && thumbs.has(shop.id) && (
+                    <img
+                      src={thumbs.get(shop.id)}
+                      alt=""
+                      className="size-14 shrink-0 rounded-card object-cover"
+                    />
+                  )}
                 </Link>
               </li>
             );

@@ -23,7 +23,7 @@ planning/14 정합성: 기록 체계 형태 불변(완식 토글 유지), 배지
 
 ## 스펙
 
-### 1. "한 그릇 남기기" 시트 (신규 클라이언트 섬)
+### 1. "완식 기록 남기기" 시트 (신규 클라이언트 섬)
 
 - 트리거: 완식 토글 **off→on 직후** 1회 자동 표시. 이미 완식한 매장에선 상세 "완식 기록" 섹션의 [남기기] 버튼으로 재진입(재제출 = count +1).
 - 입력: 사진 1장(시트 내에서는 필수) + 한줄평(선택, **최대 30자**) + "매장 페이지에 소개돼도 좋아요" 체크(기본 on) + [다음에] 버튼(건너뛰기 — 완식은 이미 저장된 상태).
@@ -45,7 +45,7 @@ planning/14 정합성: 기록 체계 형태 불변(완식 토글 유지), 배지
 
 - Supabase 대시보드에서 수동 (제보 검수와 동일 동선), 하루 1회 일괄.
 - 공개 사진 가이드 3항 (시트 하단 안내 + 거절 사유 근거): 라멘이 주인공 / 직접 찍은 사진 / 다른 사람 얼굴이 안 나오게. (구글 지도 UGC 정책 축약)
-- 승인 = status approved + 사진을 공개 버킷/경로로 이동. 거절 = rejected + 사유 텍스트.
+- 승인 = status를 approved로 변경 (그 순간 스토리지 RLS가 타인 노출 개방 — 파일 이동 없음). 거절 = rejected + 사유 텍스트.
 
 ### 5. 약관 개정 (views/legal)
 
@@ -69,8 +69,8 @@ create table if not exists public.record_photos (
 );
 ```
 
-- RLS: select = 본인 것 전부 or `status = 'approved' and consent`(타인) / insert = 본인 + 동의 게이트(`profiles.agreed_at is not null` — records insert 정책과 동일 exists 절) / update·delete = 본인 것(삭제 요청 대응). status 변경은 클라 불가(대시보드 service role만) — update 정책 with check에 status 불변 조건.
-- 스토리지: 버킷 `record-photos` 비공개, insert 정책 authenticated 한정 (report-photos 정책 문법 재사용, 단 anon 제외). 승인 시 공개 경로 이동은 대시보드에서.
+- RLS: select = 본인 것 전부 or `status = 'approved' and consent`(타인·anon 포함 — 열람 개방 원칙) / insert = 본인 + `status = 'pending'` 고정 + 동의 게이트(`profiles.agreed_at is not null`) / delete = 본인 것. **update 정책 없음** — status·reject_reason은 대시보드(service role)만.
+- 스토리지: **단일 비공개 버킷 `record-photos` + RLS로 노출 제어** — 업로드 경로 `{user_id}/{uuid}.jpg`, select는 본인 경로 or record_photos에 approved·consent 행 존재. 승인 시 파일 이동 없이 status 변경만으로 타인 노출 (운영 1스텝). 렌더는 createSignedUrls.
 - **records.count 증가**: 재제출 시 클라이언트가 `records.count + 1` upsert (write-through 경로 재사용). count는 완식 토글 on 시 1, 재제출마다 +1.
 - **확장 이음새 (2026-09-01 PO 검토)**: record_photos는 개념상 "완식 이벤트 + 부가물"이다. 사진 없는 재방문 체크인(풀 이벤트 로그)이 필요해지면 photo_path를 nullable로 완화하는 것만으로 전환된다 — 테이블 재설계 불요. 풀 누적을 지금 안 하는 이유: 버튼 토글 UX 파괴(취소 vs 재방문 구분), 무인증 연타 누적 재개방, 수요 미실증.
 - **주의 — RLS 정책 적용 시 반드시 적용 후 pg_policies로 CRUD 4경로(조회·추가·수정·삭제)를 전부 재검증할 것.** 2026-09-01 사고: schema.sql과 실DB 정책이 어긋난 상태에서 중복 정책을 drop해 records의 select/delete 커버리지가 통째로 사라졌었다 (schema.sql 말미 복구 블록 참조).

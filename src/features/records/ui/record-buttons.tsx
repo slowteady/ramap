@@ -4,6 +4,7 @@ import { Bookmark, Check } from "lucide-react";
 import { cn } from "@/shared/lib/utils";
 import { useVisitAction } from "../model/use-visit-action";
 import { LoginPromptSheet } from "./login-prompt-sheet";
+import { RecordLogSheet } from "./record-log-sheet";
 
 export function RecordButtons({
   shopId,
@@ -12,8 +13,15 @@ export function RecordButtons({
   shopId: string;
   className?: string;
 }) {
-  const { get, visit, save, authPrompt, closeAuthPrompt } =
-    useVisitAction(shopId);
+  const {
+    get,
+    visit,
+    save,
+    authPrompt,
+    closeAuthPrompt,
+    logPrompt,
+    closeLogPrompt,
+  } = useVisitAction(shopId);
   const record = get(shopId);
   const visited = record?.visited ?? false;
   const saved = record?.saved ?? false;
@@ -47,6 +55,12 @@ export function RecordButtons({
         저장
       </button>
       <LoginPromptSheet open={authPrompt} onClose={closeAuthPrompt} />
+      <RecordLogSheet
+        shopId={shopId}
+        open={logPrompt}
+        revisit={false}
+        onClose={closeLogPrompt}
+      />
     </div>
   );
 }

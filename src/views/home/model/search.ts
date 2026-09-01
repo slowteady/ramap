@@ -83,10 +83,7 @@ function shopRank(pin: ShopPin, query: string): number | null {
   return best;
 }
 
-export function buildSuggestions(
-  pins: ShopPin[],
-  query: string,
-): Suggestion[] {
+export function buildSuggestions(pins: ShopPin[], query: string): Suggestion[] {
   if (normalize(query).length === 0) return [];
 
   const genres: (GenreSuggestion & { rank: number })[] = [];

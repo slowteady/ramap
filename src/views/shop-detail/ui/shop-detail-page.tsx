@@ -19,6 +19,7 @@ import { CopyAddress } from "./copy-address";
 import { DetailActions } from "./detail-actions";
 import { OpenStatusLine } from "./open-status-line";
 import { PhotoGallery } from "./photo-gallery";
+import { RecordLogSection } from "./record-log-section";
 
 type ShopDetailPageProps = {
   shop: Shop;
@@ -299,6 +300,8 @@ export function ShopDetailPage({ shop, nearby }: ShopDetailPageProps) {
           </div>
         </section>
       )}
+
+      <RecordLogSection shopId={shop.id} />
 
       <div className="mt-7 border-y border-gray-050">
         <ReportEntryRow shopId={shop.id} />

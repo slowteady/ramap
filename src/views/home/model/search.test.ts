@@ -42,8 +42,18 @@ describe("matchRank", () => {
 describe("buildSuggestions", () => {
   const pins = [
     pin({}),
-    pin({ id: "menya", name: "멘야코노하", areaLabel: "서울숲", soups: ["niboshi", "shio"] }),
-    pin({ id: "daiya", name: "라멘다이야", areaLabel: "건대", soups: ["niboshi", "shoyu"] }),
+    pin({
+      id: "menya",
+      name: "멘야코노하",
+      areaLabel: "서울숲",
+      soups: ["niboshi", "shio"],
+    }),
+    pin({
+      id: "daiya",
+      name: "라멘다이야",
+      areaLabel: "건대",
+      soups: ["niboshi", "shoyu"],
+    }),
   ];
 
   it("장르 제안이 먼저, 매장 수 포함", () => {
@@ -54,14 +64,20 @@ describe("buildSuggestions", () => {
 
   it("매장명·지역 매칭", () => {
     const byName = buildSuggestions(pins, "멘야");
-    expect(byName.some((s) => s.kind === "shop" && s.shop.id === "menya")).toBe(true);
+    expect(byName.some((s) => s.kind === "shop" && s.shop.id === "menya")).toBe(
+      true,
+    );
     const byArea = buildSuggestions(pins, "건대");
-    expect(byArea.some((s) => s.kind === "shop" && s.shop.id === "daiya")).toBe(true);
+    expect(byArea.some((s) => s.kind === "shop" && s.shop.id === "daiya")).toBe(
+      true,
+    );
   });
 
   it("초성으로도 매장을 찾는다", () => {
     const out = buildSuggestions(pins, "ㅁㅇㅋ");
-    expect(out.some((s) => s.kind === "shop" && s.shop.id === "menya")).toBe(true);
+    expect(out.some((s) => s.kind === "shop" && s.shop.id === "menya")).toBe(
+      true,
+    );
   });
 
   it("빈 검색어는 빈 배열", () => {
@@ -75,24 +91,38 @@ describe("buildSuggestions", () => {
 
   it("영타 입력을 한글로 변환해 매칭한다", () => {
     const out = buildSuggestions(pins, "zlszk");
-    expect(out.some((s) => s.kind === "shop" && s.shop.id === "kinka")).toBe(true);
+    expect(out.some((s) => s.kind === "shop" && s.shop.id === "kinka")).toBe(
+      true,
+    );
   });
 
   it("soupDetail·대표 메뉴로도 매장을 찾는다", () => {
     const extended = [
       ...pins,
-      pin({ id: "wassho", name: "왓쇼이켄", areaLabel: "연남", soupDetail: ["니보시파이탄"], topMenu: { name: "특제 소바", price: 12000 } }),
+      pin({
+        id: "wassho",
+        name: "왓쇼이켄",
+        areaLabel: "연남",
+        soupDetail: ["니보시파이탄"],
+        topMenu: { name: "특제 소바", price: 12000 },
+      }),
     ];
     expect(
-      buildSuggestions(extended, "파이탄").some((s) => s.kind === "shop" && s.shop.id === "wassho"),
+      buildSuggestions(extended, "파이탄").some(
+        (s) => s.kind === "shop" && s.shop.id === "wassho",
+      ),
     ).toBe(true);
     expect(
-      buildSuggestions(extended, "특제").some((s) => s.kind === "shop" && s.shop.id === "wassho"),
+      buildSuggestions(extended, "특제").some(
+        (s) => s.kind === "shop" && s.shop.id === "wassho",
+      ),
     ).toBe(true);
   });
 
   it("정확 매칭이 없을 때만 오타 1자를 허용한다", () => {
     const out = buildSuggestions(pins, "밴야코노하");
-    expect(out.some((s) => s.kind === "shop" && s.shop.id === "menya")).toBe(true);
+    expect(out.some((s) => s.kind === "shop" && s.shop.id === "menya")).toBe(
+      true,
+    );
   });
 });

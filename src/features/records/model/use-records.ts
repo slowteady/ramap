@@ -17,7 +17,8 @@ import { getSupabase } from "@/shared/api/supabase";
 
 type PendingOp =
   | { type: "visited"; shopId: string; on: boolean; at?: Date }
-  | { type: "saved"; shopId: string; on: boolean };
+  | { type: "saved"; shopId: string; on: boolean }
+  | { type: "revisit"; shopId: string; at?: Date };
 
 let localStore: RecordStore | null = null;
 let activeStore: RecordStore | null = null;
@@ -42,8 +43,10 @@ function applyOp(store: RecordStore, op: PendingOp) {
   if (op.type === "visited") {
     if ((current?.visited ?? false) !== op.on)
       store.toggleVisited(op.shopId, op.at);
-  } else if ((current?.saved ?? false) !== op.on) {
-    store.toggleSaved(op.shopId);
+  } else if (op.type === "saved") {
+    if ((current?.saved ?? false) !== op.on) store.toggleSaved(op.shopId);
+  } else {
+    store.recordRevisit(op.shopId, op.at);
   }
 }
 
@@ -167,6 +170,13 @@ export function useRecords() {
     return record;
   }, []);
 
+  const recordRevisit = useCallback((shopId: string, at?: Date) => {
+    const record = getStore().recordRevisit(shopId, at);
+    pendingOps?.push({ type: "revisit", shopId, at });
+    notify();
+    return record;
+  }, []);
+
   const exportDownload = useCallback(() => {
     const json = getStore().exportJson();
     const blob = new Blob([json], { type: "application/json" });
@@ -193,6 +203,7 @@ export function useRecords() {
     get,
     toggleVisited,
     toggleSaved,
+    recordRevisit,
     exportDownload,
     isSynced: synced,
     isAuthed: sessionUserId !== null,

@@ -18,6 +18,7 @@ export interface RecordStore {
   all(): ShopRecord[];
   toggleVisited(shopId: string, at?: Date): ShopRecord | null;
   toggleSaved(shopId: string): ShopRecord | null;
+  recordRevisit(shopId: string, at?: Date): ShopRecord;
   exportJson(): string;
   importJson(json: string): { imported: number };
 }

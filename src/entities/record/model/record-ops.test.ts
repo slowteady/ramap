@@ -4,6 +4,7 @@ import {
   mergeRecord,
   mergeRecords,
   normalizeRecord,
+  revisited,
   toggledSaved,
   toggledVisited,
 } from "./record-ops";
@@ -47,6 +48,27 @@ describe("toggledVisited", () => {
     );
     expect(next?.firstAt).toBe("2026-01-01T00:00:00.000Z");
     expect(next?.lastAt).toBe("2026-08-27T00:00:00.000Z");
+  });
+});
+
+describe("revisited", () => {
+  it("완식 상태에서 count 증가, firstAt 보존·lastAt 갱신", () => {
+    const next = revisited(
+      record({ visited: true, count: 2, firstAt: "2026-01-01T00:00:00.000Z" }),
+      "kinka",
+      new Date("2026-09-01"),
+    );
+    expect(next).toMatchObject({ visited: true, count: 3 });
+    expect(next.firstAt).toBe("2026-01-01T00:00:00.000Z");
+    expect(next.lastAt).toBe("2026-09-01T00:00:00.000Z");
+  });
+
+  it("미완식(저장만) 상태면 완식 전환 + count 1", () => {
+    expect(revisited(record({ saved: true }), "kinka")).toMatchObject({
+      visited: true,
+      saved: true,
+      count: 1,
+    });
   });
 });
 

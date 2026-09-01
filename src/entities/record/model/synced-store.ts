@@ -3,6 +3,7 @@ import dayjs from "dayjs";
 import {
   mergeRecord,
   normalizeRecord,
+  revisited,
   toggledSaved,
   toggledVisited,
 } from "./record-ops";
@@ -46,6 +47,11 @@ export function createSyncedRecordStore(
     },
     toggleSaved(shopId) {
       return apply(shopId, toggledSaved(map.get(shopId) ?? null, shopId));
+    },
+    recordRevisit(shopId, at) {
+      const next = revisited(map.get(shopId) ?? null, shopId, at);
+      apply(shopId, next);
+      return next;
     },
     exportJson() {
       const payload: RecordExport = {
