@@ -4,7 +4,7 @@ import { Suspense, useState } from "react";
 import dayjs from "dayjs";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { ChevronLeft } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { GenreChips, type Shop } from "@/entities/shop";
 import { useAuth, useProfile } from "@/features/auth";
 import { LoginPromptSheet, useRecords } from "@/features/records";
@@ -24,7 +24,7 @@ function MeBody({ shops }: { shops: Shop[] }) {
   const { user, ready, signOut } = useAuth();
   const { displayName } = useProfile();
   const { records, exportDownload } = useRecords();
-  const [loginOpen, setLoginOpen] = useState(true);
+  const [loginOpen, setLoginOpen] = useState(false);
 
   const tab: TabKey = params.get("tab") === "want" ? "want" : "visited";
   const shopById = new Map(shops.map((s) => [s.id, s]));
@@ -38,7 +38,7 @@ function MeBody({ shops }: { shops: Shop[] }) {
 
   if (!user) {
     return (
-      <div className="flex min-h-dvh flex-col">
+      <div className="flex min-h-dvh flex-col pb-10">
         <header className="flex items-center px-2 py-2">
           <Link
             href="/"
@@ -48,21 +48,31 @@ function MeBody({ shops }: { shops: Shop[] }) {
             <ChevronLeft className="size-5" />
           </Link>
         </header>
+        <div className="flex flex-col gap-1 px-4 pt-1">
+          <button
+            type="button"
+            onClick={() => setLoginOpen(true)}
+            className="flex items-center gap-0.5 text-heading font-extrabold text-ink"
+          >
+            로그인하기
+            <ChevronRight className="size-5 text-gray-400" />
+          </button>
+          <p className="text-secondary text-gray-500">
+            로그인하면 완식·저장 기록이 여기에 모여요
+          </p>
+        </div>
+        <div className="mt-auto px-4">
+          <p className="flex gap-1.5 text-caption text-gray-300">
+            <Link href="/terms" className="underline underline-offset-2">
+              이용약관
+            </Link>
+            ·
+            <Link href="/privacy" className="underline underline-offset-2">
+              개인정보 처리방침
+            </Link>
+          </p>
+        </div>
         <LoginPromptSheet open={loginOpen} onClose={() => setLoginOpen(false)} />
-        {!loginOpen && (
-          <div className="flex flex-1 flex-col items-center justify-center gap-3 px-4">
-            <p className="text-body text-gray-500">
-              로그인하면 완식·저장 기록이 여기에 모여요
-            </p>
-            <button
-              type="button"
-              onClick={() => setLoginOpen(true)}
-              className="rounded-pill bg-ink px-6 py-3 text-body font-bold text-white"
-            >
-              로그인
-            </button>
-          </div>
-        )}
       </div>
     );
   }
