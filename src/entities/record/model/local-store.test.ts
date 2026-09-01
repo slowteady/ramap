@@ -23,39 +23,87 @@ describe("RecordStore(localStorage)", () => {
     store = createLocalRecordStore(mem());
   });
 
-  it("먹었다는 토글 — 재클릭해도 count 1, 날짜는 최신화", () => {
-    store.markVisited("kinka", new Date("2026-08-26"));
-    const r = store.markVisited("kinka", new Date("2026-08-27"));
-    expect(r.count).toBe(1);
-    expect(r.firstAt).toContain("2026-08-26");
-    expect(r.lastAt).toContain("2026-08-27");
+  it("완식 토글 on — 날짜 기록, off — 행 삭제", () => {
+    const r = store.toggleVisited("kinka", new Date("2026-08-26"));
+    expect(r).toMatchObject({ visited: true, count: 1 });
+    expect(r?.firstAt).toContain("2026-08-26");
+    expect(store.toggleVisited("kinka")).toBeNull();
+    expect(store.get("kinka")).toBeNull();
   });
 
   it("날짜 없는 완식(온보딩)은 firstAt null", () => {
-    const r = store.markVisited("kinka");
-    expect(r.firstAt).toBeNull();
-    expect(r.count).toBe(1);
+    const r = store.toggleVisited("kinka");
+    expect(r?.firstAt).toBeNull();
+    expect(r?.count).toBe(1);
   });
 
-  it("want → visited 전이는 되고 역전이는 무시된다", () => {
-    store.markWant("konoha");
-    expect(store.markVisited("konoha").status).toBe("visited");
-    expect(store.markWant("konoha").status).toBe("visited");
+  it("완식과 저장은 공존하고, 하나를 꺼도 다른 쪽은 남는다", () => {
+    store.toggleSaved("konoha");
+    expect(store.toggleVisited("konoha")).toMatchObject({
+      visited: true,
+      saved: true,
+    });
+    expect(store.toggleVisited("konoha")).toMatchObject({
+      visited: false,
+      saved: true,
+    });
+    expect(store.toggleSaved("konoha")).toBeNull();
   });
 
   it("저장 후 새 스토어 인스턴스에서도 읽힌다", () => {
     const storage = mem();
-    createLocalRecordStore(storage).markVisited("kinka");
+    createLocalRecordStore(storage).toggleVisited("kinka");
     expect(createLocalRecordStore(storage).get("kinka")?.count).toBe(1);
   });
 
-  it("export→import 왕복 보존, 병합은 count 큰 쪽(구 데이터 호환)", () => {
-    store.markVisited("kinka");
-    const json = store.exportJson().replace('"count":1', '"count":2');
+  it("v1 status 포맷의 스토리지도 읽어 변환한다", () => {
+    const storage = mem();
+    storage.setItem(
+      "ramap.records.v1",
+      JSON.stringify({
+        records: [
+          {
+            shopId: "old",
+            status: "want",
+            count: 0,
+            firstAt: null,
+            lastAt: null,
+          },
+        ],
+      }),
+    );
+    expect(createLocalRecordStore(storage).get("old")).toMatchObject({
+      visited: false,
+      saved: true,
+    });
+  });
+
+  it("export(v2)→import 왕복 보존, 병합은 OR·count max", () => {
+    store.toggleVisited("kinka");
+    const json = store.exportJson();
+    expect(JSON.parse(json).version).toBe(2);
     const other = createLocalRecordStore(mem());
-    other.markVisited("kinka");
+    other.toggleSaved("kinka");
     expect(other.importJson(json).imported).toBe(1);
-    expect(other.get("kinka")!.count).toBe(2);
+    expect(other.get("kinka")).toMatchObject({ visited: true, saved: true });
+  });
+
+  it("v1 export(status)도 import된다", () => {
+    const v1 = JSON.stringify({
+      version: 1,
+      exportedAt: "2026-08-27T00:00:00.000Z",
+      records: [
+        {
+          shopId: "kinka",
+          status: "visited",
+          count: 2,
+          firstAt: null,
+          lastAt: null,
+        },
+      ],
+    });
+    expect(store.importJson(v1).imported).toBe(1);
+    expect(store.get("kinka")).toMatchObject({ visited: true, count: 2 });
   });
 
   it("잘못된 JSON import는 imported 0으로 무해하게 끝난다", () => {
@@ -75,6 +123,6 @@ describe("RecordStore(localStorage)", () => {
     } as Storage;
     const s = createLocalRecordStore(broken);
     expect(() => s.all()).not.toThrow();
-    expect(() => s.markVisited("kinka")).not.toThrow();
+    expect(() => s.toggleVisited("kinka")).not.toThrow();
   });
 });

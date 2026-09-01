@@ -1,36 +1,63 @@
 import dayjs from "dayjs";
 import type { ShopRecord } from "./types";
 
-export function visitedNext(
-  prev: ShopRecord | undefined,
+export function toggledVisited(
+  prev: ShopRecord | null,
   shopId: string,
   at?: Date,
-): ShopRecord {
+): ShopRecord | null {
+  if (prev?.visited) {
+    if (!prev.saved) return null;
+    return { ...prev, visited: false, count: 0 };
+  }
   const iso = at ? dayjs(at).toISOString() : null;
   return {
     shopId,
-    status: "visited",
+    visited: true,
+    saved: prev?.saved ?? false,
     count: 1,
     firstAt: prev?.firstAt ?? iso,
     lastAt: iso ?? prev?.lastAt ?? null,
   };
 }
 
-export function wantNext(
-  prev: ShopRecord | undefined,
+export function toggledSaved(
+  prev: ShopRecord | null,
   shopId: string,
 ): ShopRecord | null {
-  if (prev?.status === "visited") return null;
-  return { shopId, status: "want", count: 0, firstAt: null, lastAt: null };
+  if (prev?.saved) {
+    if (!prev.visited) return null;
+    return { ...prev, saved: false };
+  }
+  return {
+    shopId,
+    visited: prev?.visited ?? false,
+    saved: true,
+    count: prev?.count ?? 0,
+    firstAt: prev?.firstAt ?? null,
+    lastAt: prev?.lastAt ?? null,
+  };
 }
 
-export function shouldReplace(
-  prev: ShopRecord | undefined,
-  incoming: ShopRecord,
-): boolean {
-  if (!prev) return true;
-  if (incoming.count > prev.count) return true;
-  return prev.status === "want" && incoming.status === "visited";
+export function mergeRecord(a: ShopRecord, b: ShopRecord): ShopRecord {
+  return {
+    shopId: a.shopId,
+    visited: a.visited || b.visited,
+    saved: a.saved || b.saved,
+    count: Math.max(a.count, b.count),
+    firstAt:
+      a.firstAt && b.firstAt
+        ? a.firstAt < b.firstAt
+          ? a.firstAt
+          : b.firstAt
+        : (a.firstAt ?? b.firstAt),
+    lastAt:
+      a.lastAt && b.lastAt
+        ? a.lastAt > b.lastAt
+          ? a.lastAt
+          : b.lastAt
+        : (a.lastAt ?? b.lastAt),
+  };
 }
 
 export function mergeRecords(
@@ -39,7 +66,35 @@ export function mergeRecords(
 ): ShopRecord[] {
   const map = new Map(base.map((r) => [r.shopId, r]));
   for (const r of incoming) {
-    if (shouldReplace(map.get(r.shopId), r)) map.set(r.shopId, r);
+    const prev = map.get(r.shopId);
+    map.set(r.shopId, prev ? mergeRecord(prev, r) : r);
   }
   return [...map.values()];
+}
+
+type LegacyRecord = {
+  shopId: string;
+  status?: string;
+  visited?: boolean;
+  saved?: boolean;
+  count?: number;
+  firstAt?: string | null;
+  lastAt?: string | null;
+};
+
+export function normalizeRecord(raw: unknown): ShopRecord | null {
+  if (!raw || typeof raw !== "object") return null;
+  const r = raw as LegacyRecord;
+  if (typeof r.shopId !== "string") return null;
+  const visited = r.visited ?? r.status === "visited";
+  const saved = r.saved ?? r.status === "want";
+  if (!visited && !saved) return null;
+  return {
+    shopId: r.shopId,
+    visited,
+    saved,
+    count: visited ? Math.max(1, r.count ?? 1) : 0,
+    firstAt: r.firstAt ?? null,
+    lastAt: r.lastAt ?? null,
+  };
 }

@@ -1,8 +1,9 @@
 import dayjs from "dayjs";
 import {
-  shouldReplace,
-  visitedNext,
-  wantNext,
+  mergeRecord,
+  normalizeRecord,
+  toggledSaved,
+  toggledVisited,
 } from "@/entities/record/model/record-ops";
 import type {
   RecordExport,
@@ -35,8 +36,11 @@ export function createLocalRecordStore(storage?: Storage): RecordStore {
     try {
       const raw = backing?.getItem(KEY);
       if (raw) {
-        const parsed = JSON.parse(raw) as { records?: ShopRecord[] };
-        if (Array.isArray(parsed.records)) records = parsed.records;
+        const parsed = JSON.parse(raw) as { records?: unknown[] };
+        if (Array.isArray(parsed.records))
+          records = parsed.records
+            .map(normalizeRecord)
+            .filter((r): r is ShopRecord => r !== null);
       }
     } catch {
       records = [];
@@ -53,6 +57,17 @@ export function createLocalRecordStore(storage?: Storage): RecordStore {
     }
   }
 
+  function apply(
+    map: Map<string, ShopRecord>,
+    shopId: string,
+    next: ShopRecord | null,
+  ) {
+    if (next) map.set(shopId, next);
+    else map.delete(shopId);
+    persist(map);
+    return next;
+  }
+
   return {
     get(shopId) {
       return load().get(shopId) ?? null;
@@ -60,30 +75,21 @@ export function createLocalRecordStore(storage?: Storage): RecordStore {
     all() {
       return [...load().values()];
     },
-    markVisited(shopId, at) {
+    toggleVisited(shopId, at) {
       const map = load();
-      const next = visitedNext(map.get(shopId), shopId, at);
-      map.set(shopId, next);
-      persist(map);
-      return next;
+      return apply(
+        map,
+        shopId,
+        toggledVisited(map.get(shopId) ?? null, shopId, at),
+      );
     },
-    markWant(shopId) {
+    toggleSaved(shopId) {
       const map = load();
-      const prev = map.get(shopId);
-      const next = wantNext(prev, shopId);
-      if (!next) return prev!;
-      map.set(shopId, next);
-      persist(map);
-      return next;
-    },
-    remove(shopId) {
-      const map = load();
-      map.delete(shopId);
-      persist(map);
+      return apply(map, shopId, toggledSaved(map.get(shopId) ?? null, shopId));
     },
     exportJson() {
       const payload: RecordExport = {
-        version: 1,
+        version: 2,
         exportedAt: dayjs().toISOString(),
         records: [...load().values()],
       };
@@ -92,13 +98,21 @@ export function createLocalRecordStore(storage?: Storage): RecordStore {
     importJson(json) {
       let imported = 0;
       try {
-        const parsed = JSON.parse(json) as Partial<RecordExport>;
-        if (parsed.version !== 1 || !Array.isArray(parsed.records))
+        const parsed = JSON.parse(json) as {
+          version?: number;
+          records?: unknown[];
+        };
+        if (
+          (parsed.version !== 1 && parsed.version !== 2) ||
+          !Array.isArray(parsed.records)
+        )
           return { imported: 0 };
         const map = load();
-        for (const r of parsed.records) {
-          if (!r || typeof r.shopId !== "string") continue;
-          if (shouldReplace(map.get(r.shopId), r)) map.set(r.shopId, r);
+        for (const raw of parsed.records) {
+          const r = normalizeRecord(raw);
+          if (!r) continue;
+          const prev = map.get(r.shopId);
+          map.set(r.shopId, prev ? mergeRecord(prev, r) : r);
           imported += 1;
         }
         persist(map);

@@ -5,12 +5,14 @@
 create table if not exists public.records (
   user_id uuid not null references auth.users (id) on delete cascade,
   shop_id text not null,
-  status text not null check (status in ('visited', 'want')),
+  visited boolean not null default false,
+  saved boolean not null default false,
   count integer not null default 0,
   first_at timestamptz,
   last_at timestamptz,
   updated_at timestamptz not null default now(),
-  primary key (user_id, shop_id)
+  primary key (user_id, shop_id),
+  constraint records_visited_or_saved check (visited or saved)
 );
 
 alter table public.records enable row level security;
@@ -171,3 +173,28 @@ drop policy if exists "records_select_own" on public.records;
 drop policy if exists "records_insert_own" on public.records;
 drop policy if exists "records_update_own" on public.records;
 drop policy if exists "records_delete_own" on public.records;
+
+-- 완식/저장 공존 전환 (2026-09-01): status 배타 → visited/saved 불리언
+do $$
+begin
+  if exists (
+    select 1 from information_schema.columns
+    where table_schema = 'public' and table_name = 'records' and column_name = 'status'
+  ) then
+    alter table public.records add column if not exists visited boolean not null default false;
+    alter table public.records add column if not exists saved boolean not null default false;
+    update public.records set visited = (status = 'visited'), saved = (status = 'want');
+    alter table public.records drop column status;
+    alter table public.records
+      add constraint records_visited_or_saved check (visited or saved);
+  end if;
+end $$;
+
+-- select/delete 정책 복구 (2026-09-01): 실DB엔 Plan 6 영문 정책만 있었고
+-- 위의 영문 정책 drop이 select/delete 커버리지를 지워 upsert(on conflict)가 42501로 거부됨
+drop policy if exists "records: 본인 것만 조회" on public.records;
+create policy "records: 본인 것만 조회" on public.records
+  for select using (auth.uid() = user_id);
+drop policy if exists "records: 본인 것만 삭제" on public.records;
+create policy "records: 본인 것만 삭제" on public.records
+  for delete using (auth.uid() = user_id);

@@ -21,10 +21,7 @@ export function ShopMap({ pins }: { pins: ShopPin[] }) {
   const { openNew: openReport } = useReportQuery();
   const { records } = useRecords();
   const visitedIds = useMemo(
-    () =>
-      new Set(
-        records.filter((r) => r.status === "visited").map((r) => r.shopId),
-      ),
+    () => new Set(records.filter((r) => r.visited).map((r) => r.shopId)),
     [records],
   );
   const [hideVisited, setHideVisited] = useState(false);

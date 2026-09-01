@@ -16,9 +16,8 @@ import {
 import { getSupabase } from "@/shared/api/supabase";
 
 type PendingOp =
-  | { type: "visited"; shopId: string; at?: Date }
-  | { type: "want"; shopId: string }
-  | { type: "remove"; shopId: string };
+  | { type: "visited"; shopId: string; on: boolean; at?: Date }
+  | { type: "saved"; shopId: string; on: boolean };
 
 let localStore: RecordStore | null = null;
 let activeStore: RecordStore | null = null;
@@ -37,10 +36,15 @@ function notify() {
   for (const listener of listeners) listener();
 }
 
+/* 토글 재적용은 merge 결과에 따라 역전될 수 있어 목표 상태로 멱등 적용 */
 function applyOp(store: RecordStore, op: PendingOp) {
-  if (op.type === "visited") store.markVisited(op.shopId, op.at);
-  else if (op.type === "want") store.markWant(op.shopId);
-  else store.remove(op.shopId);
+  const current = store.get(op.shopId);
+  if (op.type === "visited") {
+    if ((current?.visited ?? false) !== op.on)
+      store.toggleVisited(op.shopId, op.at);
+  } else if ((current?.saved ?? false) !== op.on) {
+    store.toggleSaved(op.shopId);
+  }
 }
 
 function abortAdopt() {
@@ -144,23 +148,23 @@ export function useRecords() {
     () => EMPTY,
   );
 
-  const markVisited = useCallback((shopId: string, at?: Date) => {
-    const record = getStore().markVisited(shopId, at);
-    pendingOps?.push({ type: "visited", shopId, at });
+  const toggleVisited = useCallback((shopId: string, at?: Date) => {
+    const record = getStore().toggleVisited(shopId, at);
+    pendingOps?.push({
+      type: "visited",
+      shopId,
+      on: record?.visited ?? false,
+      at,
+    });
     notify();
     return record;
   }, []);
 
-  const markWant = useCallback((shopId: string) => {
-    getStore().markWant(shopId);
-    pendingOps?.push({ type: "want", shopId });
+  const toggleSaved = useCallback((shopId: string) => {
+    const record = getStore().toggleSaved(shopId);
+    pendingOps?.push({ type: "saved", shopId, on: record?.saved ?? false });
     notify();
-  }, []);
-
-  const remove = useCallback((shopId: string) => {
-    getStore().remove(shopId);
-    pendingOps?.push({ type: "remove", shopId });
-    notify();
+    return record;
   }, []);
 
   const exportDownload = useCallback(() => {
@@ -180,16 +184,15 @@ export function useRecords() {
   );
 
   const visitedIds = new Set(
-    records.filter((r) => r.status === "visited").map((r) => r.shopId),
+    records.filter((r) => r.visited).map((r) => r.shopId),
   );
 
   return {
     records,
     visitedIds,
     get,
-    markVisited,
-    markWant,
-    remove,
+    toggleVisited,
+    toggleSaved,
     exportDownload,
     isSynced: synced,
     isAuthed: sessionUserId !== null,

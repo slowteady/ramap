@@ -5,7 +5,6 @@ export {
 export type {
   RecordStore,
   ShopRecord,
-  RecordStatus,
   RecordExport,
 } from "@/entities/record/model/types";
 export { mergeRecords } from "@/entities/record/model/record-ops";

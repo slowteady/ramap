@@ -11,7 +11,9 @@ export const metadata: Metadata = {
 
 function guideLabel(slug: string) {
   return (
-    soupBySlug(slug)?.label ?? LINEAGES.find((l) => l.slug === slug)?.label ?? slug
+    soupBySlug(slug)?.label ??
+    LINEAGES.find((l) => l.slug === slug)?.label ??
+    slug
   );
 }
 

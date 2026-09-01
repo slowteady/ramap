@@ -4,7 +4,8 @@ import { sortRecordsByRecent } from "./sort-records";
 
 const record = (over: Partial<ShopRecord>): ShopRecord => ({
   shopId: "kinka",
-  status: "visited",
+  visited: true,
+  saved: false,
   count: 1,
   firstAt: null,
   lastAt: null,

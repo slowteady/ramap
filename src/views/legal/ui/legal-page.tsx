@@ -31,7 +31,10 @@ export function LegalPage({
           <section key={section.title} className="flex flex-col gap-1.5">
             <h2 className="text-body font-bold text-ink">{section.title}</h2>
             {section.body.map((line) => (
-              <p key={line} className="text-secondary leading-relaxed text-gray-500">
+              <p
+                key={line}
+                className="text-secondary leading-relaxed text-gray-500"
+              >
                 {line}
               </p>
             ))}

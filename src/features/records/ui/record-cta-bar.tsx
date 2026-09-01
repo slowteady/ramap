@@ -10,8 +10,8 @@ export function RecordCtaBar({ shopId }: { shopId: string }) {
   const { get, visit, save, authPrompt, closeAuthPrompt } =
     useVisitAction(shopId);
   const record = get(shopId);
-  const visited = record?.status === "visited";
-  const want = record?.status === "want";
+  const visited = record?.visited ?? false;
+  const saved = record?.saved ?? false;
 
   return (
     <div className="fixed inset-x-0 bottom-0 z-40 mx-auto w-full max-w-app border-t border-gray-100 bg-white px-4 py-3">
@@ -19,14 +19,12 @@ export function RecordCtaBar({ shopId }: { shopId: string }) {
         <button
           type="button"
           aria-label="저장"
-          disabled={visited}
           onClick={save}
           className={cn(
             "flex size-12 shrink-0 items-center justify-center rounded-card border",
-            want
+            saved
               ? "border-ramen bg-ramen-050 text-ramen"
               : "border-gray-100 bg-white text-gray-500",
-            visited && "opacity-40",
           )}
         >
           <Bookmark className="size-5" />

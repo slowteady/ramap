@@ -13,29 +13,39 @@ describe("createSyncedRecordStore", () => {
   it("쓰기마다 sink로 write-through한다", () => {
     const sink = mockSink();
     const store = createSyncedRecordStore([], sink);
-    store.markVisited("kinka");
-    store.markVisited("kinka");
-    store.markWant("menya");
-    store.remove("menya");
+    store.toggleVisited("kinka");
+    store.toggleSaved("menya");
     expect(store.get("kinka")?.count).toBe(1);
-    expect(sink.upsert).toHaveBeenCalledTimes(3);
+    expect(sink.upsert).toHaveBeenCalledTimes(2);
+  });
+
+  it("마지막 상태가 꺼지면 sink.remove로 행을 지운다", () => {
+    const sink = mockSink();
+    const store = createSyncedRecordStore([], sink);
+    store.toggleSaved("menya");
+    store.toggleSaved("menya");
+    expect(store.get("menya")).toBeNull();
     expect(sink.remove).toHaveBeenCalledWith("menya");
   });
 
-  it("visited에 markWant는 sink를 호출하지 않는다", () => {
+  it("완식+저장 공존 상태에서 완식만 꺼도 upsert로 남긴다", () => {
     const sink = mockSink();
     const store = createSyncedRecordStore([], sink);
-    store.markVisited("kinka");
+    store.toggleVisited("kinka");
+    store.toggleSaved("kinka");
     sink.upsert.mockClear();
-    store.markWant("kinka");
-    expect(sink.upsert).not.toHaveBeenCalled();
+    store.toggleVisited("kinka");
+    expect(sink.remove).not.toHaveBeenCalled();
+    expect(sink.upsert).toHaveBeenCalledTimes(1);
+    expect(store.get("kinka")).toMatchObject({ visited: false, saved: true });
   });
 
   it("seed에서 시작한다", () => {
     const seed: ShopRecord[] = [
       {
         shopId: "kinka",
-        status: "visited",
+        visited: true,
+        saved: false,
         count: 3,
         firstAt: null,
         lastAt: null,
@@ -50,7 +60,8 @@ describe("row mapping", () => {
   it("왕복 보존한다", () => {
     const record: ShopRecord = {
       shopId: "kinka",
-      status: "visited",
+      visited: true,
+      saved: true,
       count: 2,
       firstAt: "2026-08-01T00:00:00.000Z",
       lastAt: "2026-08-27T00:00:00.000Z",
@@ -58,13 +69,14 @@ describe("row mapping", () => {
     expect(fromRow(toRow(record, "user-1"))).toEqual(record);
   });
 
-  it("알 수 없는 status 행은 버린다", () => {
+  it("둘 다 false인 행은 버린다", () => {
     expect(
       fromRow({
         user_id: "u",
         shop_id: "x",
-        status: "weird",
-        count: 1,
+        visited: false,
+        saved: false,
+        count: 0,
         first_at: null,
         last_at: null,
       }),

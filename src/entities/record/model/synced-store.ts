@@ -1,6 +1,11 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
 import dayjs from "dayjs";
-import { shouldReplace, visitedNext, wantNext } from "./record-ops";
+import {
+  mergeRecord,
+  normalizeRecord,
+  toggledSaved,
+  toggledVisited,
+} from "./record-ops";
 import { fromRow, toRow, type RecordRow } from "./row-mapping";
 import type { RecordExport, RecordStore, ShopRecord } from "./types";
 
@@ -18,6 +23,17 @@ export function createSyncedRecordStore(
 ): RecordStore {
   const map = new Map(seed.map((r) => [r.shopId, r]));
 
+  function apply(shopId: string, next: ShopRecord | null) {
+    if (next) {
+      map.set(shopId, next);
+      sink.upsert(next);
+    } else {
+      map.delete(shopId);
+      sink.remove(shopId);
+    }
+    return next;
+  }
+
   return {
     get(shopId) {
       return map.get(shopId) ?? null;
@@ -25,27 +41,15 @@ export function createSyncedRecordStore(
     all() {
       return [...map.values()];
     },
-    markVisited(shopId, at) {
-      const next = visitedNext(map.get(shopId), shopId, at);
-      map.set(shopId, next);
-      sink.upsert(next);
-      return next;
+    toggleVisited(shopId, at) {
+      return apply(shopId, toggledVisited(map.get(shopId) ?? null, shopId, at));
     },
-    markWant(shopId) {
-      const prev = map.get(shopId);
-      const next = wantNext(prev, shopId);
-      if (!next) return prev!;
-      map.set(shopId, next);
-      sink.upsert(next);
-      return next;
-    },
-    remove(shopId) {
-      map.delete(shopId);
-      sink.remove(shopId);
+    toggleSaved(shopId) {
+      return apply(shopId, toggledSaved(map.get(shopId) ?? null, shopId));
     },
     exportJson() {
       const payload: RecordExport = {
-        version: 1,
+        version: 2,
         exportedAt: dayjs().toISOString(),
         records: [...map.values()],
       };
@@ -54,15 +58,22 @@ export function createSyncedRecordStore(
     importJson(json) {
       let imported = 0;
       try {
-        const parsed = JSON.parse(json) as Partial<RecordExport>;
-        if (parsed.version !== 1 || !Array.isArray(parsed.records))
+        const parsed = JSON.parse(json) as {
+          version?: number;
+          records?: unknown[];
+        };
+        if (
+          (parsed.version !== 1 && parsed.version !== 2) ||
+          !Array.isArray(parsed.records)
+        )
           return { imported: 0 };
-        for (const r of parsed.records) {
-          if (!r || typeof r.shopId !== "string") continue;
-          if (shouldReplace(map.get(r.shopId), r)) {
-            map.set(r.shopId, r);
-            sink.upsert(r);
-          }
+        for (const raw of parsed.records) {
+          const r = normalizeRecord(raw);
+          if (!r) continue;
+          const prev = map.get(r.shopId);
+          const next = prev ? mergeRecord(prev, r) : r;
+          map.set(r.shopId, next);
+          sink.upsert(next);
           imported += 1;
         }
         return { imported };
@@ -81,7 +92,7 @@ export async function fetchRecords(
   try {
     const { data, error } = await client
       .from("records")
-      .select("user_id, shop_id, status, count, first_at, last_at")
+      .select("user_id, shop_id, visited, saved, count, first_at, last_at")
       .eq("user_id", userId)
       .abortSignal(AbortSignal.timeout(ADOPT_TIMEOUT_MS));
     if (error || !data) return null;

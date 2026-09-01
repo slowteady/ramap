@@ -116,7 +116,12 @@ describe("nearbyShops", () => {
   const near = shop({ id: "near", lat: 37.541, lng: 127.051 });
   const far = shop({ id: "far", lat: 37.6, lng: 127.1 });
   const mid = shop({ id: "mid", lat: 37.545, lng: 127.06 });
-  const closed = shop({ id: "closed", lat: 37.5401, lng: 127.0501, status: "closed" });
+  const closed = shop({
+    id: "closed",
+    lat: 37.5401,
+    lng: 127.0501,
+    status: "closed",
+  });
   const noCoord = shop({ id: "nocoord", lat: null, lng: null });
 
   it("자기 자신·폐업·좌표 없음을 빼고 가까운 순으로 n곳", () => {

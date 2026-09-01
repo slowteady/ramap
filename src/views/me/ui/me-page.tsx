@@ -14,7 +14,7 @@ import { MeMenu } from "./me-menu";
 
 const TABS = [
   { key: "visited", label: "완식" },
-  { key: "want", label: "저장" },
+  { key: "saved", label: "저장" },
 ] as const;
 
 type TabKey = (typeof TABS)[number]["key"];
@@ -27,12 +27,15 @@ function MeBody({ shops }: { shops: Shop[] }) {
   const { records, exportDownload } = useRecords();
   const [loginOpen, setLoginOpen] = useState(false);
 
-  const tab: TabKey = params.get("tab") === "want" ? "want" : "visited";
+  const tab: TabKey = params.get("tab") === "saved" ? "saved" : "visited";
   const shopById = new Map(shops.map((s) => [s.id, s]));
-  const visitedCount = records.filter((r) => r.status === "visited").length;
-  const wantCount = records.filter((r) => r.status === "want").length;
+  const visitedCount = records.filter((r) => r.visited).length;
+  const savedCount = records.filter((r) => r.saved).length;
   const listed = sortRecordsByRecent(
-    records.filter((r) => r.status === tab && shopById.has(r.shopId)),
+    records.filter(
+      (r) =>
+        (tab === "visited" ? r.visited : r.saved) && shopById.has(r.shopId),
+    ),
   );
 
   if (!ready) return <div className="min-h-dvh" />;
@@ -65,7 +68,10 @@ function MeBody({ shops }: { shops: Shop[] }) {
         <div className="pt-8">
           <MeMenu authed={false} />
         </div>
-        <LoginPromptSheet open={loginOpen} onClose={() => setLoginOpen(false)} />
+        <LoginPromptSheet
+          open={loginOpen}
+          onClose={() => setLoginOpen(false)}
+        />
       </div>
     );
   }
@@ -91,7 +97,7 @@ function MeBody({ shops }: { shops: Shop[] }) {
           <div className="h-7 w-36 animate-pulse rounded-card bg-gray-100" />
         )}
         <p className="text-secondary text-gray-500">
-          완식 {visitedCount} · 저장 {wantCount}
+          완식 {visitedCount} · 저장 {savedCount}
         </p>
       </div>
 
@@ -101,7 +107,7 @@ function MeBody({ shops }: { shops: Shop[] }) {
             key={t.key}
             type="button"
             onClick={() =>
-              router.replace(t.key === "visited" ? "/me" : "/me?tab=want", {
+              router.replace(t.key === "visited" ? "/me" : "/me?tab=saved", {
                 scroll: false,
               })
             }

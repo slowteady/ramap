@@ -10,6 +10,7 @@ import {
   OpenStatusBadge,
   type ShopPin,
 } from "@/entities/shop";
+import type { ShopRecord } from "@/entities/record";
 import { RecordButtons, useRecords } from "@/features/records";
 import { cn } from "@/shared/lib/utils";
 import { Drawer, DrawerContent, DrawerTitle } from "@/shared/ui/drawer";
@@ -89,7 +90,7 @@ function ListRow({
 }: {
   pin: ShopPin;
   center: LatLng | null;
-  record: "visited" | "want" | null;
+  record: ShopRecord | null;
   onTap: (e: React.MouseEvent) => void;
 }) {
   return (
@@ -106,12 +107,12 @@ function ListRow({
           <span className="truncate text-body font-bold text-ink">
             {pin.name}
           </span>
-          {record === "visited" && (
+          {record?.visited && (
             <span className="shrink-0 rounded-chip bg-ramen-050 px-1.5 py-0.5 text-caption font-semibold text-ramen">
               완식
             </span>
           )}
-          {record === "want" && (
+          {record?.saved && (
             <Bookmark className="size-3.5 shrink-0 fill-current text-gray-300" />
           )}
         </span>
@@ -277,7 +278,7 @@ export function ShopSheet({
                   key={pin.id}
                   pin={pin}
                   center={userLocation}
-                  record={get(pin.id)?.status ?? null}
+                  record={get(pin.id)}
                   onTap={(e) => {
                     if (Math.abs(e.clientY - pointerDownY.current) > 8) return;
                     onSelectPin(pin);

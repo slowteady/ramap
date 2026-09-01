@@ -1,15 +1,14 @@
-export type RecordStatus = "visited" | "want";
-
 export type ShopRecord = {
   shopId: string;
-  status: RecordStatus;
+  visited: boolean;
+  saved: boolean;
   count: number;
   firstAt: string | null;
   lastAt: string | null;
 };
 
 export type RecordExport = {
-  version: 1;
+  version: 2;
   exportedAt: string;
   records: ShopRecord[];
 };
@@ -17,9 +16,8 @@ export type RecordExport = {
 export interface RecordStore {
   get(shopId: string): ShopRecord | null;
   all(): ShopRecord[];
-  markVisited(shopId: string, at?: Date): ShopRecord;
-  markWant(shopId: string): ShopRecord;
-  remove(shopId: string): void;
+  toggleVisited(shopId: string, at?: Date): ShopRecord | null;
+  toggleSaved(shopId: string): ShopRecord | null;
   exportJson(): string;
   importJson(json: string): { imported: number };
 }

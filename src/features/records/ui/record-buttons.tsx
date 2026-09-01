@@ -15,8 +15,8 @@ export function RecordButtons({
   const { get, visit, save, authPrompt, closeAuthPrompt } =
     useVisitAction(shopId);
   const record = get(shopId);
-  const visited = record?.status === "visited";
-  const want = record?.status === "want";
+  const visited = record?.visited ?? false;
+  const saved = record?.saved ?? false;
 
   return (
     <div className={cn("flex gap-2", className)}>
@@ -36,13 +36,11 @@ export function RecordButtons({
       <button
         type="button"
         onClick={save}
-        disabled={visited}
         className={cn(
           "flex flex-1 items-center justify-center gap-1.5 h-11 rounded-pill px-3.5 text-secondary font-bold",
-          want
+          saved
             ? "border border-ramen bg-ramen-050 text-ramen"
             : "bg-gray-050 text-ink",
-          visited && "opacity-40",
         )}
       >
         <Bookmark className="size-4" />

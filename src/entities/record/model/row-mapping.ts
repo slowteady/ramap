@@ -1,10 +1,11 @@
 import dayjs from "dayjs";
-import type { RecordStatus, ShopRecord } from "./types";
+import type { ShopRecord } from "./types";
 
 export type RecordRow = {
   user_id: string;
   shop_id: string;
-  status: string;
+  visited: boolean;
+  saved: boolean;
   count: number;
   first_at: string | null;
   last_at: string | null;
@@ -15,7 +16,8 @@ export function toRow(record: ShopRecord, userId: string): RecordRow {
   return {
     user_id: userId,
     shop_id: record.shopId,
-    status: record.status,
+    visited: record.visited,
+    saved: record.saved,
     count: record.count,
     first_at: record.firstAt,
     last_at: record.lastAt,
@@ -24,10 +26,11 @@ export function toRow(record: ShopRecord, userId: string): RecordRow {
 }
 
 export function fromRow(row: RecordRow): ShopRecord | null {
-  if (row.status !== "visited" && row.status !== "want") return null;
+  if (!row.visited && !row.saved) return null;
   return {
     shopId: row.shop_id,
-    status: row.status as RecordStatus,
+    visited: row.visited,
+    saved: row.saved,
     count: row.count,
     firstAt: row.first_at,
     lastAt: row.last_at,

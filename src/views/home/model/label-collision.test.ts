@@ -114,7 +114,9 @@ describe("distanceMeters / formatDistance", () => {
   const center = { lat: 37.5, lng: 127.0 };
 
   it("위도 0.01도 차이는 약 1,113m다", () => {
-    const pin = { lat: 37.51, lng: 127.0 } as Parameters<typeof distanceMeters>[0];
+    const pin = { lat: 37.51, lng: 127.0 } as Parameters<
+      typeof distanceMeters
+    >[0];
     expect(distanceMeters(pin, center)).toBeCloseTo(1113.2, 0);
   });
 

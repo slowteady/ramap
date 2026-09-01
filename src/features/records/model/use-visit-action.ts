@@ -6,7 +6,7 @@ import { useRecords } from "./use-records";
 
 export function useVisitAction(shopId: string) {
   const records = useRecords();
-  const { get, markVisited, markWant, remove, isAuthed } = records;
+  const { toggleVisited, toggleSaved, isAuthed } = records;
   const [authPrompt, setAuthPrompt] = useState(false);
 
   const requireAuth = useCallback(() => {
@@ -17,17 +17,13 @@ export function useVisitAction(shopId: string) {
 
   const visit = useCallback(() => {
     if (!requireAuth()) return;
-    const visited = get(shopId)?.status === "visited";
-    if (visited) remove(shopId);
-    else markVisited(shopId, new Date());
-  }, [shopId, requireAuth, get, markVisited, remove]);
+    toggleVisited(shopId, new Date());
+  }, [shopId, requireAuth, toggleVisited]);
 
   const save = useCallback(() => {
     if (!requireAuth()) return;
-    const want = get(shopId)?.status === "want";
-    if (want) remove(shopId);
-    else markWant(shopId);
-  }, [shopId, requireAuth, get, markWant, remove]);
+    toggleSaved(shopId);
+  }, [shopId, requireAuth, toggleSaved]);
 
   const closeAuthPrompt = useCallback(() => setAuthPrompt(false), []);
 
