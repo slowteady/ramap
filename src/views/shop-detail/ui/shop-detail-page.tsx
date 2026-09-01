@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import dayjs from "dayjs";
 import Link from "next/link";
-import { ChevronLeft } from "lucide-react";
+import { ChevronLeft, Quote } from "lucide-react";
 import {
   AMENITIES,
   breadcrumbJsonLd,
@@ -210,7 +210,10 @@ export function ShopDetailPage({ shop, nearby }: ShopDetailPageProps) {
           />
         </div>
         {shop.tagline && (
-          <p className="pt-2 text-body text-gray-500">{shop.tagline}</p>
+          <div className="mt-4 flex items-start gap-2 rounded-card border border-gray-100 px-3.5 py-3">
+            <Quote className="mt-0.5 size-3.5 shrink-0 fill-current text-ramen" />
+            <p className="text-body font-medium text-ink">{shop.tagline}</p>
+          </div>
         )}
       </div>
 
