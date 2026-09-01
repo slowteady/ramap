@@ -28,11 +28,14 @@ export const GUIDES: GuideContent[] = [
       taste: "건어물의 감칠맛과 쌉싸름함",
       body: "맑은 청탕(원형)부터 걸쭉한 농후계까지",
     },
-    boundary:
-      "한국에선 '니보시 = 진하고 쓴맛'으로 통하지만, 출처상 원형은 맑은 쪽이고 농후계는 2000년대 파생입니다.",
+    boundary: "원형은 맑은 쪽이고, 걸쭉한 농후계는 2000년대 이후의 파생입니다.",
     sources: [
       {
-        name: `${JAWIKI} 津軽ラーメン`,
+        name: `${JAWIKI} ラーメン — 出汁の種類による分類 (니보시 다시)`,
+        url: "https://ja.wikipedia.org/wiki/ラーメン#出汁の種類による分類",
+      },
+      {
+        name: `${JAWIKI} 津軽ラーメン (니보시 라멘의 원형·두 갈래)`,
         url: "https://ja.wikipedia.org/wiki/津軽ラーメン",
       },
       {
@@ -72,13 +75,17 @@ export const GUIDES: GuideContent[] = [
         name: `${RAHAKU} 博多ラーメン`,
         url: "https://www.raumen.co.jp/rapedia/study_japan/study_raumen_hakata.html",
       },
+      {
+        name: "農林水産省 aff 2009 (하카타 = 구루메 파생)",
+        url: "https://www.maff.go.jp/j/pr/aff/2009/spe1_04.html",
+      },
     ],
   },
   {
     slug: "shoyu",
     intro: [
       "육수를 간장 타레로 조미한, 라멘의 원형에 가장 가까운 계열입니다. 中華そば라고도 부릅니다.",
-      "도쿄식은 닭뼈·돼지뼈를 끓이지 않고 우려 일본식 다시와 섞어 간장 맛을 앞세우고, 곱슬면을 씁니다. 가게마다 간장 배합이 달라 같은 쇼유라도 표정이 가장 다양합니다.",
+      "도쿄식은 닭뼈·돼지뼈를 끓이지 않고 우려 일본식 다시와 섞어 간장 맛을 앞세우고, 곱슬면을 씁니다.",
     ],
     origin:
       "1910년 도쿄 아사쿠사 來々軒 — 현대 라멘의 출발점이자 일본 첫 라멘 붐",
@@ -256,7 +263,7 @@ export const GUIDES: GuideContent[] = [
       body: "진함 — 면 굳기·농도·기름을 주문으로 조절",
     },
     boundary:
-      "국물 종류가 아니라 계보입니다(국물은 돈코츠쇼유). 吉村家 계열의 直系와 체인형 資本系로 나뉩니다. 한국 표기 '이에케이'와 '이에케'는 같은 말입니다.",
+      "국물 종류가 아니라 계보입니다(국물은 돈코츠쇼유). 吉村家 계열의 直系와 체인형 資本系로 나뉩니다.",
     sources: [
       {
         name: `${JAWIKI} 家系ラーメン`,
@@ -284,7 +291,7 @@ export const GUIDES: GuideContent[] = [
       body: "매우 진하고 양이 많음",
     },
     boundary:
-      "국물 장르가 아닌 계보입니다. 본점 수행을 거친 直系와 스타일만 따르는 インスパイア系가 있고, 한국의 지로계는 대부분 후자입니다.",
+      "국물 장르가 아닌 계보입니다. 본점 수행을 거친 直系와 스타일만 따르는 インスパイア系로 나뉩니다.",
     sources: [
       {
         name: `${JAWIKI} ラーメン二郎`,
