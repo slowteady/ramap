@@ -11,6 +11,8 @@ import {
 const pin = (id: string, over: Partial<ShopPin> = {}): ShopPin => ({
   id,
   name: id,
+  branch: null,
+  soupDetail: [],
   lat: 37.5,
   lng: 127,
   primarySoup: "niboshi",

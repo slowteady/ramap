@@ -44,6 +44,7 @@ export function ShopMap({ pins }: { pins: ShopPin[] }) {
     center,
     selectedShop,
     panToPin,
+    panToArea,
     locate,
   } = useShopMap(basePins, filters, selectedId, visitedIds, select, clear);
   const [sheetAxis, setSheetAxis] = useState<FilterAxis | null>(null);
@@ -124,6 +125,7 @@ export function ShopMap({ pins }: { pins: ShopPin[] }) {
           onSelectGenre={(filterKey, slug) =>
             apply({ ...filters, [filterKey]: [slug] })
           }
+          onSelectArea={panToArea}
           onReport={openReport}
           onClose={search.close}
         />

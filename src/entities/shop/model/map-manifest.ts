@@ -5,6 +5,8 @@ import type { Menu, Shop, ShopStatus } from "./types";
 export type ShopPin = {
   id: string;
   name: string;
+  branch: string | null;
+  soupDetail: string[];
   lat: number;
   lng: number;
   primarySoup: SoupSlug;
@@ -28,6 +30,8 @@ export function toMapManifest(shops: Shop[], now = new Date()): ShopPin[] {
     pins.push({
       id: s.id,
       name: s.name,
+      branch: s.branch,
+      soupDetail: s.soupDetail,
       lat: s.lat,
       lng: s.lng,
       primarySoup: s.primarySoup,

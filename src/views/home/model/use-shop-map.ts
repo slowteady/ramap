@@ -136,6 +136,19 @@ export function useShopMap(
     adapter.panTo({ lat: pin.lat, lng: pin.lng });
   }, []);
 
+  const panToArea = useCallback(
+    (area: string) => {
+      const adapter = adapterRef.current;
+      const inArea = pins.filter((p) => p.areaLabel === area);
+      if (!adapter || inArea.length === 0) return;
+      const lat = inArea.reduce((sum, p) => sum + p.lat, 0) / inArea.length;
+      const lng = inArea.reduce((sum, p) => sum + p.lng, 0) / inArea.length;
+      adapter.setLevel(CLUSTER_LEVEL_THRESHOLD - 1);
+      adapter.panTo({ lat, lng });
+    },
+    [pins],
+  );
+
   const locate = useCallback((onDenied: () => void) => {
     if (!navigator.geolocation) {
       onDenied();
@@ -164,6 +177,7 @@ export function useShopMap(
     center,
     selectedShop,
     panToPin,
+    panToArea,
     locate,
   };
 }

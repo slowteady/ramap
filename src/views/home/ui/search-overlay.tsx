@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { ChevronLeft, Clock, PenLine, Search, X } from "lucide-react";
+import { ChevronLeft, Clock, MapPin, PenLine, Search, X } from "lucide-react";
 import { type ShopPin } from "@/entities/shop";
 import { cn } from "@/shared/lib/utils";
 import type { MapFilters } from "../model/filter";
@@ -13,6 +13,7 @@ type SearchOverlayProps = {
   pins: ShopPin[];
   onSelectShop: (pin: ShopPin) => void;
   onSelectGenre: (filterKey: keyof MapFilters, slug: string) => void;
+  onSelectArea: (area: string) => void;
   onReport: () => void;
   onClose: () => void;
 };
@@ -50,6 +51,7 @@ export function SearchOverlay({
   pins,
   onSelectShop,
   onSelectGenre,
+  onSelectArea,
   onReport,
   onClose,
 }: SearchOverlayProps) {
@@ -74,6 +76,11 @@ export function SearchOverlay({
   const pickGenre = (filterKey: keyof MapFilters, slug: string, label: string) => {
     recent.add(label);
     onSelectGenre(filterKey, slug);
+  };
+  const pickArea = (area: string) => {
+    recent.add(area);
+    onSelectArea(area);
+    onClose();
   };
 
   return (
@@ -183,6 +190,21 @@ export function SearchOverlay({
                 <Search className="size-4 shrink-0 text-ramen" />
                 <span className="text-body font-bold text-ink">
                   <Highlight text={s.label} query={query} />
+                </span>
+                <span className="text-secondary text-gray-400">
+                  {s.count}곳
+                </span>
+              </button>
+            ) : s.kind === "area" ? (
+              <button
+                key={`a:${s.area}`}
+                type="button"
+                onClick={() => pickArea(s.area)}
+                className="flex items-center gap-2.5 border-b border-gray-050 py-3 text-left"
+              >
+                <MapPin className="size-4 shrink-0 text-gray-400" />
+                <span className="text-body font-bold text-ink">
+                  <Highlight text={s.area} query={query} />
                 </span>
                 <span className="text-secondary text-gray-400">
                   {s.count}곳

@@ -16,6 +16,8 @@ const pin = (
   amenities: [],
   isNew: false,
   name: id,
+  branch: null,
+  soupDetail: [],
   lat,
   lng,
   primarySoup: "niboshi",
