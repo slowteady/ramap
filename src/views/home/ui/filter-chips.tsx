@@ -29,7 +29,7 @@ export function FilterChips({
     0,
   );
   return (
-    <div className="flex min-w-0 flex-1 items-center gap-2 overflow-x-auto px-4 py-2 [scrollbar-width:none]">
+    <div className="mask-fade-r flex min-w-0 flex-1 items-center gap-2 overflow-x-auto py-2 pr-8 pl-4 [scrollbar-width:none]">
       {activeCount > 0 && (
         <button
           type="button"
