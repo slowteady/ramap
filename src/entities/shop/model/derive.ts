@@ -24,6 +24,23 @@ export function shopsByAreaGenre(
   );
 }
 
+/* 가이드의 매장 목록 — 운영자 확인분 먼저, 그다음 최근 확인일순 */
+export function shopsByGenre(shops: Shop[], genre: GenreSlug): Shop[] {
+  return shops
+    .filter(
+      (s) =>
+        s.status !== "closed" &&
+        ((s.soups as string[]).includes(genre) ||
+          (s.lineages as string[]).includes(genre)),
+    )
+    .sort((a, b) => {
+      const av = a.verification === "confirmed" ? 0 : 1;
+      const bv = b.verification === "confirmed" ? 0 : 1;
+      if (av !== bv) return av - bv;
+      return (b.lastVerifiedAt ?? "").localeCompare(a.lastVerifiedAt ?? "");
+    });
+}
+
 export function listAreaGenrePages(
   shops: Shop[],
   min = 3,

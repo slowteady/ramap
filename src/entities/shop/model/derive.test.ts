@@ -9,6 +9,7 @@ import {
   shopById,
   shopsByArea,
   shopsByAreaGenre,
+  shopsByGenre,
 } from "./derive";
 
 const shop = (over: Partial<Shop>): Shop => ({
@@ -153,5 +154,49 @@ describe("recentOpens", () => {
         (s) => s.id,
       ),
     ).toEqual(["fresh", "edge"]);
+  });
+});
+
+describe("shopsByGenre", () => {
+  it("장르 태그 매장 중 폐업 제외, 운영자 확인 우선 → 최근 확인일순", () => {
+    const a = shop({
+      id: "a",
+      soups: ["niboshi"],
+      verification: "pending",
+      lastVerifiedAt: "2026-08-30",
+    });
+    const b = shop({
+      id: "b",
+      soups: ["niboshi"],
+      verification: "confirmed",
+      lastVerifiedAt: "2026-08-01",
+    });
+    const c = shop({
+      id: "c",
+      lineages: ["iekei"],
+      soups: ["tonkotsu-shoyu"],
+      verification: "confirmed",
+      lastVerifiedAt: "2026-08-20",
+    });
+    const d = shop({
+      id: "d",
+      soups: ["niboshi"],
+      status: "closed",
+      verification: "confirmed",
+    });
+    const e = shop({
+      id: "e",
+      soups: ["niboshi"],
+      verification: "confirmed",
+      lastVerifiedAt: "2026-08-25",
+    });
+    expect(shopsByGenre([a, b, c, d, e], "niboshi").map((s) => s.id)).toEqual([
+      "e",
+      "b",
+      "a",
+    ]);
+    expect(shopsByGenre([a, b, c, d, e], "iekei").map((s) => s.id)).toEqual([
+      "c",
+    ]);
   });
 });

@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { GUIDES, guideBySlug, LINEAGES, soupBySlug } from "@/entities/shop";
+import {
+  GUIDES,
+  guideBySlug,
+  LINEAGES,
+  shopsByGenre,
+  soupBySlug,
+  type GenreSlug,
+} from "@/entities/shop";
 import { getShops } from "@/entities/shop/api/get-shops";
 import { GenreGuidePage } from "@/views/genre-guide";
 
@@ -29,12 +36,7 @@ export default async function Page({ params }: Props) {
   const guide = guideBySlug(slug);
   if (!guide) notFound();
 
-  const shops = (await getShops()).filter(
-    (s) =>
-      s.status !== "closed" &&
-      ((s.soups as string[]).includes(slug) ||
-        (s.lineages as string[]).includes(slug)),
-  );
+  const shops = shopsByGenre(await getShops(), slug as GenreSlug);
 
   return <GenreGuidePage guide={guide} shops={shops} />;
 }

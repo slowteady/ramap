@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { PageHeader } from "@/shared/ui/page-header";
 import {
-  GUIDES,
   LINEAGES,
   soupBySlug,
   type GuideContent,
@@ -23,11 +22,19 @@ export function GenreGuidePage({ guide, shops }: GenreGuidePageProps) {
   const { label, labelJa } = labelOf(guide.slug);
   const isSoup = Boolean(soupBySlug(guide.slug));
   const mapHref = isSoup ? `/?soup=${guide.slug}` : `/?lineage=${guide.slug}`;
-  const others = GUIDES.filter((g) => g.slug !== guide.slug).slice(0, 4);
 
   return (
     <div className="flex min-h-dvh flex-col pb-10">
-      <PageHeader />
+      <PageHeader
+        action={
+          <Link
+            href={mapHref}
+            className="text-secondary font-semibold text-ink"
+          >
+            지도로 보기
+          </Link>
+        }
+      />
 
       <div className="flex flex-col gap-3 px-4 pt-2">
         <div className="flex items-baseline gap-2">
@@ -52,7 +59,7 @@ export function GenreGuidePage({ guide, shops }: GenreGuidePageProps) {
           {[
             ["맛", guide.traits.taste],
             ["농도", guide.traits.body],
-            ["첫 주문", guide.traits.firstOrder],
+            ["기원", guide.origin],
           ].map(([label, value]) => (
             <div
               key={label}
@@ -67,27 +74,20 @@ export function GenreGuidePage({ guide, shops }: GenreGuidePageProps) {
         </dl>
       </section>
 
-      {guide.comparisons.length > 0 && (
-        <section className="flex flex-col gap-2 px-4 pt-8">
-          <h2 className="text-title font-bold text-ink">비슷한 듯 다른 계열</h2>
-          {guide.comparisons.map((comparison) => (
-            <div
-              key={comparison.name}
-              className="flex flex-col gap-1 rounded-card bg-gray-050 px-3 py-3"
-            >
-              <span className="text-body font-semibold text-ink">
-                {comparison.name}
-              </span>
-              <p className="text-secondary text-gray-500">{comparison.text}</p>
-            </div>
-          ))}
-        </section>
-      )}
+      <section className="flex flex-col gap-2 px-4 pt-8">
+        <h2 className="text-title font-bold text-ink">헷갈리기 쉬운 것</h2>
+        <p className="text-body leading-relaxed text-gray-500">
+          {guide.boundary}
+        </p>
+      </section>
 
       {shops.length > 0 && (
         <section className="flex flex-col gap-1 px-4 pt-8">
           <h2 className="text-title font-bold text-ink">
-            지금 가볼 수 있는 곳
+            {label} 매장
+            <span className="pl-1.5 text-body font-semibold text-gray-400">
+              {shops.length}곳
+            </span>
           </h2>
           <ul className="flex flex-col">
             {shops.slice(0, 3).map((shop) => (
@@ -109,28 +109,22 @@ export function GenreGuidePage({ guide, shops }: GenreGuidePageProps) {
         </section>
       )}
 
-      <div className="px-4 pt-6">
-        <Link
-          href={mapHref}
-          className="flex w-full items-center justify-center rounded-pill bg-ink py-3 text-body font-bold text-white"
-        >
-          {label} 전체 지도에서 보기
-        </Link>
-      </div>
-
-      <section className="flex flex-col gap-2 px-4 pt-8">
-        <h2 className="text-title font-bold text-ink">다른 계열 보기</h2>
-        <div className="flex flex-wrap gap-2">
-          {others.map((other) => (
-            <Link
-              key={other.slug}
-              href={`/guide/${other.slug}`}
-              className="rounded-pill bg-gray-050 px-3.5 py-1.5 text-secondary font-semibold text-ink"
-            >
-              {labelOf(other.slug).label}
-            </Link>
+      <section className="flex flex-col gap-1.5 px-4 pt-8">
+        <h2 className="text-secondary font-semibold text-gray-400">참고</h2>
+        <ul className="flex flex-col gap-1">
+          {guide.sources.map((source) => (
+            <li key={source.url}>
+              <a
+                href={source.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-secondary text-gray-500 underline underline-offset-2"
+              >
+                {source.name}
+              </a>
+            </li>
           ))}
-        </div>
+        </ul>
       </section>
     </div>
   );

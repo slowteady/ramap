@@ -31,6 +31,7 @@ export {
   shopById,
   shopsByArea,
   shopsByAreaGenre,
+  shopsByGenre,
   listAreaGenrePages,
   groupByOpenedMonth,
   isNewOpen,
