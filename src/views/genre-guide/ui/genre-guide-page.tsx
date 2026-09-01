@@ -45,7 +45,7 @@ export function GenreGuidePage({ guide, shops }: GenreGuidePageProps) {
             <span className="text-title text-gray-300">{labelJa}</span>
           )}
         </div>
-        {guide.intro.map((paragraph) => (
+        {[...guide.intro, guide.boundary].map((paragraph) => (
           <p
             key={paragraph.slice(0, 20)}
             className="text-body leading-relaxed text-gray-500"
@@ -74,13 +74,6 @@ export function GenreGuidePage({ guide, shops }: GenreGuidePageProps) {
             </div>
           ))}
         </dl>
-      </section>
-
-      <section className="flex flex-col gap-2 px-4 pt-8">
-        <h2 className="text-title font-bold text-ink">헷갈리기 쉬운 것</h2>
-        <p className="text-body leading-relaxed text-gray-500">
-          {guide.boundary}
-        </p>
       </section>
 
       {shops.length > 0 && (
