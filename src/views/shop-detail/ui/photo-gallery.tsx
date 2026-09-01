@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import { useDragScroll } from "../model/use-drag-scroll";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { ChevronLeft, X } from "lucide-react";
 
@@ -26,6 +27,8 @@ export function PhotoGallery({ shopName, photos }: PhotoGalleryProps) {
     if (!el) return;
     setIndex(Math.round(el.scrollLeft / el.clientWidth));
   };
+  const heroDrag = useDragScroll();
+  const viewerDrag = useDragScroll();
 
   return (
     <>
@@ -33,6 +36,7 @@ export function PhotoGallery({ shopName, photos }: PhotoGalleryProps) {
         <div
           ref={trackRef}
           onScroll={onTrackScroll}
+          {...heroDrag.handlers}
           className="flex snap-x snap-mandatory overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
           {photos.map((src, i) => (
@@ -40,14 +44,17 @@ export function PhotoGallery({ shopName, photos }: PhotoGalleryProps) {
               key={src}
               type="button"
               aria-label={`사진 크게 보기 ${i + 1}`}
-              onClick={openAlbum}
+              onClick={() => {
+                if (!heroDrag.dragged()) openAlbum();
+              }}
               className="aspect-[4/3] w-full shrink-0 snap-center"
             >
               <img
                 src={src}
                 alt={`${shopName} 사진 ${i + 1}`}
                 loading={i === 0 ? "eager" : "lazy"}
-                className="size-full object-cover"
+                draggable={false}
+                className="size-full object-cover select-none"
               />
             </button>
           ))}
@@ -115,6 +122,7 @@ export function PhotoGallery({ shopName, photos }: PhotoGalleryProps) {
               const el = e.currentTarget;
               setViewer(Math.round(el.scrollLeft / el.clientWidth));
             }}
+            {...viewerDrag.handlers}
             className="flex min-h-0 flex-1 snap-x snap-mandatory overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
           >
             {photos.map((src, i) => (
@@ -130,7 +138,8 @@ export function PhotoGallery({ shopName, photos }: PhotoGalleryProps) {
                 <img
                   src={src}
                   alt={`${shopName} 사진 ${i + 1}`}
-                  className="max-h-full w-full object-contain"
+                  draggable={false}
+                  className="max-h-full w-full object-contain select-none"
                 />
               </div>
             ))}
