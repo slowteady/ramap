@@ -10,6 +10,7 @@ import { useAuth, useProfile } from "@/features/auth";
 import { LoginPromptSheet, useRecords } from "@/features/records";
 import { cn } from "@/shared/lib/utils";
 import { recordTime, sortRecordsByRecent } from "../model/sort-records";
+import { MeMenu } from "./me-menu";
 
 const TABS = [
   { key: "visited", label: "완식" },
@@ -61,16 +62,8 @@ function MeBody({ shops }: { shops: Shop[] }) {
             로그인하면 완식·저장 기록이 여기에 모여요
           </p>
         </div>
-        <div className="mt-auto px-4">
-          <p className="flex gap-1.5 text-caption text-gray-300">
-            <Link href="/terms" className="underline underline-offset-2">
-              이용약관
-            </Link>
-            ·
-            <Link href="/privacy" className="underline underline-offset-2">
-              개인정보 처리방침
-            </Link>
-          </p>
+        <div className="pt-8">
+          <MeMenu authed={false} />
         </div>
         <LoginPromptSheet open={loginOpen} onClose={() => setLoginOpen(false)} />
       </div>
@@ -174,33 +167,15 @@ function MeBody({ shops }: { shops: Shop[] }) {
         </div>
       )}
 
-      <div className="mt-auto flex flex-col items-start gap-3 px-4 pt-10">
-        <button
-          type="button"
-          onClick={exportDownload}
-          className="text-secondary text-gray-400 underline underline-offset-2"
-        >
-          기록 JSON 내려받기
-        </button>
-        <button
-          type="button"
-          onClick={() => {
+      <div className="mt-auto pt-10">
+        <MeMenu
+          authed
+          onExport={exportDownload}
+          onSignOut={() => {
             signOut();
             router.push("/");
           }}
-          className="text-secondary text-gray-400 underline underline-offset-2"
-        >
-          로그아웃
-        </button>
-        <p className="flex gap-1.5 pt-2 text-caption text-gray-300">
-          <Link href="/terms" className="underline underline-offset-2">
-            이용약관
-          </Link>
-          ·
-          <Link href="/privacy" className="underline underline-offset-2">
-            개인정보 처리방침
-          </Link>
-        </p>
+        />
       </div>
     </div>
   );
