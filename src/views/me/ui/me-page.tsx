@@ -23,7 +23,7 @@ function MeBody({ shops }: { shops: Shop[] }) {
   const router = useRouter();
   const params = useSearchParams();
   const { user, ready, signOut } = useAuth();
-  const { displayName } = useProfile();
+  const { displayName, profileLoaded } = useProfile();
   const { records, exportDownload } = useRecords();
   const [loginOpen, setLoginOpen] = useState(false);
 
@@ -83,9 +83,13 @@ function MeBody({ shops }: { shops: Shop[] }) {
       </header>
 
       <div className="flex flex-col gap-1 px-4 pt-1">
-        <h1 className="text-heading font-extrabold text-ink">
-          {displayName}님
-        </h1>
+        {profileLoaded ? (
+          <h1 className="text-heading font-extrabold text-ink">
+            {displayName}님
+          </h1>
+        ) : (
+          <div className="h-7 w-36 animate-pulse rounded-card bg-gray-100" />
+        )}
         <p className="text-secondary text-gray-500">
           완식 {visitedCount} · 저장 {wantCount}
         </p>

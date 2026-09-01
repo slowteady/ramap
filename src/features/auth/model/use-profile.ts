@@ -62,6 +62,7 @@ export function useProfile() {
   return {
     nickname: state.nickname,
     displayName: state.nickname ?? "라멘 러버",
+    profileLoaded: state.loaded,
     agreedAt: state.agreedAt,
     needsConsent: state.loaded && state.agreedAt === null,
     agree,
