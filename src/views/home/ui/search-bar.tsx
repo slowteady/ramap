@@ -4,26 +4,26 @@ import { Suspense } from "react";
 import { Search } from "lucide-react";
 import { useSearchQuery } from "../model/use-search-query";
 
-function SearchBarInner() {
+function SearchButtonInner() {
   const { open } = useSearchQuery();
   return (
     <button
       type="button"
+      aria-label="검색"
       onClick={open}
-      className="flex min-w-0 flex-1 items-center gap-2 rounded-pill bg-gray-050 px-3.5 py-2"
+      className="-m-1.5 flex size-11 items-center justify-center rounded-pill"
     >
-      <Search className="size-4 shrink-0 text-gray-400" />
-      <span className="truncate text-secondary text-gray-400">
-        라멘집·장르·동네 검색
+      <span className="flex size-8 items-center justify-center rounded-pill bg-gray-050 text-ink">
+        <Search className="size-4.5" />
       </span>
     </button>
   );
 }
 
-export function SearchBar() {
+export function SearchButton() {
   return (
     <Suspense>
-      <SearchBarInner />
+      <SearchButtonInner />
     </Suspense>
   );
 }
