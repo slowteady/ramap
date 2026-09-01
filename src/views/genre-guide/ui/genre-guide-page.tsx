@@ -27,13 +27,7 @@ export function GenreGuidePage({ guide, shops }: GenreGuidePageProps) {
 
   return (
     <div className="flex min-h-dvh flex-col pb-10">
-      <PageHeader
-        action={
-          <span className="text-secondary text-gray-400">
-            {isSoup ? "국물 가이드" : "스타일 가이드"}
-          </span>
-        }
-      />
+      <PageHeader />
 
       <div className="flex flex-col gap-3 px-4 pt-2">
         <div className="flex items-baseline gap-2">
