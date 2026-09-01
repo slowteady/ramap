@@ -98,13 +98,13 @@ export function NewOpensPage({ shops }: { shops: Shop[] }) {
       )}
 
       <Link
-        href="/report"
+        href="/?report=new"
         className="mx-4 mt-8 flex items-center justify-between rounded-card bg-gray-050 px-4 py-4"
       >
         <span className="text-body text-gray-500">
           새 라멘집을 발견하셨나요?
         </span>
-        <span className="text-body font-bold text-ramen">제보하기 →</span>
+        <span className="text-body font-bold text-ramen">라멘집 등록 →</span>
       </Link>
 
       <section className="flex flex-col gap-2 px-4 pt-8">

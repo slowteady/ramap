@@ -40,3 +40,13 @@ alter table public.reports enable row level security;
 create policy "reports: 누구나 제출" on public.reports
   for insert with check (true);
 -- select 정책 없음 = anon으로 조회 불가. 검수는 대시보드(service role)에서
+
+-- 등록 요청 사진 (익명 업로드 허용, 비공개 — 검수 승인분만 운영자가 공개 경로로 이동)
+insert into storage.buckets (id, name, public, file_size_limit, allowed_mime_types)
+values ('report-photos', 'report-photos', false, 5242880, array['image/jpeg'])
+on conflict (id) do nothing;
+
+create policy "report-photos: 누구나 업로드" on storage.objects
+  for insert to anon, authenticated
+  with check (bucket_id = 'report-photos');
+-- select 정책 없음 = 업로드한 본인도 URL로 열람 불가. 검수는 대시보드에서

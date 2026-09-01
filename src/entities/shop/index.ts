@@ -34,6 +34,7 @@ export {
   listAreaGenrePages,
   groupByOpenedMonth,
   isNewOpen,
+  nearbyShops,
 } from "@/entities/shop/model/derive";
 export type { GenreSlug } from "@/entities/shop/model/derive";
 export {

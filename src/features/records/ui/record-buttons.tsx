@@ -24,7 +24,7 @@ export function RecordButtons({
         type="button"
         onClick={visit}
         className={cn(
-          "flex flex-1 items-center justify-center gap-1.5 rounded-pill px-3.5 py-2 text-secondary font-bold transition-colors duration-150",
+          "flex flex-1 items-center justify-center gap-1.5 h-11 rounded-pill px-3.5 text-secondary font-bold transition-colors duration-150",
           visited
             ? "border border-ramen bg-ramen-050 text-ramen"
             : "bg-ramen text-white",
@@ -38,7 +38,7 @@ export function RecordButtons({
         onClick={save}
         disabled={visited}
         className={cn(
-          "flex flex-1 items-center justify-center gap-1.5 rounded-pill px-3.5 py-2 text-secondary font-bold",
+          "flex flex-1 items-center justify-center gap-1.5 h-11 rounded-pill px-3.5 text-secondary font-bold",
           want
             ? "border border-ramen bg-ramen-050 text-ramen"
             : "bg-gray-050 text-ink",

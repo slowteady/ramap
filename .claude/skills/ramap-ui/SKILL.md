@@ -9,9 +9,11 @@ description: Use when writing, editing, or reviewing any UI code (components, st
 
 - 색: 흰 배경 + 그레이 4단 + 액센트 라멘 레드 1색(+틴트 2단) + 시맨틱 그린. 새 색 추가 금지. 태그 칩 유채는 1차 축(국물)에만 — 값별 다색 금지(2026-08-28 조사: 9값>구분 한계·색약 병합·학습 불가)
 - 텍스트 근흑(#1A1B1F 계열), 순흑 금지
-- radius: 카드 8~12px / 칩·버튼 pill(9999px) / 그 외 금지
+- radius: 카드 8~12px(`rounded-card`/`-lg`) / 컨트롤 칩·버튼 pill(`rounded-pill`) / 태그 배지(장르·편의) 5px(`rounded-chip`, 무신사식 콘텐츠·컨트롤 형태 분리) / 그 외 금지
 - 폰트: Pretendard, 스케일 5~6단 고정, 위계는 크기보다 굵기(400/600/700)
 - 카드 구획은 그림자·테두리 대신 여백. 아이콘은 lucide 단일 세트
+- 클릭 요소는 `<button>`/`<a>`로만 (div·span에 onClick 금지). 커서는 globals.css base 레이어가 일괄 pointer 처리 — 개별 `cursor-pointer` 유틸 금지, 예외(투명 백드롭 등)만 `cursor-default`
+- `cn()`은 커스텀 텍스트 스케일이 등록된 `shared/lib/utils`의 것만 사용 — `tailwind-merge`를 직접 import 금지 (text-body가 색으로 오인돼 삭제됨)
 
 ## 스타일 금지 시그니처
 

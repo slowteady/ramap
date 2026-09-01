@@ -13,7 +13,8 @@
     "format:check": "prettier --check .",
     "sync-sheet": "tsx scripts/sync-sheet.ts",
     "seed-candidates": "tsx scripts/seed-candidates.ts",
-    "diff-localdata": "tsx scripts/diff-localdata.ts"
+    "diff-localdata": "tsx scripts/diff-localdata.ts",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.112.4",
@@ -44,6 +45,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.3.3",
     "jsdom": "^29.1.1",
+    "patch-package": "^8.0.1",
     "prettier": "^3.9.6",
     "server-only": "^0.0.1",
     "tailwindcss": "^4",

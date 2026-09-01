@@ -10,9 +10,9 @@ body {
 
 @theme {
   --container-app: 480px; /* 모바일 퍼스트 셸 최대 폭 — 시트·오버레이 포함 전 화면 공통 */
-  --color-ramen: #e8442e; /* 유일한 유채색 */
-  --color-ramen-050: #fdf1ef; /* 활성 칩 틴트 배경 (캐치테이블 5% 공식) */
-  --color-ramen-100: #fbe0da; /* 선택 칩 틴트 배경 */
+  --color-ramen: #e23c36; /* 유일한 유채색 — hue 2°, 캐치테이블 브랜드(#FF3D00, 14°)와 12° 분리 (2026-08-31) */
+  --color-ramen-050: #fdf0f0; /* 활성 칩 틴트 배경 (캐치테이블 5% 공식) */
+  --color-ramen-100: #fadedd; /* 선택 칩 틴트 배경 */
   --color-ink: #1a1b1f; /* 순흑 금지 */
   --color-gray-500: #3d4048;
   --color-gray-400: #6b6e76;
@@ -49,7 +49,7 @@ body {
   --card-foreground: #1a1b1f;
   --popover: #ffffff;
   --popover-foreground: #1a1b1f;
-  --primary: #e8442e;
+  --primary: #e23c36;
   --primary-foreground: #ffffff;
   --secondary: #f0f1f3;
   --secondary-foreground: #1a1b1f;
@@ -93,5 +93,10 @@ body {
   }
   body {
     @apply bg-background text-foreground font-sans;
+  }
+  /* Tailwind v4는 버튼 커서를 default로 바꿈 — 클릭 요소는 전부 pointer (공식 업그레이드 가이드 권장 규칙) */
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
   }
 }

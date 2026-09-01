@@ -1,38 +1,15 @@
-export type ReportType = "new" | "edit" | "closed";
-
-export type ReportPayload = {
-  type: ReportType;
-  shopName: string;
-  location: string;
-  message: string;
-};
+import { getSupabase } from "@/shared/api/supabase";
+import type { ReportRow } from "./report-payload";
 
 export type ReportResult =
   { ok: true } | { ok: false; reason: "unconfigured" | "network" };
 
-export async function submitReport(
-  payload: ReportPayload,
-): Promise<ReportResult> {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-  if (!url || !key) return { ok: false, reason: "unconfigured" };
-
+export async function submitReport(row: ReportRow): Promise<ReportResult> {
+  const client = getSupabase();
+  if (!client) return { ok: false, reason: "unconfigured" };
   try {
-    const res = await fetch(`${url}/rest/v1/reports`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        apikey: key,
-        Authorization: `Bearer ${key}`,
-      },
-      body: JSON.stringify({
-        type: payload.type,
-        shop_name: payload.shopName,
-        location: payload.location,
-        message: payload.message || null,
-      }),
-    });
-    return res.ok ? { ok: true } : { ok: false, reason: "network" };
+    const { error } = await client.from("reports").insert(row);
+    return error ? { ok: false, reason: "network" } : { ok: true };
   } catch {
     return { ok: false, reason: "network" };
   }

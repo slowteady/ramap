@@ -153,7 +153,7 @@ function ShopCardBody({
           type="button"
           onClick={onClose}
           aria-label="목록으로"
-          className="-ml-1.5 shrink-0 rounded-pill p-1 text-ink"
+          className="-my-2 -ml-3.5 flex size-11 shrink-0 items-center justify-center rounded-pill text-ink"
         >
           <ChevronLeft className="size-5" />
         </button>
@@ -164,15 +164,12 @@ function ShopCardBody({
           href={`https://map.kakao.com/link/to/${encodeURIComponent(shop.name)},${shop.lat},${shop.lng}`}
           target="_blank"
           rel="noreferrer"
-          className="shrink-0 text-secondary font-semibold text-ramen"
+          className="-my-2 -mr-2 flex h-11 shrink-0 items-center px-2 text-secondary font-semibold text-ramen"
         >
           길찾기 ›
         </a>
       </div>
-      <Link
-        href={`/shop/${shop.id}`}
-        className="flex min-w-0 flex-col gap-1.5"
-      >
+      <Link href={`/shop/${shop.id}`} className="flex min-w-0 flex-col gap-1.5">
         <MetaRow pin={shop} center={center} full />
         <GenreChips
           soups={shop.soups}
@@ -236,11 +233,15 @@ export function ShopSheet({
       dismissible={false}
       snapPoints={
         selectedShop
-          ? [SNAP_CARD]
+          ? [SNAP_COLLAPSED, SNAP_CARD]
           : [SNAP_HIDDEN, SNAP_COLLAPSED, SNAP_MID, SNAP_FULL]
       }
       activeSnapPoint={snap}
-      setActiveSnapPoint={setSnap}
+      setActiveSnapPoint={(next) => {
+        setSnap(next);
+        /* 카드를 끌어내리면 닫고 목록 접힘으로 — 카카오맵·캐치테이블 관례 */
+        if (selectedShop && next === SNAP_COLLAPSED) onClose();
+      }}
     >
       <DrawerContent
         overlay={false}
@@ -248,7 +249,11 @@ export function ShopSheet({
       >
         {selectedShop ? (
           <div className="h-sheet-card px-4 pt-2 pb-4">
-            <ShopCardBody shop={selectedShop} center={userLocation} onClose={onClose} />
+            <ShopCardBody
+              shop={selectedShop}
+              center={userLocation}
+              onClose={onClose}
+            />
           </div>
         ) : (
           <div className="flex h-full min-h-0 flex-col px-4 pt-1">
