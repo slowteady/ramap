@@ -18,6 +18,8 @@ function labelOf(slug: string): { label: string; labelJa?: string } {
   return item ?? { label: slug };
 }
 
+const GUIDE_SHOP_MAX = 5;
+
 export function GenreGuidePage({ guide, shops }: GenreGuidePageProps) {
   const { label, labelJa } = labelOf(guide.slug);
   const isSoup = Boolean(soupBySlug(guide.slug));
@@ -90,7 +92,7 @@ export function GenreGuidePage({ guide, shops }: GenreGuidePageProps) {
             </span>
           </h2>
           <ul className="flex flex-col">
-            {shops.slice(0, 3).map((shop) => (
+            {shops.slice(0, GUIDE_SHOP_MAX).map((shop) => (
               <li key={shop.id} className="border-b border-gray-050">
                 <Link
                   href={`/shop/${shop.id}`}
@@ -106,6 +108,14 @@ export function GenreGuidePage({ guide, shops }: GenreGuidePageProps) {
               </li>
             ))}
           </ul>
+          {shops.length > GUIDE_SHOP_MAX && (
+            <Link
+              href={mapHref}
+              className="pt-2 text-secondary font-semibold text-gray-500 underline underline-offset-2"
+            >
+              지도에서 {shops.length}곳 모두 보기
+            </Link>
+          )}
         </section>
       )}
 
