@@ -13,9 +13,17 @@ type FilterChipsProps = {
   filters: MapFilters;
   onOpenAxis: (axis: FilterAxis) => void;
   onApply: (next: MapFilters) => void;
+  hideVisited: boolean | null;
+  onToggleHideVisited: () => void;
 };
 
-export function FilterChips({ filters, onOpenAxis, onApply }: FilterChipsProps) {
+export function FilterChips({
+  filters,
+  onOpenAxis,
+  onApply,
+  hideVisited,
+  onToggleHideVisited,
+}: FilterChipsProps) {
   const activeCount = FILTER_AXES.reduce(
     (n, a) => n + axisChipCount(a, filters),
     0,
@@ -55,6 +63,20 @@ export function FilterChips({ filters, onOpenAxis, onApply }: FilterChipsProps) 
           </button>
         );
       })}
+      {hideVisited !== null && (
+        <button
+          type="button"
+          onClick={onToggleHideVisited}
+          className={cn(
+            "shrink-0 rounded-pill border py-1.5 px-3.5 text-secondary font-semibold whitespace-nowrap transition-colors duration-150",
+            hideVisited
+              ? "border-ramen bg-ramen-050 text-ramen"
+              : "border-gray-100 bg-white text-ink shadow-[0_1px_4px_rgba(26,27,31,0.06)]",
+          )}
+        >
+          안 가본 집
+        </button>
+      )}
     </div>
   );
 }
