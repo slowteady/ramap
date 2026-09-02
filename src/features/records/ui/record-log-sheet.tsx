@@ -58,7 +58,7 @@ export function RecordLogSheet({
 
   return (
     <Drawer open onOpenChange={(next) => !next && onClose()}>
-      <DrawerContent>
+      <DrawerContent showClose>
         <div className="flex flex-col gap-4 overflow-y-auto px-4 pt-5 pb-8">
           <div className="flex flex-col gap-1">
             <DrawerTitle className="text-title font-bold text-ink">

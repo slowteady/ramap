@@ -63,6 +63,11 @@ export const SOUPS = [
     description: "참깨 페이스트와 라유의 매콤 고소한 국물",
   },
   {
+    slug: "gyokai",
+    label: "교카이",
+    description: "가다랑어·어패류 다시를 살린 국물 — 돈코츠교카이가 대표",
+  },
+  {
     slug: "tomato",
     label: "토마토",
     description: "토마토의 산미를 살린 이탈리안 퓨전 국물",

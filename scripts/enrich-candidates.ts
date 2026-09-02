@@ -85,6 +85,12 @@ for (const line of lines.slice(1)) {
   cells.네이버플레이스 = e.naverPlace ?? "";
   cells.오픈일 = e.openedAt ?? "";
   cells.영업시간 = e.hours ?? "";
+  cells.브레이크 = e.breakTime ?? "";
+  cells.휴무 = e.closedDays ?? "";
+  cells.좌석 = e.seats ?? "";
+  (e.menus ?? []).slice(0, 3).forEach((m, i) => {
+    cells[`대표메뉴${i + 1}`] = m;
+  });
   if (matches.length > 0) tagged += 1;
   if (e.closed) {
     closedHints += 1;
@@ -97,6 +103,9 @@ for (const line of lines.slice(1)) {
 
   let verdict = verdictOf(matches.length, e);
   if (verdict === "publish" && (!cells.lat || !cells.lng)) verdict = "hold";
+  /* 위치가 불확실한 매장은 보류 (2026-09-02 PO: 확실하지 않으면 보류) */
+  if (verdict === "publish" && (e.sourceNote ?? "").includes("주소 상이"))
+    verdict = "hold";
   if (verdict === "exclude") {
     excluded += 1;
   } else if (verdict === "hold") {

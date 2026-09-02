@@ -13,7 +13,7 @@ export function LoginPromptSheet({
   if (!open) return null;
   return (
     <Drawer open onOpenChange={(next) => !next && onClose()}>
-      <DrawerContent>
+      <DrawerContent showClose>
         <div className="flex flex-col items-center gap-2 px-4 pt-8 pb-8 text-center">
           <span aria-hidden className="text-5xl">
             🍜

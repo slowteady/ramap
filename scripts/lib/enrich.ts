@@ -16,6 +16,10 @@ export type Enrichment = {
   naverPlace?: string;
   openedAt?: string;
   hours?: string;
+  breakTime?: string;
+  closedDays?: string;
+  seats?: string;
+  menus?: string[];
   closed?: boolean;
   sourceNote?: string;
 };
@@ -64,6 +68,7 @@ export function matchEnrichment(
 const SOUP_PROMOTIONS: Record<string, string> = {
   토마토: "토마토",
   토마토라멘: "토마토",
+  교카이: "교카이",
 };
 
 /* 조사 산출물의 세부 표기 이형 통일 — 상세 화면 노출을 위한 정규화 */
@@ -150,6 +155,10 @@ export function mergeEnrichments(matches: Enrichment[]): Enrichment {
     merged.naverPlace ??= e.naverPlace;
     merged.openedAt ??= e.openedAt;
     merged.hours ??= e.hours;
+    merged.breakTime ??= e.breakTime;
+    merged.closedDays ??= e.closedDays;
+    merged.seats ??= e.seats;
+    merged.menus ??= e.menus;
     merged.closed ||= e.closed;
     merged.sourceNote = [merged.sourceNote, e.sourceNote]
       .filter(Boolean)

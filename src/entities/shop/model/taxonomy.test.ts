@@ -8,9 +8,9 @@ import {
 } from "@/entities/shop/model/taxonomy";
 
 describe("taxonomy v2.1", () => {
-  it("스프 계열은 기타 포함 10종이며 슬러그가 유일하다", () => {
-    expect(SOUPS).toHaveLength(10);
-    expect(new Set(SOUPS.map((s) => s.slug)).size).toBe(10);
+  it("스프 계열은 기타 포함 11종이며 슬러그가 유일하다", () => {
+    expect(SOUPS).toHaveLength(11);
+    expect(new Set(SOUPS.map((s) => s.slug)).size).toBe(11);
   });
 
   it("니보시는 커뮤니티 라벨을 쓴다 (어패계 아님)", () => {

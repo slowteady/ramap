@@ -125,7 +125,7 @@ export function FilterSheet({
 
   return (
     <Drawer open onOpenChange={(open) => !open && onClose()}>
-      <DrawerContent>
+      <DrawerContent showClose>
         <div className="flex gap-5 border-b border-gray-100 px-4 pt-4">
           {FILTER_AXES.map((a) => {
             const active = a.axis === tab;

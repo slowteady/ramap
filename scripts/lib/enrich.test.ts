@@ -49,9 +49,9 @@ describe("promoteSoups", () => {
     const e = promoteSoups({
       name: "a",
       soups: ["쇼유"],
-      soupDetail: ["토마토라멘", "교카이"],
+      soupDetail: ["토마토라멘", "교카이", "하카타"],
     });
-    expect(e.soups).toEqual(["쇼유", "토마토"]);
-    expect(e.soupDetail).toEqual(["교카이"]);
+    expect(e.soups).toEqual(["쇼유", "토마토", "교카이"]);
+    expect(e.soupDetail).toEqual(["하카타"]);
   });
 });
