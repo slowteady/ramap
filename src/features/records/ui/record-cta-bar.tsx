@@ -48,7 +48,7 @@ export function RecordCtaBar({ shopId }: { shopId: string }) {
           )}
         >
           <Check className="size-4.5" />
-          {visited ? "완식 ✓" : "완식"}
+          완식
         </button>
       </div>
       <LoginPromptSheet open={authPrompt} onClose={closeAuthPrompt} />
