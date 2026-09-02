@@ -5,6 +5,7 @@ import { ConsentSheet } from "@/features/auth";
 import { Toaster } from "@/shared/ui/sonner";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://ramap.kr"),
   title: {
     default: "라맵 — 라멘 맛집 지도",
     template: "%s | 라맵",
