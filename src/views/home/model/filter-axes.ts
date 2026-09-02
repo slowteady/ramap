@@ -43,5 +43,10 @@ export function axisChipCount(
   axis: (typeof FILTER_AXES)[number],
   filters: MapFilters,
 ): number {
+  /* 특성 토글(자가제면 등)은 별도 칩이 담당 — 스타일 칩 카운트에서 제외 */
+  if (axis.filterKey === "lineages") {
+    const visible = new Set(visibleItems(axis.items).map((i) => i.slug));
+    return filters.lineages.filter((s) => visible.has(s)).length;
+  }
   return filters[axis.filterKey].length;
 }

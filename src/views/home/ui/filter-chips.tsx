@@ -1,6 +1,7 @@
 "use client";
 
 import { ChevronDown, RotateCcw } from "lucide-react";
+import { LINEAGES, type LineageSlug } from "@/entities/shop";
 import { cn } from "@/shared/lib/utils";
 import { useDragScroll } from "@/shared/lib/use-drag-scroll";
 import { EMPTY_FILTERS, type MapFilters } from "../model/filter";
@@ -18,6 +19,8 @@ type FilterChipsProps = {
   onToggleHideVisited: () => void;
   hasNew: boolean;
 };
+
+const TRAIT_ITEMS = LINEAGES.filter((l) => l.kind === "trait");
 
 export function FilterChips({
   filters,
@@ -84,6 +87,31 @@ export function FilterChips({
           새로 오픈
         </button>
       )}
+      {TRAIT_ITEMS.map((item) => {
+        const active = filters.lineages.includes(item.slug as LineageSlug);
+        return (
+          <button
+            key={item.slug}
+            type="button"
+            onClick={() =>
+              onApply({
+                ...filters,
+                lineages: active
+                  ? filters.lineages.filter((s) => s !== item.slug)
+                  : [...filters.lineages, item.slug as LineageSlug],
+              })
+            }
+            className={cn(
+              "shrink-0 rounded-pill border px-3.5 py-1.5 text-secondary font-semibold whitespace-nowrap transition-colors duration-150",
+              active
+                ? "border-ramen bg-ramen-050 text-ramen"
+                : "border-gray-100 bg-white text-ink shadow-[0_1px_4px_rgba(26,27,31,0.06)]",
+            )}
+          >
+            {item.label}
+          </button>
+        );
+      })}
       {hideVisited !== null && (
         <button
           type="button"
