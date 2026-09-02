@@ -102,6 +102,14 @@ export function FilterSheet({
         )}
       >
         {item.label}
+        <span
+          className={cn(
+            "pl-1 text-secondary font-medium",
+            isOn ? "text-ramen" : "text-gray-400",
+          )}
+        >
+          {count}
+        </span>
       </button>
     );
   };
