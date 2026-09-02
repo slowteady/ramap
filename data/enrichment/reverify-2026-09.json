@@ -1,0 +1,614 @@
+[
+  {
+    "name": "멘야유메미루 강남점",
+    "forms": ["마제소바"],
+    "soupDetail": ["아부라소바"],
+    "instagram": "@menya.yumemiru",
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "유즈라멘 서울역본점",
+    "soups": ["시오", "쇼유"],
+    "forms": ["라멘", "츠케멘"],
+    "soupDetail": ["유즈라멘"],
+    "instagram": "@yuzu_ramen",
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "유즈라멘 서울역본점",
+    "soups": ["시오", "쇼유"],
+    "forms": ["라멘", "츠케멘"],
+    "soupDetail": ["유즈라멘"],
+    "instagram": "@yuzu_ramen",
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "계단라멘",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "저온숙성구름카츠&마제소바 천호점",
+    "forms": ["마제소바"],
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "유메이라멘",
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "잇또라멘 노원점",
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "멘야포모 성수점",
+    "forms": ["라멘"],
+    "soupDetail": ["토마토라멘"],
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "멘야돈토리",
+    "soups": ["미소"],
+    "forms": ["라멘"],
+    "soupDetail": ["나가사키라멘"],
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "멘야소바",
+    "soups": ["돈코츠", "탄탄멘"],
+    "forms": ["라멘", "마제소바"],
+    "instagram": "@manyasoba",
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "멘야호타루",
+    "forms": ["마제소바"],
+    "instagram": "@hotaru_kor",
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "토모멘야",
+    "soups": ["돈코츠", "탄탄멘"],
+    "forms": ["라멘"],
+    "instagram": "@tomo_menya",
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "오로지라멘 중앙유통단지점",
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "멘야서울 중림점",
+    "forms": ["라멘"],
+    "instagram": "@menya_seoul_jungnim",
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "저온숙성구름카츠&마제소바",
+    "soupDetail": ["실존 미확인"],
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "태양의 토마토라멘 대학로점",
+    "soupDetail": ["토마토라멘"],
+    "forms": ["라멘"],
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "히카리라멘",
+    "soups": ["토리파이탄"],
+    "forms": ["라멘", "마제소바"],
+    "soupDetail": ["한방라멘"],
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "멘야포모 강남구청점",
+    "soupDetail": ["토마토라멘"],
+    "forms": ["라멘", "마제소바"],
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "초이라멘",
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "서양라멘",
+    "soups": ["돈코츠쇼유"],
+    "soupDetail": ["요푸라멘"],
+    "forms": ["라멘"],
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "신승호 라멘집",
+    "soupDetail": ["아부라소바"],
+    "instagram": "_shin_ramen_",
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "멘야서울 용산본점",
+    "soupDetail": ["동파육 차슈 라멘"],
+    "forms": ["라멘"],
+    "instagram": "menya_seoul",
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "토마라멘",
+    "soupDetail": ["토마토라멘"],
+    "forms": ["라멘"],
+    "instagram": "tomaramen",
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "멘야서울 용산아이파크몰점",
+    "soupDetail": ["동파육 차슈 라멘"],
+    "forms": ["라멘"],
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "이찌방라멘&카츠카레",
+    "soupDetail": ["실존 미확인"],
+    "sourceNote": "재검증(다음검색). 입력 주소(화양동 능동로19길) 매장 흔적 없음 — 동일 상호가 광진구 동일로52길 3(군자동)에만 노출"
+  },
+  {
+    "name": "소라라멘",
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "요라멘",
+    "soups": ["돈코츠"],
+    "forms": ["라멘", "마제소바"],
+    "instagram": "yo_ra.men",
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "카라멘야 주식회사",
+    "soupDetail": ["카라멘"],
+    "forms": ["라멘", "마제소바"],
+    "instagram": "karamenya_i",
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "마츠에라멘",
+    "soupDetail": ["시지미라멘"],
+    "forms": ["라멘"],
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "계단라멘",
+    "soups": ["돈코츠"],
+    "soupDetail": ["모츠라멘"],
+    "forms": ["라멘"],
+    "instagram": "upstairramen_magok",
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "라멘짱 앤 청계산뚝배기수제비",
+    "branch": "",
+    "forms": ["라멘"],
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "소노키라멘 영등포점",
+    "branch": "",
+    "forms": ["라멘", "마제소바"],
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "동경라멘학교",
+    "branch": "",
+    "soups": ["시오", "토리파이탄", "미소"],
+    "forms": ["라멘"],
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "태양의토마토라멘",
+    "branch": "",
+    "forms": ["라멘"],
+    "soupDetail": ["토마토라멘"],
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "멘야 유메미루",
+    "branch": "",
+    "forms": ["마제소바"],
+    "instagram": "menya.yumemiru",
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "태양의 토마토라멘",
+    "branch": "",
+    "forms": ["라멘"],
+    "soupDetail": ["토마토라멘"],
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "태양의 토마토라멘 송리단길점",
+    "branch": "",
+    "forms": ["라멘"],
+    "soupDetail": ["토마토라멘"],
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "원라멘",
+    "branch": "",
+    "forms": ["라멘", "마제소바"],
+    "soupDetail": ["숯불고기라멘", "토마토라멘", "부대라멘"],
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "하타나카라멘",
+    "branch": "",
+    "forms": ["라멘"],
+    "soupDetail": ["곱창라멘", "해장라멘"],
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "멘무샤",
+    "branch": "",
+    "soups": ["돈코츠", "쇼유", "미소", "탄탄멘"],
+    "forms": ["라멘"],
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "아오리의행방불명",
+    "branch": "노원점",
+    "soups": ["미소"],
+    "forms": ["라멘", "마제소바"],
+    "instagram": "aoriramen",
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "손모아아오리의행방불명",
+    "branch": "명동점",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "closed": true,
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "산쪼메보라매",
+    "branch": "딜리버리점",
+    "forms": ["라멘"],
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "젠푸드히노아지롯데미아점",
+    "branch": "백화점",
+    "soups": ["쇼유", "탄탄멘"],
+    "forms": ["라멘"],
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "멘무샤",
+    "branch": "시청점",
+    "soups": ["돈코츠", "쇼유", "미소", "탄탄멘"],
+    "forms": ["라멘"],
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "코이라멘",
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "젠푸드히노아지롯데관악점",
+    "soupDetail": ["라멘집 아님"],
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "젠푸드히노아지롯데백화점",
+    "soupDetail": ["라멘집 아님"],
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "이찌방라멘&카츠카레관악",
+    "soupDetail": ["실존 미확인"],
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "산쪼메",
+    "instagram": "guui_ssancho",
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "산쪼메",
+    "soups": ["돈코츠", "쇼유", "시오"],
+    "forms": ["라멘", "츠케멘"],
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "쇼부일본라멘강남고속터미널1호점",
+    "soups": ["돈코츠", "쇼유", "미소", "탄탄멘"],
+    "forms": ["라멘"],
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "도마;유즈라멘",
+    "soups": ["시오", "쇼유"],
+    "forms": ["라멘", "츠케멘"],
+    "soupDetail": ["유즈라멘"],
+    "instagram": "yuzu_ramen2",
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "모리라멘&돈카츠",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "코란라멘",
+    "soupDetail": ["실존 미확인"],
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "미친라멘",
+    "soupDetail": ["실존 미확인"],
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "산쪼메",
+    "instagram": "sanchome_gangseo",
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "아오리의행방불명",
+    "soups": ["미소"],
+    "forms": ["라멘", "마제소바"],
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "코이라멘",
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "멘무샤",
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "하코야우림점",
+    "branch": "",
+    "id": "hakoyaurimjeom",
+    "soups": ["돈코츠", "쇼유", "미소", "탄탄멘"],
+    "forms": ["라멘"],
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "산쪼메이수점",
+    "branch": "",
+    "id": "sanjjomeisujeom",
+    "soups": ["돈코츠", "쇼유", "시오"],
+    "forms": ["라멘", "츠케멘"],
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "아오리의행방불명",
+    "branch": "강남점",
+    "id": "aoriuihaengbangbulmyeong-gangnamjeom",
+    "soups": ["돈코츠", "미소"],
+    "forms": ["라멘", "마제소바"],
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "텐진라멘",
+    "branch": "",
+    "id": "tenjillamen-2",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "산쪼메",
+    "branch": "목동점",
+    "id": "sanjjome-mokdongjeom",
+    "soups": ["돈코츠", "쇼유", "시오"],
+    "forms": ["라멘"],
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "히노아지",
+    "branch": "",
+    "id": "hinoaji",
+    "soupDetail": ["실존 미확인"],
+    "sourceNote": "재검증(다음검색) · 도봉로 193 매장 흔적 없음, 인근 브랜드 지점은 도봉로 62 롯데백화점미아점(카츠·우동 위주)만 확인"
+  },
+  {
+    "name": "산쪼메",
+    "branch": "홍대점",
+    "id": "sanjjome-hongdaejeom",
+    "soups": ["돈코츠", "쇼유", "시오"],
+    "forms": ["라멘", "츠케멘"],
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "이고라멘",
+    "branch": "",
+    "id": "igoramen",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "히노아지포스코",
+    "branch": "센터점",
+    "id": "hinoajiposeuko-senteojeom",
+    "soupDetail": ["라멘집 아님"],
+    "sourceNote": "재검증(다음검색) · 메뉴가 카츠·우동·스키야끼로만 확인, 라멘 메뉴 없음"
+  },
+  {
+    "name": "코코로라멘",
+    "branch": "",
+    "id": "kokororamen",
+    "soups": ["돈코츠", "쇼유", "시오", "미소", "탄탄멘"],
+    "forms": ["라멘"],
+    "soupDetail": ["카레"],
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "이츠모라멘",
+    "branch": "신림점",
+    "id": "icheumoramen-sillimjeom",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "여러시멘야카오리",
+    "branch": "문정점",
+    "id": "yeoreosimennyakaori-munjeongjeom",
+    "forms": ["마제소바", "라멘"],
+    "sourceNote": "재검증(다음검색) · 스프 종류는 미확정(마제소바 중심), 일부 블로그에 폐업 표기 있으나 지점 특정 불가"
+  },
+  {
+    "name": "코코로라멘",
+    "branch": "잠실점",
+    "id": "kokororamen-jamsiljeom",
+    "sourceNote": "재검증(다음검색) · 주소 상이: 서울 송파구 백제고분로19길 17 · 플레이스 업종 '분식', 메뉴 미확인으로 라멘 전문 여부 미확정"
+  },
+  {
+    "name": "아오리의행방불명광화문",
+    "branch": "센트럴점",
+    "id": "aoriuihaengbangbulmyeonggwanghwamun-sent",
+    "soups": ["돈코츠", "미소"],
+    "forms": ["라멘", "마제소바"],
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "코이라멘장충동점",
+    "branch": "",
+    "id": "koiramenjangchungdongjeom",
+    "forms": ["마제소바"],
+    "sourceNote": "재검증(다음검색) · 주소 상이: 서울 중구 동호로24길 27-3 · 마제소바 전문(마제소바·매운마제소바·미니차슈덮밥)"
+  },
+  {
+    "name": "오로지라멘아티스포럼점",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "진심라멘",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "민부리라멘",
+    "forms": ["라멘"],
+    "lineages": ["자가제면"],
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "카츠앤라멘",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "soupDetail": ["돈카츠 겸업"],
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "라멘이자카야쿠잔",
+    "soups": ["돈코츠", "쇼유", "미소"],
+    "forms": ["라멘"],
+    "soupDetail": ["야간 이자카야 겸업"],
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "몬산토에이치피류센소",
+    "forms": ["라멘"],
+    "instagram": "ryusenso.korea",
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "이치홍라멘",
+    "soups": ["탄탄멘"],
+    "forms": ["라멘", "마제소바"],
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "화원라멘",
+    "soups": ["쇼유"],
+    "forms": ["라멘"],
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "마이니치라멘역삼카모점",
+    "forms": ["라멘"],
+    "soupDetail": ["카모(오리) 육수"],
+    "instagram": "mainichi_ramen.kr",
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "유라멘삼신논현역CGV점심저녁",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "instagram": "uramen_4u",
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "초이라멘",
+    "forms": ["라멘"],
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "히요리라멘",
+    "forms": ["마제소바"],
+    "soupDetail": ["아부라소바·파이탄"],
+    "instagram": "hiyori_ramen",
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "멘코지",
+    "forms": ["라멘"],
+    "lineages": ["지로계"],
+    "soupDetail": ["시루나시"],
+    "instagram": "menkoji_ramen",
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "렌게",
+    "instagram": "rengeramen",
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "멘쇼",
+    "forms": ["츠케멘"],
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "멘쿄",
+    "soups": ["쇼유", "시오"],
+    "forms": ["라멘"],
+    "instagram": "menkyo.seoul",
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "희옥",
+    "soups": ["시오", "쇼유"],
+    "forms": ["라멘"],
+    "instagram": "heeok_official",
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "츠케루",
+    "soups": ["쇼유"],
+    "forms": ["츠케멘", "마제소바", "라멘"],
+    "instagram": "tsukeru_tsukemen",
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "무겐스위치",
+    "soups": ["돈코츠쇼유"],
+    "forms": ["라멘"],
+    "lineages": ["이에케"],
+    "instagram": "mugenswitch_official",
+    "sourceNote": "재검증(다음검색)"
+  },
+  {
+    "name": "마시타야",
+    "soups": ["시오"],
+    "forms": ["라멘", "츠케멘"],
+    "soupDetail": ["블랙라멘"],
+    "instagram": "masitayaa",
+    "sourceNote": "재검증(다음검색)"
+  }
+]

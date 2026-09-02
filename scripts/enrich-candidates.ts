@@ -40,6 +40,8 @@ function verdictOf(
 ): Verdict {
   if (e.closed) return "exclude";
   if (e.soupDetail?.includes("라멘집 아님")) return "exclude";
+  /* 재검증에서 웹 흔적을 다시 못 찾은 매장은 다른 신호가 있어도 보류로 강등 */
+  if (e.soupDetail?.includes("실존 미확인")) return "hold";
   const signal =
     (e.soups?.length ?? 0) > 0 ||
     (e.forms?.length ?? 0) > 0 ||
