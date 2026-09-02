@@ -8,7 +8,7 @@ import type {
 export type ShopStatus = "open" | "paused" | "closed";
 export type Verification = "confirmed" | "pending";
 export type Confidence = "certain" | "estimated";
-export type CoordSource = "localdata" | "manual-pin";
+export type CoordSource = "localdata" | "sanggwon" | "manual-pin";
 
 export type Menu = {
   name: string;

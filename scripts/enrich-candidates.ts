@@ -92,7 +92,8 @@ for (const line of lines.slice(1)) {
   if (e.sourceNote)
     cells.정보출처 = `${cells.정보출처}; ${e.sourceNote}`.slice(0, 200);
 
-  const verdict = verdictOf(matches.length, e);
+  let verdict = verdictOf(matches.length, e);
+  if (verdict === "publish" && (!cells.lat || !cells.lng)) verdict = "hold";
   if (verdict === "exclude") {
     excluded += 1;
   } else if (verdict === "hold") {

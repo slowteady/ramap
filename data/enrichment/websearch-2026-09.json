@@ -1,0 +1,2071 @@
+[
+  {
+    "name": "잇짱라멘",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "아카리라멘 선유도점",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "멘야유메미루 강남점",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "유즈라멘 서울역본점",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "유즈라멘 서울역본점",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "텐진라멘선유도",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "라멘바 시코우",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "유메라멘",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "그린라멘샵",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "칸키라멘 동작구청점",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "멘야윤",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "계단라멘",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "(주)도마,유즈라멘 안국",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "저온숙성구름카츠&마제소바 천호점",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "(주)킨카패밀리코리아1킨톤라멘대학로점",
+    "soups": ["돈코츠", "미소", "쇼유"],
+    "forms": ["라멘"],
+    "closed": true,
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "유메이라멘",
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "우시라멘",
+    "soups": ["돈코츠", "쇼유"],
+    "forms": ["라멘"],
+    "soupDetail": ["구로마유"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "라멘이찌방",
+    "soups": ["시오"],
+    "forms": ["라멘"],
+    "soupDetail": ["카레"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "오로지라멘한신인터밸리24점",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "instagram": "https://www.instagram.com/orojiramen",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "미스터 라멘",
+    "soups": ["돈코츠", "쇼유", "시오", "탄탄멘"],
+    "forms": ["라멘"],
+    "soupDetail": ["나가사키"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "라면집(ZIP)",
+    "soupDetail": ["라멘집 아님"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "멘야하나비 성신여대점",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "니카이라멘",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "오로지라멘 이앤씨벤처드림타워점",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "멘쇼우라멘",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "카도야라멘 서울대점",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "산쇼쿠라멘 강남본점",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "라멘&덮밥",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "코란라멘 본점",
+    "soups": ["돈코츠", "쇼유"],
+    "forms": ["라멘"],
+    "soupDetail": ["토마토라멘"],
+    "naverPlace": "https://map.naver.com/p/entry/place/1084500927",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "이츠모라멘 신림직영점",
+    "soups": ["돈코츠", "쇼유"],
+    "forms": ["라멘", "츠케멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "메이게츠 라멘 신림점",
+    "soups": ["미소", "쇼유"],
+    "forms": ["라멘"],
+    "soupDetail": ["야끼소바"],
+    "naverPlace": "https://map.naver.com/p/entry/place/2026908173",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "멘야 카엔",
+    "soups": ["돈코츠쇼유"],
+    "forms": ["라멘"],
+    "lineages": ["이에케"],
+    "naverPlace": "https://map.naver.com/p/entry/place/2055951377",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "쿠잔라멘",
+    "soups": ["돈코츠", "미소", "시오"],
+    "forms": ["라멘"],
+    "soupDetail": ["아부라소바", "청탕"],
+    "naverPlace": "https://map.naver.com/p/entry/place/1935022053",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "소노키라멘 반포점",
+    "soups": ["돈코츠", "미소"],
+    "forms": ["라멘", "마제소바"],
+    "naverPlace": "https://map.naver.com/p/entry/place/1286787267",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "코코로라멘광장시장점",
+    "soups": ["돈코츠", "탄탄멘"],
+    "forms": ["라멘"],
+    "soupDetail": ["카레라멘"],
+    "naverPlace": "https://map.naver.com/p/entry/place/2019979179",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "라멘모토",
+    "soups": ["돈코츠", "돈코츠쇼유"],
+    "forms": ["라멘", "츠케멘"],
+    "naverPlace": "https://map.naver.com/p/entry/place/20550982",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "멘야하나비",
+    "soups": ["탄탄멘"],
+    "forms": ["마제소바", "라멘"],
+    "lineages": ["본토직영"],
+    "instagram": "https://www.instagram.com/menya_hanabi",
+    "naverPlace": "https://map.naver.com/p/entry/place/37373204",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "유니드라멘",
+    "soups": ["토리파이탄", "탄탄멘"],
+    "forms": ["라멘"],
+    "soupDetail": ["시루나시탄탄멘"],
+    "naverPlace": "https://map.naver.com/p/entry/place/1230372846",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "라멘 킥스타트",
+    "soups": ["돈코츠쇼유"],
+    "forms": ["라멘"],
+    "lineages": ["이에케"],
+    "naverPlace": "https://map.naver.com/p/entry/place/2092837424",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "오이시쿠 라멘 강서점",
+    "soups": ["돈코츠", "시오"],
+    "forms": ["라멘"],
+    "naverPlace": "https://map.naver.com/p/entry/place/2034849115",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "오로지라멘",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "soupDetail": ["바질라멘"],
+    "instagram": "https://www.instagram.com/orojiramen",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "멘야하나",
+    "forms": ["라멘"],
+    "naverPlace": "https://map.naver.com/p/entry/place/2092317749",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "와다라멘",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "호시노라멘&덮밥",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "라멘 롱 시즌(japanese ramen long season)",
+    "soups": ["시오", "쇼유"],
+    "forms": ["라멘", "츠케멘"],
+    "lineages": ["자가제면"],
+    "soupDetail": ["청탕", "이리코", "곤부스이츠케멘"],
+    "naverPlace": "https://map.naver.com/p/entry/place/1184403385",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "라멘모토",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "신유라멘",
+    "soups": ["돈코츠", "미소"],
+    "forms": ["라멘"],
+    "soupDetail": ["마라라멘"],
+    "naverPlace": "https://map.naver.com/p/entry/place/2061383810",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "쇼부라멘 상암월드컵경기장점",
+    "soups": ["쇼유", "미소", "돈코츠", "탄탄멘"],
+    "forms": ["라멘"],
+    "naverPlace": "https://map.naver.com/p/entry/place/1185507886",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "멘야가와",
+    "soups": ["돈코츠"],
+    "forms": ["라멘", "마제소바"],
+    "soupDetail": ["지로라멘"],
+    "naverPlace": "https://map.naver.com/p/entry/place/1010668631",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "잇또라멘 노원점",
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "폭탄국밥&오이시쿠 라멘 고대안암점",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "멘야포모 성수점",
+    "forms": ["라멘", "마제소바"],
+    "soupDetail": ["토마토라멘"],
+    "instagram": "https://www.instagram.com/menyapomo",
+    "naverPlace": "https://map.naver.com/p/entry/place/2076343382",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "주카라멘바",
+    "soups": ["탄탄멘", "미소"],
+    "forms": ["라멘"],
+    "naverPlace": "https://map.naver.com/p/entry/place/2023495639",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "라멘츠쿠 노원본점",
+    "soups": ["돈코츠"],
+    "forms": ["라멘", "츠케멘"],
+    "naverPlace": "https://map.naver.com/p/entry/place/2078364739",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "신센라멘 신림점",
+    "soups": ["돈코츠", "쇼유"],
+    "forms": ["라멘"],
+    "soupDetail": ["토마토라멘", "도쿠시마"],
+    "naverPlace": "https://map.naver.com/p/entry/place/2040943678",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "멘타쿠라멘",
+    "soups": ["돈코츠", "돈코츠쇼유", "쇼유", "미소", "시오", "탄탄멘"],
+    "forms": ["라멘"],
+    "lineages": ["자가제면"],
+    "soupDetail": ["교카이", "유즈시오", "마라멘"],
+    "naverPlace": "https://map.naver.com/p/entry/place/1249478136",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "혼다라멘 어린이대공원점",
+    "soups": ["탄탄멘"],
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "멘야돈토리",
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "이츠모라멘",
+    "soups": ["돈코츠"],
+    "forms": ["라멘", "츠케멘"],
+    "soupDetail": ["청탕"],
+    "instagram": "https://www.instagram.com/itsumo_ramen/",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "오로지라멘",
+    "soups": ["돈코츠", "쇼유"],
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "멘야소바",
+    "forms": ["마제소바"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "네코라멘",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "멘야호타루",
+    "forms": ["마제소바"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "토모멘야",
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "오로지라멘 중앙유통단지점",
+    "soups": ["돈코츠", "쇼유"],
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "신센라멘 연남점",
+    "soups": ["돈코츠"],
+    "forms": ["라멘", "마제소바"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "멘야서울 중림점",
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "킨카라멘",
+    "soups": ["쇼유", "시오", "니보시"],
+    "forms": ["라멘"],
+    "soupDetail": ["아부라소바"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "저온숙성구름카츠&마제소바",
+    "forms": ["마제소바"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "레드멘야케이 노원본점",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "수유라멘 서울과기대 공릉점",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "KUNI RAMEN 쿠니라멘",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "겐조라멘",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "신센라멘 신월점",
+    "soups": ["돈코츠"],
+    "forms": ["라멘", "마제소바"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "멘야수",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "신센라멘 홍대점",
+    "soups": ["돈코츠"],
+    "forms": ["라멘", "마제소바"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "칸키라멘",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "라멘쨩",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "일본라멘무메이",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "멘야니쿠",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "멘야가와",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "쇼부라멘 서소문점",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "멘야하나비 합정점",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "한끼는라멘&비빔밥",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "장라멘",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "라멘 키레이",
+    "soups": ["쇼유", "시오"],
+    "forms": ["라멘"],
+    "soupDetail": ["청탕"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "텐진라멘 가산디지털단지점",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "와다라멘 이태원점",
+    "soups": ["돈코츠"],
+    "forms": ["라멘", "마제소바"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "도조라멘",
+    "soups": ["돈코츠", "미소"],
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "멘야요시",
+    "soups": ["미소"],
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "라멘야누",
+    "soups": ["쇼유", "시오"],
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "라멘에반하다 태평양물산점",
+    "soups": ["돈코츠"],
+    "forms": ["라멘", "마제소바"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "라멘야 시마",
+    "soups": ["쇼유"],
+    "forms": ["라멘"],
+    "lineages": ["본토직영"],
+    "soupDetail": ["시로쇼유"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "기린이라멘",
+    "soups": ["시오"],
+    "forms": ["라멘"],
+    "soupDetail": ["유즈토리시오"],
+    "instagram": "https://www.instagram.com/kirin_ramen81/",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "코코로라멘(kokororamen) 잠실점",
+    "soups": ["돈코츠", "쇼유"],
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "태양의 토마토라멘 대학로점",
+    "forms": ["라멘"],
+    "lineages": ["본토직영"],
+    "soupDetail": ["토마토라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "히카리라멘",
+    "forms": ["라멘", "마제소바"],
+    "soupDetail": ["한방라멘"],
+    "instagram": "https://www.instagram.com/hikari_ramen_/",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "멘야포모 강남구청점",
+    "forms": ["라멘"],
+    "soupDetail": ["토마토라멘"],
+    "instagram": "https://www.instagram.com/menyapomo/",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "멘야츠바사",
+    "soups": ["돈코츠쇼유"],
+    "forms": ["라멘"],
+    "lineages": ["이에케"],
+    "instagram": "https://www.instagram.com/menyatsubasa/",
+    "naverPlace": "https://map.naver.com/p/entry/place/2081023226",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "코이라멘 장충점",
+    "soups": ["돈코츠"],
+    "forms": ["라멘", "마제소바"],
+    "naverPlace": "https://map.naver.com/p/entry/place/2039723188",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "탐라멘",
+    "soups": ["돈코츠"],
+    "forms": ["라멘", "마제소바"],
+    "soupDetail": ["토마토라멘"],
+    "naverPlace": "https://map.naver.com/p/entry/place/1242974651",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "라멘하카타분코",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "instagram": "https://www.instagram.com/hakatabunko_official",
+    "naverPlace": "https://map.naver.com/p/entry/place/11678649",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "라멘 보루도 서순라본점",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "soupDetail": ["아부라소바"],
+    "instagram": "https://www.instagram.com/ramen_bold",
+    "naverPlace": "https://map.naver.com/p/entry/place/1371715546",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "초이라멘",
+    "soups": ["돈코츠"],
+    "forms": ["라멘", "츠케멘", "마제소바"],
+    "naverPlace": "https://map.naver.com/p/entry/place/1595913531",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "혼다라멘",
+    "soups": ["탄탄멘"],
+    "forms": ["라멘", "마제소바"],
+    "soupDetail": ["토마토라멘"],
+    "naverPlace": "https://map.naver.com/p/entry/place/1072265993",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "니지라멘",
+    "soups": ["돈코츠", "쇼유"],
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "츠키라멘",
+    "soups": ["돈코츠"],
+    "forms": ["라멘", "츠케멘"],
+    "soupDetail": ["교카이"],
+    "instagram": "https://www.instagram.com/tsuki_ramen1/",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "째즈&라멘",
+    "soups": ["미소"],
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "멘야산다이메",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "soupDetail": ["쿠로라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "코이라멘 종로점",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "lineages": ["지로계"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "쿄오모라멘",
+    "soups": ["토리파이탄"],
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "콩나물떡라면집",
+    "soupDetail": ["라멘집 아님"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "129라멘하우스",
+    "soups": ["돈코츠", "미소"],
+    "forms": ["라멘"],
+    "soupDetail": ["교카이"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "서양라멘",
+    "forms": ["라멘"],
+    "lineages": ["자가제면"],
+    "soupDetail": ["토마토", "퓨전"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "라멘담뽀뽀",
+    "soups": ["쇼유", "돈코츠", "탄탄멘"],
+    "forms": ["라멘"],
+    "soupDetail": ["나가사키"],
+    "naverPlace": "https://map.naver.com/p/entry/place/32612972",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "신승호 라멘집",
+    "forms": ["츠케멘"],
+    "soupDetail": ["아부라소바"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "쿄오모라멘 신당",
+    "soups": ["토리파이탄", "시오", "쇼유", "미소"],
+    "forms": ["라멘"],
+    "soupDetail": ["아부라소바"],
+    "instagram": "https://www.instagram.com/kyoomo.ramen/",
+    "naverPlace": "https://map.naver.com/p/entry/place/2092144522",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "조선라멘",
+    "soups": ["돈코츠", "쇼유"],
+    "forms": ["라멘"],
+    "soupDetail": ["한식 퓨전", "된장"],
+    "naverPlace": "https://map.naver.com/p/entry/place/2028164884",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "라멘81번옥",
+    "soups": ["쇼유", "미소", "돈코츠", "탄탄멘"],
+    "forms": ["라멘"],
+    "lineages": ["자가제면"],
+    "instagram": "https://www.instagram.com/ramen81_",
+    "naverPlace": "https://map.naver.com/p/entry/place/1582558351",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "보스라멘",
+    "soups": ["돈코츠", "탄탄멘"],
+    "forms": ["라멘"],
+    "soupDetail": ["돈규코츠"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "오빠라멘",
+    "soups": ["돈코츠", "쇼유"],
+    "forms": ["라멘"],
+    "soupDetail": ["냉라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "멘야서울 용산본점",
+    "forms": ["라멘", "마제소바"],
+    "soupDetail": ["동파육 차슈", "잠봉 차슈"],
+    "naverPlace": "https://map.naver.com/p/entry/place/1282421139",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "토마라멘",
+    "forms": ["라멘"],
+    "soupDetail": ["토마토"],
+    "naverPlace": "https://map.naver.com/p/entry/place/2055126154",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "멘야산다이메",
+    "soups": ["돈코츠"],
+    "forms": ["라멘", "츠케멘", "마제소바"],
+    "naverPlace": "https://map.naver.com/p/entry/place/35862355",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "라멘짱 용산점",
+    "soups": ["돈코츠", "미소", "쇼유"],
+    "forms": ["라멘"],
+    "soupDetail": ["중화풍", "마라"],
+    "instagram": "https://www.instagram.com/ramen_jjang/",
+    "naverPlace": "https://map.naver.com/p/entry/place/1075099530",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "멘야서울 용산아이파크몰점",
+    "forms": ["라멘"],
+    "soupDetail": ["동파육 차슈"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "레이 라멘(Rei Ramen)",
+    "soups": ["시오", "쇼유"],
+    "forms": ["라멘", "마제소바"],
+    "soupDetail": ["완탕"],
+    "naverPlace": "https://map.naver.com/p/entry/place/2015191097",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "라멘 새노야",
+    "soups": ["돈코츠", "쇼유"],
+    "forms": ["라멘", "마제소바"],
+    "naverPlace": "https://map.naver.com/p/entry/place/2020100013",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "멘야포모 서울숲점",
+    "soups": ["탄탄멘"],
+    "forms": ["라멘", "마제소바"],
+    "soupDetail": ["토마토"],
+    "naverPlace": "https://map.naver.com/p/entry/place/2066487603",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "소노키라멘 한양대점",
+    "soups": ["돈코츠", "미소"],
+    "forms": ["라멘", "마제소바"],
+    "soupDetail": ["하카타"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "치카이라멘",
+    "soups": ["돈코츠"],
+    "forms": ["라멘", "마제소바"],
+    "naverPlace": "https://map.naver.com/p/entry/place/291011604",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "후쿠쵸라멘 본점",
+    "soups": ["돈코츠", "니보시"],
+    "forms": ["라멘", "마제소바"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "소노키라멘 건대본점",
+    "soups": ["돈코츠", "미소"],
+    "forms": ["라멘", "마제소바"],
+    "soupDetail": ["하카타"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "이찌방라멘&카츠카레",
+    "forms": ["라멘"],
+    "naverPlace": "https://map.naver.com/p/entry/place/1402120714",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "우마이라멘&마제소바",
+    "soups": ["돈코츠"],
+    "forms": ["라멘", "마제소바"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "혼다라멘",
+    "soups": ["돈코츠"],
+    "forms": ["라멘", "마제소바"],
+    "soupDetail": ["토마토"],
+    "naverPlace": "https://map.naver.com/p/entry/place/1780181567",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "라멘미세",
+    "soups": ["돈코츠", "미소"],
+    "forms": ["라멘", "마제소바"],
+    "naverPlace": "https://map.naver.com/p/entry/place/38427347",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "따띠라멘",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "멘야카오리",
+    "soups": ["돈코츠", "미소"],
+    "forms": ["라멘", "마제소바"],
+    "naverPlace": "https://map.naver.com/p/entry/place/2075222059",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "수유라멘 경희대점",
+    "soups": ["돈코츠", "탄탄멘"],
+    "forms": ["라멘"],
+    "naverPlace": "https://map.naver.com/p/entry/place/2009929112",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "늘보라멘",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "라멘짱 청량리역점",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "후쿠라멘",
+    "soups": ["돈코츠", "시오"],
+    "forms": ["라멘"],
+    "naverPlace": "https://naver.me/IFKllCZH",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "우시라멘(우리의시작은라멘이였다)",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "멘야카오리(동부시장점)",
+    "soups": ["돈코츠", "미소"],
+    "forms": ["라멘", "마제소바"],
+    "soupDetail": ["유즈"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "파파라멘",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "대부라멘",
+    "soups": ["돈코츠", "쇼유", "돈코츠쇼유"],
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "소라라멘",
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "멘야리(MenyaLee)",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "soupDetail": ["아부라소바"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "요라멘",
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "신의한수&라멘",
+    "soups": ["돈코츠", "미소", "탄탄멘"],
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "와다라멘",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "고도라멘",
+    "soups": ["돈코츠", "쇼유", "미소"],
+    "forms": ["라멘"],
+    "instagram": "https://www.instagram.com/godot_ramen",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "수유라멘 점심 저녁 찐맛 무료주차",
+    "soups": ["돈코츠"],
+    "forms": ["라멘", "마제소바"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "세종라멘",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "우시라멘",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "멘야리 노원본점",
+    "soups": ["돈코츠"],
+    "forms": ["라멘", "마제소바"],
+    "soupDetail": ["아부라소바", "청탕"],
+    "instagram": "https://www.instagram.com/menyalee_nowon",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "멘야 다이고미",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "lineages": ["자가제면"],
+    "soupDetail": ["카라이"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "주돈라멘",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "closed": true,
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "야마노라멘",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "네츠라멘",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "soupDetail": ["카라이", "쿠로이"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "마마노라멘",
+    "soups": ["시오"],
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "스스라멘",
+    "soups": ["시오", "쇼유"],
+    "forms": ["라멘", "츠케멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "카라멘야 주식회사",
+    "forms": ["라멘", "마제소바"],
+    "soupDetail": ["카라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "토나리 라멘",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "삿포로 미소라멘 에류테(永龍亭)",
+    "soups": ["미소", "시오"],
+    "forms": ["라멘"],
+    "soupDetail": ["삿포로"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "멘야산다이메",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "lineages": ["자가제면"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "멘야붕",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "라멘파이터즈",
+    "soups": ["니보시"],
+    "forms": ["라멘", "마제소바"],
+    "lineages": ["자가제면"],
+    "soupDetail": ["파이탄"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "마츠에라멘",
+    "forms": ["라멘"],
+    "soupDetail": ["시지미(조개)"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "멘쇼우라멘 상암DMC점",
+    "soups": ["돈코츠", "탄탄멘"],
+    "forms": ["라멘", "츠케멘", "마제소바"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "멘야  다이고미 홍대점",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "라멘클럽 사이",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "지로우 라멘",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "soupDetail": ["교카이"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "카메야라멘",
+    "soups": ["돈코츠", "쇼유"],
+    "forms": ["라멘"],
+    "instagram": "@kameya.ramen",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "kokoro 라멘",
+    "soups": ["돈코츠", "쇼유", "시오", "미소", "탄탄멘"],
+    "forms": ["라멘"],
+    "soupDetail": ["카레라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "신센라멘 마곡점",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "soupDetail": ["토마토라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "미스터라멘",
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "계단라멘",
+    "forms": ["라멘"],
+    "soupDetail": ["모츠라멘"],
+    "instagram": "@upstairramen_magok",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "라멘짱 앤 청계산뚝배기수제비",
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "오로지라멘 구로지타워몰점",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "instagram": "@orojiramen",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "라멘짱 디큐브점",
+    "soups": ["미소"],
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "지로우라멘",
+    "soups": ["돈코츠"],
+    "forms": ["라멘", "마제소바"],
+    "soupDetail": ["교카이"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "정라멘",
+    "soups": ["미소"],
+    "forms": ["라멘", "마제소바"],
+    "soupDetail": ["부대라멘", "곱창라멘", "토마토라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "오로지라멘 서여의도점",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "instagram": "@orojiramen",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "멘야사케야",
+    "soups": ["미소", "쇼유", "탄탄멘"],
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "더라멘워(The Ramen War)",
+    "forms": ["라멘"],
+    "instagram": "@theramenwar_thehyundai_seoul",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "소노키라멘 영등포점",
+    "forms": ["라멘", "마제소바"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "텐진라멘",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "soupDetail": ["하카타"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "아오리라멘 서울문래점",
+    "soups": ["돈코츠", "미소"],
+    "forms": ["라멘", "마제소바"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "멘야무테키",
+    "soups": ["돈코츠", "미소"],
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "텐진라멘 문래",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "soupDetail": ["하카타"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "도쿄라멘3900",
+    "soups": ["돈코츠", "미소", "쇼유"],
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "라멘81번옥",
+    "soups": ["돈코츠", "미소", "쇼유"],
+    "forms": ["라멘"],
+    "soupDetail": ["냉라멘"],
+    "instagram": "@ramen81_",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "코우짱 라멘",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "soupDetail": ["하카타"],
+    "instagram": "@kouchan_korea_boramae",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "동경라멘학교",
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "사토이라멘",
+    "soups": ["돈코츠"],
+    "forms": ["라멘", "마제소바"],
+    "naverPlace": "https://map.naver.com/p/entry/place/1157624213",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "라멘짱 반포점",
+    "soups": ["돈코츠", "미소", "쇼유"],
+    "forms": ["라멘"],
+    "naverPlace": "https://map.naver.com/p/entry/place/1567447822",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "쇼부 일본라멘 전문점 (강남고속터미널1호점)",
+    "soups": ["돈코츠", "쇼유", "미소", "탄탄멘"],
+    "forms": ["라멘"],
+    "naverPlace": "https://map.naver.com/p/entry/place/1561828366",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "라멘토카이",
+    "soups": ["미소", "토리파이탄"],
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "멘야하나비 신사점",
+    "soups": ["쇼유"],
+    "forms": ["라멘", "마제소바"],
+    "lineages": ["본토직영"],
+    "soupDetail": ["타이완라멘"],
+    "instagram": "menyahanabi.korea",
+    "naverPlace": "https://map.naver.com/p/entry/place/1977829878",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "오로지라멘 방배카페점",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "instagram": "orojiramen",
+    "naverPlace": "https://map.naver.com/p/entry/place/1548471973",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "호시라멘",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "사가라멘 강남역점",
+    "soups": ["돈코츠", "미소"],
+    "forms": ["라멘"],
+    "lineages": ["자가제면"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "코이라멘 서초점",
+    "soups": ["돈코츠"],
+    "forms": ["라멘", "마제소바"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "강남역 라면집",
+    "soups": ["돈코츠"],
+    "forms": ["라멘", "마제소바"],
+    "soupDetail": ["블랙가쓰오"],
+    "naverPlace": "https://m.place.naver.com/restaurant/1115671675",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "갓포라멘",
+    "soups": ["돈코츠"],
+    "forms": ["라멘", "마제소바"],
+    "soupDetail": ["곱창라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "라멘모토",
+    "forms": ["라멘", "츠케멘"],
+    "instagram": "ramenmoto_official",
+    "naverPlace": "https://map.naver.com/p/entry/place/20550982",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "우시라멘",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "soupDetail": ["구로마유"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "킨카이자카야 킨톤라멘",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "마이니치라멘 선정릉점",
+    "soups": ["시오"],
+    "forms": ["라멘", "마제소바"],
+    "soupDetail": ["아부라소바"],
+    "instagram": "mainichi_ramen.kr",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "하쿠라멘 한티점",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "코지라멘",
+    "soups": ["돈코츠"],
+    "forms": ["라멘", "마제소바"],
+    "instagram": "ramen.cozy",
+    "naverPlace": "https://map.naver.com/p/entry/place/1042144370",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "푸드스타사가라멘",
+    "soups": ["돈코츠", "미소"],
+    "forms": ["라멘"],
+    "lineages": ["자가제면"],
+    "soupDetail": ["히야시츄카"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "코이라멘 도산점(하우스 오브 코이)",
+    "soups": ["돈코츠"],
+    "forms": ["라멘", "마제소바"],
+    "instagram": "koiramen_dosan",
+    "naverPlace": "https://map.naver.com/p/entry/place/1136161791",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "태양의토마토라멘",
+    "forms": ["라멘"],
+    "lineages": ["본토직영"],
+    "soupDetail": ["토마토라멘"],
+    "instagram": "taitoma_korea",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "슈퍼라멘",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "naverPlace": "https://map.naver.com/p/entry/place/2009051483",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "유타로 라멘 논현점",
+    "soups": ["돈코츠", "쇼유"],
+    "forms": ["라멘"],
+    "naverPlace": "https://map.naver.com/p/entry/place/37930082",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "더라멘워(THE RAMEN WAR)",
+    "soups": ["쇼유"],
+    "forms": ["라멘"],
+    "soupDetail": ["칸사이쇼유"],
+    "naverPlace": "https://map.naver.com/p/entry/place/2069944669",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "오또상 라멘",
+    "soups": ["쇼유", "미소"],
+    "forms": ["라멘"],
+    "soupDetail": ["교카이"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "오또상 라멘 신논현역점",
+    "soups": ["쇼유", "미소"],
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "마이니치라멘",
+    "soups": ["시오"],
+    "forms": ["라멘"],
+    "soupDetail": ["카모파이탄", "아부라소바"],
+    "instagram": "mainichi_ramen.kr",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "이치바 라멘",
+    "soups": ["미소"],
+    "forms": ["라멘"],
+    "closed": true,
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "멘야 유메미루",
+    "forms": ["마제소바"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "라멘 호토리",
+    "soups": ["돈코츠쇼유", "쇼유", "미소"],
+    "forms": ["라멘", "츠케멘", "마제소바"],
+    "soupDetail": ["청탕"],
+    "instagram": "ramenhotori_gn",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "태양의 토마토라멘",
+    "forms": ["라멘"],
+    "soupDetail": ["토마토라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "역삼라멘",
+    "soups": ["미소", "돈코츠", "시오", "쇼유"],
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "카도야라멘 가로수직영점",
+    "soups": ["돈코츠", "쇼유", "미소"],
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "덴키라멘(DENKI RAMEN)",
+    "soups": ["돈코츠쇼유", "니보시"],
+    "forms": ["라멘"],
+    "lineages": ["이에케"],
+    "soupDetail": ["아부라소바"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "유라멘 강남역삼신논현역CGV점심저녁",
+    "soups": ["돈코츠"],
+    "forms": ["라멘", "마제소바"],
+    "naverPlace": "https://m.place.naver.com/restaurant/1559452716",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "쇼부라멘 대웅제약점",
+    "soups": ["쇼유", "미소", "돈코츠", "탄탄멘"],
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "쇼부라멘 수서역점",
+    "soups": ["쇼유", "미소", "돈코츠", "탄탄멘"],
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "멘야미코",
+    "soupDetail": ["라멘집 아님"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "멘야 길조",
+    "soups": ["시오", "니보시"],
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "와다라멘 역삼점",
+    "soups": ["돈코츠", "미소", "쇼유"],
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "마이니치라멘",
+    "soups": ["토리파이탄"],
+    "forms": ["라멘"],
+    "soupDetail": ["아부라소바"],
+    "instagram": "mainichi_ramen_tori",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "멘야산다이메논현",
+    "soups": ["돈코츠"],
+    "forms": ["라멘", "츠케멘", "마제소바"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "코이라멘 압구정점",
+    "soups": ["돈코츠"],
+    "forms": ["라멘", "마제소바"],
+    "soupDetail": ["지로라멘"],
+    "instagram": "koiramen__apgujeong",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "라면집",
+    "soupDetail": ["라멘집 아님"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "하쿠라멘",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "코이라멘",
+    "soups": ["돈코츠"],
+    "forms": ["라멘", "마제소바"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "태양의 토마토라멘 송리단길점",
+    "forms": ["라멘"],
+    "soupDetail": ["토마토라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "하루토라멘",
+    "soups": ["돈코츠", "쇼유", "탄탄멘"],
+    "forms": ["라멘"],
+    "soupDetail": ["쿠마모토"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "멘야끼",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "원라멘",
+    "forms": ["라멘", "마제소바"],
+    "soupDetail": ["토마토라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "멘야세븐",
+    "forms": ["마제소바"],
+    "instagram": "menyaseven_official",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "하타나카라멘",
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "아웃나우1호",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "멘무샤",
+    "soups": ["돈코츠", "탄탄멘"],
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "진가와광화문점",
+    "soupDetail": ["라멘집 아님"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "아오리의행방불명",
+    "soups": ["돈코츠", "미소"],
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "손모아아오리의행방불명",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "모퉁이라면집",
+    "soupDetail": ["라멘집 아님"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "산쪼메보라매",
+    "soups": ["돈코츠", "쇼유", "시오"],
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "젠푸드히노아지롯데미아점",
+    "soups": ["돈코츠", "미소", "탄탄멘"],
+    "forms": ["라멘"],
+    "soupDetail": ["토마토라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "멘무샤",
+    "soups": ["돈코츠", "쇼유", "시오", "미소", "탄탄멘", "토리파이탄"],
+    "forms": ["라멘", "마제소바"],
+    "soupDetail": ["나가사키"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "코이라멘",
+    "soups": ["돈코츠"],
+    "forms": ["라멘", "마제소바"],
+    "instagram": "https://www.instagram.com/koiramen.official",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "젠푸드히노아지롯데관악점",
+    "soups": ["돈코츠", "미소", "탄탄멘"],
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "미스터라멘",
+    "soups": ["돈코츠", "쇼유", "시오", "탄탄멘"],
+    "forms": ["라멘"],
+    "soupDetail": ["나가사키"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "젠푸드히노아지롯데백화점",
+    "soups": ["돈코츠", "미소", "탄탄멘"],
+    "forms": ["라멘"],
+    "soupDetail": ["토마토라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "이찌방라멘&카츠카레관악",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "산쪼메",
+    "soups": ["돈코츠", "쇼유"],
+    "forms": ["라멘", "츠케멘"],
+    "soupDetail": ["교카이"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "미가라멘",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "closed": true,
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "산쪼메",
+    "soups": ["돈코츠", "쇼유"],
+    "forms": ["라멘"],
+    "soupDetail": ["아부라라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "쇼부일본라멘강남고속터미널1호점",
+    "soups": ["돈코츠", "쇼유", "미소", "탄탄멘"],
+    "forms": ["라멘"],
+    "soupDetail": ["나가사키짬뽕"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "도마;유즈라멘",
+    "soups": ["시오"],
+    "forms": ["라멘", "츠케멘"],
+    "soupDetail": ["유즈시오"],
+    "instagram": "https://www.instagram.com/yuzu_ramen2",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "진가와",
+    "soupDetail": ["라멘집 아님"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "모리라멘&돈카츠",
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "진가와여의도점",
+    "soupDetail": ["라멘집 아님"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "코란라멘",
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "미친라멘",
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "잇또라멘노량진점",
+    "forms": ["라멘"],
+    "closed": true,
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "정라멘",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "soupDetail": ["아부라소바"],
+    "closed": true,
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "미스터라멘",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "closed": true,
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "산쪼메",
+    "soups": ["돈코츠", "쇼유", "시오"],
+    "forms": ["라멘", "츠케멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "아오리의행방불명",
+    "soups": ["돈코츠", "미소", "탄탄멘"],
+    "forms": ["라멘", "마제소바"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "코이라멘",
+    "soups": ["돈코츠"],
+    "forms": ["라멘", "마제소바"],
+    "instagram": "https://www.instagram.com/koiramen.official",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "멘무샤",
+    "soups": ["돈코츠", "쇼유", "미소", "탄탄멘"],
+    "forms": ["라멘"],
+    "soupDetail": ["나가사키", "타이완라멘"],
+    "naverPlace": "https://m.place.naver.com/place/1621961349",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "진가와잠실롯데월드몰점",
+    "soupDetail": ["라멘집 아님"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "라면집",
+    "soupDetail": ["라멘집 아님"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "멘부리",
+    "forms": ["라멘"],
+    "naverPlace": "https://map.naver.com/p/entry/place/38238517",
+    "soupDetail": ["돈부리·가츠나베 겸업"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "라멘떼에스테틱",
+    "soupDetail": ["라멘집 아님"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "하코야우림점",
+    "soups": ["돈코츠", "쇼유", "미소"],
+    "forms": ["라멘"],
+    "soupDetail": ["하카타"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "산쪼메이수점",
+    "soups": ["돈코츠", "쇼유", "시오", "미소"],
+    "forms": ["라멘", "츠케멘"],
+    "naverPlace": "https://map.naver.com/p/entry/place/1779562085",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "아오리의행방불명",
+    "soups": ["돈코츠", "미소", "탄탄멘"],
+    "forms": ["라멘", "마제소바"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "텐진라멘",
+    "soups": ["돈코츠", "시오", "쇼유"],
+    "forms": ["라멘"],
+    "naverPlace": "https://map.naver.com/p/entry/place/1782465716",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "산쪼메",
+    "soups": ["돈코츠", "쇼유", "시오", "미소"],
+    "forms": ["라멘", "츠케멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "히노아지",
+    "soups": ["돈코츠", "미소", "쇼유", "탄탄멘"],
+    "forms": ["라멘", "마제소바"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "산쪼메",
+    "soups": ["돈코츠", "쇼유", "시오", "미소"],
+    "forms": ["라멘", "츠케멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "이고라멘",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "히노아지포스코",
+    "soups": ["돈코츠", "미소", "쇼유", "탄탄멘"],
+    "forms": ["라멘", "마제소바"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "코코로라멘",
+    "soups": ["돈코츠", "미소", "쇼유"],
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "멘야세븐마포",
+    "soups": ["돈코츠"],
+    "forms": ["라멘", "마제소바"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "멘부리",
+    "soupDetail": ["라멘집 아님"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "멘부리",
+    "soupDetail": ["라멘집 아님"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "이츠모라멘",
+    "soups": ["돈코츠", "쇼유"],
+    "forms": ["라멘", "츠케멘"],
+    "naverPlace": "https://map.naver.com/p/entry/place/1245878571",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "여러시멘야카오리",
+    "forms": ["마제소바"],
+    "instagram": "https://www.instagram.com/menyakaori/",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "코코로라멘",
+    "soups": ["돈코츠", "쇼유"],
+    "forms": ["라멘"],
+    "naverPlace": "https://map.naver.com/p/entry/place/2058758915",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "구름라멘",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "아오리의행방불명광화문",
+    "soups": ["돈코츠", "미소", "탄탄멘"],
+    "forms": ["라멘", "마제소바"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "코이라멘장충동점",
+    "soups": ["돈코츠"],
+    "forms": ["라멘", "마제소바"],
+    "instagram": "@koiramen_janchugdong",
+    "naverPlace": "https://map.naver.com/p/entry/place/2039723188",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "오로지라멘아티스포럼점",
+    "soups": ["돈코츠", "쇼유"],
+    "forms": ["라멘"],
+    "naverPlace": "https://map.naver.com/p/entry/place/1246712704",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "진심라멘",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "멘부리",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "시클라멘투자조합",
+    "soupDetail": ["라멘집 아님"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "민부리라멘",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "lineages": ["자가제면"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "카츠앤라멘",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "라면집",
+    "soupDetail": ["라멘집 아님"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "라멘이자카야쿠잔",
+    "soups": ["미소", "시오"],
+    "forms": ["라멘"],
+    "soupDetail": ["청탕"],
+    "naverPlace": "https://map.naver.com/p/entry/place/1683631687",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "몬산토에이치피류센소",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "soupDetail": ["아사리"],
+    "naverPlace": "https://map.naver.com/p/entry/place/2017953431",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "이치홍라멘",
+    "soups": ["돈코츠", "미소"],
+    "forms": ["라멘", "마제소바"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "화원라멘",
+    "soups": ["쇼유"],
+    "forms": ["라멘"],
+    "naverPlace": "https://map.naver.com/p/entry/place/2140611777",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "멘부리",
+    "soupDetail": ["라멘집 아님"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "마이니치라멘역삼카모점",
+    "soups": ["시오"],
+    "forms": ["라멘"],
+    "soupDetail": ["카모파이탄", "아부라소바"],
+    "instagram": "mainichi_ramen.kr",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "유라멘삼신논현역CGV점심저녁",
+    "forms": ["라멘"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "초이라멘",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "맵달라멘집",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "멘부리",
+    "soupDetail": ["라멘집 아님"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "히요리라멘",
+    "soups": ["토리파이탄"],
+    "forms": ["라멘", "마제소바"],
+    "soupDetail": ["아부라소바"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "라무라",
+    "soups": ["토리파이탄"],
+    "forms": ["라멘", "츠케멘"],
+    "instagram": "ramura_noodleshop",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "아자스",
+    "soupDetail": ["라멘집 아님"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "류진",
+    "soups": ["돈코츠쇼유"],
+    "forms": ["라멘"],
+    "lineages": ["지로계"],
+    "soupDetail": ["시루나시"],
+    "instagram": "ryujin_ramen_seoul",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "멘코지",
+    "forms": ["라멘"],
+    "soupDetail": ["시루나시"],
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "멘카오리",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "soupDetail": ["교카이"],
+    "naverPlace": "https://map.naver.com/p/entry/place/1138570926",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "렌게",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "유타로",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "멘쇼",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "멘쿄",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "희옥",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "츠케루",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "무겐스위치",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "마시타야",
+    "sourceNote": "웹 조사"
+  },
+  {
+    "name": "칸다소바",
+    "sourceNote": "웹 조사"
+  }
+]

@@ -71,6 +71,7 @@ const CONFIDENCE_MAP: Record<string, Confidence> = {
 };
 const COORD_SOURCE_MAP: Record<string, CoordSource> = {
   LOCALDATA: "localdata",
+  상가정보: "sanggwon",
   수동핀: "manual-pin",
 };
 
