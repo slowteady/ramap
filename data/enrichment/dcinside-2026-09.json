@@ -1,287 +1,377 @@
 [
-  {
-    "name": "566라멘",
-    "sourceNote": "디시 라멘 갤러리 정리글",
-    "area": "홍대",
-    "soups": ["니보시", "미소", "돈코츠"],
-    "lineages": ["지로계"]
-  },
-  {
-    "name": "니시무라멘",
-    "sourceNote": "디시 라멘 갤러리 정리글",
-    "area": "연남",
-    "soups": ["시오"]
-  },
-  {
-    "name": "담택",
-    "sourceNote": "디시 라멘 갤러리 정리글",
-    "area": "망원",
-    "soups": ["시오"]
-  },
-  {
-    "name": "덴키",
-    "sourceNote": "디시 라멘 갤러리 정리글",
-    "lineages": ["이에케"]
-  },
-  {
-    "name": "라멘다이야",
-    "sourceNote": "디시 라멘 갤러리 정리글",
-    "soups": ["쇼유"]
-  },
-  {
-    "name": "라멘키레이",
-    "sourceNote": "디시 라멘 갤러리 정리글",
-    "area": "망원",
-    "openedAt": "2026-08"
-  },
-  {
-    "name": "라멘토네이도",
-    "sourceNote": "디시 라멘 갤러리 정리글",
-    "area": "망원",
-    "soups": ["미소"],
-    "openedAt": "2026-08"
-  },
-  {
-    "name": "라멘트럭",
-    "sourceNote": "디시 라멘 갤러리 정리글",
-    "lineages": ["이에케"]
-  },
-  {
-    "name": "라무라",
-    "sourceNote": "디시 라멘 갤러리 정리글"
-  },
-  {
-    "name": "로지라멘",
-    "sourceNote": "디시 라멘 갤러리 정리글",
-    "area": "쌍문",
-    "closed": true
-  },
-  {
-    "name": "롱시즌",
-    "sourceNote": "디시 라멘 갤러리 정리글",
-    "area": "연남"
-  },
-  {
-    "name": "류진",
-    "sourceNote": "디시 라멘 갤러리 정리글",
-    "lineages": ["지로계"]
-  },
-  {
-    "name": "맛쇼유",
-    "sourceNote": "디시 라멘 갤러리 정리글",
-    "area": "여의도",
-    "soups": ["쇼유"]
-  },
-  {
-    "name": "멘야준",
-    "sourceNote": "디시 라멘 갤러리 정리글",
-    "area": "연남"
-  },
-  {
-    "name": "멘야카엔",
-    "sourceNote": "디시 라멘 갤러리 정리글",
-    "lineages": ["이에케"]
-  },
-  {
-    "name": "멘지",
-    "sourceNote": "디시 라멘 갤러리 정리글"
-  },
-  {
-    "name": "멘코지",
-    "sourceNote": "디시 라멘 갤러리 정리글",
-    "area": "성수",
-    "lineages": ["지로계"],
-    "openedAt": "2026-07"
-  },
-  {
-    "name": "멘쿄",
-    "sourceNote": "디시 라멘 갤러리 정리글",
-    "lineages": ["지로계"]
-  },
-  {
-    "name": "멘텐",
-    "sourceNote": "디시 라멘 갤러리 정리글",
-    "area": "명동",
-    "soups": ["쇼유"]
-  },
-  {
-    "name": "무겐스위치",
-    "sourceNote": "디시 라멘 갤러리 정리글",
-    "lineages": ["이에케"]
-  },
-  {
-    "name": "부탄츄",
-    "sourceNote": "디시 라멘 갤러리 정리글",
-    "area": "홍대",
-    "soups": ["돈코츠"]
-  },
-  {
-    "name": "비토니",
-    "sourceNote": "디시 라멘 갤러리 정리글",
-    "soups": ["니보시"],
-    "lineages": ["이에케"]
-  },
-  {
-    "name": "사루카메",
-    "sourceNote": "디시 라멘 갤러리 정리글",
-    "soups": ["쇼유"]
-  },
-  {
-    "name": "세상끝의라멘",
-    "sourceNote": "디시 라멘 갤러리 정리글",
-    "area": "합정",
-    "soups": ["쇼유"]
-  },
-  {
-    "name": "센자이료쿠",
-    "sourceNote": "디시 라멘 갤러리 정리글",
-    "area": "홍대",
-    "lineages": ["이에케"]
-  },
-  {
-    "name": "소바준",
-    "sourceNote": "디시 라멘 갤러리 정리글",
-    "area": "연남"
-  },
-  {
-    "name": "시코우",
-    "sourceNote": "디시 라멘 갤러리 정리글",
-    "area": "망원"
-  },
-  {
-    "name": "신바야시쇼쿠도",
-    "sourceNote": "디시 라멘 갤러리 정리글",
-    "lineages": ["이에케"]
-  },
-  {
-    "name": "아자스",
-    "sourceNote": "디시 라멘 갤러리 정리글",
-    "area": "신림",
-    "soupDetail": ["청탕"]
-  },
-  {
-    "name": "아키야",
-    "sourceNote": "디시 라멘 갤러리 정리글",
-    "area": "망원"
-  },
-  {
-    "name": "야시마",
-    "sourceNote": "디시 라멘 갤러리 정리글",
-    "area": "여의도"
-  },
-  {
-    "name": "오레노라멘",
-    "sourceNote": "디시 라멘 갤러리 정리글",
-    "soups": ["토리파이탄"]
-  },
-  {
-    "name": "요아케",
-    "sourceNote": "디시 라멘 갤러리 정리글",
-    "area": "신당"
-  },
-  {
-    "name": "유니드라멘",
-    "sourceNote": "디시 라멘 갤러리 정리글",
-    "area": "신당",
-    "lineages": ["지로계"]
-  },
-  {
-    "name": "유타로",
-    "sourceNote": "디시 라멘 갤러리 정리글"
-  },
-  {
-    "name": "이리에",
-    "sourceNote": "디시 라멘 갤러리 정리글",
-    "area": "망원"
-  },
-  {
-    "name": "이치니이치",
-    "sourceNote": "디시 라멘 갤러리 정리글",
-    "soups": ["시오"]
-  },
-  {
-    "name": "일심당",
-    "sourceNote": "디시 라멘 갤러리 정리글",
-    "area": "쌍문",
-    "soups": ["돈코츠"],
-    "forms": ["라멘", "마제소바", "츠케멘"]
-  },
-  {
-    "name": "지로우",
-    "sourceNote": "디시 라멘 갤러리 정리글"
-  },
-  {
-    "name": "초라멘",
-    "sourceNote": "디시 라멘 갤러리 정리글",
-    "area": "건대",
-    "soups": ["토리파이탄"]
-  },
-  {
-    "name": "츠바사",
-    "sourceNote": "디시 라멘 갤러리 정리글",
-    "lineages": ["이에케"]
-  },
-  {
-    "name": "칸다소바",
-    "sourceNote": "디시 라멘 갤러리 정리글",
-    "area": "혜화",
-    "forms": ["라멘", "마제소바"]
-  },
-  {
-    "name": "쿄라멘",
-    "sourceNote": "디시 라멘 갤러리 정리글",
-    "soups": ["돈코츠"],
-    "forms": ["라멘", "츠케멘"]
-  },
-  {
-    "name": "킥스타트",
-    "sourceNote": "디시 라멘 갤러리 정리글",
-    "lineages": ["이에케"]
-  },
-  {
-    "name": "킨카",
-    "sourceNote": "디시 라멘 갤러리 정리글",
-    "area": "강남"
-  },
-  {
-    "name": "킨톤라멘",
-    "sourceNote": "디시 라멘 갤러리 정리글",
-    "area": "삼성",
-    "soups": ["돈코츠"],
-    "forms": ["라멘", "츠케멘"],
-    "closed": true
-  },
-  {
-    "name": "토리카마",
-    "sourceNote": "디시 라멘 갤러리 정리글",
-    "area": "압구정로데오",
-    "soups": ["토리파이탄", "미소", "시오"]
-  },
-  {
-    "name": "하쿠텐",
-    "sourceNote": "디시 라멘 갤러리 정리글",
-    "area": "연남",
-    "lineages": ["이에케"]
-  },
-  {
-    "name": "형훈",
-    "sourceNote": "디시 라멘 갤러리 정리글",
-    "area": "신사"
-  },
-  {
-    "name": "호시라멘",
-    "sourceNote": "디시 라멘 갤러리 정리글"
-  },
-  {
-    "name": "혼네",
-    "sourceNote": "디시 라멘 갤러리 정리글",
-    "area": "홍대",
-    "soups": ["니보시"],
-    "forms": ["라멘", "츠케멘"]
-  },
-  {
-    "name": "희옥",
-    "sourceNote": "디시 라멘 갤러리 정리글",
-    "area": "망원"
-  }
+ {
+  "name": "566라멘",
+  "sourceNote": "디시 라멘 갤러리 정리글",
+  "area": "홍대",
+  "soups": [
+   "니보시",
+   "미소",
+   "돈코츠"
+  ],
+  "lineages": [
+   "지로계"
+  ]
+ },
+ {
+  "name": "니시무라멘",
+  "sourceNote": "디시 라멘 갤러리 정리글",
+  "area": "연남",
+  "soups": [
+   "시오"
+  ]
+ },
+ {
+  "name": "담택",
+  "sourceNote": "디시 라멘 갤러리 정리글",
+  "area": "망원",
+  "soups": [
+   "시오"
+  ]
+ },
+ {
+  "name": "덴키",
+  "sourceNote": "디시 라멘 갤러리 정리글",
+  "lineages": [
+   "이에케"
+  ]
+ },
+ {
+  "name": "라멘다이야",
+  "sourceNote": "디시 라멘 갤러리 정리글",
+  "soups": [
+   "쇼유"
+  ]
+ },
+ {
+  "name": "라멘키레이",
+  "sourceNote": "디시 라멘 갤러리 정리글",
+  "area": "망원",
+  "openedAt": "2026-08"
+ },
+ {
+  "name": "라멘토네이도",
+  "sourceNote": "디시 라멘 갤러리 정리글",
+  "area": "망원",
+  "soups": [
+   "미소"
+  ],
+  "openedAt": "2026-08"
+ },
+ {
+  "name": "라멘트럭",
+  "sourceNote": "디시 라멘 갤러리 정리글",
+  "lineages": [
+   "이에케"
+  ]
+ },
+ {
+  "name": "라무라",
+  "sourceNote": "디시 라멘 갤러리 정리글"
+ },
+ {
+  "name": "로지라멘",
+  "sourceNote": "디시 라멘 갤러리 정리글",
+  "area": "쌍문",
+  "closed": true
+ },
+ {
+  "name": "롱시즌",
+  "sourceNote": "디시 라멘 갤러리 정리글",
+  "area": "연남"
+ },
+ {
+  "name": "류진",
+  "sourceNote": "디시 라멘 갤러리 정리글",
+  "lineages": [
+   "지로계"
+  ]
+ },
+ {
+  "name": "맛쇼유",
+  "sourceNote": "디시 라멘 갤러리 정리글",
+  "area": "여의도",
+  "soups": [
+   "쇼유"
+  ]
+ },
+ {
+  "name": "멘야준",
+  "sourceNote": "디시 라멘 갤러리 정리글",
+  "area": "연남"
+ },
+ {
+  "name": "멘야카엔",
+  "sourceNote": "디시 라멘 갤러리 정리글",
+  "lineages": [
+   "이에케"
+  ]
+ },
+ {
+  "name": "멘지",
+  "sourceNote": "디시 라멘 갤러리 정리글"
+ },
+ {
+  "name": "멘코지",
+  "sourceNote": "디시 라멘 갤러리 정리글",
+  "area": "건대",
+  "lineages": [
+   "지로계"
+  ],
+  "openedAt": "2026-07"
+ },
+ {
+  "name": "멘쿄",
+  "sourceNote": "디시 라멘 갤러리 정리글",
+  "lineages": [
+   "지로계"
+  ]
+ },
+ {
+  "name": "멘텐",
+  "sourceNote": "디시 라멘 갤러리 정리글",
+  "area": "명동",
+  "soups": [
+   "쇼유"
+  ]
+ },
+ {
+  "name": "무겐스위치",
+  "sourceNote": "디시 라멘 갤러리 정리글",
+  "lineages": [
+   "이에케"
+  ]
+ },
+ {
+  "name": "부탄츄",
+  "sourceNote": "디시 라멘 갤러리 정리글",
+  "area": "홍대",
+  "soups": [
+   "돈코츠"
+  ]
+ },
+ {
+  "name": "비토니",
+  "sourceNote": "디시 라멘 갤러리 정리글",
+  "soups": [
+   "니보시"
+  ],
+  "lineages": [
+   "이에케"
+  ]
+ },
+ {
+  "name": "사루카메",
+  "sourceNote": "디시 라멘 갤러리 정리글",
+  "soups": [
+   "쇼유"
+  ]
+ },
+ {
+  "name": "세상끝의라멘",
+  "sourceNote": "디시 라멘 갤러리 정리글",
+  "area": "합정",
+  "soups": [
+   "쇼유"
+  ]
+ },
+ {
+  "name": "센자이료쿠",
+  "sourceNote": "디시 라멘 갤러리 정리글",
+  "area": "홍대",
+  "lineages": [
+   "이에케"
+  ]
+ },
+ {
+  "name": "소바준",
+  "sourceNote": "디시 라멘 갤러리 정리글",
+  "area": "연남"
+ },
+ {
+  "name": "시코우",
+  "sourceNote": "디시 라멘 갤러리 정리글",
+  "area": "망원"
+ },
+ {
+  "name": "신바야시쇼쿠도",
+  "sourceNote": "디시 라멘 갤러리 정리글",
+  "lineages": [
+   "이에케"
+  ]
+ },
+ {
+  "name": "아자스",
+  "sourceNote": "디시 라멘 갤러리 정리글",
+  "area": "신림",
+  "soupDetail": [
+   "청탕"
+  ]
+ },
+ {
+  "name": "아키야",
+  "sourceNote": "디시 라멘 갤러리 정리글",
+  "area": "망원"
+ },
+ {
+  "name": "야시마",
+  "sourceNote": "디시 라멘 갤러리 정리글",
+  "area": "여의도"
+ },
+ {
+  "name": "오레노라멘",
+  "sourceNote": "디시 라멘 갤러리 정리글",
+  "soups": [
+   "토리파이탄"
+  ]
+ },
+ {
+  "name": "요아케",
+  "sourceNote": "디시 라멘 갤러리 정리글",
+  "area": "신당"
+ },
+ {
+  "name": "유니드라멘",
+  "sourceNote": "디시 라멘 갤러리 정리글",
+  "area": "신당",
+  "lineages": [
+   "지로계"
+  ]
+ },
+ {
+  "name": "유타로",
+  "sourceNote": "디시 라멘 갤러리 정리글"
+ },
+ {
+  "name": "이리에",
+  "sourceNote": "디시 라멘 갤러리 정리글",
+  "area": "망원"
+ },
+ {
+  "name": "이치니이치",
+  "sourceNote": "디시 라멘 갤러리 정리글",
+  "soups": [
+   "시오"
+  ]
+ },
+ {
+  "name": "일심당",
+  "sourceNote": "디시 라멘 갤러리 정리글",
+  "area": "쌍문",
+  "soups": [
+   "돈코츠"
+  ],
+  "forms": [
+   "라멘",
+   "마제소바",
+   "츠케멘"
+  ]
+ },
+ {
+  "name": "지로우",
+  "sourceNote": "디시 라멘 갤러리 정리글"
+ },
+ {
+  "name": "초라멘",
+  "sourceNote": "디시 라멘 갤러리 정리글",
+  "area": "건대",
+  "soups": [
+   "토리파이탄"
+  ]
+ },
+ {
+  "name": "츠바사",
+  "sourceNote": "디시 라멘 갤러리 정리글",
+  "lineages": [
+   "이에케"
+  ]
+ },
+ {
+  "name": "칸다소바",
+  "sourceNote": "디시 라멘 갤러리 정리글",
+  "area": "혜화",
+  "forms": [
+   "라멘",
+   "마제소바"
+  ]
+ },
+ {
+  "name": "쿄라멘",
+  "sourceNote": "디시 라멘 갤러리 정리글",
+  "soups": [
+   "돈코츠"
+  ],
+  "forms": [
+   "라멘",
+   "츠케멘"
+  ]
+ },
+ {
+  "name": "킥스타트",
+  "sourceNote": "디시 라멘 갤러리 정리글",
+  "lineages": [
+   "이에케"
+  ]
+ },
+ {
+  "name": "킨카",
+  "sourceNote": "디시 라멘 갤러리 정리글",
+  "area": "강남"
+ },
+ {
+  "name": "킨톤라멘",
+  "sourceNote": "디시 라멘 갤러리 정리글",
+  "area": "삼성",
+  "soups": [
+   "돈코츠"
+  ],
+  "forms": [
+   "라멘",
+   "츠케멘"
+  ],
+  "closed": true
+ },
+ {
+  "name": "토리카마",
+  "sourceNote": "디시 라멘 갤러리 정리글",
+  "area": "압구정로데오",
+  "soups": [
+   "토리파이탄",
+   "미소",
+   "시오"
+  ]
+ },
+ {
+  "name": "하쿠텐",
+  "sourceNote": "디시 라멘 갤러리 정리글",
+  "area": "연남",
+  "lineages": [
+   "이에케"
+  ]
+ },
+ {
+  "name": "형훈",
+  "sourceNote": "디시 라멘 갤러리 정리글",
+  "area": "신사"
+ },
+ {
+  "name": "호시라멘",
+  "sourceNote": "디시 라멘 갤러리 정리글"
+ },
+ {
+  "name": "혼네",
+  "sourceNote": "디시 라멘 갤러리 정리글",
+  "area": "홍대",
+  "soups": [
+   "니보시"
+  ],
+  "forms": [
+   "라멘",
+   "츠케멘"
+  ]
+ },
+ {
+  "name": "희옥",
+  "sourceNote": "디시 라멘 갤러리 정리글",
+  "area": "망원"
+ }
 ]
