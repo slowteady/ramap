@@ -60,6 +60,25 @@ export function matchEnrichment(
   });
 }
 
+/* 반복 실증된 세부 스타일의 표준 승격 — 토마토(2026-09-02, 서울 21곳 실측 후 PO 확정) */
+const SOUP_PROMOTIONS: Record<string, string> = {
+  토마토: "토마토",
+  토마토라멘: "토마토",
+};
+
+export function promoteSoups(e: Enrichment): Enrichment {
+  const detail = e.soupDetail ?? [];
+  const promoted = [
+    ...new Set(detail.map((d) => SOUP_PROMOTIONS[d]).filter(Boolean)),
+  ] as string[];
+  if (promoted.length === 0) return e;
+  return {
+    ...e,
+    soups: [...new Set([...(e.soups ?? []), ...promoted])],
+    soupDetail: detail.filter((d) => !SOUP_PROMOTIONS[d]),
+  };
+}
+
 export function mergeEnrichments(matches: Enrichment[]): Enrichment {
   const merged: Enrichment = { name: matches[0]?.name ?? "" };
   for (const e of matches) {

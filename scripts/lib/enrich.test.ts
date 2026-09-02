@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import {
   matchEnrichment,
   mergeEnrichments,
+  promoteSoups,
   toSlug,
   type Enrichment,
 } from "./enrich";
@@ -40,5 +41,17 @@ describe("mergeEnrichments", () => {
     expect(merged.soups).toEqual(["돈코츠", "쇼유"]);
     expect(merged.instagram).toBe("one");
     expect(merged.closed).toBe(true);
+  });
+});
+
+describe("promoteSoups", () => {
+  it("토마토 세부를 표준 스프로 승격하고 세부에서 제거한다", () => {
+    const e = promoteSoups({
+      name: "a",
+      soups: ["쇼유"],
+      soupDetail: ["토마토라멘", "교카이"],
+    });
+    expect(e.soups).toEqual(["쇼유", "토마토"]);
+    expect(e.soupDetail).toEqual(["교카이"]);
   });
 });

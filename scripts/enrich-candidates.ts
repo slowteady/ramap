@@ -3,6 +3,7 @@ import { resolve } from "node:path";
 import {
   matchEnrichment,
   mergeEnrichments,
+  promoteSoups,
   toSheetLine,
   toSlug,
   type Enrichment,
@@ -68,7 +69,7 @@ for (const line of lines.slice(1)) {
   });
 
   const matches = matchEnrichment(cells.상호, cells.지점명, enrichments);
-  const e = mergeEnrichments(matches);
+  const e = promoteSoups(mergeEnrichments(matches));
 
   cells.id = toSlug(cells.상호, cells.지점명, taken);
   cells.시 = "서울";

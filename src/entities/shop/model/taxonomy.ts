@@ -62,6 +62,11 @@ export const SOUPS = [
     labelJa: "担々麺",
     description: "참깨 페이스트와 라유의 매콤 고소한 국물",
   },
+  {
+    slug: "tomato",
+    label: "토마토",
+    description: "토마토의 산미를 살린 이탈리안 퓨전 국물",
+  },
   { slug: "etc-soup", label: "기타" },
 ] as const satisfies readonly TaxonomyItem[];
 
