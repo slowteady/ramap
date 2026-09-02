@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import {
   normalizeComment,
   visibleLogEntries,
+  withEntryMeta,
   visitOrdinals,
   type RecordPhoto,
 } from "./record-photo-ops";
@@ -16,6 +17,7 @@ const photo = (over: Partial<RecordPhoto>): RecordPhoto => ({
   status: "approved",
   rejectReason: null,
   createdAt: "2026-09-01T00:00:00.000Z",
+  entryId: null,
   nickname: null,
   url: null,
   ...over,
@@ -68,5 +70,60 @@ describe("visibleLogEntries", () => {
       null,
     );
     expect(listed.map((p) => p.id)).toEqual([1]);
+  });
+});
+
+describe("다중 사진 묶음(entry)", () => {
+  const p = (
+    id: number,
+    userId: string,
+    createdAt: string,
+    entryId: string | null = null,
+  ): RecordPhoto => ({
+    id,
+    userId,
+    shopId: "kinka",
+    photoPath: `${userId}/${id}.jpg`,
+    comment: null,
+    consent: true,
+    status: "approved",
+    rejectReason: null,
+    createdAt,
+    entryId,
+    nickname: null,
+    url: null,
+  });
+
+  it("visitOrdinals — 같은 제출 묶음은 한 회차로 센다", () => {
+    const photos = [
+      p(1, "u1", "2026-09-01T12:00:00Z", "e1"),
+      p(2, "u1", "2026-09-01T12:00:00Z", "e1"),
+      p(3, "u1", "2026-09-02T12:00:00Z", "e2"),
+    ];
+    const ordinals = visitOrdinals(photos);
+    expect(ordinals.get(1)).toBe(1);
+    expect(ordinals.get(2)).toBe(1);
+    expect(ordinals.get(3)).toBe(2);
+  });
+
+  it("visitOrdinals — entryId 없는 구 데이터는 행 단위로 센다", () => {
+    const photos = [
+      p(1, "u1", "2026-09-01T12:00:00Z"),
+      p(2, "u1", "2026-09-02T12:00:00Z"),
+    ];
+    const ordinals = visitOrdinals(photos);
+    expect(ordinals.get(1)).toBe(1);
+    expect(ordinals.get(2)).toBe(2);
+  });
+
+  it("withEntryMeta — 묶음의 첫 장에만 메타를 붙이고 묶음은 연속 배치된다", () => {
+    const photos = [
+      p(1, "u1", "2026-09-01T12:00:00Z", "e1"),
+      p(2, "u1", "2026-09-01T12:00:00Z", "e1"),
+      p(3, "u2", "2026-09-02T12:00:00Z", "e2"),
+    ];
+    const entries = withEntryMeta(visibleLogEntries(photos, null));
+    expect(entries.map((e) => e.photo.id)).toEqual([3, 1, 2]);
+    expect(entries.map((e) => e.showMeta)).toEqual([true, true, false]);
   });
 });

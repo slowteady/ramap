@@ -209,8 +209,12 @@ create table if not exists public.record_photos (
   consent boolean not null default true,
   status text not null default 'pending' check (status in ('pending', 'approved', 'rejected')),
   reject_reason text,
-  created_at timestamptz not null default now()
+  created_at timestamptz not null default now(),
+  -- 다중 사진 제출 묶음 키 (2026-09-02) — 같은 제출의 행들이 공유, 구 데이터는 null(행 단독)
+  entry_id uuid
 );
+
+-- 기적용 DB에는: alter table public.record_photos add column if not exists entry_id uuid;
 
 alter table public.record_photos enable row level security;
 

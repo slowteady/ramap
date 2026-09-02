@@ -3,9 +3,8 @@ import userEvent from "@testing-library/user-event";
 import { describe, expect, it, vi } from "vitest";
 import { RecordLogSheet } from "./record-log-sheet";
 
-vi.mock("../model/record-photos", () => ({
-  submitRecordPhoto: vi.fn(async () => true),
-}));
+const submitRecordPhotos = vi.hoisted(() => vi.fn(async () => true));
+vi.mock("../model/record-photos", () => ({ submitRecordPhotos }));
 vi.mock("../model/use-records", () => ({
   useRecords: () => ({ recordRevisit: vi.fn() }),
 }));
@@ -58,5 +57,29 @@ describe("RecordLogSheet — 미저장 이탈 확인", () => {
       <RecordLogSheet shopId="kinka" open revisit={false} onClose={() => {}} />,
     );
     expect(screen.getByRole("button", { name: "남기기" })).toBeDisabled();
+  });
+});
+
+describe("RecordLogSheet — 다중 사진 제출", () => {
+  it("사진 여러 장을 고르면 한 번에 제출된다", async () => {
+    const user = userEvent.setup();
+    const onClose = vi.fn();
+    render(
+      <RecordLogSheet shopId="kinka" open revisit={false} onClose={onClose} />,
+    );
+    const input = document.querySelector('input[type="file"]')!;
+    const files = [
+      new File(["a"], "a.jpg", { type: "image/jpeg" }),
+      new File(["b"], "b.jpg", { type: "image/jpeg" }),
+    ];
+    await user.upload(input as HTMLInputElement, files);
+    await user.click(screen.getByRole("button", { name: "남기기" }));
+    expect(submitRecordPhotos).toHaveBeenCalledWith(
+      expect.objectContaining({
+        shopId: "kinka",
+        files: expect.arrayContaining([expect.any(File), expect.any(File)]),
+      }),
+    );
+    expect(onClose).toHaveBeenCalled();
   });
 });

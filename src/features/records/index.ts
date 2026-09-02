@@ -7,5 +7,6 @@ export { RecordLogSheet } from "./ui/record-log-sheet";
 export {
   visibleLogEntries,
   visitOrdinals,
+  withEntryMeta,
   type RecordPhoto,
 } from "./model/record-photo-ops";

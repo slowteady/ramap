@@ -144,7 +144,8 @@ export function useNewReportForm(mapCenter: LatLng | null) {
 }
 
 export function useEditReportForm(target: ReportTarget) {
-  const { draft, set, toggle } = useDraft<EditReportDraft>(EMPTY_EDIT_DRAFT);
+  const { draft, setDraft, set, toggle } =
+    useDraft<EditReportDraft>(EMPTY_EDIT_DRAFT);
   const { phase, submit } = useReportSubmit();
   const canSubmit = phase === "editing" && canSubmitEdit(draft);
 
@@ -157,11 +158,37 @@ export function useEditReportForm(target: ReportTarget) {
     [draft.items],
   );
 
+  const addPhotos = useCallback(
+    (files: File[]) =>
+      setDraft((d) => ({
+        ...d,
+        photos: [...d.photos, ...files].slice(0, MAX_PHOTOS),
+      })),
+    [setDraft],
+  );
+  const removePhoto = useCallback(
+    (index: number) =>
+      setDraft((d) => ({
+        ...d,
+        photos: d.photos.filter((_, i) => i !== index),
+      })),
+    [setDraft],
+  );
+
   const handleSubmit = useCallback(() => {
     if (!canSubmit) return;
-    void submit(async () =>
-      toReportRow(buildEditPayload(target, draft), target),
-    );
+    void submit(async () => {
+      let paths: string[] = [];
+      if (draft.photos.length > 0) {
+        const uploaded = await uploadReportPhotos(draft.photos, "edit");
+        if (!uploaded) {
+          toast("사진 업로드에 실패했어요. 사진을 빼거나 다시 시도해 주세요.");
+          return null;
+        }
+        paths = uploaded;
+      }
+      return toReportRow(buildEditPayload(target, draft, paths), target);
+    });
   }, [canSubmit, submit, target, draft]);
 
   return {
@@ -170,6 +197,8 @@ export function useEditReportForm(target: ReportTarget) {
     toggle,
     toggleItem,
     has,
+    addPhotos,
+    removePhoto,
     phase,
     canSubmit,
     submit: handleSubmit,

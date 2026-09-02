@@ -19,6 +19,7 @@ type RecordPhotoRow = {
   status: string;
   reject_reason: string | null;
   created_at: string;
+  entry_id: string | null;
 };
 
 function fromRow(row: RecordPhotoRow): RecordPhoto {
@@ -32,36 +33,46 @@ function fromRow(row: RecordPhotoRow): RecordPhoto {
     status: row.status as RecordPhotoStatus,
     rejectReason: row.reject_reason,
     createdAt: row.created_at,
+    entryId: row.entry_id,
     nickname: null,
     url: null,
   };
 }
 
-export async function submitRecordPhoto(input: {
+/* 다중 사진 = 한 제출 묶음(entry_id 공유), 한줄평은 첫 행에만 — 부분 실패는 전체 실패로 처리 */
+export async function submitRecordPhotos(input: {
   shopId: string;
-  file: File;
+  files: File[];
   comment: string;
   consent: boolean;
 }): Promise<boolean> {
   const client = getSupabase();
-  if (!client) return false;
+  if (!client || input.files.length === 0) return false;
   const { data } = await client.auth.getUser();
   const user = data.user;
   if (!user) return false;
   try {
-    const blob = await toJpegBlob(input.file);
-    const path = `${user.id}/${crypto.randomUUID()}.jpg`;
-    const uploaded = await client.storage
-      .from(BUCKET)
-      .upload(path, blob, { contentType: "image/jpeg" });
-    if (uploaded.error) return false;
-    const inserted = await client.from("record_photos").insert({
-      user_id: user.id,
-      shop_id: input.shopId,
-      photo_path: path,
-      comment: normalizeComment(input.comment),
-      consent: input.consent,
-    });
+    const entryId = crypto.randomUUID();
+    const blobs = await Promise.all(input.files.map((f) => toJpegBlob(f)));
+    const paths = blobs.map(() => `${user.id}/${crypto.randomUUID()}.jpg`);
+    const uploads = await Promise.all(
+      blobs.map((blob, i) =>
+        client.storage
+          .from(BUCKET)
+          .upload(paths[i], blob, { contentType: "image/jpeg" }),
+      ),
+    );
+    if (uploads.some((u) => u.error)) return false;
+    const inserted = await client.from("record_photos").insert(
+      paths.map((path, i) => ({
+        user_id: user.id,
+        shop_id: input.shopId,
+        photo_path: path,
+        comment: i === 0 ? normalizeComment(input.comment) : null,
+        consent: input.consent,
+        entry_id: entryId,
+      })),
+    );
     return !inserted.error;
   } catch {
     return false;
@@ -112,7 +123,7 @@ export async function fetchShopRecordPhotos(
   const { data, error } = await client
     .from("record_photos")
     .select(
-      "id, user_id, shop_id, photo_path, comment, consent, status, reject_reason, created_at",
+      "id, user_id, shop_id, photo_path, comment, consent, status, reject_reason, created_at, entry_id",
     )
     .eq("shop_id", shopId)
     .order("created_at", { ascending: false });
@@ -128,7 +139,7 @@ export async function fetchMyRecordPhotos(): Promise<RecordPhoto[] | null> {
   const { data, error } = await client
     .from("record_photos")
     .select(
-      "id, user_id, shop_id, photo_path, comment, consent, status, reject_reason, created_at",
+      "id, user_id, shop_id, photo_path, comment, consent, status, reject_reason, created_at, entry_id",
     )
     .eq("user_id", auth.user.id)
     .order("created_at", { ascending: false });

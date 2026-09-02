@@ -53,6 +53,7 @@ export type EditReportDraft = GenreDraft & {
   menu: string;
   location: string;
   amenities: AmenitySlug[];
+  photos: File[];
   message: string;
 };
 
@@ -81,6 +82,7 @@ export type EditReportPayload = {
   shopName: string;
   items: EditItem[];
   fields: EditReportFields;
+  photos?: string[];
   message?: string;
 };
 
@@ -114,6 +116,7 @@ export const EMPTY_EDIT_DRAFT: EditReportDraft = {
   forms: [],
   lineages: [],
   amenities: [],
+  photos: [],
   message: "",
 };
 
@@ -130,7 +133,11 @@ export function isDirtyNew(draft: NewReportDraft): boolean {
 }
 
 export function isDirtyEdit(draft: EditReportDraft): boolean {
-  return draft.items.length > 0 || draft.message.trim() !== "";
+  return (
+    draft.items.length > 0 ||
+    draft.photos.length > 0 ||
+    draft.message.trim() !== ""
+  );
 }
 
 const text = (s: string): string | undefined => s.trim() || undefined;
@@ -216,6 +223,7 @@ export function canSubmitEdit(d: EditReportDraft): boolean {
 export function buildEditPayload(
   target: ReportTarget,
   d: EditReportDraft,
+  photoPaths: string[] = [],
 ): EditReportPayload {
   const has = (item: EditItem) => d.items.includes(item);
   const evidence = text(d.closedEvidence);
@@ -235,6 +243,7 @@ export function buildEditPayload(
     shopName: target.name,
     items: d.items,
     fields,
+    ...field("photos", list(photoPaths)),
     ...field("message", text(d.message)),
   };
 }

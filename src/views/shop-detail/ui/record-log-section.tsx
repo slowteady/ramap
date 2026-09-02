@@ -8,6 +8,7 @@ import {
   useRecords,
   visibleLogEntries,
   visitOrdinals,
+  withEntryMeta,
   type RecordPhoto,
 } from "@/features/records";
 import { fetchShopRecordPhotos } from "@/features/records/index.client";
@@ -56,7 +57,7 @@ export function RecordLogSection({ shopId }: { shopId: string }) {
     void load();
   }, [load]);
 
-  const entries = visibleLogEntries(photos ?? [], myUserId);
+  const entries = withEntryMeta(visibleLogEntries(photos ?? [], myUserId));
   const ordinals = visitOrdinals(photos ?? []);
   const visited = get(shopId)?.visited ?? false;
 
@@ -83,7 +84,7 @@ export function RecordLogSection({ shopId }: { shopId: string }) {
           {...handlers}
           className="-mx-4 flex gap-3 overflow-x-auto px-4 pb-1"
         >
-          {entries.map((entry) => (
+          {entries.map(({ photo: entry, showMeta }) => (
             <li key={entry.id} className="flex w-40 shrink-0 flex-col gap-1.5">
               <div className="relative">
                 {entry.url ? (
@@ -107,10 +108,15 @@ export function RecordLogSection({ shopId }: { shopId: string }) {
                   </span>
                 )}
               </div>
-              {entry.comment && (
+              {showMeta && entry.comment && (
                 <p className="text-secondary text-ink">{entry.comment}</p>
               )}
-              <EntryMeta entry={entry} ordinal={ordinals.get(entry.id) ?? 1} />
+              {showMeta && (
+                <EntryMeta
+                  entry={entry}
+                  ordinal={ordinals.get(entry.id) ?? 1}
+                />
+              )}
             </li>
           ))}
         </ul>

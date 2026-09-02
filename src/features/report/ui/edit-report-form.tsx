@@ -5,6 +5,7 @@ import { AMENITY_OPTIONS, GENRE_AXES } from "../model/report-options";
 import {
   EDIT_ITEMS,
   isDirtyEdit,
+  MAX_PHOTOS,
   type ReportTarget,
 } from "../model/report-payload";
 import { useEditReportForm } from "../model/use-report-form";
@@ -14,6 +15,7 @@ import {
   ChipGrid,
   DoneView,
   Field,
+  PhotoPicker,
   SegmentedPills,
   TextArea,
   TextInput,
@@ -154,6 +156,18 @@ export function EditReportForm({
             maxLength={500}
           />
         </Field>
+
+        <div className="flex flex-col gap-1.5">
+          <span className="text-secondary font-semibold text-ink">
+            사진<span className="pl-1 font-normal text-gray-400">(선택)</span>
+          </span>
+          <PhotoPicker
+            files={form.draft.photos}
+            max={MAX_PHOTOS}
+            onAdd={form.addPhotos}
+            onRemove={form.removePhoto}
+          />
+        </div>
       </div>
       <BottomCta
         label="보내기"

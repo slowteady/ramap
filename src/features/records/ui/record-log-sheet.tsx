@@ -1,12 +1,13 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
-import { Camera, Check, X } from "lucide-react";
+import { useState } from "react";
+import { Check } from "lucide-react";
 import { cn } from "@/shared/lib/utils";
 import { DiscardDialog } from "@/shared/ui/discard-dialog";
 import { Drawer, DrawerContent, DrawerTitle } from "@/shared/ui/drawer";
-import { COMMENT_MAX } from "../model/record-photo-ops";
-import { submitRecordPhoto } from "../model/record-photos";
+import { PhotoPicker } from "@/shared/ui/photo-picker";
+import { COMMENT_MAX, RECORD_PHOTO_MAX } from "../model/record-photo-ops";
+import { submitRecordPhotos } from "../model/record-photos";
 import { useRecords } from "../model/use-records";
 
 type SheetState = "idle" | "submitting" | "failed";
@@ -25,36 +26,24 @@ export function RecordLogSheet({
   onSubmitted?: () => void;
 }) {
   const { recordRevisit } = useRecords();
-  const [file, setFile] = useState<File | null>(null);
-  const preview = useMemo(
-    () => (file ? URL.createObjectURL(file) : null),
-    [file],
-  );
+  const [files, setFiles] = useState<File[]>([]);
   const [comment, setComment] = useState("");
   const [consent, setConsent] = useState(true);
   const [state, setState] = useState<SheetState>("idle");
   const [confirming, setConfirming] = useState(false);
-  const fileInput = useRef<HTMLInputElement>(null);
-
-  useEffect(
-    () => () => {
-      if (preview) URL.revokeObjectURL(preview);
-    },
-    [preview],
-  );
 
   if (!open) return null;
 
-  const dirty = file !== null || comment.trim() !== "";
+  const dirty = files.length > 0 || comment.trim() !== "";
   const requestClose = () => {
     if (dirty) setConfirming(true);
     else onClose();
   };
 
   const submit = async () => {
-    if (!file || state === "submitting") return;
+    if (files.length === 0 || state === "submitting") return;
     setState("submitting");
-    const ok = await submitRecordPhoto({ shopId, file, comment, consent });
+    const ok = await submitRecordPhotos({ shopId, files, comment, consent });
     if (!ok) {
       setState("failed");
       return;
@@ -79,40 +68,17 @@ export function RecordLogSheet({
             </p>
           </div>
 
-          {preview ? (
-            <div className="relative">
-              <img
-                src={preview}
-                alt="선택한 사진 미리보기"
-                className="h-60 w-full rounded-card object-cover"
-              />
-              <button
-                type="button"
-                aria-label="사진 지우기"
-                onClick={() => setFile(null)}
-                className="absolute top-2 right-2 flex size-8 items-center justify-center rounded-pill bg-ink/60 text-white"
-              >
-                <X className="size-4" />
-              </button>
-            </div>
-          ) : (
-            <button
-              type="button"
-              onClick={() => fileInput.current?.click()}
-              className="flex h-60 w-full shrink-0 flex-col items-center justify-center gap-2 rounded-card border border-dashed border-gray-200 bg-gray-050 text-gray-400"
-            >
-              <Camera className="size-7" />
-              <span className="text-secondary font-semibold">
-                사진 선택하기
-              </span>
-            </button>
-          )}
-          <input
-            ref={fileInput}
-            type="file"
-            accept="image/*"
-            className="hidden"
-            onChange={(e) => setFile(e.target.files?.[0] ?? null)}
+          <PhotoPicker
+            files={files}
+            max={RECORD_PHOTO_MAX}
+            onAdd={(picked) =>
+              setFiles((prev) =>
+                [...prev, ...picked].slice(0, RECORD_PHOTO_MAX),
+              )
+            }
+            onRemove={(index) =>
+              setFiles((prev) => prev.filter((_, i) => i !== index))
+            }
           />
 
           <div className="flex flex-col gap-1.5">
@@ -170,10 +136,12 @@ export function RecordLogSheet({
             <button
               type="button"
               onClick={submit}
-              disabled={!file || state === "submitting"}
+              disabled={files.length === 0 || state === "submitting"}
               className={cn(
                 "h-13 flex-1 rounded-card-lg text-body font-bold text-white",
-                file && state !== "submitting" ? "bg-ramen" : "bg-gray-200",
+                files.length > 0 && state !== "submitting"
+                  ? "bg-ramen"
+                  : "bg-gray-200",
               )}
             >
               {state === "submitting" ? "올리는 중…" : "남기기"}

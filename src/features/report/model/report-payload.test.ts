@@ -241,3 +241,18 @@ describe("isDirty", () => {
     expect(isDirtyNew({ ...EMPTY_NEW_DRAFT, shopName: "  " })).toBe(false);
   });
 });
+
+describe("수정 제보 사진", () => {
+  it("사진 경로가 payload에 실리고, 사진만 있어도 dirty다", () => {
+    const draft = { ...EMPTY_EDIT_DRAFT, items: ["etc" as const] };
+    const payload = buildEditPayload(target, draft, ["u/a.jpg", "u/b.jpg"]);
+    expect(payload.photos).toEqual(["u/a.jpg", "u/b.jpg"]);
+    expect(buildEditPayload(target, draft).photos).toBeUndefined();
+    expect(
+      isDirtyEdit({
+        ...EMPTY_EDIT_DRAFT,
+        photos: [new File(["x"], "a.jpg")],
+      }),
+    ).toBe(true);
+  });
+});
