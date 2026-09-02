@@ -14,7 +14,8 @@
     "sync-sheet": "tsx scripts/sync-sheet.ts",
     "seed-candidates": "tsx scripts/seed-candidates.ts",
     "diff-localdata": "tsx scripts/diff-localdata.ts",
-    "postinstall": "patch-package"
+    "postinstall": "patch-package",
+    "enrich-candidates": "tsx scripts/enrich-candidates.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.112.4",

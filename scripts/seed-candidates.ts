@@ -1,14 +1,19 @@
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { decodeCsvBuffer } from "./lib/csv";
+import type { Enrichment } from "./lib/enrich";
 import { isRamenCandidate, parseLocalData } from "./lib/localdata";
-import { candidatesToSheetTsv, mergeCandidates } from "./lib/merge-candidates";
+import {
+  candidatesToSheetTsv,
+  discoverByName,
+  mergeCandidates,
+} from "./lib/merge-candidates";
 import { isRamenBySanggwon, parseSanggwon } from "./lib/sanggwon";
 
-const [localInput, sangInput] = process.argv.slice(2);
+const [localInput, sangInput, ...enrichInputs] = process.argv.slice(2);
 if (!localInput) {
   console.error(
-    "사용법: npm run seed-candidates -- <인허가.csv> [상가정보.csv]",
+    "사용법: npm run seed-candidates -- <인허가.csv> [상가정보.csv] [디깅.json...]",
   );
   process.exit(1);
 }
@@ -29,6 +34,19 @@ if (sangInput) {
 }
 
 const merged = mergeCandidates(localRows, sangRows);
+
+/* 디깅 소스의 가게명을 인허가 전체에서 직접 조회 — 키워드·업종 둘 다 놓친
+   2자 상호 명점(담택·류진 등)을 발굴하는 마지막 그물 */
+if (enrichInputs.length > 0) {
+  const names = enrichInputs
+    .flatMap(
+      (p) => JSON.parse(readFileSync(resolve(p), "utf8")) as Enrichment[],
+    )
+    .map((e) => e.name);
+  const found = discoverByName(merged, localAll, names);
+  console.log(`디깅 이름 발굴: 후보 풀 밖에서 ${found}건 추가`);
+}
+
 const bySource = new Map<string, number>();
 for (const c of merged) {
   const key = c.sources.join("+");

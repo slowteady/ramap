@@ -160,3 +160,37 @@ export function candidatesToSheetTsv(candidates: Candidate[]): string {
   }
   return `${lines.join("\n")}\n`;
 }
+
+/* 디깅 이름을 인허가 영업 중 전체에서 정규화 완전 일치로 조회해 후보 풀에 추가.
+   완전 일치만 — 2자 상호(담택·류진)를 접두·부분 매칭하면 오발굴이 커진다 */
+export function discoverByName(
+  candidates: Candidate[],
+  localAll: LocalDataRow[],
+  names: string[],
+): number {
+  const existing = new Set(
+    candidates.map((c) => normalizeShopName(c.name + c.branch)),
+  );
+  const wanted = new Set(
+    names.map(normalizeShopName).filter((n) => n.length >= 2),
+  );
+  let added = 0;
+  for (const row of localAll) {
+    if (row.status !== "open") continue;
+    const norm = normalizeShopName(row.name);
+    if (!wanted.has(norm) || existing.has(norm)) continue;
+    const coords = localCoord(row);
+    candidates.push({
+      name: row.name,
+      branch: "",
+      roadAddress: row.roadAddress,
+      lat: coords?.lat ?? null,
+      lng: coords?.lng ?? null,
+      sources: ["디깅발굴"],
+      coordMismatch: false,
+    });
+    existing.add(norm);
+    added += 1;
+  }
+  return added;
+}

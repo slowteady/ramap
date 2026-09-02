@@ -1,0 +1,378 @@
+[
+  {
+    "name": "566라멘",
+    "sourceNote": "미디어(하입비스트·GQ 외)",
+    "area": "연남",
+    "lineages": ["지로계"]
+  },
+  {
+    "name": "가마마루이",
+    "sourceNote": "미디어(하입비스트·GQ 외)",
+    "soups": ["돈코츠"]
+  },
+  {
+    "name": "거북이의꿈",
+    "sourceNote": "미디어(하입비스트·GQ 외)",
+    "soups": ["미소"],
+    "forms": ["라멘", "마제소바", "츠케멘"]
+  },
+  {
+    "name": "교레츠라멘",
+    "sourceNote": "미디어(하입비스트·GQ 외)",
+    "soups": ["돈코츠"]
+  },
+  {
+    "name": "담택",
+    "sourceNote": "미디어(하입비스트·GQ 외)",
+    "soups": ["시오"]
+  },
+  {
+    "name": "라멘다이야",
+    "sourceNote": "미디어(하입비스트·GQ 외)",
+    "soupDetail": ["완탕멘"]
+  },
+  {
+    "name": "라멘모토",
+    "sourceNote": "미디어(하입비스트·GQ 외)",
+    "forms": ["라멘", "츠케멘"]
+  },
+  {
+    "name": "라멘무메이",
+    "sourceNote": "미디어(하입비스트·GQ 외)",
+    "soups": ["쇼유"]
+  },
+  {
+    "name": "라멘반라이",
+    "sourceNote": "미디어(하입비스트·GQ 외)",
+    "area": "상수",
+    "soups": ["돈코츠", "니보시"],
+    "forms": ["라멘", "츠케멘"]
+  },
+  {
+    "name": "라멘트럭",
+    "sourceNote": "미디어(하입비스트·GQ 외)",
+    "area": "상수",
+    "soups": ["돈코츠"]
+  },
+  {
+    "name": "라무라",
+    "sourceNote": "미디어(하입비스트·GQ 외)"
+  },
+  {
+    "name": "라이라이켄",
+    "sourceNote": "미디어(하입비스트·GQ 외)",
+    "soups": ["돈코츠"],
+    "lineages": ["지로계"]
+  },
+  {
+    "name": "렌게",
+    "sourceNote": "미디어(하입비스트·GQ 외)"
+  },
+  {
+    "name": "로라멘",
+    "sourceNote": "미디어(하입비스트·GQ 외)",
+    "soups": ["돈코츠"]
+  },
+  {
+    "name": "록멘",
+    "sourceNote": "미디어(하입비스트·GQ 외)",
+    "soups": ["돈코츠"]
+  },
+  {
+    "name": "마시타야",
+    "sourceNote": "미디어(하입비스트·GQ 외)",
+    "area": "홍대",
+    "forms": ["라멘", "츠케멘"]
+  },
+  {
+    "name": "마이니치라멘",
+    "sourceNote": "미디어(하입비스트·GQ 외)"
+  },
+  {
+    "name": "메노키오",
+    "sourceNote": "미디어(하입비스트·GQ 외)",
+    "soups": ["토리파이탄"]
+  },
+  {
+    "name": "멘쇼",
+    "sourceNote": "미디어(하입비스트·GQ 외)",
+    "forms": ["라멘", "츠케멘"]
+  },
+  {
+    "name": "멘쇼쿠",
+    "sourceNote": "미디어(하입비스트·GQ 외)",
+    "area": "신사",
+    "soups": ["쇼유", "토리파이탄"],
+    "forms": ["라멘", "츠케멘"]
+  },
+  {
+    "name": "멘야세븐",
+    "sourceNote": "미디어(하입비스트·GQ 외)",
+    "forms": ["라멘", "마제소바"]
+  },
+  {
+    "name": "멘야시노기",
+    "sourceNote": "미디어(하입비스트·GQ 외)",
+    "area": "신논현",
+    "soups": ["돈코츠"],
+    "forms": ["라멘", "츠케멘"]
+  },
+  {
+    "name": "멘야이찌방",
+    "sourceNote": "미디어(하입비스트·GQ 외)",
+    "area": "문래",
+    "soups": ["쇼유", "토리파이탄"],
+    "lineages": ["지로계"]
+  },
+  {
+    "name": "멘야준",
+    "sourceNote": "미디어(하입비스트·GQ 외)",
+    "soups": ["시오"]
+  },
+  {
+    "name": "멘야코노하",
+    "sourceNote": "미디어(하입비스트·GQ 외)",
+    "area": "서울숲",
+    "soups": ["시오"]
+  },
+  {
+    "name": "멘야하나비",
+    "sourceNote": "미디어(하입비스트·GQ 외)",
+    "forms": ["라멘", "마제소바"]
+  },
+  {
+    "name": "멘지",
+    "sourceNote": "미디어(하입비스트·GQ 외)",
+    "soups": ["토리파이탄"]
+  },
+  {
+    "name": "멘카오리",
+    "sourceNote": "미디어(하입비스트·GQ 외)"
+  },
+  {
+    "name": "멘타미",
+    "sourceNote": "미디어(하입비스트·GQ 외)",
+    "soups": ["미소"]
+  },
+  {
+    "name": "멘타카무쇼",
+    "sourceNote": "미디어(하입비스트·GQ 외)",
+    "soups": ["돈코츠"],
+    "forms": ["라멘", "츠케멘"]
+  },
+  {
+    "name": "멘텐",
+    "sourceNote": "미디어(하입비스트·GQ 외)",
+    "soups": ["쇼유"]
+  },
+  {
+    "name": "멘텐도",
+    "sourceNote": "미디어(하입비스트·GQ 외)",
+    "forms": ["라멘", "츠케멘"]
+  },
+  {
+    "name": "무겐스위치",
+    "sourceNote": "미디어(하입비스트·GQ 외)",
+    "lineages": ["이에케"]
+  },
+  {
+    "name": "부탄츄",
+    "sourceNote": "미디어(하입비스트·GQ 외)",
+    "area": "홍대",
+    "soups": ["돈코츠"],
+    "lineages": ["지로계"]
+  },
+  {
+    "name": "사루카메",
+    "sourceNote": "미디어(하입비스트·GQ 외)"
+  },
+  {
+    "name": "삼방매",
+    "sourceNote": "미디어(하입비스트·GQ 외)",
+    "soups": ["돈코츠"]
+  },
+  {
+    "name": "성화라멘",
+    "sourceNote": "미디어(하입비스트·GQ 외)",
+    "soups": ["돈코츠"]
+  },
+  {
+    "name": "세상끝의라멘",
+    "sourceNote": "미디어(하입비스트·GQ 외)"
+  },
+  {
+    "name": "센자이료쿠",
+    "sourceNote": "미디어(하입비스트·GQ 외)"
+  },
+  {
+    "name": "소바하우스 멘야",
+    "sourceNote": "미디어(하입비스트·GQ 외)",
+    "soups": ["쇼유"],
+    "forms": ["라멘", "츠케멘"]
+  },
+  {
+    "name": "소박한이야기",
+    "sourceNote": "미디어(하입비스트·GQ 외)",
+    "soups": ["미소"]
+  },
+  {
+    "name": "수라멘",
+    "sourceNote": "미디어(하입비스트·GQ 외)",
+    "soups": ["토리파이탄"]
+  },
+  {
+    "name": "신바야시쇼쿠도",
+    "sourceNote": "미디어(하입비스트·GQ 외)",
+    "area": "신림",
+    "soups": ["미소", "쇼유", "시오", "돈코츠"],
+    "lineages": ["이에케"],
+    "closed": true
+  },
+  {
+    "name": "아키야라멘",
+    "sourceNote": "미디어(하입비스트·GQ 외)",
+    "soups": ["시오"]
+  },
+  {
+    "name": "아타타카이라멘",
+    "sourceNote": "미디어(하입비스트·GQ 외)",
+    "soups": ["돈코츠"]
+  },
+  {
+    "name": "오레노라멘",
+    "sourceNote": "미디어(하입비스트·GQ 외)",
+    "area": "합정",
+    "soups": ["토리파이탄"]
+  },
+  {
+    "name": "왓쇼이켄",
+    "sourceNote": "미디어(하입비스트·GQ 외)",
+    "soups": ["쇼유"]
+  },
+  {
+    "name": "우마이도",
+    "sourceNote": "미디어(하입비스트·GQ 외)",
+    "soups": ["돈코츠"]
+  },
+  {
+    "name": "울트라멘",
+    "sourceNote": "미디어(하입비스트·GQ 외)",
+    "soups": ["돈코츠"]
+  },
+  {
+    "name": "유즈라멘",
+    "sourceNote": "미디어(하입비스트·GQ 외)",
+    "forms": ["라멘", "츠케멘"]
+  },
+  {
+    "name": "윤멘",
+    "sourceNote": "미디어(하입비스트·GQ 외)",
+    "forms": ["라멘", "츠케멘"]
+  },
+  {
+    "name": "이리에라멘",
+    "sourceNote": "미디어(하입비스트·GQ 외)",
+    "soups": ["시오"]
+  },
+  {
+    "name": "이와타",
+    "sourceNote": "미디어(하입비스트·GQ 외)",
+    "soups": ["시오"]
+  },
+  {
+    "name": "잇텐고",
+    "sourceNote": "미디어(하입비스트·GQ 외)"
+  },
+  {
+    "name": "정라멘",
+    "sourceNote": "미디어(하입비스트·GQ 외)",
+    "soupDetail": ["아부라소바"]
+  },
+  {
+    "name": "존라멘",
+    "sourceNote": "미디어(하입비스트·GQ 외)",
+    "soups": ["돈코츠"]
+  },
+  {
+    "name": "초라멘",
+    "sourceNote": "미디어(하입비스트·GQ 외)",
+    "soups": ["토리파이탄"]
+  },
+  {
+    "name": "츄르츄르라멘",
+    "sourceNote": "미디어(하입비스트·GQ 외)"
+  },
+  {
+    "name": "츠케루",
+    "sourceNote": "미디어(하입비스트·GQ 외)",
+    "forms": ["라멘", "츠케멘"]
+  },
+  {
+    "name": "칸다소바",
+    "sourceNote": "미디어(하입비스트·GQ 외)",
+    "area": "경복궁",
+    "forms": ["라멘", "마제소바"]
+  },
+  {
+    "name": "코이라멘",
+    "sourceNote": "미디어(하입비스트·GQ 외)",
+    "lineages": ["지로계"]
+  },
+  {
+    "name": "콘부",
+    "sourceNote": "미디어(하입비스트·GQ 외)"
+  },
+  {
+    "name": "쿄라멘",
+    "sourceNote": "미디어(하입비스트·GQ 외)",
+    "soups": ["니보시"],
+    "forms": ["라멘", "츠케멘"]
+  },
+  {
+    "name": "텐진라멘",
+    "sourceNote": "미디어(하입비스트·GQ 외)"
+  },
+  {
+    "name": "토라도라",
+    "sourceNote": "미디어(하입비스트·GQ 외)",
+    "forms": ["라멘", "츠케멘"]
+  },
+  {
+    "name": "토리시오",
+    "sourceNote": "미디어(하입비스트·GQ 외)"
+  },
+  {
+    "name": "토리카마",
+    "sourceNote": "미디어(하입비스트·GQ 외)",
+    "soups": ["시오"]
+  },
+  {
+    "name": "하나라멘",
+    "sourceNote": "미디어(하입비스트·GQ 외)",
+    "soups": ["토리파이탄"]
+  },
+  {
+    "name": "하나모코시",
+    "sourceNote": "미디어(하입비스트·GQ 외)",
+    "soups": ["토리파이탄"]
+  },
+  {
+    "name": "하카다분코",
+    "sourceNote": "미디어(하입비스트·GQ 외)"
+  },
+  {
+    "name": "하쿠텐",
+    "sourceNote": "미디어(하입비스트·GQ 외)",
+    "lineages": ["이에케"]
+  },
+  {
+    "name": "혼네",
+    "sourceNote": "미디어(하입비스트·GQ 외)",
+    "forms": ["라멘", "츠케멘"]
+  },
+  {
+    "name": "히루마",
+    "sourceNote": "미디어(하입비스트·GQ 외)",
+    "soups": ["시오"]
+  }
+]

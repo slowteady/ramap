@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import type { LocalDataRow } from "./localdata";
 import {
   candidatesToSheetTsv,
+  discoverByName,
   mergeCandidates,
   normalizeShopName,
 } from "./merge-candidates";
@@ -128,5 +129,22 @@ describe("candidatesToSheetTsv", () => {
     );
     expect(tsv).toContain("I20303 발굴");
     expect(tsv).toContain("시딩v2(상가I20303)");
+  });
+});
+
+describe("discoverByName", () => {
+  it("후보 풀 밖의 이름을 인허가에서 완전 일치로 발굴한다", () => {
+    const candidates = mergeCandidates([local({ name: "멘야준" })], []);
+    const added = discoverByName(
+      candidates,
+      [
+        local({ name: "담 택" }),
+        local({ name: "담택별관", status: "open" }),
+        local({ name: "류진", status: "closed" }),
+      ],
+      ["담택", "류진"],
+    );
+    expect(added).toBe(1);
+    expect(candidates.map((c) => c.name)).toContain("담 택");
   });
 });
