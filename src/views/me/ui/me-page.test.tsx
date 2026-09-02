@@ -75,3 +75,17 @@ describe("MePage — 기록 목록 점진 렌더", () => {
     ).not.toBeInTheDocument();
   });
 });
+
+describe("MePage — 설정 메뉴", () => {
+  it("메뉴는 목록 아래가 아니라 우상단 설정 버튼의 시트에 있다", async () => {
+    const user = userEvent.setup();
+    nav.current = createNavigationStub();
+    render(<MePage shops={shops} />);
+    expect(screen.queryByText("이용약관")).not.toBeInTheDocument();
+
+    await user.click(screen.getByRole("button", { name: "설정" }));
+    expect(screen.getByText("이용약관")).toBeInTheDocument();
+    expect(screen.getByText("로그아웃")).toBeInTheDocument();
+    expect(screen.getByText("라멘집 등록하기")).toBeInTheDocument();
+  });
+});

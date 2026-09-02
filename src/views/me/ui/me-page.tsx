@@ -4,7 +4,7 @@ import { Suspense, useEffect, useState } from "react";
 import dayjs from "dayjs";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Settings } from "lucide-react";
 import { GenreChips, type Shop } from "@/entities/shop";
 import { useAuth, useProfile } from "@/features/auth";
 import { LoginPromptSheet, useRecords } from "@/features/records";
@@ -33,6 +33,7 @@ function MeBody({ shops }: { shops: Shop[] }) {
   const { displayName, profileLoaded } = useProfile();
   const { records } = useRecords();
   const [loginOpen, setLoginOpen] = useState(false);
+  const [settingsOpen, setSettingsOpen] = useState(false);
   const [withdrawOpen, setWithdrawOpen] = useState(false);
   const [withdrawing, setWithdrawing] = useState(false);
   const [thumbs, setThumbs] = useState<Map<string, string>>(new Map());
@@ -67,7 +68,7 @@ function MeBody({ shops }: { shops: Shop[] }) {
   if (!user) {
     return (
       <div className="flex min-h-dvh flex-col pb-10">
-        <header className="flex items-center px-2 py-2">
+        <header className="flex items-center justify-between px-2 py-2">
           <Link
             href="/"
             aria-label="지도로 돌아가기"
@@ -75,6 +76,14 @@ function MeBody({ shops }: { shops: Shop[] }) {
           >
             <ChevronLeft className="size-5" />
           </Link>
+          <button
+            type="button"
+            aria-label="설정"
+            onClick={() => setSettingsOpen(true)}
+            className="flex size-10 items-center justify-center rounded-pill text-ink"
+          >
+            <Settings className="size-5" />
+          </button>
         </header>
         <div className="flex flex-col gap-1 px-4 pt-1">
           <button
@@ -89,9 +98,18 @@ function MeBody({ shops }: { shops: Shop[] }) {
             로그인하면 완식·저장 기록이 여기에 모여요
           </p>
         </div>
-        <div className="pt-8">
-          <MeMenu authed={false} />
-        </div>
+        {settingsOpen && (
+          <Drawer open onOpenChange={(next) => !next && setSettingsOpen(false)}>
+            <DrawerContent showClose>
+              <div className="flex flex-col px-0 pt-3 pb-8">
+                <DrawerTitle className="px-4 pb-2 text-title font-bold text-ink">
+                  설정
+                </DrawerTitle>
+                <MeMenu authed={false} />
+              </div>
+            </DrawerContent>
+          </Drawer>
+        )}
         <LoginPromptSheet
           open={loginOpen}
           onClose={() => setLoginOpen(false)}
@@ -102,7 +120,7 @@ function MeBody({ shops }: { shops: Shop[] }) {
 
   return (
     <div className="flex min-h-dvh flex-col pb-10">
-      <header className="flex items-center px-2 py-2">
+      <header className="flex items-center justify-between px-2 py-2">
         <Link
           href="/"
           aria-label="지도로 돌아가기"
@@ -110,6 +128,14 @@ function MeBody({ shops }: { shops: Shop[] }) {
         >
           <ChevronLeft className="size-5" />
         </Link>
+        <button
+          type="button"
+          aria-label="설정"
+          onClick={() => setSettingsOpen(true)}
+          className="flex size-10 items-center justify-center rounded-pill text-ink"
+        >
+          <Settings className="size-5" />
+        </button>
       </header>
 
       <div className="flex flex-col gap-1 px-4 pt-1">
@@ -224,16 +250,28 @@ function MeBody({ shops }: { shops: Shop[] }) {
         </div>
       )}
 
-      <div className="mt-auto pt-10">
-        <MeMenu
-          authed
-          onWithdraw={() => setWithdrawOpen(true)}
-          onSignOut={() => {
-            signOut();
-            router.push("/");
-          }}
-        />
-      </div>
+      {settingsOpen && (
+        <Drawer open onOpenChange={(next) => !next && setSettingsOpen(false)}>
+          <DrawerContent showClose>
+            <div className="flex flex-col px-0 pt-3 pb-8">
+              <DrawerTitle className="px-4 pb-2 text-title font-bold text-ink">
+                설정
+              </DrawerTitle>
+              <MeMenu
+                authed
+                onWithdraw={() => {
+                  setSettingsOpen(false);
+                  setWithdrawOpen(true);
+                }}
+                onSignOut={() => {
+                  signOut();
+                  router.push("/");
+                }}
+              />
+            </div>
+          </DrawerContent>
+        </Drawer>
+      )}
       {withdrawOpen && (
         <Drawer open onOpenChange={(next) => !next && setWithdrawOpen(false)}>
           <DrawerContent>
