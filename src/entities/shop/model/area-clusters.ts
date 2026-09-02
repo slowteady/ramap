@@ -7,11 +7,28 @@ export type AreaCluster = {
   lng: number;
 };
 
-export function buildAreaClusters(pins: ShopPin[]): AreaCluster[] {
+/* 줌 스코프별 클러스터 입도 — 광역일수록 큰 행정 단위 (호갱노노 실측: 단지→동→시군구→시도) */
+export type ClusterGranularity = "area" | "district" | "city";
+
+function keyOf(pin: ShopPin, granularity: ClusterGranularity): string | null {
+  switch (granularity) {
+    case "area":
+      /* 동네라벨 없는 매장은 구 단위로 — 클러스터 레벨에서 유령이 되지 않게 */
+      return pin.areaLabel ?? pin.district;
+    case "district":
+      return pin.district;
+    case "city":
+      return pin.city;
+  }
+}
+
+export function buildAreaClusters(
+  pins: ShopPin[],
+  granularity: ClusterGranularity = "area",
+): AreaCluster[] {
   const groups = new Map<string, ShopPin[]>();
   for (const pin of pins) {
-    /* 동네라벨 없는 매장은 구 단위로 — 클러스터 레벨에서 유령이 되지 않게 */
-    const key = pin.areaLabel ?? pin.district;
+    const key = keyOf(pin, granularity);
     if (!key) continue;
     const list = groups.get(key) ?? [];
     list.push(pin);

@@ -1,9 +1,15 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { buildAreaClusters, type ShopPin } from "@/entities/shop";
 import {
+  buildAreaClusters,
+  type ClusterGranularity,
+  type ShopPin,
+} from "@/entities/shop";
+import {
+  CITY_LEVEL_THRESHOLD,
   CLUSTER_LEVEL_THRESHOLD,
+  DISTRICT_LEVEL_THRESHOLD,
   MAP_DEFAULT_CENTER,
   MAP_DEFAULT_LEVEL,
 } from "@/shared/config/map";
@@ -22,6 +28,19 @@ import { toClusterMarkers } from "./markers";
 type MapStatus = "loading" | "ready" | "failed";
 
 const BOUNDS_BUFFER_RATIO = 0.3;
+
+function granularityAt(level: number): ClusterGranularity {
+  if (level >= CITY_LEVEL_THRESHOLD) return "city";
+  if (level >= DISTRICT_LEVEL_THRESHOLD) return "district";
+  return "area";
+}
+
+/* 클러스터 탭 = 한 티어 아래 스코프로 줌인 */
+const ZOOM_IN_LEVEL: Record<ClusterGranularity, number> = {
+  city: CITY_LEVEL_THRESHOLD - 1,
+  district: DISTRICT_LEVEL_THRESHOLD - 1,
+  area: CLUSTER_LEVEL_THRESHOLD - 1,
+};
 
 export function useShopMap(
   pins: ShopPin[],
@@ -104,7 +123,8 @@ export function useShopMap(
     if (status !== "ready" || !adapter || !view) return;
 
     if (view.level >= CLUSTER_LEVEL_THRESHOLD) {
-      const clusters = buildAreaClusters(visiblePins);
+      const granularity = granularityAt(view.level);
+      const clusters = buildAreaClusters(visiblePins, granularity);
       adapter.render(
         [],
         toClusterMarkers(clusters),
@@ -112,7 +132,7 @@ export function useShopMap(
         (area) => {
           const target = clusters.find((c) => c.area === area);
           if (!target) return;
-          adapter.setLevel(CLUSTER_LEVEL_THRESHOLD - 1);
+          adapter.setLevel(ZOOM_IN_LEVEL[granularity]);
           adapter.panTo({ lat: target.lat, lng: target.lng });
         },
       );

@@ -15,6 +15,7 @@ export type ShopPin = {
   lineages: LineageSlug[];
   areaLabel: string | null;
   district: string | null;
+  city: string | null;
   status: ShopStatus;
   topMenu: Menu | null;
   hours: string | null;
@@ -42,6 +43,7 @@ export function toMapManifest(shops: Shop[], now = new Date()): ShopPin[] {
       lineages: s.lineages,
       areaLabel: s.areaLabel,
       district: s.district,
+      city: s.city,
       status: s.status,
       topMenu: s.menus[0] ?? null,
       hours: s.hours,

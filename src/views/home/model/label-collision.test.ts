@@ -22,6 +22,7 @@ const pin = (id: string, lat: number, lng: number): ShopPin => ({
   lineages: [],
   areaLabel: "성수",
   district: null,
+  city: "서울",
   status: "open",
   topMenu: null,
   hours: null,
