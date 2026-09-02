@@ -54,6 +54,7 @@ scripts/        # 파이프라인 (LOCALDATA 시딩·시트 동기화)
 | framer-motion           | 미도입 | CSS+vaul로 부족한 모션이 실증될 때                                                                                                                                                                                      |
 | @use-gesture            | 미도입 | 관성(플릭) 스크롤·핀치 줌·복합 제스처가 필요할 때 — 단순 드래그는 `shared/lib/use-drag-scroll` (2026-09-01)                                                                                                             |
 | steiger(FSD 린터)       | 미도입 | 베타 안정화 + 팀 확장 시                                                                                                                                                                                                |
+| csv-parse               | 도입   | 2026-09-02 도입 (devDependency, `scripts/` 전용) — 공공데이터 CSV 파싱(따옴표·BOM·행 이형). 앱 번들과 무관                                                                                                              |
 | patch-package           | 도입   | 2026-08-31 도입 — vaul 1.1.2가 radix Dialog에 `modal`을 전달하지 않아 `modal={false}` 시트가 앱 셸 전체에 aria-hidden·포커스 트랩을 거는 버그(vaul #582·#497·#519, 미수정) 한 줄 패치. 업스트림 수정 시 `patches/` 제거 |
 
 ## 도메인 금지사항 (약관·정책)
