@@ -44,3 +44,7 @@ data/out/
 # playwright MCP 작업폴더
 .playwright-mcp/
 supabase/.temp/
+
+# playwright test
+/test-results/
+/playwright-report/

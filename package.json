@@ -15,7 +15,8 @@
     "seed-candidates": "tsx scripts/seed-candidates.ts",
     "diff-localdata": "tsx scripts/diff-localdata.ts",
     "postinstall": "patch-package",
-    "enrich-candidates": "tsx scripts/enrich-candidates.ts"
+    "enrich-candidates": "tsx scripts/enrich-candidates.ts",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.112.4",
@@ -38,7 +39,11 @@
     "vaul": "^1.1.2"
   },
   "devDependencies": {
+    "@playwright/test": "^1.62.1",
     "@tailwindcss/postcss": "^4",
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.3",
+    "@testing-library/user-event": "^14.6.7",
     "@types/node": "^20",
     "@types/proj4": "^2.5.6",
     "@types/react": "^19",

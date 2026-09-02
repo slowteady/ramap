@@ -3,7 +3,7 @@
 한국 라멘을 장르로 찾는 지도 — ramap.kr. Next.js(App Router) + TypeScript + Tailwind v4 + shadcn/ui + Vitest.
 
 - **스펙 단일 원천: `docs/planning/` 01~17.** 코드와 충돌하면 문서 우선, 결정 변경은 문서 갱신과 함께. 구현 계획은 `docs/plans/` — **문서만 읽고 다른 에이전트가 이어받을 수 있어야 완성**: 설계 근거 외에 기존 코드 포인터(수정 대상 파일·역할), 재사용할 패턴의 위치, 검증 명령, 작업 절차(브랜치·로컬 검수 후 머지)를 반드시 포함. 아이디에이션 레포의 03.라맵은 동결 스냅샷 — 참조 금지
-- 명령: `npm run dev` / `npm run build` / `npm test` / `npm run format`
+- 명령: `npm run dev` / `npm run build` / `npm test` / `npm run test:e2e` / `npm run format`
 
 ## 아키텍처 — 축소형 FSD (4레이어 + 로직 3분법)
 
@@ -34,7 +34,7 @@ scripts/        # 파이프라인 (LOCALDATA 시딩·시트 동기화)
 - **타입:** `type` 기본, `interface`는 다중 구현 계약(RecordStore 등 이음새)만 / enum 금지 — `as const` + 유니온 / `any` 금지, 불가피하면 `unknown` + 내로잉
 - **export:** named 기본, default는 Next가 요구하는 곳(page·layout)만
 - **상태:** 공유 상태의 원천은 URL 쿼리(필터·시트·선택 매장 — 공유·뒤로가기·SEO 겸용) / 컴포넌트 로컬은 useState / 기록은 RecordStore 인터페이스 경유만 — localStorage 직접 호출 금지
-- **테스트:** `model/`·`api/`의 순수 함수는 Vitest 테스트 필수, `*.test.ts` co-location / 훅·컴포넌트는 로직을 순수 함수로 분리하는 것으로 갈음
+- **테스트:** 3계층, 신규 기능은 TDD(테스트 선행) — ①순수 함수(`model/`·`api/`) Vitest `*.test.ts` co-location 필수 ②훅·leaf 컴포넌트는 Testing Library `*.test.tsx` co-location(renderHook·render — next/navigation은 `shared/testing/next-navigation` 스텁, jsdom 폴리필은 `vitest.setup.ts`) ③핵심 여정은 `e2e/*.spec.ts` Playwright(비로그인 여정만 — OAuth 자동화 불가). 지도 오버레이 클릭은 `dispatchEvent("click")`(재배치로 안정성 검사 실패)
 - **에러:** 데이터 없음은 null 반환 + 호출부 분기 / 외부 SDK(카카오맵) 실패는 반드시 폴백 UI(리스트 + 안내 배너 — 지도 결함은 치명 결함) / 기록 저장 실패는 무음 폴백
 - **스타일링:** Tailwind만, 임의값(`w-[13px]`) 금지 — globals.css `@theme` 토큰 유틸만 / 클래스 조합은 `cn()` / CSS 파일 추가 금지 / **UI 작업 시 ramap-ui 스킬 필수** (.claude/skills/ramap-ui)
 - **주석 금지:** 코드가 표현 못 하는 제약(약관 금지, 비자명한 수치 근거)만 허용. 서사형·자명·출처 주석 전부 금지
@@ -54,6 +54,8 @@ scripts/        # 파이프라인 (LOCALDATA 시딩·시트 동기화)
 | framer-motion           | 미도입 | CSS+vaul로 부족한 모션이 실증될 때                                                                                                                                                                                      |
 | @use-gesture            | 미도입 | 관성(플릭) 스크롤·핀치 줌·복합 제스처가 필요할 때 — 단순 드래그는 `shared/lib/use-drag-scroll` (2026-09-01)                                                                                                             |
 | steiger(FSD 린터)       | 미도입 | 베타 안정화 + 팀 확장 시                                                                                                                                                                                                |
+| @testing-library/react  | 도입   | 2026-09-02 도입 (devDependency) — 렌더링 계층(훅·leaf 컴포넌트). user-event·jest-dom 동반. @vitejs/plugin-react는 babel peer 충돌로 미사용 — vitest `esbuild.jsx: "automatic"`으로 JSX 처리                             |
+| @playwright/test        | 도입   | 2026-09-02 도입 (devDependency) — 시나리오 계층(`e2e/`). chromium 단일, dev 서버 자동 기동(`playwright.config.ts` webServer)                                                                                            |
 | csv-parse               | 도입   | 2026-09-02 도입 (devDependency, `scripts/` 전용) — 공공데이터 CSV 파싱(따옴표·BOM·행 이형). 앱 번들과 무관                                                                                                              |
 | patch-package           | 도입   | 2026-08-31 도입 — vaul 1.1.2가 radix Dialog에 `modal`을 전달하지 않아 `modal={false}` 시트가 앱 셸 전체에 aria-hidden·포커스 트랩을 거는 버그(vaul #582·#497·#519, 미수정) 한 줄 패치. 업스트림 수정 시 `patches/` 제거 |
 
