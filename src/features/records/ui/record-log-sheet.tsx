@@ -59,7 +59,7 @@ export function RecordLogSheet({
   return (
     <Drawer open onOpenChange={(next) => !next && onClose()}>
       <DrawerContent>
-        <div className="flex flex-col gap-4 px-4 pt-5 pb-8">
+        <div className="flex flex-col gap-4 overflow-y-auto px-4 pt-5 pb-8">
           <div className="flex flex-col gap-1">
             <DrawerTitle className="text-title font-bold text-ink">
               완식 기록 남기기
@@ -76,7 +76,7 @@ export function RecordLogSheet({
               <img
                 src={preview}
                 alt="선택한 사진 미리보기"
-                className="aspect-square w-full rounded-card object-cover"
+                className="h-60 w-full rounded-card object-cover"
               />
               <button
                 type="button"
@@ -91,7 +91,7 @@ export function RecordLogSheet({
             <button
               type="button"
               onClick={() => fileInput.current?.click()}
-              className="flex aspect-square w-full flex-col items-center justify-center gap-2 rounded-card border border-dashed border-gray-200 bg-gray-050 text-gray-400"
+              className="flex h-60 w-full shrink-0 flex-col items-center justify-center gap-2 rounded-card border border-dashed border-gray-200 bg-gray-050 text-gray-400"
             >
               <Camera className="size-7" />
               <span className="text-secondary font-semibold">
