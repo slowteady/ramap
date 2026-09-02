@@ -48,7 +48,20 @@ function infoRows(shop: Shop): InfoRow[] {
   if (shop.closedDays) rows.push({ label: "휴무", value: shop.closedDays });
 
   const soups = labelsOf(shop.soups, (s) => soupBySlug(s)?.label, ["etc-soup"]);
-  if (soups) rows.push({ label: "국물", value: soups });
+  const soupDetail = shop.soupDetail.join(", ");
+  if (soups || soupDetail)
+    rows.push({
+      label: "국물",
+      value:
+        soups && soupDetail ? (
+          <span>
+            {soups}
+            <span className="text-gray-400"> · {soupDetail}</span>
+          </span>
+        ) : (
+          soups || soupDetail
+        ),
+    });
   const forms = labelsOf(shop.forms, (f) => formBySlug(f)?.label, ["etc-form"]);
   if (forms) rows.push({ label: "종류", value: forms });
   const styles = shop.lineages

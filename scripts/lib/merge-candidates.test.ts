@@ -148,3 +148,13 @@ describe("discoverByName", () => {
     expect(candidates.map((c) => c.name)).toContain("담 택");
   });
 });
+
+describe("인허가 내부 중복", () => {
+  it("같은 이름·같은 자리 재인허가 2행은 1건으로 합친다", () => {
+    const merged = mergeCandidates(
+      [local({ name: "유즈라멘" }), local({ name: "유즈라멘" })],
+      [],
+    );
+    expect(merged).toHaveLength(1);
+  });
+});

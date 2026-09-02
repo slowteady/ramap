@@ -66,16 +66,69 @@ const SOUP_PROMOTIONS: Record<string, string> = {
   토마토라멘: "토마토",
 };
 
+/* 조사 산출물의 세부 표기 이형 통일 — 상세 화면 노출을 위한 정규화 */
+const SOUP_DETAIL_ALIASES: Record<string, string> = {
+  아부라라멘: "아부라소바",
+  "아부라소바·파이탄": "아부라소바",
+  나가사키라멘: "나가사키",
+  나가사키짬뽕: "나가사키",
+  카레라멘: "카레",
+  유즈라멘: "유즈",
+  유즈시오: "유즈",
+  유즈토리시오: "유즈",
+  쿠로라멘: "구로마유",
+  쿠로이: "구로마유",
+  블랙라멘: "구로마유",
+  마라라멘: "마라",
+  마라멘: "마라",
+  시루나시탄탄멘: "시루나시",
+  "시지미(조개)": "시지미",
+  시지미라멘: "시지미",
+  카라멘: "카라이",
+  "카모(오리) 육수": "카모",
+  카모파이탄: "카모",
+};
+
+const LINEAGE_PROMOTIONS: Record<string, string> = {
+  지로라멘: "지로계",
+};
+
+/* 스타일이 아닌 운영 메모는 세부에서 제외 (겸업 등) — 시트 메모 컬럼 몫 */
+function isOperationalNote(d: string): boolean {
+  return d.includes("겸업") || d === "퓨전" || d === "한식 퓨전";
+}
+
 export function promoteSoups(e: Enrichment): Enrichment {
-  const detail = e.soupDetail ?? [];
+  const raw = e.soupDetail ?? [];
   const promoted = [
-    ...new Set(detail.map((d) => SOUP_PROMOTIONS[d]).filter(Boolean)),
+    ...new Set(raw.map((d) => SOUP_PROMOTIONS[d]).filter(Boolean)),
   ] as string[];
-  if (promoted.length === 0) return e;
+  const lineagePromoted = [
+    ...new Set(raw.map((d) => LINEAGE_PROMOTIONS[d]).filter(Boolean)),
+  ] as string[];
+  const detail = [
+    ...new Set(
+      raw
+        .filter(
+          (d) =>
+            !SOUP_PROMOTIONS[d] &&
+            !LINEAGE_PROMOTIONS[d] &&
+            !isOperationalNote(d),
+        )
+        .map((d) => SOUP_DETAIL_ALIASES[d] ?? d),
+    ),
+  ];
   return {
     ...e,
-    soups: [...new Set([...(e.soups ?? []), ...promoted])],
-    soupDetail: detail.filter((d) => !SOUP_PROMOTIONS[d]),
+    soups:
+      promoted.length > 0
+        ? [...new Set([...(e.soups ?? []), ...promoted])]
+        : e.soups,
+    lineages:
+      lineagePromoted.length > 0
+        ? [...new Set([...(e.lineages ?? []), ...lineagePromoted])]
+        : e.lineages,
+    soupDetail: detail,
   };
 }
 

@@ -78,9 +78,11 @@ export function mergeCandidates(
   localRows: LocalDataRow[],
   sangRows: SanggwonRow[],
 ): Candidate[] {
-  const candidates: Candidate[] = localRows.map((row) => {
+  /* 인허가 원본의 재인허가 중복(같은 이름·같은 자리 2행) 제거 */
+  const candidates: Candidate[] = [];
+  for (const row of localRows) {
     const coords = localCoord(row);
-    return {
+    const next: Candidate = {
       name: row.name,
       branch: "",
       roadAddress: row.roadAddress,
@@ -89,7 +91,13 @@ export function mergeCandidates(
       sources: ["인허가"],
       coordMismatch: false,
     };
-  });
+    const dup = candidates.some(
+      (c) =>
+        normalizeShopName(c.name) === normalizeShopName(next.name) &&
+        locationCompatible(c, next),
+    );
+    if (!dup) candidates.push(next);
+  }
 
   for (const sang of sangRows) {
     const norm = normalizeShopName(sang.name + sang.branch);
