@@ -1,8 +1,14 @@
 "use client";
 
+import { useEffect, type RefObject } from "react";
 import { MapPin, Plus, X } from "lucide-react";
 import { cn } from "@/shared/lib/utils";
-import { MAX_LINKS, MAX_PHOTOS, type LatLng } from "../model/report-payload";
+import {
+  isDirtyNew,
+  MAX_LINKS,
+  MAX_PHOTOS,
+  type LatLng,
+} from "../model/report-payload";
 import { useNewReportForm } from "../model/use-report-form";
 import {
   BottomCta,
@@ -16,12 +22,18 @@ import {
 export function NewReportForm({
   mapCenter,
   onClose,
+  dirtyRef,
 }: {
   mapCenter: LatLng | null;
   onClose: () => void;
+  dirtyRef?: RefObject<boolean>;
 }) {
   const form = useNewReportForm(mapCenter);
   const { draft } = form;
+
+  useEffect(() => {
+    if (dirtyRef) dirtyRef.current = isDirtyNew(draft);
+  }, [dirtyRef, draft]);
 
   if (form.phase === "done")
     return (

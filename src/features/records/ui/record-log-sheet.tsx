@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Camera, Check, X } from "lucide-react";
 import { cn } from "@/shared/lib/utils";
+import { DiscardDialog } from "@/shared/ui/discard-dialog";
 import { Drawer, DrawerContent, DrawerTitle } from "@/shared/ui/drawer";
 import { COMMENT_MAX } from "../model/record-photo-ops";
 import { submitRecordPhoto } from "../model/record-photos";
@@ -32,6 +33,7 @@ export function RecordLogSheet({
   const [comment, setComment] = useState("");
   const [consent, setConsent] = useState(true);
   const [state, setState] = useState<SheetState>("idle");
+  const [confirming, setConfirming] = useState(false);
   const fileInput = useRef<HTMLInputElement>(null);
 
   useEffect(
@@ -42,6 +44,12 @@ export function RecordLogSheet({
   );
 
   if (!open) return null;
+
+  const dirty = file !== null || comment.trim() !== "";
+  const requestClose = () => {
+    if (dirty) setConfirming(true);
+    else onClose();
+  };
 
   const submit = async () => {
     if (!file || state === "submitting") return;
@@ -57,7 +65,7 @@ export function RecordLogSheet({
   };
 
   return (
-    <Drawer open onOpenChange={(next) => !next && onClose()}>
+    <Drawer open onOpenChange={(next) => !next && requestClose()}>
       <DrawerContent showClose>
         <div className="flex flex-col gap-4 overflow-y-auto px-4 pt-5 pb-8">
           <div className="flex flex-col gap-1">
@@ -154,7 +162,7 @@ export function RecordLogSheet({
           <div className="flex gap-2 pt-1">
             <button
               type="button"
-              onClick={onClose}
+              onClick={requestClose}
               className="h-13 rounded-card-lg px-5 text-body font-semibold text-gray-500"
             >
               다음에
@@ -172,6 +180,15 @@ export function RecordLogSheet({
             </button>
           </div>
         </div>
+        <DiscardDialog
+          open={confirming}
+          title="기록 작성을 그만할까요?"
+          onLeave={() => {
+            setConfirming(false);
+            onClose();
+          }}
+          onStay={() => setConfirming(false)}
+        />
       </DrawerContent>
     </Drawer>
   );

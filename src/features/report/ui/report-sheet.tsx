@@ -1,6 +1,8 @@
 "use client";
 
+import { useRef, useState } from "react";
 import { X } from "lucide-react";
+import { DiscardDialog } from "@/shared/ui/discard-dialog";
 import type { LatLng, ReportTarget } from "../model/report-payload";
 import { useReportQuery } from "../model/use-report-query";
 import { EditReportForm } from "./edit-report-form";
@@ -15,7 +17,14 @@ export function ReportSheet({
   mapCenter?: LatLng | null;
 }) {
   const { query, close } = useReportQuery();
+  const dirtyRef = useRef(false);
+  const [confirming, setConfirming] = useState(false);
   if (!query) return null;
+
+  const requestClose = () => {
+    if (dirtyRef.current) setConfirming(true);
+    else close();
+  };
 
   const edit =
     query.kind === "edit" && editTarget?.id === query.shopId
@@ -29,7 +38,7 @@ export function ReportSheet({
         <button
           type="button"
           aria-label="닫기"
-          onClick={close}
+          onClick={requestClose}
           className="flex size-10 shrink-0 items-center justify-center rounded-pill text-ink"
         >
           <X className="size-5" />
@@ -39,10 +48,28 @@ export function ReportSheet({
         </h1>
       </header>
       {edit ? (
-        <EditReportForm key={edit.id} target={edit} onClose={close} />
+        <EditReportForm
+          key={edit.id}
+          target={edit}
+          onClose={close}
+          dirtyRef={dirtyRef}
+        />
       ) : (
-        <NewReportForm mapCenter={mapCenter} onClose={close} />
+        <NewReportForm
+          mapCenter={mapCenter}
+          onClose={close}
+          dirtyRef={dirtyRef}
+        />
       )}
+      <DiscardDialog
+        open={confirming}
+        title={edit ? "정보 수정을 그만할까요?" : "라멘집 등록을 그만할까요?"}
+        onLeave={() => {
+          setConfirming(false);
+          close();
+        }}
+        onStay={() => setConfirming(false)}
+      />
     </div>
   );
 }

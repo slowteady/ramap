@@ -1,7 +1,12 @@
 "use client";
 
+import { useEffect, type RefObject } from "react";
 import { AMENITY_OPTIONS, GENRE_AXES } from "../model/report-options";
-import { EDIT_ITEMS, type ReportTarget } from "../model/report-payload";
+import {
+  EDIT_ITEMS,
+  isDirtyEdit,
+  type ReportTarget,
+} from "../model/report-payload";
 import { useEditReportForm } from "../model/use-report-form";
 import {
   BottomCta,
@@ -22,11 +27,17 @@ const CLOSED_OPTIONS = [
 export function EditReportForm({
   target,
   onClose,
+  dirtyRef,
 }: {
   target: ReportTarget;
   onClose: () => void;
+  dirtyRef?: RefObject<boolean>;
 }) {
   const form = useEditReportForm(target);
+
+  useEffect(() => {
+    if (dirtyRef) dirtyRef.current = isDirtyEdit(form.draft);
+  }, [dirtyRef, form.draft]);
 
   if (form.phase === "done")
     return (

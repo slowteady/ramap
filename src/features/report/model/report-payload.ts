@@ -117,6 +117,22 @@ export const EMPTY_EDIT_DRAFT: EditReportDraft = {
   message: "",
 };
 
+/* 미저장 이탈 확인 발동 조건 — 기본값과 달라진 입력이 하나라도 있을 때만 (HIG·NN/g) */
+export function isDirtyNew(draft: NewReportDraft): boolean {
+  return (
+    draft.shopName.trim() !== "" ||
+    draft.branch.trim() !== "" ||
+    draft.links.some((l) => l.trim() !== "") ||
+    draft.pin !== null ||
+    draft.photos.length > 0 ||
+    draft.message.trim() !== ""
+  );
+}
+
+export function isDirtyEdit(draft: EditReportDraft): boolean {
+  return draft.items.length > 0 || draft.message.trim() !== "";
+}
+
 const text = (s: string): string | undefined => s.trim() || undefined;
 const list = <T>(a: T[]): T[] | undefined => (a.length > 0 ? a : undefined);
 const field = <K extends string, V>(key: K, value: V | undefined) =>

@@ -6,6 +6,8 @@ import {
   canSubmitNew,
   EMPTY_EDIT_DRAFT,
   EMPTY_NEW_DRAFT,
+  isDirtyEdit,
+  isDirtyNew,
   isLikelyUrl,
   toReportRow,
 } from "./report-payload";
@@ -219,5 +221,23 @@ describe("정보 수정 제보", () => {
     expect(toReportRow(payload, { ...target, location: null }).location).toBe(
       "kinka",
     );
+  });
+});
+
+describe("isDirty", () => {
+  it("빈 드래프트는 dirty가 아니다", () => {
+    expect(isDirtyNew(EMPTY_NEW_DRAFT)).toBe(false);
+    expect(isDirtyEdit(EMPTY_EDIT_DRAFT)).toBe(false);
+  });
+
+  it("입력이 하나라도 생기면 dirty", () => {
+    expect(isDirtyNew({ ...EMPTY_NEW_DRAFT, shopName: "킨" })).toBe(true);
+    expect(isDirtyNew({ ...EMPTY_NEW_DRAFT, links: ["http://a"] })).toBe(true);
+    expect(isDirtyEdit({ ...EMPTY_EDIT_DRAFT, items: ["hours"] })).toBe(true);
+    expect(isDirtyEdit({ ...EMPTY_EDIT_DRAFT, message: "휴업" })).toBe(true);
+  });
+
+  it("공백뿐인 텍스트는 dirty가 아니다", () => {
+    expect(isDirtyNew({ ...EMPTY_NEW_DRAFT, shopName: "  " })).toBe(false);
   });
 });
