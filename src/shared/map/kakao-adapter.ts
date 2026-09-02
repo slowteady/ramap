@@ -11,13 +11,13 @@ import type {
 
 const VIEWPORT_DEBOUNCE_MS = 150;
 
-/* 캐치테이블 문법(실측 20px): 도넛(레드 링+흰 심) + 이름 라벨(흰 halo). 강등(dot)은 도넛만 */
+/* 솔리드 채움 + 흰 스트로크(호갱노노·네이버 마커 문법) — 흰 심 도넛은 카카오 기본 타일
+   위에서 시각 무게가 부족하고 지하철역 원형 마커와 혼동됨 (2026-09-02 실측) */
 function donut(size: number, ring: string): string {
-  const core = Math.max(3, Math.round(size * 0.16));
   return [
     `width:${size}px;height:${size}px;border-radius:9999px;flex:none`,
-    `background:radial-gradient(circle, #fff 0 ${core}px, ${ring} ${core}px 100%)`,
-    "border:2px solid #fff;box-shadow:0 1px 4px rgba(26,27,31,.3)",
+    `background:${ring}`,
+    "border:2.5px solid #fff;box-shadow:0 1px 4px rgba(26,27,31,.35)",
   ].join(";");
 }
 
