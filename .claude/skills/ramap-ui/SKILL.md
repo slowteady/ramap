@@ -37,3 +37,11 @@ Inter/기본폰트 · 그라데이션 배경(예외: 가로 스크롤 에지 페
 ## 벤치마크 배정
 
 앱 구조·검색·카드=캐치테이블 / 지도=호갱노노 / 바텀 카드·탭=오늘의집 / 토큰 규율=토스
+
+## 바텀시트 제스처 규율 (2026-09-02 BP 확정 — HIG·M3·vaul 소스 근거)
+
+- **콘텐츠 스와이프 = 시트 이동이 표준.** HIG 원문 "A resizable sheet expands when people scroll its contents or drag the grabber" — 핸들 전용 드래그(handleOnly) 금지. 내부 스크롤은 마지막 스냅에서만 열리는 것이 사양이지 결함이 아니다
+- **플릭 스킵은 vaul 기본(켜둔다).** `snapToSequentialPoint` 사용 금지 — 강한 플릭(velocity>2px/ms)은 중간 스냅을 건너뛰어 접힘→풀 1제스처 도달. 이것이 "풀까지 가는 마찰"의 해법이며 중간 스냅에서 스크롤을 여는 게 아니다
+- **지속형 시트(홈 목록)**: 비모달 + `dismissible=false`(하향 플릭이 close 대신 첫 스냅으로) + 핸들은 vaul `Handle`(탭 시 스냅 순환 — HIG grabber 규정)
+- **모달 시트(폼·확인)**: 스냅 없이 단일 높이(HIG compose 규칙 — 중간 detent 금지), 하향 스와이프+명시적 닫기 버튼 병행(NN/g — 스와이프 단독 의존 금지). 미저장 입력이 있는 폼은 이탈 확인 절차 검토
+- 시트 내 가로 스크롤·슬라이더는 `data-vaul-no-drag`로 드래그 충돌 제외
