@@ -14,6 +14,7 @@ export type ShopPin = {
   forms: FormSlug[];
   lineages: LineageSlug[];
   areaLabel: string | null;
+  district: string | null;
   status: ShopStatus;
   topMenu: Menu | null;
   hours: string | null;
@@ -40,6 +41,7 @@ export function toMapManifest(shops: Shop[], now = new Date()): ShopPin[] {
       forms: s.forms,
       lineages: s.lineages,
       areaLabel: s.areaLabel,
+      district: s.district,
       status: s.status,
       topMenu: s.menus[0] ?? null,
       hours: s.hours,

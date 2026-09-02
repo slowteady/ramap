@@ -14,6 +14,7 @@ const pin = (over: Partial<ShopPin>): ShopPin => ({
   forms: ["ramen"],
   lineages: [],
   areaLabel: "성수",
+  district: null,
   status: "open",
   topMenu: null,
   hours: null,

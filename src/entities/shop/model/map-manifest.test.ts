@@ -67,6 +67,7 @@ describe("toMapManifest", () => {
       forms: ["ramen"],
       lineages: [],
       areaLabel: "성수",
+      district: "성동구",
       status: "open",
       topMenu: { name: "니보시 소바", price: 11000 },
       hours: null,

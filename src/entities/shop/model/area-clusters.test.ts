@@ -26,6 +26,7 @@ const pin = (
   forms: ["ramen"],
   lineages: [],
   areaLabel: area,
+  district: null,
   status: "open",
 });
 

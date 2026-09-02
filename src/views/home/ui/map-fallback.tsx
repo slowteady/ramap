@@ -8,7 +8,7 @@ import {
 function groupByArea(pins: ShopPin[]): Map<string, ShopPin[]> {
   const groups = new Map<string, ShopPin[]>();
   for (const pin of pins) {
-    const key = pin.areaLabel ?? "기타";
+    const key = pin.areaLabel ?? pin.district ?? "서울";
     groups.set(key, [...(groups.get(key) ?? []), pin]);
   }
   return groups;
@@ -28,8 +28,10 @@ export function MapFallback({ pins }: { pins: ShopPin[] }) {
             <ShopCard
               key={shop.id}
               name={shop.name}
-              tags={shop.soups.map((s) => soupBySlug(s)?.label ?? s)}
-              area={area}
+              tags={shop.soups
+                .filter((s) => s !== "etc-soup")
+                .map((s) => soupBySlug(s)?.label ?? s)}
+              area={null}
               status={
                 <OpenStatusBadge
                   status={shop.status}
