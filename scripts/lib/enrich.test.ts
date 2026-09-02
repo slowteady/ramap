@@ -104,3 +104,42 @@ describe("mergeMatched", () => {
     expect(e.areaConfirmed).toBe(true);
   });
 });
+
+describe("mergeMatched — 동명 다지점", () => {
+  const entry = {
+    name: "산쪼메",
+    hours: "11:00-20:30",
+    soups: ["돈코츠"],
+    sourceNote: "수집",
+  };
+  it("동명 행이 여럿이면 addrHint 없는 위치 필드는 버린다", () => {
+    const e = mergeMatched("산쪼메", "", [entry], {
+      ambiguous: true,
+      address: "서울특별시 강서구 화곡로 344",
+    });
+    expect(e.hours).toBeUndefined();
+    expect(e.soups).toEqual(["돈코츠"]);
+  });
+
+  it("addrHint가 행 주소와 맞으면 그 행에만 위치 필드가 붙는다", () => {
+    const hinted = { ...entry, addrHint: "화곡로", hours: "11:00-21:30" };
+    const hit = mergeMatched("산쪼메", "", [hinted], {
+      ambiguous: true,
+      address: "서울특별시 강서구 화곡로 344",
+    });
+    expect(hit.hours).toBe("11:00-21:30");
+    const miss = mergeMatched("산쪼메", "", [hinted], {
+      ambiguous: true,
+      address: "서울특별시 광진구 아차산로51길 10",
+    });
+    expect(miss.hours).toBeUndefined();
+  });
+
+  it("동명이 아니면 addrHint 없이도 기존대로 병합", () => {
+    const e = mergeMatched("산쪼메", "", [entry], {
+      ambiguous: false,
+      address: "서울특별시 강서구 화곡로 344",
+    });
+    expect(e.hours).toBe("11:00-20:30");
+  });
+});

@@ -1,6 +1,7 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { areaLabelOf, inheritNearestArea } from "./lib/area-label";
+import { normalizeShopName } from "./lib/merge-candidates";
 import {
   matchEnrichment,
   mergeEnrichments,
@@ -31,6 +32,16 @@ const header = lines[0].split("\t");
 if (header.join("\t") !== SHEET_HEADER.join("\t")) {
   console.error("candidates.tsv 헤더가 시트 스키마와 다릅니다");
   process.exit(1);
+}
+
+/* 동명(상호+지점 정규화) 행 개수 — 2 이상이면 위치 필드는 addrHint 필수 */
+const normCounts = new Map<string, number>();
+const nameIdx = SHEET_HEADER.indexOf("상호");
+const branchIdx = SHEET_HEADER.indexOf("지점명");
+for (const line of lines.slice(1)) {
+  const v = line.split("\t");
+  const k = normalizeShopName((v[nameIdx] ?? "") + (v[branchIdx] ?? ""));
+  normCounts.set(k, (normCounts.get(k) ?? 0) + 1);
 }
 
 type Verdict = "publish" | "hold" | "exclude";
@@ -73,7 +84,14 @@ for (const line of lines.slice(1)) {
   });
 
   const matches = matchEnrichment(cells.상호, cells.지점명, enrichments);
-  const e = promoteSoups(mergeMatched(cells.상호, cells.지점명, matches));
+  const ambiguous =
+    (normCounts.get(normalizeShopName(cells.상호 + cells.지점명)) ?? 0) > 1;
+  const e = promoteSoups(
+    mergeMatched(cells.상호, cells.지점명, matches, {
+      ambiguous,
+      address: cells.주소,
+    }),
+  );
 
   cells.id = toSlug(cells.상호, cells.지점명, taken);
   cells.시 = "서울";

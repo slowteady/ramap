@@ -8,6 +8,8 @@ export type Enrichment = {
   area?: string;
   /* true면 검색으로 상권을 확증한 것 — 주소 기반 사전 판정보다 우선 */
   areaConfirmed?: boolean;
+  /* 동명 다지점 구분용 주소 조각(도로명 등) — 행 주소에 포함될 때만 위치 필드 병합 */
+  addrHint?: string;
   soups?: string[];
   primarySoup?: string;
   forms?: string[];
@@ -175,14 +177,24 @@ export function mergeEnrichments(matches: Enrichment[]): Enrichment {
 }
 
 /* 위치 종속 필드는 정확 일치에서만 — 접두 매칭은 본점 정보가 지점에 전파되는 오염원
-   (부탄츄 잠실점에 홍대 본점 상권·영업시간이 붙는 사고, 2026-09-02 실측) */
+   (부탄츄 잠실점에 홍대 본점 상권·영업시간이 붙는 사고, 2026-09-02 실측).
+   동명 행이 여럿(ambiguous)이면 정확 일치조차 어느 지점인지 모르므로
+   addrHint가 행 주소와 맞는 엔트리만 위치 필드를 준다 (산쪼메 3행 동일 시간 사고) */
 export function mergeMatched(
   name: string,
   branch: string,
   matches: Enrichment[],
+  opts: { ambiguous?: boolean; address?: string } = {},
 ): Enrichment {
   const norm = normalizeShopName(name + branch);
-  const exact = matches.filter((m) => normalizeShopName(m.name) === norm);
+  const hintFits = (m: Enrichment) =>
+    !m.addrHint || (opts.address ?? "").includes(m.addrHint);
+  const exact = matches.filter(
+    (m) =>
+      normalizeShopName(m.name) === norm &&
+      hintFits(m) &&
+      (!opts.ambiguous || m.addrHint),
+  );
   const all = mergeEnrichments(matches);
   const own = mergeEnrichments(exact);
   return {
