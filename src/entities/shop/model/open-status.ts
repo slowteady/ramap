@@ -59,9 +59,12 @@ export function openStatus(
   const ranges = parseRanges(hours);
   if (!ranges) return { kind: "unknown" };
 
+  /* "일"·"일요일" 병용, 구분자 쉼표·가운뎃점 — "마지막주 월요일" 등 격주 휴무는 판정 제외 */
   const day = DAY_KO[dayjs(now).day()];
-  if (closedDays?.split(",").some((d) => d.trim() === day))
-    return { kind: "dayoff" };
+  const isDayoff = closedDays
+    ?.split(/[,·]/)
+    .some((d) => d.trim() === day || d.trim() === `${day}요일`);
+  if (isDayoff) return { kind: "dayoff" };
 
   const minutes = dayjs(now).hour() * 60 + dayjs(now).minute();
   const current = within(ranges, minutes);

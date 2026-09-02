@@ -34,6 +34,31 @@ describe("openStatus", () => {
     ).toEqual({ kind: "break", until: "17:00" });
   });
 
+  it('"금요일" 표기·가운뎃점 구분자도 dayoff', () => {
+    expect(
+      openStatus("11:00-21:00", null, "금요일", at("2026-08-28T14:00:00")).kind,
+    ).toBe("dayoff");
+    expect(
+      openStatus(
+        "11:00-21:00",
+        null,
+        "토요일·금요일",
+        at("2026-08-28T14:00:00"),
+      ).kind,
+    ).toBe("dayoff");
+  });
+
+  it("격주 휴무(마지막주 금요일)는 dayoff로 판정하지 않는다", () => {
+    expect(
+      openStatus(
+        "11:00-21:00",
+        null,
+        "마지막주 금요일",
+        at("2026-08-28T14:00:00"),
+      ).kind,
+    ).toBe("open");
+  });
+
   it("휴무 요일이면 dayoff (2026-08-28은 금요일)", () => {
     expect(
       openStatus("11:00-21:00", null, "금", at("2026-08-28T14:00:00")).kind,

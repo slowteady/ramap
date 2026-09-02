@@ -1,0 +1,249 @@
+[
+  {
+    "name": "잇짱라멘",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "sourceNote": "보류 재심사(다음검색)"
+  },
+  {
+    "name": "아카리라멘 선유도점",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "sourceNote": "보류 재심사(다음검색)"
+  },
+  {
+    "name": "라멘바 시코우",
+    "soups": ["쇼유", "시오"],
+    "forms": ["라멘"],
+    "sourceNote": "보류 재심사(다음검색)"
+  },
+  {
+    "name": "유메라멘",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "instagram": "yume_ramen_",
+    "sourceNote": "보류 재심사(다음검색)"
+  },
+  {
+    "name": "그린라멘샵",
+    "soups": ["쇼유"],
+    "forms": ["라멘"],
+    "instagram": "green_ramenshop",
+    "sourceNote": "보류 재심사(다음검색)"
+  },
+  {
+    "name": "칸키라멘 동작구청점",
+    "soupDetail": ["실존 미확인"],
+    "sourceNote": "보류 재심사(다음검색)"
+  },
+  {
+    "name": "멘야윤",
+    "forms": ["라멘"],
+    "sourceNote": "보류 재심사(다음검색)"
+  },
+  {
+    "name": "(주)도마,유즈라멘 안국",
+    "forms": ["라멘"],
+    "soupDetail": ["유자"],
+    "instagram": "yuzu_ramen2",
+    "sourceNote": "보류 재심사(다음검색)"
+  },
+  {
+    "name": "저온숙성구름카츠&마제소바 천호점",
+    "soupDetail": ["라멘집 아님"],
+    "sourceNote": "보류 재심사(다음검색)"
+  },
+  {
+    "name": "니카이라멘",
+    "soups": ["쇼유"],
+    "forms": ["라멘"],
+    "sourceNote": "보류 재심사(다음검색)"
+  },
+  {
+    "name": "카도야라멘 서울대점",
+    "soups": ["돈코츠", "미소", "쇼유", "시오"],
+    "forms": ["라멘"],
+    "sourceNote": "보류 재심사(다음검색)"
+  },
+  {
+    "name": "산쇼쿠라멘 강남본점",
+    "soups": ["토리파이탄"],
+    "forms": ["라멘"],
+    "sourceNote": "보류 재심사(다음검색)"
+  },
+  {
+    "name": "라멘&덮밥",
+    "soupDetail": ["실존 미확인"],
+    "sourceNote": "보류 재심사(다음검색)"
+  },
+  {
+    "name": "코란라멘 본점",
+    "soups": ["돈코츠", "쇼유"],
+    "forms": ["라멘"],
+    "sourceNote": "보류 재심사(다음검색)"
+  },
+  {
+    "name": "호시노라멘&덮밥",
+    "soupDetail": ["실존 미확인"],
+    "sourceNote": "보류 재심사(다음검색) · 현 상호: 코란라멘 본점"
+  },
+  {
+    "name": "폭탄국밥&오이시쿠 라멘 고대안암점",
+    "forms": ["라멘"],
+    "sourceNote": "보류 재심사(다음검색) · 현 상호: 오이시쿠라멘 고대안암점"
+  },
+  {
+    "name": "저온숙성구름카츠&마제소바",
+    "soupDetail": ["라멘집 아님"],
+    "sourceNote": "보류 재심사(다음검색)"
+  },
+  {
+    "name": "레드멘야케이 노원본점",
+    "forms": ["라멘"],
+    "sourceNote": "보류 재심사(다음검색)"
+  },
+  {
+    "name": "수유라멘 서울과기대 공릉점",
+    "soups": ["돈코츠", "탄탄멘"],
+    "forms": ["라멘", "마제소바"],
+    "sourceNote": "보류 재심사(다음검색)"
+  },
+  {
+    "name": "KUNI RAMEN 쿠니라멘",
+    "soups": ["돈코츠"],
+    "forms": ["라멘", "마제소바"],
+    "sourceNote": "보류 재심사(다음검색)"
+  },
+  {
+    "name": "겐조라멘",
+    "soups": ["돈코츠", "미소", "시오"],
+    "forms": ["라멘"],
+    "sourceNote": "보류 재심사(다음검색)"
+  },
+  {
+    "name": "멘야수",
+    "soups": ["쇼유", "시오"],
+    "forms": ["라멘"],
+    "soupDetail": ["오리"],
+    "instagram": "menyasoo_info",
+    "sourceNote": "보류 재심사(다음검색)"
+  },
+  {
+    "name": "칸키라멘",
+    "soups": ["돈코츠"],
+    "forms": ["라멘", "마제소바"],
+    "soupDetail": ["아부라소바"],
+    "sourceNote": "보류 재심사(다음검색)"
+  },
+  {
+    "name": "라멘쨩",
+    "soups": ["돈코츠"],
+    "forms": ["라멘"],
+    "sourceNote": "보류 재심사(다음검색)"
+  },
+  {
+    "name": "일본라멘무메이",
+    "soups": ["쇼유", "시오"],
+    "forms": ["라멘", "마제소바"],
+    "soupDetail": ["파이탄", "아부라소바"],
+    "instagram": "@mumei_ramen",
+    "sourceNote": "보류 재심사(다음검색)"
+  },
+  {
+    "name": "멘야니쿠",
+    "forms": ["라멘"],
+    "sourceNote": "보류 재심사(다음검색)"
+  },
+  {
+    "name": "쇼부라멘 서소문점",
+    "soups": ["쇼유", "미소", "돈코츠"],
+    "forms": ["라멘"],
+    "sourceNote": "보류 재심사(다음검색)"
+  },
+  {
+    "name": "한끼는라멘&비빔밥",
+    "forms": ["라멘"],
+    "sourceNote": "보류 재심사(다음검색)"
+  },
+  {
+    "name": "이찌방라멘&카츠카레",
+    "soupDetail": ["실존 미확인"],
+    "sourceNote": "보류 재심사(다음검색)"
+  },
+  {
+    "name": "따띠라멘",
+    "forms": ["라멘"],
+    "sourceNote": "보류 재심사(다음검색)"
+  },
+  {
+    "name": "와다라멘",
+    "soups": ["미소", "쇼유", "탄탄멘"],
+    "forms": ["라멘"],
+    "sourceNote": "보류 재심사(다음검색)"
+  },
+  {
+    "name": "멘야붕",
+    "soupDetail": ["실존 미확인"],
+    "sourceNote": "보류 재심사(다음검색)"
+  },
+  {
+    "name": "라멘클럽 사이",
+    "soupDetail": ["실존 미확인"],
+    "sourceNote": "보류 재심사(다음검색)"
+  },
+  {
+    "name": "라멘짱 디큐브점",
+    "soups": ["미소"],
+    "forms": ["라멘"],
+    "sourceNote": "보류 재심사(다음검색)"
+  },
+  {
+    "name": "지로우라멘",
+    "soups": ["돈코츠", "교카이"],
+    "forms": ["라멘", "마제소바"],
+    "soupDetail": ["지로라멘"],
+    "sourceNote": "보류 재심사(다음검색)"
+  },
+  {
+    "name": "더라멘워(The Ramen War)",
+    "forms": ["라멘"],
+    "soupDetail": ["오사카라멘"],
+    "instagram": "@theramenwar_thehyundai_seoul",
+    "sourceNote": "보류 재심사(다음검색)"
+  },
+  {
+    "name": "아웃나우1호",
+    "soupDetail": ["라멘집 아님"],
+    "sourceNote": "보류 재심사(다음검색)"
+  },
+  {
+    "name": "이찌방라멘&카츠카레관악",
+    "soupDetail": ["실존 미확인"],
+    "sourceNote": "보류 재심사(다음검색)"
+  },
+  {
+    "name": "코란라멘",
+    "soupDetail": ["실존 미확인"],
+    "sourceNote": "보류 재심사(다음검색)"
+  },
+  {
+    "name": "미친라멘",
+    "soupDetail": ["실존 미확인"],
+    "sourceNote": "보류 재심사(다음검색)"
+  },
+  {
+    "name": "구름라멘",
+    "forms": ["라멘"],
+    "sourceNote": "보류 재심사(다음검색)"
+  },
+  {
+    "name": "맵달라멘집",
+    "soupDetail": ["라멘집 아님"],
+    "sourceNote": "보류 재심사(다음검색)"
+  },
+  {
+    "name": "칸다소바",
+    "forms": ["마제소바"],
+    "sourceNote": "보류 재심사(다음검색)"
+  }
+]

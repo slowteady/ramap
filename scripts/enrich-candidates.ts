@@ -1,5 +1,6 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
+import { areaLabelOf, inheritNearestArea } from "./lib/area-label";
 import {
   matchEnrichment,
   mergeEnrichments,
@@ -55,8 +56,8 @@ function verdictOf(
 }
 
 const taken = new Set<string>();
-const out = [SHEET_HEADER.join("\t")];
-const held = [SHEET_HEADER.join("\t")];
+const outRows: Record<string, string>[] = [];
+const heldRows: Record<string, string>[] = [];
 let tagged = 0;
 let closedHints = 0;
 let excluded = 0;
@@ -74,7 +75,7 @@ for (const line of lines.slice(1)) {
   cells.id = toSlug(cells.상호, cells.지점명, taken);
   cells.시 = "서울";
   cells.구 = cells.주소.match(/([가-힣]+구)(?=\s)/)?.[1] ?? "";
-  cells.동네라벨 = e.area ?? "";
+  cells.동네라벨 = e.area ?? areaLabelOf(cells.주소, cells.구) ?? "";
   cells.스프 = (e.soups ?? []).join(", ") || "기타";
   cells.스프_대표 = e.primarySoup ?? e.soups?.[0] ?? "기타";
   cells.형태 = (e.forms ?? []).join(", ") || "라멘";
@@ -109,11 +110,33 @@ for (const line of lines.slice(1)) {
   if (verdict === "exclude") {
     excluded += 1;
   } else if (verdict === "hold") {
-    held.push(toSheetLine(cells));
+    heldRows.push(cells);
   } else {
-    out.push(toSheetLine(cells));
+    outRows.push(cells);
   }
 }
+
+/* 사전 미적중(괄호 동 없는 주소)은 게재분 내 최근접 상권 상속 */
+const withArea = inheritNearestArea(
+  outRows.map((cells) => ({
+    cells,
+    lat: cells.lat ? Number(cells.lat) : null,
+    lng: cells.lng ? Number(cells.lng) : null,
+    areaLabel: cells.동네라벨 || null,
+  })),
+);
+for (const row of withArea) row.cells.동네라벨 = row.areaLabel ?? "";
+const unlabeled = withArea.filter((r) => !r.areaLabel).length;
+if (unlabeled > 0) console.log(`동네라벨 미부여 ${unlabeled}건 (구 폴백 노출)`);
+
+const out = [
+  SHEET_HEADER.join("\t"),
+  ...outRows.map((cells) => toSheetLine(cells)),
+];
+const held = [
+  SHEET_HEADER.join("\t"),
+  ...heldRows.map((cells) => toSheetLine(cells)),
+];
 
 const dest = resolve("data/out/seed.tsv");
 writeFileSync(dest, `${out.join("\n")}\n`);

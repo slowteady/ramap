@@ -1,0 +1,2043 @@
+[
+  {
+    "name": "멘야유메미루 강남점",
+    "instagram": "https://www.instagram.com/menya.yumemiru",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "유즈라멘 서울역본점",
+    "hours": "11:00-21:00",
+    "breakTime": "15:00-17:00",
+    "closedDays": "마지막주 월요일",
+    "menus": ["유즈시오라멘|12000", "유즈쇼유라멘|12000", "유즈츠케멘|14000"],
+    "instagram": "https://www.instagram.com/yuzu_ramen",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "텐진라멘선유도",
+    "hours": "11:30-21:00",
+    "breakTime": "15:00-17:30",
+    "closedDays": "일요일",
+    "menus": ["텐진라멘|9500", "카라멘|9500", "쇼유라멘|8500"],
+    "primarySoup": "돈코츠",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "라멘 토네이도",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "계단라멘",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "니시무라멘 현대무역점",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "유메이라멘",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "우시라멘",
+    "hours": "11:00-21:00",
+    "breakTime": "15:00-16:00",
+    "menus": ["돈코츠라멘|9500", "매운돈코츠라멘|9500", "구로마유라멘|10000"],
+    "primarySoup": "돈코츠",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "라멘이찌방",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "오로지라멘한신인터밸리24점",
+    "hours": "11:00-15:00",
+    "closedDays": "토요일, 일요일",
+    "menus": ["오로지라멘|10000", "매운오로지라멘|10500", "바질라멘|9500"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "멘야하나비 성신여대점",
+    "hours": "11:00-21:00",
+    "menus": ["마제소바|12000", "도니꾸 마제소바|15000", "타이완라멘|12000"],
+    "instagram": "https://www.instagram.com/menya_sungshin",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "오로지라멘 이앤씨벤처드림타워점",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "멘쇼우라멘",
+    "instagram": "https://www.instagram.com/menshou_ramen",
+    "primarySoup": "돈코츠",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "이츠모라멘 신림직영점",
+    "hours": "11:30-20:00",
+    "closedDays": "화요일",
+    "menus": ["이츠모 돈코츠라멘|10500"],
+    "primarySoup": "돈코츠",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "메이게츠 라멘 신림점",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "멘야 카엔",
+    "hours": "11:30-20:00",
+    "breakTime": "14:30-17:00",
+    "closedDays": "월요일",
+    "menus": ["이에케라멘|10500", "매운이에케라멘|11000"],
+    "instagram": "https://www.instagram.com/menya_kaen",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "쿠잔라멘",
+    "hours": "11:30-21:00",
+    "breakTime": "14:30-17:00",
+    "closedDays": "일요일",
+    "primarySoup": "돈코츠",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "소노키라멘 반포점",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "코코로라멘광장시장점",
+    "hours": "11:00-23:00",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "라멘모토",
+    "hours": "11:00-21:00",
+    "breakTime": "15:00-17:00",
+    "menus": ["모토라멘|10000", "츠케멘|11000", "스페셜 츠케멘|13000"],
+    "instagram": "https://www.instagram.com/ramenmoto.kr",
+    "primarySoup": "돈코츠",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "멘야하나비",
+    "menus": ["추천마제소바|12000", "도니꾸 마제소바|15000", "쇼유라멘|11000"],
+    "primarySoup": "탄탄멘",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "유니드라멘",
+    "hours": "11:00-20:30",
+    "breakTime": "15:00-17:00",
+    "closedDays": "목요일",
+    "menus": ["You need 파이탄|11000", "시루나시 탄탄멘|10000"],
+    "instagram": "https://www.instagram.com/youneedramen",
+    "primarySoup": "토리파이탄",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "라멘 킥스타트",
+    "hours": "11:00-20:00",
+    "breakTime": "15:00-17:00",
+    "closedDays": "일요일",
+    "instagram": "https://www.instagram.com/ramen_kickstart",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "오이시쿠 라멘 강서점",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "오로지라멘",
+    "hours": "11:00-20:30",
+    "breakTime": "15:00-17:00",
+    "closedDays": "일요일",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "멘야하나",
+    "instagram": "https://www.instagram.com/menyahana0428",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "와다라멘",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "소바하우스 멘야준",
+    "hours": "11:00-20:00",
+    "breakTime": "15:00-17:00",
+    "menus": ["쇼유라멘|10000", "차슈쇼유라멘|12500", "특선쇼유라멘|15500"],
+    "instagram": "https://www.instagram.com/sobahousemenyajoon",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "오레노라멘 롯데월드몰점",
+    "hours": "10:30-21:30",
+    "menus": ["토리빠이탄|13000", "카라빠이탄|13000"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "라멘 롱 시즌(japanese ramen long season)",
+    "hours": "11:30-15:30",
+    "closedDays": "월요일, 화요일",
+    "menus": ["시오라멘|10000", "계란시오라멘|11000", "차슈시오라멘|13000"],
+    "primarySoup": "시오",
+    "instagram": "ramenlongseason",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "라멘모토",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "신유라멘",
+    "hours": "11:00-20:30",
+    "breakTime": "15:00-17:00",
+    "closedDays": "토요일, 일요일",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "쇼부라멘 상암월드컵경기장점",
+    "hours": "09:00-21:00",
+    "menus": ["소유라멘|6000", "돈코츠라멘|7000", "사케동|9000"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "멘야가와",
+    "hours": "11:00-22:00",
+    "breakTime": "15:00-17:00",
+    "menus": ["돈코츠라멘|9000", "카라라멘|10000", "마제소바|12000"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "잇또라멘 노원점",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "멘야포모 성수점",
+    "hours": "11:00-20:30",
+    "breakTime": "15:30-17:00",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "주카라멘바",
+    "hours": "11:00-22:00",
+    "breakTime": "15:00-17:00",
+    "closedDays": "일요일",
+    "primarySoup": "미소",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "라멘츠쿠 노원본점",
+    "hours": "11:00-21:00",
+    "breakTime": "15:30-17:00",
+    "closedDays": "월요일",
+    "menus": ["츠쿠라멘|10000", "츠케멘|11000", "아카멘|11000"],
+    "instagram": "ramen_tsuku",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "신센라멘 신림점",
+    "hours": "10:00-23:00",
+    "menus": ["신센라멘|11000", "매운신센라멘|11000", "토마토라멘|12000"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "멘타쿠라멘",
+    "hours": "11:00-20:00",
+    "breakTime": "15:00-17:00",
+    "closedDays": "일요일",
+    "menus": ["돈코츠라멘|10000"],
+    "primarySoup": "돈코츠",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "멘야이찌방 고척점",
+    "hours": "11:00-22:00",
+    "menus": ["토리빠이탄|9900", "토리츠케멘|9900", "시오라멘|9900"],
+    "primarySoup": "토리파이탄",
+    "instagram": "menyaichibang_",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "혼다라멘 어린이대공원점",
+    "hours": "11:00-22:00",
+    "breakTime": "15:30-17:00",
+    "closedDays": "토요일",
+    "menus": [
+      "혼다라멘 세트|8900",
+      "매운혼다라멘 세트|9500",
+      "탄탄멘 세트|9500"
+    ],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "멘야돈토리",
+    "hours": "11:30-24:00",
+    "closedDays": "일요일",
+    "menus": ["로스카츠|11000", "생선카츠|12000", "히레카츠|13000"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "이츠모라멘",
+    "hours": "11:30-20:30",
+    "menus": [
+      "이츠모돈코츠라멘|10500",
+      "카라이돈코츠라멘|11000",
+      "츠케멘|11000"
+    ],
+    "primarySoup": "돈코츠",
+    "instagram": "itsumo_ramen",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "오로지라멘",
+    "hours": "11:30-21:00",
+    "closedDays": "일요일",
+    "menus": ["돈코츠라멘|9000", "매운돈코츠라멘|9500", "오로지라멘|10500"],
+    "primarySoup": "돈코츠",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "라멘트럭 목동점",
+    "hours": "11:00-20:30",
+    "breakTime": "15:30-17:00",
+    "menus": ["라멘|10000", "신라멘|11000", "미니차슈동|5000"],
+    "instagram": "ramentruck_official",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "쿄라멘(Kyo ramen)",
+    "hours": "11:30-19:30",
+    "breakTime": "14:50-17:00",
+    "closedDays": "월요일",
+    "menus": ["쿄라멘|8000", "매운돈코츠라멘|8500", "츠케멘|10000"],
+    "instagram": "kyoramen",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "아키야 라멘",
+    "hours": "11:30-21:00",
+    "breakTime": "16:00-17:00",
+    "closedDays": "화요일",
+    "menus": ["아키야라멘|11000", "쿠로라멘|12000", "미소라멘|14000"],
+    "instagram": "akiya.ramen",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "멘야소바",
+    "hours": "11:00-21:00",
+    "breakTime": "15:30-17:00",
+    "closedDays": "목요일",
+    "menus": ["마제소바|9800", "비빔탄탄멘|11000", "돈코츠라멘|10500"],
+    "instagram": "manyasoba",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "네코라멘",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "멘야호타루",
+    "hours": "11:00-20:30",
+    "breakTime": "14:30-17:00",
+    "menus": ["마제소바|11000", "매운 마제소바|12000", "마제덮밥|11500"],
+    "instagram": "hotaru_kor",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "토모멘야",
+    "hours": "11:00-21:00",
+    "breakTime": "15:00-17:00",
+    "closedDays": "일요일",
+    "menus": ["돈코츠라멘|12000", "매운돈코츠라멘|12000", "탄탄멘|12000"],
+    "primarySoup": "돈코츠",
+    "instagram": "tomo_menya",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "오로지라멘 중앙유통단지점",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "신센라멘 연남점",
+    "hours": "10:00-21:00",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "멘야서울 중림점",
+    "hours": "11:00-21:00",
+    "breakTime": "14:00-17:30",
+    "closedDays": "일요일",
+    "menus": [
+      "잠봉차슈라멘|10900",
+      "동파육차슈라멘|11900",
+      "마라동파육차슈라멘|12500"
+    ],
+    "instagram": "menya_seoul_jungnim",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "킨카라멘",
+    "hours": "11:00-20:00",
+    "breakTime": "15:00-17:30",
+    "closedDays": "월요일, 일요일",
+    "primarySoup": "쇼유",
+    "instagram": "kinka.ramen_official",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "신센라멘 신월점",
+    "menus": ["냉라멘|10500", "탄탄멘|12000", "마제소바|10500"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "신센라멘 홍대점",
+    "hours": "10:00-22:00",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "멘야가와",
+    "hours": "11:00-22:00",
+    "breakTime": "15:00-17:00",
+    "menus": ["돈코츠라멘|9000", "시오라멘|9000", "마제소바|12000"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "566라멘(566RAMEN)",
+    "hours": "11:00-20:30",
+    "breakTime": "15:00-17:00",
+    "menus": [
+      "라멘(소)|11000",
+      "시루나시(소)|11000",
+      "니보시 마제 지로(소)|12000"
+    ],
+    "primarySoup": "니보시",
+    "instagram": "566ramen",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "멘야하나비 합정점",
+    "hours": "11:30-21:00",
+    "breakTime": "14:30-17:30",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "장라멘",
+    "hours": "11:00-21:00",
+    "breakTime": "15:00-17:00",
+    "closedDays": "수요일, 일요일",
+    "menus": ["장라멘|10000", "신 장라멘|11000", "장국밥|10500"],
+    "instagram": "jangramen",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "라멘 키레이",
+    "hours": "11:30-20:30",
+    "closedDays": "화요일",
+    "instagram": "ramenkirei",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "텐진라멘 가산디지털단지점",
+    "hours": "11:30-21:00",
+    "breakTime": "14:30-17:30",
+    "closedDays": "토요일, 일요일",
+    "menus": ["텐진라멘|9500", "소유라멘|8500", "시오라멘|9500"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "와다라멘 이태원점",
+    "hours": "11:00-21:00",
+    "breakTime": "15:00-16:00",
+    "menus": ["돈코츠라멘|10500", "미소라멘|11500", "마제소바|12000"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "도조라멘",
+    "hours": "11:30-20:00",
+    "breakTime": "15:00-16:00",
+    "closedDays": "월요일",
+    "menus": ["돈코츠라멘|9000", "미소라멘|9500", "쇼유라멘|9000"],
+    "instagram": "dojoramen_",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "멘야요시",
+    "hours": "11:30-23:30",
+    "closedDays": "일요일",
+    "menus": ["미소라멘|9000", "매운미소라멘|9500", "야키소바|10000"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "라멘야누",
+    "hours": "11:00-20:00",
+    "breakTime": "15:00-17:00",
+    "closedDays": "화요일, 수요일, 목요일",
+    "menus": ["쇼유라멘|12000", "시오라멘|12000", "마제소바|13000"],
+    "instagram": "ramenyanu",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "라멘에반하다 태평양물산점",
+    "hours": "10:30-22:00",
+    "menus": ["돈코츠라멘|9500", "미소라멘|9500", "마제멘|10500"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "라멘트럭 상수점",
+    "hours": "11:00-21:30",
+    "menus": ["추천라멘|10000", "추천신라멘|11000", "수제교자|5000"],
+    "instagram": "ramentruck_official",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "라멘야 시마",
+    "hours": "11:00-22:00",
+    "menus": ["쇼유라멘|15800", "시로쇼유라멘|17800", "특쇼유라멘|19800"],
+    "instagram": "ramenya_shima",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "기린이라멘",
+    "hours": "11:00-20:00",
+    "closedDays": "일요일",
+    "instagram": "kirin_ramen81",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "오레노라멘송파",
+    "hours": "11:00-21:00",
+    "breakTime": "15:00-17:00",
+    "menus": ["토리빠이탄 라멘|13000", "카라빠이탄 라멘|13000"],
+    "instagram": "orenoramen",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "코코로라멘(kokororamen) 잠실점",
+    "hours": "10:00-21:00",
+    "closedDays": "월요일",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "태양의 토마토라멘 대학로점",
+    "hours": "11:00-21:00",
+    "menus": [
+      "태양의토마토라멘|9000",
+      "매운토마토라멘|9500",
+      "치즈토마토라멘|10500"
+    ],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "히카리라멘",
+    "hours": "11:00-20:00",
+    "closedDays": "일요일",
+    "menus": ["히카리라멘|10000", "한방라멘|14000", "마제소바|10000"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "멘야포모 강남구청점",
+    "hours": "11:00-20:30",
+    "breakTime": "15:00-17:00",
+    "closedDays": "토요일, 일요일",
+    "menus": [
+      "기본 토마토라멘|10000",
+      "포모콘 토마토라멘|12000",
+      "토마토 마제소바|12000"
+    ],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "멘야츠바사",
+    "hours": "11:30-21:00",
+    "breakTime": "15:00-17:00",
+    "closedDays": "월요일",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "코이라멘 장충점",
+    "hours": "11:00-02:00",
+    "breakTime": "15:00-17:00",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "탐라멘",
+    "hours": "11:00-20:30",
+    "closedDays": "일요일",
+    "menus": ["탐라멘|8900", "얼큰탐라멘|9600", "숯불고기라멘|9600"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "라멘하카타분코",
+    "instagram": "hakatabunko_official",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "존라멘",
+    "hours": "11:30-20:00",
+    "breakTime": "15:00-17:30",
+    "closedDays": "일요일",
+    "menus": ["돈코츠라멘|11000", "매운 돈코츠라멘|11500", "차슈덮밥|10000"],
+    "instagram": "jonramen",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "라멘트럭 건대점",
+    "hours": "11:00-20:30",
+    "menus": ["라멘|10000", "신라멘|12000", "이에케라멘|12000"],
+    "instagram": "ramentruck_official",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "아타타카이 라멘",
+    "hours": "11:00-20:30",
+    "breakTime": "14:30-17:00",
+    "closedDays": "월요일, 화요일",
+    "menus": [
+      "돈코츠라멘|9000",
+      "매운돈코츠라멘|9000",
+      "쿠로(흑마늘)라멘|9000"
+    ],
+    "instagram": "atatakai_ramen",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "라멘 보루도 서순라본점",
+    "hours": "11:30-20:00",
+    "breakTime": "16:00-17:00",
+    "menus": ["보루도돈코츠라멘|13000", "돈코츠라멘|11000", "아부라소바|12000"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "초이라멘",
+    "hours": "11:00-21:00",
+    "breakTime": "16:00-17:00",
+    "menus": ["마제소바|11000", "돈코츠라멘|11000"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "오레노 라멘안국",
+    "hours": "10:30-21:00",
+    "menus": ["토리빠이탄|13000", "카라빠이탄|13000"],
+    "instagram": "orenorameninsa",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "혼다라멘",
+    "hours": "09:00-16:00",
+    "closedDays": "일요일",
+    "menus": ["혼다라멘|8000", "토마토라멘|9000", "탄탄멘|9000"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "니지라멘",
+    "hours": "11:00-21:00",
+    "closedDays": "일요일",
+    "menus": ["쇼유라멘|11000", "돈코츠라멘|11000", "매운돈코츠라멘|12000"],
+    "instagram": "niji_ramen",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "츠키라멘",
+    "hours": "11:00-20:30",
+    "breakTime": "14:30-17:30",
+    "closedDays": "일요일",
+    "menus": ["쇼유라멘|12000", "돈코츠라멘|11000", "교카이돈코츠라멘|12000"],
+    "instagram": "tsuki_ramen1",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "째즈&라멘",
+    "hours": "10:00-20:00",
+    "closedDays": "일요일",
+    "menus": ["차슈덮밥|6000", "가츠동|7000", "규동|8000"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "멘야산다이메",
+    "hours": "10:00-22:00",
+    "menus": ["돈코츠라멘|9500", "카라구치라멘|10000", "미소라멘|12000"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "코이라멘 종로점",
+    "hours": "11:00-21:00",
+    "closedDays": "일요일",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "쿄오모라멘",
+    "primarySoup": "토리파이탄",
+    "instagram": "kyoomo.ramen",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "129라멘하우스",
+    "hours": "11:30-21:00",
+    "breakTime": "15:00-16:00",
+    "closedDays": "일요일",
+    "menus": ["129 돈코츠 라멘|10000", "교카이 매운 돈코츠 라멘|11000"],
+    "primarySoup": "돈코츠",
+    "instagram": "129ramenhouse",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "서양라멘",
+    "hours": "10:00-20:00",
+    "closedDays": "일요일",
+    "menus": [
+      "요푸라멘|10900",
+      "매운요푸라멘|11700",
+      "매콤토마토비스크라멘|12900"
+    ],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "라멘담뽀뽀",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "신승호 라멘집",
+    "hours": "11:00-19:30",
+    "breakTime": "15:00-17:00",
+    "closedDays": "일요일",
+    "menus": ["아부라소바|10000"],
+    "instagram": "_shin_ramen_",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "쿄오모라멘 신당",
+    "primarySoup": "토리파이탄",
+    "instagram": "kyoomo.ramen",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "조선라멘",
+    "hours": "11:00-22:00",
+    "closedDays": "일요일",
+    "menus": ["조선라멘|9900", "된장라멘|9900", "간장라멘|9900"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "라멘81번옥",
+    "hours": "11:00-20:00",
+    "menus": ["소유라멘|7000", "미소라멘|8000", "신돈코츠라멘|9000"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "보스라멘",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "오빠라멘",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "멘야서울 용산본점",
+    "hours": "11:00-21:00",
+    "breakTime": "14:00-17:30",
+    "menus": [
+      "아롱사태 냉소바|11000",
+      "동파육 차슈 라멘|11000",
+      "얼큰 동파육 차슈 라멘|11000"
+    ],
+    "instagram": "menya_seoul",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "토마라멘",
+    "hours": "11:00-20:30",
+    "breakTime": "14:30-17:00",
+    "menus": [
+      "토마토라멘|11000",
+      "매운토마토라멘|12000",
+      "바질토마토라멘|13500"
+    ],
+    "instagram": "tomaramen",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "멘야산다이메",
+    "hours": "11:00-07:00",
+    "menus": ["돈코츠라멘|9500", "카라구치라멘|10000", "츠케멘|11500"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "라멘짱 용산점",
+    "hours": "11:00-21:00",
+    "menus": ["돈코츠 라멘|10500", "콘버터미소라멘|12800", "호르몬라멘|13500"],
+    "primarySoup": "돈코츠",
+    "instagram": "ramen_jjang",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "멘야서울 용산아이파크몰점",
+    "hours": "11:00-21:00",
+    "menus": ["동파육 세트|17900", "잠봉 세트|15900"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "레이 라멘(Rei Ramen)",
+    "hours": "11:00-19:30",
+    "breakTime": "14:30-17:00",
+    "closedDays": "일요일",
+    "primarySoup": "시오",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "라멘 새노야",
+    "hours": "11:00-21:00",
+    "menus": ["돈코츠 라멘|10000", "쇼유 라멘|11000", "마제 소바|11000"],
+    "instagram": "ramen_senoya",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "멘야코노하 성수",
+    "hours": "11:30-20:00",
+    "breakTime": "15:00-17:30",
+    "menus": ["니보시시오라멘|10000", "쌍문동코츠라멘|10000", "마제소바|10500"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "멘야포모 서울숲점",
+    "hours": "11:00-20:30",
+    "breakTime": "15:30-17:00",
+    "closedDays": "토요일·일요일",
+    "menus": [
+      "토마토라멘|9500",
+      "치즈 토마토라멘|11800",
+      "스페셜 토마토라멘|13800"
+    ],
+    "primarySoup": "토마토",
+    "instagram": "menyapomo",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "소노키라멘 한양대점",
+    "hours": "11:00-22:00",
+    "menus": ["소노키라멘|11800", "미소라멘|12000", "마제멘|12500"],
+    "primarySoup": "돈코츠",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "치카이라멘",
+    "hours": "11:00-21:30",
+    "breakTime": "15:00-17:00",
+    "menus": ["돈코츠라멘|11000", "매운돈코츠라멘|11500", "마제소바|12500"],
+    "instagram": "chikairamen",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "후쿠쵸라멘 본점",
+    "hours": "11:00-21:00",
+    "breakTime": "15:00-17:00",
+    "menus": ["돈코츠라멘|11000", "후쿠쵸라멘|11500", "마제소바|12000"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "소노키라멘 건대본점",
+    "hours": "11:00-22:00",
+    "menus": ["소노키라멘|11800", "소노키세트|17000", "미소세트|17500"],
+    "primarySoup": "돈코츠",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "우마이라멘&마제소바",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "혼다라멘",
+    "primarySoup": "토마토",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "라멘미세",
+    "hours": "11:30-20:30",
+    "breakTime": "14:30-17:00",
+    "menus": ["돈코츠라멘|9500", "미소라멘|10000", "매운돈코츠라멘|10000"],
+    "primarySoup": "돈코츠",
+    "instagram": "ramenmise",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "초라멘",
+    "hours": "11:30-19:30",
+    "breakTime": "15:00-17:00",
+    "closedDays": "월요일",
+    "menus": ["토리파이탄|10000", "카라파이탄|10000", "마제멘|10500"],
+    "instagram": "cho_ramen",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "멘야카오리",
+    "instagram": "menya_jangan",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "수유라멘 경희대점",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "늘보라멘",
+    "hours": "11:00-20:30",
+    "breakTime": "15:00-17:00",
+    "closedDays": "토요일, 일요일",
+    "menus": ["돈코츠라멘|7900", "카라구치라멘|7900", "카레라멘|7900"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "라멘짱 청량리역점",
+    "hours": "11:00-21:00",
+    "menus": ["차슈라멘|12000", "바베큐라멘|12000", "호르몬라멘|13000"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "후쿠라멘",
+    "hours": "11:30-21:00",
+    "breakTime": "14:00-16:00",
+    "closedDays": "토요일",
+    "menus": ["소금돈코츠|8500", "간장돈코츠|8500", "농후돈코츠|10000"],
+    "primarySoup": "돈코츠",
+    "instagram": "hukuramen_",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "우시라멘(우리의시작은라멘이였다)",
+    "hours": "11:00-22:00",
+    "menus": ["돈코츠라멘|9000", "구로마유라멘|9500", "야끼돈코츠라멘|10500"],
+    "primarySoup": "돈코츠",
+    "instagram": "woosi_ramen",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "라멘트럭 장안점",
+    "hours": "11:00-20:30",
+    "menus": ["추천라멘|11000", "만족라멘|10000", "차슈멘|15000"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "멘야카오리(동부시장점)",
+    "hours": "11:00-21:00",
+    "breakTime": "15:00-17:00",
+    "closedDays": "수요일",
+    "menus": [
+      "카오리마제소바|10000",
+      "카라이마제소바|11000",
+      "돈코츠라멘|9000"
+    ],
+    "primarySoup": "돈코츠",
+    "instagram": "menya_jungnang",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "파파라멘",
+    "hours": "11:30-22:00",
+    "closedDays": "일요일",
+    "menus": ["돈꼬츠라멘|10000", "쇼유라멘|10000", "카라이미소라멘|10000"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "대부라멘",
+    "hours": "11:30-21:00",
+    "breakTime": "14:30-17:00",
+    "closedDays": "화요일, 일요일",
+    "menus": ["대부라멘|9000", "소유돈코츠라멘|9000", "소유라멘|9000"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "소라라멘",
+    "hours": "11:00-20:30",
+    "breakTime": "15:00-17:00",
+    "closedDays": "토요일, 일요일",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "멘야리(MenyaLee)",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "요라멘",
+    "hours": "11:00-21:00",
+    "menus": ["요라멘|10000", "돈코츠라멘|10000", "마제소바|10000"],
+    "instagram": "yo_ra.men",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "신의한수&라멘",
+    "hours": "11:00-20:00",
+    "closedDays": "일요일",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "고도라멘",
+    "hours": "11:00-21:00",
+    "breakTime": "15:00-16:30",
+    "closedDays": "수요일",
+    "menus": ["돈코츠라멘|9500", "미소라멘|10000", "쇼유라멘|10000"],
+    "instagram": "godot_ramen",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "수유라멘 점심 저녁 찐맛 무료주차",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "세종라멘",
+    "hours": "11:00-20:30",
+    "closedDays": "수요일",
+    "menus": ["돈코츠라멘|8500", "미소라멘|9000", "카라이돈코츠라멘|9000"],
+    "instagram": "sejongramen",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "멘야코노하",
+    "closed": true,
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "우시라멘",
+    "hours": "11:00-22:00",
+    "menus": ["돈코츠라멘|9500", "구로마유라멘|11000", "바질라멘|11000"],
+    "primarySoup": "돈코츠",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "멘야리 노원본점",
+    "hours": "11:00-21:30",
+    "menus": ["토리쇼유라멘|11000", "리얼돈코츠라멘|11000", "마제소바|12500"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "멘야 다이고미",
+    "hours": "11:30-21:00",
+    "breakTime": "15:00-17:00",
+    "menus": ["돈육수라멘|7500", "매운돈육수라멘|8000", "미소라멘|8500"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "오레노라멘 은평",
+    "hours": "11:00-20:30",
+    "breakTime": "14:30-17:00",
+    "menus": ["토리빠이탄라멘|13000", "카라빠이탄라멘|13000"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "야마노라멘",
+    "hours": "11:00-19:30",
+    "breakTime": "16:30-17:00",
+    "menus": ["돈코츠라멘|5000", "트루돈코츠라멘|8000"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "네츠라멘",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "마마노라멘",
+    "hours": "11:00-20:30",
+    "breakTime": "15:30-17:00",
+    "closedDays": "일요일",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "스스라멘",
+    "hours": "11:30-21:00",
+    "breakTime": "15:00-17:00",
+    "closedDays": "토요일, 일요일",
+    "menus": ["시오라멘|10000", "쇼유라멘|10000", "카라이라멘|11000"],
+    "primarySoup": "시오",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "카라멘야 주식회사",
+    "hours": "11:30-21:30",
+    "breakTime": "15:00-16:00",
+    "menus": ["카라멘|10500", "마제소바|12000", "본라멘|10000"],
+    "instagram": "https://www.instagram.com/karamenya_i",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "토나리 라멘",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "삿포로 미소라멘 에류테(永龍亭)",
+    "hours": "11:00-14:00",
+    "closedDays": "토요일, 일요일",
+    "menus": ["미소버터라멘|10000", "미소마늘라멘|10000", "시오버터라멘|10000"],
+    "primarySoup": "미소",
+    "instagram": "https://www.instagram.com/ramen_eiryutei",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "멘야산다이메",
+    "hours": "11:30-22:00",
+    "menus": ["돈코츠라멘|10000", "카라구치라멘|11000", "쿠로라멘|11000"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "이리에라멘",
+    "hours": "11:00-20:30",
+    "breakTime": "14:30-17:00",
+    "menus": ["맑은도미시오라멘|10000", "진한도미시오라멘|11000"],
+    "instagram": "https://www.instagram.com/irie_ramen",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "오레노라멘",
+    "hours": "11:00-22:00",
+    "menus": ["토리빠이탄|13000", "카라빠이탄|13000"],
+    "instagram": "https://www.instagram.com/orenoramen",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "멘야준",
+    "instagram": "https://www.instagram.com/menyajoon",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "라멘파이터즈",
+    "hours": "11:30-20:00",
+    "breakTime": "15:00-17:00",
+    "closedDays": "월요일",
+    "instagram": "https://www.instagram.com/ramenfighters",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "마츠에라멘",
+    "hours": "11:30-23:00",
+    "closedDays": "일요일",
+    "menus": ["마츠에라멘|9000", "규동|9500", "차슈덮밥|11000"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "하나라멘",
+    "hours": "11:30-17:30",
+    "closedDays": "목요일, 금요일",
+    "menus": ["토리파이탄|10000", "사바쇼유라멘|10000", "마라파이탄|10000"],
+    "instagram": "https://www.instagram.com/hana.ramen",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "멘쇼우라멘 상암DMC점",
+    "hours": "11:00-20:30",
+    "closedDays": "토요일",
+    "menus": [
+      "추천돈코츠라멘|9000",
+      "추천마제소바|10500",
+      "매운돈코츠라멘|9500"
+    ],
+    "primarySoup": "돈코츠",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "멘야  다이고미 홍대점",
+    "hours": "11:00-21:00",
+    "breakTime": "15:00-17:00",
+    "closedDays": "일요일",
+    "menus": ["돈코츠라멘|9000", "카라이라멘|9500", "마라라멘|10000"],
+    "instagram": "https://www.instagram.com/menyadaigomi_hongdai",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "니시무라멘 연남본점",
+    "closedDays": "수요일",
+    "menus": ["교카이파이탄|12000", "시오라멘|12000", "마라탄탄멘|13000"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "지로우 라멘",
+    "hours": "11:00-21:00",
+    "breakTime": "15:00-17:00",
+    "menus": ["지로우라멘|10000", "폭탄라멘|11000", "교카이돈코츠라멘|11000"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "세상끝의라멘",
+    "hours": "11:00-21:00",
+    "menus": ["첫라멘|11000", "끝라멘|11000"],
+    "instagram": "https://www.instagram.com/sekai_no_hate_no_ramen",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "카메야라멘",
+    "hours": "11:00-21:00",
+    "menus": ["추천돈코츠라멘|9500", "추천카라이라멘|9500", "쇼유라멘|9500"],
+    "primarySoup": "돈코츠",
+    "instagram": "https://www.instagram.com/kameya.ramen",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "kokoro 라멘",
+    "hours": "09:00-23:55",
+    "menus": ["돈코츠라멘|9000", "쇼유라멘|9000", "시오버터라멘|9500"],
+    "primarySoup": "돈코츠",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "신센라멘 마곡점",
+    "hours": "10:00-23:00",
+    "breakTime": "14:00-15:00",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "계단라멘",
+    "hours": "11:00-21:00",
+    "menus": ["추천계단라멘|10000", "추천모츠라멘|11000", "다마고밥|3000"],
+    "instagram": "https://www.instagram.com/upstairramen_magok",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "라멘짱 앤 청계산뚝배기수제비",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "오로지라멘 구로지타워몰점",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "교레츠라멘_신도림",
+    "hours": "11:30-21:00",
+    "breakTime": "15:00-17:00",
+    "menus": ["츠케멘|11000", "돈코츠라멘|9000", "마제소바|10000"],
+    "instagram": "https://www.instagram.com/kyoretsu_sin",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "로라멘",
+    "hours": "11:30-21:00",
+    "breakTime": "15:00-17:00",
+    "menus": [
+      "교카이돈코츠라멘|12000",
+      "매운교카이돈코츠라멘|13000",
+      "토리시오|12000"
+    ],
+    "instagram": "https://www.instagram.com/Roramen_mullae",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "오로지라멘 서여의도점",
+    "hours": "11:00-21:00",
+    "breakTime": "15:00-17:00",
+    "menus": ["돈코츠라멘|9500", "매운돈코츠라멘|10000", "오로지라멘|11000"],
+    "primarySoup": "돈코츠",
+    "instagram": "https://www.instagram.com/orojiramen",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "멘야사케야",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "멘야이찌방",
+    "hours": "11:00-20:30",
+    "menus": ["지로라멘|12900", "돈코츠라멘|11900", "쇼유라멘|11900"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "소노키라멘 영등포점",
+    "hours": "11:00-22:00",
+    "closedDays": "토요일",
+    "menus": ["소노키라멘|10800", "마제멘|11500", "마제덮밥|11500"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "텐진라멘",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "아오리라멘 서울문래점",
+    "hours": "11:00-21:00",
+    "menus": ["아오리돈코츠라멘|11000", "미소라멘|11000", "마제멘|12000"],
+    "primarySoup": "돈코츠",
+    "instagram": "https://www.instagram.com/aoriramen",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "멘야무테키",
+    "hours": "10:00-22:00",
+    "menus": ["돈코츠라멘|9000", "미소라멘|9000", "로스가츠|9500"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "텐진라멘 문래",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "도쿄라멘3900",
+    "hours": "11:00-21:00",
+    "closedDays": "일요일",
+    "menus": ["돈코츠라멘|3900", "미소라멘|3900", "쇼유라멘|3900"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "라멘81번옥",
+    "hours": "10:00-22:00",
+    "menus": ["차슈라멘|11000", "쇼유라멘|8000", "미소라멘|8000"],
+    "primarySoup": "쇼유",
+    "instagram": "https://www.instagram.com/ramen81_",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "코우짱 라멘",
+    "hours": "11:00-21:00",
+    "breakTime": "15:00-17:00",
+    "closedDays": "수요일",
+    "menus": ["돈코츠라멘|7800", "대파듬뿍라멘|8300", "완탕라멘|10300"],
+    "instagram": "https://www.instagram.com/kouchan_korea_boramae",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "동경라멘학교",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "사토이라멘",
+    "hours": "11:30-20:00",
+    "breakTime": "15:00-17:30",
+    "closedDays": "일요일",
+    "menus": ["돈코츠라멘|10000", "완자돈코츠라멘|11000", "마제소바|11000"],
+    "instagram": "https://www.instagram.com/satoi_ramen",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "라멘짱 반포점",
+    "hours": "11:00-21:00",
+    "menus": ["돈코츠라멘|10500", "차슈라멘|12800", "토리쇼유라멘|13500"],
+    "primarySoup": "돈코츠",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "쇼부 일본라멘 전문점 (강남고속터미널1호점)",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "라멘토카이",
+    "hours": "11:30-20:00",
+    "breakTime": "15:00-17:00",
+    "closedDays": "일요일",
+    "primarySoup": "토리파이탄",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "멘야하나비 신사점",
+    "hours": "11:30-20:30",
+    "breakTime": "14:30-17:30",
+    "closedDays": "일요일",
+    "menus": ["마제소바|12000", "도니꾸마제소바|15000", "쇼유라멘|11000"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "오로지라멘 방배카페점",
+    "hours": "11:00-21:00",
+    "closedDays": "일요일",
+    "menus": ["돈코츠라멘|10000", "매운돈코츠라멘|10500", "오로지라멘|11500"],
+    "primarySoup": "돈코츠",
+    "instagram": "https://www.instagram.com/orojiramen",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "호시라멘",
+    "hours": "11:30-21:00",
+    "breakTime": "15:00-17:00",
+    "menus": ["매운돈코츠라멘|10500", "돈코츠라멘|10000", "차슈비빔밥|8500"],
+    "instagram": "https://www.instagram.com/hoshi_ramen",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "사가라멘 강남역점",
+    "hours": "11:00-19:30",
+    "breakTime": "16:00-17:00",
+    "closedDays": "일요일",
+    "menus": ["카라이멘|10500", "돈코츠라멘|9500", "미소라멘|10500"],
+    "primarySoup": "돈코츠",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "코이라멘 서초점",
+    "hours": "11:00-22:00",
+    "closedDays": "토요일, 일요일",
+    "menus": ["매운라멘|11500", "오리지날라멘|11000", "마제소바|12000"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "강남역 라면집",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "멘야시노기",
+    "hours": "11:30-16:00",
+    "closedDays": "일요일",
+    "menus": ["쿠사이돈코츠|10000", "돈코츠 쇼유라멘|10000", "츠케멘|11000"],
+    "instagram": "https://www.instagram.com/menya_sinogi",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "갓포라멘",
+    "hours": "11:30-22:00",
+    "breakTime": "15:00-17:00",
+    "menus": ["돈코츠라멘|12000", "차슈멘|14000", "곱창라멘|16000"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "라멘모토",
+    "primarySoup": "돈코츠",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "우시라멘",
+    "hours": "11:00-22:00",
+    "menus": [
+      "돈코츠라멘|9000",
+      "돈코츠 매운라멘|9500",
+      "돈코츠 바질라멘|10500"
+    ],
+    "primarySoup": "돈코츠",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "킨카이자카야 킨톤라멘",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "마이니치라멘 선정릉점",
+    "hours": "11:00-21:00",
+    "breakTime": "14:00-17:00",
+    "menus": ["마이니치라멘|11000", "시오라멘|11000", "아부라소바|11000"],
+    "instagram": "https://www.instagram.com/mainichi_ramen.kr/",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "하쿠라멘 한티점",
+    "hours": "11:00-23:00",
+    "menus": ["하쿠라멘|9000"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "코지라멘",
+    "hours": "11:00-21:00",
+    "menus": ["돈코츠라멘|11000", "특선 돈코츠라멘|13000", "마제소바|11000"],
+    "instagram": "https://www.instagram.com/ramen.cozy",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "푸드스타사가라멘",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "코이라멘 도산점(하우스 오브 코이)",
+    "hours": "11:00-22:00",
+    "menus": ["오리지날라멘|10500", "매운라멘|11000", "마제소바|11500"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "태양의토마토라멘",
+    "hours": "11:00-21:00",
+    "menus": [
+      "태양의 토마토라멘|9000",
+      "치즈 토마토라멘|10500",
+      "매운 토마토라멘|9500"
+    ],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "슈퍼라멘",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "유타로 라멘 논현점",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "더라멘워(THE RAMEN WAR)",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "오또상 라멘",
+    "hours": "11:00-21:00",
+    "menus": ["추천쇼유라멘|12000", "추천미소라멘|13000", "매운쇼유라멘|13000"],
+    "instagram": "https://www.instagram.com/ottosangramen.official",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "오또상 라멘 신논현역점",
+    "hours": "11:00-21:00",
+    "breakTime": "15:00-16:30",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "마이니치라멘",
+    "instagram": "https://www.instagram.com/mainichi_ramen.kr/",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "울트라멘",
+    "hours": "11:30-22:00",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "멘야 유메미루",
+    "instagram": "https://www.instagram.com/menya.yumemiru",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "라멘 호토리",
+    "hours": "11:00-21:00",
+    "breakTime": "15:00-17:00",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "태양의 토마토라멘",
+    "hours": "11:00-21:00",
+    "menus": [
+      "태양의 토마토라멘|9000",
+      "치즈 토마토라멘|10500",
+      "매운토마토라멘|9500"
+    ],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "역삼라멘",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "카도야라멘 가로수직영점",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "덴키라멘(DENKI RAMEN)",
+    "hours": "11:00-21:00",
+    "breakTime": "15:00-17:00",
+    "closedDays": "토요일, 일요일",
+    "menus": [
+      "농후이에케라멘|10000",
+      "매운농후이에케라멘|10500",
+      "농후니보시이에케라멘|11000"
+    ],
+    "primarySoup": "돈코츠쇼유",
+    "instagram": "https://www.instagram.com/project_denki",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "유라멘 강남역삼신논현역CGV점심저녁",
+    "instagram": "https://www.instagram.com/uramen_4u",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "쇼부라멘 대웅제약점",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "쇼부라멘 수서역점",
+    "hours": "09:00-21:00",
+    "breakTime": "15:00-17:00",
+    "closedDays": "일요일",
+    "menus": ["쇼유라멘|8000", "미소라멘|8000", "돈코츠라멘|9000"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "멘야 길조",
+    "closedDays": "일요일",
+    "instagram": "https://www.instagram.com/menyagiljo",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "오레노라멘강남",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "와다라멘 역삼점",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "멘야산다이메논현",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "코이라멘 압구정점",
+    "hours": "11:00-22:00",
+    "menus": ["추천오리지날라멘|9000", "추천매운라멘|9500", "마제소바|9800"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "하쿠라멘",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "코이라멘",
+    "hours": "11:00-21:30",
+    "menus": ["오리지날라멘|10500", "마제소바|11500", "매운라멘|10500"],
+    "instagram": "https://www.instagram.com/koibang2",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "태양의 토마토라멘 송리단길점",
+    "hours": "11:00-21:00",
+    "menus": [
+      "태양의 토마토라멘|9000",
+      "치즈 토마토라멘|10500",
+      "매운 토마토라멘|9500"
+    ],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "하루토라멘",
+    "hours": "11:00-21:00",
+    "breakTime": "15:00-17:00",
+    "menus": [
+      "하루토 규 쿠로라멘|13000",
+      "하루토 규 시로라멘|13000",
+      "차슈쇼유라멘|10000"
+    ],
+    "primarySoup": "돈코츠",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "수라멘",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "멘야끼",
+    "hours": "10:30-22:00",
+    "menus": ["카레우동세트|8500", "소유라멘|9500", "탄탄멘정식|13500"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "원라멘",
+    "hours": "11:00-21:00",
+    "closedDays": "화요일",
+    "menus": ["원라멘|8900", "토마토라멘|9900", "얼큰원라멘|9900"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "멘야세븐",
+    "hours": "11:30-20:30",
+    "breakTime": "14:30-17:00",
+    "menus": [
+      "세븐마제소바|11000",
+      "카라이마제소바|12000",
+      "온센타마 세븐마제메시|11500"
+    ],
+    "instagram": "https://www.instagram.com/menyaseven_official",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "하타나카라멘",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "멘무샤",
+    "hours": "10:00-21:00",
+    "closedDays": "토요일, 일요일",
+    "primarySoup": "돈코츠",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "아오리의행방불명 노원점",
+    "hours": "11:10-21:20",
+    "menus": ["아오리라멘|10000", "미소라멘|10000", "마제멘|11000"],
+    "primarySoup": "돈코츠",
+    "instagram": "https://www.instagram.com/aoriramen",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "산쪼메보라매 딜리버리점",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "젠푸드히노아지롯데미아점 백화점",
+    "hours": "10:30-20:00",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "멘무샤 시청점",
+    "hours": "11:00-22:00",
+    "closedDays": "토요일, 일요일",
+    "primarySoup": "돈코츠",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "코이라멘 신천점",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "산쪼메",
+    "hours": "11:00-20:30",
+    "breakTime": "14:30-17:00",
+    "closedDays": "일요일",
+    "menus": ["돈코츠라멘|10500", "산쪼메라멘|11000", "쇼유라멘|10500"],
+    "primarySoup": "돈코츠",
+    "instagram": "https://www.instagram.com/guui_ssancho",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "산쪼메",
+    "hours": "11:00-21:30",
+    "closedDays": "일요일",
+    "menus": ["돈코츠라멘|11000", "산쪼메라멘|12000", "쇼유라멘|11000"],
+    "primarySoup": "돈코츠",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "쇼부일본라멘강남고속터미널1호점 전문점",
+    "hours": "10:00-22:30",
+    "menus": ["돈코츠라멘|11000", "미소라멘|11000", "탄탄멘|11000"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "도마;유즈라멘",
+    "hours": "11:00-21:30",
+    "breakTime": "15:00-17:00",
+    "closedDays": "마지막주 월요일",
+    "menus": ["유즈시오라멘|12000", "유즈쇼유라멘|12000", "유즈츠케멘|14000"],
+    "primarySoup": "시오",
+    "instagram": "https://www.instagram.com/yuzu_ramen2",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "모리라멘&돈카츠",
+    "hours": "10:00-22:00",
+    "breakTime": "15:00-16:30",
+    "menus": ["옛날돈까스|11500", "치즈돈까스|14000", "에비동|10500"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "산쪼메",
+    "instagram": "https://www.instagram.com/sanchome_gangseo",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "아오리의행방불명 여의도점",
+    "hours": "10:30-21:30",
+    "menus": ["아오리라멘|11000", "미소라멘|11000", "마제멘|12000"],
+    "primarySoup": "돈코츠",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "코이라멘 천호점",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "멘무샤",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "하코야우림점",
+    "hours": "10:00-21:00",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "산쪼메이수점",
+    "hours": "11:00-20:30",
+    "closedDays": "일요일",
+    "menus": ["돈코츠라멘|9000", "산쪼메라멘|9500", "시오버터라멘|9500"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "아오리의행방불명 강남점",
+    "hours": "10:30-21:30",
+    "menus": ["아오리라멘|9500", "미소라멘|10000", "마제멘|11000"],
+    "primarySoup": "돈코츠",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "텐진라멘",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "산쪼메 목동점",
+    "hours": "11:30-21:00",
+    "breakTime": "14:00-16:30",
+    "closedDays": "화요일",
+    "menus": ["돈코츠라멘|9500", "쇼유라멘|9500", "산쪼메라멘|10500"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "산쪼메",
+    "hours": "11:00-22:00",
+    "menus": ["돈코츠라멘|8000", "산쪼메라멘|9000", "쇼유라멘|8000"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "이고라멘",
+    "hours": "11:30-20:30",
+    "breakTime": "14:30-17:30",
+    "closedDays": "일요일",
+    "menus": ["돈코츠라멘|10500", "매운돈코츠라멘|11000"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "코코로라멘",
+    "hours": "09:00-23:55",
+    "menus": ["돈코츠 라멘|9000", "미소 라멘|9000", "탄탄멘|10000"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "멘야세븐마포",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "이츠모라멘",
+    "hours": "11:30-20:00",
+    "closedDays": "화요일",
+    "menus": ["이츠모 돈코츠라멘|10500"],
+    "primarySoup": "돈코츠",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "여러시멘야카오리",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "코코로라멘",
+    "hours": "10:00-21:00",
+    "closedDays": "월요일",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "아오리의행방불명광화문",
+    "hours": "10:30-22:00",
+    "menus": [
+      "아오리돈코츠라멘|11000",
+      "아오리미소라멘|11000",
+      "아오리마제멘|12000"
+    ],
+    "primarySoup": "돈코츠",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "코이라멘장충동점",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "오로지라멘아티스포럼점",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "진심라멘",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "민부리라멘",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "카츠앤라멘",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "라멘이자카야쿠잔",
+    "hours": "11:30-21:00",
+    "breakTime": "14:30-17:00",
+    "closedDays": "일요일",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "몬산토에이치피류센소",
+    "hours": "10:30-20:00",
+    "instagram": "https://www.instagram.com/ryusenso.korea",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "이치홍라멘",
+    "hours": "11:00-21:30",
+    "menus": ["이치홍 라멘|10800", "탄탄멘|12000", "마제멘|11500"],
+    "primarySoup": "돈코츠",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "화원라멘",
+    "hours": "10:00-20:00",
+    "closedDays": "월요일",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "마이니치라멘역삼카모점",
+    "instagram": "https://www.instagram.com/mainichi_ramen.kr",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "유라멘삼신논현역CGV점심저녁",
+    "instagram": "https://www.instagram.com/uramen_4u",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "초이라멘",
+    "hours": "11:00-20:00",
+    "breakTime": "15:00-17:00",
+    "menus": ["돈코츠 라멘|11000", "니보시 츠케멘|11000", "마제소바|11000"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "히요리라멘",
+    "hours": "11:00-19:30",
+    "breakTime": "14:30-17:00",
+    "closedDays": "일요일",
+    "instagram": "https://instagram.com/hiyori_ramen",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "록멘",
+    "instagram": "https://www.instagram.com/rokmen_ramen",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "라무라",
+    "hours": "11:30-20:30",
+    "breakTime": "14:30-17:30",
+    "menus": [
+      "흑색 닭(닭사이즈)|16500",
+      "백색 닭(닭사이즈)|16500",
+      "적색 닭(닭사이즈)|17500"
+    ],
+    "instagram": "https://www.instagram.com/ramura_noodleshop",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "혼네",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "라이라이켄",
+    "hours": "11:50-20:30",
+    "breakTime": "15:00-17:00",
+    "closedDays": "월요일",
+    "menus": ["돈코츠라멘|8000", "신돈코츠라멘|8500", "지로스타일|8000"],
+    "instagram": "https://www.instagram.com/rairaiken3783",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "부탄츄",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "류진",
+    "hours": "12:00-22:00",
+    "breakTime": "14:00-17:30",
+    "menus": ["라멘(소)|13000", "시루나시(소)|13000"],
+    "instagram": "https://www.instagram.com/ryujin_ramen_seoul",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "멘코지",
+    "hours": "11:00-21:00",
+    "breakTime": "15:00-17:00",
+    "closedDays": "일요일",
+    "menus": ["지로라멘|11000", "시루나시|11000"],
+    "instagram": "https://www.instagram.com/menkoji_ramen",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "멘쇼쿠",
+    "instagram": "men_shoku",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "멘카오리",
+    "instagram": "menkaori",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "렌게",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "가마마루이",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "멘타카무쇼",
+    "hours": "11:30-20:00",
+    "breakTime": "15:00-17:30",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "삼방매",
+    "instagram": "sambangmae",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "거북이의 꿈",
+    "hours": "11:30-21:00",
+    "breakTime": "15:30-17:00",
+    "closedDays": "월요일",
+    "menus": ["해물마제소바|16000"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "유타로",
+    "primarySoup": "돈코츠",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "멘타미",
+    "hours": "11:00-20:10",
+    "breakTime": "15:00-17:00",
+    "menus": ["스페셜미소라멘|12500"],
+    "instagram": "mentami_official",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "멘쇼",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "멘쿄",
+    "instagram": "menkyo.seoul",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "일심당",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "담택",
+    "instagram": "damtaek",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "희옥",
+    "primarySoup": "시오",
+    "instagram": "heeok_official",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "츠케루",
+    "instagram": "tsukeru_tsukemen",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "무겐스위치",
+    "hours": "11:30-21:00",
+    "breakTime": "15:00-17:00",
+    "instagram": "mugenswitch_official",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "마시타야",
+    "instagram": "masitayaa",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "이와타",
+    "instagram": "iwata2009",
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "이치니이치",
+    "hours": "11:00-21:00",
+    "breakTime": "15:30-17:00",
+    "closedDays": "월요일",
+    "menus": ["시오라멘|11000", "쇼유라멘|11000", "마제소바|10000"],
+    "sourceNote": "정보수집(다음검색)"
+  },
+  {
+    "name": "왓쇼이켄",
+    "instagram": "wasshoiken",
+    "sourceNote": "정보수집(다음검색)"
+  }
+]
