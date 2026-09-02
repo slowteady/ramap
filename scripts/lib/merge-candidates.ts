@@ -52,10 +52,21 @@ function districtOf(address: string): string | null {
   return address.match(/\S+구(?=\s)/)?.[0] ?? null;
 }
 
+/* 괄호부·상세호수 제거 후 비교 — 같은 도로명+건물번호면 좌표가 틀려도 같은 매장
+   (텐진라멘 당산: 한 행이 문래점 좌표를 달아 500m 조건을 통과한 중복, 2026-09-02 실측) */
+export function sameRoadAddress(a: string, b: string): boolean {
+  const norm = (s: string) =>
+    s.replace(/\(.*$/, "").replace(/,.*$/, "").replace(/\s+/g, " ").trim();
+  const na = norm(a);
+  const nb = norm(b);
+  return na !== "" && na === nb;
+}
+
 function locationCompatible(
   c: Candidate,
   sang: { lat: number | null; lng: number | null; roadAddress: string },
 ): boolean {
+  if (sameRoadAddress(c.roadAddress, sang.roadAddress)) return true;
   if (
     c.lat !== null &&
     c.lng !== null &&

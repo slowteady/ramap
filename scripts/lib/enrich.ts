@@ -25,6 +25,8 @@ export type Enrichment = {
   seats?: string;
   menus?: string[];
   closed?: boolean;
+  /* 재검증에서도 실존 흔적을 못 찾음 — 게재 게이트에서 보류 (addrHint와 함께 써서 해당 지점만) */
+  unverified?: boolean;
   sourceNote?: string;
 };
 
@@ -169,6 +171,7 @@ export function mergeEnrichments(matches: Enrichment[]): Enrichment {
     merged.seats ??= e.seats;
     merged.menus ??= e.menus;
     merged.closed ||= e.closed;
+    merged.unverified ||= e.unverified;
     merged.sourceNote = [merged.sourceNote, e.sourceNote]
       .filter(Boolean)
       .join("; ");
@@ -209,6 +212,7 @@ export function mergeMatched(
     naverPlace: own.naverPlace,
     openedAt: own.openedAt,
     closed: own.closed,
+    unverified: own.unverified,
   };
 }
 

@@ -143,3 +143,24 @@ describe("mergeMatched — 동명 다지점", () => {
     expect(e.hours).toBe("11:00-20:30");
   });
 });
+
+describe("unverified 보류 신호", () => {
+  it("addrHint 일치 행에만 unverified가 붙는다", () => {
+    const entry = {
+      name: "미스터라멘",
+      addrHint: "새문안로 92",
+      unverified: true,
+      sourceNote: "재검증",
+    };
+    const hit = mergeMatched("미스터라멘", "", [entry], {
+      ambiguous: true,
+      address: "서울특별시 종로구 새문안로 92",
+    });
+    expect(hit.unverified).toBe(true);
+    const miss = mergeMatched("미스터라멘", "", [entry], {
+      ambiguous: true,
+      address: "서울특별시 마포구 독막로3길 33",
+    });
+    expect(miss.unverified).toBeFalsy();
+  });
+});

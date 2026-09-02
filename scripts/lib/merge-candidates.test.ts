@@ -5,6 +5,7 @@ import {
   discoverByName,
   mergeCandidates,
   normalizeShopName,
+  sameRoadAddress,
 } from "./merge-candidates";
 import type { SanggwonRow } from "./sanggwon";
 
@@ -80,12 +81,14 @@ describe("mergeCandidates", () => {
           smallCode: "I20303",
           lat: 37.65,
           lng: 127.06,
+          roadAddress: "서울특별시 노원구 동일로 1413",
         }),
         sang({
           name: "아오리의행방불명",
           smallCode: "I20303",
           lat: 37.5,
           lng: 127.03,
+          roadAddress: "서울특별시 강남구 테헤란로 123",
         }),
       ],
     );
@@ -156,5 +159,32 @@ describe("인허가 내부 중복", () => {
       [],
     );
     expect(merged).toHaveLength(1);
+  });
+});
+
+describe("sameRoadAddress", () => {
+  it("괄호부·상세호수 차이는 같은 주소로 본다", () => {
+    expect(
+      sameRoadAddress(
+        "서울특별시 영등포구 당산로 111-4 (당산동3가, 1층)",
+        "서울특별시 영등포구 당산로 111-4",
+      ),
+    ).toBe(true);
+    expect(
+      sameRoadAddress(
+        "서울특별시 영등포구 당산로 111-4, 2층 201호",
+        "서울특별시 영등포구 당산로 111-4",
+      ),
+    ).toBe(true);
+  });
+
+  it("건물번호가 다르면 다른 주소", () => {
+    expect(
+      sameRoadAddress(
+        "서울특별시 영등포구 당산로 111-4",
+        "서울특별시 영등포구 당산로 111-6",
+      ),
+    ).toBe(false);
+    expect(sameRoadAddress("", "")).toBe(false);
   });
 });
