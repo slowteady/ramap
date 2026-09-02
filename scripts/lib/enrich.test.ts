@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
   matchEnrichment,
+  mergeMatched,
   mergeEnrichments,
   promoteSoups,
   toSlug,
@@ -53,5 +54,53 @@ describe("promoteSoups", () => {
     });
     expect(e.soups).toEqual(["쇼유", "토마토", "교카이"]);
     expect(e.soupDetail).toEqual(["하카타"]);
+  });
+});
+
+describe("mergeMatched", () => {
+  const base = { sourceNote: "디시" };
+  it("위치 종속 필드는 정확 일치에서만 병합 — 본점→지점 전파 차단", () => {
+    const matches = [
+      {
+        ...base,
+        name: "부탄츄",
+        area: "홍대",
+        hours: "11:00-21:00",
+        naverPlace: "https://naver.me/hongdae",
+        soups: ["돈코츠"],
+        instagram: "@butanchu",
+      },
+    ];
+    const e = mergeMatched("부탄츄", "잠실점", matches);
+    expect(e.area).toBeUndefined();
+    expect(e.hours).toBeUndefined();
+    expect(e.naverPlace).toBeUndefined();
+    expect(e.soups).toEqual(["돈코츠"]);
+    expect(e.instagram).toBe("@butanchu");
+  });
+
+  it("정확 일치 매칭은 위치 필드도 그대로", () => {
+    const matches = [
+      { ...base, name: "혼네", area: "서울대입구", hours: "11:00-20:00" },
+    ];
+    const e = mergeMatched("혼네", "", matches);
+    expect(e.area).toBe("서울대입구");
+    expect(e.hours).toBe("11:00-20:00");
+  });
+
+  it("closed 플래그도 지점 전파 차단 — 본점 폐업이 지점을 닫지 않게", () => {
+    const e = mergeMatched("로지라멘", "강남점", [
+      { ...base, name: "로지라멘", closed: true },
+    ]);
+    expect(e.closed).toBeFalsy();
+  });
+
+  it("areaConfirmed 엔트리의 area가 미확증 area를 이긴다", () => {
+    const e = mergeMatched("담택", "", [
+      { ...base, name: "담택", area: "홍대" },
+      { ...base, name: "담택", area: "망원", areaConfirmed: true },
+    ]);
+    expect(e.area).toBe("망원");
+    expect(e.areaConfirmed).toBe(true);
   });
 });

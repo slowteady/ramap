@@ -4,6 +4,7 @@ import { areaLabelOf, inheritNearestArea } from "./lib/area-label";
 import {
   matchEnrichment,
   mergeEnrichments,
+  mergeMatched,
   promoteSoups,
   toSheetLine,
   toSlug,
@@ -58,6 +59,8 @@ function verdictOf(
 const taken = new Set<string>();
 const outRows: Record<string, string>[] = [];
 const heldRows: Record<string, string>[] = [];
+/* 검수 큐: 주소 판정과 디깅 라벨이 다른 매장 — 검색 검증 배치의 입력 */
+const areaConflicts = ["상호\t지점명\t주소판정\t디깅라벨\t주소"];
 let tagged = 0;
 let closedHints = 0;
 let excluded = 0;
@@ -70,13 +73,19 @@ for (const line of lines.slice(1)) {
   });
 
   const matches = matchEnrichment(cells.상호, cells.지점명, enrichments);
-  const e = promoteSoups(mergeEnrichments(matches));
+  const e = promoteSoups(mergeMatched(cells.상호, cells.지점명, matches));
 
   cells.id = toSlug(cells.상호, cells.지점명, taken);
   cells.시 = "서울";
   cells.구 = cells.주소.match(/([가-힣]+구)(?=\s)/)?.[1] ?? "";
-  /* 주소(공공데이터) 판정 우선 — 디깅 area는 본점 라벨이 지점에 전파되는 오염원 (혼네·오레노라멘 실측) */
-  cells.동네라벨 = areaLabelOf(cells.주소, cells.구) ?? e.area ?? "";
+  /* 검색 확증 라벨 > 주소(공공데이터) 판정 > 미확증 디깅 라벨 — 확증 없는 충돌은 검수 큐로 */
+  const addrArea = areaLabelOf(cells.주소, cells.구);
+  cells.동네라벨 =
+    (e.areaConfirmed ? e.area : null) ?? addrArea ?? e.area ?? "";
+  if (!e.areaConfirmed && e.area && addrArea && e.area !== addrArea)
+    areaConflicts.push(
+      [cells.상호, cells.지점명, addrArea, e.area, cells.주소].join("\t"),
+    );
   cells.스프 = (e.soups ?? []).join(", ") || "기타";
   cells.스프_대표 = e.primarySoup ?? e.soups?.[0] ?? "기타";
   cells.형태 = (e.forms ?? []).join(", ") || "라멘";
@@ -141,6 +150,14 @@ const held = [
 
 const dest = resolve("data/out/seed.tsv");
 writeFileSync(dest, `${out.join("\n")}\n`);
+writeFileSync(
+  resolve("data/out/area-review.tsv"),
+  `${areaConflicts.join("\n")}\n`,
+);
+if (areaConflicts.length > 1)
+  console.log(
+    `동네라벨 충돌 ${areaConflicts.length - 1}건 → data/out/area-review.tsv (검색 검증 대상)`,
+  );
 const heldDest = resolve("data/out/held.tsv");
 writeFileSync(heldDest, `${held.join("\n")}\n`);
 console.log(

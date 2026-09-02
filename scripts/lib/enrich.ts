@@ -6,6 +6,8 @@ import { SHEET_HEADER } from "./sheet-parser";
 export type Enrichment = {
   name: string;
   area?: string;
+  /* true면 검색으로 상권을 확증한 것 — 주소 기반 사전 판정보다 우선 */
+  areaConfirmed?: boolean;
   soups?: string[];
   primarySoup?: string;
   forms?: string[];
@@ -150,7 +152,12 @@ export function mergeEnrichments(matches: Enrichment[]): Enrichment {
     ];
     merged.primarySoup ??= e.primarySoup;
     merged.primaryForm ??= e.primaryForm;
-    merged.area ??= e.area;
+    if (e.areaConfirmed && e.area && !merged.areaConfirmed) {
+      merged.area = e.area;
+      merged.areaConfirmed = true;
+    } else if (!merged.areaConfirmed) {
+      merged.area ??= e.area;
+    }
     merged.instagram ??= e.instagram;
     merged.naverPlace ??= e.naverPlace;
     merged.openedAt ??= e.openedAt;
@@ -165,6 +172,32 @@ export function mergeEnrichments(matches: Enrichment[]): Enrichment {
       .join("; ");
   }
   return merged;
+}
+
+/* 위치 종속 필드는 정확 일치에서만 — 접두 매칭은 본점 정보가 지점에 전파되는 오염원
+   (부탄츄 잠실점에 홍대 본점 상권·영업시간이 붙는 사고, 2026-09-02 실측) */
+export function mergeMatched(
+  name: string,
+  branch: string,
+  matches: Enrichment[],
+): Enrichment {
+  const norm = normalizeShopName(name + branch);
+  const exact = matches.filter((m) => normalizeShopName(m.name) === norm);
+  const all = mergeEnrichments(matches);
+  const own = mergeEnrichments(exact);
+  return {
+    ...all,
+    area: own.area,
+    areaConfirmed: own.areaConfirmed,
+    hours: own.hours,
+    breakTime: own.breakTime,
+    closedDays: own.closedDays,
+    seats: own.seats,
+    menus: own.menus,
+    naverPlace: own.naverPlace,
+    openedAt: own.openedAt,
+    closed: own.closed,
+  };
 }
 
 export type SheetRow = Record<string, string>;
