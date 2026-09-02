@@ -16,9 +16,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -53,9 +57,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -90,11 +98,17 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["mazesoba"],
+    "forms": [
+      "mazesoba"
+    ],
     "primaryForm": "mazesoba",
-    "soups": ["etc-soup"],
+    "soups": [
+      "etc-soup"
+    ],
     "primarySoup": "etc-soup",
-    "soupDetail": ["아부라소바"],
+    "soupDetail": [
+      "아부라소바"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -127,11 +141,19 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "tsukemen"],
+    "forms": [
+      "ramen",
+      "tsukemen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["shio", "shoyu"],
+    "soups": [
+      "shio",
+      "shoyu"
+    ],
     "primarySoup": "shio",
-    "soupDetail": ["유즈"],
+    "soupDetail": [
+      "유즈"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -177,11 +199,19 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "shio", "shoyu"],
+    "soups": [
+      "tonkotsu",
+      "shio",
+      "shoyu"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["하카타"],
+    "soupDetail": [
+      "하카타"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -227,9 +257,14 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["shoyu", "shio"],
+    "soups": [
+      "shoyu",
+      "shio"
+    ],
     "primarySoup": "shoyu",
     "soupDetail": [],
     "lineages": [],
@@ -264,9 +299,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -301,9 +340,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["shoyu"],
+    "soups": [
+      "shoyu"
+    ],
     "primarySoup": "shoyu",
     "soupDetail": [],
     "lineages": [],
@@ -338,9 +381,13 @@
     "openedAt": "2026-08",
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["miso"],
+    "soups": [
+      "miso"
+    ],
     "primarySoup": "miso",
     "soupDetail": [],
     "lineages": [],
@@ -375,9 +422,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["etc-soup"],
+    "soups": [
+      "etc-soup"
+    ],
     "primarySoup": "etc-soup",
     "soupDetail": [],
     "lineages": [],
@@ -412,11 +463,17 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["모츠라멘"],
+    "soupDetail": [
+      "모츠라멘"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -452,7 +509,7 @@
     "address": "서울특별시 강남구 테헤란로 517, 현대백화점 지상 10층 (삼성동)",
     "city": "서울",
     "district": "강남구",
-    "areaLabel": "연남",
+    "areaLabel": "삼성",
     "lat": 37.508595,
     "lng": 127.059719,
     "coordSource": "localdata",
@@ -462,9 +519,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["shio"],
+    "soups": [
+      "shio"
+    ],
     "primarySoup": "shio",
     "soupDetail": [],
     "lineages": [],
@@ -499,11 +560,17 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["etc-soup"],
+    "soups": [
+      "etc-soup"
+    ],
     "primarySoup": "etc-soup",
-    "soupDetail": ["유자"],
+    "soupDetail": [
+      "유자"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -536,9 +603,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["etc-soup"],
+    "soups": [
+      "etc-soup"
+    ],
     "primarySoup": "etc-soup",
     "soupDetail": [],
     "lineages": [],
@@ -573,11 +644,18 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "shoyu"],
+    "soups": [
+      "tonkotsu",
+      "shoyu"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["구로마유"],
+    "soupDetail": [
+      "구로마유"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -623,11 +701,17 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["shio"],
+    "soups": [
+      "shio"
+    ],
     "primarySoup": "shio",
-    "soupDetail": ["카레"],
+    "soupDetail": [
+      "카레"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -660,11 +744,18 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "shoyu"],
+    "soups": [
+      "tonkotsu",
+      "shoyu"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["바질라멘"],
+    "soupDetail": [
+      "바질라멘"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -710,12 +801,19 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tantanmen"],
+    "soups": [
+      "tantanmen"
+    ],
     "primarySoup": "tantanmen",
     "soupDetail": [],
-    "lineages": ["honto"],
+    "lineages": [
+      "honto"
+    ],
     "amenities": [],
     "confidence": "estimated",
     "menus": [
@@ -760,9 +858,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["shoyu"],
+    "soups": [
+      "shoyu"
+    ],
     "primarySoup": "shoyu",
     "soupDetail": [],
     "lineages": [],
@@ -797,11 +899,18 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "shoyu"],
+    "soups": [
+      "tonkotsu",
+      "shoyu"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["바질라멘"],
+    "soupDetail": [
+      "바질라멘"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -847,9 +956,16 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "tsukemen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "tsukemen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "tantanmen"],
+    "soups": [
+      "tonkotsu",
+      "tantanmen"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -897,9 +1013,16 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "miso", "shoyu", "shio"],
+    "soups": [
+      "tonkotsu",
+      "miso",
+      "shoyu",
+      "shio"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -934,9 +1057,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["toripaitan"],
+    "soups": [
+      "toripaitan"
+    ],
     "primarySoup": "toripaitan",
     "soupDetail": [],
     "lineages": [],
@@ -971,11 +1098,19 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "tsukemen"],
+    "forms": [
+      "ramen",
+      "tsukemen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "shoyu"],
+    "soups": [
+      "tonkotsu",
+      "shoyu"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["청탕"],
+    "soupDetail": [
+      "청탕"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -1013,11 +1148,18 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["miso", "shoyu"],
+    "soups": [
+      "miso",
+      "shoyu"
+    ],
     "primarySoup": "miso",
-    "soupDetail": ["야끼소바"],
+    "soupDetail": [
+      "야끼소바"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -1050,12 +1192,18 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu-shoyu"],
+    "soups": [
+      "tonkotsu-shoyu"
+    ],
     "primarySoup": "tonkotsu-shoyu",
     "soupDetail": [],
-    "lineages": ["iekei"],
+    "lineages": [
+      "iekei"
+    ],
     "amenities": [],
     "confidence": "estimated",
     "menus": [
@@ -1096,11 +1244,20 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "miso", "shio"],
+    "soups": [
+      "tonkotsu",
+      "miso",
+      "shio"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["아부라소바", "청탕"],
+    "soupDetail": [
+      "아부라소바",
+      "청탕"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -1133,9 +1290,15 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "miso"],
+    "soups": [
+      "tonkotsu",
+      "miso"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -1170,9 +1333,15 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "tsukemen"],
+    "forms": [
+      "ramen",
+      "tsukemen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "tonkotsu-shoyu"],
+    "soups": [
+      "tonkotsu",
+      "tonkotsu-shoyu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -1220,12 +1389,22 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tantanmen", "shoyu"],
+    "soups": [
+      "tantanmen",
+      "shoyu"
+    ],
     "primarySoup": "tantanmen",
-    "soupDetail": ["타이완라멘"],
-    "lineages": ["honto"],
+    "soupDetail": [
+      "타이완라멘"
+    ],
+    "lineages": [
+      "honto"
+    ],
     "amenities": [],
     "confidence": "estimated",
     "menus": [
@@ -1260,7 +1439,7 @@
     "address": "서울특별시 광진구 능동로37길 44, 1층 (중곡동)",
     "city": "서울",
     "district": "광진구",
-    "areaLabel": "신당",
+    "areaLabel": "군자",
     "lat": 37.558843,
     "lng": 127.077645,
     "coordSource": "localdata",
@@ -1270,12 +1449,21 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["toripaitan", "tantanmen"],
+    "soups": [
+      "toripaitan",
+      "tantanmen"
+    ],
     "primarySoup": "toripaitan",
-    "soupDetail": ["시루나시"],
-    "lineages": ["jiro"],
+    "soupDetail": [
+      "시루나시"
+    ],
+    "lineages": [
+      "jiro"
+    ],
     "amenities": [],
     "confidence": "estimated",
     "menus": [
@@ -1316,12 +1504,18 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu-shoyu"],
+    "soups": [
+      "tonkotsu-shoyu"
+    ],
     "primarySoup": "tonkotsu-shoyu",
     "soupDetail": [],
-    "lineages": ["iekei"],
+    "lineages": [
+      "iekei"
+    ],
     "amenities": [],
     "confidence": "estimated",
     "menus": [],
@@ -1353,9 +1547,14 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "shio"],
+    "soups": [
+      "tonkotsu",
+      "shio"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -1390,11 +1589,18 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "shoyu"],
+    "soups": [
+      "tonkotsu",
+      "shoyu"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["바질라멘"],
+    "soupDetail": [
+      "바질라멘"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -1440,12 +1646,22 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tantanmen", "shoyu"],
+    "soups": [
+      "tantanmen",
+      "shoyu"
+    ],
     "primarySoup": "tantanmen",
-    "soupDetail": ["타이완라멘"],
-    "lineages": ["honto"],
+    "soupDetail": [
+      "타이완라멘"
+    ],
+    "lineages": [
+      "honto"
+    ],
     "amenities": [],
     "confidence": "estimated",
     "menus": [
@@ -1490,9 +1706,17 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["miso", "shoyu", "tantanmen", "tonkotsu"],
+    "soups": [
+      "miso",
+      "shoyu",
+      "tantanmen",
+      "tonkotsu"
+    ],
     "primarySoup": "miso",
     "soupDetail": [],
     "lineages": [],
@@ -1540,9 +1764,14 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "tsukemen"],
+    "forms": [
+      "ramen",
+      "tsukemen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["shoyu"],
+    "soups": [
+      "shoyu"
+    ],
     "primarySoup": "shoyu",
     "soupDetail": [],
     "lineages": [],
@@ -1580,7 +1809,7 @@
     "address": "서울특별시 송파구 올림픽로 300, 롯데월드몰 5층 (신천동)",
     "city": "서울",
     "district": "송파구",
-    "areaLabel": "합정",
+    "areaLabel": "잠실",
     "lat": 37.513101,
     "lng": 127.103433,
     "coordSource": "localdata",
@@ -1590,9 +1819,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["toripaitan"],
+    "soups": [
+      "toripaitan"
+    ],
     "primarySoup": "toripaitan",
     "soupDetail": [],
     "lineages": [],
@@ -1636,12 +1869,24 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "tsukemen"],
+    "forms": [
+      "ramen",
+      "tsukemen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["shio", "shoyu"],
+    "soups": [
+      "shio",
+      "shoyu"
+    ],
     "primarySoup": "shio",
-    "soupDetail": ["청탕", "이리코", "곤부스이츠케멘"],
-    "lineages": ["jikaseimen"],
+    "soupDetail": [
+      "청탕",
+      "이리코",
+      "곤부스이츠케멘"
+    ],
+    "lineages": [
+      "jikaseimen"
+    ],
     "amenities": [],
     "confidence": "estimated",
     "menus": [
@@ -1686,9 +1931,15 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "tsukemen"],
+    "forms": [
+      "ramen",
+      "tsukemen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "tonkotsu-shoyu"],
+    "soups": [
+      "tonkotsu",
+      "tonkotsu-shoyu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -1736,11 +1987,18 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "miso"],
+    "soups": [
+      "tonkotsu",
+      "miso"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["마라"],
+    "soupDetail": [
+      "마라"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -1773,9 +2031,16 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["shoyu", "miso", "tonkotsu", "tantanmen"],
+    "soups": [
+      "shoyu",
+      "miso",
+      "tonkotsu",
+      "tantanmen"
+    ],
     "primarySoup": "shoyu",
     "soupDetail": [],
     "lineages": [],
@@ -1823,12 +2088,19 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
-    "lineages": ["jiro"],
+    "lineages": [
+      "jiro"
+    ],
     "amenities": [],
     "confidence": "estimated",
     "menus": [
@@ -1873,9 +2145,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["etc-soup"],
+    "soups": [
+      "etc-soup"
+    ],
     "primarySoup": "etc-soup",
     "soupDetail": [],
     "lineages": [],
@@ -1910,9 +2186,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["etc-soup"],
+    "soups": [
+      "etc-soup"
+    ],
     "primarySoup": "etc-soup",
     "soupDetail": [],
     "lineages": [],
@@ -1947,9 +2227,14 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tomato"],
+    "soups": [
+      "tomato"
+    ],
     "primarySoup": "tomato",
     "soupDetail": [],
     "lineages": [],
@@ -1984,9 +2269,14 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tantanmen", "miso"],
+    "soups": [
+      "tantanmen",
+      "miso"
+    ],
     "primarySoup": "miso",
     "soupDetail": [],
     "lineages": [],
@@ -2021,9 +2311,14 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "tsukemen"],
+    "forms": [
+      "ramen",
+      "tsukemen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -2071,11 +2366,19 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "shoyu", "tomato"],
+    "soups": [
+      "tonkotsu",
+      "shoyu",
+      "tomato"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["도쿠시마"],
+    "soupDetail": [
+      "도쿠시마"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -2121,7 +2424,9 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
     "soups": [
       "tonkotsu",
@@ -2133,8 +2438,13 @@
       "gyokai"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["유즈", "마라"],
-    "lineages": ["jikaseimen"],
+    "soupDetail": [
+      "유즈",
+      "마라"
+    ],
+    "lineages": [
+      "jikaseimen"
+    ],
     "amenities": [],
     "confidence": "estimated",
     "menus": [
@@ -2161,7 +2471,7 @@
     "address": "서울특별시 구로구 경인로47길 60, 1층 (고척동)",
     "city": "서울",
     "district": "구로구",
-    "areaLabel": "문래",
+    "areaLabel": "고척",
     "lat": 37.501666,
     "lng": 126.865119,
     "coordSource": "localdata",
@@ -2171,12 +2481,19 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["shoyu", "toripaitan"],
+    "soups": [
+      "shoyu",
+      "toripaitan"
+    ],
     "primarySoup": "toripaitan",
     "soupDetail": [],
-    "lineages": ["jiro"],
+    "lineages": [
+      "jiro"
+    ],
     "amenities": [],
     "confidence": "estimated",
     "menus": [
@@ -2221,9 +2538,16 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tantanmen", "tonkotsu", "tomato"],
+    "soups": [
+      "tantanmen",
+      "tonkotsu",
+      "tomato"
+    ],
     "primarySoup": "tomato",
     "soupDetail": [],
     "lineages": [],
@@ -2271,11 +2595,17 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["miso"],
+    "soups": [
+      "miso"
+    ],
     "primarySoup": "miso",
-    "soupDetail": ["나가사키"],
+    "soupDetail": [
+      "나가사키"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -2321,11 +2651,19 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "tsukemen"],
+    "forms": [
+      "ramen",
+      "tsukemen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "shoyu"],
+    "soups": [
+      "tonkotsu",
+      "shoyu"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["청탕"],
+    "soupDetail": [
+      "청탕"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -2363,11 +2701,18 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "shoyu"],
+    "soups": [
+      "tonkotsu",
+      "shoyu"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["바질라멘"],
+    "soupDetail": [
+      "바질라멘"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -2403,7 +2748,7 @@
     "address": "서울특별시 양천구 오목로54길 9, 수정빌딩 1층 101호 (목동)",
     "city": "서울",
     "district": "양천구",
-    "areaLabel": "상수",
+    "areaLabel": "목동",
     "lat": 37.523819,
     "lng": 126.873448,
     "coordSource": "localdata",
@@ -2413,12 +2758,18 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
-    "lineages": ["iekei"],
+    "lineages": [
+      "iekei"
+    ],
     "amenities": [],
     "confidence": "estimated",
     "menus": [
@@ -2463,9 +2814,15 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "tsukemen"],
+    "forms": [
+      "ramen",
+      "tsukemen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "niboshi"],
+    "soups": [
+      "tonkotsu",
+      "niboshi"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -2503,7 +2860,7 @@
     "address": "서울특별시 마포구 토정로 39-3, 1층 (합정동)",
     "city": "서울",
     "district": "마포구",
-    "areaLabel": "망원",
+    "areaLabel": "합정",
     "lat": 37.545746,
     "lng": 126.91534,
     "coordSource": "localdata",
@@ -2513,9 +2870,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["shio"],
+    "soups": [
+      "shio"
+    ],
     "primarySoup": "shio",
     "soupDetail": [],
     "lineages": [],
@@ -2563,9 +2924,15 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "tantanmen"],
+    "soups": [
+      "tonkotsu",
+      "tantanmen"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -2613,9 +2980,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -2650,9 +3021,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["mazesoba"],
+    "forms": [
+      "mazesoba"
+    ],
     "primaryForm": "mazesoba",
-    "soups": ["etc-soup"],
+    "soups": [
+      "etc-soup"
+    ],
     "primarySoup": "etc-soup",
     "soupDetail": [],
     "lineages": [],
@@ -2700,9 +3075,14 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "tantanmen"],
+    "soups": [
+      "tonkotsu",
+      "tantanmen"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -2750,11 +3130,18 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "shoyu"],
+    "soups": [
+      "tonkotsu",
+      "shoyu"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["바질라멘"],
+    "soupDetail": [
+      "바질라멘"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -2800,9 +3187,14 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -2837,9 +3229,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["etc-soup"],
+    "soups": [
+      "etc-soup"
+    ],
     "primarySoup": "etc-soup",
     "soupDetail": [],
     "lineages": [],
@@ -2887,11 +3283,19 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["shoyu", "shio", "niboshi"],
+    "soups": [
+      "shoyu",
+      "shio",
+      "niboshi"
+    ],
     "primarySoup": "shoyu",
-    "soupDetail": ["아부라소바"],
+    "soupDetail": [
+      "아부라소바"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -2924,9 +3328,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["etc-soup"],
+    "soups": [
+      "etc-soup"
+    ],
     "primarySoup": "etc-soup",
     "soupDetail": [],
     "lineages": [],
@@ -2961,9 +3369,15 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "tantanmen"],
+    "soups": [
+      "tonkotsu",
+      "tantanmen"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -2998,9 +3412,14 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -3035,9 +3454,15 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "miso", "shio"],
+    "soups": [
+      "tonkotsu",
+      "miso",
+      "shio"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -3072,9 +3497,14 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -3122,11 +3552,18 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["shoyu", "shio"],
+    "soups": [
+      "shoyu",
+      "shio"
+    ],
     "primarySoup": "shoyu",
-    "soupDetail": ["오리"],
+    "soupDetail": [
+      "오리"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -3159,9 +3596,14 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -3196,9 +3638,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -3233,11 +3679,20 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["shoyu", "shio"],
+    "soups": [
+      "shoyu",
+      "shio"
+    ],
     "primarySoup": "shoyu",
-    "soupDetail": ["파이탄", "아부라소바"],
+    "soupDetail": [
+      "파이탄",
+      "아부라소바"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -3270,9 +3725,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["etc-soup"],
+    "soups": [
+      "etc-soup"
+    ],
     "primarySoup": "etc-soup",
     "soupDetail": [],
     "lineages": [],
@@ -3307,12 +3766,19 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
-    "lineages": ["jiro"],
+    "lineages": [
+      "jiro"
+    ],
     "amenities": [],
     "confidence": "estimated",
     "menus": [
@@ -3357,9 +3823,15 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["shoyu", "miso", "tonkotsu"],
+    "soups": [
+      "shoyu",
+      "miso",
+      "tonkotsu"
+    ],
     "primarySoup": "shoyu",
     "soupDetail": [],
     "lineages": [],
@@ -3384,7 +3856,7 @@
     "address": "서울특별시 마포구 연남로3길 33, 1층 (연남동)",
     "city": "서울",
     "district": "마포구",
-    "areaLabel": "홍대",
+    "areaLabel": "연남",
     "lat": 37.560593,
     "lng": 126.920887,
     "coordSource": "localdata",
@@ -3394,12 +3866,20 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["niboshi", "miso", "tonkotsu"],
+    "soups": [
+      "niboshi",
+      "miso",
+      "tonkotsu"
+    ],
     "primarySoup": "niboshi",
     "soupDetail": [],
-    "lineages": ["jiro"],
+    "lineages": [
+      "jiro"
+    ],
     "amenities": [],
     "confidence": "estimated",
     "menus": [
@@ -3444,12 +3924,19 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tantanmen"],
+    "soups": [
+      "tantanmen"
+    ],
     "primarySoup": "tantanmen",
     "soupDetail": [],
-    "lineages": ["honto"],
+    "lineages": [
+      "honto"
+    ],
     "amenities": [],
     "confidence": "estimated",
     "menus": [
@@ -3494,9 +3981,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["etc-soup"],
+    "soups": [
+      "etc-soup"
+    ],
     "primarySoup": "etc-soup",
     "soupDetail": [],
     "lineages": [],
@@ -3531,9 +4022,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -3581,11 +4076,18 @@
     "openedAt": "2026-08",
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["shoyu", "shio"],
+    "soups": [
+      "shoyu",
+      "shio"
+    ],
     "primarySoup": "shoyu",
-    "soupDetail": ["청탕"],
+    "soupDetail": [
+      "청탕"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -3618,11 +4120,19 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "shio", "shoyu"],
+    "soups": [
+      "tonkotsu",
+      "shio",
+      "shoyu"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["하카타"],
+    "soupDetail": [
+      "하카타"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -3668,9 +4178,17 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["miso", "shoyu", "tantanmen", "tonkotsu"],
+    "soups": [
+      "miso",
+      "shoyu",
+      "tantanmen",
+      "tonkotsu"
+    ],
     "primarySoup": "miso",
     "soupDetail": [],
     "lineages": [],
@@ -3718,9 +4236,14 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "miso"],
+    "soups": [
+      "tonkotsu",
+      "miso"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -3768,9 +4291,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["miso"],
+    "soups": [
+      "miso"
+    ],
     "primarySoup": "miso",
     "soupDetail": [],
     "lineages": [],
@@ -3818,9 +4345,14 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["shoyu", "shio"],
+    "soups": [
+      "shoyu",
+      "shio"
+    ],
     "primarySoup": "shoyu",
     "soupDetail": [],
     "lineages": [],
@@ -3868,9 +4400,14 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -3918,12 +4455,18 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
-    "lineages": ["iekei"],
+    "lineages": [
+      "iekei"
+    ],
     "amenities": [],
     "confidence": "estimated",
     "menus": [
@@ -3968,12 +4511,20 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["shoyu"],
+    "soups": [
+      "shoyu"
+    ],
     "primarySoup": "shoyu",
-    "soupDetail": ["시로쇼유"],
-    "lineages": ["honto"],
+    "soupDetail": [
+      "시로쇼유"
+    ],
+    "lineages": [
+      "honto"
+    ],
     "amenities": [],
     "confidence": "estimated",
     "menus": [
@@ -4018,11 +4569,17 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["shio"],
+    "soups": [
+      "shio"
+    ],
     "primarySoup": "shio",
-    "soupDetail": ["유즈"],
+    "soupDetail": [
+      "유즈"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -4045,7 +4602,7 @@
     "address": "서울특별시 송파구 백제고분로45길 17-3, 102호 (송파동)",
     "city": "서울",
     "district": "송파구",
-    "areaLabel": "합정",
+    "areaLabel": "송파",
     "lat": 37.509556,
     "lng": 127.109441,
     "coordSource": "localdata",
@@ -4055,9 +4612,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["toripaitan"],
+    "soups": [
+      "toripaitan"
+    ],
     "primarySoup": "toripaitan",
     "soupDetail": [],
     "lineages": [],
@@ -4101,12 +4662,18 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tomato"],
+    "soups": [
+      "tomato"
+    ],
     "primarySoup": "tomato",
     "soupDetail": [],
-    "lineages": ["honto"],
+    "lineages": [
+      "honto"
+    ],
     "amenities": [],
     "confidence": "estimated",
     "menus": [
@@ -4151,11 +4718,18 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["toripaitan"],
+    "soups": [
+      "toripaitan"
+    ],
     "primarySoup": "toripaitan",
-    "soupDetail": ["한방라멘"],
+    "soupDetail": [
+      "한방라멘"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -4201,9 +4775,14 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tomato"],
+    "soups": [
+      "tomato"
+    ],
     "primarySoup": "tomato",
     "soupDetail": [],
     "lineages": [],
@@ -4251,12 +4830,18 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu-shoyu"],
+    "soups": [
+      "tonkotsu-shoyu"
+    ],
     "primarySoup": "tonkotsu-shoyu",
     "soupDetail": [],
-    "lineages": ["iekei"],
+    "lineages": [
+      "iekei"
+    ],
     "amenities": [],
     "confidence": "estimated",
     "menus": [],
@@ -4288,12 +4873,19 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
-    "lineages": ["jiro"],
+    "lineages": [
+      "jiro"
+    ],
     "amenities": [],
     "confidence": "estimated",
     "menus": [
@@ -4338,9 +4930,15 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "tomato"],
+    "soups": [
+      "tonkotsu",
+      "tomato"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -4388,9 +4986,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -4425,9 +5027,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -4465,7 +5071,7 @@
     "address": "서울특별시 광진구 광나루로22가길 18, 1층 102호 (화양동)",
     "city": "서울",
     "district": "광진구",
-    "areaLabel": "상수",
+    "areaLabel": "건대",
     "lat": 37.545717,
     "lng": 127.075918,
     "coordSource": "localdata",
@@ -4475,12 +5081,18 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
-    "lineages": ["iekei"],
+    "lineages": [
+      "iekei"
+    ],
     "amenities": [],
     "confidence": "estimated",
     "menus": [
@@ -4525,9 +5137,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -4575,11 +5191,17 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["아부라소바"],
+    "soupDetail": [
+      "아부라소바"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -4625,9 +5247,15 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "tsukemen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "tsukemen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -4661,7 +5289,7 @@
     "address": "서울특별시 종로구 율곡로 49-4, 사비나미술관 1층 101호 (안국동)",
     "city": "서울",
     "district": "종로구",
-    "areaLabel": "합정",
+    "areaLabel": "북촌",
     "lat": 37.57652,
     "lng": 126.98457,
     "coordSource": "localdata",
@@ -4671,9 +5299,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["toripaitan"],
+    "soups": [
+      "toripaitan"
+    ],
     "primarySoup": "toripaitan",
     "soupDetail": [],
     "lineages": [],
@@ -4717,9 +5349,16 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tantanmen", "tonkotsu", "tomato"],
+    "soups": [
+      "tantanmen",
+      "tonkotsu",
+      "tomato"
+    ],
     "primarySoup": "tomato",
     "soupDetail": [],
     "lineages": [],
@@ -4767,9 +5406,14 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "shoyu"],
+    "soups": [
+      "tonkotsu",
+      "shoyu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -4817,9 +5461,15 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "tsukemen"],
+    "forms": [
+      "ramen",
+      "tsukemen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "gyokai"],
+    "soups": [
+      "tonkotsu",
+      "gyokai"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -4867,9 +5517,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["miso"],
+    "soups": [
+      "miso"
+    ],
     "primarySoup": "miso",
     "soupDetail": [],
     "lineages": [],
@@ -4917,12 +5571,22 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "tsukemen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "tsukemen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["구로마유"],
-    "lineages": ["jikaseimen"],
+    "soupDetail": [
+      "구로마유"
+    ],
+    "lineages": [
+      "jikaseimen"
+    ],
     "amenities": [],
     "confidence": "estimated",
     "menus": [
@@ -4967,12 +5631,19 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
-    "lineages": ["jiro"],
+    "lineages": [
+      "jiro"
+    ],
     "amenities": [],
     "confidence": "estimated",
     "menus": [
@@ -5017,11 +5688,20 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["toripaitan", "shio", "shoyu", "miso"],
+    "soups": [
+      "toripaitan",
+      "shio",
+      "shoyu",
+      "miso"
+    ],
     "primarySoup": "toripaitan",
-    "soupDetail": ["아부라소바"],
+    "soupDetail": [
+      "아부라소바"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -5054,9 +5734,15 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "miso", "gyokai"],
+    "soups": [
+      "tonkotsu",
+      "miso",
+      "gyokai"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -5100,12 +5786,21 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu-shoyu", "tomato"],
+    "soups": [
+      "tonkotsu-shoyu",
+      "tomato"
+    ],
     "primarySoup": "tonkotsu-shoyu",
-    "soupDetail": ["요푸라멘"],
-    "lineages": ["jikaseimen"],
+    "soupDetail": [
+      "요푸라멘"
+    ],
+    "lineages": [
+      "jikaseimen"
+    ],
     "amenities": [],
     "confidence": "estimated",
     "menus": [
@@ -5150,11 +5845,19 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["shoyu", "tonkotsu", "tantanmen"],
+    "soups": [
+      "shoyu",
+      "tonkotsu",
+      "tantanmen"
+    ],
     "primarySoup": "shoyu",
-    "soupDetail": ["나가사키"],
+    "soupDetail": [
+      "나가사키"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -5187,11 +5890,17 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["tsukemen"],
+    "forms": [
+      "tsukemen"
+    ],
     "primaryForm": "tsukemen",
-    "soups": ["etc-soup"],
+    "soups": [
+      "etc-soup"
+    ],
     "primarySoup": "etc-soup",
-    "soupDetail": ["아부라소바"],
+    "soupDetail": [
+      "아부라소바"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -5229,11 +5938,20 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["toripaitan", "shio", "shoyu", "miso"],
+    "soups": [
+      "toripaitan",
+      "shio",
+      "shoyu",
+      "miso"
+    ],
     "primarySoup": "toripaitan",
-    "soupDetail": ["아부라소바"],
+    "soupDetail": [
+      "아부라소바"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -5266,11 +5984,18 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "shoyu"],
+    "soups": [
+      "tonkotsu",
+      "shoyu"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["된장"],
+    "soupDetail": [
+      "된장"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -5316,12 +6041,23 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["shoyu", "miso", "tonkotsu", "tantanmen"],
+    "soups": [
+      "shoyu",
+      "miso",
+      "tonkotsu",
+      "tantanmen"
+    ],
     "primarySoup": "shoyu",
-    "soupDetail": ["냉라멘"],
-    "lineages": ["jikaseimen"],
+    "soupDetail": [
+      "냉라멘"
+    ],
+    "lineages": [
+      "jikaseimen"
+    ],
     "amenities": [],
     "confidence": "estimated",
     "menus": [
@@ -5366,11 +6102,18 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "tantanmen"],
+    "soups": [
+      "tonkotsu",
+      "tantanmen"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["돈규코츠"],
+    "soupDetail": [
+      "돈규코츠"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -5403,11 +6146,18 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "shoyu"],
+    "soups": [
+      "tonkotsu",
+      "shoyu"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["냉라멘"],
+    "soupDetail": [
+      "냉라멘"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -5440,11 +6190,20 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["etc-soup"],
+    "soups": [
+      "etc-soup"
+    ],
     "primarySoup": "etc-soup",
-    "soupDetail": ["동파육 차슈 라멘", "동파육 차슈", "잠봉 차슈"],
+    "soupDetail": [
+      "동파육 차슈 라멘",
+      "동파육 차슈",
+      "잠봉 차슈"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -5490,9 +6249,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tomato"],
+    "soups": [
+      "tomato"
+    ],
     "primarySoup": "tomato",
     "soupDetail": [],
     "lineages": [],
@@ -5540,12 +6303,22 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "tsukemen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "tsukemen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["구로마유"],
-    "lineages": ["jikaseimen"],
+    "soupDetail": [
+      "구로마유"
+    ],
+    "lineages": [
+      "jikaseimen"
+    ],
     "amenities": [],
     "confidence": "estimated",
     "menus": [
@@ -5590,11 +6363,20 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "miso", "shoyu"],
+    "soups": [
+      "tonkotsu",
+      "miso",
+      "shoyu"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["중화풍", "마라"],
+    "soupDetail": [
+      "중화풍",
+      "마라"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -5640,11 +6422,18 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["etc-soup"],
+    "soups": [
+      "etc-soup"
+    ],
     "primarySoup": "etc-soup",
-    "soupDetail": ["동파육 차슈 라멘", "동파육 차슈"],
+    "soupDetail": [
+      "동파육 차슈 라멘",
+      "동파육 차슈"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -5686,11 +6475,19 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["shio", "shoyu"],
+    "soups": [
+      "shio",
+      "shoyu"
+    ],
     "primarySoup": "shio",
-    "soupDetail": ["완탕"],
+    "soupDetail": [
+      "완탕"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -5723,9 +6520,15 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "shoyu"],
+    "soups": [
+      "tonkotsu",
+      "shoyu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -5773,9 +6576,15 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tantanmen", "tomato"],
+    "soups": [
+      "tantanmen",
+      "tomato"
+    ],
     "primarySoup": "tomato",
     "soupDetail": [],
     "lineages": [],
@@ -5823,11 +6632,19 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "miso"],
+    "soups": [
+      "tonkotsu",
+      "miso"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["하카타"],
+    "soupDetail": [
+      "하카타"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -5873,9 +6690,14 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -5923,9 +6745,15 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "niboshi"],
+    "soups": [
+      "tonkotsu",
+      "niboshi"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -5973,11 +6801,19 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "miso"],
+    "soups": [
+      "tonkotsu",
+      "miso"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["하카타"],
+    "soupDetail": [
+      "하카타"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -6023,9 +6859,14 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -6060,9 +6901,16 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tantanmen", "tonkotsu", "tomato"],
+    "soups": [
+      "tantanmen",
+      "tonkotsu",
+      "tomato"
+    ],
     "primarySoup": "tomato",
     "soupDetail": [],
     "lineages": [],
@@ -6110,9 +6958,15 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "miso"],
+    "soups": [
+      "tonkotsu",
+      "miso"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -6160,9 +7014,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["toripaitan"],
+    "soups": [
+      "toripaitan"
+    ],
     "primarySoup": "toripaitan",
     "soupDetail": [],
     "lineages": [],
@@ -6210,9 +7068,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["etc-soup"],
+    "soups": [
+      "etc-soup"
+    ],
     "primarySoup": "etc-soup",
     "soupDetail": [],
     "lineages": [],
@@ -6247,11 +7109,19 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "miso"],
+    "soups": [
+      "tonkotsu",
+      "miso"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["유즈"],
+    "soupDetail": [
+      "유즈"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -6297,9 +7167,14 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "tantanmen"],
+    "soups": [
+      "tonkotsu",
+      "tantanmen"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -6334,9 +7209,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -6384,9 +7263,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -6434,9 +7317,14 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "shio"],
+    "soups": [
+      "tonkotsu",
+      "shio"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -6484,11 +7372,18 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "shoyu"],
+    "soups": [
+      "tonkotsu",
+      "shoyu"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["구로마유"],
+    "soupDetail": [
+      "구로마유"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -6524,7 +7419,7 @@
     "address": "서울특별시 동대문구 장한로12길 49, 1층 (장안동)",
     "city": "서울",
     "district": "동대문구",
-    "areaLabel": "상수",
+    "areaLabel": "장안",
     "lat": 37.565156,
     "lng": 127.070349,
     "coordSource": "localdata",
@@ -6534,12 +7429,18 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
-    "lineages": ["iekei"],
+    "lineages": [
+      "iekei"
+    ],
     "amenities": [],
     "confidence": "estimated",
     "menus": [
@@ -6584,11 +7485,19 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "miso"],
+    "soups": [
+      "tonkotsu",
+      "miso"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["유즈"],
+    "soupDetail": [
+      "유즈"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -6634,9 +7543,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -6684,9 +7597,15 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "shoyu", "tonkotsu-shoyu"],
+    "soups": [
+      "tonkotsu",
+      "shoyu",
+      "tonkotsu-shoyu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -6734,9 +7653,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["etc-soup"],
+    "soups": [
+      "etc-soup"
+    ],
     "primarySoup": "etc-soup",
     "soupDetail": [],
     "lineages": [],
@@ -6771,11 +7694,17 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["아부라소바"],
+    "soupDetail": [
+      "아부라소바"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -6808,9 +7737,14 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -6858,9 +7792,15 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "miso", "tantanmen"],
+    "soups": [
+      "tonkotsu",
+      "miso",
+      "tantanmen"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -6895,9 +7835,15 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "shoyu", "miso"],
+    "soups": [
+      "tonkotsu",
+      "shoyu",
+      "miso"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -6945,9 +7891,14 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -6982,9 +7933,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -7032,11 +7987,18 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "shoyu"],
+    "soups": [
+      "tonkotsu",
+      "shoyu"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["구로마유"],
+    "soupDetail": [
+      "구로마유"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -7082,11 +8044,19 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["아부라소바", "청탕"],
+    "soupDetail": [
+      "아부라소바",
+      "청탕"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -7132,12 +8102,20 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["카라이"],
-    "lineages": ["jikaseimen"],
+    "soupDetail": [
+      "카라이"
+    ],
+    "lineages": [
+      "jikaseimen"
+    ],
     "amenities": [],
     "confidence": "estimated",
     "menus": [
@@ -7172,7 +8150,7 @@
     "address": "서울특별시 은평구 불광천길 366 (응암동, 1층)",
     "city": "서울",
     "district": "은평구",
-    "areaLabel": "합정",
+    "areaLabel": "응암",
     "lat": 37.590308,
     "lng": 126.914362,
     "coordSource": "localdata",
@@ -7182,9 +8160,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["toripaitan"],
+    "soups": [
+      "toripaitan"
+    ],
     "primarySoup": "toripaitan",
     "soupDetail": [],
     "lineages": [],
@@ -7228,9 +8210,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -7274,11 +8260,18 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["카라이", "구로마유"],
+    "soupDetail": [
+      "카라이",
+      "구로마유"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -7311,9 +8304,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["shio"],
+    "soups": [
+      "shio"
+    ],
     "primarySoup": "shio",
     "soupDetail": [],
     "lineages": [],
@@ -7348,9 +8345,15 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "tsukemen"],
+    "forms": [
+      "ramen",
+      "tsukemen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["shio", "shoyu"],
+    "soups": [
+      "shio",
+      "shoyu"
+    ],
     "primarySoup": "shio",
     "soupDetail": [],
     "lineages": [],
@@ -7398,11 +8401,18 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["etc-soup"],
+    "soups": [
+      "etc-soup"
+    ],
     "primarySoup": "etc-soup",
-    "soupDetail": ["카라이"],
+    "soupDetail": [
+      "카라이"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -7448,9 +8458,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -7485,11 +8499,18 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["miso", "shio"],
+    "soups": [
+      "miso",
+      "shio"
+    ],
     "primarySoup": "miso",
-    "soupDetail": ["삿포로"],
+    "soupDetail": [
+      "삿포로"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -7522,12 +8543,22 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "tsukemen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "tsukemen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["구로마유"],
-    "lineages": ["jikaseimen"],
+    "soupDetail": [
+      "구로마유"
+    ],
+    "lineages": [
+      "jikaseimen"
+    ],
     "amenities": [],
     "confidence": "estimated",
     "menus": [
@@ -7562,7 +8593,7 @@
     "address": "서울특별시 마포구 성지1길 18 (합정동, 1층)",
     "city": "서울",
     "district": "마포구",
-    "areaLabel": "망원",
+    "areaLabel": "합정",
     "lat": 37.548069,
     "lng": 126.914384,
     "coordSource": "localdata",
@@ -7572,9 +8603,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["shio"],
+    "soups": [
+      "shio"
+    ],
     "primarySoup": "shio",
     "soupDetail": [],
     "lineages": [],
@@ -7618,9 +8653,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["toripaitan"],
+    "soups": [
+      "toripaitan"
+    ],
     "primarySoup": "toripaitan",
     "soupDetail": [],
     "lineages": [],
@@ -7654,7 +8693,7 @@
     "address": "서울특별시 마포구 동교로 128, 1층 (서교동)",
     "city": "서울",
     "district": "마포구",
-    "areaLabel": "연남",
+    "areaLabel": "홍대",
     "lat": 37.554813,
     "lng": 126.916441,
     "coordSource": "localdata",
@@ -7664,9 +8703,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["shio"],
+    "soups": [
+      "shio"
+    ],
     "primarySoup": "shio",
     "soupDetail": [],
     "lineages": [],
@@ -7701,12 +8744,21 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["niboshi"],
+    "soups": [
+      "niboshi"
+    ],
     "primarySoup": "niboshi",
-    "soupDetail": ["파이탄"],
-    "lineages": ["jikaseimen"],
+    "soupDetail": [
+      "파이탄"
+    ],
+    "lineages": [
+      "jikaseimen"
+    ],
     "amenities": [],
     "confidence": "estimated",
     "menus": [],
@@ -7738,11 +8790,17 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["etc-soup"],
+    "soups": [
+      "etc-soup"
+    ],
     "primarySoup": "etc-soup",
-    "soupDetail": ["시지미"],
+    "soupDetail": [
+      "시지미"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -7788,9 +8846,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["toripaitan"],
+    "soups": [
+      "toripaitan"
+    ],
     "primarySoup": "toripaitan",
     "soupDetail": [],
     "lineages": [],
@@ -7838,9 +8900,16 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "tsukemen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "tsukemen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "tantanmen"],
+    "soups": [
+      "tonkotsu",
+      "tantanmen"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -7888,12 +8957,20 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["카라이"],
-    "lineages": ["jikaseimen"],
+    "soupDetail": [
+      "카라이"
+    ],
+    "lineages": [
+      "jikaseimen"
+    ],
     "amenities": [],
     "confidence": "estimated",
     "menus": [
@@ -7938,9 +9015,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["shio"],
+    "soups": [
+      "shio"
+    ],
     "primarySoup": "shio",
     "soupDetail": [],
     "lineages": [],
@@ -7988,12 +9069,20 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "gyokai"],
+    "soups": [
+      "tonkotsu",
+      "gyokai"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
-    "lineages": ["jiro"],
+    "lineages": [
+      "jiro"
+    ],
     "amenities": [],
     "confidence": "estimated",
     "menus": [
@@ -8028,7 +9117,7 @@
     "address": "서울특별시 마포구 양화로7길 6-5, 2층 201호 (서교동, 와와빌딩)",
     "city": "서울",
     "district": "마포구",
-    "areaLabel": "합정",
+    "areaLabel": "홍대",
     "lat": 37.551607,
     "lng": 126.915207,
     "coordSource": "localdata",
@@ -8038,9 +9127,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["shoyu"],
+    "soups": [
+      "shoyu"
+    ],
     "primarySoup": "shoyu",
     "soupDetail": [],
     "lineages": [],
@@ -8084,9 +9177,14 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "shoyu"],
+    "soups": [
+      "tonkotsu",
+      "shoyu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -8134,11 +9232,21 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "shoyu", "shio", "miso", "tantanmen"],
+    "soups": [
+      "tonkotsu",
+      "shoyu",
+      "shio",
+      "miso",
+      "tantanmen"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["카레"],
+    "soupDetail": [
+      "카레"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -8184,9 +9292,14 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "tomato"],
+    "soups": [
+      "tonkotsu",
+      "tomato"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -8221,11 +9334,17 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["모츠라멘"],
+    "soupDetail": [
+      "모츠라멘"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -8271,9 +9390,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["etc-soup"],
+    "soups": [
+      "etc-soup"
+    ],
     "primarySoup": "etc-soup",
     "soupDetail": [],
     "lineages": [],
@@ -8308,11 +9431,18 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "shoyu"],
+    "soups": [
+      "tonkotsu",
+      "shoyu"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["바질라멘"],
+    "soupDetail": [
+      "바질라멘"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -8358,9 +9488,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -8408,9 +9542,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -8458,11 +9596,18 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "shoyu"],
+    "soups": [
+      "tonkotsu",
+      "shoyu"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["바질라멘"],
+    "soupDetail": [
+      "바질라멘"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -8508,9 +9653,15 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["miso", "shoyu", "tantanmen"],
+    "soups": [
+      "miso",
+      "shoyu",
+      "tantanmen"
+    ],
     "primarySoup": "miso",
     "soupDetail": [],
     "lineages": [],
@@ -8545,12 +9696,19 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["shoyu", "toripaitan"],
+    "soups": [
+      "shoyu",
+      "toripaitan"
+    ],
     "primarySoup": "toripaitan",
     "soupDetail": [],
-    "lineages": ["jiro"],
+    "lineages": [
+      "jiro"
+    ],
     "amenities": [],
     "confidence": "estimated",
     "menus": [
@@ -8595,9 +9753,14 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["etc-soup"],
+    "soups": [
+      "etc-soup"
+    ],
     "primarySoup": "etc-soup",
     "soupDetail": [],
     "lineages": [],
@@ -8645,11 +9808,19 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "shio", "shoyu"],
+    "soups": [
+      "tonkotsu",
+      "shio",
+      "shoyu"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["하카타"],
+    "soupDetail": [
+      "하카타"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -8695,9 +9866,15 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "miso"],
+    "soups": [
+      "tonkotsu",
+      "miso"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -8745,9 +9922,14 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "miso"],
+    "soups": [
+      "tonkotsu",
+      "miso"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -8795,11 +9977,19 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "shio", "shoyu"],
+    "soups": [
+      "tonkotsu",
+      "shio",
+      "shoyu"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["하카타"],
+    "soupDetail": [
+      "하카타"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -8832,9 +10022,15 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "miso", "shoyu"],
+    "soups": [
+      "tonkotsu",
+      "miso",
+      "shoyu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -8882,12 +10078,23 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["shoyu", "miso", "tonkotsu", "tantanmen"],
+    "soups": [
+      "shoyu",
+      "miso",
+      "tonkotsu",
+      "tantanmen"
+    ],
     "primarySoup": "shoyu",
-    "soupDetail": ["냉라멘"],
-    "lineages": ["jikaseimen"],
+    "soupDetail": [
+      "냉라멘"
+    ],
+    "lineages": [
+      "jikaseimen"
+    ],
     "amenities": [],
     "confidence": "estimated",
     "menus": [
@@ -8932,11 +10139,17 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["하카타"],
+    "soupDetail": [
+      "하카타"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -8982,9 +10195,15 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["shio", "toripaitan", "miso"],
+    "soups": [
+      "shio",
+      "toripaitan",
+      "miso"
+    ],
     "primarySoup": "shio",
     "soupDetail": [],
     "lineages": [],
@@ -9019,9 +10238,14 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -9069,9 +10293,15 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "miso", "shoyu"],
+    "soups": [
+      "tonkotsu",
+      "miso",
+      "shoyu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -9119,9 +10349,16 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "shoyu", "miso", "tantanmen"],
+    "soups": [
+      "tonkotsu",
+      "shoyu",
+      "miso",
+      "tantanmen"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -9156,9 +10393,14 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["miso", "toripaitan"],
+    "soups": [
+      "miso",
+      "toripaitan"
+    ],
     "primarySoup": "toripaitan",
     "soupDetail": [],
     "lineages": [],
@@ -9193,12 +10435,22 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tantanmen", "shoyu"],
+    "soups": [
+      "tantanmen",
+      "shoyu"
+    ],
     "primarySoup": "tantanmen",
-    "soupDetail": ["타이완라멘"],
-    "lineages": ["honto"],
+    "soupDetail": [
+      "타이완라멘"
+    ],
+    "lineages": [
+      "honto"
+    ],
     "amenities": [],
     "confidence": "estimated",
     "menus": [
@@ -9243,11 +10495,18 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "shoyu"],
+    "soups": [
+      "tonkotsu",
+      "shoyu"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["바질라멘"],
+    "soupDetail": [
+      "바질라멘"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -9293,9 +10552,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -9343,12 +10606,19 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "miso"],
+    "soups": [
+      "tonkotsu",
+      "miso"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
-    "lineages": ["jikaseimen"],
+    "lineages": [
+      "jikaseimen"
+    ],
     "amenities": [],
     "confidence": "estimated",
     "menus": [
@@ -9393,12 +10663,19 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
-    "lineages": ["jiro"],
+    "lineages": [
+      "jiro"
+    ],
     "amenities": [],
     "confidence": "estimated",
     "menus": [
@@ -9443,11 +10720,18 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["블랙가쓰오"],
+    "soupDetail": [
+      "블랙가쓰오"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -9470,7 +10754,7 @@
     "address": "서울특별시 서초구 주흥길 3, 108호, 109호 (반포동)",
     "city": "서울",
     "district": "서초구",
-    "areaLabel": "신논현",
+    "areaLabel": "반포",
     "lat": 37.503785,
     "lng": 127.02075,
     "coordSource": "localdata",
@@ -9480,9 +10764,14 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "tsukemen"],
+    "forms": [
+      "ramen",
+      "tsukemen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -9530,11 +10819,18 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["곱창라멘"],
+    "soupDetail": [
+      "곱창라멘"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -9580,9 +10876,15 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "tsukemen"],
+    "forms": [
+      "ramen",
+      "tsukemen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "tonkotsu-shoyu"],
+    "soups": [
+      "tonkotsu",
+      "tonkotsu-shoyu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -9630,11 +10932,18 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "shoyu"],
+    "soups": [
+      "tonkotsu",
+      "shoyu"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["구로마유"],
+    "soupDetail": [
+      "구로마유"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -9680,9 +10989,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -9717,11 +11030,20 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["shio", "toripaitan"],
+    "soups": [
+      "shio",
+      "toripaitan"
+    ],
     "primarySoup": "shio",
-    "soupDetail": ["아부라소바", "카모"],
+    "soupDetail": [
+      "아부라소바",
+      "카모"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -9767,9 +11089,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -9809,9 +11135,14 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -9859,12 +11190,21 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "miso"],
+    "soups": [
+      "tonkotsu",
+      "miso"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["히야시츄카"],
-    "lineages": ["jikaseimen"],
+    "soupDetail": [
+      "히야시츄카"
+    ],
+    "lineages": [
+      "jikaseimen"
+    ],
     "amenities": [],
     "confidence": "estimated",
     "menus": [],
@@ -9896,12 +11236,19 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
-    "lineages": ["jiro"],
+    "lineages": [
+      "jiro"
+    ],
     "amenities": [],
     "confidence": "estimated",
     "menus": [
@@ -9946,12 +11293,18 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tomato"],
+    "soups": [
+      "tomato"
+    ],
     "primarySoup": "tomato",
     "soupDetail": [],
-    "lineages": ["honto"],
+    "lineages": [
+      "honto"
+    ],
     "amenities": [],
     "confidence": "estimated",
     "menus": [
@@ -9996,9 +11349,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -10033,9 +11390,14 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "shoyu"],
+    "soups": [
+      "tonkotsu",
+      "shoyu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -10070,11 +11432,18 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["shoyu"],
+    "soups": [
+      "shoyu"
+    ],
     "primarySoup": "shoyu",
-    "soupDetail": ["오사카라멘", "칸사이쇼유"],
+    "soupDetail": [
+      "오사카라멘",
+      "칸사이쇼유"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -10107,9 +11476,15 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["shoyu", "miso", "gyokai"],
+    "soups": [
+      "shoyu",
+      "miso",
+      "gyokai"
+    ],
     "primarySoup": "shoyu",
     "soupDetail": [],
     "lineages": [],
@@ -10157,9 +11532,15 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["shoyu", "miso", "gyokai"],
+    "soups": [
+      "shoyu",
+      "miso",
+      "gyokai"
+    ],
     "primarySoup": "shoyu",
     "soupDetail": [],
     "lineages": [],
@@ -10207,11 +11588,20 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["shio", "toripaitan"],
+    "soups": [
+      "shio",
+      "toripaitan"
+    ],
     "primarySoup": "shio",
-    "soupDetail": ["카모", "아부라소바"],
+    "soupDetail": [
+      "카모",
+      "아부라소바"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -10257,9 +11647,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -10294,11 +11688,17 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["mazesoba"],
+    "forms": [
+      "mazesoba"
+    ],
     "primaryForm": "mazesoba",
-    "soups": ["etc-soup"],
+    "soups": [
+      "etc-soup"
+    ],
     "primarySoup": "etc-soup",
-    "soupDetail": ["아부라소바"],
+    "soupDetail": [
+      "아부라소바"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -10331,11 +11731,21 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "tsukemen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "tsukemen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu-shoyu", "shoyu", "miso"],
+    "soups": [
+      "tonkotsu-shoyu",
+      "shoyu",
+      "miso"
+    ],
     "primarySoup": "tonkotsu-shoyu",
-    "soupDetail": ["청탕"],
+    "soupDetail": [
+      "청탕"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -10368,12 +11778,18 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tomato"],
+    "soups": [
+      "tomato"
+    ],
     "primarySoup": "tomato",
     "soupDetail": [],
-    "lineages": ["honto"],
+    "lineages": [
+      "honto"
+    ],
     "amenities": [],
     "confidence": "estimated",
     "menus": [
@@ -10418,9 +11834,16 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["miso", "tonkotsu", "shio", "shoyu"],
+    "soups": [
+      "miso",
+      "tonkotsu",
+      "shio",
+      "shoyu"
+    ],
     "primarySoup": "miso",
     "soupDetail": [],
     "lineages": [],
@@ -10455,9 +11878,15 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "shoyu", "miso"],
+    "soups": [
+      "tonkotsu",
+      "shoyu",
+      "miso"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -10492,12 +11921,21 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu-shoyu", "niboshi"],
+    "soups": [
+      "tonkotsu-shoyu",
+      "niboshi"
+    ],
     "primarySoup": "tonkotsu-shoyu",
-    "soupDetail": ["아부라소바"],
-    "lineages": ["iekei"],
+    "soupDetail": [
+      "아부라소바"
+    ],
+    "lineages": [
+      "iekei"
+    ],
     "amenities": [],
     "confidence": "estimated",
     "menus": [
@@ -10542,9 +11980,14 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -10579,9 +12022,16 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["shoyu", "miso", "tonkotsu", "tantanmen"],
+    "soups": [
+      "shoyu",
+      "miso",
+      "tonkotsu",
+      "tantanmen"
+    ],
     "primarySoup": "shoyu",
     "soupDetail": [],
     "lineages": [],
@@ -10616,9 +12066,16 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["shoyu", "miso", "tonkotsu", "tantanmen"],
+    "soups": [
+      "shoyu",
+      "miso",
+      "tonkotsu",
+      "tantanmen"
+    ],
     "primarySoup": "shoyu",
     "soupDetail": [],
     "lineages": [],
@@ -10666,9 +12123,14 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["shio", "niboshi"],
+    "soups": [
+      "shio",
+      "niboshi"
+    ],
     "primarySoup": "shio",
     "soupDetail": [],
     "lineages": [],
@@ -10693,7 +12155,7 @@
     "address": "서울특별시 강남구 테헤란로1길 28-9, 성은빌딩 2층 (역삼동)",
     "city": "서울",
     "district": "강남구",
-    "areaLabel": "합정",
+    "areaLabel": "역삼",
     "lat": 37.500499,
     "lng": 127.02808,
     "coordSource": "localdata",
@@ -10703,9 +12165,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["toripaitan"],
+    "soups": [
+      "toripaitan"
+    ],
     "primarySoup": "toripaitan",
     "soupDetail": [],
     "lineages": [],
@@ -10749,9 +12215,16 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["miso", "shoyu", "tantanmen", "tonkotsu"],
+    "soups": [
+      "miso",
+      "shoyu",
+      "tantanmen",
+      "tonkotsu"
+    ],
     "primarySoup": "miso",
     "soupDetail": [],
     "lineages": [],
@@ -10786,12 +12259,22 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "tsukemen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "tsukemen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["구로마유"],
-    "lineages": ["jikaseimen"],
+    "soupDetail": [
+      "구로마유"
+    ],
+    "lineages": [
+      "jikaseimen"
+    ],
     "amenities": [],
     "confidence": "estimated",
     "menus": [
@@ -10836,12 +12319,19 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
-    "lineages": ["jiro"],
+    "lineages": [
+      "jiro"
+    ],
     "amenities": [],
     "confidence": "estimated",
     "menus": [
@@ -10886,9 +12376,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -10928,12 +12422,18 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tomato"],
+    "soups": [
+      "tomato"
+    ],
     "primarySoup": "tomato",
     "soupDetail": [],
-    "lineages": ["honto"],
+    "lineages": [
+      "honto"
+    ],
     "amenities": [],
     "confidence": "estimated",
     "menus": [
@@ -10978,11 +12478,19 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "shoyu", "tantanmen"],
+    "soups": [
+      "tonkotsu",
+      "shoyu",
+      "tantanmen"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["쿠마모토"],
+    "soupDetail": [
+      "쿠마모토"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -11028,9 +12536,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["toripaitan"],
+    "soups": [
+      "toripaitan"
+    ],
     "primarySoup": "toripaitan",
     "soupDetail": [],
     "lineages": [],
@@ -11065,9 +12577,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -11115,11 +12631,19 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tomato"],
+    "soups": [
+      "tomato"
+    ],
     "primarySoup": "tomato",
-    "soupDetail": ["숯불고기라멘", "부대라멘"],
+    "soupDetail": [
+      "숯불고기라멘",
+      "부대라멘"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -11165,9 +12689,14 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -11215,11 +12744,18 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["etc-soup"],
+    "soups": [
+      "etc-soup"
+    ],
     "primarySoup": "etc-soup",
-    "soupDetail": ["곱창라멘", "해장라멘"],
+    "soupDetail": [
+      "곱창라멘",
+      "해장라멘"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -11252,11 +12788,24 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "shoyu", "miso", "tantanmen", "shio", "toripaitan"],
+    "soups": [
+      "tonkotsu",
+      "shoyu",
+      "miso",
+      "tantanmen",
+      "shio",
+      "toripaitan"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["나가사키", "타이완라멘"],
+    "soupDetail": [
+      "나가사키",
+      "타이완라멘"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -11289,9 +12838,16 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["miso", "tonkotsu", "tantanmen"],
+    "soups": [
+      "miso",
+      "tonkotsu",
+      "tantanmen"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -11339,11 +12895,22 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "tsukemen"],
+    "forms": [
+      "ramen",
+      "tsukemen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "shoyu", "shio", "miso", "gyokai"],
+    "soups": [
+      "tonkotsu",
+      "shoyu",
+      "shio",
+      "miso",
+      "gyokai"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["아부라소바"],
+    "soupDetail": [
+      "아부라소바"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -11389,9 +12956,17 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["shoyu", "tantanmen", "tonkotsu", "miso", "tomato"],
+    "soups": [
+      "shoyu",
+      "tantanmen",
+      "tonkotsu",
+      "miso",
+      "tomato"
+    ],
     "primarySoup": "shoyu",
     "soupDetail": [],
     "lineages": [],
@@ -11426,11 +13001,24 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "shoyu", "miso", "tantanmen", "shio", "toripaitan"],
+    "soups": [
+      "tonkotsu",
+      "shoyu",
+      "miso",
+      "tantanmen",
+      "shio",
+      "toripaitan"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["나가사키", "타이완라멘"],
+    "soupDetail": [
+      "나가사키",
+      "타이완라멘"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -11463,12 +13051,19 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
-    "lineages": ["jiro"],
+    "lineages": [
+      "jiro"
+    ],
     "amenities": [],
     "confidence": "estimated",
     "menus": [
@@ -11513,11 +13108,22 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "tsukemen"],
+    "forms": [
+      "ramen",
+      "tsukemen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "shoyu", "shio", "miso", "gyokai"],
+    "soups": [
+      "tonkotsu",
+      "shoyu",
+      "shio",
+      "miso",
+      "gyokai"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["아부라소바"],
+    "soupDetail": [
+      "아부라소바"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -11563,11 +13169,22 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "tsukemen"],
+    "forms": [
+      "ramen",
+      "tsukemen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "shoyu", "shio", "miso", "gyokai"],
+    "soups": [
+      "tonkotsu",
+      "shoyu",
+      "shio",
+      "miso",
+      "gyokai"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["아부라소바"],
+    "soupDetail": [
+      "아부라소바"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -11613,11 +13230,20 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "shoyu", "miso", "tantanmen"],
+    "soups": [
+      "tonkotsu",
+      "shoyu",
+      "miso",
+      "tantanmen"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["나가사키"],
+    "soupDetail": [
+      "나가사키"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -11663,11 +13289,19 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "tsukemen"],
+    "forms": [
+      "ramen",
+      "tsukemen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["shio", "shoyu"],
+    "soups": [
+      "shio",
+      "shoyu"
+    ],
     "primarySoup": "shio",
-    "soupDetail": ["유즈"],
+    "soupDetail": [
+      "유즈"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -11713,9 +13347,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -11763,11 +13401,22 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "tsukemen"],
+    "forms": [
+      "ramen",
+      "tsukemen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "shoyu", "shio", "miso", "gyokai"],
+    "soups": [
+      "tonkotsu",
+      "shoyu",
+      "shio",
+      "miso",
+      "gyokai"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["아부라소바"],
+    "soupDetail": [
+      "아부라소바"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -11813,9 +13462,16 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["miso", "tonkotsu", "tantanmen"],
+    "soups": [
+      "miso",
+      "tonkotsu",
+      "tantanmen"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -11863,12 +13519,19 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
-    "lineages": ["jiro"],
+    "lineages": [
+      "jiro"
+    ],
     "amenities": [],
     "confidence": "estimated",
     "menus": [
@@ -11913,11 +13576,24 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "shoyu", "miso", "tantanmen", "shio", "toripaitan"],
+    "soups": [
+      "tonkotsu",
+      "shoyu",
+      "miso",
+      "tantanmen",
+      "shio",
+      "toripaitan"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["나가사키", "타이완라멘"],
+    "soupDetail": [
+      "나가사키",
+      "타이완라멘"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -11950,11 +13626,20 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "shoyu", "miso", "tantanmen"],
+    "soups": [
+      "tonkotsu",
+      "shoyu",
+      "miso",
+      "tantanmen"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["하카타"],
+    "soupDetail": [
+      "하카타"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -11987,11 +13672,22 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "tsukemen"],
+    "forms": [
+      "ramen",
+      "tsukemen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "shoyu", "shio", "miso", "gyokai"],
+    "soups": [
+      "tonkotsu",
+      "shoyu",
+      "shio",
+      "miso",
+      "gyokai"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["아부라소바"],
+    "soupDetail": [
+      "아부라소바"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -12037,9 +13733,16 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["miso", "tonkotsu", "tantanmen"],
+    "soups": [
+      "miso",
+      "tonkotsu",
+      "tantanmen"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -12087,11 +13790,19 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "shio", "shoyu"],
+    "soups": [
+      "tonkotsu",
+      "shio",
+      "shoyu"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["하카타"],
+    "soupDetail": [
+      "하카타"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -12137,11 +13848,22 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "tsukemen"],
+    "forms": [
+      "ramen",
+      "tsukemen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "shoyu", "shio", "miso", "gyokai"],
+    "soups": [
+      "tonkotsu",
+      "shoyu",
+      "shio",
+      "miso",
+      "gyokai"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["아부라소바"],
+    "soupDetail": [
+      "아부라소바"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -12187,11 +13909,22 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "tsukemen"],
+    "forms": [
+      "ramen",
+      "tsukemen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "shoyu", "shio", "miso", "gyokai"],
+    "soups": [
+      "tonkotsu",
+      "shoyu",
+      "shio",
+      "miso",
+      "gyokai"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["아부라소바"],
+    "soupDetail": [
+      "아부라소바"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -12237,9 +13970,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -12283,9 +14020,14 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -12333,11 +14075,19 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "tsukemen"],
+    "forms": [
+      "ramen",
+      "tsukemen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "shoyu"],
+    "soups": [
+      "tonkotsu",
+      "shoyu"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["청탕"],
+    "soupDetail": [
+      "청탕"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -12383,9 +14133,14 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["mazesoba", "ramen"],
+    "forms": [
+      "mazesoba",
+      "ramen"
+    ],
     "primaryForm": "mazesoba",
-    "soups": ["etc-soup"],
+    "soups": [
+      "etc-soup"
+    ],
     "primarySoup": "etc-soup",
     "soupDetail": [],
     "lineages": [],
@@ -12420,9 +14175,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["etc-soup"],
+    "soups": [
+      "etc-soup"
+    ],
     "primarySoup": "etc-soup",
     "soupDetail": [],
     "lineages": [],
@@ -12457,9 +14216,16 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["miso", "tonkotsu", "tantanmen"],
+    "soups": [
+      "miso",
+      "tonkotsu",
+      "tantanmen"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -12507,11 +14273,18 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "shoyu"],
+    "soups": [
+      "tonkotsu",
+      "shoyu"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["바질라멘"],
+    "soupDetail": [
+      "바질라멘"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -12557,9 +14330,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -12594,12 +14371,18 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
-    "lineages": ["jikaseimen"],
+    "lineages": [
+      "jikaseimen"
+    ],
     "amenities": [],
     "confidence": "estimated",
     "menus": [],
@@ -12631,9 +14414,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -12668,11 +14455,20 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "shoyu", "miso", "shio"],
+    "soups": [
+      "tonkotsu",
+      "shoyu",
+      "miso",
+      "shio"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["청탕"],
+    "soupDetail": [
+      "청탕"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -12705,11 +14501,17 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
-    "soupDetail": ["아사리"],
+    "soupDetail": [
+      "아사리"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -12742,9 +14544,16 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tantanmen", "tonkotsu", "miso"],
+    "soups": [
+      "tantanmen",
+      "tonkotsu",
+      "miso"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -12792,9 +14601,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["shoyu"],
+    "soups": [
+      "shoyu"
+    ],
     "primarySoup": "shoyu",
     "soupDetail": [],
     "lineages": [],
@@ -12829,11 +14642,19 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["shio", "toripaitan"],
+    "soups": [
+      "shio",
+      "toripaitan"
+    ],
     "primarySoup": "shio",
-    "soupDetail": ["카모", "아부라소바"],
+    "soupDetail": [
+      "카모",
+      "아부라소바"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -12866,9 +14687,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -12903,9 +14728,15 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "tsukemen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "tsukemen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -12949,11 +14780,18 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["mazesoba", "ramen"],
+    "forms": [
+      "mazesoba",
+      "ramen"
+    ],
     "primaryForm": "mazesoba",
-    "soups": ["toripaitan"],
+    "soups": [
+      "toripaitan"
+    ],
     "primarySoup": "toripaitan",
-    "soupDetail": ["아부라소바"],
+    "soupDetail": [
+      "아부라소바"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -12986,9 +14824,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -13023,9 +14865,14 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "tsukemen"],
+    "forms": [
+      "ramen",
+      "tsukemen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["toripaitan"],
+    "soups": [
+      "toripaitan"
+    ],
     "primarySoup": "toripaitan",
     "soupDetail": [],
     "lineages": [],
@@ -13063,7 +14910,7 @@
     "address": "서울특별시 관악구 관악로14길 6-4, 1층 (봉천동)",
     "city": "서울",
     "district": "관악구",
-    "areaLabel": "홍대",
+    "areaLabel": "서울대입구",
     "lat": 37.479046,
     "lng": 126.952849,
     "coordSource": "sanggwon",
@@ -13073,9 +14920,14 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "tsukemen"],
+    "forms": [
+      "ramen",
+      "tsukemen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["niboshi"],
+    "soups": [
+      "niboshi"
+    ],
     "primarySoup": "niboshi",
     "soupDetail": [],
     "lineages": [],
@@ -13110,12 +14962,18 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
-    "lineages": ["jiro"],
+    "lineages": [
+      "jiro"
+    ],
     "amenities": [],
     "confidence": "estimated",
     "menus": [
@@ -13150,7 +15008,7 @@
     "address": "서울특별시 송파구 올림픽로 300 (신천동, 캐쥬얼동 지상3층)",
     "city": "서울",
     "district": "송파구",
-    "areaLabel": "홍대",
+    "areaLabel": "잠실",
     "lat": 37.513101,
     "lng": 127.103433,
     "coordSource": "sanggwon",
@@ -13160,12 +15018,18 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
-    "lineages": ["jiro"],
+    "lineages": [
+      "jiro"
+    ],
     "amenities": [],
     "confidence": "estimated",
     "menus": [],
@@ -13197,12 +15061,20 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu-shoyu"],
+    "soups": [
+      "tonkotsu-shoyu"
+    ],
     "primarySoup": "tonkotsu-shoyu",
-    "soupDetail": ["시루나시"],
-    "lineages": ["jiro"],
+    "soupDetail": [
+      "시루나시"
+    ],
+    "lineages": [
+      "jiro"
+    ],
     "amenities": [],
     "confidence": "estimated",
     "menus": [
@@ -13243,12 +15115,20 @@
     "openedAt": "2026-07",
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["etc-soup"],
+    "soups": [
+      "etc-soup"
+    ],
     "primarySoup": "etc-soup",
-    "soupDetail": ["시루나시"],
-    "lineages": ["jiro"],
+    "soupDetail": [
+      "시루나시"
+    ],
+    "lineages": [
+      "jiro"
+    ],
     "amenities": [],
     "confidence": "estimated",
     "menus": [
@@ -13279,7 +15159,7 @@
     "address": "서울특별시 서초구 강남대로99길 10, 비동 2층 (잠원동)",
     "city": "서울",
     "district": "서초구",
-    "areaLabel": "신사",
+    "areaLabel": "잠원",
     "lat": 37.515435,
     "lng": 127.018915,
     "coordSource": "sanggwon",
@@ -13289,9 +15169,15 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "tsukemen"],
+    "forms": [
+      "ramen",
+      "tsukemen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["shoyu", "toripaitan"],
+    "soups": [
+      "shoyu",
+      "toripaitan"
+    ],
     "primarySoup": "shoyu",
     "soupDetail": [],
     "lineages": [],
@@ -13326,9 +15212,14 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "gyokai"],
+    "soups": [
+      "tonkotsu",
+      "gyokai"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -13363,9 +15254,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["etc-soup"],
+    "soups": [
+      "etc-soup"
+    ],
     "primarySoup": "etc-soup",
     "soupDetail": [],
     "lineages": [],
@@ -13400,9 +15295,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -13437,9 +15336,14 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "tsukemen"],
+    "forms": [
+      "ramen",
+      "tsukemen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -13474,9 +15378,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -13511,9 +15419,15 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba", "tsukemen"],
+    "forms": [
+      "ramen",
+      "mazesoba",
+      "tsukemen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["miso"],
+    "soups": [
+      "miso"
+    ],
     "primarySoup": "miso",
     "soupDetail": [],
     "lineages": [],
@@ -13553,9 +15467,14 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu", "shoyu"],
+    "soups": [
+      "tonkotsu",
+      "shoyu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -13590,9 +15509,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["miso"],
+    "soups": [
+      "miso"
+    ],
     "primarySoup": "miso",
     "soupDetail": [],
     "lineages": [],
@@ -13632,9 +15555,14 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "tsukemen"],
+    "forms": [
+      "ramen",
+      "tsukemen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["etc-soup"],
+    "soups": [
+      "etc-soup"
+    ],
     "primarySoup": "etc-soup",
     "soupDetail": [],
     "lineages": [],
@@ -13669,12 +15597,19 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["shoyu", "shio"],
+    "soups": [
+      "shoyu",
+      "shio"
+    ],
     "primarySoup": "shoyu",
     "soupDetail": [],
-    "lineages": ["jiro"],
+    "lineages": [
+      "jiro"
+    ],
     "amenities": [],
     "confidence": "estimated",
     "menus": [],
@@ -13706,9 +15641,15 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "mazesoba", "tsukemen"],
+    "forms": [
+      "ramen",
+      "mazesoba",
+      "tsukemen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu"],
+    "soups": [
+      "tonkotsu"
+    ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
     "lineages": [],
@@ -13733,7 +15674,7 @@
     "address": "서울특별시 마포구 동교로12안길 51, 코람데오빌리지 1층 101호 (서교동)",
     "city": "서울",
     "district": "마포구",
-    "areaLabel": "망원",
+    "areaLabel": "홍대",
     "lat": 37.554473,
     "lng": 126.91516,
     "coordSource": "sanggwon",
@@ -13743,9 +15684,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["shio"],
+    "soups": [
+      "shio"
+    ],
     "primarySoup": "shio",
     "soupDetail": [],
     "lineages": [],
@@ -13780,9 +15725,14 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["shio", "shoyu"],
+    "soups": [
+      "shio",
+      "shoyu"
+    ],
     "primarySoup": "shio",
     "soupDetail": [],
     "lineages": [],
@@ -13817,9 +15767,15 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "tsukemen", "mazesoba"],
+    "forms": [
+      "ramen",
+      "tsukemen",
+      "mazesoba"
+    ],
     "primaryForm": "ramen",
-    "soups": ["shoyu"],
+    "soups": [
+      "shoyu"
+    ],
     "primarySoup": "shoyu",
     "soupDetail": [],
     "lineages": [],
@@ -13854,12 +15810,18 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["tonkotsu-shoyu"],
+    "soups": [
+      "tonkotsu-shoyu"
+    ],
     "primarySoup": "tonkotsu-shoyu",
     "soupDetail": [],
-    "lineages": ["iekei"],
+    "lineages": [
+      "iekei"
+    ],
     "amenities": [],
     "confidence": "estimated",
     "menus": [],
@@ -13891,11 +15853,18 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen", "tsukemen"],
+    "forms": [
+      "ramen",
+      "tsukemen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["shio"],
+    "soups": [
+      "shio"
+    ],
     "primarySoup": "shio",
-    "soupDetail": ["구로마유"],
+    "soupDetail": [
+      "구로마유"
+    ],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -13928,9 +15897,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["shio"],
+    "soups": [
+      "shio"
+    ],
     "primarySoup": "shio",
     "soupDetail": [],
     "lineages": [],
@@ -13965,9 +15938,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["shio"],
+    "soups": [
+      "shio"
+    ],
     "primarySoup": "shio",
     "soupDetail": [],
     "lineages": [],
@@ -14015,9 +15992,13 @@
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
-    "forms": ["ramen"],
+    "forms": [
+      "ramen"
+    ],
     "primaryForm": "ramen",
-    "soups": ["shoyu"],
+    "soups": [
+      "shoyu"
+    ],
     "primarySoup": "shoyu",
     "soupDetail": [],
     "lineages": [],

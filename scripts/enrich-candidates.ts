@@ -75,7 +75,8 @@ for (const line of lines.slice(1)) {
   cells.id = toSlug(cells.상호, cells.지점명, taken);
   cells.시 = "서울";
   cells.구 = cells.주소.match(/([가-힣]+구)(?=\s)/)?.[1] ?? "";
-  cells.동네라벨 = e.area ?? areaLabelOf(cells.주소, cells.구) ?? "";
+  /* 주소(공공데이터) 판정 우선 — 디깅 area는 본점 라벨이 지점에 전파되는 오염원 (혼네·오레노라멘 실측) */
+  cells.동네라벨 = areaLabelOf(cells.주소, cells.구) ?? e.area ?? "";
   cells.스프 = (e.soups ?? []).join(", ") || "기타";
   cells.스프_대표 = e.primarySoup ?? e.soups?.[0] ?? "기타";
   cells.형태 = (e.forms ?? []).join(", ") || "라멘";
