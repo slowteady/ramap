@@ -15,6 +15,7 @@ import {
 import { toast } from "sonner";
 import { Drawer, DrawerContent, DrawerTitle } from "@/shared/ui/drawer";
 import { cn } from "@/shared/lib/utils";
+import { hasMore, nextCount, PAGE_SIZE, visibleSlice } from "../model/paging";
 import { recordTime, sortRecordsByRecent } from "../model/sort-records";
 import { MeMenu } from "./me-menu";
 
@@ -49,6 +50,8 @@ function MeBody({ shops }: { shops: Shop[] }) {
   }, [user]);
 
   const tab: TabKey = params.get("tab") === "saved" ? "saved" : "visited";
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
+  useEffect(() => setVisibleCount(PAGE_SIZE), [tab]);
   const shopById = new Map(shops.map((s) => [s.id, s]));
   const visitedCount = records.filter((r) => r.visited).length;
   const savedCount = records.filter((r) => r.saved).length;
@@ -122,7 +125,7 @@ function MeBody({ shops }: { shops: Shop[] }) {
         </p>
       </div>
 
-      <div className="flex gap-5 border-b border-gray-100 px-4 pt-5">
+      <div className="sticky top-0 z-10 flex gap-5 border-b border-gray-100 bg-white px-4 pt-5">
         {TABS.map((t) => (
           <button
             key={t.key}
@@ -146,7 +149,7 @@ function MeBody({ shops }: { shops: Shop[] }) {
 
       {listed.length > 0 ? (
         <ul className="px-4">
-          {listed.map((record) => {
+          {visibleSlice(listed, visibleCount).map((record) => {
             const shop = shopById.get(record.shopId)!;
             const at = recordTime(record);
             return (
@@ -181,6 +184,7 @@ function MeBody({ shops }: { shops: Shop[] }) {
                     <img
                       src={thumbs.get(shop.id)}
                       alt=""
+                      loading="lazy"
                       className="size-14 shrink-0 rounded-card object-cover"
                     />
                   )}
@@ -188,6 +192,19 @@ function MeBody({ shops }: { shops: Shop[] }) {
               </li>
             );
           })}
+          {hasMore(visibleCount, listed.length) && (
+            <li className="py-3">
+              <button
+                type="button"
+                onClick={() =>
+                  setVisibleCount((c) => nextCount(c, listed.length))
+                }
+                className="h-12 w-full rounded-card-lg bg-gray-050 text-body font-semibold text-ink"
+              >
+                기록 더보기 ({listed.length - visibleCount})
+              </button>
+            </li>
+          )}
         </ul>
       ) : (
         <div className="flex flex-1 flex-col items-center justify-center gap-2 px-4 py-16">
