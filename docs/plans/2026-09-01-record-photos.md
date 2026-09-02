@@ -119,9 +119,9 @@ create table if not exists public.record_photos (
 
 ### 남은 작업 (순서대로)
 
-1. **승인→타인 노출 E2E**: Supabase 대시보드 로그인이 필요 (세션 만료됨 — 사용자가 Playwright 브라우저에서 로그인해주는 방식, 프로젝트 umwgzacbrfyyzmcbyxuq). SQL Editor에서 `update public.record_photos set status = 'approved' where shop_id = 'kinka';` 실행(실제 검수 동선과 동일) → 시크릿 창 또는 스토리지 초기화 상태로 localhost:3000/shop/kinka 열어 익명 시점에서 사진·한줄평 노출 확인
-2. **사용자 로컬 검수** → OK 시 main 머지·푸시 (main push = Vercel 배포)
-3. **테스트 데이터 정리**: `delete from public.record_photos where shop_id = 'kinka';` + Storage > record-photos 버킷에서 해당 파일 삭제 + `update public.records set count = 1 where shop_id = 'kinka';` (원상: count 1)
+1. ~~승인→타인 노출 E2E~~ — **완료 (2026-09-02)**: 대시보드에서 approved 전환 → anon REST로 행·한줄평 노출, anon signed URL 발급 + 이미지 200 확인, 상세 화면에서 `검토 중` 칩 소멸·사진 렌더 확인. E2E 5/5 전부 통과
+2. **사용자 로컬 검수** → OK 시 main 머지·푸시 (main push = Vercel 배포). 검수 범위 = 완식 기록 전체 + 집 세션 추가분(회원탈퇴·장르 가이드 재작성·신규 오픈 폐기·2뎁스 헤더)
+3. **테스트 데이터 정리** (검수·머지 후): `delete from public.record_photos where shop_id = 'kinka';` + Storage > record-photos 버킷에서 해당 파일 삭제 + `update public.records set count = 1 where shop_id = 'kinka';` (원상: count 1)
 
 ### 작업 환경 참고
 
