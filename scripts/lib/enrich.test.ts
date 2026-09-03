@@ -5,6 +5,7 @@ import {
   mergeEnrichments,
   promoteSoups,
   toSlug,
+  verifiedByResearch,
   type Enrichment,
 } from "./enrich";
 
@@ -236,5 +237,37 @@ describe("판정 마크 최신 우선", () => {
     expect(merged.soupDetail).toEqual(
       expect.arrayContaining(["이에케", "유즈"]),
     );
+  });
+});
+
+describe("검증 등급 — 조사 확인 판정", () => {
+  const full = {
+    soups: ["돈코츠"],
+    hours: "11:00-21:00",
+  };
+
+  it("국물 태깅 + 영업시간이면 운영자확인", () => {
+    expect(verifiedByResearch(full)).toBe(true);
+  });
+
+  it("영업시간 대신 메뉴가 있어도 운영자확인", () => {
+    expect(
+      verifiedByResearch({ ...full, hours: undefined, menus: ["라멘 9000"] }),
+    ).toBe(true);
+  });
+
+  it("국물 태깅이 없으면 미달 — 기타 폴백도 태깅으로 치지 않는다", () => {
+    expect(verifiedByResearch({ ...full, soups: undefined })).toBe(false);
+    expect(verifiedByResearch({ ...full, soups: ["기타"] })).toBe(false);
+  });
+
+  it("기타가 섞여도 실제 태깅이 있으면 인정한다", () => {
+    expect(verifiedByResearch({ ...full, soups: ["돈코츠", "기타"] })).toBe(
+      true,
+    );
+  });
+
+  it("메뉴·영업시간 둘 다 없으면 미달", () => {
+    expect(verifiedByResearch({ ...full, hours: undefined })).toBe(false);
   });
 });

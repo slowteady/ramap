@@ -10,6 +10,7 @@ import {
   promoteSoups,
   toSheetLine,
   toSlug,
+  verifiedByResearch,
   type Enrichment,
 } from "./lib/enrich";
 import { SHEET_HEADER } from "./lib/sheet-parser";
@@ -46,6 +47,9 @@ for (const line of lines.slice(1)) {
 }
 
 type Verdict = "publish" | "hold" | "exclude";
+
+/* 전국 조사 라운드 종료일 — 실행일이 아닌 상수라 재실행해도 결과가 결정적 */
+const RESEARCH_VERIFIED_AT = "2026-09-03";
 
 /* 게재 게이트 (2026-09-02 PO 확정): 웹 실존 신호가 있는 매장만 시드에 —
    네이버·카카오에서 검색하면 나오는 수준의 실존성을 담보 */
@@ -137,6 +141,17 @@ for (const line of lines.slice(1)) {
   /* 위치가 불확실한 매장은 보류 (2026-09-02 PO: 확실하지 않으면 보류) */
   if (verdict === "publish" && (e.sourceNote ?? "").includes("주소 상이"))
     verdict = "hold";
+  /* 판정은 병합 결과가 담긴 셀 기준 — 이전 라운드에 이미 실린 값도 신호다.
+     "제보검토중"은 시딩 기본값이라 산정으로 덮되, 사람이 올린 "운영자확인"은 건드리지 않는다 */
+  const researched = verifiedByResearch({
+    soups: cells.스프 ? cells.스프.split(", ") : undefined,
+    hours: cells.영업시간 || undefined,
+    menus: [cells.대표메뉴1, cells.대표메뉴2, cells.대표메뉴3].filter(Boolean),
+  });
+  if (verdict === "publish" && cells.검증상태 !== "운영자확인" && researched) {
+    cells.검증상태 = "운영자확인";
+    if (!cells.최종확인일) cells.최종확인일 = RESEARCH_VERIFIED_AT;
+  }
   if (verdict === "exclude") {
     excluded += 1;
   } else if (verdict === "hold") {
@@ -180,8 +195,14 @@ if (areaConflicts.length > 1)
   );
 const heldDest = resolve("data/out/held.tsv");
 writeFileSync(heldDest, `${held.join("\n")}\n`);
+const confirmedCount = outRows.filter(
+  (c) => c.검증상태 === "운영자확인",
+).length;
 console.log(
   `후보 ${lines.length - 1}건 → 게재 ${out.length - 1} / 보류(실존 미확인) ${held.length - 1} / 제외(폐업·비라멘) ${excluded}`,
+);
+console.log(
+  `검증 등급: 운영자확인 ${confirmedCount} / 제보검토중 ${out.length - 1 - confirmedCount}`,
 );
 console.log(
   `게재분 ${dest} · 보류분 ${heldDest} (보강 매칭 ${tagged}건, 폐업 의심 ${closedHints}건)`,
