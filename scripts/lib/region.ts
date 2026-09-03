@@ -18,10 +18,22 @@ export function sidoOf(address: string): string | null {
   return SIDO_MAP[first] ?? null;
 }
 
+const GU_SIDO = new Set([
+  "서울",
+  "인천",
+  "부산",
+  "대구",
+  "대전",
+  "광주",
+  "울산",
+]);
+
 export function regionDistrictOf(address: string): string | null {
   const sido = sidoOf(address);
   if (!sido) return null;
   const tokens = address.trim().split(/\s+/);
-  if (sido === "서울") return tokens[1]?.match(/^[가-힣]+구$/)?.[0] ?? null;
+  /* 특별시·광역시=구·군, 도=시·군 (구가 있는 시도 시 단위가 통용 스코프) */
+  if (GU_SIDO.has(sido))
+    return tokens[1]?.match(/^[가-힣]+(구|군)$/)?.[0] ?? null;
   return tokens[1]?.match(/^[가-힣]+(시|군)$/)?.[0] ?? null;
 }

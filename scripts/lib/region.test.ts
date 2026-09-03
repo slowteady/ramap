@@ -22,6 +22,12 @@ describe("regionDistrictOf", () => {
     );
   });
 
+  it("광역시는 구·군 단위", () => {
+    expect(regionDistrictOf("인천광역시 부평구 부평대로 1")).toBe("부평구");
+    expect(regionDistrictOf("부산광역시 해운대구 우동 1")).toBe("해운대구");
+    expect(regionDistrictOf("부산광역시 기장군 기장읍 1")).toBe("기장군");
+  });
+
   it("경기는 시·군 단위 (구가 있어도 시로)", () => {
     expect(regionDistrictOf("경기도 수원시 팔달구 정조로 800")).toBe("수원시");
     expect(regionDistrictOf("경기도 오산시 궐동로 8")).toBe("오산시");
