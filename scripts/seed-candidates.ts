@@ -33,9 +33,10 @@ if (sangInput) {
   for (const path of sangInput.split(",")) {
     const sangCsv = decodeCsvBuffer(readFileSync(resolve(path)));
     const sangAll = parseSanggwon(sangCsv);
-    sangEntire.push(...sangAll);
+    /* 수십만 행 spread는 콜스택 초과 — 개별 push */
+    for (const row of sangAll) sangEntire.push(row);
     const filtered = sangAll.filter(isRamenBySanggwon);
-    sangRows.push(...filtered);
+    for (const row of filtered) sangRows.push(row);
     console.log(
       `상가정보(${path.split("/").pop()}) ${sangAll.length}건 → 라멘 후보 ${filtered.length}건`,
     );
