@@ -1,0 +1,422 @@
+[
+  {
+    "name": "와다라멘",
+    "area": "한성대입구",
+    "areaConfirmed": true,
+    "addrHint": "삼선교로10길 8",
+    "sourceNote": "라벨 부여(다음검색) — 검색결과가 '한성대입구·삼선교'로 표기"
+  },
+  {
+    "name": "하코야",
+    "area": "대관령",
+    "areaConfirmed": true,
+    "addrHint": "올림픽로 715",
+    "sourceNote": "라벨 부여(다음검색) — 검색결과가 '대관령'으로 표기(횡계 일대 통칭)"
+  },
+  {
+    "name": "산쪼메",
+    "area": "원통",
+    "areaConfirmed": true,
+    "addrHint": "원통로 187",
+    "sourceNote": "라벨 부여(다음검색) — 검색결과가 '원통'으로 표기(인제 북면 상권 통칭)"
+  },
+  {
+    "name": "혼다라멘",
+    "area": "구래",
+    "areaConfirmed": true,
+    "addrHint": "김포한강9로75번길 102",
+    "sourceNote": "라벨 부여(다음검색) — '구래동·한강신도시'로 표기, 구래 상권 통칭 채택"
+  },
+  {
+    "name": "하코야",
+    "area": "영통",
+    "areaConfirmed": true,
+    "addrHint": "청명남로 21",
+    "sourceNote": "라벨 부여(다음검색) — '영통·영통역'으로 다수 표기"
+  },
+  {
+    "name": "아찌;아찌라멘",
+    "area": "옥길",
+    "areaConfirmed": true,
+    "addrHint": "옥길로 1",
+    "sourceNote": "라벨 부여(다음검색) — '옥길·옥길지구'로 다수 표기"
+  },
+  {
+    "name": "라멘야",
+    "area": "구래",
+    "areaConfirmed": true,
+    "addrHint": "김포한강8로 420",
+    "sourceNote": "라벨 부여(다음검색) — '구래동'으로 표기, 구래 상권 통칭 채택"
+  },
+  {
+    "name": "히노아지",
+    "area": "탄현",
+    "areaConfirmed": true,
+    "addrHint": "일현로 97-11",
+    "sourceNote": "라벨 부여(다음검색) — '일산·탄현'으로 표기, 탄현 상권 통칭 채택"
+  },
+  {
+    "name": "젠푸드히노아지롯데 수원점",
+    "area": "수원역",
+    "areaConfirmed": true,
+    "addrHint": "세화로 134",
+    "sourceNote": "라벨 부여(다음검색) — '수원역·롯데몰 수원'으로 다수 표기"
+  },
+  {
+    "name": "쇼부라멘광주문형점",
+    "area": "오포",
+    "areaConfirmed": true,
+    "addrHint": "오포로 430-1",
+    "sourceNote": "라벨 부여(다음검색) — '오포·문형동'으로 표기, 오포 상권 통칭 채택"
+  },
+  {
+    "name": "쿠니라멘",
+    "area": "명학",
+    "areaConfirmed": true,
+    "addrHint": "냉천로 4-1",
+    "sourceNote": "라벨 부여(다음검색) — '명학 라멘맛집'·성결대 인근 표기"
+  },
+  {
+    "name": "쇼부라멘군포 부곡점",
+    "area": "부곡",
+    "areaConfirmed": true,
+    "addrHint": "군포첨단산업2로7번길 8",
+    "sourceNote": "라벨 부여(다음검색) — '부곡'으로 표기"
+  },
+  {
+    "name": "히라멘",
+    "area": "지식정보타운",
+    "areaConfirmed": true,
+    "addrHint": "과천대로7길 33",
+    "sourceNote": "라벨 부여(다음검색) — '과천지식정보타운'으로 표기(디테크타워)"
+  },
+  {
+    "name": "밋숀라멘",
+    "area": "민락",
+    "areaConfirmed": true,
+    "addrHint": "배꽃길 96",
+    "sourceNote": "라벨 부여(다음검색) — '민락동'으로 표기, 민락지구 통칭 채택"
+  },
+  {
+    "name": "오마츠리라멘",
+    "area": "안양중앙시장",
+    "areaConfirmed": true,
+    "addrHint": "안양로257번길 15",
+    "sourceNote": "라벨 부여(다음검색) — '안양중앙시장'으로 표기"
+  },
+  {
+    "name": "우시라멘",
+    "area": "고읍",
+    "areaConfirmed": true,
+    "addrHint": "고읍남로 13",
+    "sourceNote": "라벨 부여(다음검색) — '고읍'으로 표기"
+  },
+  {
+    "name": "히로라멘오산시청 본점",
+    "area": "오산시청",
+    "areaConfirmed": true,
+    "addrHint": "운천로 80-5",
+    "sourceNote": "라벨 부여(다음검색) — '오산시청'으로 표기"
+  },
+  {
+    "name": "혼다라멘",
+    "area": "사남",
+    "areaConfirmed": true,
+    "addrHint": "항공로 162",
+    "sourceNote": "라벨 부여(다음검색) — '사남'으로 표기"
+  },
+  {
+    "name": "히노아지양산사송점",
+    "area": "사송",
+    "areaConfirmed": true,
+    "addrHint": "삼송로 147-5",
+    "sourceNote": "라벨 부여(다음검색) — '사송'으로 표기(사송신도시)"
+  },
+  {
+    "name": "도쿄라멘김천신음점",
+    "area": "신음",
+    "areaConfirmed": true,
+    "addrHint": "부거리길 25",
+    "sourceNote": "라벨 부여(다음검색) — '김천 신음'으로 표기"
+  },
+  {
+    "name": "도쿄라멘3900안동 중앙점",
+    "area": "문화의거리",
+    "areaConfirmed": true,
+    "addrHint": "문화광장길 18",
+    "sourceNote": "라벨 부여(다음검색) — '문화의거리·안동 시내'로 표기"
+  },
+  {
+    "name": "미스터라멘",
+    "area": "천북",
+    "areaConfirmed": true,
+    "addrHint": "천북남로 16",
+    "sourceNote": "라벨 부여(다음검색) — '천북'으로 표기"
+  },
+  {
+    "name": "멘무샤",
+    "area": "대구스타디움",
+    "areaConfirmed": true,
+    "addrHint": "유니버시아드로 140",
+    "sourceNote": "라벨 부여(다음검색) — '대구스타디움·칼라스퀘어'로 표기"
+  },
+  {
+    "name": "카와루라멘",
+    "area": "재송",
+    "areaConfirmed": true,
+    "addrHint": "재반로196번길 14-14",
+    "sourceNote": "라벨 부여(다음검색) — '재송동'으로 표기, 재송 통칭 채택"
+  },
+  {
+    "name": "톤토리라멘",
+    "area": "다대포",
+    "areaConfirmed": true,
+    "addrHint": "다대로144번길 73",
+    "sourceNote": "라벨 부여(다음검색) — '다대·다대포'로 표기"
+  },
+  {
+    "name": "라멘집입니다울산 성안점",
+    "area": "성안",
+    "areaConfirmed": true,
+    "addrHint": "성안1길 137",
+    "sourceNote": "라벨 부여(다음검색) — '성안'으로 다수 표기"
+  },
+  {
+    "name": "류센소영종점",
+    "area": "하늘도시",
+    "areaConfirmed": true,
+    "addrHint": "하늘별빛로65번길 7-20",
+    "sourceNote": "라벨 부여(다음검색) — '영종하늘도시·하늘도시'로 다수 표기"
+  },
+  {
+    "name": "히노아지앨리웨이인천",
+    "area": "앨리웨이",
+    "areaConfirmed": true,
+    "addrHint": "숙골로88번길 12",
+    "sourceNote": "라벨 부여(다음검색) — '앨리웨이'로 표기(앨리웨이 인천 상권)"
+  },
+  {
+    "name": "뉴진라멘",
+    "area": "운서",
+    "areaConfirmed": true,
+    "addrHint": "햇내로안길 48-8",
+    "sourceNote": "라벨 부여(다음검색) — '운서·은골카페거리'로 표기"
+  },
+  {
+    "name": "타무라멘",
+    "area": "화순",
+    "areaConfirmed": true,
+    "addrHint": "화순로 67",
+    "sourceNote": "라벨 부여(다음검색) — '화순'으로 표기(안덕면 화순 통칭)"
+  },
+  {
+    "name": "라멘포차",
+    "area": "아산터미널",
+    "areaConfirmed": true,
+    "addrHint": "번영로 225",
+    "sourceNote": "라벨 부여(다음검색) — '아산터미널'로 표기"
+  },
+  {
+    "name": "칸도라멘",
+    "area": "공주대",
+    "areaConfirmed": true,
+    "addrHint": "번영3로 52-7",
+    "sourceNote": "라벨 부여(다음검색) — '공주대(후문)·신관동'으로 표기"
+  },
+  {
+    "name": "라멘선생수제돈까스",
+    "area": "목천",
+    "areaConfirmed": true,
+    "addrHint": "신계5길 38-1",
+    "sourceNote": "라벨 부여(다음검색) — '목천'으로 표기"
+  },
+  {
+    "name": "단보라멘순천향대점",
+    "area": "순천향대",
+    "areaConfirmed": true,
+    "addrHint": "순천향로 8-1",
+    "sourceNote": "라벨 부여(다음검색) — '순천향대'로 다수 표기(대학 상권)"
+  },
+  {
+    "name": "도쿄라멘3900",
+    "area": "목포대",
+    "areaConfirmed": true,
+    "addrHint": "승달산길 31",
+    "sourceNote": "라벨 부여(다음검색) — '목포대'로 표기(목포대 앞 상권)"
+  },
+  {
+    "name": "지라멘",
+    "area": "신대지구",
+    "areaConfirmed": true,
+    "addrHint": "향매1길 17",
+    "sourceNote": "라벨 부여(다음검색) — '신대지구'로 표기"
+  },
+  {
+    "name": "우마이라멘",
+    "area": "망미",
+    "areaConfirmed": true,
+    "addrHint": "망미배산로10번길 28",
+    "sourceNote": "라벨 부여(다음검색) — '망미'로 다수 표기"
+  },
+  {
+    "name": "와다라멘 칠곡점",
+    "area": "칠곡",
+    "areaConfirmed": true,
+    "addrHint": "팔거천동로4길 37-1",
+    "sourceNote": "라벨 부여(다음검색) — '칠곡'으로 표기(대구 칠곡지구)"
+  },
+  {
+    "name": "고운라멘시지점",
+    "area": "시지",
+    "areaConfirmed": true,
+    "addrHint": "고산로 123",
+    "sourceNote": "라벨 부여(다음검색) — '시지'로 표기"
+  },
+  {
+    "name": "동경라멘학교",
+    "area": "도룡",
+    "areaConfirmed": true,
+    "addrHint": "엑스포로 1",
+    "sourceNote": "라벨 부여(다음검색) — '도룡동·엑스포과학공원' 표기, 대전신세계 소재 동네 통칭 채택"
+  },
+  {
+    "name": "멘야마쯔리 도룡점",
+    "area": "도룡",
+    "areaConfirmed": true,
+    "addrHint": "엑스포로151번길 19",
+    "sourceNote": "라벨 부여(다음검색) — '도룡·도룡동'으로 다수 표기"
+  },
+  {
+    "name": "와다라멘 동구점",
+    "area": "전하",
+    "areaConfirmed": true,
+    "addrHint": "진성3길 13",
+    "sourceNote": "라벨 부여(다음검색) — '전하'로 표기"
+  },
+  {
+    "name": "아찌라멘(울산점)",
+    "area": "신천",
+    "areaConfirmed": true,
+    "addrHint": "신천로 55-22",
+    "sourceNote": "라벨 부여(다음검색) — '신천'으로 표기"
+  },
+  {
+    "name": "멘야하나비 AK플라자수원점",
+    "area": "수원역",
+    "areaConfirmed": true,
+    "addrHint": "덕영대로 924",
+    "sourceNote": "라벨 부여(다음검색) — '수원역·AK플라자'로 표기"
+  },
+  {
+    "name": "오로지라멘 수지성복점",
+    "area": "성복",
+    "areaConfirmed": true,
+    "addrHint": "성복2로 114",
+    "sourceNote": "라벨 부여(다음검색) — '성복·성복역'으로 다수 표기"
+  },
+  {
+    "name": "이츠모라멘",
+    "area": "초당",
+    "areaConfirmed": true,
+    "addrHint": "초당원길 34",
+    "sourceNote": "라벨 부여(다음검색) — '초당'으로 다수 표기"
+  },
+  {
+    "name": "멘야마쯔리 둔포점",
+    "area": "둔포",
+    "areaConfirmed": true,
+    "addrHint": "아산밸리중앙로 100",
+    "sourceNote": "라벨 부여(다음검색) — '둔포·아산밸리'로 표기"
+  },
+  {
+    "name": "고운라멘 경주점",
+    "area": "황성",
+    "areaConfirmed": true,
+    "addrHint": "황성로64번길 32",
+    "sourceNote": "라벨 부여(다음검색) — '황성'으로 표기"
+  },
+  {
+    "name": "와다라멘",
+    "area": "석적",
+    "areaConfirmed": true,
+    "addrHint": "북중리11길 8",
+    "sourceNote": "라벨 부여(다음검색) — '석적'으로 표기"
+  },
+  {
+    "name": "우마이365라멘",
+    "area": "삼계",
+    "areaConfirmed": true,
+    "addrHint": "해반천로130번길 11",
+    "sourceNote": "라벨 부여(다음검색) — '삼계'로 표기"
+  },
+  {
+    "name": "마카나이 라멘",
+    "area": "송우리",
+    "areaConfirmed": true,
+    "addrHint": "솔모루로 71-6",
+    "sourceNote": "라벨 부여(다음검색) — '송우리'로 표기"
+  },
+  {
+    "name": "혼다라멘 창원삼계점",
+    "area": "내서",
+    "areaConfirmed": true,
+    "addrHint": "삼계2길 28",
+    "sourceNote": "라벨 부여(다음검색) — '내서·삼계'로 표기, 내서 상권 통칭 채택"
+  },
+  {
+    "name": "와다라멘 풍암점",
+    "area": "풍암",
+    "areaConfirmed": true,
+    "addrHint": "풍금로11번길 4-14",
+    "sourceNote": "라벨 부여(다음검색) — '풍암'으로 다수 표기"
+  },
+  {
+    "name": "와다라멘 파주운정점",
+    "area": "운정",
+    "areaConfirmed": true,
+    "addrHint": "해올2길 16",
+    "sourceNote": "라벨 부여(다음검색) — '운정·운정신도시'로 다수 표기"
+  },
+  {
+    "name": "미정당",
+    "area": "명학",
+    "areaConfirmed": true,
+    "addrHint": "안양로 174",
+    "sourceNote": "라벨 부여(다음검색) — '안양 명학역·만안구청 근처'로 표기"
+  },
+  {
+    "name": "라쿠다",
+    "area": "율하",
+    "areaConfirmed": true,
+    "addrHint": "율하동로17길 1",
+    "sourceNote": "라벨 부여(다음검색) — '율하'로 다수 표기"
+  },
+  {
+    "name": "무다이",
+    "area": "완정역",
+    "areaConfirmed": true,
+    "addrHint": "서곶로 837",
+    "sourceNote": "라벨 부여(다음검색) — '완정역·당하동'으로 표기('검단'은 구 이름과 중복)"
+  },
+  {
+    "name": "라신비",
+    "area": "한림",
+    "areaConfirmed": true,
+    "addrHint": "한림해안로 548",
+    "sourceNote": "라벨 부여(다음검색) — '한림'으로 표기"
+  },
+  {
+    "name": "체면",
+    "area": "대정",
+    "areaConfirmed": true,
+    "addrHint": "단산로 95",
+    "sourceNote": "라벨 부여(다음검색) — '대정'으로 다수 표기 — 다음 플레이스상 '영업종료' 표시 확인됨"
+  },
+  {
+    "name": "마카나이여수 학동점",
+    "area": "학동",
+    "areaConfirmed": true,
+    "addrHint": "시청동5길 9",
+    "sourceNote": "라벨 부여(다음검색) — '학동·여수시청'으로 표기"
+  }
+]

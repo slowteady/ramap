@@ -210,3 +210,31 @@ describe("판정 마커의 위치 종속성", () => {
     expect(e.soupDetail).toContain("지로라멘");
   });
 });
+
+describe("판정 마크 최신 우선", () => {
+  it("뒤에 온 조사가 판정 마크를 떼면 앞선 마크도 걷는다", () => {
+    const merged = mergeEnrichments([
+      { name: "대호당", soupDetail: ["실존 미확인"] },
+      { name: "대호당", soups: ["돈코츠"] },
+    ]);
+    expect(merged.soupDetail ?? []).not.toContain("실존 미확인");
+  });
+
+  it("뒤에 온 조사가 새 판정 마크를 붙이면 반영한다", () => {
+    const merged = mergeEnrichments([
+      { name: "삿뽀로", soups: ["미소"] },
+      { name: "삿뽀로", soupDetail: ["라멘집 아님"] },
+    ]);
+    expect(merged.soupDetail ?? []).toContain("라멘집 아님");
+  });
+
+  it("판정 마크가 아닌 세부 스타일은 합집합을 유지한다", () => {
+    const merged = mergeEnrichments([
+      { name: "가게", soupDetail: ["이에케"] },
+      { name: "가게", soupDetail: ["유즈"] },
+    ]);
+    expect(merged.soupDetail).toEqual(
+      expect.arrayContaining(["이에케", "유즈"]),
+    );
+  });
+});

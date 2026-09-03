@@ -1,0 +1,2895 @@
+[
+  {
+    "name": "잇짱라멘",
+    "area": "논현",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "학동로4길 20"
+  },
+  {
+    "name": "아카리라멘 선유도점",
+    "hours": "11:00-22:30",
+    "breakTime": "14:30-17:00",
+    "menus": [
+      "오이타 돈코츠 라멘|9900",
+      "매운 돈코츠 라멘|9900",
+      "간사이 우동|9900"
+    ],
+    "area": "선유도",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "양평로22길 25"
+  },
+  {
+    "name": "멘야유메미루 강남점",
+    "area": "강남역",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "테헤란로4길 6"
+  },
+  {
+    "name": "라멘바 시코우",
+    "hours": "12:00-18:40",
+    "breakTime": "14:30-17:00",
+    "closedDays": "수요일",
+    "menus": ["쇼유라멘|12500", "시오라멘|12500"],
+    "instagram": "ramenbarshikou",
+    "area": "상수",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "와우산로7길 33"
+  },
+  {
+    "name": "유메라멘",
+    "hours": "11:30-24:00",
+    "breakTime": "14:30-18:00",
+    "closedDays": "월요일",
+    "instagram": "yume_ramen_",
+    "area": "청량리",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "답십리로 27"
+  },
+  {
+    "name": "그린라멘샵",
+    "hours": "11:00-19:30",
+    "closedDays": "일요일",
+    "instagram": "green_ramenshop",
+    "area": "충무로",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "서애로 18-4"
+  },
+  {
+    "name": "라멘 토네이도",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "성미산로1길 27"
+  },
+  {
+    "name": "멘야윤",
+    "area": "보라매",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "여의대방로22길 121"
+  },
+  {
+    "name": "계단라멘",
+    "area": "목동",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "목동서로 161"
+  },
+  {
+    "name": "니시무라멘 현대무역점",
+    "area": "코엑스",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "테헤란로 517"
+  },
+  {
+    "name": "(주)도마,유즈라멘 안국",
+    "hours": "11:00-21:30",
+    "breakTime": "15:00-17:00",
+    "closedDays": "매월 마지막주 월요일",
+    "menus": [
+      "유즈시오라멘|12000",
+      "유즈쇼유라멘|12000",
+      "매운유즈쇼유라멘|13000"
+    ],
+    "instagram": "yuzu_ramen2",
+    "area": "안국",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "북촌로2길 14"
+  },
+  {
+    "name": "유메이라멘",
+    "area": "압구정",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "압구정로50길 5-10"
+  },
+  {
+    "name": "라멘이찌방",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "강남대로58길 11"
+  },
+  {
+    "name": "니카이라멘",
+    "hours": "11:00-21:00",
+    "closedDays": "토·일요일",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "마조로 22-3"
+  },
+  {
+    "name": "오로지라멘 이앤씨벤처드림타워점",
+    "area": "구로디지털단지",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "디지털로31길 53"
+  },
+  {
+    "name": "멘쇼우라멘",
+    "instagram": "menshou_ramen",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "남부순환로230길 25"
+  },
+  {
+    "name": "카도야라멘 서울대점",
+    "hours": "11:00-21:00",
+    "menus": ["돈코츠라멘|8000", "미소라멘|8000", "쇼유라멘|7500"],
+    "area": "서울대입구",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "남부순환로 1811"
+  },
+  {
+    "name": "산쇼쿠라멘 강남본점",
+    "hours": "11:00-21:00",
+    "breakTime": "14:30-17:00",
+    "closedDays": "일요일",
+    "menus": [
+      "백토리 파이탄|11000",
+      "흑토리 파이탄|11000",
+      "적토리 파이탄|11000"
+    ],
+    "area": "강남역",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "테헤란로4길 46"
+  },
+  {
+    "name": "코란라멘 본점",
+    "hours": "10:00-22:00",
+    "closedDays": "수요일",
+    "menus": ["돈코츠라멘|9500", "쇼유라멘|9500", "미소라멘|9500"],
+    "area": "신림",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "대학6길 14"
+  },
+  {
+    "name": "메이게츠 라멘 신림점",
+    "area": "신림",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "신림로19길 78"
+  },
+  {
+    "name": "소노키라멘 반포점",
+    "area": "반포",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "사평대로55길 72"
+  },
+  {
+    "name": "오이시쿠 라멘 강서점",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "곰달래로53길 30"
+  },
+  {
+    "name": "멘야하나",
+    "instagram": "menyahana0428",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "시흥대로152길 25"
+  },
+  {
+    "name": "와다라멘",
+    "area": "구로디지털단지",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "시흥대로163길 12"
+  },
+  {
+    "name": "라멘모토",
+    "area": "합정",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "포은로 11"
+  },
+  {
+    "name": "멘야가와",
+    "hours": "11:00-22:00",
+    "breakTime": "15:00-17:00",
+    "menus": ["돈코츠라멘|9000", "시오라멘|9000", "마제소바|12000"],
+    "area": "목동",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "목동중앙로7길 8"
+  },
+  {
+    "name": "잇또라멘 노원점",
+    "area": "노원",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "노해로 517"
+  },
+  {
+    "name": "폭탄국밥&오이시쿠 라멘 고대안암점",
+    "area": "안암",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "고려대로26길 31"
+  },
+  {
+    "name": "이츠모라멘",
+    "hours": "11:30-20:30",
+    "menus": [
+      "이츠모돈코츠라멘|10500",
+      "카라이돈코츠라멘|11000",
+      "츠케멘|11000"
+    ],
+    "instagram": "itsumo_ramen",
+    "area": "홍대",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "와우산로23길 18-7"
+  },
+  {
+    "name": "네코라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "목동남로4길 22"
+  },
+  {
+    "name": "오로지라멘 중앙유통단지점",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "경인로53길 15"
+  },
+  {
+    "name": "레드멘야케이 노원본점",
+    "hours": "11:00-21:00",
+    "menus": [
+      "노원 마츠리 니라라멘|11500",
+      "신케이 라멘|11000",
+      "케이라멘|10000"
+    ],
+    "area": "노원",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "상계로 63-7"
+  },
+  {
+    "name": "수유라멘 서울과기대 공릉점",
+    "hours": "11:00-21:00",
+    "menus": ["돈코츠라멘|10000", "마제소바|10000", "탄탄멘|10000"],
+    "area": "공릉",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "공릉로 221"
+  },
+  {
+    "name": "KUNI RAMEN 쿠니라멘",
+    "hours": "11:00-21:00",
+    "breakTime": "15:20-16:30",
+    "closedDays": "일요일",
+    "menus": ["쿠니라멘(돈코츠)|9000", "핫쿠니라멘|9000", "쿠로돈코츠|9500"],
+    "area": "양재",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "강남대로 224"
+  },
+  {
+    "name": "겐조라멘",
+    "hours": "11:00-20:30",
+    "menus": ["돈꼬츠라멘|9000", "가라시라멘|9000", "미소라멘|8000"],
+    "area": "강남역",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "강남대로 455"
+  },
+  {
+    "name": "멘야수",
+    "hours": "11:30-21:00",
+    "breakTime": "15:30-18:00",
+    "closedDays": "화·수요일",
+    "menus": [
+      "추천오리간장라멘|10000",
+      "특제오리간장라멘|12500",
+      "오리소금라멘|10000"
+    ],
+    "instagram": "menyasoo_info",
+    "area": "홍대",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "양화로 56"
+  },
+  {
+    "name": "칸키라멘",
+    "hours": "11:00-21:00",
+    "breakTime": "15:00-17:00",
+    "area": "목동",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "오목로48길 10"
+  },
+  {
+    "name": "라멘쨩",
+    "hours": "11:00-19:30",
+    "closedDays": "일요일",
+    "menus": ["돈코츠라멘|7500", "돈코츠차슈라멘|9000", "라멘쨩스페셜|10000"],
+    "area": "잠실",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "올림픽로35길 112"
+  },
+  {
+    "name": "일본라멘무메이",
+    "instagram": "mumei_ramen",
+    "area": "홍대",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "동교로27길 12"
+  },
+  {
+    "name": "멘야니쿠",
+    "menus": ["니쿠라멘|11700"],
+    "area": "방이",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "올림픽로32길 29"
+  },
+  {
+    "name": "쇼부라멘 서소문점",
+    "hours": "08:00-20:00",
+    "closedDays": "토·일요일",
+    "menus": ["쇼유라멘|8000", "미소라멘|8000", "돈코츠라멘|9000"],
+    "area": "서소문",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "서소문로 95"
+  },
+  {
+    "name": "한끼는라멘&비빔밥",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "청계산로 217"
+  },
+  {
+    "name": "라멘하카타분코",
+    "instagram": "hakatabunko_official",
+    "area": "상수",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "독막로19길 43"
+  },
+  {
+    "name": "쿄오모라멘",
+    "instagram": "kyoomo.ramen",
+    "area": "신당",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "다산로8길 16"
+  },
+  {
+    "name": "라멘담뽀뽀",
+    "area": "회현",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "퇴계로 72"
+  },
+  {
+    "name": "쿄오모라멘 신당",
+    "instagram": "kyoomo.ramen",
+    "area": "신당",
+    "sourceNote": "정보 보강(다음검색)"
+  },
+  {
+    "name": "보스라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "청파로 74"
+  },
+  {
+    "name": "오빠라멘",
+    "area": "이태원",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "보광로 124"
+  },
+  {
+    "name": "우마이라멘&마제소바",
+    "area": "건대",
+    "sourceNote": "정보 보강 — 상세 미확인(검색결과 주소 불일치)",
+    "addrHint": "능동로19길 9"
+  },
+  {
+    "name": "따띠라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "천호대로121길 22"
+  },
+  {
+    "name": "멘야카오리",
+    "instagram": "menya_jangan",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "답십리로68길 10"
+  },
+  {
+    "name": "수유라멘 경희대점",
+    "area": "경희대",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "회기로21길 29"
+  },
+  {
+    "name": "멘야리(MenyaLee)",
+    "hours": "11:00-21:30",
+    "closedDays": "연중무휴",
+    "menus": ["마제소바|10000", "돈코츠라멘|11000", "아부라소바|12500"],
+    "area": "성신여대",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "동소문로20다길 30-11"
+  },
+  {
+    "name": "와다라멘",
+    "hours": "11:00-22:00",
+    "breakTime": "14:00-17:00",
+    "closedDays": "연중무휴",
+    "menus": ["미소라멘|10500", "쇼유라멘|9500", "얼큰탄탄멘|10500"],
+    "area": "삼선교",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "삼선교로10길 8"
+  },
+  {
+    "name": "수유라멘 점심 저녁 찐맛 무료주차",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "한천로131길 17"
+  },
+  {
+    "name": "네츠라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "통일로39나길 1"
+  },
+  {
+    "name": "토나리 라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "세무서길 78"
+  },
+  {
+    "name": "삿포로 미소라멘 에류테(永龍亭)",
+    "closedDays": "토·일요일",
+    "menus": ["미소버터라멘|10000", "미소마늘라멘|10000", "시오버터라멘|10000"],
+    "instagram": "ramen_eiryutei",
+    "area": "상암",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "월드컵북로 402"
+  },
+  {
+    "name": "멘야준",
+    "hours": "11:00-20:00",
+    "menus": ["쇼유라멘|10000", "차슈쇼유라멘|12500", "특선쇼유라멘|15500"],
+    "instagram": "menyajoon",
+    "area": "홍대",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "동교로 128"
+  },
+  {
+    "name": "지로우 라멘",
+    "hours": "11:00-21:00",
+    "breakTime": "15:00-17:00",
+    "menus": ["지로우라멘|10000", "폭탄라멘|11000", "교카이돈코츠라멘|11000"],
+    "area": "홍대",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "와우산로29가길 79"
+  },
+  {
+    "name": "미스터라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "금낭화로 91-2"
+  },
+  {
+    "name": "라멘짱 앤 청계산뚝배기수제비",
+    "area": "김포공항",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "하늘길 112"
+  },
+  {
+    "name": "오로지라멘 구로지타워몰점",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "디지털로26길 38"
+  },
+  {
+    "name": "라멘짱 디큐브점",
+    "area": "신도림",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "경인로 662"
+  },
+  {
+    "name": "멘야사케야",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "영중로 139"
+  },
+  {
+    "name": "더라멘워(The Ramen War)",
+    "instagram": "theramenwar_thehyundai_seoul",
+    "area": "여의도",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "여의대로 108"
+  },
+  {
+    "name": "텐진라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "당산로 111-4"
+  },
+  {
+    "name": "텐진라멘 문래",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "문래북로 49"
+  },
+  {
+    "name": "도쿄라멘3900",
+    "hours": "11:00-21:00",
+    "closedDays": "일요일",
+    "menus": ["돈코츠라멘|3900", "미소라멘|3900", "소유라멘|3900"],
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "상도로67길 31"
+  },
+  {
+    "name": "동경라멘학교",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "신반포로 176"
+  },
+  {
+    "name": "쇼부 일본라멘 전문점 (강남고속터미널1호점)",
+    "sourceNote": "정보 보강 — 상세 미확인"
+  },
+  {
+    "name": "강남역 라면집",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "강남대로61길 19"
+  },
+  {
+    "name": "라멘모토",
+    "hours": "17:00-04:00",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "도산대로13길 14-4"
+  },
+  {
+    "name": "킨카이자카야 킨톤라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "도산대로45길 10-5"
+  },
+  {
+    "name": "푸드스타사가라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "강남대로154길 43"
+  },
+  {
+    "name": "슈퍼라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "논현로105길 6-5"
+  },
+  {
+    "name": "유타로 라멘 논현점",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "봉은사로29길 8"
+  },
+  {
+    "name": "더라멘워(THE RAMEN WAR)",
+    "hours": "10:30-20:00",
+    "menus": [
+      "칸사이쇼유라멘|12000",
+      "마라쇼유라멘|13000",
+      "구운마늘라멘|12000"
+    ],
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "테헤란로 517"
+  },
+  {
+    "name": "마이니치라멘",
+    "instagram": "mainichi_ramen.kr",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "언주로85길 13"
+  },
+  {
+    "name": "멘야 유메미루",
+    "instagram": "menya.yumemiru",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "테헤란로43길 28"
+  },
+  {
+    "name": "역삼라멘",
+    "hours": "11:00-20:00",
+    "closedDays": "일요일",
+    "menus": ["돈코츠라멘|14000", "소유라멘|14000", "시오라멘|14000"],
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "언주로107길 38"
+  },
+  {
+    "name": "카도야라멘 가로수직영점",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "압구정로10길 30-3"
+  },
+  {
+    "name": "유라멘 강남역삼신논현역CGV점심저녁",
+    "instagram": "uramen_4u",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "봉은사로4길 32"
+  },
+  {
+    "name": "쇼부라멘 대웅제약점",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "봉은사로114길 12"
+  },
+  {
+    "name": "멘야 길조",
+    "closedDays": "일요일",
+    "instagram": "menyagiljo",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "논현로76길 34"
+  },
+  {
+    "name": "오레노라멘강남",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "테헤란로1길 28-9"
+  },
+  {
+    "name": "와다라멘 역삼점",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "테헤란로 309"
+  },
+  {
+    "name": "멘야산다이메논현",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "강남대로114길 23"
+  },
+  {
+    "name": "하쿠라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "남부순환로359길 4"
+  },
+  {
+    "name": "수라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "송파대로 345"
+  },
+  {
+    "name": "하코야",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "올림픽로 715"
+  },
+  {
+    "name": "산쪼메",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "원통로 187"
+  },
+  {
+    "name": "멘야산초쿠 본점",
+    "hours": "11:30-20:00",
+    "breakTime": "14:00-17:30",
+    "closedDays": "일요일",
+    "menus": ["돈코츠라멘|12000", "카라이돈코츠라멘|13000", "마제소바|11000"],
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "당저길 35-12"
+  },
+  {
+    "name": "라멘앤돈카츠",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "오크밸리2길 56"
+  },
+  {
+    "name": "멘야카오리 동탄점",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "동탄공원로3길 10-7"
+  },
+  {
+    "name": "히노아지기흥 구청점",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "구갈로72번길 31"
+  },
+  {
+    "name": "미스터라멘 삼송점",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "동송로 33"
+  },
+  {
+    "name": "혼다라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "김포한강9로75번길 102"
+  },
+  {
+    "name": "라멘모토",
+    "hours": "11:00-20:00",
+    "breakTime": "14:30-17:00",
+    "closedDays": "월요일",
+    "menus": ["츠케멘|11000", "모토라멘|11000", "새우라멘|12000"],
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "정자일로 220"
+  },
+  {
+    "name": "하코야",
+    "hours": "11:00-22:00",
+    "breakTime": "15:10-16:30",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "청명남로 21"
+  },
+  {
+    "name": "히노아지",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "광덕대로 194"
+  },
+  {
+    "name": "코이라멘 용인보정점",
+    "hours": "11:00-20:30",
+    "menus": ["오리지날 라멘|10000", "매운라멘|10000", "코이 마제소바|10500"],
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "죽전로 7"
+  },
+  {
+    "name": "산쪼메",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "삼성1로5길 6"
+  },
+  {
+    "name": "히노아지",
+    "hours": "10:30-22:00",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "경기대로 985"
+  },
+  {
+    "name": "도쿄라멘3900",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "송원길 23"
+  },
+  {
+    "name": "아찌;아찌라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "옥길로 1"
+  },
+  {
+    "name": "코이라멘안산 중앙점",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "예술대학로 11"
+  },
+  {
+    "name": "쇼부라멘한대점",
+    "hours": "11:00-21:00",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "중보로 49"
+  },
+  {
+    "name": "미스터라멘경희대국제캠퍼스점",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "덕영대로 1732"
+  },
+  {
+    "name": "쇼부라멘",
+    "hours": "10:30-20:00",
+    "menus": ["소유라멘|4400", "돈코츠라멘|5400", "고기짬뽕라멘|6900"],
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "시민대로 317"
+  },
+  {
+    "name": "하코야",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "세종로 396-4"
+  },
+  {
+    "name": "아찌라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "배곧5로 74"
+  },
+  {
+    "name": "코이라멘 판교점",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "판교역로 230"
+  },
+  {
+    "name": "라멘야",
+    "hours": "11:00-19:30",
+    "breakTime": "15:00-17:00",
+    "closedDays": "일요일",
+    "menus": [
+      "기본돈코츠라멘|10000",
+      "약간매운돈코츠라멘|10500",
+      "미즈교자|4000"
+    ],
+    "instagram": "ramenya_gimpo",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "김포한강8로 420"
+  },
+  {
+    "name": "혼다라멘",
+    "hours": "11:00-20:30",
+    "breakTime": "15:00-16:00",
+    "closedDays": "일요일",
+    "menus": ["혼다라멘|7900", "숯불고기라멘|8900", "매운혼다라멘|8900"],
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "청사로47번길 12"
+  },
+  {
+    "name": "097라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "서울대학로264번길 35"
+  },
+  {
+    "name": "산쪼메",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "부일로445번길 6"
+  },
+  {
+    "name": "멘야마쯔리 향남점",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "평3길 12"
+  },
+  {
+    "name": "하카다라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "금빛로 19"
+  },
+  {
+    "name": "행신카츠라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "무원로6번길 36"
+  },
+  {
+    "name": "계단라멘",
+    "hours": "11:00-21:00",
+    "menus": ["계단라멘|11000", "모츠라멘|12000", "차슈덮밥|5000"],
+    "instagram": "upstairramen_official",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "율천로7번길 10"
+  },
+  {
+    "name": "히노아지",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "일현로 97-11"
+  },
+  {
+    "name": "젠푸드히노아지롯데 수원점",
+    "hours": "10:30-20:00",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "세화로 134"
+  },
+  {
+    "name": "우시라멘",
+    "hours": "11:00-20:30",
+    "closedDays": "토요일",
+    "menus": ["돈코츠라멘|9500", "매운돈코츠라멘|9500", "구로마유라멘|10500"],
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "시민로 39"
+  },
+  {
+    "name": "멘야고",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "송화택지로 143-12"
+  },
+  {
+    "name": "하코야파주신세계프리미엄 아울렛점",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "필승로 200"
+  },
+  {
+    "name": "쇼부라멘광주문형점",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "오포로 430-1"
+  },
+  {
+    "name": "라멘선생&수제돈까스",
+    "hours": "11:00-21:00",
+    "breakTime": "15:00-16:00",
+    "menus": ["돈코츠라멘|10000", "매운 차돌라멘|10500", "얼큰 탄탄멘|10500"],
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "오리나무길 15-1"
+  },
+  {
+    "name": "혼다라멘 수지구청점",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "풍덕천로129번길 8"
+  },
+  {
+    "name": "라멘더블플러스",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "별양상가2로 20"
+  },
+  {
+    "name": "미가라멘배곧점",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "서울대학로264번길 25"
+  },
+  {
+    "name": "아찌;아찌라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "길주로 300"
+  },
+  {
+    "name": "코이라멘 흥덕점",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "흥덕2로75번길 8"
+  },
+  {
+    "name": "우마미라멘",
+    "hours": "09:30-21:00",
+    "menus": ["우마미라멘|9500", "돈코츠라멘|9500", "매운돈코츠라멘|10000"],
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "서삼릉1길 65-10"
+  },
+  {
+    "name": "미스터라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "경복대로 414"
+  },
+  {
+    "name": "쇼부라멘 수진점",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "제일로137번길 21-1"
+  },
+  {
+    "name": "신센라멘 상동점",
+    "hours": "10:00-23:00",
+    "menus": ["장어덮밥(싱글)|16000", "규동|10500", "돈까스덮밥|11000"],
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "부일로221번길 26"
+  },
+  {
+    "name": "멘야고고덕신도시 1호점",
+    "hours": "11:00-21:00",
+    "breakTime": "14:30-16:30",
+    "closedDays": "월요일",
+    "menus": ["아카라멘|10500", "돈코츠라멘|10000", "쿠로라멘|11500"],
+    "instagram": "menyago_godeok",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "고덕여염10길 41"
+  },
+  {
+    "name": "멘야카오리미사 강변점",
+    "area": "미사",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "미사강변대로34번길 82"
+  },
+  {
+    "name": "큐슈울트라아멘라멘연구소",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "호평로67번길 11"
+  },
+  {
+    "name": "993라멘",
+    "instagram": "993ramen_",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "옥정동로7다길 94"
+  },
+  {
+    "name": "한끼는라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "하남대로 947"
+  },
+  {
+    "name": "무카시라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "번영로 485"
+  },
+  {
+    "name": "코요라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "동백중앙로 245"
+  },
+  {
+    "name": "히노아지강남대점",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "강남로 3"
+  },
+  {
+    "name": "멘야산다이메",
+    "hours": "10:00-21:00",
+    "closedDays": "월요일",
+    "menus": ["돈코츠라멘|9500", "카라쿠치라멘|10000", "쿠로라멘|11000"],
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "정조로791번길 13"
+  },
+  {
+    "name": "신센라멘 부천점",
+    "hours": "09:00-24:00",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "길주로363번길 41"
+  },
+  {
+    "name": "라멘온도",
+    "instagram": "ramen.ondo",
+    "area": "미사",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "미사강변동로84번길 29"
+  },
+  {
+    "name": "하나비라멘",
+    "instagram": "hanabiramenkr",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "권광로 184"
+  },
+  {
+    "name": "쿄다이라멘",
+    "area": "판교",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "판교공원로5길 1"
+  },
+  {
+    "name": "우시라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "고읍남로 13"
+  },
+  {
+    "name": "솔라멘",
+    "instagram": "solramen",
+    "area": "미사",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "미사강변한강로 136"
+  },
+  {
+    "name": "우마이라멘",
+    "hours": "11:00-21:00",
+    "closedDays": "월요일",
+    "menus": ["돈코츠라멘|9000", "쇼유라멘|9000", "된장버터옥수수라멘|10000"],
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "경의로 1108"
+  },
+  {
+    "name": "담소라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "위례동로 147"
+  },
+  {
+    "name": "요라멘 의정부점",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "평화로 607"
+  },
+  {
+    "name": "교레츠라멘부천대점",
+    "hours": "11:30-21:00",
+    "breakTime": "15:00-17:00",
+    "closedDays": "월요일",
+    "menus": ["추천돈코츠라멘|9000", "추천이에케라멘|10000", "마제소바|10000"],
+    "instagram": "kyouretsu_bucheonuni",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "부일로445번길 4"
+  },
+  {
+    "name": "미스터라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "가람로116번길 107"
+  },
+  {
+    "name": "라멘바",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "문화동9길 22"
+  },
+  {
+    "name": "히노아지 양산점",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "증산역로 149"
+  },
+  {
+    "name": "도쿄라멘3900",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "중원로 67-14"
+  },
+  {
+    "name": "일본라멘류헤이 전문점",
+    "instagram": "uhey3215",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "가좌길 28"
+  },
+  {
+    "name": "카와루라멘웅상점",
+    "hours": "10:00-20:00",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "삼호로 23"
+  },
+  {
+    "name": "시월라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "회원동서로 10"
+  },
+  {
+    "name": "멘야사쿠라 창원점",
+    "area": "상남",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "마디미로 28"
+  },
+  {
+    "name": "라멘야 상남점",
+    "hours": "11:30-22:30",
+    "breakTime": "15:30-17:00",
+    "menus": [
+      "하카다돈코츠라멘|10000",
+      "매운돈코츠라멘|10500",
+      "바질돈코츠라멘|11000"
+    ],
+    "area": "상남",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "중앙대로100번길 14"
+  },
+  {
+    "name": "카와루라멘거창점",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "상동7길 92"
+  },
+  {
+    "name": "도쿄라멘김천신음점",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "부거리길 25"
+  },
+  {
+    "name": "히고토라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "평장길 29"
+  },
+  {
+    "name": "혼다라멘 영남대점",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "대학로 299"
+  },
+  {
+    "name": "멘야이로",
+    "instagram": "menya_iro",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "송천1길 146-9"
+  },
+  {
+    "name": "잇또라멘구미 확장단지점",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "신당1로2길 10"
+  },
+  {
+    "name": "혼다라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "읍내7길 11"
+  },
+  {
+    "name": "미스터라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "천북남로 16"
+  },
+  {
+    "name": "히노아지",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "새천년대로 1251"
+  },
+  {
+    "name": "멘야하나비황리단길점",
+    "area": "황리단길",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "사정로57번길 7-7"
+  },
+  {
+    "name": "고운라멘",
+    "instagram": "lonely1234379",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "전원3길 5-4"
+  },
+  {
+    "name": "멘야이로",
+    "instagram": "menyairo_yongsang",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "전거리2길 95"
+  },
+  {
+    "name": "라멘집",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "연조길 6"
+  },
+  {
+    "name": "혼다라멘덮밥",
+    "area": "동성로",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "동성로3길 20"
+  },
+  {
+    "name": "히노아지홈플러스 대구점",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "중앙대로 543"
+  },
+  {
+    "name": "라츠라멘",
+    "instagram": "ratsu_ramen",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "국채보상로150길 76-30"
+  },
+  {
+    "name": "멘야토류",
+    "sourceNote": "정보 보강 — 상세 미확인(다음 장소정보 임시휴업 표시)",
+    "addrHint": "달구벌대로 1726-8"
+  },
+  {
+    "name": "라멘무라",
+    "instagram": "ramen_mura",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "계룡로603번길 17"
+  },
+  {
+    "name": "라멘무라",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "목중로26번길 52"
+  },
+  {
+    "name": "쵸우라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "동대전로 334-9"
+  },
+  {
+    "name": "키레이라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "중앙로137번길 64"
+  },
+  {
+    "name": "스바라시라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "계백로1686번길 16"
+  },
+  {
+    "name": "스바라시라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "테크노중앙로 54"
+  },
+  {
+    "name": "쵸우라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "가수원중로 4-24"
+  },
+  {
+    "name": "스바라시라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "문화원로 77"
+  },
+  {
+    "name": "히메노라멘 탄방점",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "문정로40번길 51"
+  },
+  {
+    "name": "스바라시라멘 월평점",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "월평새뜸로4번길 94"
+  },
+  {
+    "name": "쇼부라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "동대전로 172"
+  },
+  {
+    "name": "라멘우에무라",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "관들2길 5"
+  },
+  {
+    "name": "라멘의품격 갈마점",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "갈마로125번길 27"
+  },
+  {
+    "name": "칸도라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "테크노중앙로 72"
+  },
+  {
+    "name": "히노아지 남산점",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "금단로 188"
+  },
+  {
+    "name": "류센소",
+    "instagram": "ryusenso.busan",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "서전로58번길 114"
+  },
+  {
+    "name": "류센소",
+    "instagram": "ryusenso_gwangan",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "남천바다로33번길 27"
+  },
+  {
+    "name": "부산라멘",
+    "instagram": "ramen_of_busan_",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "명륜로94번길 32"
+  },
+  {
+    "name": "히노아지",
+    "area": "경성대",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "용소로8번길 20"
+  },
+  {
+    "name": "류센소B IFC점",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "문현금융로 40"
+  },
+  {
+    "name": "라멘정부산대학점",
+    "hours": "11:00-22:30",
+    "menus": ["돈코츠라멘|8500", "미소라멘|8500", "냉라멘|9500"],
+    "instagram": "busan_uni_ramen.jeong",
+    "area": "부산대",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "부산대학로49번길 16"
+  },
+  {
+    "name": "카와루라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "재반로196번길 14-14"
+  },
+  {
+    "name": "카나이라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "서전로38번길 43-13"
+  },
+  {
+    "name": "우마이라멘&돈카츠부산교대가족점",
+    "instagram": "umai_ramen_gyodae",
+    "area": "부산교대",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "중앙대로 1204"
+  },
+  {
+    "name": "상생라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "동래시장길 14"
+  },
+  {
+    "name": "겐쇼심야라멘",
+    "hours": "11:20-00:10",
+    "breakTime": "15:00-16:00",
+    "menus": ["돈코츠라멘|8000", "바질라면|8500", "카라이라멘|8500"],
+    "instagram": "gs_ramen",
+    "area": "부산대",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "금정로68번길 7"
+  },
+  {
+    "name": "치치부라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "마린시티3로 46"
+  },
+  {
+    "name": "젠푸드히노아지롯데백화점 센텀시티점",
+    "hours": "10:30-20:00",
+    "area": "센텀시티",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "센텀남대로 59"
+  },
+  {
+    "name": "라멘야",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "중앙대로680번가길 78"
+  },
+  {
+    "name": "우마이라멘연산가족점",
+    "instagram": "umai.ramen_",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "안연로 20-1"
+  },
+  {
+    "name": "아찌아찌라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "명지국제6로 168"
+  },
+  {
+    "name": "상생라멘",
+    "hours": "11:00-20:30",
+    "menus": ["소유라멘|9000", "한우대창라멘|10000", "민물장어덮밥|13000"],
+    "instagram": "sangseng_univ",
+    "area": "부산대",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "금강로 278"
+  },
+  {
+    "name": "아찌라멘스타필드 시티명지점",
+    "hours": "10:00-21:30",
+    "menus": ["돈코츠라멘|9900", "차돌라멘|13900", "마늘라멘|10900"],
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "명지국제6로 168"
+  },
+  {
+    "name": "몬산토에이치피류센소 광복점",
+    "hours": "10:30-20:00",
+    "menus": ["류센소|11000", "류센소카라|11000", "류센소아사리|11000"],
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "중앙대로 2"
+  },
+  {
+    "name": "쿠지라멘",
+    "instagram": "kuziramen",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "우동2로 17"
+  },
+  {
+    "name": "이이라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "서전로38번길 66"
+  },
+  {
+    "name": "톤토리라멘사상 직영점",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "광장로86번길 60"
+  },
+  {
+    "name": "동경라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "금곡대로616번길 99"
+  },
+  {
+    "name": "톤토리라멘&돈카츠직영점 해운대",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "세실로 158"
+  },
+  {
+    "name": "톤토리라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "다대로144번길 73"
+  },
+  {
+    "name": "하타나카라멘",
+    "area": "이태원",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "이태원로 230-1"
+  },
+  {
+    "name": "진가와광화문점 코리아",
+    "hours": "11:00-21:30",
+    "breakTime": "14:30-17:30",
+    "menus": ["삼미 소면|15000", "수제 키츠네|11000", "에비텐 우동|12000"],
+    "instagram": "jinkawa_gwanghwamun",
+    "area": "광화문",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "종로1길 50"
+  },
+  {
+    "name": "산쪼메보라매 딜리버리점",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "보라매로5길 5"
+  },
+  {
+    "name": "코이라멘 신천점",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "백제고분로7길 8-12"
+  },
+  {
+    "name": "젠푸드히노아지롯데관악점 백화점",
+    "hours": "10:30-20:00",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "봉천로 209"
+  },
+  {
+    "name": "젠푸드히노아지롯데백화점 청량리점",
+    "hours": "10:30-20:00",
+    "area": "청량리",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "왕산로 200"
+  },
+  {
+    "name": "이찌방라멘&카츠카레관악 봉천점",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "관악로 211"
+  },
+  {
+    "name": "미가라멘 대학로점",
+    "area": "대학로",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "대학로14길 18-2"
+  },
+  {
+    "name": "진가와 코리아",
+    "hours": "11:00-20:30",
+    "breakTime": "14:30-17:30",
+    "closedDays": "일요일",
+    "menus": [
+      "모듬사시미(소)|40000",
+      "모듬스시(8pcs)|22000",
+      "사시미&스시 정식|26000"
+    ],
+    "instagram": "jinkawa_euljiro",
+    "area": "을지로",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "을지로5길 19"
+  },
+  {
+    "name": "진가와여의도점 코리아",
+    "hours": "11:00-21:30",
+    "breakTime": "14:30-17:30",
+    "menus": [
+      "요쿠바리 우동정식|31000",
+      "나가사키 짬뽕우동정식|30000",
+      "네기지도리 우동정식|29000"
+    ],
+    "area": "여의도",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "국제금융로2길 17"
+  },
+  {
+    "name": "코란라멘 신림점",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "조원로 170"
+  },
+  {
+    "name": "정라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "삼전로12길 7"
+  },
+  {
+    "name": "미스터라멘 광화문점",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "새문안로 92"
+  },
+  {
+    "name": "초이라멘",
+    "hours": "11:00-21:00",
+    "breakTime": "16:00-17:00",
+    "menus": [
+      "마제소바(S)|11000",
+      "돈코츠라멘(S)|11000",
+      "니보시 츠케멘(S)|11000"
+    ],
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "창신5길 14"
+  },
+  {
+    "name": "코이라멘 천호점",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "천호옛14길 23-5"
+  },
+  {
+    "name": "히노아지",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "도봉로 193"
+  },
+  {
+    "name": "산쪼메 홍대점",
+    "hours": "11:00-22:00",
+    "closedDays": "연중무휴",
+    "menus": ["돈코츠라멘|8000", "산쪼메라멘|9000", "시오버터라멘|8500"],
+    "area": "홍대",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "홍익로3길 5"
+  },
+  {
+    "name": "히노아지포스코 센터점",
+    "hours": "11:00-20:00",
+    "breakTime": "14:30-17:00",
+    "closedDays": "토·일요일",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "테헤란로 440"
+  },
+  {
+    "name": "멘야세븐마포",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "마포대로4가길 53"
+  },
+  {
+    "name": "멘부리 신림점",
+    "hours": "10:00-22:00",
+    "closedDays": "화요일",
+    "menus": ["부타동|10500", "규동|11000", "가츠동|10500"],
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "장군봉1길 46"
+  },
+  {
+    "name": "멘부리 노원점",
+    "hours": "10:00-22:00",
+    "closedDays": "일요일",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "상계로24길 14"
+  },
+  {
+    "name": "이츠모라멘 신림점",
+    "hours": "11:30-20:00",
+    "closedDays": "화요일",
+    "menus": ["이츠모 돈코츠라멘|10500"],
+    "area": "신림",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "신림로68길 7"
+  },
+  {
+    "name": "여러시멘야카오리 문정점",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "법원로 114"
+  },
+  {
+    "name": "구름라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "선유서로30길 23"
+  },
+  {
+    "name": "아오리의행방불명광화문 센트럴점",
+    "hours": "10:30-22:00",
+    "closedDays": "연중무휴",
+    "menus": [
+      "아오리돈코츠라멘|11000",
+      "아오리미소라멘|11000",
+      "아오리마제멘|12000"
+    ],
+    "seats": 20,
+    "area": "광화문",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "종로 87-1"
+  },
+  {
+    "name": "오로지라멘아티스포럼점",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "디지털로31길 62"
+  },
+  {
+    "name": "진심라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "관악로14나길 10"
+  },
+  {
+    "name": "멘부리 영등포점",
+    "hours": "10:30-21:40",
+    "closedDays": "연중무휴",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "가마산로67길 6"
+  },
+  {
+    "name": "민부리라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "백제고분로19길 32"
+  },
+  {
+    "name": "카츠앤라멘 동대문",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "장충단로 249-28"
+  },
+  {
+    "name": "몬산토에이치피류센소 천호점",
+    "hours": "10:30-20:00",
+    "instagram": "ryusenso.korea",
+    "area": "천호",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "천호대로 1005"
+  },
+  {
+    "name": "이치홍라멘 반포점",
+    "hours": "11:00-21:30",
+    "menus": ["이치홍 라멘|10800", "탄탄멘|12000", "마제멘|11500"],
+    "area": "반포",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "사평대로55길 72"
+  },
+  {
+    "name": "멘부리 중랑점",
+    "hours": "09:00-21:00",
+    "closedDays": "일요일",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "용마산로90길 15"
+  },
+  {
+    "name": "유라멘삼신논현역CGV점심저녁 강남역",
+    "instagram": "uramen_4u",
+    "area": "강남역",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "봉은사로4길 32"
+  },
+  {
+    "name": "멘부리 응암점",
+    "hours": "10:00-21:00",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "응암로20길 3"
+  },
+  {
+    "name": "잇또라멘세종 어진점",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "갈매로 351"
+  },
+  {
+    "name": "히노아지간절곶점",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "해맞이로 1130"
+  },
+  {
+    "name": "히메노라멘울산업 스퀘어점",
+    "area": "삼산",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "화합로 185"
+  },
+  {
+    "name": "오이시라멘",
+    "sourceNote": "정보 보강 — 상세 미확인"
+  },
+  {
+    "name": "라멘집입니다 호계점",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "동대8길 14"
+  },
+  {
+    "name": "오이시라멘",
+    "instagram": "oishii_ramen_samsan",
+    "area": "삼산",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "왕생로66번길 20"
+  },
+  {
+    "name": "라멘선생앤수제돈까스",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "월봉로 12"
+  },
+  {
+    "name": "멘야마쯔리청량덕하점",
+    "hours": "11:00-20:00",
+    "breakTime": "15:00-17:00",
+    "closedDays": "일요일",
+    "menus": ["화산라멘|11000", "멘야마제소바|9500", "오꼬노미야끼|12000"],
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "상남길 14"
+  },
+  {
+    "name": "시미루라멘울산태화강국가 정원점",
+    "hours": "11:00-20:30",
+    "breakTime": "15:00-16:30",
+    "closedDays": "연중무휴",
+    "menus": ["하카타돈코츠라멘|9500", "매운돈코츠라멘|9500", "츠케멘|11000"],
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "태화로 216"
+  },
+  {
+    "name": "류센소",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "선수촌공원로23번길 10-21"
+  },
+  {
+    "name": "교레츠라멘",
+    "instagram": "kyouretsu_ramen",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "길주남로 19-1"
+  },
+  {
+    "name": "단바쿠라멘",
+    "area": "송도",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "아트센터대로 203"
+  },
+  {
+    "name": "멘야마쯔리인천 테크노밸리점",
+    "hours": "11:00-21:00",
+    "breakTime": "15:00-16:30",
+    "closedDays": "토요일",
+    "instagram": "menyamatsuri_incheon",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "주부토로 236"
+  },
+  {
+    "name": "라멘나츠",
+    "instagram": "ramen.natsu",
+    "area": "송도",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "인천타워대로 257"
+  },
+  {
+    "name": "멘야마쯔리 부평점",
+    "hours": "10:00-23:00",
+    "closedDays": "연중무휴",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "부흥북로120번길 13"
+  },
+  {
+    "name": "멘무샤인천 청라점",
+    "area": "청라",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "청라루비로 76"
+  },
+  {
+    "name": "교레츠라멘신포",
+    "area": "신포",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "신포로35번길 13"
+  },
+  {
+    "name": "쿠마라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "길주로 659"
+  },
+  {
+    "name": "아오리의행방불명인천 작전점",
+    "hours": "10:30-21:00",
+    "closedDays": "연중무휴",
+    "menus": ["아오리돈코츠라멘|11000", "미소라멘|11000", "마제멘|12000"],
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "주부토로 372"
+  },
+  {
+    "name": "일본라멘미미 전문점",
+    "instagram": "ramen_mimi",
+    "area": "신포",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "신포로23번길 38"
+  },
+  {
+    "name": "잇신카레&라멘송도타임스페이스점",
+    "area": "송도",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "하모니로138번길 11"
+  },
+  {
+    "name": "노조미라멘 본점",
+    "instagram": "samhakdong_tiger_",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "효자길 31-1"
+  },
+  {
+    "name": "히노아지",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "가리내8길 15"
+  },
+  {
+    "name": "멘야케이",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "떡전4길 18"
+  },
+  {
+    "name": "산쪼메",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "수송5길 5"
+  },
+  {
+    "name": "요요키라멘앤돈까스",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "사평로 30"
+  },
+  {
+    "name": "멘야마쯔리 전북대점",
+    "area": "전북대",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "명륜4길 21"
+  },
+  {
+    "name": "라멘집",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "와리길 36"
+  },
+  {
+    "name": "라멘맛심",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "신대로9길 7"
+  },
+  {
+    "name": "라멘포차",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "번영로 225"
+  },
+  {
+    "name": "이코이라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "먹거리10길 31"
+  },
+  {
+    "name": "코이라멘 신불당점",
+    "area": "신불당",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "불당25로 176"
+  },
+  {
+    "name": "멘야마쯔리아산탕정점",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "탕정면로8번길 51-5"
+  },
+  {
+    "name": "라멘선생수제돈까스",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "신계5길 38-1"
+  },
+  {
+    "name": "멘야마쯔리신부점",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "만남로 18"
+  },
+  {
+    "name": "시쿠라라멘.포식쌀국수",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "고속철대로 133"
+  },
+  {
+    "name": "잇또라멘 석림점",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "석림4로 51"
+  },
+  {
+    "name": "라멘집",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "한들3로 35-18"
+  },
+  {
+    "name": "이코이라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "1공단1길 55"
+  },
+  {
+    "name": "산쪼메 성안점",
+    "instagram": "sanchome_cheongju",
+    "area": "성안길",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "사직대로362번길 14"
+  },
+  {
+    "name": "멘야마쯔리라멘 상무점",
+    "instagram": "sm_manya_",
+    "area": "상무지구",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "시청로 57"
+  },
+  {
+    "name": "도쿄라멘3900",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "승달산길 31"
+  },
+  {
+    "name": "천지라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "남부순환로 9-4"
+  },
+  {
+    "name": "멘무샤충장웨이브점",
+    "hours": "11:00-22:00",
+    "area": "충장로",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "중앙로 163"
+  },
+  {
+    "name": "류센소 상무점",
+    "hours": "11:00-21:00",
+    "breakTime": "15:00-17:00",
+    "closedDays": "연중무휴",
+    "menus": ["류센소|10000", "류센소 카라|10000", "류센소 아사리|10000"],
+    "instagram": "ryusenso_sangmu",
+    "area": "상무지구",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "상무중앙로 96"
+  },
+  {
+    "name": "라멘집아저씨",
+    "hours": "11:00-20:00",
+    "breakTime": "15:00-17:00",
+    "closedDays": "화요일",
+    "menus": ["돈코츠라멘|9000", "미소돈코츠|9000", "시오라멘|10000"],
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "노적봉길 18-1"
+  },
+  {
+    "name": "모씨라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "강남7길 41"
+  },
+  {
+    "name": "아찌라멘롯데광주점 백화점",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "독립로 268"
+  },
+  {
+    "name": "요쿄우라멘",
+    "instagram": "yokkyou_ramenbar",
+    "area": "첨단지구",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "첨단연신로 88"
+  },
+  {
+    "name": "라멘집아저씨",
+    "instagram": "ramenyasan_official",
+    "area": "남악",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "대죽서로 21"
+  },
+  {
+    "name": "삼호라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "신항로 104"
+  },
+  {
+    "name": "와다라멘",
+    "hours": "11:00-20:30",
+    "menus": [
+      "하카타 얼큰탄탄멘|11000",
+      "카라이 돈코츠라멘|10000",
+      "후쿠오카 돈코츠라멘|9500"
+    ],
+    "instagram": "wadaramen_",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "중앙대로81번길 4-9"
+  },
+  {
+    "name": "나의 피는 라멘으로 되어있어",
+    "hours": "11:30-20:00",
+    "breakTime": "16:00-17:00",
+    "menus": ["이에케쇼유|10000", "이에케카라이쇼유|10500", "지로케쇼유|11000"],
+    "instagram": "w.c.r.d_busan",
+    "area": "전포",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "동성로 23-2"
+  },
+  {
+    "name": "멘야산다이메(경성대점)",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "용소로14번길 20"
+  },
+  {
+    "name": "톤토리 라멘&돈카츠 해운대직영점",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "세실로 158"
+  },
+  {
+    "name": "동경라멘학교",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "센텀남대로 35"
+  },
+  {
+    "name": "찬찬라멘 부산시청점",
+    "hours": "11:00-20:00",
+    "instagram": "chanchan_busancityhall",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "중앙대로1038번길 9"
+  },
+  {
+    "name": "우마이라멘",
+    "instagram": "yoooooon.chef",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "망미배산로10번길 28"
+  },
+  {
+    "name": "고운라멘 동성로점",
+    "hours": "11:00-19:30",
+    "menus": ["고운라멘|9900", "바질라멘|9900", "곱창라멘|9900"],
+    "area": "동성로",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "동성로3길 20"
+  },
+  {
+    "name": "멘야산",
+    "instagram": "dg_menyasandaime",
+    "area": "동성로",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "중앙대로 406-5"
+  },
+  {
+    "name": "와다라멘 칠곡점",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "팔거천동로4길 37-1"
+  },
+  {
+    "name": "고운라멘시지점",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "고산로 123"
+  },
+  {
+    "name": "더라멘워(THE RAMEN WAR)",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "송도국제대로 123"
+  },
+  {
+    "name": "와다라멘 인천연수점",
+    "hours": "10:00-21:00",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "샘말로87번길 7-4"
+  },
+  {
+    "name": "오로지라멘",
+    "hours": "10:30-21:30",
+    "closedDays": "화요일",
+    "menus": ["오로지라멘|10500", "돈코츠라멘|9000", "매운돈코츠라멘|9500"],
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "용천로 82"
+  },
+  {
+    "name": "멘야하나비 부평역점",
+    "hours": "11:00-22:00",
+    "breakTime": "16:00-17:00",
+    "menus": ["하나비카레|10000", "마일드하나비카레|8000", "돈카츠카레|12000"],
+    "area": "부평역",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "부평문화로80번길 38"
+  },
+  {
+    "name": "칸도 라멘",
+    "hours": "11:00-21:00",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "동서대로1695번길 22"
+  },
+  {
+    "name": "라멘오오타",
+    "hours": "11:00-20:00",
+    "menus": ["마제소바|11000", "농후 돈코츠 쇼유라멘|11000", "쇼유라멘|10500"],
+    "instagram": "ramen_o.ota",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "갈마역로25번길 27-7"
+  },
+  {
+    "name": "동경라멘학교",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "엑스포로 1"
+  },
+  {
+    "name": "멘야마쯔리 도룡점",
+    "hours": "11:00-21:00",
+    "breakTime": "15:00-17:00",
+    "closedDays": "월요일",
+    "menus": ["돈코츠라멘|10000", "카라구찌라멘|10500", "마제소바|10000"],
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "엑스포로151번길 19"
+  },
+  {
+    "name": "와다라멘 동구점",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "진성3길 13"
+  },
+  {
+    "name": "톤토리라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "양지5길 12-15"
+  },
+  {
+    "name": "아찌라멘(울산점)",
+    "hours": "10:30-21:30",
+    "closedDays": "수요일",
+    "menus": ["돈코츠라멘|9500", "마늘라멘|10500", "미소라멘|9500"],
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "신천로 55-22"
+  },
+  {
+    "name": "와다라멘 간절곶점",
+    "hours": "11:00-19:30",
+    "breakTime": "15:00-16:00",
+    "closedDays": "월요일",
+    "menus": ["돈코츠라멘|10000", "마늘라멘|11000", "쇼유라멘|10000"],
+    "instagram": "wadagjg",
+    "area": "간절곶",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "해맞이로 1130"
+  },
+  {
+    "name": "멘야하나비 AK플라자수원점",
+    "area": "수원역",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "덕영대로 924"
+  },
+  {
+    "name": "더라멘워 THE RAMEN WAR",
+    "hours": "10:30-20:00",
+    "menus": [
+      "칸사이쇼유라멘|12000",
+      "구운마늘라멘|12000",
+      "크림치즈탄탄멘|13900"
+    ],
+    "area": "판교",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "판교역로146번길 20"
+  },
+  {
+    "name": "키요토리 라멘 오리역점",
+    "area": "오리역",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "구미로9번길 25"
+  },
+  {
+    "name": "코이라멘 판교역점",
+    "area": "판교",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "대왕판교로606번길 31"
+  },
+  {
+    "name": "혼키라멘",
+    "hours": "11:00-20:30",
+    "closedDays": "토·일요일",
+    "menus": ["돈코츠라멘|12000", "카라이라멘|11000", "쇼유라멘|11000"],
+    "area": "판교",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "대왕판교로645번길 36"
+  },
+  {
+    "name": "라라멘",
+    "hours": "11:00-20:00",
+    "closedDays": "일요일",
+    "menus": ["돈코츠라멘|10000", "카라이라멘|10000", "마제소바|12000"],
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "성남대로997번길 49-13"
+  },
+  {
+    "name": "태양의 토마토라멘 수내점",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "황새울로 234"
+  },
+  {
+    "name": "쿠니라멘 성남점",
+    "hours": "11:00-21:00",
+    "menus": ["쿠니라멘|9000", "쿠로돈코츠|9500", "마제멘|9500"],
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "산성대로93번길 25"
+  },
+  {
+    "name": "카메야라멘 부천점",
+    "hours": "11:00-23:00",
+    "menus": ["돈코츠라멘|9000", "쇼유라멘|9500", "미소라멘|9500"],
+    "instagram": "kameya_bucheon",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "소향로 239"
+  },
+  {
+    "name": "쵸우라멘",
+    "hours": "11:00-20:30",
+    "closedDays": "둘째·넷째 일요일",
+    "menus": ["돈코츠라멘|10000", "카라이돈코츠라멘|10000", "소유라멘|9000"],
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "오리로856번길 21"
+  },
+  {
+    "name": "유메라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "천보산로 567-12"
+  },
+  {
+    "name": "오빈라멘 한양대에리카점",
+    "hours": "12:00-20:30",
+    "closedDays": "일요일",
+    "menus": ["오빈라멘|8000", "오빈바질라멘|9500", "오빈탄탄멘|9500"],
+    "instagram": "obean_ramen7",
+    "sourceNote": "정보 보강(다음검색) — 다음 표기 주소는 상록구 충장로2길 12-1(같은 시·구)",
+    "addrHint": "학사5길 2"
+  },
+  {
+    "name": "멘야마쯔리",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "화정로1길 9"
+  },
+  {
+    "name": "훈라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "주화로 88"
+  },
+  {
+    "name": "토모라멘",
+    "instagram": "tomo_ramen_",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "고봉로 32-6"
+  },
+  {
+    "name": "나루토일본라멘엔수제돈카츠시흥배곧점",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "서울대학로278번길 70"
+  },
+  {
+    "name": "와다라멘(배곧점)",
+    "hours": "10:00-20:00",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "서울대학로264번길 26-9"
+  },
+  {
+    "name": "멘쇼쿠 하남스타필드점(menshoku라멘전문점)",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "미사대로 750"
+  },
+  {
+    "name": "이찌방 라멘 VS 팟타이",
+    "hours": "11:00-22:00",
+    "area": "미사",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "미사대로 456"
+  },
+  {
+    "name": "도토리 라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "어정로 139"
+  },
+  {
+    "name": "오로지라멘 수지성복점",
+    "menus": ["돈코츠라멘|10000"],
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "성복2로 114"
+  },
+  {
+    "name": "와다라멘춘천점",
+    "hours": "11:00-24:00",
+    "closedDays": "일요일",
+    "menus": ["마늘라멘|9900", "돈코츠라멘|10900", "카라이돈코츠라멘|11900"],
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "춘주로 187"
+  },
+  {
+    "name": "멘야하나비원주무실점",
+    "hours": "11:30-21:00",
+    "breakTime": "15:00-17:00",
+    "closedDays": "일요일",
+    "menus": ["추천마제소바|11000"],
+    "instagram": "menyahanabi_wonju",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "능라동길 78"
+  },
+  {
+    "name": "이츠모라멘",
+    "hours": "11:00-20:00",
+    "closedDays": "목요일",
+    "menus": ["돈코츠라멘|10000", "카라이돈코츠라멘|11000", "츠케멘|11000"],
+    "instagram": "itsumo_chodang",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "초당원길 34"
+  },
+  {
+    "name": "우마미라멘",
+    "instagram": "uma.miiiii",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "영랑로7길 13"
+  },
+  {
+    "name": "쵸우라멘",
+    "hours": "11:00-23:00",
+    "menus": ["초우라멘|12000", "돈코츠라멘|11500", "쇼유라멘|11500"],
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "봉정로 228"
+  },
+  {
+    "name": "멘야마쯔리 둔포점",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "아산밸리중앙로 100"
+  },
+  {
+    "name": "우마이라멘",
+    "hours": "11:00-21:00",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "매창로 195"
+  },
+  {
+    "name": "톤토리 라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "새천년대로450번길 13"
+  },
+  {
+    "name": "고운라멘 경주점",
+    "hours": "10:30-20:00",
+    "closedDays": "월요일",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "황성로64번길 32"
+  },
+  {
+    "name": "라멘집",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "김천로 103"
+  },
+  {
+    "name": "와다라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "북중리11길 8"
+  },
+  {
+    "name": "김씨네라멘트럭",
+    "hours": "10:30-21:30",
+    "breakTime": "15:00-17:00",
+    "closedDays": "연중무휴",
+    "menus": ["돈코츠오리지널|10500", "돈코츠탄탄|11000", "마제소바|10500"],
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "충의로 20-17"
+  },
+  {
+    "name": "이이라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "동진로50번길 8"
+  },
+  {
+    "name": "우마이365라멘",
+    "hours": "10:30-20:30",
+    "breakTime": "15:00-16:00",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "해반천로130번길 11"
+  },
+  {
+    "name": "키라네라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "곤지암천로 326"
+  },
+  {
+    "name": "마카나이 라멘",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "솔모루로 71-6"
+  },
+  {
+    "name": "혼다라멘 창원삼계점",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "삼계2길 28"
+  },
+  {
+    "name": "오빠라멘",
+    "hours": "11:00-21:00",
+    "breakTime": "15:00-17:00",
+    "closedDays": "화요일",
+    "menus": ["오빠라멘|10000", "언니라멘|10000", "차슈덮밥|13000"],
+    "instagram": "5_pparamen",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "창이대로464번길 12"
+  },
+  {
+    "name": "마시타라멘 당진점",
+    "hours": "11:00-20:00",
+    "breakTime": "15:00-17:00",
+    "closedDays": "월요일",
+    "instagram": "masitaramen_dangjin",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "대덕1로 125-70"
+  },
+  {
+    "name": "카와루라멘본점",
+    "instagram": "kawaru_mokpo",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "원산로69번길 17"
+  },
+  {
+    "name": "멘야로",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "왕지2길 9-11"
+  },
+  {
+    "name": "지라멘 연구소",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "조례못등2길 12-17"
+  },
+  {
+    "name": "와다라멘 풍암점",
+    "hours": "11:00-20:30",
+    "menus": ["차슈동|10000", "매콤달콤와규동|10500", "카츠동|9500"],
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "풍금로11번길 4-14"
+  },
+  {
+    "name": "라멘선생&수제돈까스 전남무안점",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "남악5로46번길 22"
+  },
+  {
+    "name": "타무라멘",
+    "hours": "11:00-21:00",
+    "breakTime": "14:00-17:00",
+    "closedDays": "월요일",
+    "menus": ["돈코츠라멘|10000", "마제소바|12000", "야끼소바|11000"],
+    "instagram": "tamuramen_jeju",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "사계남로 155-1"
+  },
+  {
+    "name": "와다라멘 파주운정점",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "해올2길 16"
+  },
+  {
+    "name": "큐슈울트라아멘",
+    "area": "노량진",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "노들로2길 7"
+  },
+  {
+    "name": "록멘",
+    "instagram": "rokmen_ramen",
+    "area": "성수",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "성수일로3길 2"
+  },
+  {
+    "name": "마카나이",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "한글비석로 264"
+  },
+  {
+    "name": "혼네",
+    "sourceNote": "정보 보강 — 동일 주소 이자카야 정보로 판단해 폐기",
+    "addrHint": "관악로14길 6-4"
+  },
+  {
+    "name": "부탄츄",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "올림픽로 300"
+  },
+  {
+    "name": "기린",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "공릉로 209"
+  },
+  {
+    "name": "멘쇼쿠",
+    "hours": "11:00-20:30",
+    "menus": ["추천츠케멘|12000", "쇼유라멘|11000", "시오라멘|11000"],
+    "instagram": "men_shoku",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "강남대로99길 10"
+  },
+  {
+    "name": "우츄진",
+    "hours": "11:00-20:30",
+    "breakTime": "15:30-17:00",
+    "closedDays": "일요일",
+    "menus": ["돈코츠쇼유|11000", "토리시오라멘|9000", "카라이탄탄멘|12000"],
+    "area": "을지로",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "을지로 157"
+  },
+  {
+    "name": "멘츠루",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "광나루로 394"
+  },
+  {
+    "name": "오이시",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "공릉로 156"
+  },
+  {
+    "name": "우마미",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "한강대로40길 20"
+  },
+  {
+    "name": "유타로",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "이태원로 216"
+  },
+  {
+    "name": "멘쇼",
+    "hours": "11:30-21:00",
+    "breakTime": "14:30-17:00",
+    "closedDays": "일요일",
+    "menus": ["츠케멘(R)|10000", "매운맛츠케멘(R)|11000", "스페셜토핑|5000"],
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "군자로2길 3"
+  },
+  {
+    "name": "양국",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "삼양로 538-6"
+  },
+  {
+    "name": "일심당",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "도봉로109길 24"
+  },
+  {
+    "name": "담택",
+    "closedDays": "일요일",
+    "instagram": "damtaek",
+    "area": "홍대",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "동교로12안길 51"
+  },
+  {
+    "name": "신짱과후쿠마루",
+    "hours": "11:30-20:00",
+    "breakTime": "15:00-17:00",
+    "closedDays": "일요일",
+    "instagram": "shinzzang_hm_hj",
+    "area": "홍대",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "양화로7길 44-7"
+  },
+  {
+    "name": "라쿠라쿠",
+    "instagram": "rakuracoo",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "대림로 14"
+  },
+  {
+    "name": "멘요이",
+    "instagram": "menyoi_wonju",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "왕건로 144"
+  },
+  {
+    "name": "묵호정",
+    "instagram": "mukhojung",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "대학로 8"
+  },
+  {
+    "name": "마시타",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "정원로 54"
+  },
+  {
+    "name": "시오도메",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "서울대학로278번길 43-13"
+  },
+  {
+    "name": "클준빛날영",
+    "instagram": "junyeoung_ramen",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "판교역로 240"
+  },
+  {
+    "name": "키레이",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "부천로 7"
+  },
+  {
+    "name": "이황식당",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "판교역로 230"
+  },
+  {
+    "name": "호시정",
+    "instagram": "hosijung_",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "세미로1길 5"
+  },
+  {
+    "name": "큐슈울트라아멘기흥테라 타워점",
+    "hours": "10:00-20:00",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "서천로201번길 11"
+  },
+  {
+    "name": "멘츠루 인계점",
+    "instagram": "menchuru_suwon",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "인계로166번길 48-17"
+  },
+  {
+    "name": "큐슈울트라아멘 고잔점",
+    "hours": "10:30-22:00",
+    "menus": [
+      "울트라아멘|13500",
+      "돈코츠소유라아멘|9500",
+      "돈코츠미소라아멘|10000"
+    ],
+    "instagram": "kyu_ultraamen",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "광덕대로 174"
+  },
+  {
+    "name": "미목",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "한보라2로14번길 3-3"
+  },
+  {
+    "name": "큐슈울트라아멘시흥배곧점",
+    "hours": "11:00-21:30",
+    "breakTime": "15:00-16:30",
+    "menus": ["울트라아멘|13900", "에비돈코츠|11500", "울트라동|13900"],
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "배곧3로 86"
+  },
+  {
+    "name": "사사야키",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "화합4길 11-11"
+  },
+  {
+    "name": "네코짱",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "계림로 79"
+  },
+  {
+    "name": "1058면",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "청운로 11"
+  },
+  {
+    "name": "1058면 하양점",
+    "hours": "10:00-20:30",
+    "menus": ["냉라멘|6400", "돈코츠라멘|5900", "땡초소유라멘|6500"],
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "하양로 63"
+  },
+  {
+    "name": "라쿠다",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "율하동로17길 1"
+  },
+  {
+    "name": "사야까",
+    "instagram": "sayaka2002",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "국채보상로125길 4"
+  },
+  {
+    "name": "큐산",
+    "instagram": "kyusanramen",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "동성로2길 49-17"
+  },
+  {
+    "name": "마코토범어 직영점",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "동원로 6"
+  },
+  {
+    "name": "본미당 은행점",
+    "instagram": "bonmidang1",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "중앙로164번길 26"
+  },
+  {
+    "name": "멘지대전 둔산점",
+    "hours": "11:00-20:30",
+    "breakTime": "15:00-17:00",
+    "closedDays": "화요일",
+    "menus": [
+      "차슈가득 토리파이탄|15000",
+      "카라 탄탄멘|11000",
+      "땡초 토리파이탄|11000"
+    ],
+    "instagram": "qkrrudgh00",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "둔산로31번길 10-35"
+  },
+  {
+    "name": "궁멘",
+    "instagram": "gung_men",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "중교로 13"
+  },
+  {
+    "name": "산시오",
+    "instagram": "sansio_kr",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "갈마역로 10"
+  },
+  {
+    "name": "우마이도",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "금강로 247-5"
+  },
+  {
+    "name": "수림식당사상점",
+    "hours": "11:00-21:00",
+    "breakTime": "15:00-17:00",
+    "closedDays": "토요일",
+    "menus": ["국물탄탄면|11000", "비빔탄탄면|11000", "우육탕면|10000"],
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "새벽로 216"
+  },
+  {
+    "name": "카센미세",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "쌍미천로 42-1"
+  },
+  {
+    "name": "세마이",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "반송로 50-12"
+  },
+  {
+    "name": "산쇼쿠",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "금강로 247-8"
+  },
+  {
+    "name": "테우치멘이토",
+    "instagram": "teuchimen.ito",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "동성로 30"
+  },
+  {
+    "name": "요아케",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "도산대로45길 10-11"
+  },
+  {
+    "name": "토리시오",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "논현로30길 43"
+  },
+  {
+    "name": "메노키오",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "공항대로 261"
+  },
+  {
+    "name": "쇼지키",
+    "instagram": "syojiki_ramen",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "동일로186길 50"
+  },
+  {
+    "name": "덴까이",
+    "instagram": "denkkai_ramen",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "한누리대로 211"
+  },
+  {
+    "name": "멘테오",
+    "instagram": "menteo_x",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "왕생로66번길 11"
+  },
+  {
+    "name": "키츠키",
+    "instagram": "kitsuki_kor",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "중앙로204번길 4"
+  },
+  {
+    "name": "멘타이쇼",
+    "instagram": "men_taishow",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "월평로195번길 1"
+  },
+  {
+    "name": "구루멘",
+    "instagram": "gurumen_official",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "청라커낼로 270"
+  },
+  {
+    "name": "무다이",
+    "instagram": "mudai_geomdan",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "서곶로 837"
+  },
+  {
+    "name": "쿄우와",
+    "instagram": "kyouwakitchen",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "주부토로151번길 43"
+  },
+  {
+    "name": "단바쿠",
+    "instagram": "danbaku_guwol",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "선수촌공원로23번길 12"
+  },
+  {
+    "name": "치쿠린",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "명륜3길 9-1"
+  },
+  {
+    "name": "도파멘",
+    "instagram": "ramenbar_dopamen",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "전라감영2길 6"
+  },
+  {
+    "name": "히타이쇼",
+    "instagram": "hitaishou_ramen",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "송천중앙로 249"
+  },
+  {
+    "name": "후카이",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "나운안길 27"
+  },
+  {
+    "name": "라신비",
+    "instagram": "rashinbi",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "한림해안로 548"
+  },
+  {
+    "name": "체면",
+    "instagram": "chae_myeon",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "단산로 95"
+  },
+  {
+    "name": "쿄우노식당오창호수공원 본점",
+    "hours": "11:00-21:00",
+    "closedDays": "일요일",
+    "menus": ["돈코츠라멘|9000", "미소라멘|9000", "쿠로마유돈코츠라멘|10000"],
+    "instagram": "tnfmawo",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "양청택지로 121"
+  },
+  {
+    "name": "키와마루아지청주점",
+    "hours": "11:00-20:50",
+    "closedDays": "일요일",
+    "menus": ["미라멘|8500", "특미라멘|10500", "극라멘|10500"],
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "진재로 141"
+  },
+  {
+    "name": "마카나이여수 학동점",
+    "hours": "11:00-21:30",
+    "breakTime": "15:00-17:00",
+    "closedDays": "연중무휴",
+    "menus": ["규동|10000", "돈까스덮밥|10000"],
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "시청동5길 9"
+  },
+  {
+    "name": "산미태",
+    "instagram": "sanmitae__",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "연향상가5길 17"
+  },
+  {
+    "name": "멘타루",
+    "instagram": "yujeu95",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "제중로46번길 13"
+  },
+  {
+    "name": "이케멘스",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "왕지2길 9-11"
+  },
+  {
+    "name": "카도야",
+    "sourceNote": "정보 보강 — 상세 미확인",
+    "addrHint": "전포대로246번길 13-10"
+  },
+  {
+    "name": "히노아지 정관점",
+    "hours": "11:30-21:00",
+    "breakTime": "15:00-17:00",
+    "closedDays": "연중무휴",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "구연로 18-4"
+  },
+  {
+    "name": "히노아지 일산라페스타점",
+    "hours": "11:00-20:00",
+    "closedDays": "월요일",
+    "instagram": "hinoaji_ilsanlafesta",
+    "sourceNote": "정보 보강(다음검색)",
+    "addrHint": "무궁화로 20-11"
+  }
+]

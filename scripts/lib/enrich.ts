@@ -158,6 +158,8 @@ export function promoteSoups(e: Enrichment): Enrichment {
   };
 }
 
+const VERDICT_MARKS = ["라멘집 아님", "실존 미확인"];
+
 export function mergeEnrichments(matches: Enrichment[]): Enrichment {
   const merged: Enrichment = { name: matches[0]?.name ?? "" };
   for (const e of matches) {
@@ -166,9 +168,11 @@ export function mergeEnrichments(matches: Enrichment[]): Enrichment {
     merged.lineages = [
       ...new Set([...(merged.lineages ?? []), ...(e.lineages ?? [])]),
     ];
-    merged.soupDetail = [
-      ...new Set([...(merged.soupDetail ?? []), ...(e.soupDetail ?? [])]),
-    ];
+    /* 판정 마크만 최신 조사 우선 — 합집합이면 재검증으로 뒤집힌 보류가 되살아난다 */
+    const carried = (merged.soupDetail ?? []).filter(
+      (d) => !VERDICT_MARKS.includes(d),
+    );
+    merged.soupDetail = [...new Set([...carried, ...(e.soupDetail ?? [])])];
     merged.primarySoup ??= e.primarySoup;
     merged.primaryForm ??= e.primaryForm;
     if (e.areaConfirmed && e.area && !merged.areaConfirmed) {
@@ -216,7 +220,6 @@ export function mergeMatched(
   const all = mergeEnrichments(matches);
   const own = mergeEnrichments(exact);
   /* 실존·업종 판정은 그 주소의 업소에 대한 것 — 동명 타업소(이자카야 혼네)로 전파 금지 */
-  const VERDICT_MARKS = ["라멘집 아님", "실존 미확인"];
   const soupDetail = [
     ...(all.soupDetail ?? []).filter((d) => !VERDICT_MARKS.includes(d)),
     ...(own.soupDetail ?? []).filter((d) => VERDICT_MARKS.includes(d)),

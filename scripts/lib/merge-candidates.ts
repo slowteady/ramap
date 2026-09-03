@@ -85,6 +85,23 @@ function locationCompatible(
   return true;
 }
 
+/* 주소 없는 행은 dedup·동네판정이 불가 — 동명 후보가 이미 있으면 버리고(중복),
+   없으면 좌표가 있을 때만 살린다(주소만 누락된 실존 매장 보존) */
+function keepWithoutAddress(
+  candidates: Candidate[],
+  name: string,
+  branch: string,
+  roadAddress: string,
+  coords: { lat: number; lng: number } | null,
+): boolean {
+  if (roadAddress.trim()) return true;
+  if (!coords) return false;
+  const norm = normalizeShopName(name + branch);
+  return !candidates.some((c) =>
+    namesMatch(normalizeShopName(c.name + c.branch), norm),
+  );
+}
+
 export function mergeCandidates(
   localRows: LocalDataRow[],
   sangRows: SanggwonRow[],
@@ -93,6 +110,8 @@ export function mergeCandidates(
   const candidates: Candidate[] = [];
   for (const row of localRows) {
     const coords = localCoord(row);
+    if (!keepWithoutAddress(candidates, row.name, "", row.roadAddress, coords))
+      continue;
     const next: Candidate = {
       name: row.name,
       branch: "",
@@ -111,6 +130,18 @@ export function mergeCandidates(
   }
 
   for (const sang of sangRows) {
+    if (
+      !keepWithoutAddress(
+        candidates,
+        sang.name,
+        sang.branch,
+        sang.roadAddress,
+        sang.lat !== null && sang.lng !== null
+          ? { lat: sang.lat, lng: sang.lng }
+          : null,
+      )
+    )
+      continue;
     const norm = normalizeShopName(sang.name + sang.branch);
     const match = candidates.find(
       (c) =>
@@ -196,6 +227,17 @@ export function discoverByName(
   let added = 0;
   for (const row of localAll) {
     if (row.status !== "open") continue;
+    const coordsGuard = localCoord(row);
+    if (
+      !keepWithoutAddress(
+        candidates,
+        row.name,
+        "",
+        row.roadAddress,
+        coordsGuard,
+      )
+    )
+      continue;
     const norm = normalizeShopName(row.name);
     if (!wanted.has(norm) || existing.has(norm)) continue;
     const coords = localCoord(row);
@@ -229,6 +271,18 @@ export function discoverBySanggwonName(
   );
   let added = 0;
   for (const row of sangAll) {
+    if (
+      !keepWithoutAddress(
+        candidates,
+        row.name,
+        row.branch,
+        row.roadAddress,
+        row.lat !== null && row.lng !== null
+          ? { lat: row.lat, lng: row.lng }
+          : null,
+      )
+    )
+      continue;
     const norm = normalizeShopName(row.name + row.branch);
     if (!wanted.has(norm) || existing.has(norm)) continue;
     candidates.push({

@@ -253,3 +253,119 @@ describe("discoverBySanggwonName", () => {
     ).toBe(0);
   });
 });
+
+describe("주소 없는 후보", () => {
+  it("동명 후보가 이미 있으면 주소 없는 행은 버린다", () => {
+    const merged = mergeCandidates(
+      [],
+      [
+        {
+          name: "주소있는집",
+          branch: "",
+          smallCode: "I20303",
+          district: "중구",
+          dong: "",
+          roadAddress: "서울특별시 중구 다산로8길 16",
+          lat: 37.5,
+          lng: 127.0,
+        },
+        {
+          name: "주소있는집",
+          branch: "",
+          smallCode: "I20303",
+          district: "중구",
+          dong: "",
+          roadAddress: "",
+          lat: 37.5,
+          lng: 127.0,
+        },
+      ],
+    );
+    expect(merged.map((c) => c.name)).toEqual(["주소있는집"]);
+  });
+
+  it("지점명이 붙어도 같은 상호면 버린다", () => {
+    const merged = mergeCandidates(
+      [],
+      [
+        {
+          name: "쿄오모라멘",
+          branch: "",
+          smallCode: "I20303",
+          district: "중구",
+          dong: "",
+          roadAddress: "서울특별시 중구 다산로8길 16",
+          lat: 37.5527,
+          lng: 127.0103,
+        },
+        {
+          name: "쿄오모라멘 신당",
+          branch: "",
+          smallCode: "I20303",
+          district: "중구",
+          dong: "",
+          roadAddress: "",
+          lat: 37.5639,
+          lng: 127.0148,
+        },
+      ],
+    );
+    expect(merged.map((c) => c.name)).toEqual(["쿄오모라멘"]);
+  });
+
+  it("동명 후보가 없으면 좌표만으로 살린다", () => {
+    const merged = mergeCandidates(
+      [],
+      [
+        {
+          name: "마마노라멘",
+          branch: "",
+          smallCode: "I20303",
+          district: "서대문구",
+          dong: "",
+          roadAddress: "",
+          lat: 37.568047,
+          lng: 126.964095,
+        },
+      ],
+    );
+    expect(merged.map((c) => c.name)).toEqual(["마마노라멘"]);
+  });
+
+  it("주소도 좌표도 없으면 버린다", () => {
+    const merged = mergeCandidates(
+      [],
+      [
+        {
+          name: "정보없는집",
+          branch: "",
+          smallCode: "I20303",
+          district: "",
+          dong: "",
+          roadAddress: "",
+          lat: null,
+          lng: null,
+        },
+      ],
+    );
+    expect(merged).toHaveLength(0);
+  });
+});
+
+describe("인허가 주소 없는 행", () => {
+  it("주소도 좌표도 없는 인허가 행은 후보에서 제외한다", () => {
+    const merged = mergeCandidates(
+      [
+        {
+          name: "주소없는인허가",
+          roadAddress: "",
+          x: null,
+          y: null,
+          status: "open",
+        } as never,
+      ],
+      [],
+    );
+    expect(merged).toHaveLength(0);
+  });
+});
