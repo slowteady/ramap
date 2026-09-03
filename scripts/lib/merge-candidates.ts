@@ -213,3 +213,35 @@ export function discoverByName(
   }
   return added;
 }
+
+/* 디깅 이름을 상가정보 전체에서 정규화 완전 일치로 발굴 — 업종 오분류(클준빛날영: 회/초밥 분류)·
+   키워드 부재 상호 구제. 완전 일치만(2자 상호 오발굴 방지, discoverByName과 동일 원칙) */
+export function discoverBySanggwonName(
+  candidates: Candidate[],
+  sangAll: SanggwonRow[],
+  names: string[],
+): number {
+  const existing = new Set(
+    candidates.map((c) => normalizeShopName(c.name + c.branch)),
+  );
+  const wanted = new Set(
+    names.map(normalizeShopName).filter((n) => n.length >= 2),
+  );
+  let added = 0;
+  for (const row of sangAll) {
+    const norm = normalizeShopName(row.name + row.branch);
+    if (!wanted.has(norm) || existing.has(norm)) continue;
+    candidates.push({
+      name: row.name,
+      branch: row.branch,
+      roadAddress: row.roadAddress,
+      lat: row.lat,
+      lng: row.lng,
+      sources: ["디깅발굴(상가)"],
+      coordMismatch: false,
+    });
+    existing.add(norm);
+    added += 1;
+  }
+  return added;
+}

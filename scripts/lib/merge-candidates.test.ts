@@ -6,6 +6,8 @@ import {
   mergeCandidates,
   normalizeShopName,
   sameRoadAddress,
+  discoverBySanggwonName,
+  type Candidate,
 } from "./merge-candidates";
 import type { SanggwonRow } from "./sanggwon";
 
@@ -186,5 +188,68 @@ describe("sameRoadAddress", () => {
       ),
     ).toBe(false);
     expect(sameRoadAddress("", "")).toBe(false);
+  });
+});
+
+describe("discoverBySanggwonName", () => {
+  it("디깅 이름을 상가 전체에서 완전 일치로 발굴한다 (키워드·업종 오분류 구제)", () => {
+    const sangAll: SanggwonRow[] = [
+      {
+        name: "클준빛날영",
+        branch: "",
+        smallCode: "I20301",
+        district: "성남시 분당구",
+        dong: "삼평동",
+        roadAddress: "경기도 성남시 분당구 판교역로 240",
+        lat: 37.4,
+        lng: 127.1,
+      },
+      {
+        name: "무관한식당",
+        branch: "",
+        smallCode: "I20301",
+        district: "성남시 분당구",
+        dong: "삼평동",
+        roadAddress: "경기도 성남시 분당구 아무로 1",
+        lat: 37.4,
+        lng: 127.1,
+      },
+    ];
+    const candidates: Candidate[] = [];
+    const added = discoverBySanggwonName(candidates, sangAll, ["클준빛날영"]);
+    expect(added).toBe(1);
+    expect(candidates[0]).toMatchObject({
+      name: "클준빛날영",
+      sources: ["디깅발굴(상가)"],
+    });
+  });
+
+  it("이미 후보에 있으면 중복 발굴하지 않는다", () => {
+    const sangAll: SanggwonRow[] = [
+      {
+        name: "코이라멘",
+        branch: "판교점",
+        smallCode: "I20303",
+        district: "성남시 분당구",
+        dong: "삼평동",
+        roadAddress: "경기도 성남시 분당구 판교로 1",
+        lat: 37.4,
+        lng: 127.1,
+      },
+    ];
+    const candidates: Candidate[] = [
+      {
+        name: "코이라멘",
+        branch: "판교점",
+        roadAddress: "경기도 성남시 분당구 판교로 1",
+        lat: 37.4,
+        lng: 127.1,
+        sources: ["상가"],
+        coordMismatch: false,
+      },
+    ];
+    expect(
+      discoverBySanggwonName(candidates, sangAll, ["코이라멘 판교점"]),
+    ).toBe(0);
   });
 });

@@ -6,6 +6,7 @@ import { isRamenCandidate, parseLocalData } from "./lib/localdata";
 import {
   candidatesToSheetTsv,
   discoverByName,
+  discoverBySanggwonName,
   mergeCandidates,
 } from "./lib/merge-candidates";
 import { isRamenBySanggwon, parseSanggwon } from "./lib/sanggwon";
@@ -27,10 +28,12 @@ console.log(
 
 /* 상가정보는 콤마 구분 다중 입력 — 다지역 확장 (2026-09-03, 경기부터) */
 let sangRows: ReturnType<typeof parseSanggwon> = [];
+const sangEntire: ReturnType<typeof parseSanggwon> = [];
 if (sangInput) {
   for (const path of sangInput.split(",")) {
     const sangCsv = decodeCsvBuffer(readFileSync(resolve(path)));
     const sangAll = parseSanggwon(sangCsv);
+    sangEntire.push(...sangAll);
     const filtered = sangAll.filter(isRamenBySanggwon);
     sangRows.push(...filtered);
     console.log(
@@ -50,7 +53,9 @@ if (enrichInputs.length > 0) {
     )
     .map((e) => e.name);
   const found = discoverByName(merged, localAll, names);
-  console.log(`디깅 이름 발굴: 후보 풀 밖에서 ${found}건 추가`);
+  console.log(`디깅 이름 발굴(인허가): 후보 풀 밖에서 ${found}건 추가`);
+  const foundSang = discoverBySanggwonName(merged, sangEntire, names);
+  console.log(`디깅 이름 발굴(상가): 후보 풀 밖에서 ${foundSang}건 추가`);
 }
 
 const bySource = new Map<string, number>();
