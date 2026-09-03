@@ -10,6 +10,7 @@ import {
   isNewOpen,
   LINEAGES,
   NewChip,
+  OpenStatusBadge,
   restaurantJsonLd,
   soupBySlug,
   type Shop,
@@ -19,7 +20,6 @@ import { ReportEntryRow, ReportSheet } from "@/features/report";
 import { genreMeta } from "../model/genre-meta";
 import { CopyAddress } from "./copy-address";
 import { DetailActions } from "./detail-actions";
-import { OpenStatusLine } from "./open-status-line";
 import { PhotoGallery } from "./photo-gallery";
 import { RecordLogSection } from "./record-log-section";
 
@@ -242,15 +242,13 @@ export function ShopDetailPage({ shop, nearby }: ShopDetailPageProps) {
             <Subline areaLabel={shop.areaLabel} meta={meta} withLinks />
           </p>
         )}
-        {shop.status === "paused" ? (
-          <p className="text-secondary font-semibold text-gray-500">휴업 중</p>
-        ) : (
-          <OpenStatusLine
-            hours={shop.hours}
-            breakTime={shop.breakTime}
-            closedDays={shop.closedDays}
-          />
-        )}
+        <OpenStatusBadge
+          status={shop.status}
+          hours={shop.hours}
+          breakTime={shop.breakTime}
+          closedDays={shop.closedDays}
+          className="block"
+        />
         <div className="pt-3">
           <DetailActions
             shopId={shop.id}
