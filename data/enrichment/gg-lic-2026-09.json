@@ -1,0 +1,412 @@
+[
+  {
+    "name": "코이라멘",
+    "forms": ["라멘", "마제소바"],
+    "area": "신중동",
+    "sourceNote": "경기 인허가 조사(다음검색)",
+    "addrHint": "야탑로69번길 18"
+  },
+  {
+    "name": "코이라멘",
+    "soups": ["돈코츠"],
+    "primarySoup": "돈코츠",
+    "forms": ["라멘"],
+    "area": "정자동",
+    "sourceNote": "경기 인허가 조사(다음검색)",
+    "addrHint": "야탑로69번길 18"
+  },
+  {
+    "name": "호시노라멘",
+    "forms": ["라멘"],
+    "hours": "11:00-20:00",
+    "breakTime": "14:30-17:00",
+    "closedDays": "월요일",
+    "menus": ["고기덮밥|13000", "게살볶음밥|14000"],
+    "area": "남양",
+    "sourceNote": "경기 인허가 조사(다음검색)",
+    "addrHint": "시청로202번길 8-40"
+  },
+  {
+    "name": "라면집",
+    "sourceNote": "확인 불가",
+    "addrHint": "황고개로206번길 32-1"
+  },
+  {
+    "name": "라면집",
+    "soupDetail": ["라멘집 아님"],
+    "sourceNote": "경기 인허가 조사(다음검색)",
+    "addrHint": "황고개로206번길 32-1"
+  },
+  {
+    "name": "라면집",
+    "soupDetail": ["라멘집 아님"],
+    "sourceNote": "경기 인허가 조사(다음검색)",
+    "addrHint": "황고개로206번길 32-1"
+  },
+  {
+    "name": "사이코라멘",
+    "soupDetail": ["실존 미확인"],
+    "sourceNote": "확인 불가",
+    "addrHint": "양지로152번길 15-6"
+  },
+  {
+    "name": "코요라멘",
+    "forms": ["라멘"],
+    "area": "동백",
+    "sourceNote": "경기 인허가 조사(다음검색)",
+    "addrHint": "동백중앙로 245"
+  },
+  {
+    "name": "코이라멘",
+    "soups": ["돈코츠"],
+    "primarySoup": "돈코츠",
+    "forms": ["라멘", "마제소바"],
+    "hours": "11:00-22:00",
+    "area": "야탑",
+    "sourceNote": "경기 인허가 조사(다음검색)",
+    "addrHint": "야탑로69번길 18"
+  },
+  {
+    "name": "신센라멘 부천점",
+    "forms": ["라멘"],
+    "sourceNote": "경기 인허가 조사(다음검색)",
+    "addrHint": "길주로363번길 41"
+  },
+  {
+    "name": "아사히라멘",
+    "forms": ["라멘"],
+    "hours": "11:00-21:30",
+    "breakTime": "15:00-17:00",
+    "area": "중동",
+    "sourceNote": "경기 인허가 조사(다음검색)",
+    "addrHint": "소향로 117"
+  },
+  {
+    "name": "라면집",
+    "soupDetail": ["실존 미확인"],
+    "sourceNote": "확인 불가",
+    "addrHint": "황고개로206번길 32-1"
+  },
+  {
+    "name": "유메노라멘",
+    "soupDetail": ["실존 미확인"],
+    "sourceNote": "확인 불가",
+    "addrHint": "궐동로 20"
+  },
+  {
+    "name": "키요토리 라멘 오리역점",
+    "forms": ["라멘"],
+    "sourceNote": "경기 인허가 조사(다음검색)",
+    "addrHint": "구미로9번길 25"
+  },
+  {
+    "name": "도토리 라멘",
+    "soups": ["시오"],
+    "primarySoup": "시오",
+    "forms": ["라멘"],
+    "area": "동백",
+    "sourceNote": "경기 인허가 조사(다음검색)",
+    "addrHint": "어정로 139"
+  },
+  {
+    "name": "라멘켄큐조",
+    "soups": ["쇼유", "시오", "미소"],
+    "primarySoup": "쇼유",
+    "forms": ["라멘", "츠케멘"],
+    "hours": "11:30-19:30",
+    "breakTime": "15:00-17:00",
+    "closedDays": "일요일",
+    "menus": ["쇼유라멘|10500", "시오라멘|10500"],
+    "instagram": "ramen_kenquezo",
+    "area": "상록수",
+    "sourceNote": "경기 인허가 조사(다음검색)",
+    "addrHint": "용신로 393"
+  },
+  {
+    "name": "준 이자카야 라멘 초(덮)밥",
+    "soupDetail": ["라멘집 아님"],
+    "area": "수내",
+    "sourceNote": "경기 인허가 조사(다음검색)",
+    "addrHint": "황새울로200번길 9-7"
+  },
+  {
+    "name": "키요라멘",
+    "soups": ["돈코츠"],
+    "primarySoup": "돈코츠",
+    "forms": ["라멘"],
+    "hours": "11:00-21:00",
+    "breakTime": "15:00-17:00",
+    "closedDays": "일요일",
+    "menus": ["돈코츠라멘|9500", "매운 돈코츠라멘|9500", "쿠로마유라멘|10000"],
+    "area": "지축",
+    "sourceNote": "경기 인허가 조사(다음검색)",
+    "addrHint": "지축5로 13"
+  },
+  {
+    "name": "멘야카야",
+    "soups": ["돈코츠"],
+    "primarySoup": "돈코츠",
+    "forms": ["라멘"],
+    "hours": "11:00-23:00",
+    "breakTime": "15:00-17:00",
+    "menus": ["돈코츠라멘|9500"],
+    "area": "광명역",
+    "sourceNote": "경기 인허가 조사(다음검색)",
+    "addrHint": "일직로 43"
+  },
+  {
+    "name": "이자카야 월하 & 하루라멘",
+    "soupDetail": ["라멘집 아님"],
+    "area": "소사벌",
+    "sourceNote": "경기 인허가 조사(다음검색)",
+    "addrHint": "비전6길 20-9"
+  },
+  {
+    "name": "쵸우라멘",
+    "soups": ["돈코츠", "쇼유"],
+    "primarySoup": "돈코츠",
+    "forms": ["라멘"],
+    "hours": "11:00-20:30",
+    "closedDays": "둘째·넷째 일요일",
+    "menus": ["카라이돈코츠라멘|10000", "돈코츠라멘|10000", "쇼유라멘|9000"],
+    "area": "철산",
+    "sourceNote": "경기 인허가 조사(다음검색)",
+    "addrHint": "소하로92번길 5"
+  },
+  {
+    "name": "라멘짱 동탄점",
+    "soups": ["미소"],
+    "forms": ["라멘"],
+    "hours": "11:30-21:00",
+    "breakTime": "15:00-16:00",
+    "menus": ["마라라멘|11000", "미소부추라멘|11000"],
+    "area": "동탄",
+    "sourceNote": "경기 인허가 조사(다음검색)",
+    "addrHint": "동탄대로5길 21"
+  },
+  {
+    "name": "키라네라멘",
+    "soups": ["돈코츠"],
+    "primarySoup": "돈코츠",
+    "forms": ["라멘"],
+    "area": "곤지암",
+    "sourceNote": "경기 인허가 조사(다음검색)",
+    "addrHint": "곤지암천로 326"
+  },
+  {
+    "name": "라멘동",
+    "soups": ["돈코츠", "쇼유", "탄탄멘"],
+    "primarySoup": "돈코츠",
+    "forms": ["라멘"],
+    "hours": "11:00-21:00",
+    "breakTime": "15:00-17:00",
+    "closedDays": "일요일",
+    "menus": ["돈코츠라멘|11000", "카라이 돈코츠라멘|11000", "탄탄멘|11500"],
+    "instagram": "ramen_dong",
+    "sourceNote": "경기 인허가 조사(다음검색)",
+    "addrHint": "오봉산단3로 25"
+  },
+  {
+    "name": "멘야쿠마",
+    "soups": ["돈코츠"],
+    "primarySoup": "돈코츠",
+    "forms": ["라멘", "아부라소바"],
+    "hours": "11:00-23:00",
+    "menus": ["쿠마돈코츠|10500", "얼큰돈코츠|11500", "아부라소바|11500"],
+    "instagram": "menya_kuma",
+    "area": "인계동",
+    "sourceNote": "경기 인허가 조사(다음검색)",
+    "addrHint": "중부대로220번길 10"
+  },
+  {
+    "name": "미도리라멘",
+    "soups": ["시오", "쇼유"],
+    "primarySoup": "시오",
+    "forms": ["라멘"],
+    "hours": "11:00-20:00",
+    "breakTime": "15:00-17:00",
+    "closedDays": "월요일",
+    "menus": ["시오라멘|12000", "쇼유라멘|12000", "교카이 시오라멘|13000"],
+    "instagram": "midori_ramen_",
+    "area": "밤리단길",
+    "sourceNote": "경기 인허가 조사(다음검색)",
+    "addrHint": "일산로380번길 43-11"
+  },
+  {
+    "name": "모모라멘",
+    "soups": ["돈코츠", "시오", "미소", "쇼유"],
+    "primarySoup": "돈코츠",
+    "forms": ["라멘"],
+    "hours": "10:50-22:30",
+    "menus": ["돈코츠라멘|11000", "시오버터라멘|11000", "미소라멘|9500"],
+    "area": "배곧",
+    "sourceNote": "경기 인허가 조사(다음검색)",
+    "addrHint": "서울대학로264번길 25"
+  },
+  {
+    "name": "바로이라멘",
+    "forms": ["라멘"],
+    "hours": "10:00-21:00",
+    "area": "선부동",
+    "sourceNote": "경기 인허가 조사(다음검색)",
+    "addrHint": "선부광장로 71"
+  },
+  {
+    "name": "신센라멘 원종점",
+    "forms": ["라멘"],
+    "soupDetail": ["토마토라멘"],
+    "hours": "09:00-24:00",
+    "area": "원종",
+    "sourceNote": "경기 인허가 조사(다음검색)",
+    "addrHint": "원종로35번길 14"
+  },
+  {
+    "name": "나루토일본라멘엔수제돈카츠시흥배곧점",
+    "forms": ["라멘"],
+    "area": "배곧",
+    "sourceNote": "경기 인허가 조사(다음검색)",
+    "addrHint": "서울대학로278번길 70"
+  },
+  {
+    "name": "레오&아오리라멘 평택팽성점",
+    "forms": ["라멘"],
+    "hours": "10:00-20:00",
+    "closedDays": "월요일",
+    "area": "팽성",
+    "soupDetail": ["현지명 '아오리의 행방불명 레오'로 확인"],
+    "sourceNote": "경기 인허가 조사(다음검색)",
+    "addrHint": "안정순환로222번길 103"
+  },
+  {
+    "name": "쵸우라멘",
+    "soups": ["돈코츠", "쇼유", "미소"],
+    "primarySoup": "돈코츠",
+    "forms": ["라멘"],
+    "hours": "11:00-20:30",
+    "closedDays": "둘째·넷째 일요일",
+    "menus": ["카라이돈코츠라멘|10000", "돈코츠라멘|10000", "야끼소바|12000"],
+    "area": "소하동",
+    "sourceNote": "경기 인허가 조사(다음검색)",
+    "addrHint": "소하로92번길 5"
+  },
+  {
+    "name": "라라멘",
+    "soups": ["돈코츠"],
+    "primarySoup": "돈코츠",
+    "forms": ["라멘", "마제소바"],
+    "hours": "11:00-20:00",
+    "closedDays": "일요일",
+    "menus": ["돈코츠라멘|10000", "카라이라멘|10000", "마제소바|12000"],
+    "sourceNote": "경기 인허가 조사(다음검색)",
+    "addrHint": "성남대로997번길 51-14"
+  },
+  {
+    "name": "임사부 돈카츠하나만파는집,라멘",
+    "soupDetail": ["라멘집 아님"],
+    "sourceNote": "경기 인허가 조사(다음검색)",
+    "addrHint": "특구로43번길 107"
+  },
+  {
+    "name": "혼키라멘",
+    "soups": ["돈코츠"],
+    "primarySoup": "돈코츠",
+    "forms": ["라멘"],
+    "area": "판교",
+    "sourceNote": "경기 인허가 조사(다음검색)",
+    "addrHint": "대왕판교로645번길 36"
+  },
+  {
+    "name": "훈라멘",
+    "soups": ["탄탄멘"],
+    "primarySoup": "탄탄멘",
+    "forms": ["라멘", "마제소바"],
+    "area": "주엽",
+    "sourceNote": "경기 인허가 조사(다음검색)",
+    "addrHint": "주화로 88"
+  },
+  {
+    "name": "토모라멘",
+    "soups": ["돈코츠"],
+    "primarySoup": "돈코츠",
+    "forms": ["라멘"],
+    "instagram": "tomo_ramen_",
+    "area": "라페스타",
+    "sourceNote": "경기 인허가 조사(다음검색)",
+    "addrHint": "고봉로 32-6"
+  },
+  {
+    "name": "오빈라멘 한양대에리카점",
+    "forms": ["라멘"],
+    "sourceNote": "경기 인허가 조사(다음검색)",
+    "addrHint": "학사5길 2"
+  },
+  {
+    "name": "시스이라멘",
+    "soups": ["돈코츠", "쇼유", "시오", "미소"],
+    "primarySoup": "돈코츠",
+    "forms": ["라멘"],
+    "hours": "11:00-21:00",
+    "closedDays": "화요일",
+    "menus": [
+      "톤코츠시오라멘|9500",
+      "돈코츠소유라멘|9500",
+      "돈코츠미소라멘|9500"
+    ],
+    "area": "송탄",
+    "sourceNote": "경기 인허가 조사(다음검색)",
+    "addrHint": "경기대로 1409"
+  },
+  {
+    "name": "상로스식당",
+    "soupDetail": ["라멘집 아님"],
+    "area": "송탄",
+    "sourceNote": "경기 인허가 조사(다음검색)",
+    "addrHint": "탄현로 249"
+  },
+  {
+    "name": "미목",
+    "forms": ["라멘"],
+    "area": "보라동",
+    "sourceNote": "경기 인허가 조사(다음검색)",
+    "addrHint": "한보라2로14번길 3-3"
+  },
+  {
+    "name": "판교면학",
+    "forms": ["라멘"],
+    "hours": "11:00-22:00",
+    "breakTime": "15:00-17:00",
+    "closedDays": "일요일",
+    "menus": ["백면|10000", "홍면|10000", "장면|10000"],
+    "instagram": "myeon_hak",
+    "area": "판교",
+    "sourceNote": "경기 인허가 조사(다음검색)",
+    "addrHint": "대왕판교로 670"
+  },
+  {
+    "name": "무다이",
+    "soups": ["돈코츠"],
+    "primarySoup": "돈코츠",
+    "forms": ["라멘", "마제소바"],
+    "instagram": "mudai_gimpo",
+    "area": "풍무동",
+    "sourceNote": "경기 인허가 조사(다음검색)",
+    "addrHint": "풍무1로 65-3"
+  },
+  {
+    "name": "키모리",
+    "soups": ["쇼유", "미소", "시오"],
+    "primarySoup": "쇼유",
+    "forms": ["라멘"],
+    "hours": "11:00-20:30",
+    "closedDays": "일요일",
+    "menus": [
+      "바지락소유라멘|12000",
+      "삿포로미소라멘|11000",
+      "고보우시오라멘|11000"
+    ],
+    "instagram": "kimori_ramen",
+    "area": "의정부",
+    "sourceNote": "경기 인허가 조사(다음검색)",
+    "addrHint": "신흥로258번길 13"
+  }
+]
