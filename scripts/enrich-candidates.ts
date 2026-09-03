@@ -1,6 +1,7 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { areaLabelOf, inheritNearestArea } from "./lib/area-label";
+import { regionDistrictOf, sidoOf } from "./lib/region";
 import { normalizeShopName } from "./lib/merge-candidates";
 import {
   matchEnrichment,
@@ -95,8 +96,8 @@ for (const line of lines.slice(1)) {
   );
 
   cells.id = toSlug(cells.상호, cells.지점명, taken);
-  cells.시 = "서울";
-  cells.구 = cells.주소.match(/([가-힣]+구)(?=\s)/)?.[1] ?? "";
+  cells.시 = sidoOf(cells.주소) ?? "서울";
+  cells.구 = regionDistrictOf(cells.주소) ?? "";
   /* 검색 확증 라벨 > 주소(공공데이터) 판정 > 미확증 디깅 라벨 — 확증 없는 충돌은 검수 큐로 */
   const addrArea = areaLabelOf(cells.주소, cells.구);
   cells.동네라벨 =

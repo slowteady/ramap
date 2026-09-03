@@ -164,3 +164,15 @@ describe("unverified 보류 신호", () => {
     expect(miss.unverified).toBeFalsy();
   });
 });
+
+describe("형태 정규화", () => {
+  it("forms의 아부라소바는 soupDetail로 옮긴다", () => {
+    const e = promoteSoups({
+      name: "칸키라멘",
+      forms: ["라멘", "아부라소바"],
+      sourceNote: "조사",
+    });
+    expect(e.forms).toEqual(["라멘"]);
+    expect(e.soupDetail).toContain("아부라소바");
+  });
+});

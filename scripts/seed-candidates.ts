@@ -25,12 +25,18 @@ console.log(
   `인허가 ${localAll.length}건 → 영업 중 라멘 후보 ${localRows.length}건`,
 );
 
+/* 상가정보는 콤마 구분 다중 입력 — 다지역 확장 (2026-09-03, 경기부터) */
 let sangRows: ReturnType<typeof parseSanggwon> = [];
 if (sangInput) {
-  const sangCsv = decodeCsvBuffer(readFileSync(resolve(sangInput)));
-  const sangAll = parseSanggwon(sangCsv);
-  sangRows = sangAll.filter(isRamenBySanggwon);
-  console.log(`상가정보 ${sangAll.length}건 → 라멘 후보 ${sangRows.length}건`);
+  for (const path of sangInput.split(",")) {
+    const sangCsv = decodeCsvBuffer(readFileSync(resolve(path)));
+    const sangAll = parseSanggwon(sangCsv);
+    const filtered = sangAll.filter(isRamenBySanggwon);
+    sangRows.push(...filtered);
+    console.log(
+      `상가정보(${path.split("/").pop()}) ${sangAll.length}건 → 라멘 후보 ${filtered.length}건`,
+    );
+  }
 }
 
 const merged = mergeCandidates(localRows, sangRows);

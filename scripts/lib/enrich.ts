@@ -109,7 +109,22 @@ function isOperationalNote(d: string): boolean {
   return d.includes("겸업") || d === "퓨전" || d === "한식 퓨전";
 }
 
+/* 형태 축 정규화 — 아부라소바는 형태가 아니라 세부 스타일(마제소바 계열 소스비빔) */
+const FORM_TO_DETAIL: Record<string, string> = {
+  아부라소바: "아부라소바",
+};
+
 export function promoteSoups(e: Enrichment): Enrichment {
+  const formDetails = (e.forms ?? [])
+    .map((f) => FORM_TO_DETAIL[f])
+    .filter(Boolean) as string[];
+  if (formDetails.length > 0) {
+    e = {
+      ...e,
+      forms: (e.forms ?? []).filter((f) => !FORM_TO_DETAIL[f]),
+      soupDetail: [...new Set([...(e.soupDetail ?? []), ...formDetails])],
+    };
+  }
   const raw = e.soupDetail ?? [];
   const promoted = [
     ...new Set(raw.map((d) => SOUP_PROMOTIONS[d]).filter(Boolean)),
