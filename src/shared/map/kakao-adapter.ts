@@ -11,13 +11,13 @@ import type {
 
 const VIEWPORT_DEBOUNCE_MS = 150;
 
-/* 캐치테이블 문법(실측 20px): 도넛(레드 링+흰 심) + 이름 라벨(흰 halo). 강등(dot)은 도넛만 */
-function donut(size: number, ring: string): string {
+/* 도넛(레드 링+흰 심, 캐치테이블 문법) — 테두리·그림자는 강화판 (2026-09-03) */
+function dot(size: number, ring: string): string {
   const core = Math.max(3, Math.round(size * 0.16));
   return [
     `width:${size}px;height:${size}px;border-radius:9999px;flex:none`,
     `background:radial-gradient(circle, #fff 0 ${core}px, ${ring} ${core}px 100%)`,
-    "border:2px solid #fff;box-shadow:0 1px 4px rgba(26,27,31,.3)",
+    "border:3px solid #fff;box-shadow:0 1px 5px rgba(26,27,31,.35)",
   ].join(";");
 }
 
@@ -30,26 +30,28 @@ function markerEl(marker: MapMarker, onTap: (id: string) => void): HTMLElement {
   const selected = marker.state === "selected";
   const visited = marker.state === "visited";
   const ring = visited ? "#c9cdd3" : "#e23c36";
-  const size = selected ? 26 : 20;
+  const size = selected ? 28 : 22;
   el.style.cssText = `display:flex;flex-direction:column;align-items:center;gap:2px;padding:${HIT_PAD}px;border:0;background:none;cursor:pointer;margin-top:-${HIT_PAD + size / 2}px`;
-  const dot = document.createElement("span");
-  dot.style.cssText = donut(size, ring);
-  el.append(dot);
+  const dotEl = document.createElement("span");
+  dotEl.style.cssText = dot(size, ring);
+  el.append(dotEl);
   if (marker.kind === "dot" && !selected) {
     el.setAttribute("aria-label", marker.label);
   } else {
+    /* 라벨 pill — 흰 라운드 칩으로 타일과 분리 (에어비앤비 문법) */
     const label = document.createElement("span");
     label.style.cssText = [
+      "display:flex;align-items:center;gap:3px;white-space:nowrap",
+      "padding:3px 8px;border-radius:9999px;background:#fff",
+      "box-shadow:0 1px 4px rgba(26,27,31,.22)",
       `font:800 13px Pretendard,-apple-system,sans-serif`,
       `color:${visited ? "#9aa0a8" : selected ? "#e23c36" : "#1a1b1f"}`,
-      "text-shadow:0 1px 2px #fff,0 -1px 2px #fff,1px 0 2px #fff,-1px 0 2px #fff,0 0 4px #fff,0 0 6px #fff",
-      "white-space:nowrap",
     ].join(";");
     if (marker.isNew && !visited) {
       const badge = document.createElement("span");
       badge.textContent = "NEW";
       badge.style.cssText =
-        "display:inline-block;margin-right:3px;padding:1px 4px;border-radius:4px;background:#e23c36;color:#fff;font:800 9px Pretendard,-apple-system,sans-serif;vertical-align:1px";
+        "display:inline-block;padding:1px 4px;border-radius:4px;background:#e23c36;color:#fff;font:800 9px Pretendard,-apple-system,sans-serif";
       label.append(badge);
     }
     label.append(document.createTextNode(marker.label));
