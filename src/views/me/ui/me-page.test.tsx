@@ -88,10 +88,13 @@ describe("MePage — 메뉴 배치", () => {
     );
   });
 
-  it("둘러보기(라멘집 등록·장르 가이드)는 마이 본문에 있다", () => {
+  it("장르 가이드는 프로필 영역 링크, 라멘집 등록은 마이에 없다(홈 중복)", () => {
     nav.current = createNavigationStub();
     render(<MePage shops={shops} />);
-    expect(screen.getByText("라멘집 등록하기")).toBeInTheDocument();
-    expect(screen.getByText("장르 가이드")).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /장르 가이드/ })).toHaveAttribute(
+      "href",
+      "/guide",
+    );
+    expect(screen.queryByText("라멘집 등록하기")).not.toBeInTheDocument();
   });
 });

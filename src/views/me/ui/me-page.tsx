@@ -8,7 +8,6 @@ import {
   BookOpen,
   ChevronLeft,
   ChevronRight,
-  PenLine,
   Settings,
   Soup,
 } from "lucide-react";
@@ -17,17 +16,8 @@ import { useAuth, useProfile } from "@/features/auth";
 import { LoginPromptSheet, useRecords } from "@/features/records";
 import { fetchMyRecordPhotos } from "@/features/records/index.client";
 import { cn } from "@/shared/lib/utils";
-import { MenuList, type MenuSection } from "@/shared/ui/menu-list";
 import { hasMore, nextCount, PAGE_SIZE, visibleSlice } from "../model/paging";
 import { recordTime, sortRecordsByRecent } from "../model/sort-records";
-
-const EXPLORE_SECTION: MenuSection = {
-  label: "둘러보기",
-  items: [
-    { icon: PenLine, label: "라멘집 등록하기", href: "/?report=new" },
-    { icon: BookOpen, label: "장르 가이드", href: "/guide" },
-  ],
-};
 
 const TABS = [
   { key: "visited", label: "완식" },
@@ -139,9 +129,18 @@ function MeBody({ shops }: { shops: Shop[] }) {
         ) : (
           <div className="h-7 w-36 animate-pulse rounded-card bg-gray-100" />
         )}
-        <p className="text-secondary text-gray-500">
-          완식 {visitedCount} · 저장 {savedCount}
-        </p>
+        <div className="flex items-baseline justify-between">
+          <p className="text-secondary text-gray-500">
+            완식 {visitedCount} · 저장 {savedCount}
+          </p>
+          <Link
+            href="/guide"
+            className="flex items-center gap-1 text-secondary font-semibold text-gray-500"
+          >
+            <BookOpen className="size-4" />
+            장르 가이드
+          </Link>
+        </div>
       </div>
 
       <div className="sticky top-0 z-10 flex gap-5 border-b border-gray-100 bg-white px-4 pt-5">
@@ -283,10 +282,6 @@ function MeBody({ shops }: { shops: Shop[] }) {
           </Link>
         </div>
       )}
-
-      <div className="mt-auto pt-10">
-        <MenuList sections={[EXPLORE_SECTION]} />
-      </div>
     </div>
   );
 }
