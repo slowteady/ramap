@@ -8,10 +8,16 @@ import { useAuth } from "./use-auth";
 type ProfileState = {
   nickname: string | null;
   agreedAt: string | null;
+  role: string | null;
   loaded: boolean;
 };
 
-const EMPTY: ProfileState = { nickname: null, agreedAt: null, loaded: false };
+const EMPTY: ProfileState = {
+  nickname: null,
+  agreedAt: null,
+  role: null,
+  loaded: false,
+};
 
 export function useProfile() {
   const { user } = useAuth();
@@ -26,7 +32,7 @@ export function useProfile() {
     let cancelled = false;
     void client
       .from("profiles")
-      .select("nickname, agreed_at")
+      .select("nickname, agreed_at, role")
       .eq("user_id", user.id)
       .maybeSingle()
       .then(({ data }) => {
@@ -34,6 +40,7 @@ export function useProfile() {
         setState({
           nickname: data?.nickname ?? null,
           agreedAt: data?.agreed_at ?? null,
+          role: data?.role ?? null,
           loaded: data !== null,
         });
       });
@@ -61,6 +68,7 @@ export function useProfile() {
 
   return {
     nickname: state.nickname,
+    isAdmin: state.role === "admin",
     displayName: state.nickname ?? "라멘 러버",
     profileLoaded: state.loaded,
     agreedAt: state.agreedAt,

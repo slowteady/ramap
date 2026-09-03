@@ -293,3 +293,37 @@ $$;
 revoke all on function public.delete_own_account() from public;
 revoke execute on function public.delete_own_account() from anon;
 grant execute on function public.delete_own_account() to authenticated;
+
+-- 운영 어드민 (2026-09-03): 검수·제보 처리를 앱 내 /admin에서 — 별도 서버 없이 RLS로 권한 강제
+alter table public.profiles add column if not exists role text not null default 'user'
+  check (role in ('user', 'admin'));
+
+create or replace function public.is_admin()
+returns boolean
+language sql
+stable
+security definer
+set search_path = public
+as $$
+  select exists (
+    select 1 from public.profiles where user_id = auth.uid() and role = 'admin'
+  );
+$$;
+
+alter table public.reports add column if not exists status text not null default 'open'
+  check (status in ('open', 'done'));
+
+create policy "reports: 관리자 조회" on public.reports
+  for select to authenticated using (public.is_admin());
+create policy "reports: 관리자 처리" on public.reports
+  for update to authenticated using (public.is_admin()) with check (public.is_admin());
+
+create policy "record_photos: 관리자 조회" on public.record_photos
+  for select to authenticated using (public.is_admin());
+create policy "record_photos: 관리자 검수" on public.record_photos
+  for update to authenticated using (public.is_admin()) with check (public.is_admin());
+
+create policy "record-photos: 관리자 열람" on storage.objects
+  for select to authenticated using (bucket_id = 'record-photos' and public.is_admin());
+create policy "report-photos: 관리자 열람" on storage.objects
+  for select to authenticated using (bucket_id = 'report-photos' and public.is_admin());
