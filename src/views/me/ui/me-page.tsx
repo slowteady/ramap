@@ -10,6 +10,7 @@ import {
   ChevronRight,
   PenLine,
   Settings,
+  Soup,
 } from "lucide-react";
 import { GenreChips, type Shop } from "@/entities/shop";
 import { useAuth, useProfile } from "@/features/auth";
@@ -166,64 +167,105 @@ function MeBody({ shops }: { shops: Shop[] }) {
       </div>
 
       {listed.length > 0 ? (
-        <ul className="px-4">
-          {visibleSlice(listed, visibleCount).map((record) => {
-            const shop = shopById.get(record.shopId)!;
-            const at = recordTime(record);
-            return (
-              <li key={record.shopId} className="border-b border-gray-050">
-                <Link
-                  href={`/shop/${shop.id}`}
-                  className="flex w-full items-center gap-3 py-3.5"
+        tab === "visited" ? (
+          /* 완식 = 인스타형 사진 그리드 — 사진 없는 기록은 아이콘 타일 (2026-09-03 PO) */
+          <>
+            <ul className="grid grid-cols-3 gap-0.5 pt-0.5">
+              {visibleSlice(listed, visibleCount).map((record) => {
+                const shop = shopById.get(record.shopId)!;
+                const photo = thumbs.get(shop.id);
+                return (
+                  <li key={record.shopId}>
+                    <Link
+                      href={`/shop/${shop.id}`}
+                      className="relative block aspect-square"
+                    >
+                      {photo ? (
+                        <img
+                          src={photo}
+                          alt={shop.name}
+                          loading="lazy"
+                          className="size-full object-cover"
+                        />
+                      ) : (
+                        <span className="flex size-full flex-col items-center justify-center gap-1.5 bg-ramen-050 px-2">
+                          <Soup className="size-6 text-ramen" />
+                          <span className="line-clamp-1 text-caption font-semibold text-ink">
+                            {shop.name}
+                          </span>
+                        </span>
+                      )}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+            {hasMore(visibleCount, listed.length) && (
+              <div className="px-4 py-3">
+                <button
+                  type="button"
+                  onClick={() =>
+                    setVisibleCount((c) => nextCount(c, listed.length))
+                  }
+                  className="h-12 w-full rounded-card-lg bg-gray-050 text-body font-semibold text-ink"
                 >
-                  <span className="flex min-w-0 flex-1 flex-col gap-1.5">
-                    <span className="flex items-baseline gap-1.5">
-                      <span className="truncate text-body font-bold text-ink">
-                        {shop.name}
+                  기록 더보기 ({listed.length - visibleCount})
+                </button>
+              </div>
+            )}
+          </>
+        ) : (
+          <ul className="px-4">
+            {visibleSlice(listed, visibleCount).map((record) => {
+              const shop = shopById.get(record.shopId)!;
+              const at = recordTime(record);
+              return (
+                <li key={record.shopId} className="border-b border-gray-050">
+                  <Link
+                    href={`/shop/${shop.id}`}
+                    className="flex w-full items-center gap-3 py-3.5"
+                  >
+                    <span className="flex min-w-0 flex-1 flex-col gap-1.5">
+                      <span className="flex items-baseline gap-1.5">
+                        <span className="truncate text-body font-bold text-ink">
+                          {shop.name}
+                        </span>
+                        {shop.areaLabel && (
+                          <span className="shrink-0 text-secondary text-gray-400">
+                            {shop.areaLabel}
+                          </span>
+                        )}
+                        {at && (
+                          <span className="ml-auto shrink-0 text-caption text-gray-400">
+                            {dayjs(at).format("YYYY.M.D")}
+                          </span>
+                        )}
                       </span>
-                      {shop.areaLabel && (
-                        <span className="shrink-0 text-secondary text-gray-400">
-                          {shop.areaLabel}
-                        </span>
-                      )}
-                      {at && (
-                        <span className="ml-auto shrink-0 text-caption text-gray-400">
-                          {dayjs(at).format("YYYY.M.D")}
-                        </span>
-                      )}
+                      <GenreChips
+                        soups={shop.soups}
+                        forms={shop.forms}
+                        lineages={shop.lineages}
+                      />
                     </span>
-                    <GenreChips
-                      soups={shop.soups}
-                      forms={shop.forms}
-                      lineages={shop.lineages}
-                    />
-                  </span>
-                  {tab === "visited" && thumbs.has(shop.id) && (
-                    <img
-                      src={thumbs.get(shop.id)}
-                      alt=""
-                      loading="lazy"
-                      className="size-14 shrink-0 rounded-card object-cover"
-                    />
-                  )}
-                </Link>
+                  </Link>
+                </li>
+              );
+            })}
+            {hasMore(visibleCount, listed.length) && (
+              <li className="py-3">
+                <button
+                  type="button"
+                  onClick={() =>
+                    setVisibleCount((c) => nextCount(c, listed.length))
+                  }
+                  className="h-12 w-full rounded-card-lg bg-gray-050 text-body font-semibold text-ink"
+                >
+                  기록 더보기 ({listed.length - visibleCount})
+                </button>
               </li>
-            );
-          })}
-          {hasMore(visibleCount, listed.length) && (
-            <li className="py-3">
-              <button
-                type="button"
-                onClick={() =>
-                  setVisibleCount((c) => nextCount(c, listed.length))
-                }
-                className="h-12 w-full rounded-card-lg bg-gray-050 text-body font-semibold text-ink"
-              >
-                기록 더보기 ({listed.length - visibleCount})
-              </button>
-            </li>
-          )}
-        </ul>
+            )}
+          </ul>
+        )
       ) : (
         <div className="flex flex-1 flex-col items-center justify-center gap-2 px-4 py-16">
           <p className="text-body font-bold text-ink">
