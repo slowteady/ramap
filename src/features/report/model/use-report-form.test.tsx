@@ -11,7 +11,7 @@ const file = (name: string) => new File(["x"], name, { type: "image/jpeg" });
 
 describe("useNewReportForm", () => {
   it("상호와 위치 단서(링크 또는 핀) 없이는 제출 불가", () => {
-    const { result } = renderHook(() => useNewReportForm(null));
+    const { result } = renderHook(() => useNewReportForm());
     expect(result.current.canSubmit).toBe(false);
     act(() => result.current.set("shopName", "새라멘집"));
     expect(result.current.canSubmit).toBe(false);
@@ -19,18 +19,16 @@ describe("useNewReportForm", () => {
     expect(result.current.canSubmit).toBe(true);
   });
 
-  it("지도 중심이 있으면 핀 첨부로도 제출 가능", () => {
-    const { result } = renderHook(() =>
-      useNewReportForm({ lat: 37.5, lng: 127.0 }),
-    );
+  it("피커로 핀을 지정하면 링크 없이도 제출 가능", () => {
+    const { result } = renderHook(() => useNewReportForm());
     act(() => result.current.set("shopName", "새라멘집"));
-    act(() => result.current.togglePin());
+    act(() => result.current.set("pin", { lat: 37.5, lng: 127.0 }));
     expect(result.current.draft.pin).toEqual({ lat: 37.5, lng: 127.0 });
     expect(result.current.canSubmit).toBe(true);
   });
 
   it("링크는 MAX_LINKS까지, 형식 오류는 터치 후에만 표시", () => {
-    const { result } = renderHook(() => useNewReportForm(null));
+    const { result } = renderHook(() => useNewReportForm());
     for (let i = 0; i < MAX_LINKS + 2; i++) {
       act(() => result.current.addLink());
     }
@@ -43,7 +41,7 @@ describe("useNewReportForm", () => {
   });
 
   it("사진은 MAX_PHOTOS를 넘겨 추가해도 잘린다", () => {
-    const { result } = renderHook(() => useNewReportForm(null));
+    const { result } = renderHook(() => useNewReportForm());
     act(() =>
       result.current.addPhotos(
         Array.from({ length: MAX_PHOTOS + 3 }, (_, i) => file(`p${i}.jpg`)),

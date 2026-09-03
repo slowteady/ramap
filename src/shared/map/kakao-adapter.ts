@@ -216,6 +216,13 @@ export async function createKakaoAdapter(
     setLevel(level) {
       map?.setLevel(level);
     },
+    coordsAt(x, y) {
+      if (!map) return null;
+      const pos = map
+        .getProjection()
+        .coordsFromContainerPoint(new window.kakao.maps.Point(x, y));
+      return { lat: pos.getLat(), lng: pos.getLng() };
+    },
     setUserLocation(pos) {
       userOverlay?.setMap(null);
       userOverlay = null;

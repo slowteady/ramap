@@ -2,7 +2,13 @@
 
 import { useCallback, useMemo } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { parseReportQuery, REPORT_PARAM, SHOP_PARAM } from "./report-query";
+import {
+  isPickQuery,
+  parseReportQuery,
+  PICK_PARAM,
+  REPORT_PARAM,
+  SHOP_PARAM,
+} from "./report-query";
 
 /* 열기는 push(뒤로가기 = 닫기), 닫기는 replace — use-selected-shop과 같은 규약 */
 export function useReportQuery() {
@@ -10,10 +16,10 @@ export function useReportQuery() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
-  const query = useMemo(
-    () => parseReportQuery(new URLSearchParams(searchParams.toString())),
-    [searchParams],
-  );
+  const { query, pick } = useMemo(() => {
+    const params = new URLSearchParams(searchParams.toString());
+    return { query: parseReportQuery(params), pick: isPickQuery(params) };
+  }, [searchParams]);
 
   const openNew = useCallback(() => {
     const params = new URLSearchParams(searchParams.toString());
@@ -32,13 +38,26 @@ export function useReportQuery() {
     [router, pathname, searchParams],
   );
 
+  const openPick = useCallback(() => {
+    const params = new URLSearchParams(searchParams.toString());
+    params.set(PICK_PARAM, "1");
+    router.push(`${pathname}?${params.toString()}`, { scroll: false });
+  }, [router, pathname, searchParams]);
+
+  const closePick = useCallback(() => {
+    const params = new URLSearchParams(searchParams.toString());
+    params.delete(PICK_PARAM);
+    router.replace(`${pathname}?${params.toString()}`, { scroll: false });
+  }, [router, pathname, searchParams]);
+
   const close = useCallback(() => {
     const params = new URLSearchParams(searchParams.toString());
     if (params.get(REPORT_PARAM) === "edit") params.delete(SHOP_PARAM);
     params.delete(REPORT_PARAM);
+    params.delete(PICK_PARAM);
     const qs = params.toString();
     router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
   }, [router, pathname, searchParams]);
 
-  return { query, openNew, openEdit, close };
+  return { query, pick, openNew, openEdit, openPick, closePick, close };
 }

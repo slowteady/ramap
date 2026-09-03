@@ -171,12 +171,11 @@ export function isLikelyUrl(raw: string): boolean {
 const cleanLinks = (links: string[]) =>
   links.map((l) => l.trim()).filter((l) => isLikelyUrl(l));
 
-/* 직접 촬영 안내는 문구로 처리(네이버 제보 기준·카카오맵 제보리워드 관례) — 체크박스 없음 */
+/* 직접 촬영 안내는 문구로 처리(네이버 제보 기준·카카오맵 제보리워드 관례) — 체크박스 없음.
+   사진만으로는 위치 정보가 0이라 처리 불가 — 링크 또는 핀 필수 (docs/plans/2026-09-03-backlog §2) */
 export function canSubmitNew(d: NewReportDraft): boolean {
   if (d.shopName.trim() === "") return false;
-  return (
-    cleanLinks(d.links).length > 0 || d.pin !== null || d.photos.length > 0
-  );
+  return cleanLinks(d.links).length > 0 || d.pin !== null;
 }
 
 export function buildNewPayload(

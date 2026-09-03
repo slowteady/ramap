@@ -2,8 +2,10 @@
 
 import { useRef, useState } from "react";
 import { X } from "lucide-react";
+import { cn } from "@/shared/lib/utils";
 import { DiscardDialog } from "@/shared/ui/discard-dialog";
-import type { LatLng, ReportTarget } from "../model/report-payload";
+import type { PinPickerControls } from "../model/pin-pick";
+import type { ReportTarget } from "../model/report-payload";
 import { useReportQuery } from "../model/use-report-query";
 import { EditReportForm } from "./edit-report-form";
 import { NewReportForm } from "./new-report-form";
@@ -11,12 +13,12 @@ import { NewReportForm } from "./new-report-form";
 /* 홈 상시 시트(z-50) 위에 떠야 하므로 z-60 */
 export function ReportSheet({
   editTarget,
-  mapCenter = null,
+  picker,
 }: {
   editTarget?: ReportTarget;
-  mapCenter?: LatLng | null;
+  picker?: PinPickerControls;
 }) {
-  const { query, close } = useReportQuery();
+  const { query, pick, close } = useReportQuery();
   const dirtyRef = useRef(false);
   const [confirming, setConfirming] = useState(false);
   if (!query) return null;
@@ -32,9 +34,22 @@ export function ReportSheet({
       : null;
   if (query.kind === "edit" && !edit) return null;
 
+  /* 픽 모드: 폼은 언마운트 없이 숨기고 컨테이너를 투명하게 — 뒤의 ShopMap이 그대로 조준면 */
+  const picking = query.kind === "new" && pick && Boolean(picker);
+
   return (
-    <div className="fixed inset-0 z-60 mx-auto flex w-full max-w-app flex-col bg-white duration-300 animate-in slide-in-from-bottom">
-      <header className="flex shrink-0 items-center gap-1 px-2 py-2">
+    <div
+      className={cn(
+        "fixed inset-0 z-60 mx-auto flex w-full max-w-app flex-col duration-300 animate-in slide-in-from-bottom",
+        picking ? "pointer-events-none" : "bg-white",
+      )}
+    >
+      <header
+        className={cn(
+          "flex shrink-0 items-center gap-1 px-2 py-2",
+          picking && "hidden",
+        )}
+      >
         <button
           type="button"
           aria-label="닫기"
@@ -55,11 +70,7 @@ export function ReportSheet({
           dirtyRef={dirtyRef}
         />
       ) : (
-        <NewReportForm
-          mapCenter={mapCenter}
-          onClose={close}
-          dirtyRef={dirtyRef}
-        />
+        <NewReportForm picker={picker} onClose={close} dirtyRef={dirtyRef} />
       )}
       <DiscardDialog
         open={confirming}

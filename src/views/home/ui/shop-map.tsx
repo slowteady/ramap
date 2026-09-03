@@ -20,7 +20,7 @@ import { ShopSheet } from "./shop-sheet";
 export function ShopMap({ pins }: { pins: ShopPin[] }) {
   const { filters, apply } = useMapFilters();
   const { selectedId, select, clear } = useSelectedShop();
-  const { openNew: openReport } = useReportQuery();
+  const { openNew: openReport, pick } = useReportQuery();
   const search = useSearchQuery();
   const { records } = useRecords();
   const visitedIds = useMemo(
@@ -35,13 +35,16 @@ export function ShopMap({ pins }: { pins: ShopPin[] }) {
   const {
     containerRef,
     status,
+    view,
     visiblePins,
     listPins,
     userLocation,
-    center,
     selectedShop,
     panToPin,
     panToArea,
+    setLevel,
+    panTo,
+    coordsAt,
     locate,
   } = useShopMap(basePins, filters, selectedId, visitedIds, select, clear);
   const [sheetAxis, setSheetAxis] = useState<FilterAxis | null>(null);
@@ -100,7 +103,7 @@ export function ShopMap({ pins }: { pins: ShopPin[] }) {
         onApply={apply}
         onClose={() => setSheetAxis(null)}
       />
-      {status === "ready" && (
+      {status === "ready" && !pick && (
         <ShopSheet
           listPins={listPins}
           userLocation={userLocation}
@@ -112,7 +115,13 @@ export function ShopMap({ pins }: { pins: ShopPin[] }) {
           onClose={clear}
         />
       )}
-      <ReportSheet mapCenter={center} />
+      <ReportSheet
+        picker={
+          status === "ready"
+            ? { containerRef, view, setLevel, panTo, coordsAt }
+            : undefined
+        }
+      />
       {search.isOpen && (
         <SearchOverlay
           pins={pins}
