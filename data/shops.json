@@ -21819,7 +21819,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303+상가I20303); 대구경북 디깅(다음검색) · 경산 영남대; 지역 조사(다음검색) — 월배로 스카이M타워점; 지역 조사(다음검색) — 경대북문점(연중무휴), 국물 베이스는 월배점 조사(미소 베이스) 기준; 지역 조사(다음검색) — 국물 장르 표기 없음; 지역 조사(다음검색) — 달서구 월배로점, 국물 장르 표기 없음; 지역 조사(",
+    "source": "시딩v2(상가I20303+상가I20303+상가); 대구경북 디깅(다음검색) · 경산 영남대; 지역 조사(다음검색) — 월배로 스카이M타워점; 지역 조사(다음검색) — 경대북문점(연중무휴), 국물 베이스는 월배점 조사(미소 베이스) 기준; 지역 조사(다음검색) — 국물 장르 표기 없음; 지역 조사(다음검색) — 달서구 월배로점, 국물 장르 표기 없음; 지역",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -21906,7 +21906,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 대구경북 디깅(다음검색) · 경산 영남대; 지역 조사(다음검색) — 월배로 스카이M타워점; 지역 조사(다음검색) — 경대북문점(연중무휴), 국물 베이스는 월배점 조사(미소 베이스) 기준; 지역 조사(다음검색) — 국물 장르 표기 없음; 지역 조사(다음검색) — 달서구 월배로점, 국물 장르 표기 없음; 지역 조사(다음검색) — 무",
+    "source": "시딩v2(상가I20303+상가); 대구경북 디깅(다음검색) · 경산 영남대; 지역 조사(다음검색) — 월배로 스카이M타워점; 지역 조사(다음검색) — 경대북문점(연중무휴), 국물 베이스는 월배점 조사(미소 베이스) 기준; 지역 조사(다음검색) — 국물 장르 표기 없음; 지역 조사(다음검색) — 달서구 월배로점, 국물 장르 표기 없음; 지역 조사(다음검색)",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -21956,7 +21956,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 대구경북 디깅(다음검색) — 상호가 '라멘집'으로 표기 · 경주 성동동; 호남제주 디깅(다음검색) · 익산; 호남제주 디깅(다음검색) · 목포 죽동; 호남제주 디깅(다음검색) · 남악(무안); 보류 재검증(다음검색) — 블로그 2건 이상('천안 성정동 라멘집', '성정동 일본 돈코츠라멘 <라멘집>')과 플레이스 천안 일식 라멘",
+    "source": "시딩v2(상가I20303+상가); 대구경북 디깅(다음검색) — 상호가 '라멘집'으로 표기 · 경주 성동동; 호남제주 디깅(다음검색) · 익산; 호남제주 디깅(다음검색) · 목포 죽동; 호남제주 디깅(다음검색) · 남악(무안); 보류 재검증(다음검색) — 블로그 2건 이상('천안 성정동 라멘집', '성정동 일본 돈코츠라멘 <라멘집>')과 플레이스 천안 일식",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -22046,7 +22046,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 대구경북 디깅(다음검색) · 수성구; 지역 조사(다음검색)",
+    "source": "시딩v2(상가I20303+상가); 대구경북 디깅(다음검색) · 수성구; 지역 조사(다음검색)",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -22083,7 +22083,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 지역 조사(다음검색) — 영업중(리뷰 76·블로그 193), 시오라멘 언급, 경대병원역 인근",
+    "source": "시딩v2(상가I20303+상가); 지역 조사(다음검색) — 영업중(리뷰 76·블로그 193), 시오라멘 언급, 경대병원역 인근",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -22133,7 +22133,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가); 지역 조사(다음검색) — 영업시간 요일별 상이(화 ~20시, 금·토 ~새벽1시), 광장코아 인근",
+    "source": "시딩v2(상가+상가); 지역 조사(다음검색) — 영업시간 요일별 상이(화 ~20시, 금·토 ~새벽1시), 광장코아 인근",
     "note": null
   },
   {
@@ -22233,7 +22233,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가); 대구경북 디깅(다음검색, '대구 라멘 성지') · 대구; 지역 조사(다음검색) — 동대구역 인근",
+    "source": "시딩v2(상가+상가); 대구경북 디깅(다음검색, '대구 라멘 성지') · 대구; 지역 조사(다음검색) — 동대구역 인근",
     "note": null
   },
   {
@@ -22320,7 +22320,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 정보수집(다음검색); 정보수집(다음검색); 대구경북 디깅(다음검색) · 동성로; 경기 디깅(다음검색); 호남제주 디깅(다음검색) — 라면81번옥 표기도 병용 · 전주 신시가지; 인천 디깅(다음검색); 동명 재검증(다음검색); 동명 재검증(다음검색); 지역 조사(다음검색) — 연중무휴; 지역 조사(다음검색) — 토요일은 11:00",
+    "source": "시딩v2(상가I20303+상가); 정보수집(다음검색); 정보수집(다음검색); 대구경북 디깅(다음검색) · 동성로; 경기 디깅(다음검색); 호남제주 디깅(다음검색) — 라면81번옥 표기도 병용 · 전주 신시가지; 인천 디깅(다음검색); 동명 재검증(다음검색); 동명 재검증(다음검색); 지역 조사(다음검색) — 연중무휴; 지역 조사(다음검색) — 토요일은 11",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -22370,7 +22370,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 대구경북 디깅(다음검색, '대구 라멘 성지') · 대구; 지역 조사(다음검색) — 계명대 인근, 연중무휴",
+    "source": "시딩v2(상가I20303+상가); 대구경북 디깅(다음검색, '대구 라멘 성지') · 대구; 지역 조사(다음검색) — 계명대 인근, 연중무휴",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -22420,7 +22420,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가); 지역 조사(다음검색) — 반월당 인근",
+    "source": "시딩v2(상가+상가); 지역 조사(다음검색) — 반월당 인근",
     "note": null
   },
   {
@@ -22470,7 +22470,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 대구경북 디깅(다음검색) · 앞산; 지역 조사(다음검색) — 국물 베이스(닭/돼지) 미확정이라 soups 생략, 리뷰 4.7(45건)",
+    "source": "시딩v2(상가I20303+상가); 대구경북 디깅(다음검색) · 앞산; 지역 조사(다음검색) — 국물 베이스(닭/돼지) 미확정이라 soups 생략, 리뷰 4.7(45건)",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -22507,7 +22507,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 인천 디깅(다음검색); 지역 조사(다음검색); 지역 조사(다음검색); 지역 조사(다음검색)",
+    "source": "시딩v2(상가I20303+상가); 인천 디깅(다음검색); 지역 조사(다음검색); 지역 조사(다음검색); 지역 조사(다음검색)",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -22544,7 +22544,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 부산 디깅(다음검색); 대구경북 디깅(다음검색, '대구 라멘 성지') · 대구; 지역 조사(다음검색) — '청탕쇼유지로케·블랙아부라소바' 캡션 근거, 국물 장르 상세 미확인",
+    "source": "시딩v2(상가I20303+상가); 부산 디깅(다음검색); 대구경북 디깅(다음검색, '대구 라멘 성지') · 대구; 지역 조사(다음검색) — '청탕쇼유지로케·블랙아부라소바' 캡션 근거, 국물 장르 상세 미확인",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -22594,7 +22594,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 지역 조사(다음검색)",
+    "source": "시딩v2(상가I20303+상가); 지역 조사(다음검색)",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -22731,7 +22731,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 지역 조사(다음검색)",
+    "source": "시딩v2(상가I20303+상가); 지역 조사(다음검색)",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -22818,7 +22818,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 대구경북 디깅(다음검색) · 구미 송정동; 지역 조사(다음검색) — 교대역 인근; 지역 조사(다음검색)",
+    "source": "시딩v2(상가I20303+상가); 대구경북 디깅(다음검색) · 구미 송정동; 지역 조사(다음검색) — 교대역 인근; 지역 조사(다음검색)",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -22868,7 +22868,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가); 지역 조사(다음검색) — 주말 브레이크 15:00-16:30, 반월당 인근",
+    "source": "시딩v2(상가+상가); 지역 조사(다음검색) — 주말 브레이크 15:00-16:30, 반월당 인근",
     "note": null
   },
   {
@@ -22992,7 +22992,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 지역 조사(다음검색) — 주말 20:00 마감, 월요일 11:30-15:00 단축",
+    "source": "시딩v2(상가I20303+상가); 지역 조사(다음검색) — 주말 20:00 마감, 월요일 11:30-15:00 단축",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -23042,7 +23042,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 지역 조사(다음검색) — 월배로 스카이M타워점; 지역 조사(다음검색) — 경대북문점(연중무휴), 국물 베이스는 월배점 조사(미소 베이스) 기준; 지역 조사(다음검색) — 국물 장르 표기 없음; 지역 조사(다음검색) — 달서구 월배로점, 국물 장르 표기 없음; 지역 조사(다음검색) — 상세 미확인",
+    "source": "시딩v2(상가I20303+상가); 지역 조사(다음검색) — 월배로 스카이M타워점; 지역 조사(다음검색) — 경대북문점(연중무휴), 국물 베이스는 월배점 조사(미소 베이스) 기준; 지역 조사(다음검색) — 국물 장르 표기 없음; 지역 조사(다음검색) — 달서구 월배로점, 국물 장르 표기 없음; 지역 조사(다음검색) — 상세 미확인",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -24340,7 +24340,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 부산 조사(다음검색) — 영업중, 부산외대 인근; 부산 디깅(다음검색)",
+    "source": "시딩v2(상가I20303+상가); 부산 조사(다음검색) — 영업중, 부산외대 인근; 부산 디깅(다음검색)",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -24434,7 +24434,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 부산 조사(다음검색) — 영업중, 장전동",
+    "source": "시딩v2(상가I20303+상가); 부산 조사(다음검색) — 영업중, 장전동",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -24578,7 +24578,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 부산 조사(다음검색) — 영업중, 토요일은 11:00-15:00 단축 영업; 부산 디깅(다음검색)",
+    "source": "시딩v2(상가I20303+상가); 부산 조사(다음검색) — 영업중, 토요일은 11:00-15:00 단축 영업; 부산 디깅(다음검색)",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -24615,7 +24615,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 부산 조사(다음검색) — 영업중, 일본식라면 분류·평점 4.3(52건), 장르·영업시간 미확인; 부산 디깅(다음검색)",
+    "source": "시딩v2(상가I20303+상가); 부산 조사(다음검색) — 영업중, 일본식라면 분류·평점 4.3(52건), 장르·영업시간 미확인; 부산 디깅(다음검색)",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -24665,7 +24665,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 부산 조사(다음검색) — 영업중, 에이스프라자 106호, 주력 국물 미확정; 부산 디깅(다음검색); 경남울산 디깅(다음검색) · 울산 옥교동",
+    "source": "시딩v2(상가I20303+상가); 부산 조사(다음검색) — 영업중, 에이스프라자 106호, 주력 국물 미확정; 부산 디깅(다음검색); 경남울산 디깅(다음검색) · 울산 옥교동",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -24853,7 +24853,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 부산 조사(다음검색) — 영업중, 연중무휴; 부산 디깅(다음검색); 강원 디깅(다음검색, 블로그 언급) · 동해",
+    "source": "시딩v2(상가I20303+상가); 부산 조사(다음검색) — 영업중, 연중무휴; 부산 디깅(다음검색); 강원 디깅(다음검색, 블로그 언급) · 동해",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -24890,7 +24890,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 부산 조사(다음검색) — 영업중, 차슈 냉라멘·초계 냉라멘 언급, 국물 장르·영업시간 미확인; 부산 디깅(다음검색)",
+    "source": "시딩v2(상가I20303+상가); 부산 조사(다음검색) — 영업중, 차슈 냉라멘·초계 냉라멘 언급, 국물 장르·영업시간 미확인; 부산 디깅(다음검색)",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -25038,7 +25038,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 부산 조사(다음검색) — 영업중, 부산교대역 인근, 라멘·돈카츠 겸업; 부산 조사(다음검색); 경기 조사(다음검색)",
+    "source": "시딩v2(상가I20303+상가); 부산 조사(다음검색) — 영업중, 부산교대역 인근, 라멘·돈카츠 겸업; 부산 조사(다음검색); 경기 조사(다음검색)",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -25088,7 +25088,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 부산 조사(다음검색) — 영업중, 토요일 12:00-14:00 단축 영업, 주력 국물 미확정",
+    "source": "시딩v2(상가I20303+상가); 부산 조사(다음검색) — 영업중, 토요일 12:00-14:00 단축 영업, 주력 국물 미확정",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -25175,7 +25175,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가); 부산 조사(다음검색) — 영업중, 연중무휴, 라스트오더 22:30, 쿠로라멘·카라구치라멘도 판매(주력 미확정); 정보수집(다음검색); 정보수집(다음검색); 정보수집(다음검색); 부산 디깅(다음검색); 경기 디깅(다음검색); 서울 디깅(다음검색); 동명 재검증(다음검색); 동명 재검증(다음검색) — 심야 영업, 요일별 상이(월~목 11:00",
+    "source": "시딩v2(상가+상가); 부산 조사(다음검색) — 영업중, 연중무휴, 라스트오더 22:30, 쿠로라멘·카라구치라멘도 판매(주력 미확정); 정보수집(다음검색); 정보수집(다음검색); 정보수집(다음검색); 부산 디깅(다음검색); 경기 디깅(다음검색); 서울 디깅(다음검색); 동명 재검증(다음검색); 동명 재검증(다음검색) — 심야 영업, 요일별 상이(월~목 11",
     "note": null
   },
   {
@@ -25212,7 +25212,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 부산 조사(다음검색) — 해운대구 재송동(재반로196번길) 지점은 검색 흔적 없음. 카와루라멘은 영도·하단·서면 3개 지점만 확인(이전 또는 폐업 가능성); 부산 조사(다음검색) — 영업중, 연중무휴, 포장·배달 가능; 부산 조사(다음검색); 경남울산 디깅(다음검색) · 양산; 보류 재검증(다음검색) — 플레이스 부산 영도구 웃",
+    "source": "시딩v2(상가I20303+상가); 부산 조사(다음검색) — 해운대구 재송동(재반로196번길) 지점은 검색 흔적 없음. 카와루라멘은 영도·하단·서면 3개 지점만 확인(이전 또는 폐업 가능성); 부산 조사(다음검색) — 영업중, 연중무휴, 포장·배달 가능; 부산 조사(다음검색); 경남울산 디깅(다음검색) · 양산; 보류 재검증(다음검색) — 플레이스 부산 영도",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -25262,7 +25262,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 부산 조사(다음검색) — 영업중, 연중무휴; 경기 조사(다음검색) — 블로그 확인(금촌동·금릉, 사골 장시간 육수의 하카다 라멘), 플레이스 패널 없음·영업시간 미확인",
+    "source": "시딩v2(상가I20303+상가); 부산 조사(다음검색) — 영업중, 연중무휴; 경기 조사(다음검색) — 블로그 확인(금촌동·금릉, 사골 장시간 육수의 하카다 라멘), 플레이스 패널 없음·영업시간 미확인",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -25349,7 +25349,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 부산 조사(다음검색) — 영업중, 연중무휴, 라스트오더 20:30",
+    "source": "시딩v2(상가I20303+상가); 부산 조사(다음검색) — 영업중, 연중무휴, 라스트오더 20:30",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -25436,7 +25436,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 부산 조사(다음검색) — 영업중, 대연동; 부산 디깅(다음검색)",
+    "source": "시딩v2(상가I20303+상가); 부산 조사(다음검색) — 영업중, 대연동; 부산 디깅(다음검색)",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -25523,7 +25523,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 부산 조사(다음검색) — 영업중(심야 영업, 연중무휴). 패널 주소는 부산대학로 37(장전동)로 입력 주소(금정로68번길 7)와 상이 — 이전 가능성; 부산 조사(다음검색); 부산 디깅(다음검색); 경남울산 디깅(다음검색) · 창원 진해; 지역 조사(다음검색)",
+    "source": "시딩v2(상가I20303+상가); 부산 조사(다음검색) — 영업중(심야 영업, 연중무휴). 패널 주소는 부산대학로 37(장전동)로 입력 주소(금정로68번길 7)와 상이 — 이전 가능성; 부산 조사(다음검색); 부산 디깅(다음검색); 경남울산 디깅(다음검색) · 창원 진해; 지역 조사(다음검색)",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -25573,7 +25573,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가); 부산 조사(다음검색) — 플레이스 존재·영업중(일본식라면, 리뷰 14·평점 2.6)만 확인, 장르·시간·메뉴 미확인; 발굴 2차 조사(다음검색)",
+    "source": "시딩v2(상가+상가); 부산 조사(다음검색) — 플레이스 존재·영업중(일본식라면, 리뷰 14·평점 2.6)만 확인, 장르·시간·메뉴 미확인; 발굴 2차 조사(다음검색)",
     "note": null
   },
   {
@@ -25610,7 +25610,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303+상가I20303); 부산 조사(다음검색) — 영업중 확인, 장르·시간·메뉴 미확인; 부산 조사(다음검색); 정보수집(다음검색); 정보수집(다음검색); 부산 디깅(다음검색); 경기 디깅(다음검색); 경남울산 디깅(다음검색) · 창원 상남동; 인천 디깅(다음검색); 서울 디깅(다음검색); 경기 조사(다음검색) — 영업중, 자가제면·재료",
+    "source": "시딩v2(상가I20303+상가I20303+상가+상가); 부산 조사(다음검색) — 영업중 확인, 장르·시간·메뉴 미확인; 부산 조사(다음검색); 정보수집(다음검색); 정보수집(다음검색); 부산 디깅(다음검색); 경기 디깅(다음검색); 경남울산 디깅(다음검색) · 창원 상남동; 인천 디깅(다음검색); 서울 디깅(다음검색); 경기 조사(다음검색) — 영업중, 자",
     "note": "I20303 발굴 — 라멘 여부 확인 필요 / 좌표 불일치(150m+) — 위치 확인 필요"
   },
   {
@@ -25660,7 +25660,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303+상가I20303); 부산 조사(다음검색); 부산 조사(다음검색) — 입력 중복 행(광복로 90-1 동일 매장)",
+    "source": "시딩v2(상가I20303+상가I20303+상가); 부산 조사(다음검색); 부산 조사(다음검색) — 입력 중복 행(광복로 90-1 동일 매장)",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -25697,7 +25697,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 부산 조사(다음검색) — 영업중 확인(평점 4.1), 돈까스 겸업 블로그 언급, 장르·시간·메뉴 미확인; 부산 조사(다음검색); 부산 디깅(다음검색); 경기 조사(다음검색)",
+    "source": "시딩v2(상가I20303+상가); 부산 조사(다음검색) — 영업중 확인(평점 4.1), 돈까스 겸업 블로그 언급, 장르·시간·메뉴 미확인; 부산 조사(다음검색); 부산 디깅(다음검색); 경기 조사(다음검색)",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -25747,7 +25747,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 부산 조사(다음검색)",
+    "source": "시딩v2(상가I20303+상가); 부산 조사(다음검색)",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -25784,7 +25784,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 부산 조사(다음검색) — 플레이스 상호는 '아찌라멘 스타필드시티 명지점'(리뷰 199)",
+    "source": "시딩v2(상가I20303+상가); 부산 조사(다음검색) — 플레이스 상호는 '아찌라멘 스타필드시티 명지점'(리뷰 199)",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -25821,7 +25821,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 부산 조사(다음검색) — 동래시장점 존재는 블로그에서 확인되나 플레이스 패널 부재로 영업상태 미확정. 브랜드는 쇼유라멘 전문(부산대점·해운대 본점 확인), 한우대창라멘 등 판매; 부산 조사(다음검색); 부산 조사(다음검색); 부산 디깅(다음검색); 부산 디깅(다음검색)",
+    "source": "시딩v2(상가I20303+상가); 부산 조사(다음검색) — 동래시장점 존재는 블로그에서 확인되나 플레이스 패널 부재로 영업상태 미확정. 브랜드는 쇼유라멘 전문(부산대점·해운대 본점 확인), 한우대창라멘 등 판매; 부산 조사(다음검색); 부산 조사(다음검색); 부산 디깅(다음검색); 부산 디깅(다음검색)",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -25928,7 +25928,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 부산 조사(다음검색) — 동래시장점 존재는 블로그에서 확인되나 플레이스 패널 부재로 영업상태 미확정. 브랜드는 쇼유라멘 전문(부산대점·해운대 본점 확인), 한우대창라멘 등 판매; 부산 조사(다음검색); 부산 조사(다음검색); 부산 디깅(다음검색); 부산 디깅(다음검색)",
+    "source": "시딩v2(상가I20303+상가); 부산 조사(다음검색) — 동래시장점 존재는 블로그에서 확인되나 플레이스 패널 부재로 영업상태 미확정. 브랜드는 쇼유라멘 전문(부산대점·해운대 본점 확인), 한우대창라멘 등 판매; 부산 조사(다음검색); 부산 조사(다음검색); 부산 디깅(다음검색); 부산 디깅(다음검색)",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -25978,7 +25978,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 부산 조사(다음검색); 디시 라멘 갤러리 정리글",
+    "source": "시딩v2(상가I20303+상가); 부산 조사(다음검색); 디시 라멘 갤러리 정리글",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -26065,7 +26065,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 부산 조사(다음검색)",
+    "source": "시딩v2(상가I20303+상가); 부산 조사(다음검색)",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -26115,7 +26115,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 부산 조사(다음검색); 부산 디깅(다음검색)",
+    "source": "시딩v2(상가I20303+상가); 부산 조사(다음검색); 부산 디깅(다음검색)",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -26165,7 +26165,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 부산 조사(다음검색); 부산 디깅(다음검색)",
+    "source": "시딩v2(상가I20303+상가); 부산 조사(다음검색); 부산 디깅(다음검색)",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -26252,7 +26252,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 부산 조사(다음검색) — 영업중, 부산교대역 인근, 라멘·돈카츠 겸업; 부산 조사(다음검색) — 영업중 확인(평점 4.1), 돈까스 겸업 블로그 언급, 장르·시간·메뉴 미확인; 부산 조사(다음검색); 정보수집(다음검색); 부산 디깅(다음검색); 부산 디깅(다음검색); 경기 조사(다음검색); 웹 조사",
+    "source": "시딩v2(상가I20303+상가); 부산 조사(다음검색) — 영업중, 부산교대역 인근, 라멘·돈카츠 겸업; 부산 조사(다음검색) — 영업중 확인(평점 4.1), 돈까스 겸업 블로그 언급, 장르·시간·메뉴 미확인; 부산 조사(다음검색); 정보수집(다음검색); 부산 디깅(다음검색); 부산 디깅(다음검색); 경기 조사(다음검색); 웹 조사",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -26302,7 +26302,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 부산 조사(다음검색)",
+    "source": "시딩v2(상가I20303+상가); 부산 조사(다음검색)",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -26376,7 +26376,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 부산 조사(다음검색); 부산 디깅(다음검색)",
+    "source": "시딩v2(상가I20303+상가); 부산 조사(다음검색); 부산 디깅(다음검색)",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -26500,7 +26500,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 부산 조사(다음검색)",
+    "source": "시딩v2(상가I20303+상가); 부산 조사(다음검색)",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -26600,7 +26600,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가); 부산 조사(다음검색) — 라멘·덮밥 겸업, 플레이스 상위 메뉴가 전부 덮밥이라 라멘 장르 미확인",
+    "source": "시딩v2(상가+상가); 부산 조사(다음검색) — 라멘·덮밥 겸업, 플레이스 상위 메뉴가 전부 덮밥이라 라멘 장르 미확인",
     "note": null
   },
   {
@@ -26650,7 +26650,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 부산 조사(다음검색); 정보수집(다음검색); 웹 조사",
+    "source": "시딩v2(상가I20303+상가); 부산 조사(다음검색); 정보수집(다음검색); 웹 조사",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -26687,7 +26687,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 부산 조사(다음검색)",
+    "source": "시딩v2(상가I20303+상가); 부산 조사(다음검색)",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -26724,7 +26724,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 부산 조사(다음검색); 부산 조사(다음검색) — 플레이스 존재(신평동), 영업 상태 미표기",
+    "source": "시딩v2(상가I20303+상가); 부산 조사(다음검색); 부산 조사(다음검색) — 플레이스 존재(신평동), 영업 상태 미표기",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -26761,7 +26761,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 부산 조사(다음검색) — 영업중 확인, '냉모밀&라멘전문점', 장르 미확인; 정보수집(다음검색); 경기 디깅(다음검색); 재검증(다음검색); 웹 조사",
+    "source": "시딩v2(상가I20303+상가); 부산 조사(다음검색) — 영업중 확인, '냉모밀&라멘전문점', 장르 미확인; 정보수집(다음검색); 경기 디깅(다음검색); 재검증(다음검색); 웹 조사",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -26844,7 +26844,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 부산 조사(다음검색)",
+    "source": "시딩v2(상가I20303+상가); 부산 조사(다음검색)",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -26922,7 +26922,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가); 부산 조사(다음검색)",
+    "source": "시딩v2(상가+상가); 부산 조사(다음검색)",
     "note": null
   },
   {
@@ -26959,7 +26959,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 부산 조사(다음검색); 부산 조사(다음검색) — 플레이스 카테고리 돈까스·우동, 라멘 장르 미확인; 부산 조사(다음검색) — 플레이스 존재(신평동), 영업 상태 미표기; 부산 디깅(다음검색)",
+    "source": "시딩v2(상가I20303+상가); 부산 조사(다음검색); 부산 조사(다음검색) — 플레이스 카테고리 돈까스·우동, 라멘 장르 미확인; 부산 조사(다음검색) — 플레이스 존재(신평동), 영업 상태 미표기; 부산 디깅(다음검색)",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -37712,6 +37712,450 @@
     "note": null
   },
   {
+    "id": "donggyeongnamenhakgyo-2",
+    "name": "동경라멘학교",
+    "branch": null,
+    "address": "부산광역시 해운대구 센텀남대로 35, 신세계백화점센텀시티점 지하1층 (우동)",
+    "city": "부산",
+    "district": "해운대구",
+    "areaLabel": "센텀",
+    "lat": 35.168922,
+    "lng": 129.129631,
+    "coordSource": "sanggwon",
+    "hours": null,
+    "breakTime": null,
+    "closedDays": null,
+    "openedAt": null,
+    "status": "open",
+    "statusChangedAt": null,
+    "forms": ["ramen"],
+    "primaryForm": "ramen",
+    "soups": ["shio", "toripaitan", "miso"],
+    "primarySoup": "shio",
+    "soupDetail": [],
+    "lineages": [],
+    "amenities": [],
+    "confidence": "estimated",
+    "menus": [],
+    "photos": [],
+    "seats": null,
+    "tagline": null,
+    "instagram": null,
+    "naverPlace": null,
+    "waitingLink": null,
+    "verification": "pending",
+    "lastVerifiedAt": null,
+    "source": "시딩v2(상가); 부산 조사(다음검색) — 영업중 확인, '냉모밀&라멘전문점', 장르 미확인; 정보수집(다음검색); 경기 디깅(다음검색); 재검증(다음검색); 웹 조사",
+    "note": null
+  },
+  {
+    "id": "wadaramen-3",
+    "name": "와다라멘",
+    "branch": null,
+    "address": "부산광역시 중구 중앙대로81번길 4-9, 1층 (중앙동4가)",
+    "city": "부산",
+    "district": "중구",
+    "areaLabel": "남포동",
+    "lat": 35.105413,
+    "lng": 129.035695,
+    "coordSource": "sanggwon",
+    "hours": null,
+    "breakTime": null,
+    "closedDays": null,
+    "openedAt": null,
+    "status": "open",
+    "statusChangedAt": null,
+    "forms": ["ramen", "mazesoba"],
+    "primaryForm": "ramen",
+    "soups": ["miso", "shoyu", "tantanmen", "tonkotsu"],
+    "primarySoup": "tonkotsu",
+    "soupDetail": [],
+    "lineages": [],
+    "amenities": [],
+    "confidence": "estimated",
+    "menus": [],
+    "photos": [],
+    "seats": null,
+    "tagline": null,
+    "instagram": null,
+    "naverPlace": null,
+    "waitingLink": null,
+    "verification": "pending",
+    "lastVerifiedAt": null,
+    "source": "시딩v2(상가); 정보수집(다음검색); 정보수집(다음검색); 정보수집(다음검색); 대구경북 디깅(다음검색) · 침산; 강원 디깅(다음검색) · 춘천; 강원 디깅(다음검색) · 강릉; 인천 디깅(다음검색); 서울 디깅(다음검색); 보류 재심사(다음검색); 지역 조사(다음검색); 웹 조사; 웹 조사; 웹 조사; 웹 조사",
+    "note": null
+  },
+  {
+    "id": "mennyasandaime-gyeongseongdaejeom",
+    "name": "멘야산다이메(경성대점)",
+    "branch": null,
+    "address": "부산광역시 남구 용소로14번길 20 (대연동)",
+    "city": "부산",
+    "district": "남구",
+    "areaLabel": "경성대",
+    "lat": 35.13582,
+    "lng": 129.099678,
+    "coordSource": "sanggwon",
+    "hours": null,
+    "breakTime": null,
+    "closedDays": null,
+    "openedAt": null,
+    "status": "open",
+    "statusChangedAt": null,
+    "forms": ["ramen", "tsukemen", "mazesoba"],
+    "primaryForm": "ramen",
+    "soups": ["tonkotsu"],
+    "primarySoup": "tonkotsu",
+    "soupDetail": ["구로마유"],
+    "lineages": ["jikaseimen"],
+    "amenities": [],
+    "confidence": "estimated",
+    "menus": [],
+    "photos": [],
+    "seats": null,
+    "tagline": null,
+    "instagram": null,
+    "naverPlace": null,
+    "waitingLink": null,
+    "verification": "pending",
+    "lastVerifiedAt": null,
+    "source": "시딩v2(상가); 정보수집(다음검색); 정보수집(다음검색); 정보수집(다음검색); 부산 디깅(다음검색); 경기 디깅(다음검색); 서울 디깅(다음검색); 동명 재검증(다음검색); 동명 재검증(다음검색) — 심야 영업, 요일별 상이(월~목 11:00~익일 07:00); 동명 재검증(다음검색); 경기 조사(다음검색); 웹 조사; 웹 조사; 웹 조사",
+    "note": null
+  },
+  {
+    "id": "icheumoramen-busanjikgyeongjeom",
+    "name": "이츠모라멘 부산직영점",
+    "branch": null,
+    "address": "부산광역시 수영구 민락로19번길 2, 1층 일부호 (민락동, 팔팔)",
+    "city": "부산",
+    "district": "수영구",
+    "areaLabel": "광안리",
+    "lat": 35.157078,
+    "lng": 129.121909,
+    "coordSource": "sanggwon",
+    "hours": null,
+    "breakTime": null,
+    "closedDays": null,
+    "openedAt": null,
+    "status": "open",
+    "statusChangedAt": null,
+    "forms": ["ramen", "tsukemen"],
+    "primaryForm": "ramen",
+    "soups": ["tonkotsu", "shoyu"],
+    "primarySoup": "tonkotsu",
+    "soupDetail": ["청탕"],
+    "lineages": [],
+    "amenities": [],
+    "confidence": "estimated",
+    "menus": [],
+    "photos": [],
+    "seats": null,
+    "tagline": null,
+    "instagram": "itsumo_ramen",
+    "naverPlace": null,
+    "waitingLink": null,
+    "verification": "pending",
+    "lastVerifiedAt": null,
+    "source": "시딩v2(상가); 정보수집(다음검색); 정보수집(다음검색); 휴무 교정 — 표본 대조(다음): 무휴 확인 2026-09-02; 서울 디깅(다음검색); 재검증(다음검색); 웹 조사; 웹 조사",
+    "note": null
+  },
+  {
+    "id": "naui-pineun-rameneuro-doeeoisseo",
+    "name": "나의 피는 라멘으로 되어있어",
+    "branch": null,
+    "address": "부산광역시 부산진구 동성로 23-2, 1층 (전포동)",
+    "city": "부산",
+    "district": "부산진구",
+    "areaLabel": "전포동",
+    "lat": 35.152566,
+    "lng": 129.068255,
+    "coordSource": "sanggwon",
+    "hours": null,
+    "breakTime": null,
+    "closedDays": null,
+    "openedAt": null,
+    "status": "open",
+    "statusChangedAt": null,
+    "forms": ["ramen"],
+    "primaryForm": "ramen",
+    "soups": ["etc-soup"],
+    "primarySoup": "etc-soup",
+    "soupDetail": ["아부라소바"],
+    "lineages": ["jiro"],
+    "amenities": [],
+    "confidence": "estimated",
+    "menus": [],
+    "photos": [],
+    "seats": null,
+    "tagline": null,
+    "instagram": "w.c.r.d_daegu",
+    "naverPlace": null,
+    "waitingLink": null,
+    "verification": "pending",
+    "lastVerifiedAt": null,
+    "source": "시딩v2(상가); 부산 디깅(다음검색); 대구경북 디깅(다음검색, '대구 라멘 성지') · 대구; 지역 조사(다음검색) — '청탕쇼유지로케·블랙아부라소바' 캡션 근거, 국물 장르 상세 미확인",
+    "note": null
+  },
+  {
+    "id": "umairamen-3",
+    "name": "우마이라멘",
+    "branch": null,
+    "address": "부산광역시 수영구 망미배산로10번길 28, 1층 (망미동)",
+    "city": "부산",
+    "district": "수영구",
+    "areaLabel": null,
+    "lat": 35.175174,
+    "lng": 129.107005,
+    "coordSource": "sanggwon",
+    "hours": null,
+    "breakTime": null,
+    "closedDays": null,
+    "openedAt": null,
+    "status": "open",
+    "statusChangedAt": null,
+    "forms": ["ramen", "mazesoba"],
+    "primaryForm": "ramen",
+    "soups": ["tonkotsu", "shoyu", "miso"],
+    "primarySoup": "tonkotsu",
+    "soupDetail": [],
+    "lineages": [],
+    "amenities": [],
+    "confidence": "estimated",
+    "menus": [],
+    "photos": [],
+    "seats": null,
+    "tagline": null,
+    "instagram": "umai_ramen_gyodae",
+    "naverPlace": null,
+    "waitingLink": null,
+    "verification": "pending",
+    "lastVerifiedAt": null,
+    "source": "시딩v2(상가); 부산 조사(다음검색) — 영업중, 부산교대역 인근, 라멘·돈카츠 겸업; 부산 조사(다음검색) — 영업중 확인(평점 4.1), 돈까스 겸업 블로그 언급, 장르·시간·메뉴 미확인; 부산 조사(다음검색); 정보수집(다음검색); 부산 디깅(다음검색); 부산 디깅(다음검색); 경기 조사(다음검색); 웹 조사",
+    "note": null
+  },
+  {
+    "id": "tontori-ramen-donkacheu-haeundaejikgyeon",
+    "name": "톤토리 라멘&돈카츠 해운대직영점",
+    "branch": null,
+    "address": "부산광역시 해운대구 세실로 158, 상가동 지하1층 5호 (좌동, 동부아파트)",
+    "city": "부산",
+    "district": "해운대구",
+    "areaLabel": "좌동",
+    "lat": 35.178072,
+    "lng": 129.177813,
+    "coordSource": "sanggwon",
+    "hours": null,
+    "breakTime": null,
+    "closedDays": null,
+    "openedAt": null,
+    "status": "open",
+    "statusChangedAt": null,
+    "forms": ["ramen"],
+    "primaryForm": "ramen",
+    "soups": ["tonkotsu"],
+    "primarySoup": "tonkotsu",
+    "soupDetail": [],
+    "lineages": [],
+    "amenities": [],
+    "confidence": "estimated",
+    "menus": [],
+    "photos": [],
+    "seats": null,
+    "tagline": null,
+    "instagram": null,
+    "naverPlace": null,
+    "waitingLink": null,
+    "verification": "pending",
+    "lastVerifiedAt": null,
+    "source": "시딩v2(상가); 부산 조사(다음검색) — 플레이스 존재(신평동), 영업 상태 미표기",
+    "note": null
+  },
+  {
+    "id": "mennyasandaime-5",
+    "name": "멘야산다이메",
+    "branch": null,
+    "address": "대구광역시 중구 중앙대로 406-5 (남일동, 지상1층)",
+    "city": "대구",
+    "district": "중구",
+    "areaLabel": "동성로",
+    "lat": 35.869438,
+    "lng": 128.593947,
+    "coordSource": "sanggwon",
+    "hours": null,
+    "breakTime": null,
+    "closedDays": null,
+    "openedAt": null,
+    "status": "open",
+    "statusChangedAt": null,
+    "forms": ["ramen", "tsukemen", "mazesoba"],
+    "primaryForm": "ramen",
+    "soups": ["miso", "tonkotsu", "shoyu"],
+    "primarySoup": "tonkotsu",
+    "soupDetail": ["구로마유"],
+    "lineages": ["jikaseimen"],
+    "amenities": [],
+    "confidence": "estimated",
+    "menus": [],
+    "photos": [],
+    "seats": null,
+    "tagline": null,
+    "instagram": "menya_sandaime_daejeon",
+    "naverPlace": null,
+    "waitingLink": null,
+    "verification": "pending",
+    "lastVerifiedAt": null,
+    "source": "시딩v2(상가+상가); 부산 조사(다음검색) — 영업중, 연중무휴, 라스트오더 22:30, 쿠로라멘·카라구치라멘도 판매(주력 미확정); 정보수집(다음검색); 정보수집(다음검색); 정보수집(다음검색); 정보수집(다음검색); 부산 디깅(다음검색); 충청 디깅(다음검색) · 둔산; 대구경북 디깅(다음검색) · 동성로; 경기 디깅(다음검색); 경기 디깅(다음검색)",
+    "note": null
+  },
+  {
+    "id": "goullamen-dongseongnojeom",
+    "name": "고운라멘 동성로점",
+    "branch": null,
+    "address": "대구광역시 중구 동성로3길 20, 214호 (삼덕동1가)",
+    "city": "대구",
+    "district": "중구",
+    "areaLabel": "동성로",
+    "lat": 35.866206,
+    "lng": 128.597749,
+    "coordSource": "sanggwon",
+    "hours": null,
+    "breakTime": null,
+    "closedDays": null,
+    "openedAt": null,
+    "status": "open",
+    "statusChangedAt": null,
+    "forms": ["ramen", "mazesoba"],
+    "primaryForm": "ramen",
+    "soups": ["miso"],
+    "primarySoup": "miso",
+    "soupDetail": [],
+    "lineages": [],
+    "amenities": [],
+    "confidence": "estimated",
+    "menus": [],
+    "photos": [],
+    "seats": null,
+    "tagline": null,
+    "instagram": "lonely1234379",
+    "naverPlace": null,
+    "waitingLink": null,
+    "verification": "pending",
+    "lastVerifiedAt": null,
+    "source": "시딩v2(상가); 지역 조사(다음검색) — 월배로 스카이M타워점; 지역 조사(다음검색) — 경대북문점(연중무휴), 국물 베이스는 월배점 조사(미소 베이스) 기준; 지역 조사(다음검색) — 달서구 월배로점, 국물 장르 표기 없음; 지역 조사(다음검색) — 상세 미확인",
+    "note": null
+  },
+  {
+    "id": "wadaramennamgujeom",
+    "name": "와다라멘남구점",
+    "branch": null,
+    "address": "대구광역시 남구 두류공원로20길 75-1, 1층 (대명동)",
+    "city": "대구",
+    "district": "남구",
+    "areaLabel": "대명동",
+    "lat": 35.847184,
+    "lng": 128.572141,
+    "coordSource": "sanggwon",
+    "hours": null,
+    "breakTime": null,
+    "closedDays": null,
+    "openedAt": null,
+    "status": "open",
+    "statusChangedAt": null,
+    "forms": ["ramen"],
+    "primaryForm": "ramen",
+    "soups": ["miso", "shoyu", "tantanmen", "tonkotsu"],
+    "primarySoup": "miso",
+    "soupDetail": [],
+    "lineages": [],
+    "amenities": [],
+    "confidence": "estimated",
+    "menus": [],
+    "photos": [],
+    "seats": null,
+    "tagline": null,
+    "instagram": null,
+    "naverPlace": null,
+    "waitingLink": null,
+    "verification": "pending",
+    "lastVerifiedAt": null,
+    "source": "시딩v2(상가); 정보수집(다음검색); 대구경북 디깅(다음검색) · 침산; 인천 디깅(다음검색); 서울 디깅(다음검색); 보류 재심사(다음검색); 웹 조사; 웹 조사",
+    "note": null
+  },
+  {
+    "id": "wadaramen-chilgokjeom",
+    "name": "와다라멘 칠곡점",
+    "branch": null,
+    "address": "대구광역시 북구 팔거천동로4길 37-1, 1층 (구암동)",
+    "city": "대구",
+    "district": "북구",
+    "areaLabel": null,
+    "lat": 35.926985,
+    "lng": 128.5552,
+    "coordSource": "sanggwon",
+    "hours": null,
+    "breakTime": null,
+    "closedDays": null,
+    "openedAt": null,
+    "status": "open",
+    "statusChangedAt": null,
+    "forms": ["ramen"],
+    "primaryForm": "ramen",
+    "soups": ["miso", "shoyu", "tantanmen", "tonkotsu"],
+    "primarySoup": "miso",
+    "soupDetail": [],
+    "lineages": [],
+    "amenities": [],
+    "confidence": "estimated",
+    "menus": [],
+    "photos": [],
+    "seats": null,
+    "tagline": null,
+    "instagram": null,
+    "naverPlace": null,
+    "waitingLink": null,
+    "verification": "pending",
+    "lastVerifiedAt": null,
+    "source": "시딩v2(상가); 정보수집(다음검색); 대구경북 디깅(다음검색) · 침산; 인천 디깅(다음검색); 서울 디깅(다음검색); 보류 재심사(다음검색); 웹 조사; 웹 조사",
+    "note": null
+  },
+  {
+    "id": "goullamen-4",
+    "name": "고운라멘",
+    "branch": null,
+    "address": "대구광역시 달서구 계대동문로 22-1, 1층 (신당동)",
+    "city": "대구",
+    "district": "달서구",
+    "areaLabel": "신당동",
+    "lat": 35.855162,
+    "lng": 128.49462,
+    "coordSource": "sanggwon",
+    "hours": null,
+    "breakTime": null,
+    "closedDays": null,
+    "openedAt": null,
+    "status": "open",
+    "statusChangedAt": null,
+    "forms": ["ramen", "mazesoba"],
+    "primaryForm": "ramen",
+    "soups": ["miso"],
+    "primarySoup": "miso",
+    "soupDetail": [],
+    "lineages": [],
+    "amenities": [],
+    "confidence": "estimated",
+    "menus": [],
+    "photos": [],
+    "seats": null,
+    "tagline": null,
+    "instagram": "lonely1234379",
+    "naverPlace": null,
+    "waitingLink": null,
+    "verification": "pending",
+    "lastVerifiedAt": null,
+    "source": "시딩v2(상가); 대구경북 디깅(다음검색) · 경산 영남대; 지역 조사(다음검색) — 월배로 스카이M타워점; 지역 조사(다음검색) — 경대북문점(연중무휴), 국물 베이스는 월배점 조사(미소 베이스) 기준; 지역 조사(다음검색) — 국물 장르 표기 없음; 지역 조사(다음검색) — 달서구 월배로점, 국물 장르 표기 없음; 지역 조사(다음검색) — 무휴; 지역",
+    "note": null
+  },
+  {
     "id": "kyusyuulteuraamen",
     "name": "큐슈울트라아멘",
     "branch": null,
@@ -46090,6 +46534,83 @@
     "verification": "pending",
     "lastVerifiedAt": null,
     "source": "시딩v2(디깅발굴(상가)); 경기 디깅(다음검색); 경기 인허가 조사(다음검색)",
+    "note": null
+  },
+  {
+    "id": "hinoaji-jeonggwanjeom",
+    "name": "히노아지 정관점",
+    "branch": null,
+    "address": "부산광역시 기장군 정관읍 구연로 18-4, 1층",
+    "city": "부산",
+    "district": "기장군",
+    "areaLabel": "정관",
+    "lat": 35.32178,
+    "lng": 129.181149,
+    "coordSource": "sanggwon",
+    "hours": null,
+    "breakTime": null,
+    "closedDays": null,
+    "openedAt": null,
+    "status": "open",
+    "statusChangedAt": null,
+    "forms": ["ramen", "mazesoba"],
+    "primaryForm": "ramen",
+    "soups": ["shoyu", "tonkotsu", "miso", "tantanmen"],
+    "primarySoup": "tonkotsu",
+    "soupDetail": [
+      "돈카츠 병행(NC안산고잔점 6층)",
+      "돈카츠·우동 병행(병점 홈플러스 푸드코트)"
+    ],
+    "lineages": [],
+    "amenities": [],
+    "confidence": "estimated",
+    "menus": [],
+    "photos": [],
+    "seats": null,
+    "tagline": null,
+    "instagram": null,
+    "naverPlace": null,
+    "waitingLink": null,
+    "verification": "pending",
+    "lastVerifiedAt": null,
+    "source": "시딩v2(디깅발굴(상가)); 부산 조사(다음검색) — 영업중(경성대점 표기), 일본식라면·돈카츠 체인, 장르·영업시간 미확인; 부산 디깅(다음검색); 충청 디깅(다음검색) · 천안 신부동; 인천 디깅(다음검색); 서울 디깅(다음검색); 경기 조사(다음검색); 경기 조사(다음검색); 경기 조사(다음검색); 지역 조사(다음검색) — 홍성 롯데마트 4층, 연중무",
+    "note": null
+  },
+  {
+    "id": "mura-ramen-haeridangiljeom",
+    "name": "무라 라멘 해리단길점",
+    "branch": null,
+    "address": "부산광역시 해운대구 우동1로 30, 1층 일부호 (우동)",
+    "city": "부산",
+    "district": "해운대구",
+    "areaLabel": "해리단길",
+    "lat": 35.164166,
+    "lng": 129.157019,
+    "coordSource": "sanggwon",
+    "hours": null,
+    "breakTime": null,
+    "closedDays": null,
+    "openedAt": null,
+    "status": "open",
+    "statusChangedAt": null,
+    "forms": ["ramen"],
+    "primaryForm": "ramen",
+    "soups": ["tonkotsu"],
+    "primarySoup": "tonkotsu",
+    "soupDetail": [],
+    "lineages": [],
+    "amenities": [],
+    "confidence": "estimated",
+    "menus": [],
+    "photos": [],
+    "seats": null,
+    "tagline": null,
+    "instagram": null,
+    "naverPlace": null,
+    "waitingLink": null,
+    "verification": "pending",
+    "lastVerifiedAt": null,
+    "source": "시딩v2(디깅발굴(상가)); 부산 조사(다음검색); 부산 디깅(다음검색)",
     "note": null
   }
 ]

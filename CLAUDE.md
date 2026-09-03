@@ -57,6 +57,7 @@ scripts/        # 파이프라인 (LOCALDATA 시딩·시트 동기화)
 | @testing-library/react  | 도입   | 2026-09-02 도입 (devDependency) — 렌더링 계층(훅·leaf 컴포넌트). user-event·jest-dom 동반. @vitejs/plugin-react는 babel peer 충돌로 미사용 — vitest `esbuild.jsx: "automatic"`으로 JSX 처리                             |
 | @playwright/test        | 도입   | 2026-09-02 도입 (devDependency) — 시나리오 계층(`e2e/`). chromium 단일, dev 서버 자동 기동(`playwright.config.ts` webServer)                                                                                            |
 | csv-parse               | 도입   | 2026-09-02 도입 (devDependency, `scripts/` 전용) — 공공데이터 CSV 파싱(따옴표·BOM·행 이형). 앱 번들과 무관                                                                                                              |
+| proj4                   | 도입   | 2026-09-03 도입 (devDependency, `scripts/` 전용) — 지자체 인허가 원본의 EPSG:5174(중부원점 TM) → WGS84 변환. 좌표계 변환은 순수 수학이라 지도사 지오코딩 저장 금지와 무관. 앱 번들과 무관                               |
 | patch-package           | 도입   | 2026-08-31 도입 — vaul 1.1.2가 radix Dialog에 `modal`을 전달하지 않아 `modal={false}` 시트가 앱 셸 전체에 aria-hidden·포커스 트랩을 거는 버그(vaul #582·#497·#519, 미수정) 한 줄 패치. 업스트림 수정 시 `patches/` 제거 |
 
 ## 도메인 금지사항 (약관·정책)
