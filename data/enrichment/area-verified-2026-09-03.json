@@ -1,0 +1,233 @@
+[
+  {
+    "name": "유니드라멘",
+    "area": "군자",
+    "areaConfirmed": true,
+    "addrHint": "능동로37길 44",
+    "sourceNote": "라벨 검수(다음검색) — 플레이스 주소 광진구 능동로37길 44, 블로그 '군자' 7회 vs '중곡' 3회. 디깅라벨 '신당'(중구)은 오검출"
+  },
+  {
+    "name": "코코로라멘(kokororamen) 잠실점",
+    "area": "잠실새내",
+    "areaConfirmed": true,
+    "addrHint": "백제고분로19길 17",
+    "sourceNote": "라벨 검수(다음검색) — 블로그가 '잠실새내 라멘 코코로라멘'으로 표기, 잠실새내역 상권. 디깅라벨 채택"
+  },
+  {
+    "name": "멘야코노하",
+    "area": "창동",
+    "areaConfirmed": true,
+    "addrHint": "우이천로20길 7",
+    "sourceNote": "라벨 검수(다음검색) — 지번 도봉구 창동 635-42, 블로그 '창동' 6회. 디깅라벨 '서울숲'은 오검출"
+  },
+  {
+    "name": "멘야준",
+    "area": "홍대",
+    "areaConfirmed": true,
+    "addrHint": "동교로 128",
+    "sourceNote": "라벨 검수(다음검색) — 상호가 '멘야준 홍대점', 블로그 '홍대' 4회·'합정' 2회·'연남' 0회. 주소판정 유지"
+  },
+  {
+    "name": "세상끝의라멘",
+    "area": "합정",
+    "areaConfirmed": true,
+    "addrHint": "양화로7길 6-5",
+    "sourceNote": "라벨 검수(다음검색) — 블로그 '합정' 7회 vs '홍대' 5회, 양화로7길은 합정역 상권. 디깅라벨 채택"
+  },
+  {
+    "name": "코이라멘",
+    "area": "방이",
+    "areaConfirmed": true,
+    "addrHint": "올림픽로34길 16",
+    "sourceNote": "라벨 규칙 — 디깅라벨 '방이동'과 동일 동네, 행정동 표기 대신 상권 통칭 '방이' 채택"
+  },
+  {
+    "name": "마카나이",
+    "area": "은행사거리",
+    "areaConfirmed": true,
+    "addrHint": "한글비석로 264",
+    "sourceNote": "라벨 검수(다음검색) — 플레이스 상호가 '마카나이 은행사거리점', 블로그 '은행사거리' 4회. '중계동'은 행정동 표기라 상권 통칭 우선. 디깅라벨 채택"
+  },
+  {
+    "name": "혼네",
+    "area": "서울대입구",
+    "areaConfirmed": true,
+    "addrHint": "관악로14길 6-4",
+    "sourceNote": "라벨 검수(다음검색) — 블로그 '서울대입구' 6회·'샤로수길' 5회, '홍대' 0회. 디깅라벨 '홍대'는 오검출"
+  },
+  {
+    "name": "삿뽀로",
+    "area": "서울대입구",
+    "areaConfirmed": false,
+    "addrHint": "봉천로 209",
+    "sourceNote": "라벨 검수(다음검색) — 롯데백화점 관악점 입점. 블로그는 '신림'·'봉천'·'관악'으로 혼용, '서울대입구' 미확인. 2회 조회로 상권 통칭 확정 실패 — 주소판정 유지"
+  },
+  {
+    "name": "부탄츄",
+    "area": "잠실",
+    "areaConfirmed": true,
+    "addrHint": "올림픽로 300",
+    "sourceNote": "라벨 검수(다음검색) — 롯데월드몰 3층 '홍그라운드' 입점 매장. 블로그 제목은 '잠실'로 표기, '홍대'는 매장 컨셉·본점 언급. 주소판정 유지"
+  },
+  {
+    "name": "류진",
+    "area": "망원",
+    "areaConfirmed": true,
+    "addrHint": "월드컵로17길 64",
+    "sourceNote": "라벨 규칙 — 디깅라벨 '망원동'과 동일 동네, 행정동 표기 대신 상권 통칭 '망원' 채택"
+  },
+  {
+    "name": "시카메이",
+    "area": "망원",
+    "areaConfirmed": true,
+    "addrHint": "월드컵로21길 61",
+    "sourceNote": "라벨 규칙 — 디깅라벨 '망원동'과 동일 동네, 행정동 표기 대신 상권 통칭 '망원' 채택"
+  },
+  {
+    "name": "멘쇼쿠",
+    "area": "신사",
+    "areaConfirmed": true,
+    "addrHint": "강남대로99길 10",
+    "sourceNote": "라벨 검수(다음검색) — 블로그 '신사'·'신사역' 합계 7회 vs '잠원' 2회. 디깅라벨 채택"
+  },
+  {
+    "name": "멘카오리",
+    "area": "신논현",
+    "areaConfirmed": true,
+    "addrHint": "사평대로57길 39-2",
+    "sourceNote": "라벨 검수(다음검색) — 블로그 '신논현(역)' 6회 vs '반포동' 4회. 디깅라벨 채택"
+  },
+  {
+    "name": "멘츠루",
+    "area": "어린이대공원",
+    "areaConfirmed": true,
+    "addrHint": "광나루로 394",
+    "sourceNote": "라벨 검수(다음검색) — 상호가 '멘츠루 어린이대공원점', 블로그 '어린이대공원' 7회 vs '건대' 3회. 디깅라벨 채택"
+  },
+  {
+    "name": "쿠로코 식당",
+    "area": "연남",
+    "areaConfirmed": true,
+    "addrHint": "동교로27길 83",
+    "sourceNote": "라벨 규칙 — 디깅라벨 '연남동'과 동일 동네, 행정동 표기 대신 상권 통칭 '연남' 채택"
+  },
+  {
+    "name": "후타츠",
+    "area": "홍대",
+    "areaConfirmed": true,
+    "addrHint": "와우산로15길 28",
+    "sourceNote": "라벨 검수(다음검색) — 상호가 '후타츠 홍대점', 블로그 '홍대' 7회 vs '상수' 3회. 주소판정 유지"
+  },
+  {
+    "name": "멘타카무쇼",
+    "area": "홍대",
+    "areaConfirmed": true,
+    "addrHint": "와우산로18길 29",
+    "sourceNote": "라벨 검수(다음검색) — 블로그 '홍대' 11회 vs '상수' 1회. 주소판정 유지"
+  },
+  {
+    "name": "삼방매",
+    "area": "안국",
+    "areaConfirmed": true,
+    "addrHint": "율곡로5길 3-11",
+    "sourceNote": "라벨 검수(다음검색) — 지번 종로구 안국동 160-2, 블로그 '안국' 7회·'북촌' 0회. 디깅라벨 채택"
+  },
+  {
+    "name": "유타로",
+    "area": "한남",
+    "areaConfirmed": true,
+    "addrHint": "이태원로 216",
+    "sourceNote": "라벨 규칙 — 디깅라벨 '한남동'과 동일 동네, 행정동 표기 대신 상권 통칭 '한남' 채택"
+  },
+  {
+    "name": "멘타미",
+    "area": "남영",
+    "areaConfirmed": true,
+    "addrHint": "한강대로76길 9",
+    "sourceNote": "라벨 규칙 — 디깅라벨 '남영동'과 동일 동네, 행정동 표기 대신 상권 통칭 '남영' 채택"
+  },
+  {
+    "name": "멘푸라",
+    "area": "왕십리",
+    "areaConfirmed": true,
+    "addrHint": "마조로3길 6",
+    "sourceNote": "라벨 검수(다음검색) — 블로그 '왕십리' 7회·'한양대' 4회 vs '행당동' 1회(지번 표기). 주소판정 유지"
+  },
+  {
+    "name": "멘쿄",
+    "area": "군자",
+    "areaConfirmed": true,
+    "addrHint": "천호대로111길 10",
+    "sourceNote": "라벨 검수(다음검색) — 지번 광진구 중곡동 140-1이나 블로그 '군자' 7회 vs '중곡동' 1회. 주소판정 유지"
+  },
+  {
+    "name": "양국",
+    "area": "쌍문",
+    "areaConfirmed": true,
+    "addrHint": "삼양로 538-6",
+    "sourceNote": "라벨 규칙 — 디깅라벨 '쌍문동'과 동일 동네, 행정동 표기 대신 상권 통칭 '쌍문' 채택"
+  },
+  {
+    "name": "미소네 식당",
+    "area": "응암",
+    "areaConfirmed": true,
+    "addrHint": "진흥로 48",
+    "sourceNote": "라벨 규칙 — 디깅라벨 '응암동'과 동일 동네, 행정동 표기 대신 상권 통칭 '응암' 채택"
+  },
+  {
+    "name": "일체마부시",
+    "area": "연남",
+    "areaConfirmed": true,
+    "addrHint": "동교로32길 19",
+    "sourceNote": "라벨 규칙 — 디깅라벨 '연남동'과 동일 동네, 행정동 표기 대신 상권 통칭 '연남' 채택"
+  },
+  {
+    "name": "힛사츠와자",
+    "area": "망원",
+    "areaConfirmed": true,
+    "addrHint": "포은로 97-1",
+    "sourceNote": "라벨 규칙 — 디깅라벨 '망원동'과 동일 동네, 행정동 표기 대신 상권 통칭 '망원' 채택"
+  },
+  {
+    "name": "산카이메",
+    "area": "연남",
+    "areaConfirmed": true,
+    "addrHint": "동교로38길 42-5",
+    "sourceNote": "라벨 규칙 — 디깅라벨 '연남동'과 동일 동네, 행정동 표기 대신 상권 통칭 '연남' 채택"
+  },
+  {
+    "name": "무겐스위치",
+    "area": "연남",
+    "areaConfirmed": true,
+    "addrHint": "동교로 242-13",
+    "sourceNote": "라벨 규칙 — 디깅라벨 '연남동'과 동일 동네, 행정동 표기 대신 상권 통칭 '연남' 채택"
+  },
+  {
+    "name": "신짱과후쿠마루",
+    "area": "합정",
+    "areaConfirmed": true,
+    "addrHint": "양화로7길 44-7",
+    "sourceNote": "라벨 검수(다음검색) — 블로그 '합정' 7회 vs '망원' 1회, '홍대' 0회. 디깅라벨 채택"
+  },
+  {
+    "name": "라쿠라쿠",
+    "area": "신대방",
+    "areaConfirmed": true,
+    "addrHint": "대림로 14",
+    "sourceNote": "라벨 검수(다음검색) — 블로그 '신대방' 10회·'신림' 2회, '보라매' 0회. 디깅라벨 채택"
+  },
+  {
+    "name": "탄탄면공방",
+    "area": "삼성",
+    "areaConfirmed": true,
+    "addrHint": "테헤란로 521",
+    "sourceNote": "라벨 규칙 — 디깅라벨 '삼성동'과 동일 동네(파르나스타워), 행정동 표기 대신 상권 통칭 '삼성' 채택"
+  },
+  {
+    "name": "칸다소바",
+    "area": "잠실",
+    "areaConfirmed": true,
+    "addrHint": "올림픽로 300",
+    "sourceNote": "라벨 검수(다음검색) — 롯데월드몰점, 블로그 '잠실' 10회·'혜화' 0회. 디깅라벨 '혜화'는 타 지점 오염. 주소판정 유지"
+  }
+]
