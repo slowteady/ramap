@@ -1,0 +1,593 @@
+[
+  {
+    "name": "코코로라멘광장시장점",
+    "forms": ["라멘"],
+    "hours": "11:00-23:00",
+    "area": "광장시장",
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "창경궁로 88-13"
+  },
+  {
+    "name": "코코로라멘(kokororamen) 잠실점",
+    "soups": ["쇼유"],
+    "primarySoup": "쇼유",
+    "forms": ["라멘"],
+    "area": "잠실새내",
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "백제고분로19길 17"
+  },
+  {
+    "name": "미스터라멘",
+    "forms": ["라멘"],
+    "area": "방화동",
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "독막로3길 33"
+  },
+  {
+    "name": "라멘짱 디큐브점",
+    "soups": ["미소"],
+    "primarySoup": "미소",
+    "forms": ["라멘"],
+    "soupDetail": ["백화점 푸드코트 입점"],
+    "area": "신도림",
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "경인로 662"
+  },
+  {
+    "name": "지로우라멘",
+    "forms": ["라멘", "마제소바"],
+    "soupDetail": ["지로라멘"],
+    "hours": "11:00-21:00",
+    "menus": ["지로우라멘|12000", "폭탄라멘|13000", "마제소바|13000"],
+    "area": "영등포",
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "영중로 15"
+  },
+  {
+    "name": "더라멘워(The Ramen War)",
+    "forms": ["라멘"],
+    "soupDetail": ["일본 브랜드 해외 1호점(2024-11 오픈)"],
+    "instagram": "theramenwar_thehyundai_seoul",
+    "area": "여의도",
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "여의대로 108"
+  },
+  {
+    "name": "라면집",
+    "soupDetail": ["실존 미확인"],
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "동호로 348-1"
+  },
+  {
+    "name": "코이라멘",
+    "forms": ["라멘", "마제소바"],
+    "hours": "11:00-21:30",
+    "menus": ["오리지날라멘|10500", "매운라멘|10500", "마제소바|11500"],
+    "instagram": "koibang2",
+    "area": "방이동",
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "올림픽로34길 16"
+  },
+  {
+    "name": "아웃나우1호 동대문",
+    "soupDetail": ["라멘집 아님"],
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "장충단로13길 20"
+  },
+  {
+    "name": "손모아아오리의행방불명 명동점",
+    "closed": true,
+    "soups": ["돈코츠"],
+    "primarySoup": "돈코츠",
+    "forms": ["라멘"],
+    "area": "명동",
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "명동10길 35-20"
+  },
+  {
+    "name": "미스터라멘",
+    "soupDetail": ["실존 미확인"],
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "독막로3길 33"
+  },
+  {
+    "name": "미가라멘 대학로점",
+    "forms": ["라멘"],
+    "area": "혜화",
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "대학로14길 18-2"
+  },
+  {
+    "name": "정라멘",
+    "forms": ["아부라소바"],
+    "area": "삼전동",
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "삼전로12길 7"
+  },
+  {
+    "name": "미스터라멘 광화문점",
+    "soups": ["돈코츠"],
+    "primarySoup": "돈코츠",
+    "forms": ["라멘"],
+    "area": "광화문",
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "새문안로 92"
+  },
+  {
+    "name": "라면집 강남역",
+    "soupDetail": ["라멘집 아님"],
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "강남대로61길 19"
+  },
+  {
+    "name": "코코로라멘",
+    "soups": ["돈코츠", "시오"],
+    "primarySoup": "돈코츠",
+    "forms": ["라멘"],
+    "hours": "09:00-23:55",
+    "menus": ["돈코츠라멘|9000", "시오버터라멘|9500", "카레라멘|9500"],
+    "area": "화곡동",
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "초록마을로 4"
+  },
+  {
+    "name": "코코로라멘 잠실점",
+    "soupDetail": ["실존 미확인"],
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "석촌호수로 140"
+  },
+  {
+    "name": "코이라멘장충동점",
+    "forms": ["라멘", "마제소바"],
+    "area": "동대입구",
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "장충단로 168"
+  },
+  {
+    "name": "라면집",
+    "soupDetail": ["실존 미확인"],
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "동호로 348-1"
+  },
+  {
+    "name": "배러댄케토;호랭이라멘",
+    "soupDetail": ["실존 미확인"],
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "박촌로 54"
+  },
+  {
+    "name": "라멘선생서 구청점",
+    "forms": ["라멘"],
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "심곡로8번길 3"
+  },
+  {
+    "name": "라멘앤냉면",
+    "soupDetail": ["실존 미확인"],
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "심곡로8번길 3"
+  },
+  {
+    "name": "잇신카레&라멘송도타임스페이스점",
+    "forms": ["라멘"],
+    "soupDetail": ["카레 병행"],
+    "area": "송도",
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "하모니로138번길 11"
+  },
+  {
+    "name": "타카라멘",
+    "closed": true,
+    "forms": ["라멘"],
+    "soupDetail": ["지로라멘"],
+    "area": "서면",
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "중앙대로691번가길 25-5"
+  },
+  {
+    "name": "멘야엔",
+    "soups": ["돈코츠"],
+    "primarySoup": "돈코츠",
+    "forms": ["라멘"],
+    "hours": "11:00-19:40",
+    "breakTime": "15:00-17:00",
+    "menus": [
+      "돈코츠라멘|10000",
+      "매운돈코츠라멘|10000",
+      "히야시츄카냉라멘|10000"
+    ],
+    "area": "서면",
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "부전로 124"
+  },
+  {
+    "name": "히노데",
+    "soupDetail": ["라멘집 아님"],
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "시흥대로160길 12"
+  },
+  {
+    "name": "호타루",
+    "soupDetail": ["라멘집 아님"],
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "쑥고개로 139"
+  },
+  {
+    "name": "삿뽀로",
+    "soupDetail": ["일식당 — 라멘 전문 여부 미확인"],
+    "area": "봉천동",
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "봉천로 209"
+  },
+  {
+    "name": "펀치",
+    "soupDetail": ["라멘집 아님"],
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "경인로 610"
+  },
+  {
+    "name": "모바면가",
+    "forms": ["마제소바"],
+    "soupDetail": ["모밀 겸업"],
+    "hours": "11:00-21:30",
+    "closedDays": "일요일",
+    "menus": ["냉모밀|8900", "판모밀|9500", "마제소바|9900"],
+    "area": "노원",
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "상계로3길 16"
+  },
+  {
+    "name": "미미",
+    "soupDetail": ["실존 미확인"],
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "덕릉로83길 25"
+  },
+  {
+    "name": "코하루",
+    "soupDetail": ["라멘집 아님"],
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "연서로27길 9-1"
+  },
+  {
+    "name": "쿠모",
+    "soupDetail": ["실존 미확인"],
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "한강대로48길 15"
+  },
+  {
+    "name": "마코토",
+    "soupDetail": ["라멘집 아님"],
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "아차산로 591"
+  },
+  {
+    "name": "미소네 식당",
+    "forms": ["라멘"],
+    "hours": "11:00-22:00",
+    "closedDays": "화요일",
+    "menus": ["치킨마요덮밥|9000", "차슈덮밥|9000", "연어사시미덮밥|8500"],
+    "area": "응암동",
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "진흥로 48"
+  },
+  {
+    "name": "산호키",
+    "soups": ["돈코츠"],
+    "primarySoup": "돈코츠",
+    "forms": ["라멘", "마제소바"],
+    "hours": "10:30-20:00",
+    "breakTime": "15:00-17:00",
+    "menus": ["마제멘|11000", "돈코츠라멘|9500", "매운돈코츠라멘|10000"],
+    "area": "신길동",
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "대방천로 249"
+  },
+  {
+    "name": "유노추보",
+    "soupDetail": ["라멘집 아님"],
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "도산대로 442"
+  },
+  {
+    "name": "칸다소바",
+    "forms": ["마제소바"],
+    "soupDetail": ["마제소바 전문"],
+    "area": "잠실",
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "올림픽로 300"
+  },
+  {
+    "name": "킨지",
+    "soupDetail": ["라멘집 아님"],
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "동교로27길 75-10"
+  },
+  {
+    "name": "정선당",
+    "soupDetail": ["실존 미확인"],
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "상도로 249"
+  },
+  {
+    "name": "면식당",
+    "soupDetail": ["실존 미확인"],
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "연무장길 38-1"
+  },
+  {
+    "name": "리유",
+    "soupDetail": ["라멘집 아님"],
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "와우산로29길 40"
+  },
+  {
+    "name": "이타바",
+    "soupDetail": ["라멘집 아님"],
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "길주남로 99"
+  },
+  {
+    "name": "쇼덴",
+    "soupDetail": ["라멘집 아님"],
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "열우물로49번길 22"
+  },
+  {
+    "name": "구루멘",
+    "forms": ["라멘"],
+    "instagram": "gurumen_official",
+    "area": "청라",
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "청라커낼로 270"
+  },
+  {
+    "name": "키쿄우",
+    "soups": ["쇼유", "시오"],
+    "primarySoup": "쇼유",
+    "forms": ["라멘", "마제소바", "아부라소바"],
+    "soupDetail": ["토리(닭) 베이스"],
+    "hours": "11:00-21:00",
+    "breakTime": "15:30-17:00",
+    "closedDays": "화요일, 수요일",
+    "menus": ["토리쇼유라멘|9500", "토리시오라멘|9500", "마제소바|10000"],
+    "instagram": "kikyo_ramen",
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "인주대로604번길 49-78"
+  },
+  {
+    "name": "지츠겐",
+    "soupDetail": ["라멘집 아님"],
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "하모니로 144"
+  },
+  {
+    "name": "쿄우와",
+    "soups": ["돈코츠"],
+    "primarySoup": "돈코츠",
+    "forms": ["라멘"],
+    "instagram": "kyouwakitchen",
+    "area": "갈산동",
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "주부토로151번길 43"
+  },
+  {
+    "name": "나가하마만게츠",
+    "soups": ["돈코츠"],
+    "primarySoup": "돈코츠",
+    "forms": ["라멘"],
+    "soupDetail": ["나가하마 돈코츠"],
+    "hours": "11:00-20:30",
+    "breakTime": "15:30-16:30",
+    "menus": ["나가하마라멘|11000", "나가하마라멘 교자셋트|18000"],
+    "instagram": "mangetsu_kor",
+    "area": "해운대",
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "우동1로 57"
+  },
+  {
+    "name": "라쿠다",
+    "soups": ["돈코츠"],
+    "primarySoup": "돈코츠",
+    "forms": ["라멘", "마제소바"],
+    "hours": "11:00-23:00",
+    "breakTime": "15:00-16:00",
+    "closedDays": "일요일",
+    "menus": ["돈코츠라멘|9500", "마제소바|11000", "한우대창라멘|11500"],
+    "area": "대연동",
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "용소로19번길 68"
+  },
+  {
+    "name": "멘즈키",
+    "forms": ["츠케멘"],
+    "soupDetail": ["츠케멘 전문"],
+    "hours": "11:30-21:00",
+    "menus": ["츠케멘M|9500"],
+    "instagram": "menzuki2020",
+    "area": "전포",
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "동성로49번길 34"
+  },
+  {
+    "name": "마츠도",
+    "soups": ["미소"],
+    "primarySoup": "미소",
+    "forms": ["라멘", "아부라소바"],
+    "hours": "11:00-19:30",
+    "breakTime": "16:00-17:00",
+    "menus": [
+      "마츠도미소|11000",
+      "미소아부라소바|12000",
+      "커리아부라소바|13000"
+    ],
+    "instagram": "matsudo_official",
+    "area": "기장",
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "당사로8길 22"
+  },
+  {
+    "name": "이토나무",
+    "soups": ["돈코츠"],
+    "primarySoup": "돈코츠",
+    "forms": ["라멘"],
+    "hours": "11:00-21:00",
+    "menus": ["돈코츠라멘|9000", "카라이라멘|9000", "바질라멘|9500"],
+    "instagram": "ittonamoo",
+    "area": "연산동",
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "고분로 7-2"
+  },
+  {
+    "name": "코코노카",
+    "forms": ["아부라소바"],
+    "soupDetail": ["아부라소바 전문"],
+    "hours": "11:30-19:00",
+    "breakTime": "14:00-17:00",
+    "closedDays": "일요일",
+    "instagram": "coconoka_",
+    "area": "대연동",
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "수영로334번길 56-1"
+  },
+  {
+    "name": "수림식당사상점",
+    "soups": ["탄탄멘"],
+    "primarySoup": "탄탄멘",
+    "forms": ["라멘"],
+    "area": "사상",
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "새벽로 216"
+  },
+  {
+    "name": "중화소바지평",
+    "forms": ["라멘"],
+    "soupDetail": ["중화소바"],
+    "hours": "11:00-16:00",
+    "closedDays": "화요일",
+    "instagram": "_ji_pyeong_",
+    "area": "사상",
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "사상로 172"
+  },
+  {
+    "name": "카센미세",
+    "soups": ["돈코츠"],
+    "primarySoup": "돈코츠",
+    "forms": ["라멘"],
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "쌍미천로 42-1"
+  },
+  {
+    "name": "복동이네오지상",
+    "soups": ["니보시"],
+    "primarySoup": "니보시",
+    "forms": ["라멘", "아부라소바", "츠케멘"],
+    "hours": "11:00-20:00",
+    "breakTime": "15:00-17:30",
+    "closedDays": "화요일",
+    "menus": [
+      "진한니보시시오라멘|10000",
+      "진한니보시쇼유라멘|10000",
+      "니보시츠케멘|11000"
+    ],
+    "instagram": "bokdongeneojisang",
+    "area": "전포",
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "서전로9번길 49"
+  },
+  {
+    "name": "아카렌서부산유통단지점",
+    "soups": ["탄탄멘"],
+    "primarySoup": "탄탄멘",
+    "forms": ["라멘"],
+    "hours": "11:00-20:00",
+    "closedDays": "일요일",
+    "menus": ["탄탄멘|7900", "마제우동|8900", "냉우동|7500"],
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "유통단지1로49번길 6"
+  },
+  {
+    "name": "타라코소바",
+    "forms": ["마제소바", "츠케멘"],
+    "soupDetail": ["명란(타라코) 소바 전문"],
+    "hours": "11:00-18:30",
+    "closedDays": "일요일",
+    "menus": ["명란크림소바|11500", "명란들기름소바|11500", "명란츠케멘|12500"],
+    "instagram": "tarako__soba",
+    "area": "해운대",
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "해운대해변로359번길 27"
+  },
+  {
+    "name": "쿠지라스토랑",
+    "forms": ["아부라소바"],
+    "soupDetail": ["아부라소바 전문"],
+    "hours": "11:00-19:30",
+    "breakTime": "14:30-17:00",
+    "closedDays": "월요일, 마지막 주 화요일",
+    "menus": [
+      "아부라소바|10500",
+      "에비아부라소바|11500",
+      "니보시아부라소바|11500"
+    ],
+    "instagram": "kuzirastaurant",
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "무학로49번길 71"
+  },
+  {
+    "name": "멘초비",
+    "soups": ["시오", "쇼유"],
+    "primarySoup": "시오",
+    "forms": ["라멘"],
+    "menus": ["시오라멘|9500", "쇼유라멘|9500"],
+    "instagram": "menchovy",
+    "area": "동래",
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "동래시장길 14"
+  },
+  {
+    "name": "와루가키노아소비",
+    "soups": ["시오", "니보시"],
+    "forms": ["라멘"],
+    "hours": "11:30-20:00",
+    "breakTime": "15:00-16:00",
+    "instagram": "warugaki_asobi",
+    "area": "광안리",
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "민락로6번길 23"
+  },
+  {
+    "name": "멘제이텐",
+    "hours": "11:30-20:00",
+    "breakTime": "14:30-17:00",
+    "closedDays": "일요일",
+    "area": "센텀",
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "센텀동로 99"
+  },
+  {
+    "name": "세마이",
+    "area": "연산동",
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "반송로 50-12"
+  },
+  {
+    "name": "타라코소바 동래점",
+    "forms": ["츠케멘", "마제소바"],
+    "soupDetail": ["명란 전문"],
+    "hours": "11:20-20:20",
+    "closedDays": "일요일",
+    "menus": ["명란츠케멘|12500", "명란들기름소바|11500", "명란크림소바|11500"],
+    "instagram": "tarakosoba__dongnae",
+    "area": "동래",
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "명륜로 104"
+  },
+  {
+    "name": "테우치멘이토",
+    "instagram": "teuchimen.ito",
+    "area": "전포동",
+    "sourceNote": "발굴 2차 조사(다음검색)",
+    "addrHint": "동성로 30"
+  }
+]
