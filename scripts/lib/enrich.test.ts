@@ -176,3 +176,37 @@ describe("형태 정규화", () => {
     expect(e.soupDetail).toContain("아부라소바");
   });
 });
+
+describe("판정 마커의 위치 종속성", () => {
+  it("동명 다행이면 '라멘집 아님' 판정은 addrHint 일치 행에만 붙는다", () => {
+    const entry = {
+      name: "혼네",
+      soupDetail: ["라멘집 아님"],
+      addrHint: "관악로24길",
+      sourceNote: "발굴 조사",
+    };
+    const izakaya = mergeMatched("혼네", "", [entry], {
+      ambiguous: true,
+      address: "서울특별시 관악구 관악로24길 20",
+    });
+    expect(izakaya.soupDetail).toContain("라멘집 아님");
+    const ramen = mergeMatched("혼네", "", [entry], {
+      ambiguous: true,
+      address: "서울특별시 관악구 관악로14길 6-4",
+    });
+    expect(ramen.soupDetail ?? []).not.toContain("라멘집 아님");
+  });
+
+  it("스타일 세부(지로라멘 등)는 기존대로 브랜드 공유", () => {
+    const entry = {
+      name: "코이라멘",
+      soupDetail: ["지로라멘"],
+      sourceNote: "조사",
+    };
+    const e = mergeMatched("코이라멘", "지로점", [entry], {
+      ambiguous: false,
+      address: "어딘가",
+    });
+    expect(e.soupDetail).toContain("지로라멘");
+  });
+});
