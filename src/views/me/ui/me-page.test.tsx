@@ -37,9 +37,14 @@ vi.mock("@/features/records", () => ({
     })),
   }),
   LoginPromptSheet: () => null,
+  visitOrdinals: (photos: { id: number }[]) =>
+    new Map(photos.map((p, i) => [p.id, i + 1])),
+}));
+const myPhotos = vi.hoisted(() => ({
+  value: null as null | object[],
 }));
 vi.mock("@/features/records/index.client", () => ({
-  fetchMyRecordPhotos: vi.fn(async () => null),
+  fetchMyRecordPhotos: vi.fn(async () => myPhotos.value),
   deleteMyRecordPhotoFiles: vi.fn(async () => true),
 }));
 
@@ -96,5 +101,54 @@ describe("MePage — 메뉴 배치", () => {
       "/guide",
     );
     expect(screen.queryByText("라멘집 등록하기")).not.toBeInTheDocument();
+  });
+});
+
+describe("MePage — 기록 뷰어 (인스타 문법)", () => {
+  it("사진 셀을 탭하면 뷰어가 열리고 스와이프 사진·한줄평·매장 보기가 있다", async () => {
+    myPhotos.value = [
+      {
+        id: 1,
+        userId: "u1",
+        shopId: "shop-44",
+        photoPath: "u1/a.jpg",
+        comment: "인생 라멘",
+        consent: true,
+        status: "approved",
+        rejectReason: null,
+        createdAt: "2026-09-01T12:00:00Z",
+        entryId: "e1",
+        nickname: null,
+        url: "https://example.com/a.jpg",
+      },
+      {
+        id: 2,
+        userId: "u1",
+        shopId: "shop-44",
+        photoPath: "u1/b.jpg",
+        comment: null,
+        consent: true,
+        status: "approved",
+        rejectReason: null,
+        createdAt: "2026-09-01T12:00:00Z",
+        entryId: "e1",
+        nickname: null,
+        url: "https://example.com/b.jpg",
+      },
+    ];
+    const user = userEvent.setup();
+    nav.current = createNavigationStub();
+    render(<MePage shops={shops} />);
+    const cell = await screen.findByRole("button", {
+      name: "라멘집44 기록 보기",
+    });
+    await user.click(cell);
+    expect(screen.getByText("인생 라멘")).toBeInTheDocument();
+    expect(screen.getByText(/1번째 완식/)).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "매장 보기" })).toHaveAttribute(
+      "href",
+      "/shop/shop-44",
+    );
+    myPhotos.value = null;
   });
 });

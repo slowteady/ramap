@@ -8,16 +8,22 @@ import {
   BookOpen,
   ChevronLeft,
   ChevronRight,
+  Layers,
   Settings,
   Soup,
 } from "lucide-react";
 import { GenreChips, type Shop } from "@/entities/shop";
 import { useAuth, useProfile } from "@/features/auth";
-import { LoginPromptSheet, useRecords } from "@/features/records";
+import {
+  LoginPromptSheet,
+  useRecords,
+  type RecordPhoto,
+} from "@/features/records";
 import { fetchMyRecordPhotos } from "@/features/records/index.client";
 import { cn } from "@/shared/lib/utils";
 import { hasMore, nextCount, PAGE_SIZE, visibleSlice } from "../model/paging";
 import { recordTime, sortRecordsByRecent } from "../model/sort-records";
+import { RecordViewerSheet } from "./record-viewer-sheet";
 
 const TABS = [
   { key: "visited", label: "완식" },
@@ -33,17 +39,22 @@ function MeBody({ shops }: { shops: Shop[] }) {
   const { displayName, profileLoaded } = useProfile();
   const { records } = useRecords();
   const [loginOpen, setLoginOpen] = useState(false);
-  const [thumbs, setThumbs] = useState<Map<string, string>>(new Map());
+  const [photosByShop, setPhotosByShop] = useState<Map<string, RecordPhoto[]>>(
+    new Map(),
+  );
+  const [viewerShopId, setViewerShopId] = useState<string | null>(null);
 
   useEffect(() => {
     if (!user) return;
     void fetchMyRecordPhotos().then((photos) => {
       if (!photos) return;
-      const byShop = new Map<string, string>();
+      const byShop = new Map<string, RecordPhoto[]>();
       for (const p of photos) {
-        if (p.url && !byShop.has(p.shopId)) byShop.set(p.shopId, p.url);
+        const list = byShop.get(p.shopId) ?? [];
+        list.push(p);
+        byShop.set(p.shopId, list);
       }
-      setThumbs(byShop);
+      setPhotosByShop(byShop);
     });
   }, [user]);
 
@@ -172,29 +183,41 @@ function MeBody({ shops }: { shops: Shop[] }) {
             <ul className="grid grid-cols-3 gap-0.5 pt-0.5">
               {visibleSlice(listed, visibleCount).map((record) => {
                 const shop = shopById.get(record.shopId)!;
-                const photo = thumbs.get(shop.id);
+                const shopPhotos = photosByShop.get(shop.id) ?? [];
+                const first = shopPhotos.find((p) => p.url);
+                if (!first) {
+                  return (
+                    <li key={record.shopId}>
+                      <Link
+                        href={`/shop/${shop.id}`}
+                        className="flex aspect-square flex-col items-center justify-center gap-1.5 bg-ramen-050 px-2"
+                      >
+                        <Soup className="size-6 text-ramen" />
+                        <span className="line-clamp-1 text-caption font-semibold text-ink">
+                          {shop.name}
+                        </span>
+                      </Link>
+                    </li>
+                  );
+                }
                 return (
                   <li key={record.shopId}>
-                    <Link
-                      href={`/shop/${shop.id}`}
-                      className="relative block aspect-square"
+                    <button
+                      type="button"
+                      aria-label={`${shop.name} 기록 보기`}
+                      onClick={() => setViewerShopId(shop.id)}
+                      className="relative block aspect-square w-full"
                     >
-                      {photo ? (
-                        <img
-                          src={photo}
-                          alt={shop.name}
-                          loading="lazy"
-                          className="size-full object-cover"
-                        />
-                      ) : (
-                        <span className="flex size-full flex-col items-center justify-center gap-1.5 bg-ramen-050 px-2">
-                          <Soup className="size-6 text-ramen" />
-                          <span className="line-clamp-1 text-caption font-semibold text-ink">
-                            {shop.name}
-                          </span>
-                        </span>
+                      <img
+                        src={first.url!}
+                        alt={shop.name}
+                        loading="lazy"
+                        className="size-full object-cover"
+                      />
+                      {shopPhotos.length > 1 && (
+                        <Layers className="absolute top-1.5 right-1.5 size-4 text-white drop-shadow" />
                       )}
-                    </Link>
+                    </button>
                   </li>
                 );
               })}
@@ -281,6 +304,14 @@ function MeBody({ shops }: { shops: Shop[] }) {
             지도 보기
           </Link>
         </div>
+      )}
+      {viewerShopId && (
+        <RecordViewerSheet
+          shopId={viewerShopId}
+          shopName={shopById.get(viewerShopId)?.name ?? ""}
+          photos={photosByShop.get(viewerShopId) ?? []}
+          onClose={() => setViewerShopId(null)}
+        />
       )}
     </div>
   );
