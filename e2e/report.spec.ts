@@ -57,6 +57,24 @@ test("핀 피커: 위치를 지정하면 폼 입력이 보존된 채 반영되�
   await expect(page.getByRole("button", { name: "등록하기" })).toBeEnabled();
 });
 
+test("핀 피커: 시스템 뒤로가기는 피커만 닫고 폼과 입력을 지킨다", async ({
+  page,
+}) => {
+  await page.goto("/");
+  await expect(
+    page.getByRole("button", { name: /^홍대 \d+$/ }).first(),
+  ).toBeVisible({ timeout: 15_000 });
+  await page.getByRole("button", { name: "라멘집 등록" }).click();
+  await page.getByLabel(/가게 이름/).fill("테스트라멘");
+  await page.getByRole("button", { name: "지도에서 위치 지정" }).click();
+  await expect(page).toHaveURL(/pick=1/);
+
+  await page.goBack();
+  await expect(page).not.toHaveURL(/pick=/);
+  await expect(page).toHaveURL(/report=new/);
+  await expect(page.getByLabel(/가게 이름/)).toHaveValue("테스트라멘");
+});
+
 test("핀 피커: 취소하면 핀 없이 폼으로 돌아온다", async ({ page }) => {
   await page.goto("/");
   await expect(
