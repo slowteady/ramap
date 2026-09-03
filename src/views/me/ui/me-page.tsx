@@ -4,20 +4,29 @@ import { Suspense, useEffect, useState } from "react";
 import dayjs from "dayjs";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { ChevronLeft, ChevronRight, Settings } from "lucide-react";
+import {
+  BookOpen,
+  ChevronLeft,
+  ChevronRight,
+  PenLine,
+  Settings,
+} from "lucide-react";
 import { GenreChips, type Shop } from "@/entities/shop";
 import { useAuth, useProfile } from "@/features/auth";
 import { LoginPromptSheet, useRecords } from "@/features/records";
-import {
-  deleteMyRecordPhotoFiles,
-  fetchMyRecordPhotos,
-} from "@/features/records/index.client";
-import { toast } from "sonner";
-import { Drawer, DrawerContent, DrawerTitle } from "@/shared/ui/drawer";
+import { fetchMyRecordPhotos } from "@/features/records/index.client";
 import { cn } from "@/shared/lib/utils";
+import { MenuList, type MenuSection } from "@/shared/ui/menu-list";
 import { hasMore, nextCount, PAGE_SIZE, visibleSlice } from "../model/paging";
 import { recordTime, sortRecordsByRecent } from "../model/sort-records";
-import { MeMenu } from "./me-menu";
+
+const EXPLORE_SECTION: MenuSection = {
+  label: "둘러보기",
+  items: [
+    { icon: PenLine, label: "라멘집 등록하기", href: "/?report=new" },
+    { icon: BookOpen, label: "장르 가이드", href: "/guide" },
+  ],
+};
 
 const TABS = [
   { key: "visited", label: "완식" },
@@ -29,13 +38,10 @@ type TabKey = (typeof TABS)[number]["key"];
 function MeBody({ shops }: { shops: Shop[] }) {
   const router = useRouter();
   const params = useSearchParams();
-  const { user, ready, signOut, deleteAccount } = useAuth();
+  const { user, ready } = useAuth();
   const { displayName, profileLoaded } = useProfile();
   const { records } = useRecords();
   const [loginOpen, setLoginOpen] = useState(false);
-  const [settingsOpen, setSettingsOpen] = useState(false);
-  const [withdrawOpen, setWithdrawOpen] = useState(false);
-  const [withdrawing, setWithdrawing] = useState(false);
   const [thumbs, setThumbs] = useState<Map<string, string>>(new Map());
 
   useEffect(() => {
@@ -76,14 +82,13 @@ function MeBody({ shops }: { shops: Shop[] }) {
           >
             <ChevronLeft className="size-5" />
           </Link>
-          <button
-            type="button"
+          <Link
+            href="/settings"
             aria-label="설정"
-            onClick={() => setSettingsOpen(true)}
             className="flex size-10 items-center justify-center rounded-pill text-ink"
           >
             <Settings className="size-5" />
-          </button>
+          </Link>
         </header>
         <div className="flex flex-col gap-1 px-4 pt-1">
           <button
@@ -98,18 +103,6 @@ function MeBody({ shops }: { shops: Shop[] }) {
             로그인하면 완식·저장 기록이 여기에 모여요
           </p>
         </div>
-        {settingsOpen && (
-          <Drawer open onOpenChange={(next) => !next && setSettingsOpen(false)}>
-            <DrawerContent showClose>
-              <div className="flex flex-col px-0 pt-3 pb-8">
-                <DrawerTitle className="px-4 pb-2 text-title font-bold text-ink">
-                  설정
-                </DrawerTitle>
-                <MeMenu authed={false} />
-              </div>
-            </DrawerContent>
-          </Drawer>
-        )}
         <LoginPromptSheet
           open={loginOpen}
           onClose={() => setLoginOpen(false)}
@@ -128,14 +121,13 @@ function MeBody({ shops }: { shops: Shop[] }) {
         >
           <ChevronLeft className="size-5" />
         </Link>
-        <button
-          type="button"
+        <Link
+          href="/settings"
           aria-label="설정"
-          onClick={() => setSettingsOpen(true)}
           className="flex size-10 items-center justify-center rounded-pill text-ink"
         >
           <Settings className="size-5" />
-        </button>
+        </Link>
       </header>
 
       <div className="flex flex-col gap-1 px-4 pt-1">
@@ -250,74 +242,9 @@ function MeBody({ shops }: { shops: Shop[] }) {
         </div>
       )}
 
-      {settingsOpen && (
-        <Drawer open onOpenChange={(next) => !next && setSettingsOpen(false)}>
-          <DrawerContent showClose>
-            <div className="flex flex-col px-0 pt-3 pb-8">
-              <DrawerTitle className="px-4 pb-2 text-title font-bold text-ink">
-                설정
-              </DrawerTitle>
-              <MeMenu
-                authed
-                onWithdraw={() => {
-                  setSettingsOpen(false);
-                  setWithdrawOpen(true);
-                }}
-                onSignOut={() => {
-                  signOut();
-                  router.push("/");
-                }}
-              />
-            </div>
-          </DrawerContent>
-        </Drawer>
-      )}
-      {withdrawOpen && (
-        <Drawer open onOpenChange={(next) => !next && setWithdrawOpen(false)}>
-          <DrawerContent>
-            <div className="flex flex-col gap-4 px-4 pt-5 pb-8">
-              <div className="flex flex-col gap-1">
-                <DrawerTitle className="text-title font-bold text-ink">
-                  정말 탈퇴할까요?
-                </DrawerTitle>
-                <p className="text-secondary text-gray-500">
-                  완식·저장 기록과 남긴 사진이 모두 지워지고 되돌릴 수 없어요.
-                </p>
-              </div>
-              <div className="flex gap-2">
-                <button
-                  type="button"
-                  onClick={() => setWithdrawOpen(false)}
-                  className="h-13 flex-1 rounded-card-lg bg-gray-050 text-body font-semibold text-ink"
-                >
-                  취소
-                </button>
-                <button
-                  type="button"
-                  disabled={withdrawing}
-                  onClick={async () => {
-                    setWithdrawing(true);
-                    const ok =
-                      (await deleteMyRecordPhotoFiles()) &&
-                      (await deleteAccount());
-                    setWithdrawing(false);
-                    if (!ok) {
-                      toast("탈퇴에 실패했어요. 잠시 후 다시 시도해 주세요.");
-                      return;
-                    }
-                    setWithdrawOpen(false);
-                    toast("탈퇴가 완료됐어요");
-                    router.push("/");
-                  }}
-                  className="h-13 flex-1 rounded-card-lg bg-ramen text-body font-bold text-white disabled:opacity-40"
-                >
-                  {withdrawing ? "처리 중…" : "탈퇴하기"}
-                </button>
-              </div>
-            </div>
-          </DrawerContent>
-        </Drawer>
-      )}
+      <div className="mt-auto pt-10">
+        <MenuList sections={[EXPLORE_SECTION]} />
+      </div>
     </div>
   );
 }

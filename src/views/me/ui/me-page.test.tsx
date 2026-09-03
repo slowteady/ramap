@@ -76,16 +76,22 @@ describe("MePage — 기록 목록 점진 렌더", () => {
   });
 });
 
-describe("MePage — 설정 메뉴", () => {
-  it("메뉴는 목록 아래가 아니라 우상단 설정 버튼의 시트에 있다", async () => {
-    const user = userEvent.setup();
+describe("MePage — 메뉴 배치", () => {
+  it("설정성 메뉴는 본문에 없고 우상단 설정은 /settings 페이지로 간다", () => {
     nav.current = createNavigationStub();
     render(<MePage shops={shops} />);
     expect(screen.queryByText("이용약관")).not.toBeInTheDocument();
+    expect(screen.queryByText("로그아웃")).not.toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "설정" })).toHaveAttribute(
+      "href",
+      "/settings",
+    );
+  });
 
-    await user.click(screen.getByRole("button", { name: "설정" }));
-    expect(screen.getByText("이용약관")).toBeInTheDocument();
-    expect(screen.getByText("로그아웃")).toBeInTheDocument();
+  it("둘러보기(라멘집 등록·장르 가이드)는 마이 본문에 있다", () => {
+    nav.current = createNavigationStub();
+    render(<MePage shops={shops} />);
     expect(screen.getByText("라멘집 등록하기")).toBeInTheDocument();
+    expect(screen.getByText("장르 가이드")).toBeInTheDocument();
   });
 });
