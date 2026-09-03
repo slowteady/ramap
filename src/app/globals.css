@@ -87,6 +87,13 @@ body {
   --radius-xl: calc(var(--radius) * 1.5);
 }
 
+/* 지도 타일 톤다운 — POI·도로색을 가라앉혀 마커 가독성 확보 (호갱노노 문법, 2026-09-03 실측).
+   SDK가 생성하는 타일 img라 유틸 클래스 부착 불가 — 컨테이너 스코프 규칙이 유일한 수단 */
+.map-tone img[src*="daumcdn"],
+.map-tone img[src*="kakaocdn"] {
+  filter: grayscale(0.55) saturate(0.7) brightness(1.04) contrast(0.96);
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;

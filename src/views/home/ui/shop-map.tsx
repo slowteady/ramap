@@ -71,7 +71,7 @@ export function ShopMap({ pins }: { pins: ShopPin[] }) {
         </div>
       ) : (
         <div className="relative min-h-0 flex-1">
-          <div ref={containerRef} className="size-full" />
+          <div ref={containerRef} className="map-tone size-full" />
           {status === "loading" && (
             <div className="absolute inset-0 flex items-center justify-center bg-gray-050 text-secondary text-gray-400">
               지도를 불러오는 중
