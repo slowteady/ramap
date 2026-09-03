@@ -91,7 +91,7 @@ body {
    SDK가 생성하는 타일 img라 유틸 클래스 부착 불가 — 컨테이너 스코프 규칙이 유일한 수단 */
 .map-tone img[src*="daumcdn"],
 .map-tone img[src*="kakaocdn"] {
-  filter: grayscale(0.55) saturate(0.7) brightness(1.04) contrast(0.96);
+  filter: grayscale(0.72) saturate(0.55) brightness(1.05) contrast(0.94);
 }
 
 @layer base {
