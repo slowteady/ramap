@@ -38,3 +38,19 @@ describe("regionDistrictOf", () => {
     expect(regionDistrictOf("")).toBeNull();
   });
 });
+
+describe("전국 시도", () => {
+  it("특별자치도·통합특별시 명칭을 인식한다", () => {
+    expect(sidoOf("강원특별자치도 춘천시 중앙로 1")).toBe("강원");
+    expect(regionDistrictOf("강원특별자치도 춘천시 중앙로 1")).toBe("춘천시");
+    expect(sidoOf("전북특별자치도 전주시 완산구 전주객사3길 22")).toBe("전북");
+    expect(regionDistrictOf("전북특별자치도 전주시 완산구 A")).toBe("전주시");
+    expect(sidoOf("전남광주통합특별시 완도군 완도읍 개포로145번길 23")).toBe(
+      "전남광주",
+    );
+    expect(
+      regionDistrictOf("전남광주통합특별시 완도군 완도읍 개포로145번길 23"),
+    ).toBe("완도군");
+    expect(sidoOf("제주특별자치도 제주시 관덕로 1")).toBe("제주");
+  });
+});

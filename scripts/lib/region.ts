@@ -11,6 +11,14 @@ const SIDO_MAP: Record<string, string> = {
   광주광역시: "광주",
   울산광역시: "울산",
   세종특별자치시: "세종",
+  강원특별자치도: "강원",
+  충청남도: "충남",
+  충청북도: "충북",
+  경상남도: "경남",
+  경상북도: "경북",
+  전북특별자치도: "전북",
+  전남광주통합특별시: "전남광주",
+  제주특별자치도: "제주",
 };
 
 export function sidoOf(address: string): string | null {
@@ -26,6 +34,7 @@ const GU_SIDO = new Set([
   "대전",
   "광주",
   "울산",
+  "전남광주",
 ]);
 
 export function regionDistrictOf(address: string): string | null {
