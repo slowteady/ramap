@@ -169,6 +169,19 @@ export function useShopMap(
     [pins],
   );
 
+  const setLevel = useCallback(
+    (level: number) => adapterRef.current?.setLevel(level),
+    [],
+  );
+  const panTo = useCallback(
+    (pos: LatLng) => adapterRef.current?.panTo(pos),
+    [],
+  );
+  const coordsAt = useCallback(
+    (x: number, y: number) => adapterRef.current?.coordsAt(x, y) ?? null,
+    [],
+  );
+
   const locate = useCallback((onDenied: () => void) => {
     if (!navigator.geolocation) {
       onDenied();
@@ -191,6 +204,7 @@ export function useShopMap(
   return {
     containerRef,
     status,
+    view,
     visiblePins,
     listPins,
     userLocation,
@@ -198,6 +212,9 @@ export function useShopMap(
     selectedShop,
     panToPin,
     panToArea,
+    setLevel,
+    panTo,
+    coordsAt,
     locate,
   };
 }

@@ -35,6 +35,7 @@ export interface MapAdapter {
   panTo(pos: LatLng): void;
   setLevel(level: number): void;
   setUserLocation(pos: LatLng | null): void;
+  coordsAt(x: number, y: number): LatLng | null;
 }
 
 declare global {
@@ -43,6 +44,7 @@ declare global {
       maps: {
         load(cb: () => void): void;
         LatLng: new (lat: number, lng: number) => unknown;
+        Point: new (x: number, y: number) => unknown;
         Map: new (
           el: HTMLElement,
           opts: { center: unknown; level: number },
@@ -71,6 +73,12 @@ export type KakaoMap = {
   setLevel(level: number): void;
   panTo(pos: unknown): void;
   relayout(): void;
+  getProjection(): {
+    coordsFromContainerPoint(point: unknown): {
+      getLat(): number;
+      getLng(): number;
+    };
+  };
 };
 
 export type KakaoOverlay = {

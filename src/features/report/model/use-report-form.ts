@@ -16,7 +16,6 @@ import {
   toReportRow,
   type EditItem,
   type EditReportDraft,
-  type LatLng,
   type NewReportDraft,
   type ReportTarget,
 } from "./report-payload";
@@ -45,7 +44,7 @@ function useDraft<D extends object>(initial: D) {
   return { draft, setDraft, set, toggle };
 }
 
-export function useNewReportForm(mapCenter: LatLng | null) {
+export function useNewReportForm() {
   const { draft, setDraft, set } = useDraft<NewReportDraft>(EMPTY_NEW_DRAFT);
   const { phase, submit } = useReportSubmit();
   const canSubmit = phase === "editing" && canSubmitNew(draft);
@@ -88,11 +87,6 @@ export function useNewReportForm(mapCenter: LatLng | null) {
     [setDraft],
   );
 
-  const togglePin = useCallback(
-    () => setDraft((d) => ({ ...d, pin: d.pin ? null : mapCenter })),
-    [setDraft, mapCenter],
-  );
-
   const [touchedLinks, setTouchedLinks] = useState<number[]>([]);
   const touchLink = useCallback(
     (index: number) =>
@@ -133,10 +127,8 @@ export function useNewReportForm(mapCenter: LatLng | null) {
     removeLink,
     addPhotos,
     removePhoto,
-    togglePin,
     touchLink,
     linkError,
-    canAttachPin: mapCenter !== null,
     phase,
     canSubmit,
     submit: handleSubmit,

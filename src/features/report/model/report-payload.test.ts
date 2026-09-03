@@ -16,7 +16,7 @@ const target = { id: "kinka", name: "킨카", location: "성수" };
 const pin = { lat: 37.5446, lng: 127.0559 };
 
 describe("새 라멘집 등록", () => {
-  it("이름 + (링크·지도 핀·사진 중 하나)가 있어야 제출 가능", () => {
+  it("이름 + (링크 또는 지도 핀)이 있어야 제출 가능 — 사진만으로는 불가", () => {
     const photo = new File([""], "a.jpg", { type: "image/jpeg" });
     expect(canSubmitNew(EMPTY_NEW_DRAFT)).toBe(false);
     expect(canSubmitNew({ ...EMPTY_NEW_DRAFT, shopName: "무구" })).toBe(false);
@@ -32,7 +32,7 @@ describe("새 라멘집 등록", () => {
     );
     expect(
       canSubmitNew({ ...EMPTY_NEW_DRAFT, shopName: "무구", photos: [photo] }),
-    ).toBe(true);
+    ).toBe(false);
     expect(canSubmitNew({ ...EMPTY_NEW_DRAFT, links: ["https://x.kr"] })).toBe(
       false,
     );
