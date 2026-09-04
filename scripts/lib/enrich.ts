@@ -30,17 +30,6 @@ export type Enrichment = {
   sourceNote?: string;
 };
 
-/* 검증 등급 (docs/plans/2026-09-03-backlog §3): 국물 태깅 + (메뉴 또는 영업시간) → 운영자확인.
-   영업시간·메뉴는 플레이스 노출 텍스트에서만 수확되므로 존재 자체가 플레이스 대조를 함의하고,
-   주소 모순("주소 상이")은 게재 게이트가 보류로 걸러 게재분의 주소 일치를 담보한다.
-   naverPlace URL 필수는 기각 — 기록률 4.6%(54/1176)라 등급이 무의미해진다 (2026-09-03 실측) */
-export function verifiedByResearch(
-  e: Pick<Enrichment, "soups" | "menus" | "hours">,
-): boolean {
-  const soupTagged = (e.soups ?? []).some((s) => s !== "기타");
-  return soupTagged && ((e.menus?.length ?? 0) > 0 || Boolean(e.hours));
-}
-
 const SLUG_MAX = 40;
 
 export function toSlug(

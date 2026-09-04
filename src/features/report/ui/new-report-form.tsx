@@ -134,7 +134,9 @@ export function NewReportForm({
                     )}
                   >
                     <MapPin className="size-4" />
-                    {draft.pin ? "위치 지정됨 · 다시 지정" : "지도에서 위치 지정"}
+                    {draft.pin
+                      ? "위치 지정됨 · 다시 지정"
+                      : "지도에서 위치 지정"}
                   </button>
                   {draft.pin && (
                     <button

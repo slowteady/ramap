@@ -47,7 +47,9 @@ describe("usePinPicker", () => {
   it("컨테이너 실측으로 조준점을 잡고 확정 시 반올림 좌표를 올린다", () => {
     const controls = makeControls(PIN_PICK_MAX_LEVEL);
     const onConfirm = vi.fn();
-    const { result } = renderHook(() => usePinPicker(controls, null, onConfirm));
+    const { result } = renderHook(() =>
+      usePinPicker(controls, null, onConfirm),
+    );
     expect(result.current.rect).toEqual({ top: 100, width: 390, height: 600 });
     expect(result.current.canConfirm).toBe(true);
     result.current.confirm();
@@ -61,7 +63,9 @@ describe("usePinPicker", () => {
     const controls = makeControls(PIN_PICK_MAX_LEVEL + 1);
     (controls.setLevel as ReturnType<typeof vi.fn>).mockClear();
     const onConfirm = vi.fn();
-    const { result } = renderHook(() => usePinPicker(controls, null, onConfirm));
+    const { result } = renderHook(() =>
+      usePinPicker(controls, null, onConfirm),
+    );
     expect(result.current.canConfirm).toBe(false);
     result.current.confirm();
     expect(onConfirm).not.toHaveBeenCalled();

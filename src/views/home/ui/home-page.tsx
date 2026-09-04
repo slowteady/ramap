@@ -4,6 +4,7 @@ import { getShops } from "@/entities/shop/api/get-shops";
 import { AuthEntry } from "./auth-entry";
 import { SearchButton } from "./search-bar";
 import { ShopMap } from "./shop-map";
+import { LogoMark } from "@/shared/ui/logo-mark";
 
 export async function HomePage() {
   const shops = await getShops();
@@ -12,9 +13,10 @@ export async function HomePage() {
   return (
     <div className="flex h-dvh flex-col overflow-hidden">
       <header className="flex shrink-0 items-center px-4 py-3">
-        <span className="flex-1 text-heading font-extrabold tracking-tight text-ink">
-          라맵
-        </span>
+        <h1 className="flex-1">
+          <LogoMark variant="mono" className="size-8" />
+          <span className="sr-only">라맵</span>
+        </h1>
         <div className="flex items-center gap-2.5">
           <SearchButton />
           <AuthEntry />

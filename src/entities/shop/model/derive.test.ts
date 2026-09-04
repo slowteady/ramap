@@ -187,3 +187,47 @@ describe("shopsByGenre", () => {
     expect(shopsByGenre([iekei], "iekei").map((s) => s.id)).toEqual(["iekei"]);
   });
 });
+
+describe("shopsByGenre 태깅확신도 정렬", () => {
+  const base = {
+    verification: "pending" as const,
+    tagline: null,
+    soups: ["tonkotsu"],
+    primarySoup: "tonkotsu",
+  } as Partial<Shop>;
+
+  it("운영자 확인이 동률이면 태깅확신도 확정이 앞선다", () => {
+    const sorted = shopsByGenre(
+      [
+        shop({ ...base, id: "estimated", confidence: "estimated" }),
+        shop({ ...base, id: "certain", confidence: "certain" }),
+      ],
+      "tonkotsu",
+    );
+    expect(sorted.map((s) => s.id)).toEqual(["certain", "estimated"]);
+  });
+
+  it("운영자 확인이 태깅확신도보다 우선한다", () => {
+    const sorted = shopsByGenre(
+      [
+        shop({
+          ...base,
+          id: "certain-pending",
+          verification: "pending",
+          confidence: "certain",
+        }),
+        shop({
+          ...base,
+          id: "estimated-confirmed",
+          verification: "confirmed",
+          confidence: "estimated",
+        }),
+      ],
+      "tonkotsu",
+    );
+    expect(sorted.map((s) => s.id)).toEqual([
+      "estimated-confirmed",
+      "certain-pending",
+    ]);
+  });
+});

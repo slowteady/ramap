@@ -50,9 +50,7 @@ test("핀 피커: 위치를 지정하면 폼 입력이 보존된 채 반영되�
   await confirm.click();
 
   await expect(page).not.toHaveURL(/pick=/);
-  await expect(
-    page.getByRole("button", { name: /위치 지정됨/ }),
-  ).toBeVisible();
+  await expect(page.getByRole("button", { name: /위치 지정됨/ })).toBeVisible();
   await expect(page.getByLabel(/가게 이름/)).toHaveValue("테스트라멘");
   await expect(page.getByRole("button", { name: "등록하기" })).toBeEnabled();
 });
