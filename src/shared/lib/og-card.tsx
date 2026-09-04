@@ -1,6 +1,7 @@
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { ImageResponse } from "next/og";
+import { LOGO_DATA_URI } from "./logo";
 
 export const OG_SIZE = { width: 1200, height: 630 };
 
@@ -43,15 +44,7 @@ export async function ogCard({ photo = null }: { photo?: string | null }) {
         fontFamily: "Pretendard",
       }}
     >
-      <div
-        style={{
-          width: 88,
-          height: 88,
-          borderRadius: 44,
-          border: `27px solid ${RAMEN}`,
-          background: "#ffffff",
-        }}
-      />
+      <img src={LOGO_DATA_URI} width={132} height={132} alt="" />
       <div
         style={{
           fontSize: 132,
