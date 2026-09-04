@@ -10,6 +10,7 @@ import {
   isNewOpen,
   LINEAGES,
   NewChip,
+  VerifiedChip,
   restaurantJsonLd,
   soupBySlug,
   type Shop,
@@ -114,14 +115,7 @@ function infoRows(shop: Shop): InfoRow[] {
   if (shop.lastVerifiedAt)
     rows.push({
       label: "정보 확인",
-      value: (
-        <span className="flex items-baseline gap-1.5">
-          {dayjs(shop.lastVerifiedAt).format("YYYY.M.D")}
-          <span className="rounded-chip bg-gray-100 px-1.5 py-0.5 text-caption font-semibold text-gray-500">
-            {shop.verification === "confirmed" ? "운영자 확인" : "확인 중"}
-          </span>
-        </span>
-      ),
+      value: dayjs(shop.lastVerifiedAt).format("YYYY.M.D"),
     });
   return rows;
 }
@@ -236,6 +230,7 @@ export function ShopDetailPage({ shop, nearby }: ShopDetailPageProps) {
             <NewChip className="text-secondary" />
           )}
           {shop.name}
+          <VerifiedChip confidence={shop.confidence} />
         </h1>
         {(shop.areaLabel || meta.length > 0) && (
           <p className="text-secondary text-gray-500">
