@@ -12,6 +12,7 @@ import {
   toSlug,
   type Enrichment,
 } from "./lib/enrich";
+import { confidenceLabelOf } from "./lib/grade";
 import { SHEET_HEADER } from "./lib/sheet-parser";
 
 const [tsvInput, ...jsonInputs] = process.argv.slice(2);
@@ -131,6 +132,8 @@ for (const line of lines.slice(1)) {
   }
   if (e.sourceNote)
     cells.정보출처 = `${cells.정보출처}; ${e.sourceNote}`.slice(0, 200);
+
+  cells.태깅확신도 = confidenceLabelOf(matches.length, e);
 
   let verdict = verdictOf(matches.length, e);
   if (verdict === "publish" && (!cells.lat || !cells.lng)) verdict = "hold";

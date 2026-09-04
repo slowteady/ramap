@@ -61,9 +61,7 @@ export function PinPicker({
           style={{ height: PIN_BAR_HEIGHT }}
         >
           <span className="text-caption text-gray-400">
-            {picker.canConfirm
-              ? picker.coordsLabel
-              : "조금 더 확대해 주세요"}
+            {picker.canConfirm ? picker.coordsLabel : "조금 더 확대해 주세요"}
           </span>
           <button
             type="button"

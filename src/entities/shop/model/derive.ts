@@ -24,12 +24,13 @@ export function shopsByAreaGenre(
   );
 }
 
-/* 가이드 "대표 매장" 순위 — 대표 국물 일치 > 운영자 확인 > 한줄소개(파트너 픽) > 최근 확인일.
+/* 가이드 "대표 매장" 순위 — 대표 국물 일치 > 운영자 확인 > 태깅확신도 > 한줄소개(파트너 픽) > 최근 확인일.
    완식 집계가 쌓이면 집계 기준으로 전환(14번 문서: 랭킹은 완식 횟수) */
 export function shopsByGenre(shops: Shop[], genre: GenreSlug): Shop[] {
   const rank = (s: Shop) => [
     s.primarySoup === genre || (s.lineages as string[]).includes(genre) ? 0 : 1,
     s.verification === "confirmed" ? 0 : 1,
+    s.confidence === "certain" ? 0 : 1,
     s.tagline ? 0 : 1,
   ];
   return shops
