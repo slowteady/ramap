@@ -13,10 +13,10 @@ export async function HomePage() {
   return (
     <div className="flex h-dvh flex-col overflow-hidden">
       <header className="flex shrink-0 items-center px-4 py-3">
-        <span className="flex flex-1 items-center gap-1.5 text-heading font-extrabold tracking-tight text-ink">
-          <LogoMark className="size-6" />
-          라맵
-        </span>
+        <h1 className="flex-1">
+          <LogoMark variant="mono" className="size-8" />
+          <span className="sr-only">라맵</span>
+        </h1>
         <div className="flex items-center gap-2.5">
           <SearchButton />
           <AuthEntry />
