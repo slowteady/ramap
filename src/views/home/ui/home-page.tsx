@@ -7,7 +7,6 @@ import {
 } from "@/entities/shop";
 import { getShops } from "@/entities/shop/api/get-shops";
 import { AuthEntry } from "./auth-entry";
-import { HomeLinks } from "./home-links";
 import { SearchButton } from "./search-bar";
 import { ShopMap } from "./shop-map";
 import { LogoMark } from "@/shared/ui/logo-mark";
@@ -17,8 +16,7 @@ export async function HomePage() {
   const pins = toMapManifest(shops);
 
   return (
-    <>
-      <div className="flex h-dvh flex-col overflow-hidden">
+    <div className="flex h-dvh flex-col overflow-hidden">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -35,11 +33,9 @@ export async function HomePage() {
             <AuthEntry />
           </div>
         </header>
-        <Suspense>
-          <ShopMap pins={pins} />
-        </Suspense>
-      </div>
-      <HomeLinks pins={pins} />
-    </>
+      <Suspense>
+        <ShopMap pins={pins} />
+      </Suspense>
+    </div>
   );
 }
