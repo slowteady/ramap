@@ -17,7 +17,8 @@
     "postinstall": "patch-package",
     "enrich-candidates": "tsx scripts/enrich-candidates.ts",
     "test:e2e": "playwright test",
-    "extract-lic": "tsx scripts/extract-lic.ts"
+    "extract-lic": "tsx scripts/extract-lic.ts",
+    "indexnow": "tsx scripts/indexnow.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.112.4",
