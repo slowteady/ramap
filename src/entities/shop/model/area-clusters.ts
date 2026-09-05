@@ -22,6 +22,25 @@ function keyOf(pin: ShopPin, granularity: ClusterGranularity): string | null {
   }
 }
 
+/* 인근 지역 크로스링크(SEO 링크 그래프)용 — 소축척 근사라 유클리드 제곱거리로 충분 */
+export function nearestAreas(
+  clusters: AreaCluster[],
+  area: string,
+  limit: number,
+): AreaCluster[] {
+  const base = clusters.find((c) => c.area === area);
+  if (!base) return [];
+  return clusters
+    .filter((c) => c.area !== area)
+    .sort(
+      (a, b) =>
+        (a.lat - base.lat) ** 2 +
+        (a.lng - base.lng) ** 2 -
+        ((b.lat - base.lat) ** 2 + (b.lng - base.lng) ** 2),
+    )
+    .slice(0, limit);
+}
+
 export function buildAreaClusters(
   pins: ShopPin[],
   granularity: ClusterGranularity = "area",

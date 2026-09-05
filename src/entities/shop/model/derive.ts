@@ -1,4 +1,5 @@
 import dayjs from "dayjs";
+import { soupBySlug } from "./taxonomy";
 import type { LineageSlug, SoupSlug } from "./taxonomy";
 import type { Shop } from "./types";
 
@@ -13,6 +14,22 @@ export function isThinShop(shop: Shop): boolean {
     shop.photos.length > 0 ||
     shop.tagline
   );
+}
+
+/* 지역 리스트 인트로의 장르 분포 문장용 — Airbnb·Zillow식 집계 텍스트(고유 콘텐츠 신호) */
+export function soupBreakdown(
+  shops: Shop[],
+): { label: string; count: number }[] {
+  const counts = new Map<string, number>();
+  for (const s of shops) {
+    if (s.primarySoup === "etc-soup") continue;
+    const label = soupBySlug(s.primarySoup)?.label;
+    if (!label) continue;
+    counts.set(label, (counts.get(label) ?? 0) + 1);
+  }
+  return [...counts.entries()]
+    .map(([label, count]) => ({ label, count }))
+    .sort((a, b) => b.count - a.count);
 }
 
 export function shopById(shops: Shop[], id: string): Shop | undefined {

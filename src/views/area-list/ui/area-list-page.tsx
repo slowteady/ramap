@@ -9,6 +9,7 @@ import {
   toJsonLdHtml,
   LINEAGES,
   OpenStatusBadge,
+  soupBreakdown,
   soupBySlug,
   type GenreSlug,
   type Shop,
@@ -60,7 +61,7 @@ export function AreaListPage({
       ? [{ q: `${genreLabel} 라멘이란?`, a: `${genreDescription}입니다.` }]
       : [];
   const breadcrumb = [
-    { name: "서울", url: "https://ramap.kr" },
+    { name: "라맵", url: "https://ramap.kr" },
     { name: area, url: `https://ramap.kr/area/${encodeURIComponent(area)}` },
     ...(genreLabel ? [{ name: genreLabel, url: pageUrl }] : []),
   ];
@@ -96,7 +97,15 @@ export function AreaListPage({
         <p className="text-secondary text-gray-500">
           {genreLabel
             ? `${area}에서 ${genreLabel}을 내는 집만 모았습니다.`
-            : `${area}의 라멘집을 한 곳에 모았습니다.`}
+            : [
+                `${area}의 라멘집을 한 곳에 모았습니다.`,
+                soupBreakdown(shops)
+                  .slice(0, 3)
+                  .map((b) => `${b.label} ${b.count}곳`)
+                  .join(" · "),
+              ]
+                .filter(Boolean)
+                .join(" ")}
         </p>
       </div>
 

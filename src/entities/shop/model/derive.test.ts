@@ -9,7 +9,7 @@ import {
   shopsByAreaGenre,
   shopsByGenre,
 } from "./derive";
-import { isThinShop } from "./derive";
+import { isThinShop, soupBreakdown } from "./derive";
 
 const shop = (over: Partial<Shop>): Shop => ({
   id: "kinka",
@@ -246,5 +246,20 @@ describe("isThinShop — 씬 페이지 색인 제어", () => {
     expect(isThinShop(shop({ soupDetail: ["유즈"] }))).toBe(false);
     expect(isThinShop(shop({ photos: ["a.jpg"] }))).toBe(false);
     expect(isThinShop(shop({ tagline: "닭백탕 전문" }))).toBe(false);
+  });
+});
+
+describe("soupBreakdown — 지역 페이지 집계 문장", () => {
+  it("대표 스프 라벨별 개수를 많은 순으로 센다 — 기타는 제외", () => {
+    const shops = [
+      shop({ primarySoup: "tonkotsu" }),
+      shop({ primarySoup: "tonkotsu" }),
+      shop({ primarySoup: "niboshi" }),
+      shop({ primarySoup: "etc-soup" }),
+    ];
+    expect(soupBreakdown(shops)).toEqual([
+      { label: "돈코츠", count: 2 },
+      { label: "니보시", count: 1 },
+    ]);
   });
 });

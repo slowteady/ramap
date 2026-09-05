@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import {
   buildAreaClusters,
   listAreaGenrePages,
+  nearestAreas,
   shopsByArea,
   toMapManifest,
 } from "@/entities/shop";
@@ -45,13 +46,12 @@ export default async function Page({ params }: Props) {
         label: `${area} ${genreLabelOf(p.genre) ?? p.genre}`,
         href: `/area/${encodeURIComponent(area)}/${p.genre}`,
       })),
-    ...buildAreaClusters(toMapManifest(shops))
-      .filter((c) => c.area !== area)
-      .slice(0, 4)
-      .map((c) => ({
-        label: `${c.area} 전체`,
+    ...nearestAreas(buildAreaClusters(toMapManifest(shops)), area, 6).map(
+      (c) => ({
+        label: `${c.area} 라멘 ${c.count}곳`,
         href: `/area/${encodeURIComponent(c.area)}`,
-      })),
+      }),
+    ),
   ];
 
   return (
