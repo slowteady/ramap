@@ -28,6 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${label} 가이드`,
     description: guide.intro[0],
+    alternates: { canonical: `/guide/${slug}` },
   };
 }
 

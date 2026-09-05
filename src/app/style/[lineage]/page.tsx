@@ -19,6 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${lineage.label} 라멘 지도`,
     description: `${lineage.label}${lineage.description ? ` — ${lineage.description}` : ""}. 서울의 ${lineage.label} 라멘집을 라맵에서 확인하세요.`,
+    alternates: { canonical: `/style/${slug}` },
   };
 }
 

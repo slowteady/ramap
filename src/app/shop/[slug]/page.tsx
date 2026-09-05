@@ -33,6 +33,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${shop.name} — ${shop.areaLabel ?? shop.district ?? ""} 라멘`,
     description,
+    alternates: { canonical: `/shop/${shop.id}` },
   };
 }
 

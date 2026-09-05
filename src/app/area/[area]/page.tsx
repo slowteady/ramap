@@ -11,10 +11,12 @@ import { AreaListPage, genreLabelOf, type CrossLink } from "@/views/area-list";
 
 type Props = { params: Promise<{ area: string }> };
 
+/* param은 raw 문자열로 — 인코딩해 반환하면 Next가 이중 인코딩해
+   표준(percent-encoded) 요청이 전부 404가 된다 (2026-09-05 프로덕션 실측) */
 export async function generateStaticParams() {
   const shops = await getShops();
   return buildAreaClusters(toMapManifest(shops)).map((c) => ({
-    area: encodeURIComponent(c.area),
+    area: c.area,
   }));
 }
 
@@ -25,6 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${area} 라멘 맛집 ${count}곳`,
     description: `${area}의 라멘집 ${count}곳. 스프 계열·영업 정보와 위치를 라맵 지도에서 확인하세요.`,
+    alternates: { canonical: `/area/${encodeURIComponent(area)}` },
   };
 }
 
