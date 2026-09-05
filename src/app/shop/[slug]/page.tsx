@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { nearbyShops, shopById, soupBySlug } from "@/entities/shop";
+import { isThinShop, nearbyShops, shopById, soupBySlug } from "@/entities/shop";
 import { getShops } from "@/entities/shop/api/get-shops";
 import { ShopDetailPage } from "@/views/shop-detail";
 
@@ -34,6 +34,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${shop.name} — ${shop.areaLabel ?? shop.district ?? ""} 라멘`,
     description,
     alternates: { canonical: `/shop/${shop.id}` },
+    ...(isThinShop(shop) && { robots: { index: false } }),
   };
 }
 

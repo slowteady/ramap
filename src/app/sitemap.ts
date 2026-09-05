@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import {
   buildAreaClusters,
   GUIDES,
+  isThinShop,
   LINEAGES,
   listAreaGenrePages,
   toMapManifest,
@@ -24,11 +25,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.8,
     })),
     ...shops
-      .filter((s) => s.status !== "closed")
+      .filter((s) => s.status !== "closed" && !isThinShop(s))
       .map((s) => ({
         url: `${BASE}/shop/${s.id}`,
         priority: 0.7,
         ...(s.lastVerifiedAt && { lastModified: new Date(s.lastVerifiedAt) }),
+        ...(s.photos.length > 0 && { images: s.photos }),
       })),
     ...areas.map((a) => ({
       url: `${BASE}/area/${encodeURIComponent(a.area)}`,

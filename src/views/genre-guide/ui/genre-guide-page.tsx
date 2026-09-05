@@ -1,8 +1,10 @@
 import Link from "next/link";
 import { PageHeader } from "@/shared/ui/page-header";
 import {
+  articleJsonLd,
   LINEAGES,
   soupBySlug,
+  toJsonLdHtml,
   type GuideContent,
   type Shop,
 } from "@/entities/shop";
@@ -27,6 +29,18 @@ export function GenreGuidePage({ guide, shops }: GenreGuidePageProps) {
 
   return (
     <div className="flex min-h-dvh flex-col pb-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: toJsonLdHtml(
+            articleJsonLd({
+              headline: `${label} 라멘 가이드`,
+              url: `https://ramap.kr/guide/${guide.slug}`,
+              description: guide.intro[0],
+            }),
+          ),
+        }}
+      />
       <PageHeader
         action={
           <Link

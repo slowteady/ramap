@@ -9,6 +9,7 @@ import {
   shopsByAreaGenre,
   shopsByGenre,
 } from "./derive";
+import { isThinShop } from "./derive";
 
 const shop = (over: Partial<Shop>): Shop => ({
   id: "kinka",
@@ -229,5 +230,21 @@ describe("shopsByGenre 태깅확신도 정렬", () => {
       "estimated-confirmed",
       "certain-pending",
     ]);
+  });
+});
+
+describe("isThinShop — 씬 페이지 색인 제어", () => {
+  it("이름·주소·장르뿐이면 씬 페이지다", () => {
+    expect(isThinShop(shop({}))).toBe(true);
+  });
+
+  it("영업시간·메뉴·스프 세부·사진·한줄소개 중 하나라도 있으면 아니다", () => {
+    expect(isThinShop(shop({ hours: "11:00-21:00" }))).toBe(false);
+    expect(isThinShop(shop({ menus: [{ name: "라멘", price: 9000 }] }))).toBe(
+      false,
+    );
+    expect(isThinShop(shop({ soupDetail: ["유즈"] }))).toBe(false);
+    expect(isThinShop(shop({ photos: ["a.jpg"] }))).toBe(false);
+    expect(isThinShop(shop({ tagline: "닭백탕 전문" }))).toBe(false);
   });
 });

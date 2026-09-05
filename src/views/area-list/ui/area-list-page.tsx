@@ -6,6 +6,7 @@ import {
   faqJsonLd,
   GenreChips,
   itemListJsonLd,
+  toJsonLdHtml,
   LINEAGES,
   OpenStatusBadge,
   soupBySlug,
@@ -69,11 +70,11 @@ export function AreaListPage({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify([
+          __html: toJsonLdHtml(
             itemListJsonLd(shops, pageUrl),
             breadcrumbJsonLd(breadcrumb),
             ...(faqs.length > 0 ? [faqJsonLd(faqs)] : []),
-          ]),
+          ),
         }}
       />
       <PageHeader

@@ -4,6 +4,17 @@ import type { Shop } from "./types";
 
 export type GenreSlug = SoupSlug | LineageSlug;
 
+/* 이름·주소·장르뿐인 페이지는 색인 제외 — 대량 저품질 색인은 구글 스팸 정책(scaled content) 대상 */
+export function isThinShop(shop: Shop): boolean {
+  return !(
+    shop.hours ||
+    shop.menus.length > 0 ||
+    shop.soupDetail.length > 0 ||
+    shop.photos.length > 0 ||
+    shop.tagline
+  );
+}
+
 export function shopById(shops: Shop[], id: string): Shop | undefined {
   return shops.find((s) => s.id === id);
 }

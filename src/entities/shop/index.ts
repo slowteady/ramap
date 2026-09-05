@@ -31,6 +31,7 @@ export type {
   ClusterGranularity,
 } from "@/entities/shop/model/area-clusters";
 export {
+  isThinShop,
   shopById,
   shopsByArea,
   shopsByAreaGenre,
@@ -41,10 +42,14 @@ export {
 } from "@/entities/shop/model/derive";
 export type { GenreSlug } from "@/entities/shop/model/derive";
 export {
+  articleJsonLd,
   restaurantJsonLd,
   itemListJsonLd,
   breadcrumbJsonLd,
   faqJsonLd,
+  toJsonLdHtml,
+  websiteJsonLd,
+  organizationJsonLd,
 } from "@/entities/shop/model/structured-data";
 export { GUIDES, guideBySlug } from "@/entities/shop/model/guide-content";
 export type { GuideContent } from "@/entities/shop/model/guide-content";
