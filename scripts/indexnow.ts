@@ -2,6 +2,8 @@
    기본은 프로덕션 sitemap.xml 전체(색인 대상과 정합), 인자로 개별 URL 지정 가능.
    사용: npm run indexnow [-- https://ramap.kr/shop/xxx ...] */
 
+export {};
+
 const HOST = "ramap.kr";
 const KEY = "63ade0b0eb4cc68704f932e7e046aade";
 const ENDPOINT = "https://searchadvisor.naver.com/indexnow";
