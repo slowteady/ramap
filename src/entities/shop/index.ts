@@ -25,12 +25,17 @@ export type {
 export { ShopCard } from "@/entities/shop/ui/shop-card";
 export { toMapManifest } from "@/entities/shop/model/map-manifest";
 export type { ShopPin } from "@/entities/shop/model/map-manifest";
-export { buildAreaClusters } from "@/entities/shop/model/area-clusters";
+export {
+  buildAreaClusters,
+  nearestAreas,
+} from "@/entities/shop/model/area-clusters";
 export type {
   AreaCluster,
   ClusterGranularity,
 } from "@/entities/shop/model/area-clusters";
 export {
+  isThinShop,
+  soupBreakdown,
   shopById,
   shopsByArea,
   shopsByAreaGenre,
@@ -41,10 +46,14 @@ export {
 } from "@/entities/shop/model/derive";
 export type { GenreSlug } from "@/entities/shop/model/derive";
 export {
+  articleJsonLd,
   restaurantJsonLd,
   itemListJsonLd,
   breadcrumbJsonLd,
   faqJsonLd,
+  toJsonLdHtml,
+  websiteJsonLd,
+  organizationJsonLd,
 } from "@/entities/shop/model/structured-data";
 export { GUIDES, guideBySlug } from "@/entities/shop/model/guide-content";
 export type { GuideContent } from "@/entities/shop/model/guide-content";

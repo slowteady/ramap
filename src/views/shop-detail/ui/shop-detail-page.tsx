@@ -14,6 +14,7 @@ import {
   VerifiedChip,
   restaurantJsonLd,
   soupBySlug,
+  toJsonLdHtml,
   type Shop,
 } from "@/entities/shop";
 import { RecordCtaBar } from "@/features/records";
@@ -191,11 +192,11 @@ export function ShopDetailPage({ shop, nearby }: ShopDetailPageProps) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify([
+          __html: toJsonLdHtml(
             restaurantJsonLd(shop),
             breadcrumbJsonLd(breadcrumb),
             ...(faqs.length > 0 ? [faqJsonLd(faqs)] : []),
-          ]),
+          ),
         }}
       />
 

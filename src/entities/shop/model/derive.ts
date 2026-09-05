@@ -1,8 +1,36 @@
 import dayjs from "dayjs";
+import { soupBySlug } from "./taxonomy";
 import type { LineageSlug, SoupSlug } from "./taxonomy";
 import type { Shop } from "./types";
 
 export type GenreSlug = SoupSlug | LineageSlug;
+
+/* 이름·주소·장르뿐인 페이지는 색인 제외 — 대량 저품질 색인은 구글 스팸 정책(scaled content) 대상 */
+export function isThinShop(shop: Shop): boolean {
+  return !(
+    shop.hours ||
+    shop.menus.length > 0 ||
+    shop.soupDetail.length > 0 ||
+    shop.photos.length > 0 ||
+    shop.tagline
+  );
+}
+
+/* 지역 리스트 인트로의 장르 분포 문장용 — Airbnb·Zillow식 집계 텍스트(고유 콘텐츠 신호) */
+export function soupBreakdown(
+  shops: Shop[],
+): { label: string; count: number }[] {
+  const counts = new Map<string, number>();
+  for (const s of shops) {
+    if (s.primarySoup === "etc-soup") continue;
+    const label = soupBySlug(s.primarySoup)?.label;
+    if (!label) continue;
+    counts.set(label, (counts.get(label) ?? 0) + 1);
+  }
+  return [...counts.entries()]
+    .map(([label, count]) => ({ label, count }))
+    .sort((a, b) => b.count - a.count);
+}
 
 export function shopById(shops: Shop[], id: string): Shop | undefined {
   return shops.find((s) => s.id === id);

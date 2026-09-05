@@ -1,6 +1,9 @@
 import type { MetadataRoute } from "next";
 import {
   buildAreaClusters,
+  GUIDES,
+  isThinShop,
+  LINEAGES,
   listAreaGenrePages,
   toMapManifest,
 } from "@/entities/shop";
@@ -15,9 +18,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   return [
     { url: BASE, priority: 1 },
+    { url: `${BASE}/guide`, priority: 0.8 },
+    ...GUIDES.map((g) => ({ url: `${BASE}/guide/${g.slug}`, priority: 0.8 })),
+    ...LINEAGES.filter((l) => l.kind === "taste").map((l) => ({
+      url: `${BASE}/style/${l.slug}`,
+      priority: 0.8,
+    })),
     ...shops
-      .filter((s) => s.status !== "closed")
-      .map((s) => ({ url: `${BASE}/shop/${s.id}`, priority: 0.7 })),
+      .filter((s) => s.status !== "closed" && !isThinShop(s))
+      .map((s) => ({
+        url: `${BASE}/shop/${s.id}`,
+        priority: 0.7,
+        ...(s.lastVerifiedAt && { lastModified: new Date(s.lastVerifiedAt) }),
+        ...(s.photos.length > 0 && { images: s.photos }),
+      })),
     ...areas.map((a) => ({
       url: `${BASE}/area/${encodeURIComponent(a.area)}`,
       priority: 0.8,

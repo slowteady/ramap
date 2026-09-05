@@ -1,6 +1,7 @@
 import { describe, it, expect } from "vitest";
 import type { ShopPin } from "./map-manifest";
 import { buildAreaClusters } from "./area-clusters";
+import { nearestAreas } from "./area-clusters";
 
 const pin = (
   id: string,
@@ -72,5 +73,25 @@ describe("buildAreaClusters", () => {
     expect(byCity).toEqual([
       expect.objectContaining({ area: "서울", count: 3 }),
     ]);
+  });
+});
+
+describe("nearestAreas", () => {
+  const clusters = [
+    { area: "성수", count: 12, lat: 37.544, lng: 127.056 },
+    { area: "건대", count: 8, lat: 37.54, lng: 127.07 },
+    { area: "홍대", count: 20, lat: 37.556, lng: 126.923 },
+    { area: "망원", count: 6, lat: 37.556, lng: 126.906 },
+  ];
+
+  it("기준 지역에서 가까운 순으로, 자기 자신은 제외한다", () => {
+    expect(nearestAreas(clusters, "성수", 2).map((c) => c.area)).toEqual([
+      "건대",
+      "홍대",
+    ]);
+  });
+
+  it("기준 지역이 없으면 빈 배열", () => {
+    expect(nearestAreas(clusters, "부산역", 3)).toEqual([]);
   });
 });
