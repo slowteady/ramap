@@ -14,6 +14,7 @@
     "sync-sheet": "tsx scripts/sync-sheet.ts",
     "seed-candidates": "tsx scripts/seed-candidates.ts",
     "diff-localdata": "tsx scripts/diff-localdata.ts",
+    "refresh-localdata": "tsx scripts/refresh-localdata.ts",
     "postinstall": "patch-package",
     "enrich-candidates": "tsx scripts/enrich-candidates.ts",
     "test:e2e": "playwright test",
