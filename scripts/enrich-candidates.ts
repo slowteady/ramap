@@ -115,7 +115,7 @@ for (const line of lines.slice(1)) {
   cells.계보 = (e.lineages ?? []).join(", ");
   cells.인스타 = e.instagram ?? "";
   cells.네이버플레이스 = e.naverPlace ?? "";
-  cells.오픈일 = e.openedAt ?? "";
+  cells.오픈일 = e.openedAt ?? cells.오픈일;
   cells.영업시간 = e.hours ?? "";
   cells.브레이크 = e.breakTime ?? "";
   cells.휴무 = e.closedDays ?? "";

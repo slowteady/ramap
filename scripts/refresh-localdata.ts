@@ -42,8 +42,14 @@ const COLUMNS = {
   closedAt: ["폐업일자"],
   licenseNo: ["관리번호"],
   lotAddress: ["지번주소", "소재지전체주소"],
+  licensedAt: ["인허가일자"],
 } as const;
-const OPTIONAL_COLUMNS = new Set(["closedAt", "licenseNo", "lotAddress"]);
+const OPTIONAL_COLUMNS = new Set([
+  "closedAt",
+  "licenseNo",
+  "lotAddress",
+  "licensedAt",
+]);
 
 const buildingKey = (addr: string) =>
   addr.replace(/\(.*$/, "").replace(/,.*$/, "").replace(/\s+/g, " ").trim();
@@ -110,7 +116,10 @@ type Picked = Record<keyof typeof COLUMNS, string | null>;
 let cols: Picked | null = null;
 let read = 0;
 const kept: LocalDataRow[] = [];
-const extra = new Map<LocalDataRow, { closedAt: string; licenseNo: string }>();
+const extra = new Map<
+  LocalDataRow,
+  { closedAt: string; licenseNo: string; licensedAt: string }
+>();
 const num = (v: string | undefined) => {
   const n = Number(v?.trim());
   return v?.trim() && !Number.isNaN(n) ? n : null;
@@ -165,6 +174,7 @@ parser.on("readable", () => {
     extra.set(row, {
       closedAt: c.closedAt ? (record[c.closedAt]?.trim() ?? "") : "",
       licenseNo: c.licenseNo ? (record[c.licenseNo]?.trim() ?? "") : "",
+      licensedAt: c.licensedAt ? (record[c.licensedAt]?.trim() ?? "") : "",
     });
   }
 });
@@ -178,11 +188,19 @@ parser.on("end", () => {
   console.log(`인허가 ${read}건 → 대조 대상 ${kept.length}건`);
   const { newCandidates, closed, unmatched } = classifyRefresh(kept, known);
 
-  const newTsv = toSheetTsv(newCandidates).replaceAll(
-    "LOCALDATA 시딩",
-    `LOCALDATA 시딩 ${roundTag}`,
-  );
-  writeFileSync(resolve("data/out/refresh-new.tsv"), newTsv);
+  /* 오픈일은 인허가일 기준(기획 15) — 신규 게재분이 NEW 표시(90일) 대상이 되게 한다 */
+  const openedIdx = SHEET_HEADER.indexOf("오픈일");
+  const newLines = toSheetTsv(newCandidates)
+    .replaceAll("LOCALDATA 시딩", `LOCALDATA 시딩 ${roundTag}`)
+    .split("\n");
+  newCandidates.forEach((row, i) => {
+    const licensedAt = extra.get(row)?.licensedAt ?? "";
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(licensedAt)) return;
+    const cells = newLines[i + 1].split("\t");
+    cells[openedIdx] = licensedAt;
+    newLines[i + 1] = cells.join("\t");
+  });
+  writeFileSync(resolve("data/out/refresh-new.tsv"), newLines.join("\n"));
 
   /* 같은 건물에서 다른 상호로 영업 중이면 양도·재인허가 가능성 — 폐업 확정 전 검토 대상 */
   const openAtBuilding = (addr: string) =>
