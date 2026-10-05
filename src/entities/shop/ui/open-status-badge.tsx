@@ -17,16 +17,15 @@ export function OpenStatusBadge({
   closedDays,
   className,
 }: OpenStatusBadgeProps) {
-  if (status === "paused") {
+  if (status !== "open") {
     return (
       <span
         className={cn("text-secondary font-semibold text-gray-400", className)}
       >
-        휴업 중
+        {status === "paused" ? "휴업 중" : "폐업"}
       </span>
     );
   }
-  if (status !== "open") return null;
 
   const parts: string[] = [];
   if (hours) parts.push(hours);
