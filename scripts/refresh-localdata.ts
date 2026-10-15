@@ -16,6 +16,7 @@ import {
   namesMatch,
   roadCore,
   sameBuilding,
+  type ExclusionRow,
   type KnownRow,
 } from "./lib/refresh";
 import { SHEET_HEADER } from "./lib/sheet-parser";
@@ -84,6 +85,19 @@ const known: KnownRow[] = sheetLines.slice(1).map((line) => {
     published: isPublished(name + branch, roadAddress),
   };
 });
+/* 사람이 이미 판정한 비후보(중복 인허가·비라멘) — 라운드마다 다시 신규로 올라오지 않게 누적한다 */
+const exclusions: ExclusionRow[] = readFileSync(
+  resolve("data/refresh-exclusions.tsv"),
+  "utf8",
+)
+  .split(/\r?\n/)
+  .slice(1)
+  .filter((l) => l.trim() !== "")
+  .map((l) => {
+    const [name = "", roadAddress = "", reason = ""] = l.split("\t");
+    return { name, roadAddress, reason };
+  });
+
 const knownNames = new Set(
   known.map((k) => normalizeShopName(k.name + k.branch)),
 );
@@ -186,7 +200,11 @@ parser.on("error", (err) => {
 
 parser.on("end", () => {
   console.log(`인허가 ${read}건 → 대조 대상 ${kept.length}건`);
-  const { newCandidates, closed, unmatched } = classifyRefresh(kept, known);
+  const { newCandidates, closed, unmatched, excluded } = classifyRefresh(
+    kept,
+    known,
+    exclusions,
+  );
 
   /* 오픈일은 인허가일 기준(기획 15) — 신규 게재분이 NEW 표시(90일) 대상이 되게 한다 */
   const openedIdx = SHEET_HEADER.indexOf("오픈일");
@@ -251,6 +269,11 @@ parser.on("end", () => {
   ].join("\n");
   writeFileSync(resolve("data/out/refresh-unmatched.tsv"), `${unmatchedTsv}\n`);
 
+  writeFileSync(
+    resolve("data/out/refresh-excluded.tsv"),
+    `${["상호\t주소\t인허가일자\t사유", ...excluded.map(({ row, reason }) => [row.name, row.roadAddress, extra.get(row)?.licensedAt ?? "", reason].join("\t"))].join("\n")}\n`,
+  );
+
   const closedPublished = closed.filter((c) => c.known.published).length;
   console.log(`신규 후보 ${newCandidates.length}건 → data/out/refresh-new.tsv`);
   console.log(
@@ -258,6 +281,9 @@ parser.on("end", () => {
   );
   console.log(
     `최신본 미발견 게재 매장 ${unmatched.length}건 → data/out/refresh-unmatched.tsv`,
+  );
+  console.log(
+    `자동 제외(임시 영업장·제외 목록) ${excluded.length}건 → data/out/refresh-excluded.tsv`,
   );
   console.log(
     `이전 의심(신규↔폐업·미발견 상호 일치) ${moves.length}건 → data/out/refresh-moves.tsv`,

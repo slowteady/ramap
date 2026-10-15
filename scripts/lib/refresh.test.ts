@@ -1,6 +1,11 @@
 import { describe, expect, it } from "vitest";
 import type { LocalDataRow } from "./localdata";
-import { classifyRefresh, type KnownRow } from "./refresh";
+import {
+  classifyRefresh,
+  isTemporaryVenue,
+  type ExclusionRow,
+  type KnownRow,
+} from "./refresh";
 
 const fresh = (over: Partial<LocalDataRow>): LocalDataRow => ({
   name: "잇짱라멘",
@@ -149,5 +154,77 @@ describe("classifyRefresh — LOCALDATA 최신본과 기지 후보 대조", () =
     });
     const r = classifyRefresh([a, b], []);
     expect(r.newCandidates).toEqual([a]);
+  });
+
+  it("축제장·행사장·푸드트럭 같은 임시 영업장은 신규 후보 대신 excluded로 보고한다", () => {
+    const festival = fresh({
+      name: "후우미라멘",
+      roadAddress: "경상북도 구미시 송정동 505 2026 구미푸드페스티벌 축제장 내",
+    });
+    const r = classifyRefresh([festival], []);
+    expect(r.newCandidates).toEqual([]);
+    expect(r.excluded).toEqual([{ row: festival, reason: "임시 영업장" }]);
+  });
+
+  it("제외 목록(상호+같은 건물)에 있는 행은 사유와 함께 excluded로 보고하고 다시 신규로 올리지 않는다", () => {
+    const dup = fresh({
+      name: "초이라멘",
+      roadAddress: "서울특별시 종로구 새문안로5길 13, 지하1층 제35호 (당주동)",
+    });
+    const exclusions: ExclusionRow[] = [
+      {
+        name: "초이라멘",
+        roadAddress: "서울특별시 종로구 새문안로5길 13",
+        reason: "광화문점 인허가 이형(세종대로23길 54와 동일 매장)",
+      },
+    ];
+    const r = classifyRefresh([dup], [], exclusions);
+    expect(r.newCandidates).toEqual([]);
+    expect(r.excluded).toEqual([
+      { row: dup, reason: "광화문점 인허가 이형(세종대로23길 54와 동일 매장)" },
+    ]);
+  });
+
+  it("제외 목록은 같은 상호라도 다른 건물이면 적용하지 않는다", () => {
+    const other = fresh({
+      name: "초이라멘",
+      roadAddress: "강원특별자치도 원주시 건강로 21-1, 1층 107호 (반곡동)",
+    });
+    const r = classifyRefresh(
+      [other],
+      [],
+      [
+        {
+          name: "초이라멘",
+          roadAddress: "서울특별시 종로구 새문안로5길 13",
+          reason: "중복",
+        },
+      ],
+    );
+    expect(r.newCandidates).toEqual([other]);
+    expect(r.excluded).toEqual([]);
+  });
+});
+
+describe("isTemporaryVenue — 주소·상호로 드러나는 임시 영업장", () => {
+  it.each([
+    [
+      "경상북도 구미시 송정동 505 2026 구미푸드페스티벌 축제장 내",
+      "후우미라멘",
+    ],
+    ["서울특별시 송파구 올림픽로 25, 행사장 부스 12 (잠실동)", "라멘부스"],
+    ["경기도 수원시 팔달구 효원로 1 (푸드트럭)", "트럭라멘"],
+    ["부산광역시 해운대구 해운대해변로 264", "박람회 라멘관"],
+  ])("%s / %s 는 임시 영업장이다", (addr, name) => {
+    expect(isTemporaryVenue(addr, name)).toBe(true);
+  });
+
+  it("일반 상가 주소는 임시 영업장이 아니다", () => {
+    expect(
+      isTemporaryVenue(
+        "서울특별시 동작구 신대방11길 35, 1층 우측 2호 A호 (신대방동)",
+        "카잇푸도라멘",
+      ),
+    ).toBe(false);
   });
 });
