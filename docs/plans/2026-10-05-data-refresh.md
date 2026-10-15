@@ -65,3 +65,10 @@ npm run indexnow                                # 배포 후
 - **미발견 119**(`data/out/refresh-unmatched.tsv`, gitignore라 라운드 종료 시 요약만 남김): 서울 34·경기 24·부산 11·충남 7… 전부 상가정보/디깅 출처. 백화점 식당가(젠푸드히노아지롯데 ×7)·휴게음식점 등록 가능성·법인명 인허가가 섞여 있어 일괄 판정 불가. 다음 라운드에 **휴게음식점 파일**(`/file/download/<slug>/info`)도 받아 재대조하면 상당수 해소 예상
 - 백로그 §5 폐업 의심(호시노라멘&덮밥 관악·강릉라멘)은 LOCALDATA상 아직 영업 — 인허가 지연이라 자동 반영 불가, 수동 처리 유지
 - 행정구역 개편으로 `shops.json`의 `city`/`district`/`address`가 구 표기인 매장 다수(예: 화성시 → 동탄구) — 주소 표기 갱신 라운드 별도 필요
+
+## 격주 자동 루틴 (claude.ai/code Routines)
+
+- 루틴 `trig_01KPE7yfxcDBr9ZWYJhC69oA` "라맵 데이터 갱신 검토 자료 (격주)", cron `0 0 1,15 * *`(UTC), 모델 `claude-sonnet-5-5`, 환경 `env_01WYDesoGN1bBgptQ9D6ECd7`(이름 Default — 같은 이름이 2개라 ID로 식별). 검토 자료만 `data/review/<날짜>/`에 커밋해 `chore/data-refresh-<날짜>` 브랜치 PR로 올리고, 반영은 사람이 이 문서 절차로 한다
+- **환경 전제 1 — 네트워크**: 클라우드 환경의 Network access를 **사용자 지정**으로 두고 Allowed domains에 `file.localdata.go.kr` 등록 + "패키지 매니저 기본 목록 포함" 체크(2026-10-15 설정 완료, Default 2개 모두). 미등록 시 프록시가 `CONNECT tunnel failed, response 403` / `no rule or allowlist entry allows host`로 거부(10/15 첫 실행 실패 원인). 편집 위치: claude.ai/code 하단 환경 선택 → 환경 선택 ▾ → 클라우드 → 환경 행 호버 → 톱니바퀴
+- **환경 전제 2 — GitHub 쓰기**: Claude GitHub App이 `slowteady/ramap`에 쓰기(contents·issues) 권한으로 설치돼 있어야 push·`gh pr create`·`gh issue create`가 된다. 10/15 수동 재실행은 다운로드·스크립트(신규 6·폐업 65(게재 56)·미발견 122·이전 3)까지 성공했으나 push가 `Claude doesn't have GitHub access to slowteady/ramap`로 403 — 컨테이너 로컬 커밋은 회수와 함께 소실. 설치: https://github.com/apps/claude/installations/select_target
+- 루틴 수정은 생성 주체(RemoteTrigger http_api)로만 가능 — 루틴 자신의 세션은 비활성화만 할 수 있다. effort는 루틴 API에 필드가 없어 설정 불가(요청 시 무시됨)
