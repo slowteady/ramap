@@ -6,13 +6,29 @@ export type KnownRow = {
   branch: string;
   roadAddress: string;
   published: boolean;
+  alreadyClosed?: boolean;
+};
+
+export type ExclusionRow = {
+  name: string;
+  roadAddress: string;
+  reason: string;
 };
 
 export type RefreshResult = {
   newCandidates: LocalDataRow[];
   closed: { known: KnownRow; fresh: LocalDataRow }[];
   unmatched: KnownRow[];
+  excluded: { row: LocalDataRow; reason: string }[];
 };
+
+const TEMPORARY_VENUE = /축제|페스티벌|행사장|박람회|부스|푸드트럭|임시/;
+const TEMPORARY_REASON = "임시 영업장";
+
+/* 축제 부스·푸드트럭 인허가는 매장이 아니다 — 주소·상호에 드러나면 사람 검토 전에 거른다 */
+export function isTemporaryVenue(roadAddress: string, name: string): boolean {
+  return TEMPORARY_VENUE.test(roadAddress) || TEMPORARY_VENUE.test(name);
+}
 
 /* 체인 다지점·재인허가가 흔해 상호 단독 비교는 금지 — 같은 매장 = 상호 포함관계 + 같은 건물 */
 export function namesMatch(a: string, b: string): boolean {
@@ -68,6 +84,7 @@ function sameShop(known: KnownRow, row: LocalDataRow): boolean {
 export function classifyRefresh(
   fresh: LocalDataRow[],
   known: KnownRow[],
+  exclusions: ExclusionRow[] = [],
 ): RefreshResult {
   const matchedFresh = new Set<LocalDataRow>();
   const closed: RefreshResult["closed"] = [];
@@ -76,6 +93,7 @@ export function classifyRefresh(
   for (const k of known) {
     const matches = fresh.filter((row) => sameShop(k, row));
     for (const m of matches) matchedFresh.add(m);
+    if (k.alreadyClosed) continue;
     if (matches.length === 0) {
       if (k.published) unmatched.push(k);
       continue;
@@ -84,9 +102,26 @@ export function classifyRefresh(
       closed.push({ known: k, fresh: matches[0] });
   }
 
+  const exclusionFor = (row: LocalDataRow) =>
+    exclusions.find(
+      (e) =>
+        namesMatch(normalizeShopName(e.name), normalizeShopName(row.name)) &&
+        sameBuilding(e.roadAddress, row.roadAddress),
+    );
+
   const newCandidates: LocalDataRow[] = [];
+  const excluded: RefreshResult["excluded"] = [];
   for (const row of fresh) {
     if (matchedFresh.has(row) || !isRamenCandidate(row)) continue;
+    if (isTemporaryVenue(row.roadAddress, row.name)) {
+      excluded.push({ row, reason: TEMPORARY_REASON });
+      continue;
+    }
+    const exclusion = exclusionFor(row);
+    if (exclusion) {
+      excluded.push({ row, reason: exclusion.reason });
+      continue;
+    }
     const dup = newCandidates.some(
       (n) =>
         normalizeShopName(n.name) === normalizeShopName(row.name) &&
@@ -95,5 +130,5 @@ export function classifyRefresh(
     if (!dup) newCandidates.push(row);
   }
 
-  return { newCandidates, closed, unmatched };
+  return { newCandidates, closed, unmatched, excluded };
 }
