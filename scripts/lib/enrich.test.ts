@@ -105,6 +105,43 @@ describe("mergeMatched", () => {
   });
 });
 
+describe("mergeMatched — 승계 차단", () => {
+  it("정확 일치 항목이 standalone이면 접두 일치 항목(범용 상호 '라멘야')의 장르·인스타를 물려받지 않는다", () => {
+    const merged = mergeMatched(
+      "라멘야 삼미당",
+      "",
+      [
+        { name: "라멘야", soups: ["돈코츠"], instagram: "ramenya_gimpo" },
+        {
+          name: "라멘야 삼미당",
+          addrHint: "석천로178번길 21",
+          forms: ["라멘", "마제소바"],
+          standalone: true,
+        },
+      ],
+      { address: "경기도 부천시 원미구 석천로178번길 21" },
+    );
+    expect(merged.soups ?? []).toEqual([]);
+    expect(merged.instagram).toBeUndefined();
+    expect(merged.forms).toEqual(["라멘", "마제소바"]);
+  });
+
+  it("standalone 항목은 거꾸로 짧은 범용 상호 매장('라멘야')에도 번지지 않는다", () => {
+    const merged = mergeMatched("라멘야", "", [
+      { name: "라멘야", soups: ["돈코츠"] },
+      {
+        name: "라멘야 삼미당",
+        forms: ["마제소바"],
+        soupDetail: ["닭 육수"],
+        standalone: true,
+      },
+    ]);
+    expect(merged.soups).toEqual(["돈코츠"]);
+    expect(merged.forms ?? []).toEqual([]);
+    expect(merged.soupDetail ?? []).toEqual([]);
+  });
+});
+
 describe("mergeMatched — 동명 다지점", () => {
   const entry = {
     name: "산쪼메",

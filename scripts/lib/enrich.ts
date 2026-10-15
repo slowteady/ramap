@@ -27,6 +27,8 @@ export type Enrichment = {
   closed?: boolean;
   /* 재검증에서도 실존 흔적을 못 찾음 — 게재 게이트에서 보류 (addrHint와 함께 써서 해당 지점만) */
   unverified?: boolean;
+  /* 범용 상호("라멘야")의 접두 일치 항목과 무관한 독립 매장 — 장르·인스타 체인 승계를 끊는다 */
+  standalone?: boolean;
   sourceNote?: string;
 };
 
@@ -217,8 +219,12 @@ export function mergeMatched(
       hintFits(m) &&
       (!opts.ambiguous || m.addrHint),
   );
-  const all = mergeEnrichments(matches);
   const own = mergeEnrichments(exact);
+  const all = exact.some((m) => m.standalone)
+    ? own
+    : mergeEnrichments(
+        matches.filter((m) => !m.standalone || exact.includes(m)),
+      );
   /* 실존·업종 판정은 그 주소의 업소에 대한 것 — 동명 타업소(이자카야 혼네)로 전파 금지 */
   const soupDetail = [
     ...(all.soupDetail ?? []).filter((d) => !VERDICT_MARKS.includes(d)),
