@@ -51,6 +51,15 @@ describe("classifyRefresh — LOCALDATA 최신본과 기지 후보 대조", () =
     expect(r.newCandidates).toEqual([]);
   });
 
+  it("이미 폐업 처리된 기지 후보는 폐업 전이로 다시 보고하지 않는다", () => {
+    const r = classifyRefresh(
+      [fresh({ status: "closed" })],
+      [known({ alreadyClosed: true })],
+    );
+    expect(r.closed).toEqual([]);
+    expect(r.unmatched).toEqual([]);
+  });
+
   it("폐업 행과 영업 행이 같은 자리에 공존하면(재인허가) 영업으로 본다", () => {
     const r = classifyRefresh(
       [fresh({ status: "closed" }), fresh({ status: "open" })],

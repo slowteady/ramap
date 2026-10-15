@@ -6,6 +6,7 @@ export type KnownRow = {
   branch: string;
   roadAddress: string;
   published: boolean;
+  alreadyClosed?: boolean;
 };
 
 export type ExclusionRow = {
@@ -92,6 +93,7 @@ export function classifyRefresh(
   for (const k of known) {
     const matches = fresh.filter((row) => sameShop(k, row));
     for (const m of matches) matchedFresh.add(m);
+    if (k.alreadyClosed) continue;
     if (matches.length === 0) {
       if (k.published) unmatched.push(k);
       continue;

@@ -83,6 +83,7 @@ const known: KnownRow[] = sheetLines.slice(1).map((line) => {
     branch,
     roadAddress,
     published: isPublished(name + branch, roadAddress),
+    alreadyClosed: v[col("상태")] === "폐업",
   };
 });
 /* 사람이 이미 판정한 비후보(중복 인허가·비라멘) — 라운드마다 다시 신규로 올라오지 않게 누적한다 */

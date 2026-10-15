@@ -74,3 +74,25 @@ npm run indexnow                                # 배포 후
 - **환경 전제 2 — GitHub 쓰기**: Claude GitHub App이 `slowteady/ramap`에 쓰기(contents·issues) 권한으로 설치돼 있어야 push·`gh pr create`·`gh issue create`가 된다. 10/15 첫 재실행은 push가 `Claude doesn't have GitHub access to slowteady/ramap`로 403이었고, 사용자가 https://github.com/apps/claude/installations/select_target 에서 연결한 뒤 해결(이슈 #1 생성·PR #2 생성 확인)
 - **다운로드 재시도**: LOCALDATA 서버가 첫 연결을 `Connection reset by peer`(curl 35)로 끊는 일이 잦다. curl `--retry`는 35를 재시도하지 않으므로 루틴 명령은 `--retry 6 --retry-all-errors --retry-delay 15 --max-time 900` + 실패 시 60초 후 1회 재실행으로 보강(10/15). 첫 성공 실행: PR #2 — 신규 6·폐업 65(게재 56)·미발견 122·이전 의심 3
 - 루틴 수정은 생성 주체(RemoteTrigger http_api)로만 가능 — 루틴 자신의 세션은 비활성화만 할 수 있다. effort는 루틴 API에 필드가 없어 설정 불가(요청 시 무시됨)
+
+## 2차 검수 (2026-10-15 고정)
+
+대조 결과는 반드시 웹 근거로 2차 검수한 뒤 PR로 올린다. 수단과 판정 기준을 고정해 사람·루틴 누가 해도 같은 결과가 나오게 한다.
+
+**수집** — `npm run collect-evidence -- data/review/<TAG> /tmp/refresh-evidence.json`
+- 대상: 신규 후보 전부 + 게재 매장 폐업 전이 전부. 항목당 Daum 통합검색 2회(상호+법정동, 상호+도로명), 장소 카드의 영업 표기와 상호가 들어간 후기 조각(날짜 포함)을 뽑는다
+- 라멘 미니갤: 최근 21일 키워드 검색 7종 + 사건성 제목 글 본문 최대 30건
+- 직전 라운드 `closed-verify.tsv` 판정과 같은 건물 영업 인허가를 함께 붙인다
+- 사람이 읽을 요약은 `/tmp/refresh-evidence.txt`. 검색 원문은 플랫폼 데이터라 커밋 금지
+- 종료코드 2 = 검수 소스 접속 차단(클라우드 환경 허용 도메인에 `search.daum.net`·`gall.dcinside.com` 필요)
+
+**판정 규칙**
+- 영업 근거로 인정: Daum 장소 카드 "영업중"(같은 도로명+번호) / 블로그·카페 **방문 후기**로 날짜가 폐업일 이후인 것
+- 영업 근거로 불인정: 순위닷·메디컬맵·카맵·지역누리·타운커넥트·다이닝코드 목록 등 **인허가 재게시 디렉터리**(날짜가 최근이어도 무효), 검색어가 되돌아온 제목·광고
+- 폐업 근거: 꾸다체크 등 국세청 기준 "폐업" 표기, 갤러리·블로그의 과거형 언급("있던 가게", "기억하냐")
+- 게재 폐업 판정: `영업 흔적 있음`(→영업 유지) / `흔적 없음`(→폐업) / `이전`(다른 주소 카드·"이전" 후기 → 구 주소 폐업, 신 주소 신규) / `상호 변경 의심`(같은 건물 영업 인허가에 라멘 상호) / `미확인`(카드는 있는데 표기 없음·시즌 영업 등 판단 불가)
+- 신규 판정: `라멘 영업 확인`(같은 주소 장소 카드 또는 방문 후기) / `라멘집 아님` / `중복` / `임시 영업` / `미확인`
+- 직전 라운드 판정과 달라지면 근거에 "10/05 판정 정정"처럼 명시
+- 판정이 `중복`·`라멘집 아님`·`임시 영업`인 신규는 `data/refresh-exclusions.tsv`에 한 줄 추가(다음 라운드 재등장 방지)
+
+**산출** — `data/review/<TAG>/`: `new-verify.tsv`(상호·주소·인허가일·판정·근거) · `closed-verify.tsv`(상호·지점명·주소·폐업일자·판정·근거(날짜 포함 1문장)) · `gallery-sync.md`(어긋남만) · `SUMMARY.md`(반영 권고 표 포함)
