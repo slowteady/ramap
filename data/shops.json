@@ -9926,10 +9926,10 @@
       "tantanmen"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [
-      "이에케"
+    "soupDetail": [],
+    "lineages": [
+      "iekei"
     ],
-    "lineages": [],
     "amenities": [],
     "confidence": "certain",
     "menus": [
@@ -12450,7 +12450,6 @@
     ],
     "primarySoup": "tonkotsu-shoyu",
     "soupDetail": [
-      "이에케",
       "아부라소바"
     ],
     "lineages": [
@@ -20655,17 +20654,19 @@
     ],
     "primaryForm": "ramen",
     "soups": [
-      "etc-soup"
+      "tonkotsu-shoyu",
+      "niboshi"
     ],
-    "primarySoup": "etc-soup",
+    "primarySoup": "tonkotsu-shoyu",
     "soupDetail": [
-      "이에케",
       "니보시",
       "아부라소바"
     ],
-    "lineages": [],
+    "lineages": [
+      "iekei"
+    ],
     "amenities": [],
-    "confidence": "estimated",
+    "confidence": "certain",
     "menus": [
       {
         "name": "이에케라멘",
@@ -20688,7 +20689,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가+상가+상가); 경기 조사(다음검색) — 연중무휴",
+    "source": "시딩v2(상가+상가+상가); 경기 조사(다음검색) — 연중무휴 / 2026-10-18 스프 보정 — 메뉴 이에케라멘·니보시 이에케 기준(이에케=돈코츠쇼유), 사용자 제보로 계보 누락 발견",
     "note": null
   },
   {
@@ -21900,10 +21901,10 @@
       "tantanmen"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [
-      "이에케"
+    "soupDetail": [],
+    "lineages": [
+      "iekei"
     ],
-    "lineages": [],
     "amenities": [],
     "confidence": "certain",
     "menus": [
@@ -30432,11 +30433,12 @@
     ],
     "primarySoup": "tonkotsu",
     "soupDetail": [
-      "이에케",
       "세아부라",
       "아부라소바"
     ],
-    "lineages": [],
+    "lineages": [
+      "iekei"
+    ],
     "amenities": [],
     "confidence": "certain",
     "menus": [
@@ -35037,10 +35039,10 @@
       "tonkotsu-shoyu"
     ],
     "primarySoup": "toripaitan",
-    "soupDetail": [
-      "이에케"
+    "soupDetail": [],
+    "lineages": [
+      "iekei"
     ],
-    "lineages": [],
     "amenities": [],
     "confidence": "certain",
     "menus": [
@@ -36052,10 +36054,10 @@
       "tonkotsu-shoyu"
     ],
     "primarySoup": "tonkotsu-shoyu",
-    "soupDetail": [
-      "이에케"
+    "soupDetail": [],
+    "lineages": [
+      "iekei"
     ],
-    "lineages": [],
     "amenities": [],
     "confidence": "certain",
     "menus": [
@@ -36437,10 +36439,11 @@
     ],
     "primarySoup": "tonkotsu",
     "soupDetail": [
-      "이에케",
       "청탕"
     ],
-    "lineages": [],
+    "lineages": [
+      "iekei"
+    ],
     "amenities": [],
     "confidence": "certain",
     "menus": [],
@@ -37118,10 +37121,11 @@
     ],
     "primarySoup": "tonkotsu",
     "soupDetail": [
-      "이에케",
       "청탕"
     ],
-    "lineages": [],
+    "lineages": [
+      "iekei"
+    ],
     "amenities": [],
     "confidence": "certain",
     "menus": [],
@@ -50531,12 +50535,13 @@
     ],
     "primarySoup": "tonkotsu",
     "soupDetail": [
-      "이에케",
       "마제소바 전문",
-      "지로",
       "아부라소바"
     ],
-    "lineages": [],
+    "lineages": [
+      "iekei",
+      "jiro"
+    ],
     "amenities": [],
     "confidence": "certain",
     "menus": [
@@ -51476,12 +51481,13 @@
     ],
     "primarySoup": "tonkotsu",
     "soupDetail": [
-      "이에케",
       "마제소바 전문",
-      "지로케",
       "아부라소바"
     ],
-    "lineages": [],
+    "lineages": [
+      "iekei",
+      "jiro"
+    ],
     "amenities": [],
     "confidence": "certain",
     "menus": [
@@ -52859,9 +52865,7 @@
       "tonkotsu-shoyu"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [
-      "이에케"
-    ],
+    "soupDetail": [],
     "lineages": [
       "iekei"
     ],
@@ -60859,10 +60863,11 @@
     ],
     "primarySoup": "etc-soup",
     "soupDetail": [
-      "이에케",
       "아부라소바"
     ],
-    "lineages": [],
+    "lineages": [
+      "iekei"
+    ],
     "amenities": [],
     "confidence": "estimated",
     "menus": [
@@ -61455,7 +61460,6 @@
     ],
     "primarySoup": "tonkotsu-shoyu",
     "soupDetail": [
-      "이에케",
       "아부라소바"
     ],
     "lineages": [
@@ -61665,10 +61669,10 @@
       "etc-soup"
     ],
     "primarySoup": "etc-soup",
-    "soupDetail": [
-      "이에케"
+    "soupDetail": [],
+    "lineages": [
+      "iekei"
     ],
-    "lineages": [],
     "amenities": [],
     "confidence": "estimated",
     "menus": [
@@ -61824,9 +61828,7 @@
       "etc-soup"
     ],
     "primarySoup": "etc-soup",
-    "soupDetail": [
-      "이에케"
-    ],
+    "soupDetail": [],
     "lineages": [
       "iekei"
     ],
@@ -63006,10 +63008,11 @@
     ],
     "primarySoup": "tonkotsu",
     "soupDetail": [
-      "이에케",
       "아부라소바"
     ],
-    "lineages": [],
+    "lineages": [
+      "iekei"
+    ],
     "amenities": [],
     "confidence": "certain",
     "menus": [
@@ -64144,10 +64147,10 @@
       "tonkotsu"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [
-      "이에케"
+    "soupDetail": [],
+    "lineages": [
+      "iekei"
     ],
-    "lineages": [],
     "amenities": [],
     "confidence": "certain",
     "menus": [],
@@ -64674,10 +64677,11 @@
     ],
     "primarySoup": "tonkotsu",
     "soupDetail": [
-      "이에케",
       "아부라소바"
     ],
-    "lineages": [],
+    "lineages": [
+      "iekei"
+    ],
     "amenities": [],
     "confidence": "certain",
     "menus": [
@@ -64733,10 +64737,11 @@
     ],
     "primarySoup": "tonkotsu",
     "soupDetail": [
-      "이에케",
       "아부라소바"
     ],
-    "lineages": [],
+    "lineages": [
+      "iekei"
+    ],
     "amenities": [],
     "confidence": "certain",
     "menus": [
@@ -65987,10 +65992,10 @@
       "miso"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [
-      "이에케"
+    "soupDetail": [],
+    "lineages": [
+      "iekei"
     ],
-    "lineages": [],
     "amenities": [],
     "confidence": "certain",
     "menus": [

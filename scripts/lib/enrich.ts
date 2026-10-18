@@ -104,6 +104,12 @@ const SOUP_DETAIL_ALIASES: Record<string, string> = {
 
 const LINEAGE_PROMOTIONS: Record<string, string> = {
   지로라멘: "지로계",
+  지로: "지로계",
+  지로케: "지로계",
+  지로계: "지로계",
+  이에케: "이에케",
+  이에케라멘: "이에케",
+  이에계: "이에케",
 };
 
 /* 스타일이 아닌 운영 메모는 세부에서 제외 (겸업 등) — 시트 메모 컬럼 몫 */
