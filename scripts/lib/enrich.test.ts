@@ -55,6 +55,21 @@ describe("promoteSoups", () => {
     expect(e.soups).toEqual(["쇼유", "토마토", "교카이"]);
     expect(e.soupDetail).toEqual(["하카타"]);
   });
+
+  it("세부의 이에케·지로 표기 이형은 계보로 올린다 — 지도 계보 필터에 잡히게", () => {
+    const iekei = promoteSoups({
+      name: "멘야비토리",
+      soupDetail: ["이에케", "니보시"],
+    });
+    expect(iekei.lineages).toEqual(["이에케"]);
+    expect(iekei.soupDetail).toEqual(["니보시"]);
+    const jiro = promoteSoups({
+      name: "칸다소바",
+      soupDetail: ["지로", "지로케", "지로계"],
+    });
+    expect(jiro.lineages).toEqual(["지로계"]);
+    expect(jiro.soupDetail).toEqual([]);
+  });
 });
 
 describe("mergeMatched", () => {
