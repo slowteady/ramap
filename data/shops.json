@@ -113,16 +113,15 @@
     "status": "open",
     "statusChangedAt": null,
     "forms": [
-      "mazesoba"
+      "mazesoba",
+      "aburasoba"
     ],
     "primaryForm": "mazesoba",
     "soups": [
       "etc-soup"
     ],
     "primarySoup": "etc-soup",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -409,16 +408,15 @@
     "statusChangedAt": null,
     "forms": [
       "ramen",
-      "mazesoba"
+      "mazesoba",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
       "tonkotsu"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -1448,7 +1446,8 @@
     "status": "open",
     "statusChangedAt": null,
     "forms": [
-      "ramen"
+      "ramen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -1458,7 +1457,6 @@
     ],
     "primarySoup": "tonkotsu",
     "soupDetail": [
-      "아부라소바",
       "청탕"
     ],
     "lineages": [],
@@ -2843,7 +2841,8 @@
     "statusChangedAt": null,
     "forms": [
       "ramen",
-      "tsukemen"
+      "tsukemen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -2853,8 +2852,7 @@
     ],
     "primarySoup": "tonkotsu",
     "soupDetail": [
-      "청탕",
-      "아부라소바"
+      "청탕"
     ],
     "lineages": [],
     "amenities": [],
@@ -3462,7 +3460,8 @@
     "status": "open",
     "statusChangedAt": null,
     "forms": [
-      "ramen"
+      "ramen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -3471,9 +3470,7 @@
       "niboshi"
     ],
     "primarySoup": "shoyu",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "certain",
@@ -3925,16 +3922,15 @@
     "statusChangedAt": null,
     "forms": [
       "ramen",
-      "mazesoba"
+      "mazesoba",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
       "tonkotsu"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -4023,7 +4019,8 @@
     "statusChangedAt": null,
     "forms": [
       "ramen",
-      "mazesoba"
+      "mazesoba",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -4032,8 +4029,7 @@
     ],
     "primarySoup": "shoyu",
     "soupDetail": [
-      "파이탄",
-      "아부라소바"
+      "파이탄"
     ],
     "lineages": [],
     "amenities": [],
@@ -5520,16 +5516,15 @@
     "status": "open",
     "statusChangedAt": null,
     "forms": [
-      "ramen"
+      "ramen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
       "tonkotsu"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -5976,7 +5971,8 @@
     "status": "open",
     "statusChangedAt": null,
     "forms": [
-      "ramen"
+      "ramen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -5986,9 +5982,7 @@
       "miso"
     ],
     "primarySoup": "toripaitan",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "certain",
@@ -6178,16 +6172,15 @@
     "status": "open",
     "statusChangedAt": null,
     "forms": [
-      "tsukemen"
+      "tsukemen",
+      "aburasoba"
     ],
     "primaryForm": "tsukemen",
     "soups": [
       "etc-soup"
     ],
     "primarySoup": "etc-soup",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -8000,16 +7993,15 @@
     "statusChangedAt": null,
     "forms": [
       "ramen",
-      "mazesoba"
+      "mazesoba",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
       "tonkotsu"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "certain",
@@ -8410,7 +8402,8 @@
     "statusChangedAt": null,
     "forms": [
       "ramen",
-      "mazesoba"
+      "mazesoba",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -8419,7 +8412,6 @@
     ],
     "primarySoup": "tonkotsu",
     "soupDetail": [
-      "아부라소바",
       "청탕"
     ],
     "lineages": [],
@@ -10111,10 +10103,11 @@
     "status": "open",
     "statusChangedAt": null,
     "forms": [
+      "aburasoba",
       "ramen",
       "mazesoba"
     ],
-    "primaryForm": "ramen",
+    "primaryForm": "aburasoba",
     "soups": [
       "miso",
       "tonkotsu",
@@ -10122,7 +10115,6 @@
     ],
     "primarySoup": "miso",
     "soupDetail": [
-      "아부라소바",
       "부대라멘",
       "곱창라멘"
     ],
@@ -11594,7 +11586,8 @@
     "statusChangedAt": null,
     "forms": [
       "ramen",
-      "mazesoba"
+      "mazesoba",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -11604,7 +11597,6 @@
     ],
     "primarySoup": "shio",
     "soupDetail": [
-      "아부라소바",
       "마라탄탄멘",
       "카모"
     ],
@@ -12144,7 +12136,8 @@
     "statusChangedAt": null,
     "forms": [
       "ramen",
-      "mazesoba"
+      "mazesoba",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -12155,7 +12148,6 @@
     "primarySoup": "shio",
     "soupDetail": [
       "카모(오리 육수)",
-      "아부라소바",
       "마라탄탄멘",
       "카모"
     ],
@@ -12233,16 +12225,15 @@
     "status": "open",
     "statusChangedAt": null,
     "forms": [
-      "mazesoba"
+      "mazesoba",
+      "aburasoba"
     ],
     "primaryForm": "mazesoba",
     "soups": [
       "etc-soup"
     ],
     "primarySoup": "etc-soup",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -12466,7 +12457,8 @@
     "status": "open",
     "statusChangedAt": null,
     "forms": [
-      "ramen"
+      "ramen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -12475,9 +12467,7 @@
       "tonkotsu-shoyu"
     ],
     "primarySoup": "tonkotsu-shoyu",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [
       "iekei"
     ],
@@ -13438,7 +13428,8 @@
     "statusChangedAt": null,
     "forms": [
       "ramen",
-      "tsukemen"
+      "tsukemen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -13449,9 +13440,7 @@
       "gyokai"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "certain",
@@ -13708,7 +13697,8 @@
     "statusChangedAt": null,
     "forms": [
       "ramen",
-      "tsukemen"
+      "tsukemen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -13719,9 +13709,7 @@
       "gyokai"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "certain",
@@ -15180,7 +15168,8 @@
     "statusChangedAt": null,
     "forms": [
       "ramen",
-      "tsukemen"
+      "tsukemen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -15191,9 +15180,7 @@
       "gyokai"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "certain",
@@ -15375,16 +15362,15 @@
     "status": "open",
     "statusChangedAt": null,
     "forms": [
-      "ramen"
+      "ramen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
       "etc-soup"
     ],
     "primarySoup": "etc-soup",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -16005,7 +15991,8 @@
     "statusChangedAt": null,
     "forms": [
       "ramen",
-      "tsukemen"
+      "tsukemen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -16016,9 +16003,7 @@
       "gyokai"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "certain",
@@ -16355,7 +16340,8 @@
     "status": "open",
     "statusChangedAt": null,
     "forms": [
-      "ramen"
+      "ramen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -16366,8 +16352,7 @@
     "primarySoup": "tonkotsu",
     "soupDetail": [
       "하카타 돈코츠",
-      "시로쇼유",
-      "아부라소바"
+      "시로쇼유"
     ],
     "lineages": [
       "honto"
@@ -16577,7 +16562,8 @@
     "status": "open",
     "statusChangedAt": null,
     "forms": [
-      "ramen"
+      "ramen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -16586,9 +16572,7 @@
       "niboshi"
     ],
     "primarySoup": "shoyu",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -16691,7 +16675,8 @@
     "statusChangedAt": null,
     "forms": [
       "ramen",
-      "tsukemen"
+      "tsukemen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -16702,9 +16687,7 @@
       "gyokai"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "certain",
@@ -18209,7 +18192,8 @@
     "forms": [
       "ramen",
       "tsukemen",
-      "mazesoba"
+      "mazesoba",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -18218,9 +18202,7 @@
       "shio"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "certain",
@@ -18729,7 +18711,8 @@
     "statusChangedAt": null,
     "forms": [
       "ramen",
-      "tsukemen"
+      "tsukemen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -18740,9 +18723,7 @@
       "gyokai"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "certain",
@@ -18960,7 +18941,8 @@
     "statusChangedAt": null,
     "forms": [
       "ramen",
-      "tsukemen"
+      "tsukemen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -18970,8 +18952,7 @@
     ],
     "primarySoup": "tonkotsu",
     "soupDetail": [
-      "청탕",
-      "아부라소바"
+      "청탕"
     ],
     "lineages": [],
     "amenities": [],
@@ -19548,7 +19529,8 @@
     "statusChangedAt": null,
     "forms": [
       "ramen",
-      "tsukemen"
+      "tsukemen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -19559,9 +19541,7 @@
       "gyokai"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "certain",
@@ -20075,7 +20055,8 @@
     "status": "open",
     "statusChangedAt": null,
     "forms": [
-      "ramen"
+      "ramen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -20083,9 +20064,7 @@
       "toripaitan"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -20679,7 +20658,8 @@
     "status": "open",
     "statusChangedAt": null,
     "forms": [
-      "ramen"
+      "ramen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -20688,8 +20668,7 @@
     ],
     "primarySoup": "tonkotsu-shoyu",
     "soupDetail": [
-      "니보시",
-      "아부라소바"
+      "니보시"
     ],
     "lineages": [
       "iekei"
@@ -20836,7 +20815,8 @@
     "status": "open",
     "statusChangedAt": null,
     "forms": [
-      "ramen"
+      "ramen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -20845,9 +20825,7 @@
       "miso"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "certain",
@@ -23865,16 +23843,15 @@
     "status": "open",
     "statusChangedAt": null,
     "forms": [
-      "ramen"
+      "ramen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
       "shio"
     ],
     "primarySoup": "shio",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "certain",
@@ -24251,7 +24228,8 @@
     "status": "open",
     "statusChangedAt": null,
     "forms": [
-      "ramen"
+      "ramen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -24260,9 +24238,7 @@
       "toripaitan"
     ],
     "primarySoup": "shio",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "certain",
@@ -24369,7 +24345,8 @@
     "statusChangedAt": null,
     "forms": [
       "ramen",
-      "tsukemen"
+      "tsukemen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -24380,9 +24357,7 @@
       "gyokai"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "certain",
@@ -26725,16 +26700,15 @@
     "status": "open",
     "statusChangedAt": null,
     "forms": [
-      "ramen"
+      "ramen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
       "etc-soup"
     ],
     "primarySoup": "etc-soup",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [
       "jiro"
     ],
@@ -28985,7 +28959,8 @@
     "statusChangedAt": null,
     "forms": [
       "ramen",
-      "tsukemen"
+      "tsukemen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -28996,9 +28971,7 @@
       "gyokai"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "certain",
@@ -30305,7 +30278,8 @@
     "status": "open",
     "statusChangedAt": null,
     "forms": [
-      "ramen"
+      "ramen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -30316,8 +30290,7 @@
     "primarySoup": "tonkotsu",
     "soupDetail": [
       "하카타 돈코츠",
-      "시로쇼유",
-      "아부라소바"
+      "시로쇼유"
     ],
     "lineages": [
       "honto"
@@ -30457,6 +30430,7 @@
     "statusChangedAt": null,
     "forms": [
       "ramen",
+      "aburasoba",
       "tsukemen"
     ],
     "primaryForm": "ramen",
@@ -30467,8 +30441,7 @@
     ],
     "primarySoup": "tonkotsu",
     "soupDetail": [
-      "세아부라",
-      "아부라소바"
+      "세아부라"
     ],
     "lineages": [
       "iekei"
@@ -30951,7 +30924,8 @@
     "status": "open",
     "statusChangedAt": null,
     "forms": [
-      "ramen"
+      "ramen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -30961,9 +30935,7 @@
       "niboshi"
     ],
     "primarySoup": "shoyu",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "certain",
@@ -31224,7 +31196,8 @@
     "statusChangedAt": null,
     "forms": [
       "ramen",
-      "tsukemen"
+      "tsukemen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -31233,8 +31206,7 @@
     ],
     "primarySoup": "shio",
     "soupDetail": [
-      "바지락 쇼유",
-      "아부라소바"
+      "바지락 쇼유"
     ],
     "lineages": [],
     "amenities": [],
@@ -31269,7 +31241,8 @@
     "status": "open",
     "statusChangedAt": null,
     "forms": [
-      "ramen"
+      "ramen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -31277,8 +31250,7 @@
     ],
     "primarySoup": "shoyu",
     "soupDetail": [
-      "교카이 아부라소바",
-      "아부라소바"
+      "교카이 아부라소바"
     ],
     "lineages": [],
     "amenities": [],
@@ -31370,7 +31342,8 @@
     "status": "open",
     "statusChangedAt": null,
     "forms": [
-      "ramen"
+      "ramen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -31378,8 +31351,7 @@
     ],
     "primarySoup": "toripaitan",
     "soupDetail": [
-      "오리육수",
-      "아부라소바"
+      "오리육수"
     ],
     "lineages": [],
     "amenities": [],
@@ -31936,7 +31908,8 @@
     "status": "open",
     "statusChangedAt": null,
     "forms": [
-      "ramen"
+      "ramen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -31944,9 +31917,7 @@
       "shoyu"
     ],
     "primarySoup": "shio",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "certain",
@@ -32200,7 +32171,8 @@
     "statusChangedAt": null,
     "forms": [
       "ramen",
-      "tsukemen"
+      "tsukemen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -32211,9 +32183,7 @@
       "gyokai"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "certain",
@@ -32567,7 +32537,8 @@
     "statusChangedAt": null,
     "forms": [
       "ramen",
-      "tsukemen"
+      "tsukemen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -32578,9 +32549,7 @@
       "gyokai"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "certain",
@@ -32659,7 +32628,8 @@
     "statusChangedAt": null,
     "forms": [
       "ramen",
-      "tsukemen"
+      "tsukemen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -32670,9 +32640,7 @@
       "gyokai"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "certain",
@@ -33067,10 +33035,11 @@
     "status": "closed",
     "statusChangedAt": "2022-11-29",
     "forms": [
+      "aburasoba",
       "ramen",
       "mazesoba"
     ],
-    "primaryForm": "ramen",
+    "primaryForm": "aburasoba",
     "soups": [
       "miso",
       "tonkotsu",
@@ -33078,7 +33047,6 @@
     ],
     "primarySoup": "miso",
     "soupDetail": [
-      "아부라소바",
       "부대라멘",
       "곱창라멘"
     ],
@@ -33219,7 +33187,8 @@
     "statusChangedAt": null,
     "forms": [
       "ramen",
-      "tsukemen"
+      "tsukemen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -33230,9 +33199,7 @@
       "gyokai"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "certain",
@@ -33466,7 +33433,8 @@
     "statusChangedAt": null,
     "forms": [
       "ramen",
-      "tsukemen"
+      "tsukemen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -33477,9 +33445,7 @@
       "gyokai"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "certain",
@@ -33584,7 +33550,8 @@
     "statusChangedAt": null,
     "forms": [
       "ramen",
-      "tsukemen"
+      "tsukemen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -33595,9 +33562,7 @@
       "gyokai"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "certain",
@@ -33704,7 +33669,8 @@
     "statusChangedAt": null,
     "forms": [
       "ramen",
-      "tsukemen"
+      "tsukemen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -33715,9 +33681,7 @@
       "gyokai"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "certain",
@@ -34754,16 +34718,15 @@
     "statusChangedAt": null,
     "forms": [
       "mazesoba",
-      "ramen"
+      "ramen",
+      "aburasoba"
     ],
     "primaryForm": "mazesoba",
     "soups": [
       "toripaitan"
     ],
     "primarySoup": "toripaitan",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -35124,7 +35087,8 @@
     "forms": [
       "ramen",
       "tsukemen",
-      "mazesoba"
+      "mazesoba",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -35133,9 +35097,7 @@
       "shio"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "certain",
@@ -36609,16 +36571,15 @@
     "status": "open",
     "statusChangedAt": null,
     "forms": [
-      "ramen"
+      "ramen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
       "tonkotsu"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "certain",
@@ -37739,7 +37700,8 @@
     "statusChangedAt": null,
     "forms": [
       "ramen",
-      "tsukemen"
+      "tsukemen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -37750,9 +37712,7 @@
       "gyokai"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "certain",
@@ -38105,7 +38065,8 @@
     "statusChangedAt": null,
     "forms": [
       "ramen",
-      "tsukemen"
+      "tsukemen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -38116,9 +38077,7 @@
       "gyokai"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "certain",
@@ -38153,7 +38112,8 @@
     "statusChangedAt": null,
     "forms": [
       "ramen",
-      "tsukemen"
+      "tsukemen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -38164,9 +38124,7 @@
       "gyokai"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "certain",
@@ -38214,7 +38172,8 @@
     "statusChangedAt": null,
     "forms": [
       "ramen",
-      "tsukemen"
+      "tsukemen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -38225,9 +38184,7 @@
       "gyokai"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "certain",
@@ -38490,7 +38447,8 @@
     "statusChangedAt": null,
     "forms": [
       "ramen",
-      "tsukemen"
+      "tsukemen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -38501,9 +38459,7 @@
       "gyokai"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "certain",
@@ -41050,7 +41006,8 @@
     "statusChangedAt": null,
     "forms": [
       "ramen",
-      "tsukemen"
+      "tsukemen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -41061,9 +41018,7 @@
       "gyokai"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "certain",
@@ -41451,7 +41406,8 @@
     "statusChangedAt": null,
     "forms": [
       "ramen",
-      "tsukemen"
+      "tsukemen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -41462,9 +41418,7 @@
       "gyokai"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "certain",
@@ -41558,7 +41512,8 @@
     "statusChangedAt": null,
     "forms": [
       "ramen",
-      "tsukemen"
+      "tsukemen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -41569,9 +41524,7 @@
       "gyokai"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "certain",
@@ -42402,7 +42355,8 @@
     "statusChangedAt": null,
     "forms": [
       "ramen",
-      "tsukemen"
+      "tsukemen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -42413,9 +42367,7 @@
       "gyokai"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "certain",
@@ -43218,16 +43170,15 @@
     "status": "open",
     "statusChangedAt": null,
     "forms": [
-      "ramen"
+      "ramen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
       "shoyu"
     ],
     "primarySoup": "shoyu",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [
       "jiro",
       "iekei"
@@ -43586,7 +43537,8 @@
     "status": "open",
     "statusChangedAt": null,
     "forms": [
-      "ramen"
+      "ramen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -43595,9 +43547,7 @@
       "toripaitan"
     ],
     "primarySoup": "shio",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "certain",
@@ -44818,16 +44768,15 @@
     "status": "open",
     "statusChangedAt": null,
     "forms": [
-      "ramen"
+      "ramen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
       "tonkotsu"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "certain",
@@ -46523,7 +46472,8 @@
     "statusChangedAt": null,
     "forms": [
       "ramen",
-      "tsukemen"
+      "tsukemen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -46533,8 +46483,7 @@
     ],
     "primarySoup": "tonkotsu",
     "soupDetail": [
-      "청탕",
-      "아부라소바"
+      "청탕"
     ],
     "lineages": [],
     "amenities": [],
@@ -47184,16 +47133,15 @@
     "status": "open",
     "statusChangedAt": null,
     "forms": [
-      "ramen"
+      "ramen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
       "toripaitan"
     ],
     "primarySoup": "toripaitan",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "certain",
@@ -47639,7 +47587,8 @@
     "status": "open",
     "statusChangedAt": null,
     "forms": [
-      "ramen"
+      "ramen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -47647,8 +47596,7 @@
     ],
     "primarySoup": "shoyu",
     "soupDetail": [
-      "교카이 아부라소바",
-      "아부라소바"
+      "교카이 아부라소바"
     ],
     "lineages": [],
     "amenities": [],
@@ -48926,7 +48874,8 @@
     "forms": [
       "ramen",
       "mazesoba",
-      "tsukemen"
+      "tsukemen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -48937,9 +48886,7 @@
       "tantanmen"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "certain",
@@ -48973,7 +48920,8 @@
     "status": "open",
     "statusChangedAt": null,
     "forms": [
-      "ramen"
+      "ramen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -48983,8 +48931,7 @@
     ],
     "primarySoup": "shoyu",
     "soupDetail": [
-      "모츠라멘",
-      "아부라소바"
+      "모츠라멘"
     ],
     "lineages": [],
     "amenities": [],
@@ -49213,7 +49160,8 @@
     "status": "open",
     "statusChangedAt": null,
     "forms": [
-      "ramen"
+      "ramen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -49221,9 +49169,7 @@
       "shoyu"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "certain",
@@ -49270,7 +49216,8 @@
     "status": "open",
     "statusChangedAt": null,
     "forms": [
-      "ramen"
+      "ramen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -49279,8 +49226,7 @@
     ],
     "primarySoup": "shoyu",
     "soupDetail": [
-      "모츠라멘",
-      "아부라소바"
+      "모츠라멘"
     ],
     "lineages": [],
     "amenities": [],
@@ -49627,16 +49573,15 @@
     "status": "open",
     "statusChangedAt": null,
     "forms": [
-      "mazesoba"
+      "mazesoba",
+      "aburasoba"
     ],
     "primaryForm": "mazesoba",
     "soups": [
       "etc-soup"
     ],
     "primarySoup": "etc-soup",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -50571,7 +50516,8 @@
     "statusChangedAt": null,
     "forms": [
       "ramen",
-      "mazesoba"
+      "mazesoba",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -50579,8 +50525,7 @@
     ],
     "primarySoup": "tonkotsu",
     "soupDetail": [
-      "마제소바 전문",
-      "아부라소바"
+      "마제소바 전문"
     ],
     "lineages": [
       "iekei",
@@ -50868,6 +50813,7 @@
     "statusChangedAt": null,
     "forms": [
       "ramen",
+      "aburasoba",
       "tsukemen"
     ],
     "primaryForm": "ramen",
@@ -50878,8 +50824,7 @@
     ],
     "primarySoup": "shoyu",
     "soupDetail": [
-      "모츠라멘",
-      "아부라소바"
+      "모츠라멘"
     ],
     "lineages": [],
     "amenities": [],
@@ -51161,6 +51106,7 @@
     "statusChangedAt": "2026-06-30",
     "forms": [
       "mazesoba",
+      "aburasoba",
       "ramen"
     ],
     "primaryForm": "mazesoba",
@@ -51168,9 +51114,7 @@
       "etc-soup"
     ],
     "primarySoup": "etc-soup",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -51517,7 +51461,8 @@
     "statusChangedAt": null,
     "forms": [
       "ramen",
-      "mazesoba"
+      "mazesoba",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -51525,8 +51470,7 @@
     ],
     "primarySoup": "tonkotsu",
     "soupDetail": [
-      "마제소바 전문",
-      "아부라소바"
+      "마제소바 전문"
     ],
     "lineages": [
       "iekei",
@@ -51749,16 +51693,15 @@
     "status": "open",
     "statusChangedAt": null,
     "forms": [
-      "ramen"
+      "ramen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
       "miso"
     ],
     "primarySoup": "miso",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "certain",
@@ -53048,16 +52991,14 @@
     "status": "open",
     "statusChangedAt": null,
     "forms": [
-      "ramen"
+      "aburasoba"
     ],
-    "primaryForm": "ramen",
+    "primaryForm": "aburasoba",
     "soups": [
       "miso"
     ],
     "primarySoup": "miso",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -53199,7 +53140,8 @@
     "status": "open",
     "statusChangedAt": null,
     "forms": [
-      "ramen"
+      "ramen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -53211,9 +53153,7 @@
       "tonkotsu-shoyu"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "certain",
@@ -53733,7 +53673,8 @@
     "statusChangedAt": null,
     "forms": [
       "ramen",
-      "tsukemen"
+      "tsukemen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -53743,8 +53684,7 @@
     ],
     "primarySoup": "shoyu",
     "soupDetail": [
-      "모츠라멘",
-      "아부라소바"
+      "모츠라멘"
     ],
     "lineages": [],
     "amenities": [],
@@ -53870,6 +53810,52 @@
     "note": null
   },
   {
+    "id": "dokyo-menchintei-honpo",
+    "name": "도쿄 멘친테이 혼포",
+    "branch": null,
+    "address": "서울특별시 강남구 선릉로64길 11-5, 지상1층 102호 (대치동)",
+    "city": "서울",
+    "district": "강남구",
+    "areaLabel": "대치",
+    "lat": 37.498309,
+    "lng": 127.052866,
+    "coordSource": "sanggwon",
+    "hours": "11:00-21:00",
+    "breakTime": null,
+    "closedDays": null,
+    "openedAt": null,
+    "status": "open",
+    "statusChangedAt": null,
+    "forms": [
+      "aburasoba"
+    ],
+    "primaryForm": "aburasoba",
+    "soups": [
+      "etc-soup"
+    ],
+    "primarySoup": "etc-soup",
+    "soupDetail": [],
+    "lineages": [],
+    "amenities": [],
+    "confidence": "estimated",
+    "menus": [
+      {
+        "name": "아부라소바",
+        "price": 12000
+      }
+    ],
+    "photos": [],
+    "seats": null,
+    "tagline": null,
+    "instagram": null,
+    "naverPlace": null,
+    "waitingLink": null,
+    "verification": "pending",
+    "lastVerifiedAt": null,
+    "source": "시딩v2(디깅발굴); 2차 디깅(다음검색) · 대치동; 발굴분 조사(다음검색) — 플레이스 강남구 선릉로64길 11-5, 업종 일본식라면",
+    "note": null
+  },
+  {
     "id": "watsyoiken",
     "name": "왓쇼이켄",
     "branch": null,
@@ -53947,7 +53933,8 @@
     "status": "open",
     "statusChangedAt": null,
     "forms": [
-      "ramen"
+      "ramen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -53957,8 +53944,7 @@
     ],
     "primarySoup": "shoyu",
     "soupDetail": [
-      "모츠라멘",
-      "아부라소바"
+      "모츠라멘"
     ],
     "lineages": [],
     "amenities": [],
@@ -55274,16 +55260,15 @@
     "statusChangedAt": null,
     "forms": [
       "ramen",
-      "mazesoba"
+      "mazesoba",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
       "miso"
     ],
     "primarySoup": "miso",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "certain",
@@ -55787,7 +55772,8 @@
     "status": "open",
     "statusChangedAt": null,
     "forms": [
-      "ramen"
+      "ramen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -55795,9 +55781,7 @@
       "shio"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -56326,16 +56310,14 @@
     "status": "open",
     "statusChangedAt": null,
     "forms": [
-      "ramen"
+      "aburasoba"
     ],
-    "primaryForm": "ramen",
+    "primaryForm": "aburasoba",
     "soups": [
       "etc-soup"
     ],
     "primarySoup": "etc-soup",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -56431,7 +56413,8 @@
     "status": "open",
     "statusChangedAt": null,
     "forms": [
-      "ramen"
+      "ramen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -56439,9 +56422,7 @@
       "shoyu"
     ],
     "primarySoup": "toripaitan",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "certain",
@@ -56530,6 +56511,7 @@
     "statusChangedAt": null,
     "forms": [
       "mazesoba",
+      "aburasoba",
       "ramen"
     ],
     "primaryForm": "mazesoba",
@@ -56537,9 +56519,7 @@
       "etc-soup"
     ],
     "primarySoup": "etc-soup",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -56825,7 +56805,8 @@
     "status": "open",
     "statusChangedAt": null,
     "forms": [
-      "ramen"
+      "ramen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -56835,8 +56816,7 @@
     ],
     "primarySoup": "shoyu",
     "soupDetail": [
-      "모츠라멘",
-      "아부라소바"
+      "모츠라멘"
     ],
     "lineages": [],
     "amenities": [],
@@ -57379,16 +57359,15 @@
     "statusChangedAt": null,
     "forms": [
       "ramen",
-      "mazesoba"
+      "mazesoba",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
       "miso"
     ],
     "primarySoup": "miso",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "certain",
@@ -58335,16 +58314,15 @@
     "status": "open",
     "statusChangedAt": null,
     "forms": [
-      "ramen"
+      "ramen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
       "etc-soup"
     ],
     "primarySoup": "etc-soup",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -58528,6 +58506,7 @@
     "statusChangedAt": null,
     "forms": [
       "mazesoba",
+      "aburasoba",
       "tsukemen"
     ],
     "primaryForm": "mazesoba",
@@ -58535,9 +58514,7 @@
       "etc-soup"
     ],
     "primarySoup": "etc-soup",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -59921,16 +59898,15 @@
     "status": "open",
     "statusChangedAt": null,
     "forms": [
-      "ramen"
+      "ramen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
       "miso"
     ],
     "primarySoup": "miso",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "certain",
@@ -60031,16 +60007,15 @@
     "status": "open",
     "statusChangedAt": null,
     "forms": [
-      "ramen"
+      "aburasoba"
     ],
-    "primaryForm": "ramen",
+    "primaryForm": "aburasoba",
     "soups": [
       "etc-soup"
     ],
     "primarySoup": "etc-soup",
     "soupDetail": [
-      "아부라소바 전문",
-      "아부라소바"
+      "아부라소바 전문"
     ],
     "lineages": [],
     "amenities": [],
@@ -60268,6 +60243,7 @@
     "statusChangedAt": null,
     "forms": [
       "ramen",
+      "aburasoba",
       "tsukemen"
     ],
     "primaryForm": "ramen",
@@ -60277,9 +60253,7 @@
       "shoyu"
     ],
     "primarySoup": "niboshi",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "certain",
@@ -60438,16 +60412,15 @@
     "status": "open",
     "statusChangedAt": null,
     "forms": [
-      "ramen"
+      "aburasoba"
     ],
-    "primaryForm": "ramen",
+    "primaryForm": "aburasoba",
     "soups": [
       "niboshi"
     ],
     "primarySoup": "niboshi",
     "soupDetail": [
-      "아부라소바 전문",
-      "아부라소바"
+      "아부라소바 전문"
     ],
     "lineages": [],
     "amenities": [],
@@ -60713,7 +60686,8 @@
     "status": "open",
     "statusChangedAt": null,
     "forms": [
-      "ramen"
+      "ramen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -60721,8 +60695,7 @@
     ],
     "primarySoup": "tonkotsu",
     "soupDetail": [
-      "하카타 돈코츠",
-      "아부라소바"
+      "하카타 돈코츠"
     ],
     "lineages": [],
     "amenities": [],
@@ -60910,16 +60883,15 @@
     "status": "open",
     "statusChangedAt": null,
     "forms": [
-      "ramen"
+      "ramen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
       "etc-soup"
     ],
     "primarySoup": "etc-soup",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [
       "iekei"
     ],
@@ -61505,7 +61477,8 @@
     "status": "open",
     "statusChangedAt": null,
     "forms": [
-      "ramen"
+      "ramen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -61514,9 +61487,7 @@
       "tonkotsu-shoyu"
     ],
     "primarySoup": "tonkotsu-shoyu",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [
       "iekei"
     ],
@@ -61815,7 +61786,8 @@
     "status": "open",
     "statusChangedAt": null,
     "forms": [
-      "ramen"
+      "ramen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -61826,7 +61798,6 @@
     "primarySoup": "shio",
     "soupDetail": [
       "카모(오리 육수)",
-      "아부라소바",
       "마라탄탄멘",
       "카모"
     ],
@@ -62067,7 +62038,8 @@
     "statusChangedAt": null,
     "forms": [
       "ramen",
-      "mazesoba"
+      "mazesoba",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -62075,7 +62047,6 @@
     ],
     "primarySoup": "tonkotsu",
     "soupDetail": [
-      "아부라소바",
       "청탕"
     ],
     "lineages": [],
@@ -62125,6 +62096,7 @@
     "statusChangedAt": null,
     "forms": [
       "mazesoba",
+      "aburasoba",
       "ramen"
     ],
     "primaryForm": "mazesoba",
@@ -62132,9 +62104,7 @@
       "etc-soup"
     ],
     "primarySoup": "etc-soup",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -62297,16 +62267,15 @@
     "statusChangedAt": null,
     "forms": [
       "ramen",
-      "mazesoba"
+      "mazesoba",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
       "etc-soup"
     ],
     "primarySoup": "etc-soup",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -62464,7 +62433,8 @@
     "statusChangedAt": null,
     "forms": [
       "ramen",
-      "mazesoba"
+      "mazesoba",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -62473,8 +62443,7 @@
     ],
     "primarySoup": "shoyu",
     "soupDetail": [
-      "토리(닭) 베이스",
-      "아부라소바"
+      "토리(닭) 베이스"
     ],
     "lineages": [],
     "amenities": [],
@@ -62910,16 +62879,15 @@
     "statusChangedAt": null,
     "forms": [
       "ramen",
-      "tsukemen"
+      "tsukemen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
       "toripaitan"
     ],
     "primarySoup": "toripaitan",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "certain",
@@ -62954,7 +62922,8 @@
     "statusChangedAt": null,
     "forms": [
       "ramen",
-      "tsukemen"
+      "tsukemen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -62965,9 +62934,7 @@
       "gyokai"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "certain",
@@ -63055,16 +63022,15 @@
     "status": "open",
     "statusChangedAt": null,
     "forms": [
-      "ramen"
+      "ramen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
       "tonkotsu"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [
       "iekei"
     ],
@@ -64239,16 +64205,15 @@
     "status": "open",
     "statusChangedAt": null,
     "forms": [
-      "ramen"
+      "ramen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
       "shoyu"
     ],
     "primarySoup": "shoyu",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "certain",
@@ -64635,16 +64600,15 @@
     "status": "open",
     "statusChangedAt": null,
     "forms": [
-      "ramen"
+      "ramen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
       "tonkotsu"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "certain",
@@ -64724,7 +64688,8 @@
     "statusChangedAt": null,
     "forms": [
       "ramen",
-      "tsukemen"
+      "tsukemen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -64733,9 +64698,7 @@
       "tonkotsu-shoyu"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [
       "iekei"
     ],
@@ -64785,7 +64748,8 @@
     "statusChangedAt": null,
     "forms": [
       "ramen",
-      "tsukemen"
+      "tsukemen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -64794,9 +64758,7 @@
       "tonkotsu-shoyu"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [
       "iekei"
     ],
@@ -64889,7 +64851,8 @@
     "forms": [
       "ramen",
       "tsukemen",
-      "mazesoba"
+      "mazesoba",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -64897,9 +64860,7 @@
       "tantanmen"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "certain",
@@ -65870,16 +65831,15 @@
     "statusChangedAt": null,
     "forms": [
       "ramen",
-      "mazesoba"
+      "mazesoba",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
       "shoyu"
     ],
     "primarySoup": "shoyu",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "certain",
@@ -66481,16 +66441,15 @@
     "statusChangedAt": null,
     "forms": [
       "ramen",
-      "tsukemen"
+      "tsukemen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
       "etc-soup"
     ],
     "primarySoup": "etc-soup",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
@@ -66524,7 +66483,8 @@
     "status": "open",
     "statusChangedAt": null,
     "forms": [
-      "ramen"
+      "ramen",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -66534,9 +66494,7 @@
       "miso"
     ],
     "primarySoup": "toripaitan",
-    "soupDetail": [
-      "아부라소바"
-    ],
+    "soupDetail": [],
     "lineages": [],
     "amenities": [],
     "confidence": "certain",
@@ -66629,7 +66587,8 @@
     "statusChangedAt": null,
     "forms": [
       "ramen",
-      "mazesoba"
+      "mazesoba",
+      "aburasoba"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -66640,7 +66599,6 @@
     "primarySoup": "shio",
     "soupDetail": [
       "카모(오리 육수)",
-      "아부라소바",
       "마라탄탄멘",
       "카모"
     ],

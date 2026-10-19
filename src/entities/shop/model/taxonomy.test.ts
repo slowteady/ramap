@@ -20,7 +20,12 @@ describe("taxonomy v2.1", () => {
 
   it("형태에 히야시츄카는 없다", () => {
     expect(FORMS.some((f) => f.label.includes("히야시"))).toBe(false);
-    expect(FORMS).toHaveLength(4);
+    expect(FORMS).toHaveLength(5);
+  });
+
+  it("아부라소바는 마제소바와 별도 형태다(2026-10-19 PO)", () => {
+    expect(FORMS.map((f) => f.label)).toContain("아부라소바");
+    expect(FORMS.map((f) => f.label)).toContain("마제소바");
   });
 
   it("계보는 이에케 표기를 쓴다 (이에케이 아님)", () => {
