@@ -126,10 +126,12 @@ const SUBLINE_GENRE_MAX = 2;
 
 function Subline({
   areaLabel,
+  areaHref,
   meta,
   withLinks,
 }: {
   areaLabel: string | null;
+  areaHref?: string | null;
   meta: ReturnType<typeof genreMeta>;
   withLinks: boolean;
 }) {
@@ -137,7 +139,14 @@ function Subline({
   if (!areaLabel && genres.length === 0) return null;
   return (
     <span className="flex flex-wrap items-baseline gap-x-1.5">
-      {areaLabel && <span>{areaLabel}</span>}
+      {areaLabel &&
+        (withLinks && areaHref ? (
+          <Link href={areaHref} className="text-ink">
+            {areaLabel}
+          </Link>
+        ) : (
+          <span>{areaLabel}</span>
+        ))}
       {areaLabel && genres.length > 0 && (
         <span className="h-3 w-px self-center bg-gray-200" />
       )}
@@ -235,7 +244,16 @@ export function ShopDetailPage({ shop, nearby }: ShopDetailPageProps) {
         </h1>
         {(shop.areaLabel || meta.length > 0) && (
           <p className="text-secondary text-gray-500">
-            <Subline areaLabel={shop.areaLabel} meta={meta} withLinks />
+            <Subline
+              areaLabel={shop.areaLabel}
+              areaHref={
+                shop.areaLabel && shop.status !== "closed"
+                  ? `/area/${encodeURIComponent(shop.areaLabel)}`
+                  : null
+              }
+              meta={meta}
+              withLinks
+            />
           </p>
         )}
         <OpenStatusBadge

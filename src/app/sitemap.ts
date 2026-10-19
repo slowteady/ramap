@@ -1,43 +1,63 @@
 import type { MetadataRoute } from "next";
 import {
   GUIDES,
-  listAreaPages,
   LINEAGES,
   listAreaGenrePages,
+  listAreaPages,
+  shopsByArea,
+  shopsByAreaGenre,
+  shopsByGenre,
   shouldNoindexShop,
 } from "@/entities/shop";
+import { getShopLastmod } from "@/entities/shop/api/get-shop-lastmod";
 import { getShops } from "@/entities/shop/api/get-shops";
+import type { Shop } from "@/entities/shop/model/types";
 
 const BASE = "https://ramap.kr";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const shops = await getShops();
-  const areas = listAreaPages(shops);
-  const genrePages = listAreaGenrePages(shops);
+  const lastmod = await getShopLastmod();
+  const dateOf = (s: Shop) => lastmod[s.id] ?? s.lastVerifiedAt;
+  /* 목록 페이지는 담긴 매장 중 가장 최근 변경일 — 내용이 실제로 바뀐 날만 신호가 된다 */
+  const latest = (list: Shop[]) => {
+    const dates = list.map(dateOf).filter((d): d is string => Boolean(d));
+    return dates.length > 0
+      ? { lastModified: new Date(dates.sort().at(-1)!) }
+      : {};
+  };
+  const open = shops.filter((s) => s.status !== "closed");
 
   return [
-    { url: BASE, priority: 1 },
+    { url: BASE, priority: 1, ...latest(open) },
     { url: `${BASE}/guide`, priority: 0.8 },
-    ...GUIDES.map((g) => ({ url: `${BASE}/guide/${g.slug}`, priority: 0.8 })),
+    ...GUIDES.map((g) => ({
+      url: `${BASE}/guide/${g.slug}`,
+      priority: 0.8,
+      ...latest(shopsByGenre(shops, g.slug)),
+    })),
     ...LINEAGES.filter((l) => l.kind === "taste").map((l) => ({
       url: `${BASE}/style/${l.slug}`,
       priority: 0.8,
+      ...latest(open.filter((s) => (s.lineages as string[]).includes(l.slug))),
     })),
     ...shops
       .filter((s) => !shouldNoindexShop(s))
       .map((s) => ({
         url: `${BASE}/shop/${s.id}`,
         priority: 0.7,
-        ...(s.lastVerifiedAt && { lastModified: new Date(s.lastVerifiedAt) }),
+        ...latest([s]),
         ...(s.photos.length > 0 && { images: s.photos }),
       })),
-    ...areas.map((a) => ({
+    ...listAreaPages(shops).map((a) => ({
       url: `${BASE}/area/${encodeURIComponent(a.area)}`,
       priority: 0.8,
+      ...latest(shopsByArea(shops, a.area)),
     })),
-    ...genrePages.map((p) => ({
+    ...listAreaGenrePages(shops).map((p) => ({
       url: `${BASE}/area/${encodeURIComponent(p.area)}/${p.genre}`,
       priority: 0.8,
+      ...latest(shopsByAreaGenre(shops, p.area, p.genre)),
     })),
   ];
 }
