@@ -219,14 +219,23 @@ describe("unverified 보류 신호", () => {
 });
 
 describe("형태 정규화", () => {
-  it("forms의 아부라소바는 soupDetail로 옮긴다", () => {
+  it("아부라소바는 별도 형태 — forms에 그대로 두고 세부에는 중복시키지 않는다(2026-10-19 PO)", () => {
     const e = promoteSoups({
       name: "칸키라멘",
       forms: ["라멘", "아부라소바"],
       sourceNote: "조사",
     });
-    expect(e.forms).toEqual(["라멘"]);
-    expect(e.soupDetail).toContain("아부라소바");
+    expect(e.forms).toEqual(["라멘", "아부라소바"]);
+    expect(e.soupDetail ?? []).not.toContain("아부라소바");
+  });
+
+  it("세부의 아부라소바 표기 이형은 형태로 올리고 세부에서 뺀다", () => {
+    const e = promoteSoups({
+      name: "a",
+      soupDetail: ["아부라라멘", "청탕"],
+    });
+    expect(e.forms).toEqual(["라멘", "아부라소바"]);
+    expect(e.soupDetail).toEqual(["청탕"]);
   });
 });
 
@@ -313,10 +322,11 @@ describe("promoteFromMenus — 메뉴명·세부에 있는 장르를 필터 값�
     expect(run(["토리빠이탄"]).soups).toEqual(["토리파이탄"]);
   });
 
-  it("형태: 츠케멘·마제소바(마제멘)는 올리고, 아부라소바는 분류 결정 전이라 올리지 않는다", () => {
+  it("형태: 츠케멘·마제소바(마제멘)·아부라소바를 각각 올린다", () => {
     expect(run(["토리츠케멘"]).forms).toContain("츠케멘");
     expect(run(["마제멘|11000"]).forms).toContain("마제소바");
-    expect(run(["아부라소바|11000"]).forms ?? []).toEqual([]);
+    expect(run(["아부라소바|11000"]).forms).toContain("아부라소바");
+    expect(run(["아부라소바|11000"]).forms).not.toContain("마제소바");
   });
 
   it("계보: 이에케·지로 메뉴는 계보로", () => {

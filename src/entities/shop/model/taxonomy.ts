@@ -10,6 +10,7 @@ export const FORMS = [
   { slug: "ramen", label: "라멘" },
   { slug: "tsukemen", label: "츠케멘", labelJa: "つけ麺" },
   { slug: "mazesoba", label: "마제소바", labelJa: "まぜそば" },
+  { slug: "aburasoba", label: "아부라소바", labelJa: "油そば" },
   { slug: "etc-form", label: "기타" },
 ] as const satisfies readonly TaxonomyItem[];
 

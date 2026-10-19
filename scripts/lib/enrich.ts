@@ -117,20 +117,27 @@ function isOperationalNote(d: string): boolean {
   return d.includes("겸업") || d === "퓨전" || d === "한식 퓨전";
 }
 
-/* 형태 축 정규화 — 아부라소바는 형태가 아니라 세부 스타일(마제소바 계열 소스비빔) */
-const FORM_TO_DETAIL: Record<string, string> = {
+/* 아부라소바는 마제소바와 별도 형태(2026-10-19 PO — 일본에선 같은 계열로 묶지만 지도 필터에서 따로 찾게).
+   세부 표기에 있으면 형태로 올리고 세부에서는 뺀다(상세 화면 중복 방지) */
+const DETAIL_TO_FORM: Record<string, string> = {
   아부라소바: "아부라소바",
+  아부라라멘: "아부라소바",
+  "아부라소바·파이탄": "아부라소바",
 };
 
 export function promoteSoups(e: Enrichment): Enrichment {
-  const formDetails = (e.forms ?? [])
-    .map((f) => FORM_TO_DETAIL[f])
-    .filter(Boolean) as string[];
-  if (formDetails.length > 0) {
+  const detailForms = [
+    ...new Set(
+      (e.soupDetail ?? []).map((d) => DETAIL_TO_FORM[d]).filter(Boolean),
+    ),
+  ] as string[];
+  if (detailForms.length > 0) {
     e = {
       ...e,
-      forms: (e.forms ?? []).filter((f) => !FORM_TO_DETAIL[f]),
-      soupDetail: [...new Set([...(e.soupDetail ?? []), ...formDetails])],
+      forms: [
+        ...new Set([...(e.forms?.length ? e.forms : ["라멘"]), ...detailForms]),
+      ],
+      soupDetail: (e.soupDetail ?? []).filter((d) => !DETAIL_TO_FORM[d]),
     };
   }
   const raw = e.soupDetail ?? [];
@@ -196,6 +203,7 @@ const MENU_GENRE_RULES: {
   { axis: "soups", label: "탄탄멘", re: /탄탄(멘|면)/g },
   { axis: "forms", label: "츠케멘", re: /츠케멘|쯔케멘|츠께멘/g },
   { axis: "forms", label: "마제소바", re: /마제소바|마제멘/g },
+  { axis: "forms", label: "아부라소바", re: /아부라\s?(소바|라멘)|아부라멘/g },
   { axis: "lineages", label: "이에케", re: /이에케|이에계/g },
   { axis: "lineages", label: "지로계", re: /지로/g },
 ];
