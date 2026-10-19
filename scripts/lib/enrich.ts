@@ -166,6 +166,79 @@ export function promoteSoups(e: Enrichment): Enrichment {
   };
 }
 
+/* 메뉴명·세부 표기에 드러난 장르를 필터 값으로 올린다 — 조사가 장르 칸을 빠뜨려도 필터에 잡히게
+   (2026-10-19 전수 검수: 메뉴와 필터가 어긋난 매장 67곳). 앞에서부터 긴 표현을 먼저 소비해 오분해를 막는다.
+   아부라소바→마제소바는 분류 결정 전이라 제외 */
+const MENU_GENRE_RULES: {
+  axis: "soups" | "forms" | "lineages";
+  label: string;
+  re: RegExp;
+}[] = [
+  {
+    axis: "soups",
+    label: "돈코츠쇼유",
+    re: /(돈코츠|톤코츠|돈꼬츠)\s?(쇼유|소유)/g,
+  },
+  {
+    axis: "soups",
+    label: "토리파이탄",
+    re: /토리\s?(파이탄|빠이탄|백탕)|닭\s?백탕/g,
+  },
+  { axis: "soups", label: "돈코츠", re: /돈코츠|톤코츠|돈꼬츠/g },
+  {
+    axis: "soups",
+    label: "쇼유",
+    re: /쇼유|소유(?=라멘|라아멘|탄멘|츠케멘|라멘)/g,
+  },
+  { axis: "soups", label: "시오", re: /시오/g },
+  { axis: "soups", label: "미소", re: /미소/g },
+  { axis: "soups", label: "니보시", re: /니보시/g },
+  { axis: "soups", label: "탄탄멘", re: /탄탄(멘|면)/g },
+  { axis: "forms", label: "츠케멘", re: /츠케멘|쯔케멘|츠께멘/g },
+  { axis: "forms", label: "마제소바", re: /마제소바|마제멘/g },
+  { axis: "lineages", label: "이에케", re: /이에케|이에계/g },
+  { axis: "lineages", label: "지로계", re: /지로/g },
+];
+
+export function promoteFromMenus(e: Enrichment): Enrichment {
+  let text = [
+    ...(e.menus ?? []).map((m) => m.split("|")[0]),
+    ...(e.soupDetail ?? []),
+  ].join(" / ");
+  const found: Record<"soups" | "forms" | "lineages", string[]> = {
+    soups: [],
+    forms: [],
+    lineages: [],
+  };
+  const soupAt: { label: string; at: number }[] = [];
+  for (const rule of MENU_GENRE_RULES) {
+    rule.re.lastIndex = 0;
+    const m = rule.re.exec(text);
+    rule.re.lastIndex = 0;
+    if (!m) continue;
+    if (rule.axis === "soups") {
+      soupAt.push({ label: rule.label, at: m.index });
+      /* 같은 길이 공백으로 지워 뒤 규칙의 위치 계산이 어긋나지 않게 */
+      text = text.replace(rule.re, (s) => " ".repeat(s.length));
+    } else {
+      found[rule.axis].push(rule.label);
+    }
+  }
+  found.soups = soupAt.sort((a, b) => a.at - b.at).map((s) => s.label);
+  const union = (base: string[] | undefined, add: string[]) =>
+    add.length > 0 ? [...new Set([...(base ?? []), ...add])] : base;
+  return {
+    ...e,
+    soups: union(e.soups, found.soups),
+    /* 형태 칸이 비면 시트 기본값이 라멘 — 새 형태를 더할 때 라멘이 사라지지 않게 */
+    forms:
+      found.forms.length > 0
+        ? union(e.forms?.length ? e.forms : ["라멘"], found.forms)
+        : e.forms,
+    lineages: union(e.lineages, found.lineages),
+  };
+}
+
 const VERDICT_MARKS = ["라멘집 아님", "실존 미확인"];
 
 export function mergeEnrichments(matches: Enrichment[]): Enrichment {

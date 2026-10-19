@@ -7,6 +7,7 @@ import {
   matchEnrichment,
   mergeEnrichments,
   mergeMatched,
+  promoteFromMenus,
   promoteSoups,
   toSheetLine,
   toSlug,
@@ -89,11 +90,13 @@ for (const line of lines.slice(1)) {
   const matches = matchEnrichment(cells.상호, cells.지점명, enrichments);
   const ambiguous =
     (normCounts.get(normalizeShopName(cells.상호 + cells.지점명)) ?? 0) > 1;
-  const e = promoteSoups(
-    mergeMatched(cells.상호, cells.지점명, matches, {
-      ambiguous,
-      address: cells.주소,
-    }),
+  const e = promoteFromMenus(
+    promoteSoups(
+      mergeMatched(cells.상호, cells.지점명, matches, {
+        ambiguous,
+        address: cells.주소,
+      }),
+    ),
   );
 
   cells.id = toSlug(cells.상호, cells.지점명, taken);
