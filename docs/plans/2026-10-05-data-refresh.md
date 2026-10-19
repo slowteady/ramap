@@ -105,3 +105,10 @@ npm run indexnow                                # 배포 후
 - 판정이 `중복`·`라멘집 아님`·`임시 영업`인 신규는 `data/refresh-exclusions.tsv`에 한 줄 추가(다음 라운드 재등장 방지)
 
 **산출** — `data/review/<TAG>/`: `new-verify.tsv`(상호·주소·인허가일·판정·근거) · `closed-verify.tsv`(상호·지점명·주소·폐업일자·판정·근거(날짜 포함 1문장)) · `gallery-sync.md`(어긋남만) · `SUMMARY.md`(반영 권고 표 포함)
+
+## 폐업 반영 규칙 (2026-10-19 PO 확정)
+
+- 폐업은 **`closure-verification` 스킬**(`.claude/skills/closure-verification/SKILL.md`)로만 확정한다. 직접 증거(국세청 폐업·같은 자리 다른 가게·공식 폐업 공지 등) 없이 "흔적 없음"만으로 확정 금지
+- 공개는 코드로 강제: `data/closure-verification.json` 장부에 있는 매장만 `[폐업]`/`[이전]` 페이지 공개(타베로그 【閉店】 방식), 장부에 없는 폐업 매장은 404·사이트맵 제외
+- 2026-10-19 기존 폐업 50곳 재검증(`data/review/2026-10-19-closure/verify.tsv`): 확정 폐업 8 · 이전 3 · 영업 중 오판 4(복원: 모리라멘&돈카츠·호랭이라멘·993라멘·미친라멘) · 미확정 35(비공개 유지, 다음 라운드 재검증)
+- 2차 검수의 Daum 검색 수집은 카카오 서비스 페이지 수집이라 "네이버·카카오 크롤링 금지"와 충돌 소지 — 공식 API(Google Places `businessStatus`) 전환 검토 중
