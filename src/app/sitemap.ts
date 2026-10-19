@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import {
+  closurePublicState,
   GUIDES,
   LINEAGES,
   listAreaGenrePages,
@@ -9,6 +10,7 @@ import {
   shopsByGenre,
   shouldNoindexShop,
 } from "@/entities/shop";
+import { getClosureLedger } from "@/entities/shop/api/get-closure-ledger";
 import { getShopLastmod } from "@/entities/shop/api/get-shop-lastmod";
 import { getShops } from "@/entities/shop/api/get-shops";
 import type { Shop } from "@/entities/shop/model/types";
@@ -18,6 +20,7 @@ const BASE = "https://ramap.kr";
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const shops = await getShops();
   const lastmod = await getShopLastmod();
+  const ledger = await getClosureLedger();
   const dateOf = (s: Shop) => lastmod[s.id] ?? s.lastVerifiedAt;
   /* 목록 페이지는 담긴 매장 중 가장 최근 변경일 — 내용이 실제로 바뀐 날만 신호가 된다 */
   const latest = (list: Shop[]) => {
@@ -42,7 +45,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       ...latest(open.filter((s) => (s.lineages as string[]).includes(l.slug))),
     })),
     ...shops
-      .filter((s) => !shouldNoindexShop(s))
+      .filter(
+        (s) =>
+          !shouldNoindexShop(s) && closurePublicState(s, ledger) !== "hidden",
+      )
       .map((s) => ({
         url: `${BASE}/shop/${s.id}`,
         priority: 0.7,

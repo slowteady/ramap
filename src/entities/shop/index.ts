@@ -47,6 +47,11 @@ export {
   nearbyShops,
 } from "@/entities/shop/model/derive";
 export type { GenreSlug } from "@/entities/shop/model/derive";
+export { closurePublicState } from "@/entities/shop/model/closure";
+export type {
+  ClosureLedger,
+  ClosurePublicState,
+} from "@/entities/shop/model/closure";
 export {
   articleJsonLd,
   restaurantJsonLd,
