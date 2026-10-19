@@ -247,6 +247,8 @@ describe("isThinShop — 씬 페이지 색인 제어", () => {
     expect(isThinShop(shop({ soupDetail: ["유즈"] }))).toBe(false);
     expect(isThinShop(shop({ photos: ["a.jpg"] }))).toBe(false);
     expect(isThinShop(shop({ tagline: "닭백탕 전문" }))).toBe(false);
+    /* 아부라소바는 세부 표기였다가 형태로 옮겨졌다(2026-10-19) — 같은 정보라 판정이 바뀌면 안 된다 */
+    expect(isThinShop(shop({ forms: ["aburasoba"] }))).toBe(false);
   });
 });
 

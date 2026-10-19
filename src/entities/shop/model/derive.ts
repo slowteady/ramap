@@ -11,6 +11,7 @@ export function isThinShop(shop: Shop): boolean {
     shop.hours ||
     shop.menus.length > 0 ||
     shop.soupDetail.length > 0 ||
+    (shop.forms as string[]).includes("aburasoba") ||
     shop.photos.length > 0 ||
     shop.tagline
   );
