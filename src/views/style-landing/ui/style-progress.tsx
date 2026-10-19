@@ -17,7 +17,7 @@ export function StyleProgress({
     <div className="flex flex-col gap-1.5 px-4 pt-4">
       <div className="flex items-baseline justify-between">
         <span className="text-secondary font-semibold text-ink">
-          서울 {label}
+          전국 {label}
         </span>
         <span className="text-secondary font-bold text-ink">
           {visited}/{shopIds.length}

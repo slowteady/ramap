@@ -16,9 +16,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { lineage: slug } = await params;
   const lineage = LINEAGES.find((l) => l.slug === slug);
   if (!lineage) return {};
+  const count = (await getShops()).filter(
+    (s) => s.status !== "closed" && (s.lineages as string[]).includes(slug),
+  ).length;
   return {
     title: `${lineage.label} 라멘 지도`,
-    description: `${lineage.label}${lineage.description ? ` — ${lineage.description}` : ""}. 서울의 ${lineage.label} 라멘집을 라맵에서 확인하세요.`,
+    description: `${lineage.label}${lineage.description ? ` — ${lineage.description}` : ""}. 전국 ${lineage.label} 라멘집 ${count}곳을 라맵에서 확인하세요.`,
     alternates: { canonical: `/style/${slug}` },
   };
 }

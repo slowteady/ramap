@@ -27,6 +27,7 @@ export { toMapManifest } from "@/entities/shop/model/map-manifest";
 export type { ShopPin } from "@/entities/shop/model/map-manifest";
 export {
   buildAreaClusters,
+  listAreaPages,
   nearestAreas,
 } from "@/entities/shop/model/area-clusters";
 export type {
@@ -35,6 +36,7 @@ export type {
 } from "@/entities/shop/model/area-clusters";
 export {
   isThinShop,
+  shouldNoindexShop,
   soupBreakdown,
   shopById,
   shopsByArea,
