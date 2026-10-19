@@ -266,10 +266,10 @@ describe("soupBreakdown — 지역 페이지 집계 문장", () => {
 });
 
 describe("shouldNoindexShop — 색인 제외 대상", () => {
-  it("폐업 매장은 정보가 충분해도 색인 제외 — 영업 중처럼 검색에 노출되면 안 된다", () => {
+  it("폐업 매장도 정보가 있으면 색인한다 — 타베로그처럼 폐업 사실을 검색으로 알린다(2026-10-19 PO)", () => {
     expect(
       shouldNoindexShop(shop({ status: "closed", hours: "11:00-21:00" })),
-    ).toBe(true);
+    ).toBe(false);
   });
 
   it("영업 중이고 정보가 있으면 색인, 씬 페이지면 제외", () => {

@@ -62,4 +62,3 @@ export type { GuideContent } from "@/entities/shop/model/guide-content";
 export { OpenStatusBadge } from "@/entities/shop/ui/open-status-badge";
 export { GenreChips } from "@/entities/shop/ui/genre-chips";
 export { NewChip } from "@/entities/shop/ui/new-chip";
-export { VerifiedChip } from "@/entities/shop/ui/verified-chip";
