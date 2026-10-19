@@ -8,6 +8,7 @@ type OpenStatusBadgeProps = {
   breakTime: string | null;
   closedDays: string | null;
   closedAt?: string | null;
+  goneLabel?: string;
   className?: string;
 };
 
@@ -18,6 +19,7 @@ export function OpenStatusBadge({
   breakTime,
   closedDays,
   closedAt,
+  goneLabel = "폐업",
   className,
 }: OpenStatusBadgeProps) {
   if (status !== "open") {
@@ -28,8 +30,8 @@ export function OpenStatusBadge({
         {status === "paused"
           ? "휴업 중"
           : closedAt && dayjs(closedAt).isValid()
-            ? `폐업 · ${dayjs(closedAt).format("YYYY년 M월")}`
-            : "폐업"}
+            ? `${goneLabel} · ${dayjs(closedAt).format("YYYY년 M월")}`
+            : goneLabel}
       </span>
     );
   }

@@ -27,6 +27,7 @@ import { RecordLogSection } from "./record-log-section";
 type ShopDetailPageProps = {
   shop: Shop;
   nearby: Shop[];
+  goneLabel?: "폐업" | "이전";
 };
 
 type InfoRow = { label: string; value: React.ReactNode };
@@ -165,7 +166,11 @@ function Subline({
   );
 }
 
-export function ShopDetailPage({ shop, nearby }: ShopDetailPageProps) {
+export function ShopDetailPage({
+  shop,
+  nearby,
+  goneLabel,
+}: ShopDetailPageProps) {
   const meta = genreMeta(shop);
   const rows = infoRows(shop);
   const breadcrumb = [
@@ -260,6 +265,7 @@ export function ShopDetailPage({ shop, nearby }: ShopDetailPageProps) {
           breakTime={shop.breakTime}
           closedDays={shop.closedDays}
           closedAt={shop.statusChangedAt}
+          goneLabel={goneLabel}
           className="block"
         />
         <div className="pt-3">
