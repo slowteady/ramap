@@ -1,11 +1,10 @@
 import type { MetadataRoute } from "next";
 import {
-  buildAreaClusters,
   GUIDES,
-  isThinShop,
+  listAreaPages,
   LINEAGES,
   listAreaGenrePages,
-  toMapManifest,
+  shouldNoindexShop,
 } from "@/entities/shop";
 import { getShops } from "@/entities/shop/api/get-shops";
 
@@ -13,7 +12,7 @@ const BASE = "https://ramap.kr";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const shops = await getShops();
-  const areas = buildAreaClusters(toMapManifest(shops));
+  const areas = listAreaPages(shops);
   const genrePages = listAreaGenrePages(shops);
 
   return [
@@ -25,7 +24,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.8,
     })),
     ...shops
-      .filter((s) => s.status !== "closed" && !isThinShop(s))
+      .filter((s) => !shouldNoindexShop(s))
       .map((s) => ({
         url: `${BASE}/shop/${s.id}`,
         priority: 0.7,

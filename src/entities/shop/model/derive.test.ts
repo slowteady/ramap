@@ -9,7 +9,8 @@ import {
   shopsByAreaGenre,
   shopsByGenre,
 } from "./derive";
-import { isThinShop, soupBreakdown } from "./derive";
+import { isThinShop, shouldNoindexShop, soupBreakdown } from "./derive";
+import { listAreaPages } from "./area-clusters";
 
 const shop = (over: Partial<Shop>): Shop => ({
   id: "kinka",
@@ -261,5 +262,29 @@ describe("soupBreakdown — 지역 페이지 집계 문장", () => {
       { label: "돈코츠", count: 2 },
       { label: "니보시", count: 1 },
     ]);
+  });
+});
+
+describe("shouldNoindexShop — 색인 제외 대상", () => {
+  it("폐업 매장은 정보가 충분해도 색인 제외 — 영업 중처럼 검색에 노출되면 안 된다", () => {
+    expect(
+      shouldNoindexShop(shop({ status: "closed", hours: "11:00-21:00" })),
+    ).toBe(true);
+  });
+
+  it("영업 중이고 정보가 있으면 색인, 씬 페이지면 제외", () => {
+    expect(shouldNoindexShop(shop({ hours: "11:00-21:00" }))).toBe(false);
+    expect(shouldNoindexShop(shop({}))).toBe(true);
+  });
+});
+
+describe("listAreaPages — 실제로 페이지가 생기는 지역만", () => {
+  it("동네라벨 없는 매장의 시군구 폴백 묶음과 폐업만 남은 지역은 제외한다 (사이트맵 404 방지)", () => {
+    const shops = [
+      shop({ id: "a", areaLabel: "성수" }),
+      shop({ id: "b", areaLabel: null, district: "수원시" }),
+      shop({ id: "c", areaLabel: "상암", status: "closed" }),
+    ];
+    expect(listAreaPages(shops).map((c) => c.area)).toEqual(["성수"]);
   });
 });

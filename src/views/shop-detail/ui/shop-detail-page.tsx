@@ -193,7 +193,7 @@ export function ShopDetailPage({ shop, nearby }: ShopDetailPageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: toJsonLdHtml(
-            restaurantJsonLd(shop),
+            ...(shop.status === "closed" ? [] : [restaurantJsonLd(shop)]),
             breadcrumbJsonLd(breadcrumb),
             ...(faqs.length > 0 ? [faqJsonLd(faqs)] : []),
           ),

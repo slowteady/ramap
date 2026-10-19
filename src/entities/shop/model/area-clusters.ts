@@ -1,4 +1,6 @@
-import type { ShopPin } from "./map-manifest";
+import { shopsByArea } from "./derive";
+import { toMapManifest, type ShopPin } from "./map-manifest";
+import type { Shop } from "./types";
 
 export type AreaCluster = {
   area: string;
@@ -59,4 +61,12 @@ export function buildAreaClusters(
     lat: list.reduce((sum, p) => sum + p.lat, 0) / list.length,
     lng: list.reduce((sum, p) => sum + p.lng, 0) / list.length,
   }));
+}
+
+/* 지도 클러스터는 동네라벨 없는 매장을 시군구로 묶지만 지역 페이지는 동네라벨 기준이라,
+   사이트맵·정적 생성·크로스링크는 실제 페이지가 있는 지역만 써야 404가 안 난다 */
+export function listAreaPages(shops: Shop[]): AreaCluster[] {
+  return buildAreaClusters(toMapManifest(shops)).filter(
+    (c) => shopsByArea(shops, c.area).length > 0,
+  );
 }

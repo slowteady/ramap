@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { isThinShop, nearbyShops, shopById, soupBySlug } from "@/entities/shop";
+import {
+  nearbyShops,
+  shopById,
+  shouldNoindexShop,
+  soupBySlug,
+} from "@/entities/shop";
 import { getShops } from "@/entities/shop/api/get-shops";
 import { ShopDetailPage } from "@/views/shop-detail";
 
@@ -21,20 +26,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     .join(" · ");
   const topMenu = shop.menus[0];
   /* 공유 카드 설명 = 위치·장르·대표메뉴 정보 신호 (네이버=리뷰 수·카카오=주소 실측 문법) */
+  const closed = shop.status === "closed";
   const description =
-    [
+    (closed ? "폐업한 매장입니다. " : "") +
+    ([
       shop.areaLabel ?? shop.district,
       soups,
       topMenu &&
         `${topMenu.name}${topMenu.price ? ` ${topMenu.price.toLocaleString()}원` : ""}`,
     ]
       .filter(Boolean)
-      .join(" · ") || `${shop.name} 정보를 라맵에서 확인하세요.`;
+      .join(" · ") || `${shop.name} 정보를 라맵에서 확인하세요.`);
   return {
-    title: `${shop.name} — ${shop.areaLabel ?? shop.district ?? ""} 라멘`,
+    title: `${shop.name}${closed ? " (폐업)" : ""} — ${shop.areaLabel ?? shop.district ?? ""} 라멘`,
     description,
     alternates: { canonical: `/shop/${shop.id}` },
-    ...(isThinShop(shop) && { robots: { index: false } }),
+    ...(shouldNoindexShop(shop) && { robots: { index: false } }),
   };
 }
 

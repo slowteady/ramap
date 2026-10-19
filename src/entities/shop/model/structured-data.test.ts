@@ -6,11 +6,7 @@ import {
   itemListJsonLd,
   restaurantJsonLd,
 } from "./structured-data";
-import {
-  articleJsonLd,
-  toJsonLdHtml,
-  websiteJsonLd,
-} from "./structured-data";
+import { articleJsonLd, toJsonLdHtml, websiteJsonLd } from "./structured-data";
 
 const shop = {
   id: "kinka",

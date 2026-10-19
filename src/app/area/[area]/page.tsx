@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import {
-  buildAreaClusters,
+  listAreaPages,
   listAreaGenrePages,
   nearestAreas,
   shopsByArea,
-  toMapManifest,
 } from "@/entities/shop";
 import { getShops } from "@/entities/shop/api/get-shops";
 import { AreaListPage, genreLabelOf, type CrossLink } from "@/views/area-list";
@@ -16,7 +15,7 @@ type Props = { params: Promise<{ area: string }> };
    표준(percent-encoded) 요청이 전부 404가 된다 (2026-09-05 프로덕션 실측) */
 export async function generateStaticParams() {
   const shops = await getShops();
-  return buildAreaClusters(toMapManifest(shops)).map((c) => ({
+  return listAreaPages(shops).map((c) => ({
     area: c.area,
   }));
 }
@@ -46,12 +45,10 @@ export default async function Page({ params }: Props) {
         label: `${area} ${genreLabelOf(p.genre) ?? p.genre}`,
         href: `/area/${encodeURIComponent(area)}/${p.genre}`,
       })),
-    ...nearestAreas(buildAreaClusters(toMapManifest(shops)), area, 6).map(
-      (c) => ({
-        label: `${c.area} 라멘 ${c.count}곳`,
-        href: `/area/${encodeURIComponent(c.area)}`,
-      }),
-    ),
+    ...nearestAreas(listAreaPages(shops), area, 6).map((c) => ({
+      label: `${c.area} 라멘 ${c.count}곳`,
+      href: `/area/${encodeURIComponent(c.area)}`,
+    })),
   ];
 
   return (
