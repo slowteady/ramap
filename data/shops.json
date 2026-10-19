@@ -19748,8 +19748,8 @@
     "breakTime": null,
     "closedDays": null,
     "openedAt": null,
-    "status": "closed",
-    "statusChangedAt": "2024-07-29",
+    "status": "open",
+    "statusChangedAt": null,
     "forms": [
       "ramen"
     ],
@@ -19772,7 +19772,7 @@
     "verification": "pending",
     "lastVerifiedAt": null,
     "source": "시딩v2(상가I20303); 2차 디깅(다음검색) · 양주 옥정; 정보 보강(다음검색); 경기 조사(다음검색)",
-    "note": "I20303 발굴 — 라멘 여부 확인 필요 / LOCALDATA 2026-10 폐업 전이(폐업일 2024-07-29, 관리번호 5590000-101-2022-00206)"
+    "note": "I20303 발굴 — 라멘 여부 확인 필요 / LOCALDATA 2026-10 폐업 전이(폐업일 2024-07-29, 관리번호 5590000-101-2022-00206) / 2026-10-19 폐업 검증: 영업 확인 — 블로그 2026-02·04·06 방문 후기(같은 주소)(인허가 폐업은 명의변경·재인허가로 추정)"
   },
   {
     "id": "menkoramen",
@@ -32874,8 +32874,8 @@
     "breakTime": "15:00-16:30",
     "closedDays": null,
     "openedAt": null,
-    "status": "closed",
-    "statusChangedAt": "2021-06-15",
+    "status": "open",
+    "statusChangedAt": null,
     "forms": [
       "ramen"
     ],
@@ -32911,7 +32911,7 @@
     "verification": "pending",
     "lastVerifiedAt": null,
     "source": "시딩v2(상가I20303); 정보수집(다음검색); 서울 디깅(다음검색); 2차 디깅(다음검색) · 사당; 재검증(다음검색); 웹 조사",
-    "note": "I20303 발굴 — 라멘 여부 확인 필요 / LOCALDATA 2026-10 폐업 전이(폐업일 2021-06-15, 관리번호 3200000-101-2010-00558)"
+    "note": "I20303 발굴 — 라멘 여부 확인 필요 / LOCALDATA 2026-10 폐업 전이(폐업일 2021-06-15, 관리번호 3200000-101-2010-00558) / 2026-10-19 폐업 검증: 영업 확인 — Daum 장소 카드 정상(같은 주소, 영업시간), 블로그 2025-12·2026-03(인허가 폐업은 명의변경·재인허가로 추정)"
   },
   {
     "id": "jingawayeouidojeom-koria",
@@ -33023,8 +33023,8 @@
     "breakTime": null,
     "closedDays": null,
     "openedAt": null,
-    "status": "closed",
-    "statusChangedAt": "2023-06-15",
+    "status": "open",
+    "statusChangedAt": null,
     "forms": [
       "ramen"
     ],
@@ -33047,7 +33047,7 @@
     "verification": "pending",
     "lastVerifiedAt": null,
     "source": "시딩v2(상가I20303); 보류 재심사(다음검색); 보류 재검증(다음검색) — 웹 흔적 없음(강남 언주로85길 관련 결과 없음); 보류 재검증 — 강남구 언주로85길 매장 웹 흔적 없음(질의 3회); 재검증(다음검색); 웹 조사",
-    "note": "I20303 발굴 — 라멘 여부 확인 필요 / LOCALDATA 2026-10 폐업 전이(폐업일 2023-06-15, 관리번호 3220000-101-2021-00984)"
+    "note": "I20303 발굴 — 라멘 여부 확인 필요 / LOCALDATA 2026-10 폐업 전이(폐업일 2023-06-15, 관리번호 3220000-101-2021-00984) / 2026-10-19 폐업 검증: 영업 확인 — 블로그 2025-08 방문 후기(같은 주소 B101호)(인허가 폐업은 명의변경·재인허가로 추정)"
   },
   {
     "id": "jeongnamen-2",
@@ -36959,8 +36959,8 @@
     "breakTime": null,
     "closedDays": "일요일",
     "openedAt": null,
-    "status": "closed",
-    "statusChangedAt": "2026-07-13",
+    "status": "open",
+    "statusChangedAt": null,
     "forms": [
       "ramen"
     ],
@@ -36988,7 +36988,7 @@
     "verification": "pending",
     "lastVerifiedAt": null,
     "source": "시딩v2(상가I20303); 인천 디깅(다음검색); 인천 조사(다음검색)",
-    "note": "I20303 발굴 — 라멘 여부 확인 필요 / LOCALDATA 2026-10 폐업 전이(폐업일 2026-07-13, 관리번호 3530000-101-2022-00394)"
+    "note": "I20303 발굴 — 라멘 여부 확인 필요 / LOCALDATA 2026-10 폐업 전이(폐업일 2026-07-13, 관리번호 3530000-101-2022-00394) / 2026-10-19 폐업 검증: 영업 확인 — Daum 장소 카드 '영업중'(같은 단지 C동 B1 003호)(인허가 폐업은 명의변경·재인허가로 추정)"
   },
   {
     "id": "ilbollamensiromiya",
