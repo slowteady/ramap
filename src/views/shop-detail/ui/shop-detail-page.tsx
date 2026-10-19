@@ -11,7 +11,6 @@ import {
   LINEAGES,
   NewChip,
   OpenStatusBadge,
-  VerifiedChip,
   restaurantJsonLd,
   soupBySlug,
   toJsonLdHtml,
@@ -240,7 +239,6 @@ export function ShopDetailPage({ shop, nearby }: ShopDetailPageProps) {
             <NewChip className="text-secondary" />
           )}
           {shop.name}
-          <VerifiedChip confidence={shop.confidence} />
         </h1>
         {(shop.areaLabel || meta.length > 0) && (
           <p className="text-secondary text-gray-500">
@@ -261,6 +259,7 @@ export function ShopDetailPage({ shop, nearby }: ShopDetailPageProps) {
           hours={shop.hours}
           breakTime={shop.breakTime}
           closedDays={shop.closedDays}
+          closedAt={shop.statusChangedAt}
           className="block"
         />
         <div className="pt-3">

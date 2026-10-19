@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import {
@@ -28,7 +29,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   /* 공유 카드 설명 = 위치·장르·대표메뉴 정보 신호 (네이버=리뷰 수·카카오=주소 실측 문법) */
   const closed = shop.status === "closed";
   const description =
-    (closed ? "폐업한 매장입니다. " : "") +
+    (closed
+      ? `폐업한 매장입니다${shop.statusChangedAt ? `(${dayjs(shop.statusChangedAt).format("YYYY년 M월")})` : ""}. `
+      : "") +
     ([
       shop.areaLabel ?? shop.district,
       soups,
@@ -38,7 +41,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       .filter(Boolean)
       .join(" · ") || `${shop.name} 정보를 라맵에서 확인하세요.`);
   return {
-    title: `${shop.name}${closed ? " (폐업)" : ""} — ${shop.areaLabel ?? shop.district ?? ""} 라멘`,
+    title: `${closed ? "[폐업] " : ""}${shop.name} — ${shop.areaLabel ?? shop.district ?? ""} 라멘`,
     description,
     alternates: { canonical: `/shop/${shop.id}` },
     ...(shouldNoindexShop(shop) && { robots: { index: false } }),

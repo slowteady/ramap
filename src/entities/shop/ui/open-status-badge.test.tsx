@@ -21,6 +21,11 @@ describe("OpenStatusBadge", () => {
     expect(screen.queryByText(/11:00/)).not.toBeInTheDocument();
   });
 
+  it("폐업 시점이 있으면 '폐업 · 2026년 10월'처럼 함께 보여준다 — 타베로그식 폐업 정보 제공", () => {
+    render(<OpenStatusBadge status="closed" {...base} closedAt="2026-10-06" />);
+    expect(screen.getByText("폐업 · 2026년 10월")).toBeInTheDocument();
+  });
+
   it("영업 매장인데 시간 정보가 없으면 아무것도 그리지 않는다", () => {
     const { container } = render(
       <OpenStatusBadge

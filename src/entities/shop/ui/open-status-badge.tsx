@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 import type { ShopStatus } from "@/entities/shop/model/types";
 import { cn } from "@/shared/lib/utils";
 
@@ -6,6 +7,7 @@ type OpenStatusBadgeProps = {
   hours: string | null;
   breakTime: string | null;
   closedDays: string | null;
+  closedAt?: string | null;
   className?: string;
 };
 
@@ -15,6 +17,7 @@ export function OpenStatusBadge({
   hours,
   breakTime,
   closedDays,
+  closedAt,
   className,
 }: OpenStatusBadgeProps) {
   if (status !== "open") {
@@ -22,7 +25,11 @@ export function OpenStatusBadge({
       <span
         className={cn("text-secondary font-semibold text-gray-400", className)}
       >
-        {status === "paused" ? "휴업 중" : "폐업"}
+        {status === "paused"
+          ? "휴업 중"
+          : closedAt && dayjs(closedAt).isValid()
+            ? `폐업 · ${dayjs(closedAt).format("YYYY년 M월")}`
+            : "폐업"}
       </span>
     );
   }

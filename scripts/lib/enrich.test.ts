@@ -3,6 +3,7 @@ import {
   matchEnrichment,
   mergeMatched,
   mergeEnrichments,
+  promoteFromMenus,
   promoteSoups,
   toSlug,
   type Enrichment,
@@ -288,5 +289,58 @@ describe("판정 마크 최신 우선", () => {
     expect(merged.soupDetail).toEqual(
       expect.arrayContaining(["이에케", "유즈"]),
     );
+  });
+});
+
+describe("promoteFromMenus — 메뉴명·세부에 있는 장르를 필터 값으로", () => {
+  const run = (menus: string[], soupDetail: string[] = []) =>
+    promoteFromMenus({ name: "a", menus, soupDetail });
+
+  it("긴 표현 우선 — 돈코츠쇼유라멘은 돈코츠쇼유만, 돈코츠·쇼유로 쪼개지 않는다", () => {
+    const e = run(["돈코츠쇼유라멘|9000"]);
+    expect(e.soups).toEqual(["돈코츠쇼유"]);
+  });
+
+  it("쇼유·소유 표기, 시오·미소·니보시·탄탄멘·토리파이탄을 잡는다", () => {
+    expect(run(["쇼유라멘|9000", "시오라멘|9000"]).soups).toEqual([
+      "쇼유",
+      "시오",
+    ]);
+    expect(run(["땡초소유라멘|9000"]).soups).toEqual(["쇼유"]);
+    expect(run(["카라이미소라멘"]).soups).toEqual(["미소"]);
+    expect(run(["니보시아부라소바"]).soups).toEqual(["니보시"]);
+    expect(run(["마라탄탄멘"]).soups).toEqual(["탄탄멘"]);
+    expect(run(["토리빠이탄"]).soups).toEqual(["토리파이탄"]);
+  });
+
+  it("형태: 츠케멘·마제소바(마제멘)는 올리고, 아부라소바는 분류 결정 전이라 올리지 않는다", () => {
+    expect(run(["토리츠케멘"]).forms).toContain("츠케멘");
+    expect(run(["마제멘|11000"]).forms).toContain("마제소바");
+    expect(run(["아부라소바|11000"]).forms ?? []).toEqual([]);
+  });
+
+  it("계보: 이에케·지로 메뉴는 계보로", () => {
+    expect(run(["이에케라멘|10000"]).lineages).toEqual(["이에케"]);
+    expect(run(["지로라멘"]).lineages).toEqual(["지로계"]);
+  });
+
+  it("형태 칸이 비어 있던 매장(기본값 라멘)에 새 형태를 더해도 라멘은 남는다", () => {
+    expect(run(["토리빠이탄", "토리츠케멘"]).forms).toEqual(["라멘", "츠케멘"]);
+  });
+
+  it("스프 순서는 메뉴에 처음 나온 순서 — 첫 메뉴가 대표가 되게", () => {
+    expect(run(["유즈시오라멘", "유즈쇼유라멘"]).soups).toEqual([
+      "시오",
+      "쇼유",
+    ]);
+  });
+
+  it("기존 값은 보존하고 합집합만 한다", () => {
+    const e = promoteFromMenus({
+      name: "a",
+      soups: ["돈코츠"],
+      menus: ["쇼유라멘"],
+    });
+    expect(e.soups).toEqual(["돈코츠", "쇼유"]);
   });
 });

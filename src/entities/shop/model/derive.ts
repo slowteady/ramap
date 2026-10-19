@@ -16,9 +16,10 @@ export function isThinShop(shop: Shop): boolean {
   );
 }
 
-/* 폐업 매장은 행을 보존하지만(기획 15) 검색에는 영업 중처럼 노출되면 안 된다 */
+/* 폐업 매장도 색인한다 — 타베로그식으로 제목·본문에 폐업을 밝혀 "폐업했나?" 검색에 답한다(2026-10-19 PO).
+   제외 기준은 정보 부족(씬 페이지)뿐 */
 export function shouldNoindexShop(shop: Shop): boolean {
-  return shop.status === "closed" || isThinShop(shop);
+  return isThinShop(shop);
 }
 
 /* 지역 리스트 인트로의 장르 분포 문장용 — Airbnb·Zillow식 집계 텍스트(고유 콘텐츠 신호) */
