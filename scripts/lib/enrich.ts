@@ -29,6 +29,8 @@ export type Enrichment = {
   unverified?: boolean;
   /* 범용 상호("라멘야")의 접두 일치 항목과 무관한 독립 매장 — 장르·인스타 체인 승계를 끊는다 */
   standalone?: boolean;
+  /* 조사일(파일명 날짜) — 판정 마크의 최신 우선 판단용, 로더가 채운다 */
+  observedAt?: string;
   /* 계보가 체인 전 지점의 사실일 때만 true — 없으면 계보는 정확 일치 매장에만 붙는다 */
   chainWide?: boolean;
   sourceNote?: string;
@@ -259,11 +261,12 @@ export function mergeEnrichments(matches: Enrichment[]): Enrichment {
     merged.lineages = [
       ...new Set([...(merged.lineages ?? []), ...(e.lineages ?? [])]),
     ];
-    /* 판정 마크만 최신 조사 우선 — 합집합이면 재검증으로 뒤집힌 보류가 되살아난다 */
-    const carried = (merged.soupDetail ?? []).filter(
-      (d) => !VERDICT_MARKS.includes(d),
-    );
-    merged.soupDetail = [...new Set([...carried, ...(e.soupDetail ?? [])])];
+    merged.soupDetail = [
+      ...new Set([
+        ...(merged.soupDetail ?? []),
+        ...(e.soupDetail ?? []).filter((d) => !VERDICT_MARKS.includes(d)),
+      ]),
+    ];
     merged.primarySoup ??= e.primarySoup;
     merged.primaryForm ??= e.primaryForm;
     if (e.areaConfirmed && e.area && !merged.areaConfirmed) {
@@ -286,6 +289,20 @@ export function mergeEnrichments(matches: Enrichment[]): Enrichment {
       .filter(Boolean)
       .join("; ");
   }
+  /* 판정 마크만 최신 조사 우선 — 합집합이면 재검증으로 뒤집힌 보류가 되살아난다.
+     최신은 파일 나열 순서가 아니라 조사일(observedAt) 기준 (2026-10-27: 알파벳순 뒤의 9월 조사가 10월 판정을 지우던 결함) */
+  const latest = matches
+    .map((e, i) => ({ e, i }))
+    .sort(
+      (a, b) =>
+        (a.e.observedAt ?? "").localeCompare(b.e.observedAt ?? "") || a.i - b.i,
+    )
+    .at(-1)?.e;
+  const marks = (latest?.soupDetail ?? []).filter((d) =>
+    VERDICT_MARKS.includes(d),
+  );
+  if (marks.length > 0)
+    merged.soupDetail = [...new Set([...(merged.soupDetail ?? []), ...marks])];
   return merged;
 }
 

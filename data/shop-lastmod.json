@@ -31,10 +31,6 @@
     "date": "2026-09-03",
     "hash": "079383597c7d7d4a"
   },
-  "kankiramen-dongjakgucheongjeom": {
-    "date": "2026-10-27",
-    "hash": "676af569d0973e0a"
-  },
   "ramen-toneido": {
     "date": "2026-09-03",
     "hash": "33866e7fb6af2dfd"
@@ -157,7 +153,7 @@
   },
   "mennyahana": {
     "date": "2026-10-27",
-    "hash": "9e433dc3f64a374c"
+    "hash": "308d05c076a06b72"
   },
   "wadaramen": {
     "date": "2026-10-27",
@@ -566,10 +562,6 @@
   "sonokiramen-geondaebonjeom": {
     "date": "2026-09-04",
     "hash": "0034e75d80a4870e"
-  },
-  "ijjibangnamen-kacheukare": {
-    "date": "2026-10-27",
-    "hash": "ac39272421311493"
   },
   "umairamen-majesoba": {
     "date": "2026-10-27",
@@ -1003,6 +995,10 @@
     "date": "2026-10-27",
     "hash": "4a3bed71f88f8a9b"
   },
+  "mennyamiko": {
+    "date": "2026-10-27",
+    "hash": "58023e3ddbcbe0c6"
+  },
   "mennya-giljo": {
     "date": "2026-09-03",
     "hash": "d52765d4b22c0a5b"
@@ -1201,7 +1197,7 @@
   },
   "nigoramen": {
     "date": "2026-10-27",
-    "hash": "c1ab8e94c2db04bb"
+    "hash": "18974c7f5bb5c758"
   },
   "sanjjome-3": {
     "date": "2026-10-27",
@@ -1241,11 +1237,7 @@
   },
   "sakuramen": {
     "date": "2026-10-27",
-    "hash": "1277481feb3058bf"
-  },
-  "miseuteoramengyeonghuidaegukjekaempeoseu": {
-    "date": "2026-10-27",
-    "hash": "4eea21bd56f79c34"
+    "hash": "bf86c2cd2644da24"
   },
   "mennyagokoro": {
     "date": "2026-10-27",
@@ -1381,7 +1373,7 @@
   },
   "mennyago": {
     "date": "2026-10-27",
-    "hash": "888074f4d2d4f442"
+    "hash": "967b18fd66381b57"
   },
   "onisangnamen": {
     "date": "2026-09-04",
@@ -1549,7 +1541,7 @@
   },
   "mennyagogodeoksindosi-1hojeom": {
     "date": "2026-10-27",
-    "hash": "f0f5038eacef1cef"
+    "hash": "c256f8e7ab97aaa4"
   },
   "mennyakaorimisa-gangbyeonjeom": {
     "date": "2026-10-27",
@@ -2405,7 +2397,7 @@
   },
   "umairamennyeonsangajokjeom": {
     "date": "2026-10-27",
-    "hash": "21ba30c5276ee478"
+    "hash": "67b5594da92264a3"
   },
   "yosiramen": {
     "date": "2026-10-19",
@@ -2571,10 +2563,6 @@
     "date": "2026-09-03",
     "hash": "af89a0e98244faf8"
   },
-  "ijjibangnamen-kacheukaregwanak-bongcheon": {
-    "date": "2026-10-27",
-    "hash": "c5d9832ac4644d31"
-  },
   "sanjjome-6": {
     "date": "2026-10-27",
     "hash": "3b184ff33a1c62c3"
@@ -2610,10 +2598,6 @@
   "korallamen-sillimjeom": {
     "date": "2026-09-03",
     "hash": "0da0212b5b4dc012"
-  },
-  "michillamen": {
-    "date": "2026-10-19",
-    "hash": "97e9fcd9388e0ba3"
   },
   "jeongnamen-2": {
     "date": "2026-10-27",
@@ -2745,7 +2729,7 @@
   },
   "yuramensamsinnonhyeonnyeokcgvjeomsimjeon": {
     "date": "2026-10-27",
-    "hash": "faff2d16dfa5a1ab"
+    "hash": "93d0205c022634ad"
   },
   "choiramen-3": {
     "date": "2026-10-27",
@@ -3457,7 +3441,7 @@
   },
   "mennyasan": {
     "date": "2026-10-27",
-    "hash": "13170317b1c3774c"
+    "hash": "71e2dbcd9a4246f6"
   },
   "ramensetagaya": {
     "date": "2026-09-03",
@@ -3849,7 +3833,7 @@
   },
   "mennyaro": {
     "date": "2026-10-27",
-    "hash": "aed117d60e1c0c15"
+    "hash": "71bb67ada2e5bc44"
   },
   "wadaramen-pungamjeom": {
     "date": "2026-10-27",
@@ -4933,7 +4917,7 @@
   },
   "deoramen": {
     "date": "2026-10-27",
-    "hash": "bf44145426a3d2c1"
+    "hash": "db87037bde085daf"
   },
   "menteo": {
     "date": "2026-09-04",
@@ -4985,7 +4969,7 @@
   },
   "danbaku": {
     "date": "2026-10-27",
-    "hash": "b10095580d2c25c0"
+    "hash": "f880a8aaa712b167"
   },
   "chikurin": {
     "date": "2026-09-04",
@@ -5077,7 +5061,7 @@
   },
   "kyounosikdang": {
     "date": "2026-10-27",
-    "hash": "01ba809a3988de5e"
+    "hash": "0056666f04498df5"
   },
   "geumseongjemyeonso": {
     "date": "2026-09-04",
@@ -5085,7 +5069,7 @@
   },
   "kyounosikdangochanghosugongwon-bonjeom": {
     "date": "2026-10-27",
-    "hash": "e232b8db4ab56b0d"
+    "hash": "fc050c6cb73179d1"
   },
   "kiwamaruajicheongjujeom": {
     "date": "2026-10-27",
@@ -5181,7 +5165,7 @@
   },
   "itssimnamen": {
     "date": "2026-10-27",
-    "hash": "5fe93141bbfb4787"
+    "hash": "4b1547eb61f40875"
   },
   "majjikado": {
     "date": "2026-09-04",

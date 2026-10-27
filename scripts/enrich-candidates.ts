@@ -24,8 +24,17 @@ if (!tsvInput || jsonInputs.length === 0) {
   process.exit(1);
 }
 
-const enrichments: Enrichment[] = jsonInputs.flatMap(
-  (p) => JSON.parse(readFileSync(resolve(p), "utf8")) as Enrichment[],
+/* 파일명 날짜(2026-09 / 2026-10-27)를 조사일로 — 월 단위 파일은 그 달 0일로 본다 */
+function observedAtOf(path: string): string | undefined {
+  const m = path.match(/(\d{4}-\d{2})(?:-(\d{2}))?/);
+  return m ? `${m[1]}-${m[2] ?? "00"}` : undefined;
+}
+
+const enrichments: Enrichment[] = jsonInputs.flatMap((p) =>
+  (JSON.parse(readFileSync(resolve(p), "utf8")) as Enrichment[]).map((e) => ({
+    ...e,
+    observedAt: observedAtOf(p),
+  })),
 );
 
 const lines = readFileSync(resolve(tsvInput), "utf8")
