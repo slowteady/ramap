@@ -354,3 +354,171 @@ describe("promoteFromMenus — 메뉴명·세부에 있는 장르를 필터 값�
     expect(e.soups).toEqual(["돈코츠", "쇼유"]);
   });
 });
+
+describe("mergeMatched — 승계 규칙 (2026-10-27 데이터 신뢰도)", () => {
+  it("이름만 겹치는 다른 가게에는 장르·인스타를 넘기지 않는다", () => {
+    const e = mergeMatched(
+      "라멘야누",
+      "",
+      [{ name: "라멘야", soups: ["돈코츠"], instagram: "ramenya_gimpo" }],
+      { address: "서울특별시 마포구 동교로 262-3" },
+    );
+    expect(e.soups ?? []).toEqual([]);
+    expect(e.instagram).toBeUndefined();
+  });
+
+  it("지점 표기('…점')면 같은 체인으로 보고 장르·인스타를 넘긴다", () => {
+    const e = mergeMatched(
+      "코이라멘 장충점",
+      "",
+      [{ name: "코이라멘", soups: ["돈코츠"], instagram: "koiramen.official" }],
+      { address: "서울특별시 중구 장충단로 1" },
+    );
+    expect(e.soups).toEqual(["돈코츠"]);
+    expect(e.instagram).toBe("koiramen.official");
+  });
+
+  it("'…점'으로 끝나도 다른 상호 글자가 붙어 있으면 지점이 아니다 (멘야하나 ≠ 멘야하나비 합정점)", () => {
+    const e = mergeMatched(
+      "멘야하나비 합정점",
+      "",
+      [{ name: "멘야하나", soups: ["쇼유"], instagram: "menyahana0428" }],
+      { address: "서울특별시 마포구 독막로 1 (서교동)" },
+    );
+    expect(e.soups ?? []).toEqual([]);
+    expect(e.instagram).toBeUndefined();
+  });
+
+  it("띄어쓰기 없이 붙은 지점명도 지명으로 시작하면 지점이다 (코이라멘수지구청역점)", () => {
+    const e = mergeMatched(
+      "코이라멘수지구청역점",
+      "",
+      [{ name: "코이라멘", soups: ["돈코츠"] }],
+      { address: "경기도 용인시 수지구 풍덕천로 1" },
+    );
+    expect(e.soups).toEqual(["돈코츠"]);
+  });
+
+  it("남은 글자가 매장 주소의 지명이면 지점으로 본다", () => {
+    const e = mergeMatched(
+      "오레노라멘송파",
+      "",
+      [{ name: "오레노라멘", soups: ["토리파이탄"] }],
+      { address: "서울특별시 송파구 백제고분로 1" },
+    );
+    expect(e.soups).toEqual(["토리파이탄"]);
+  });
+
+  it("괄호 별칭만 다르면 같은 가게다", () => {
+    const e = mergeMatched("쿄라멘(Kyo ramen)", "", [
+      { name: "쿄라멘", soups: ["돈코츠"] },
+    ]);
+    expect(e.soups).toEqual(["돈코츠"]);
+  });
+
+  it("짧은 이름 매장도 다른 가게의 긴 이름 항목을 물려받지 않는다", () => {
+    const e = mergeMatched("라멘야", "", [
+      { name: "라멘야 삼미당", soups: ["토리파이탄"] },
+    ]);
+    expect(e.soups ?? []).toEqual([]);
+  });
+
+  it("주소가 지정된 항목의 인스타는 주소가 맞는 매장에만 붙는다 — 지점 계정이 다른 지점으로 번지지 않게", () => {
+    const entries = [
+      { name: "와다라멘", soups: ["돈코츠"] },
+      {
+        name: "와다라멘",
+        addrHint: "삼선교로10길",
+        instagram: "wada_seongbuk",
+      },
+    ];
+    const other = mergeMatched("와다라멘 역삼점", "", entries, {
+      address: "서울특별시 강남구 테헤란로 309",
+    });
+    expect(other.soups).toEqual(["돈코츠"]);
+    expect(other.instagram).toBeUndefined();
+  });
+
+  it("계보는 접두 승계하지 않는다 — 한 지점의 사실이 체인 전체로 번지는 것을 막는다", () => {
+    const e = mergeMatched(
+      "코이라멘 장충점",
+      "",
+      [{ name: "코이라멘", soups: ["돈코츠"], lineages: ["지로계"] }],
+      { address: "서울특별시 중구 장충단로 1" },
+    );
+    expect(e.lineages ?? []).toEqual([]);
+    expect(e.soups).toEqual(["돈코츠"]);
+  });
+
+  it("chainWide로 명시한 계보만 지점에 넘긴다", () => {
+    const e = mergeMatched(
+      "라멘트럭 목동점",
+      "",
+      [{ name: "라멘트럭", lineages: ["이에케"], chainWide: true }],
+      { address: "서울특별시 양천구 목동동로 1" },
+    );
+    expect(e.lineages).toEqual(["이에케"]);
+  });
+
+  it("체인 전체로 명시한 항목은 띄어쓰기 없는 지점명·표기 차이에도 지점으로 본다", () => {
+    const entry = {
+      name: "태양의토마토라멘",
+      lineages: ["본토직영"],
+      chainWide: true,
+    };
+    expect(
+      mergeMatched("태양의 토마토라멘 송리단길점", "", [entry], {
+        address: "서울특별시 송파구 백제고분로45길 1",
+      }).lineages,
+    ).toEqual(["본토직영"]);
+    expect(
+      mergeMatched(
+        "부탄츄건대점",
+        "",
+        [{ name: "부탄츄", lineages: ["지로계"], chainWide: true }],
+        { address: "서울특별시 광진구 동일로 1" },
+      ).lineages,
+    ).toEqual(["지로계"]);
+  });
+
+  it("브랜드를 체인으로 선언(chainWide 항목)하면 같은 이름의 다른 항목도 붙여 쓴 지점명에 넘긴다 — 계보는 제외", () => {
+    const e = mergeMatched(
+      "히노아지삼천포점",
+      "",
+      [
+        { name: "히노아지", chainWide: true },
+        { name: "히노아지", soups: ["돈코츠"], lineages: ["이에케"] },
+      ],
+      { address: "경상남도 사천시 주공로 24" },
+    );
+    expect(e.soups).toEqual(["돈코츠"]);
+    expect(e.lineages ?? []).toEqual([]);
+  });
+
+  it("정확 일치 항목의 계보는 그대로 붙는다", () => {
+    const e = mergeMatched("코이라멘지로", "", [
+      { name: "코이라멘지로", lineages: ["지로계"] },
+    ]);
+    expect(e.lineages).toEqual(["지로계"]);
+  });
+});
+
+describe("mergeMatched — 대표값 정합성", () => {
+  it("국물 목록에 없는 대표 국물은 버린다 — 시트 검증(대표값 ∈ 목록) 위반 방지", () => {
+    const e = mergeMatched(
+      "유타로서현",
+      "직영점",
+      [
+        { name: "유타로", primarySoup: "돈코츠" },
+        {
+          name: "유타로서현 직영점",
+          addrHint: "황새울로335번길 8",
+          soups: ["쇼유", "시오"],
+        },
+      ],
+      { address: "경기도 성남시 분당구 황새울로335번길 8" },
+    );
+    expect(e.soups).toEqual(["쇼유", "시오"]);
+    expect(e.primarySoup).toBeUndefined();
+  });
+});

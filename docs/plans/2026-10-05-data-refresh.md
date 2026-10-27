@@ -18,6 +18,7 @@ npm run refresh-localdata -- /tmp/general_restaurants.csv 2026-10   # 38초, dat
 # 신규 후보 조사 배치(Daum 검색 WebFetch 전용 에이전트) → data/enrichment/refresh-2026-10.json
 npm run enrich-candidates -- data/out/candidates.tsv data/enrichment/*.json
 npm run sync-sheet -- data/out/seed.tsv        # 소실 0 검수 후에만
+npm run audit-integrity                         # 2026-10-27~ 필수: data/out/integrity-report.md의 소실·계보 변경 전부 사유 확인 (data-integrity 스킬)
 npm run indexnow                                # 배포 후
 ```
 
@@ -37,6 +38,8 @@ npm run indexnow                                # 배포 후
 ## 신규 행과 기존 enrichment의 상호작용 (주의)
 
 `enrich-candidates`의 `matchEnrichment`는 정규화 상호의 **접두 일치**(3자 이상)로 묶고, `mergeMatched`는 **장르(soups·forms·lineages)는 동명 전체에서 병합**, 위치·영업시간·실존/업종 판정은 exact 상호+`addrHint`가 맞는 항목에서만 가져온다. 따라서 신규 행은 조사 전이라도 동명 체인의 enrichment가 있으면 게재 게이트를 통과한다(2026-10 라운드: 33건 중 18건이 조사 전 게재 — 노조미라멘·환장라멘·멘야고코로처럼 디깅 때 조사됐으나 인허가 행이 없던 매장은 정당, `라멘야 삼미당`←"라멘야"처럼 범용 접두어 승계는 오염 가능). 라운드마다 신규 행의 자동 게재분을 반드시 눈으로 검토하고, 오염 건은 exact 상호+addrHint 항목으로 덮어쓴다.
+
+> **2026-10-27 갱신:** 위 승계는 이제 같은 체인으로 판정될 때만 일어난다(`isSameChain` — 지점 표기·단어 경계·주소 지명). 계보는 `chainWide: true` 항목만 지점에 넘어가고, `addrHint` 항목의 인스타는 그 주소 매장에만 붙는다. 신규 행이 기존 상호와 접두로 겹치면 같은 체인인지 다른 가게인지 근거에 명시하고, 재생성 후 `npm run audit-integrity` 리포트로 검수한다. 기준·절차는 `.claude/skills/data-integrity/SKILL.md`.
 
 ## 결과 (2026-10-05)
 

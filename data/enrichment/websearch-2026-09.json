@@ -190,6 +190,7 @@
   },
   {
     "name": "멘야하나비",
+    "chainWide": true,
     "soups": ["탄탄멘"],
     "forms": ["마제소바", "라멘"],
     "lineages": ["본토직영"],
@@ -707,6 +708,7 @@
   },
   {
     "name": "라멘81번옥",
+    "chainWide": true,
     "soups": ["쇼유", "미소", "돈코츠", "탄탄멘"],
     "forms": ["라멘"],
     "lineages": ["자가제면"],
@@ -967,6 +969,7 @@
   },
   {
     "name": "멘야 다이고미",
+    "chainWide": true,
     "soups": ["돈코츠"],
     "forms": ["라멘"],
     "lineages": ["자가제면"],
@@ -1026,6 +1029,7 @@
   },
   {
     "name": "멘야산다이메",
+    "chainWide": true,
     "soups": ["돈코츠"],
     "forms": ["라멘"],
     "lineages": ["자가제면"],
@@ -1353,6 +1357,7 @@
   },
   {
     "name": "태양의토마토라멘",
+    "chainWide": true,
     "forms": ["라멘"],
     "lineages": ["본토직영"],
     "soupDetail": ["토마토라멘"],

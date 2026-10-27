@@ -29,6 +29,8 @@ export type Enrichment = {
   unverified?: boolean;
   /* 범용 상호("라멘야")의 접두 일치 항목과 무관한 독립 매장 — 장르·인스타 체인 승계를 끊는다 */
   standalone?: boolean;
+  /* 계보가 체인 전 지점의 사실일 때만 true — 없으면 계보는 정확 일치 매장에만 붙는다 */
+  chainWide?: boolean;
   sourceNote?: string;
 };
 
@@ -287,6 +289,61 @@ export function mergeEnrichments(matches: Enrichment[]): Enrichment {
   return merged;
 }
 
+const BRANCH_SUFFIX = /(직영점|본점|호점|점)$/;
+
+function withoutAlias(name: string): string {
+  return name.replace(/\(.*?\)/g, "");
+}
+
+/* 긴 원문에서 짧은 이름(정규화 길이 n)이 끝나는 지점 바로 뒤가 띄어쓰기·구분자인지 */
+function endsAtWordBoundary(longRaw: string, n: number): boolean {
+  let seen = 0;
+  for (let i = 0; i < longRaw.length; i++) {
+    if (normalizeShopName(longRaw[i]) !== "") seen++;
+    if (seen === n) return /^[\s·_\-(]/.test(longRaw.slice(i + 1));
+  }
+  return false;
+}
+
+/* 접두 일치가 같은 체인의 다른 지점인지 — 남는 글자가 지점 표기·번호·주소 지명일 때만.
+   "라멘야"→"라멘야누", "멘야하나"→"멘야하나비 합정점"처럼 다른 가게로 번지는 오염 차단 (2026-10-27).
+   chainWide로 체인임이 명시된 항목은 띄어쓰기 없는 "…점"도 지점으로 본다 */
+export function isSameChain(
+  shopName: string,
+  entryName: string,
+  address = "",
+  trustedChain = false,
+): boolean {
+  const shopBase = withoutAlias(shopName).trim();
+  const entryBase = withoutAlias(entryName).trim();
+  const a = normalizeShopName(shopBase);
+  const b = normalizeShopName(entryBase);
+  if (a === b) return true;
+  const shopLonger = a.length > b.length;
+  const [shorter, longer] = shopLonger ? [b, a] : [a, b];
+  if (!longer.startsWith(shorter)) return false;
+  const raw = longer.slice(shorter.length);
+  if (/^\d+$/.test(raw)) return true;
+  const rest = raw.replace(BRANCH_SUFFIX, "");
+  const place = normalizeShopName(address);
+  const placeLike = (t: string) => t.length >= 2 && place.includes(t);
+  if (raw.length >= 2 && BRANCH_SUFFIX.test(raw)) {
+    const boundary = endsAtWordBoundary(
+      shopLonger ? shopBase : entryBase,
+      shorter.length,
+    );
+    if (rest === "" || boundary || trustedChain || placeLike(rest.slice(0, 2)))
+      return true;
+  }
+  if (trustedChain && shopLonger && placeLike(rest.slice(0, 2))) return true;
+  if (rest.length < 2 || !place) return false;
+  if (placeLike(rest)) return true;
+  for (let i = 2; i <= rest.length - 2; i++) {
+    if (placeLike(rest.slice(0, i)) && placeLike(rest.slice(i))) return true;
+  }
+  return false;
+}
+
 /* 위치 종속 필드는 정확 일치에서만 — 접두 매칭은 본점 정보가 지점에 전파되는 오염원
    (부탄츄 잠실점에 홍대 본점 상권·영업시간이 붙는 사고, 2026-09-02 실측).
    동명 행이 여럿(ambiguous)이면 정확 일치조차 어느 지점인지 모르므로
@@ -307,10 +364,30 @@ export function mergeMatched(
       (!opts.ambiguous || m.addrHint),
   );
   const own = mergeEnrichments(exact);
+  /* 승계는 같은 체인으로 판정된 항목만, 주소 지정 항목은 그 주소 매장만, 계보는 chainWide만 */
+  const chainBrands = new Set(
+    matches
+      .filter((m) => m.chainWide)
+      .map((m) => normalizeShopName(withoutAlias(m.name))),
+  );
+  const inheritable = (m: Enrichment) =>
+    exact.includes(m) ||
+    (!m.standalone &&
+      isSameChain(
+        `${name} ${branch}`.trim(),
+        m.name,
+        opts.address,
+        chainBrands.has(normalizeShopName(withoutAlias(m.name))),
+      ));
   const all = exact.some((m) => m.standalone)
     ? own
     : mergeEnrichments(
-        matches.filter((m) => !m.standalone || exact.includes(m)),
+        matches.filter(inheritable).map((m) => {
+          if (exact.includes(m)) return m;
+          const scoped =
+            m.addrHint && !hintFits(m) ? { ...m, instagram: undefined } : m;
+          return scoped.chainWide ? scoped : { ...scoped, lineages: undefined };
+        }),
       );
   /* 실존·업종 판정은 그 주소의 업소에 대한 것 — 동명 타업소(이자카야 혼네)로 전파 금지 */
   const soupDetail = [
@@ -319,6 +396,14 @@ export function mergeMatched(
   ];
   return {
     ...all,
+    primarySoup:
+      all.primarySoup && (all.soups ?? []).includes(all.primarySoup)
+        ? all.primarySoup
+        : undefined,
+    primaryForm:
+      all.primaryForm && (all.forms ?? []).includes(all.primaryForm)
+        ? all.primaryForm
+        : undefined,
     soupDetail: [...new Set(soupDetail)],
     area: own.area,
     areaConfirmed: own.areaConfirmed,
