@@ -313,6 +313,12 @@ $$;
 alter table public.reports add column if not exists status text not null default 'open'
   check (status in ('open', 'done'));
 
+-- 제보 처리 결과 (2026-10-27): 완료 하나로는 반영·중복·반려를 구분 못 함 — Linear 트리아지·MapRoulette 결과 분류
+alter table public.reports
+  add column if not exists resolution text check (resolution in ('applied', 'duplicate', 'rejected')),
+  add column if not exists note text,
+  add column if not exists resolved_at timestamptz;
+
 create policy "reports: 관리자 조회" on public.reports
   for select to authenticated using (public.is_admin());
 create policy "reports: 관리자 처리" on public.reports

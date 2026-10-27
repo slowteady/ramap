@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
-import { AdminPage } from "@/views/admin";
+import { getShops } from "@/entities/shop/api/get-shops";
+import { AdminPage, toAdminShops } from "@/views/admin";
 
 export const metadata: Metadata = {
   title: "운영",
   robots: { index: false },
 };
 
-export default function Page() {
-  return <AdminPage />;
+export default async function Page() {
+  return <AdminPage shops={toAdminShops(await getShops())} />;
 }
