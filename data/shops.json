@@ -48572,11 +48572,9 @@
     ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
-    "lineages": [
-      "jiro"
-    ],
+    "lineages": [],
     "amenities": [],
-    "confidence": "estimated",
+    "confidence": "certain",
     "menus": [],
     "photos": [],
     "seats": null,
@@ -66099,6 +66097,134 @@
     "verification": "pending",
     "lastVerifiedAt": null,
     "source": "LOCALDATA 시딩 2026-10; 라멘갤·Daum 장소 카드 2026-10-27; 디깅 발굴 조사(다음검색); 서울 디깅(다음검색); 2026-10-27 신규 후보(LOCALDATA 영업/정상, 인허가 2025-08-06) — Daum 장소 카드 2026-10-27 '멘노 아지 종로점 종로5길 7 타워8 1층 101호 영업중 매일 11:00~21:00",
+    "note": null
+  },
+  {
+    "id": "butanchyu-hongdaebonjeom",
+    "name": "부탄츄",
+    "branch": "홍대본점",
+    "address": "서울특별시 마포구 와우산로35길 75 (서교동, 1층)",
+    "city": "서울",
+    "district": "마포구",
+    "areaLabel": "홍대",
+    "lat": 37.556397,
+    "lng": 126.926724,
+    "coordSource": "localdata",
+    "hours": null,
+    "breakTime": null,
+    "closedDays": null,
+    "openedAt": null,
+    "status": "open",
+    "statusChangedAt": null,
+    "forms": [
+      "ramen"
+    ],
+    "primaryForm": "ramen",
+    "soups": [
+      "tonkotsu"
+    ],
+    "primarySoup": "tonkotsu",
+    "soupDetail": [],
+    "lineages": [],
+    "amenities": [],
+    "confidence": "certain",
+    "menus": [],
+    "photos": [],
+    "seats": null,
+    "tagline": null,
+    "instagram": "butanchu_hongdae",
+    "naverPlace": null,
+    "waitingLink": null,
+    "verification": "pending",
+    "lastVerifiedAt": null,
+    "source": "LOCALDATA 시딩 2026-10; Daum 장소 카드·블로그 2026-10-27; 라벨 검수(다음검색) — 롯데월드몰 3층 '홍그라운드' 입점 매장. 블로그 제목은 '잠실'로 표기, '홍대'는 매장 컨셉·본점 언급. 주소판정 유지; 정보수집(다음검색); 디시 라멘 갤러리 정리글; 디깅 발굴 조사(다음검색) — 도쿄 라멘 체인, 롯데월드몰 3층 위치 확",
+    "note": null
+  },
+  {
+    "id": "butanchyu-seolleungjeom",
+    "name": "부탄츄",
+    "branch": "선릉점",
+    "address": "서울특별시 강남구 삼성로85길 33, 지상2층 202호 (대치동)",
+    "city": "서울",
+    "district": "강남구",
+    "areaLabel": "대치",
+    "lat": 37.504301,
+    "lng": 127.054809,
+    "coordSource": "localdata",
+    "hours": "11:00-21:00",
+    "breakTime": null,
+    "closedDays": null,
+    "openedAt": null,
+    "status": "open",
+    "statusChangedAt": null,
+    "forms": [
+      "ramen"
+    ],
+    "primaryForm": "ramen",
+    "soups": [
+      "tonkotsu"
+    ],
+    "primarySoup": "tonkotsu",
+    "soupDetail": [],
+    "lineages": [],
+    "amenities": [],
+    "confidence": "certain",
+    "menus": [
+      {
+        "name": "토코돈코츠",
+        "price": 10000
+      }
+    ],
+    "photos": [],
+    "seats": null,
+    "tagline": null,
+    "instagram": null,
+    "naverPlace": null,
+    "waitingLink": null,
+    "verification": "pending",
+    "lastVerifiedAt": null,
+    "source": "LOCALDATA 시딩 2026-10; Daum 장소 카드·블로그 2026-10-27; 라벨 검수(다음검색) — 롯데월드몰 3층 '홍그라운드' 입점 매장. 블로그 제목은 '잠실'로 표기, '홍대'는 매장 컨셉·본점 언급. 주소판정 유지; 정보수집(다음검색); 디시 라멘 갤러리 정리글; 디깅 발굴 조사(다음검색) — 도쿄 라멘 체인, 롯데월드몰 3층 위치 확",
+    "note": null
+  },
+  {
+    "id": "butanchyu-sinchonjeom",
+    "name": "부탄츄",
+    "branch": "신촌점",
+    "address": "서울특별시 서대문구 연세로5길 26-9 (창천동,(지상1층))",
+    "city": "서울",
+    "district": "서대문구",
+    "areaLabel": "신촌",
+    "lat": 37.556678,
+    "lng": 126.935094,
+    "coordSource": "localdata",
+    "hours": null,
+    "breakTime": null,
+    "closedDays": null,
+    "openedAt": null,
+    "status": "open",
+    "statusChangedAt": null,
+    "forms": [
+      "ramen"
+    ],
+    "primaryForm": "ramen",
+    "soups": [
+      "tonkotsu"
+    ],
+    "primarySoup": "tonkotsu",
+    "soupDetail": [],
+    "lineages": [],
+    "amenities": [],
+    "confidence": "certain",
+    "menus": [],
+    "photos": [],
+    "seats": null,
+    "tagline": null,
+    "instagram": null,
+    "naverPlace": null,
+    "waitingLink": null,
+    "verification": "pending",
+    "lastVerifiedAt": null,
+    "source": "LOCALDATA 시딩 2026-10; Daum 장소 카드·블로그 2026-10-27; 라벨 검수(다음검색) — 롯데월드몰 3층 '홍그라운드' 입점 매장. 블로그 제목은 '잠실'로 표기, '홍대'는 매장 컨셉·본점 언급. 주소판정 유지; 정보수집(다음검색); 디시 라멘 갤러리 정리글; 디깅 발굴 조사(다음검색) — 도쿄 라멘 체인, 롯데월드몰 3층 위치 확",
     "note": null
   }
 ]

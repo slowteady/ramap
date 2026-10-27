@@ -3881,7 +3881,7 @@
   },
   "butanchyu": {
     "date": "2026-10-27",
-    "hash": "1e338c2b85a7f6ee"
+    "hash": "01b1726bb3957713"
   },
   "ryujin": {
     "date": "2026-10-27",
@@ -5314,5 +5314,17 @@
   "mennoaji-jongnojeom": {
     "date": "2026-10-27",
     "hash": "9b3ec94357b2c7e8"
+  },
+  "butanchyu-hongdaebonjeom": {
+    "date": "2026-10-27",
+    "hash": "265c2deba9b22377"
+  },
+  "butanchyu-seolleungjeom": {
+    "date": "2026-10-27",
+    "hash": "5d8594ccd59a5939"
+  },
+  "butanchyu-sinchonjeom": {
+    "date": "2026-10-27",
+    "hash": "2979762a0b69c4e8"
   }
 }
