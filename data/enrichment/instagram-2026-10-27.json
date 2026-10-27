@@ -78,12 +78,6 @@
     "sourceNote": "2026-10-27 인스타 전수 검수(brand) — 프로필 '겐쇼심야라멘 ゲンショラーメン (@gs_ramen)'"
   },
   {
-    "name": "겐키라멘",
-    "addrHint": "남동대로765번길 25",
-    "instagram": "genkiramen2018",
-    "sourceNote": "2026-10-27 인스타 전수 검수(shop) — 프로필 '겐키라멘 (@genkiramen2018)'"
-  },
-  {
     "name": "계단라멘",
     "addrHint": "목동서로 161",
     "instagram": "upstairramen_mokdong",
@@ -258,12 +252,6 @@
     "sourceNote": "2026-10-27 인스타 전수 검수(shop) — 프로필 '네츠라멘 (@nets._.22)'"
   },
   {
-    "name": "네코라멘야",
-    "addrHint": "명륜로 11",
-    "instagram": "yunjuweon811",
-    "sourceNote": "2026-10-27 인스타 전수 검수(shop) — 프로필 '네코라멘야 (@yunjuweon811) • Instagram photos and videos'"
-  },
-  {
     "name": "노라멘노라이프",
     "addrHint": "강남로 1297",
     "instagram": "no.no_ramen",
@@ -272,20 +260,14 @@
   {
     "name": "노조미라멘 본점",
     "addrHint": "효자길 31-1",
-    "instagram": "nozomi_ramen_honten",
-    "sourceNote": "2026-10-27 인스타 전수 검수(shop) — 프로필 'Samhakdong Tiger (@nozomi_ramen_honten)'"
+    "instagram": "",
+    "sourceNote": "2026-10-27 인스타 재검수 — 후보 계정(@nozomi_ramen_honten '노조미라멘본점 대표… 유튜버', 기존 @samhakdong_tiger_)이 모두 대표 개인 계정이라 매장 계정 아님 → 확인된 계정 없음"
   },
   {
     "name": "뉴진라멘",
     "addrHint": "햇내로안길 48-8",
     "instagram": "nj_ramen",
     "sourceNote": "2026-10-27 인스타 전수 검수(shop) — 프로필 '뉴진라멘 (@nj_ramen)'"
-  },
-  {
-    "name": "니고라멘",
-    "addrHint": "황새울로214번길 8",
-    "instagram": "nigoramen",
-    "sourceNote": "2026-10-27 인스타 전수 검수(shop) — 프로필 '일본라멘 전문점 (@nigoramen)'"
   },
   {
     "name": "니고라멘야탑 직영점",
@@ -424,12 +406,6 @@
     "addrHint": "엑스포로 1",
     "instagram": "tokyo.ramen_daejeon",
     "sourceNote": "2026-10-27 인스타 전수 검수(branch) — 프로필 '동경라멘학교 대전신세계점 (@tokyo.ramen_daejeon) • Instagram-foto's en -'"
-  },
-  {
-    "name": "라라멘",
-    "addrHint": "성남대로997번길 49-13",
-    "instagram": "lalamenramen",
-    "sourceNote": "2026-10-27 인스타 전수 검수(brand) — 같은 체인 브랜드 공식 계정"
   },
   {
     "name": "라라멘",
@@ -606,12 +582,6 @@
     "sourceNote": "2026-10-27 인스타 전수 검수(shop) — 프로필 '라멘 미야키 | 삼송역맛집'"
   },
   {
-    "name": "라멘바",
-    "addrHint": "문화동9길 22",
-    "instagram": "ramen__bar",
-    "sourceNote": "2026-10-27 인스타 전수 검수(shop) — 프로필 'RAMEN-BAR (@ramen__bar) · Changwon'"
-  },
-  {
     "name": "라멘바 시코우",
     "addrHint": "와우산로7길 33",
     "instagram": "ramenbarshikou",
@@ -640,12 +610,6 @@
     "addrHint": "동부로 149",
     "instagram": "ramen.setagaya",
     "sourceNote": "2026-10-27 인스타 전수 검수(shop) — 프로필 '라멘 세타가야 (@ramen.setagaya)'"
-  },
-  {
-    "name": "라멘스스",
-    "addrHint": "광복로 90-1",
-    "instagram": "ramenss.official",
-    "sourceNote": "2026-10-27 인스타 전수 검수(shop) — 프로필 '라멘스스 (@ramenss.official)'"
   },
   {
     "name": "라멘야 상남점",
@@ -798,12 +762,6 @@
     "sourceNote": "2026-10-27 인스타 전수 검수(shop) — 프로필 '(@ramen_takano) • Instagram photos and videos'"
   },
   {
-    "name": "라멘토카이",
-    "addrHint": "효령로31길 16",
-    "instagram": "ramen_tokai_",
-    "sourceNote": "2026-10-27 인스타 전수 검수(shop) — 프로필 '라멘 토카이 (@ramen_tokai_)'"
-  },
-  {
     "name": "라멘트럭 건대점",
     "addrHint": "광나루로22가길 18",
     "instagram": "ramentruck_official",
@@ -924,12 +882,6 @@
     "sourceNote": "2026-10-27 인스타 전수 검수(shop) — 프로필 '록-멘 (@rokmen_ramen) · Seoul'"
   },
   {
-    "name": "룡소",
-    "addrHint": "용소3길 6",
-    "instagram": "dabo_ong",
-    "sourceNote": "2026-10-27 인스타 전수 검수(shop) — 프로필 'dabo_ong - 중화소바 룡소'"
-  },
-  {
     "name": "류가츠케멘제주본점",
     "addrHint": "동광로6길 19",
     "instagram": "ryuga_tsukemen.jeju",
@@ -1048,12 +1000,6 @@
     "addrHint": "낙동대로410번길 23",
     "instagram": "makuni_saha",
     "sourceNote": "2026-10-27 인스타 전수 검수(branch) — 프로필 '마꾸니 라멘&덮밥 사하구청점 (@makuni_saha)'"
-  },
-  {
-    "name": "마시타라멘 세종점",
-    "addrHint": "가름로 232",
-    "instagram": "masita_noodle",
-    "sourceNote": "2026-10-27 인스타 전수 검수(brand) — 같은 체인 브랜드 공식 계정"
   },
   {
     "name": "마시타라멘",
@@ -1788,12 +1734,6 @@
     "sourceNote": "2026-10-27 인스타 전수 검수(shop) — 프로필 '멘야타마시 (@menya_tamashi)'"
   },
   {
-    "name": "멘야타치아가루",
-    "addrHint": "용신로 382",
-    "instagram": "ramen__tachiagaru",
-    "sourceNote": "2026-10-27 인스타 전수 검수(shop) — 프로필 '💜 (@ramen__tachiagaru) • Instagram photos and videos'"
-  },
-  {
     "name": "멘야토류",
     "addrHint": "달구벌대로 1726-8",
     "instagram": "menya_toryu",
@@ -2146,12 +2086,6 @@
     "addrHint": "서당로9길 55",
     "instagram": "m.sikdang_official",
     "sourceNote": "2026-10-27 인스타 전수 검수(brand) — 프로필 '면식당 (@m.sikdang_official)'"
-  },
-  {
-    "name": "면식당 공주대점",
-    "addrHint": "공주대학로 67",
-    "instagram": "m.sikdang_kongju",
-    "sourceNote": "2026-10-27 인스타 전수 검수(branch) — 프로필 '면식당공주대점 (@m.sikdang_kongju)'"
   },
   {
     "name": "면식당 오창점",

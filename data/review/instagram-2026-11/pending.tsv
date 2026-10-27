@@ -754,3 +754,15 @@ side	mennyago	멘야고	경기도 평택시 팽성읍 송화택지로 143-12		�
 side	mennyaniku	멘야니쿠	서울특별시 송파구 올림픽로32길 29, 유성빌딩 2층 201호 (방이동)		부수 단서: 프로필 없음. 포스트에 같은 주소(올림픽로32길 29)가 '멘츠루 잠실점'으로 표기됨(개명/교체 가능성), 이자카야 메끼야(mekkiya_seoul)가 멘야니쿠로 업종 변경 안내
 side	mennyamuteki	멘야무테키	서울특별시 영등포구 당산로 42 (문래동3가, 2층(일부))		부수 단서: Only unrelated muteki_humans (무테키 센텀, izakaya) surfaced
 side	mennyatorimoto	멘야토리모토	부산광역시 연제구 중앙대로1043번길 34	menya_torimotto	부수 단서: bio가 옛 상호 '나의 피는 라멘으로 되어있어(나피라)' 언급 - 상호 변경 이력 추정
+recheck	nigoramen	니고라멘	경기도 성남시 분당구 황새울로214번길 8		@nigoramen이 수내 본점 계정일 수 있음(서현 매장)
+recheck	ramenba	라멘바	경상남도 창원시 마산합포구 문화동9길 22		@ramen__bar 위치 근거 없음(이름 범용)
+recheck	genkiramen	겐키라멘	인천광역시 남동구 남동대로765번길 25		@genkiramen2018 위치 근거 없음
+recheck	ramenseuseu	라멘스스	부산광역시 중구 광복로 90-1		@ramenss.official vs @ramen_s.s(주소 일치) 중 확인
+recheck	ryongso	룡소	경상남도 거제시 용소3길 6		@dabo_ong 위치 근거 없음
+recheck	ramentokai	라멘토카이	서울특별시 서초구 효령로31길 16, 1층 (방배동)		@ramen_tokai_ 위치 근거 없음
+recheck	mennyatachiagaru	멘야타치아가루	경기도 안산시 상록구 용신로 382		@ramen__tachiagaru 이름이 소개 해시태그뿐
+recheck	nekoramennya	네코라멘야	부산광역시 연제구 명륜로 11		@yunjuweon811 사장 개인 계정 성격
+recheck	myeonsikdang-gongjudaejeom	면식당 공주대점	충청남도 공주시 공주대학로 67		@m.sikdang_kongju 게시물 0 — 브랜드 @m.sikdang_official 연결 검토
+recheck	raramen	라라멘	경기도 성남시 중원구 성남대로997번길 49-13, 101호 (여수동)		주소(49-13)가 다른 업장으로 검색됨 — 매장 주소 점검 후 @lalamenramen 판단
+recheck	masitaramen-sejongjeom	마시타라멘 세종점	세종특별자치시 가름로 232		세종 매장이 미시타라멘/신이치(가름로 143)일 수 있음 — 상호·주소 점검
+recheck	nojomiramen-bonjeom	노조미라멘 본점	전북특별자치도 군산시 효자길 31-1		매장 공식 계정 찾기(대표 개인 계정 제외)

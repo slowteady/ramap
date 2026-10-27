@@ -31,6 +31,8 @@ Tavily 크레딧은 `/news`·`/gap`·`/rsi` 스킬과 공용이다. 1~3순위(�
    - 브랜드 계정으로 대체하는 경우라도, 기존 링크가 그 매장만 쓰는 계정이고 "wrong"이 아니면 기존 링크 유지
    - `existingVerdict: "wrong"`이고 대체할 계정이 없으면 `"instagram": ""`(확인된 계정 없음 — 이전 값·체인 승계 차단)
    - `unverified`는 기존 값 유지
+   - 에이전트가 `handle: null`로 판정한 매장에 같은 이름 그룹의 브랜드 계정을 자동 대입하지 않는다(1차 결함: 다른 업장인 라라멘 49-13·마시타라멘 세종점에 브랜드 계정이 붙었다). 브랜드 대체는 에이전트가 그 매장에 `kind: "brand"`를 준 경우만
+   - 소개글·제목에 위치 근거가 없는 매장·지점 계정은 이름이 고유하고 다른 단서(계정명 지명·전화번호·역 이름)가 있을 때만 반영. 대표 개인·유튜버 계정, 게시물 0개 빈 계정은 쓰지 않는다
    - 브랜드 계정 중 교육기관·운영사 계정(예: `tokyoramenschool`, `kyeong_company`)처럼 제목에 브랜드명이 없거나 같은 사업체인지 불분명한 것은 쓰지 않는다
 5. 재생성·검수: `npm run enrich-candidates -- data/out/candidates.tsv data/enrichment/*.json` → `npm run sync-sheet -- data/out/seed.tsv` → `npm run audit-integrity`. 인스타 변경 행을 표본 확인(바뀐 계정의 프로필 제목이 그 매장인지)
 6. `npm test`, `npm run build` → 커밋 → main 머지(데이터 전용이라 UI 검수 불필요) → `npm run indexnow`
