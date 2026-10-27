@@ -45,34 +45,53 @@ export function planMarkers(
   level: number,
   selectedId: string | null,
   visitedIds: ReadonlySet<string>,
+  savedIds: ReadonlySet<string> = new Set(),
 ): MapMarker[] {
   const unit = degPerPx(level);
+  const stateOf = (p: ShopPin): MapMarker["state"] =>
+    p.id === selectedId
+      ? "selected"
+      : savedIds.has(p.id)
+        ? "saved"
+        : visitedIds.has(p.id)
+          ? "visited"
+          : "default";
   /* 신규 오픈은 라벨 충돌 시 점으로 강등되지 않게 일반보다 우선 (13번 C절 2단 위계) */
-  const priority = (p: ShopPin) =>
-    p.id === selectedId ? 0 : p.isNew ? 1 : visitedIds.has(p.id) ? 3 : 2;
+  const rank = { selected: 0, saved: 2, default: 3, visited: 4 } as const;
+  const priority = (p: ShopPin) => {
+    const state = stateOf(p);
+    return state === "selected" ? 0 : p.isNew ? 1 : rank[state];
+  };
   const ordered = [...pins].sort(
     (a, b) => priority(a) - priority(b) || a.name.localeCompare(b.name),
   );
 
   const kept: Box[] = [];
+  const pills: Box[] = [];
   const markers: MapMarker[] = [];
   for (const pin of ordered) {
     const box = pillBox(pin, unit);
     const collides = kept.some((k) => intersects(k, box));
     const pill = pin.id === selectedId || !collides;
+    const state = stateOf(pin);
+    /* 라벨을 가리는 하위 점은 그 축척에서 숨김 — 저장·신규는 남긴다 (구글 OPTIONAL_AND_HIDES_LOWER_PRIORITY) */
+    if (
+      !pill &&
+      !pin.isNew &&
+      (state === "default" || state === "visited") &&
+      pills.some((k) => intersects(k, dotBox(pin, unit)))
+    ) {
+      continue;
+    }
     kept.push(pill ? box : dotBox(pin, unit));
+    if (pill) pills.push(box);
     markers.push({
       id: pin.id,
       pos: { lat: pin.lat, lng: pin.lng },
       label: pin.name,
       kind: pill ? "pill" : "dot",
       isNew: pin.isNew,
-      state:
-        pin.id === selectedId
-          ? "selected"
-          : visitedIds.has(pin.id)
-            ? "visited"
-            : "default",
+      state,
     });
   }
   return markers;

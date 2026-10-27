@@ -58,4 +58,27 @@ describe("FilterChips", () => {
       expect.objectContaining({ lineages: ["jikaseimen"] }),
     );
   });
+
+  it("저장 기록이 없으면 저장한 곳 칩이 없고, 있으면 눌러서 토글한다", async () => {
+    const user = userEvent.setup();
+    const { rerender } = render(
+      <FilterChips {...baseProps} filters={EMPTY_FILTERS} />,
+    );
+    expect(
+      screen.queryByRole("button", { name: "저장한 곳" }),
+    ).not.toBeInTheDocument();
+    const onToggleSavedOnly = vi.fn();
+    rerender(
+      <FilterChips
+        {...baseProps}
+        filters={EMPTY_FILTERS}
+        savedOnly={false}
+        onToggleSavedOnly={onToggleSavedOnly}
+      />,
+    );
+    const chip = screen.getByRole("button", { name: "저장한 곳" });
+    expect(chip).toHaveAttribute("aria-pressed", "false");
+    await user.click(chip);
+    expect(onToggleSavedOnly).toHaveBeenCalled();
+  });
 });

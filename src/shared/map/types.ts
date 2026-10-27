@@ -1,6 +1,6 @@
 export type LatLng = { lat: number; lng: number };
 
-export type MarkerState = "default" | "selected" | "visited";
+export type MarkerState = "default" | "selected" | "saved" | "visited";
 
 export type MapMarker = {
   id: string;
@@ -55,6 +55,7 @@ declare global {
           xAnchor?: number;
           yAnchor?: number;
           clickable?: boolean;
+          zIndex?: number;
         }) => KakaoOverlay;
         event: {
           addListener(target: unknown, type: string, cb: () => void): void;
@@ -84,4 +85,5 @@ export type KakaoMap = {
 export type KakaoOverlay = {
   setMap(map: KakaoMap | null): void;
   setContent(content: HTMLElement): void;
+  setZIndex(zIndex: number): void;
 };

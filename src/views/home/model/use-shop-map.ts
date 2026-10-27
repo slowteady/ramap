@@ -48,6 +48,7 @@ export function useShopMap(
   filters: MapFilters,
   selectedId: string | null,
   visitedIds: ReadonlySet<string>,
+  savedIds: ReadonlySet<string>,
   onSelect: (id: string) => void,
   onClear: () => void,
 ) {
@@ -145,12 +146,12 @@ export function useShopMap(
     const buffered = expandBounds(view.bounds, BOUNDS_BUFFER_RATIO);
     const inView = visiblePins.filter((p) => withinBounds(p, buffered));
     adapter.render(
-      planMarkers(inView, view.level, selectedId, visitedIds),
+      planMarkers(inView, view.level, selectedId, visitedIds, savedIds),
       [],
       (id) => onSelectRef.current(id),
       () => {},
     );
-  }, [status, view, visiblePins, selectedId, visitedIds]);
+  }, [status, view, visiblePins, selectedId, visitedIds, savedIds]);
 
   const panToPin = useCallback((pin: ShopPin) => {
     const adapter = adapterRef.current;

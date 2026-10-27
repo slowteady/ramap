@@ -28,10 +28,20 @@ export function ShopMap({ pins }: { pins: ShopPin[] }) {
     () => new Set(records.filter((r) => r.visited).map((r) => r.shopId)),
     [records],
   );
+  const savedIds = useMemo(
+    () => new Set(records.filter((r) => r.saved).map((r) => r.shopId)),
+    [records],
+  );
   const [hideVisited, setHideVisited] = useState(false);
+  const [savedOnly, setSavedOnly] = useState(false);
   const basePins = useMemo(
-    () => (hideVisited ? pins.filter((p) => !visitedIds.has(p.id)) : pins),
-    [pins, hideVisited, visitedIds],
+    () =>
+      pins.filter(
+        (p) =>
+          !(hideVisited && visitedIds.has(p.id)) &&
+          !(savedOnly && !savedIds.has(p.id)),
+      ),
+    [pins, hideVisited, visitedIds, savedOnly, savedIds],
   );
   const {
     containerRef,
@@ -52,6 +62,7 @@ export function ShopMap({ pins }: { pins: ShopPin[] }) {
     filters,
     selectedId,
     visitedIds,
+    savedIds,
     (id) => {
       track("shop_selected", { shop_id: id, source: "map" });
       select(id);
@@ -71,6 +82,11 @@ export function ShopMap({ pins }: { pins: ShopPin[] }) {
           onToggleHideVisited={() => {
             track("hide_visited_toggled", { on: !hideVisited });
             setHideVisited((v) => !v);
+          }}
+          savedOnly={savedIds.size > 0 || savedOnly ? savedOnly : null}
+          onToggleSavedOnly={() => {
+            track("saved_only_toggled", { on: !savedOnly });
+            setSavedOnly((v) => !v);
           }}
           hasNew={pins.some((p) => p.isNew)}
         />
