@@ -36,6 +36,8 @@ export type {
 } from "@/entities/shop/model/area-clusters";
 export {
   isThinShop,
+  shouldNoindexArea,
+  shouldNoindexAreaGenre,
   shouldNoindexShop,
   soupBreakdown,
   shopById,

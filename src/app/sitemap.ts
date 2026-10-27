@@ -8,6 +8,8 @@ import {
   shopsByArea,
   shopsByAreaGenre,
   shopsByGenre,
+  shouldNoindexArea,
+  shouldNoindexAreaGenre,
   shouldNoindexShop,
 } from "@/entities/shop";
 import { getClosureLedger } from "@/entities/shop/api/get-closure-ledger";
@@ -55,15 +57,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         ...latest([s]),
         ...(s.photos.length > 0 && { images: s.photos }),
       })),
-    ...listAreaPages(shops).map((a) => ({
-      url: `${BASE}/area/${encodeURIComponent(a.area)}`,
-      priority: 0.8,
-      ...latest(shopsByArea(shops, a.area)),
-    })),
-    ...listAreaGenrePages(shops).map((p) => ({
-      url: `${BASE}/area/${encodeURIComponent(p.area)}/${p.genre}`,
-      priority: 0.8,
-      ...latest(shopsByAreaGenre(shops, p.area, p.genre)),
-    })),
+    ...listAreaPages(shops)
+      .filter((a) => !shouldNoindexArea(shopsByArea(shops, a.area).length))
+      .map((a) => ({
+        url: `${BASE}/area/${encodeURIComponent(a.area)}`,
+        priority: 0.8,
+        ...latest(shopsByArea(shops, a.area)),
+      })),
+    ...listAreaGenrePages(shops)
+      .filter((p) => !shouldNoindexAreaGenre(p.genre))
+      .map((p) => ({
+        url: `${BASE}/area/${encodeURIComponent(p.area)}/${p.genre}`,
+        priority: 0.8,
+        ...latest(shopsByAreaGenre(shops, p.area, p.genre)),
+      })),
   ];
 }

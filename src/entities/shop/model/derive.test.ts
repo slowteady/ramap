@@ -9,7 +9,13 @@ import {
   shopsByAreaGenre,
   shopsByGenre,
 } from "./derive";
-import { isThinShop, shouldNoindexShop, soupBreakdown } from "./derive";
+import {
+  isThinShop,
+  shouldNoindexArea,
+  shouldNoindexAreaGenre,
+  shouldNoindexShop,
+  soupBreakdown,
+} from "./derive";
 import { listAreaPages } from "./area-clusters";
 
 const shop = (over: Partial<Shop>): Shop => ({
@@ -89,6 +95,20 @@ describe("shopsByAreaGenre / listAreaGenrePages", () => {
     expect(pages).toContainEqual({ area: "성수", genre: "niboshi" });
     expect(pages).not.toContainEqual({ area: "성수", genre: "shio" });
     expect(pages).not.toContainEqual({ area: "연남", genre: "niboshi" });
+  });
+});
+
+describe("shouldNoindexArea / shouldNoindexAreaGenre", () => {
+  it("매장 3곳 미만 지역 페이지는 색인 제외", () => {
+    expect(shouldNoindexArea(1)).toBe(true);
+    expect(shouldNoindexArea(2)).toBe(true);
+    expect(shouldNoindexArea(3)).toBe(false);
+  });
+
+  it("기타 장르 지역 페이지는 색인 제외", () => {
+    expect(shouldNoindexAreaGenre("etc-soup")).toBe(true);
+    expect(shouldNoindexAreaGenre("niboshi")).toBe(false);
+    expect(shouldNoindexAreaGenre("iekei")).toBe(false);
   });
 });
 

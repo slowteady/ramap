@@ -4,6 +4,7 @@ import {
   LINEAGES,
   listAreaGenrePages,
   shopsByAreaGenre,
+  shouldNoindexAreaGenre,
   soupBySlug,
   type GenreSlug,
 } from "@/entities/shop";
@@ -44,6 +45,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${area} ${label} 라멘 맛집 ${count}곳`,
     description: `${area}의 ${label} 라멘집 ${count}곳. 영업 정보와 위치를 라맵 지도에서 확인하세요.`,
     alternates: { canonical: `/area/${encodeURIComponent(area)}/${genre}` },
+    ...(shouldNoindexAreaGenre(genre as GenreSlug) && {
+      robots: { index: false },
+    }),
   };
 }
 

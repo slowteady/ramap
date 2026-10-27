@@ -5,6 +5,7 @@ import {
   listAreaGenrePages,
   nearestAreas,
   shopsByArea,
+  shouldNoindexArea,
 } from "@/entities/shop";
 import { getShops } from "@/entities/shop/api/get-shops";
 import { AreaListPage, genreLabelOf, type CrossLink } from "@/views/area-list";
@@ -28,6 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${area} 라멘 맛집 ${count}곳`,
     description: `${area}의 라멘집 ${count}곳. 스프 계열·영업 정보와 위치를 라맵 지도에서 확인하세요.`,
     alternates: { canonical: `/area/${encodeURIComponent(area)}` },
+    ...(shouldNoindexArea(count) && { robots: { index: false } }),
   };
 }
 
