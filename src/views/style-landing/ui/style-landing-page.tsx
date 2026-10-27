@@ -7,8 +7,9 @@ import {
   type Shop,
   type TaxonomyItem,
   guideBySlug,
+  OpenStatusBadge,
 } from "@/entities/shop";
-import { StyleProgress, VisitedCheck } from "./style-progress";
+import { VisitedCheck } from "./visited-check";
 
 type StyleLandingPageProps = {
   lineage: TaxonomyItem;
@@ -91,8 +92,6 @@ export function StyleLandingPage({ lineage, shops }: StyleLandingPageProps) {
         </div>
       </div>
 
-      <StyleProgress label={lineage.label} shopIds={shops.map((s) => s.id)} />
-
       {shops.length === 0 && (
         <p className="px-4 pt-6 text-body text-gray-400">
           아직 등록된 {lineage.label} 매장이 없어요. 알고 계신 곳이 있다면
@@ -115,11 +114,12 @@ export function StyleLandingPage({ lineage, shops }: StyleLandingPageProps) {
               <span className="text-secondary text-gray-400">
                 {cardTags(shop)}
               </span>
-              <span
-                className={`text-secondary font-semibold ${shop.status === "open" ? "text-open" : "text-gray-400"}`}
-              >
-                {shop.status === "open" ? "영업중" : "휴업 중"}
-              </span>
+              <OpenStatusBadge
+                status={shop.status}
+                hours={shop.hours}
+                breakTime={shop.breakTime}
+                closedDays={shop.closedDays}
+              />
             </Link>
           </li>
         ))}
