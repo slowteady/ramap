@@ -15,7 +15,7 @@ describe("directionLinks", () => {
       "https://map.kakao.com/link/to/%ED%82%A8%EC%B9%B4,37.5446,127.0559",
     );
     expect(links[1].href).toBe(
-      "https://map.naver.com/p/search/%ED%82%A8%EC%B9%B4",
+      "https://map.naver.com/p/search/%ED%82%A8%EC%B9%B4?c=14143798.0883,4515291.3184,15,0,0,0,dh",
     );
     expect(links[2].href).toBe(
       "tmap://route?goalname=%ED%82%A8%EC%B9%B4&goalx=127.0559&goaly=37.5446",
@@ -30,8 +30,19 @@ describe("directionLinks", () => {
     expect(links[1].href).toBe("https://naver.me/abc");
   });
 
-  it("좌표가 없으면 좌표 기반 링크는 빠지고 네이버 검색만", () => {
+  it("좌표가 없으면 좌표 기반 링크는 빠지고 네이버는 이름 검색만", () => {
     const links = directionLinks({ ...base, lat: null, lng: null });
     expect(links.map((l) => l.label)).toEqual(["네이버 지도"]);
+    expect(links[0].href).toBe(
+      "https://map.naver.com/p/search/%ED%82%A8%EC%B9%B4",
+    );
+  });
+
+  it("네이버 검색어에서 괄호 별칭은 뗀다 — 등록명과 달라 검색이 0건이 되는 것을 막는다", () => {
+    const links = directionLinks({
+      ...base,
+      name: "우시라멘(우리의시작은라멘이였다)",
+    });
+    expect(decodeURIComponent(links[1].href)).toContain("/p/search/우시라멘?");
   });
 });
