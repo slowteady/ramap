@@ -1,0 +1,87 @@
+import { render, screen } from "@testing-library/react";
+import { beforeEach, describe, expect, it, vi } from "vitest";
+import { LINEAGES, type Shop } from "@/entities/shop";
+import { createNavigationStub } from "@/shared/testing/next-navigation";
+import { StyleLandingPage } from "./style-landing-page";
+
+const nav = vi.hoisted(() => ({
+  current: null as never as ReturnType<typeof createNavigationStub>,
+}));
+vi.mock("next/navigation", () => ({
+  useRouter: () => nav.current.handlers.useRouter(),
+  usePathname: () => nav.current.handlers.usePathname(),
+  useSearchParams: () => nav.current.handlers.useSearchParams(),
+}));
+vi.mock("@/features/records", () => ({
+  useRecords: () => ({ visitedIds: new Set<string>() }),
+}));
+
+const shop = (over: Partial<Shop>): Shop => ({
+  id: "kinka",
+  name: "킨카",
+  branch: null,
+  address: null,
+  city: "서울",
+  district: "성동구",
+  areaLabel: "성수",
+  lat: 37.54,
+  lng: 127.05,
+  coordSource: "manual-pin",
+  hours: null,
+  breakTime: null,
+  closedDays: null,
+  openedAt: null,
+  status: "open",
+  statusChangedAt: null,
+  forms: ["ramen"],
+  primaryForm: "ramen",
+  soups: ["tonkotsu"],
+  primarySoup: "tonkotsu",
+  soupDetail: [],
+  lineages: ["iekei"],
+  amenities: [],
+  confidence: "certain",
+  menus: [],
+  photos: [],
+  seats: null,
+  tagline: null,
+  instagram: null,
+  naverPlace: null,
+  waitingLink: null,
+  verification: "confirmed",
+  lastVerifiedAt: null,
+  source: null,
+  note: null,
+  ...over,
+});
+
+const iekei = LINEAGES.find((l) => l.slug === "iekei")!;
+
+describe("StyleLandingPage 목록", () => {
+  beforeEach(() => {
+    nav.current = createNavigationStub();
+  });
+
+  it("실시간 판정처럼 읽히는 '영업중' 대신 영업시간을 보여준다", () => {
+    render(
+      <StyleLandingPage
+        lineage={iekei}
+        shops={[
+          shop({
+            id: "a",
+            name: "멘야 카엔",
+            hours: "11:00-21:00",
+            breakTime: "15:00-17:00",
+          }),
+          shop({ id: "b", name: "라멘 킥스타트" }),
+          shop({ id: "c", name: "쉬는집", status: "paused" }),
+        ]}
+      />,
+    );
+    expect(screen.queryByText("영업중")).not.toBeInTheDocument();
+    expect(
+      screen.getByText("11:00-21:00 · 브레이크 15:00-17:00"),
+    ).toBeInTheDocument();
+    expect(screen.getByText("휴업 중")).toBeInTheDocument();
+  });
+});

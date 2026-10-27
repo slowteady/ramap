@@ -7,6 +7,7 @@ import {
   type Shop,
   type TaxonomyItem,
   guideBySlug,
+  OpenStatusBadge,
 } from "@/entities/shop";
 import { StyleProgress, VisitedCheck } from "./style-progress";
 
@@ -115,11 +116,12 @@ export function StyleLandingPage({ lineage, shops }: StyleLandingPageProps) {
               <span className="text-secondary text-gray-400">
                 {cardTags(shop)}
               </span>
-              <span
-                className={`text-secondary font-semibold ${shop.status === "open" ? "text-open" : "text-gray-400"}`}
-              >
-                {shop.status === "open" ? "영업중" : "휴업 중"}
-              </span>
+              <OpenStatusBadge
+                status={shop.status}
+                hours={shop.hours}
+                breakTime={shop.breakTime}
+                closedDays={shop.closedDays}
+              />
             </Link>
           </li>
         ))}
