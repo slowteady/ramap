@@ -29,6 +29,15 @@ describe("OpenStatusBadge", () => {
     expect(container).toHaveTextContent(/^일 휴무$/);
   });
 
+  it("연중무휴는 '휴무'를 덧붙이지 않고 강조하지 않는다 — 헛걸음 경고가 아니다", () => {
+    const { container } = render(
+      <OpenStatusBadge status="open" {...base} closedDays="연중무휴" />,
+    );
+    expect(container).toHaveTextContent("11:00-21:00 · 연중무휴");
+    expect(container).not.toHaveTextContent("연중무휴 휴무");
+    expect(screen.getByText("연중무휴")).not.toHaveClass("text-ramen");
+  });
+
   it("휴업 매장은 '휴업 중'", () => {
     render(<OpenStatusBadge status="paused" {...base} />);
     expect(screen.getByText("휴업 중")).toBeInTheDocument();

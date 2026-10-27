@@ -5,6 +5,7 @@ import { ChevronLeft, Quote } from "lucide-react";
 import {
   AMENITIES,
   breadcrumbJsonLd,
+  closedDaysLabel,
   faqJsonLd,
   formBySlug,
   isNewOpen,
@@ -21,6 +22,7 @@ import { ReportEntryRow, ReportSheet } from "@/features/report";
 import { genreMeta } from "../model/genre-meta";
 import { CopyAddress } from "./copy-address";
 import { DetailActions } from "./detail-actions";
+import { InstagramLink } from "./instagram-link";
 import { PhotoGallery } from "./photo-gallery";
 import { RecordLogSection } from "./record-log-section";
 
@@ -28,6 +30,7 @@ type ShopDetailPageProps = {
   shop: Shop;
   nearby: Shop[];
   goneLabel?: "폐업" | "이전";
+  instagramShared?: boolean;
 };
 
 type InfoRow = { label: string; value: React.ReactNode };
@@ -43,7 +46,7 @@ function labelsOf(
     .join(", ");
 }
 
-function infoRows(shop: Shop): InfoRow[] {
+function infoRows(shop: Shop, instagramShared: boolean): InfoRow[] {
   const rows: InfoRow[] = [];
   if (shop.hours) rows.push({ label: "영업시간", value: shop.hours });
   if (shop.breakTime) rows.push({ label: "브레이크", value: shop.breakTime });
@@ -111,6 +114,18 @@ function infoRows(shop: Shop): InfoRow[] {
     });
   }
 
+  if (shop.instagram)
+    rows.push({
+      label: "인스타",
+      value: (
+        <InstagramLink
+          shopId={shop.id}
+          handle={shop.instagram}
+          shared={instagramShared}
+        />
+      ),
+    });
+
   if (shop.openedAt)
     rows.push({ label: "오픈", value: dayjs(shop.openedAt).format("YYYY.M") });
   if (shop.lastVerifiedAt)
@@ -170,9 +185,10 @@ export function ShopDetailPage({
   shop,
   nearby,
   goneLabel,
+  instagramShared = false,
 }: ShopDetailPageProps) {
   const meta = genreMeta(shop);
-  const rows = infoRows(shop);
+  const rows = infoRows(shop, instagramShared);
   const breadcrumb = [
     { name: "라맵", url: "https://ramap.kr" },
     ...(shop.areaLabel
@@ -192,7 +208,7 @@ export function ShopDetailPage({
           a: [
             shop.hours,
             shop.breakTime && `브레이크 ${shop.breakTime}`,
-            shop.closedDays && `${shop.closedDays} 휴무`,
+            shop.closedDays && closedDaysLabel(shop.closedDays),
           ]
             .filter(Boolean)
             .join(", "),
@@ -206,7 +222,9 @@ export function ShopDetailPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: toJsonLdHtml(
-            ...(shop.status === "closed" ? [] : [restaurantJsonLd(shop)]),
+            ...(shop.status === "closed"
+              ? []
+              : [restaurantJsonLd(shop, { instagramShared })]),
             breadcrumbJsonLd(breadcrumb),
             ...(faqs.length > 0 ? [faqJsonLd(faqs)] : []),
           ),

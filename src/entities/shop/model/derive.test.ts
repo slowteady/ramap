@@ -1,6 +1,7 @@
 import { describe, it, expect } from "vitest";
 import type { Shop } from "./types";
 import {
+  closedDaysLabel,
   isNewOpen,
   listAreaGenrePages,
   nearbyShops,
@@ -308,5 +309,15 @@ describe("listAreaPages — 실제로 페이지가 생기는 지역만", () => {
       shop({ id: "c", areaLabel: "상암", status: "closed" }),
     ];
     expect(listAreaPages(shops).map((c) => c.area)).toEqual(["성수"]);
+  });
+});
+
+describe("closedDaysLabel", () => {
+  it("요일 휴무는 '휴무'를 붙인다", () => {
+    expect(closedDaysLabel("월")).toBe("월 휴무");
+  });
+
+  it("연중무휴는 그대로 둔다", () => {
+    expect(closedDaysLabel("연중무휴")).toBe("연중무휴");
   });
 });

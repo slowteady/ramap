@@ -145,3 +145,11 @@ export function nearbyShops(shops: Shop[], origin: Shop, n: number): Shop[] {
     .sort((a, b) => dist(a) - dist(b))
     .slice(0, n);
 }
+
+export function isNoHoliday(closedDays: string): boolean {
+  return closedDays.includes("무휴");
+}
+
+export function closedDaysLabel(closedDays: string): string {
+  return isNoHoliday(closedDays) ? closedDays : `${closedDays} 휴무`;
+}

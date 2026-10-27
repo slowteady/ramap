@@ -36,6 +36,22 @@ describe("parseSheetTsv", () => {
     expect(s.menus[0]).toEqual({ name: "니보시 시오 라멘", price: 12000 });
   });
 
+  it("인스타는 URL·@ 표기를 소문자 핸들로 통일한다", () => {
+    const of = (v: string) =>
+      parseSheetTsv(`${H}\n${row({ 인스타: v })}`).shops[0].instagram;
+    expect(of("https://www.instagram.com/Koiramen.Official/")).toBe(
+      "koiramen.official",
+    );
+    expect(of("@butanchu_hongdae")).toBe("butanchu_hongdae");
+    expect(of("menya_hanabi")).toBe("menya_hanabi");
+  });
+
+  it("핸들 형식이 아닌 인스타 값은 검증 실패로 남긴다", () => {
+    const r = parseSheetTsv(`${H}\n${row({ 인스타: "인스타 없음" })}`);
+    expect(r.shops).toHaveLength(0);
+    expect(r.issues.some((i) => i.field === "인스타")).toBe(true);
+  });
+
   it("빈 선택 필드는 null이 된다", () => {
     const s = parseSheetTsv(`${H}\n${row({})}`).shops[0];
     expect(s.address).toBeNull();

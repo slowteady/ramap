@@ -1,3 +1,4 @@
+import { instagramUrl } from "./instagram";
 import { soupBySlug } from "./taxonomy";
 import type { Shop } from "./types";
 
@@ -31,7 +32,10 @@ export function organizationJsonLd(): object {
 
 /* 구글 LocalBusiness 필수 = name + PostalAddress. 영업시간 원문은 hh:mm 스펙 미충족이라
    잘못 싣는 것보다 생략이 안전. 평점·리뷰는 실데이터 전까지 마크업 금지(수동 조치 대상) */
-export function restaurantJsonLd(shop: Shop): object {
+export function restaurantJsonLd(
+  shop: Shop,
+  { instagramShared = false }: { instagramShared?: boolean } = {},
+): object {
   return {
     "@context": "https://schema.org",
     "@type": "Restaurant",
@@ -68,6 +72,8 @@ export function restaurantJsonLd(shop: Shop): object {
         })),
       },
     }),
+    ...(shop.instagram &&
+      !instagramShared && { sameAs: [instagramUrl(shop.instagram)] }),
     keywords: shop.soups
       .map((s) => soupBySlug(s)?.label)
       .filter(Boolean)

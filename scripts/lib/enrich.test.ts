@@ -117,6 +117,40 @@ describe("mergeMatched", () => {
     expect(e.menus).toEqual(["돈코츠라멘|10000"]);
   });
 
+  it("인스타는 그 매장 최신 조사가 이전 조사·체인 승계보다 우선한다", () => {
+    const e = mergeMatched(
+      "코이라멘",
+      "신중동점",
+      [
+        { name: "코이라멘", instagram: "koibang2", observedAt: "2026-09-00" },
+        {
+          name: "코이라멘 신중동점",
+          instagram: "koibang2",
+          observedAt: "2026-09-00",
+        },
+        {
+          name: "코이라멘 신중동점",
+          instagram: "koiramen.bangbro",
+          observedAt: "2026-10-27",
+        },
+      ],
+      { address: "경기도 부천시 신중동" },
+    );
+    expect(e.instagram).toBe("koiramen.bangbro");
+  });
+
+  it("최신 조사의 빈 인스타는 '확인된 계정 없음' — 이전 값과 체인 승계를 지운다", () => {
+    const e = mergeMatched("히노아지", "부산대점", [
+      { name: "히노아지", instagram: "hinoaji_ilsanlafesta" },
+      {
+        name: "히노아지 부산대점",
+        instagram: "",
+        observedAt: "2026-10-27",
+      },
+    ]);
+    expect(e.instagram).toBeUndefined();
+  });
+
   it("최신 조사에 없는 위치 필드는 이전 조사 값을 쓴다", () => {
     const e = mergeMatched("멘야가와", "", [
       { name: "멘야가와", breakTime: "15:00-17:00", observedAt: "2026-09-00" },

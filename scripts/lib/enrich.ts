@@ -438,8 +438,14 @@ export function mergeMatched(
     ...(all.soupDetail ?? []).filter((d) => !VERDICT_MARKS.includes(d)),
     ...(own.soupDetail ?? []).filter((d) => VERDICT_MARKS.includes(d)),
   ];
+  /* 인스타도 그 매장 최신 조사 우선, 빈 문자열은 '확인된 계정 없음'으로 승계까지 끊는다 (2026-10-27 전수 검수) */
+  const instagram =
+    current.instagram !== undefined
+      ? current.instagram || undefined
+      : all.instagram || undefined;
   return {
     ...all,
+    instagram,
     primarySoup:
       all.primarySoup && (all.soups ?? []).includes(all.primarySoup)
         ? all.primarySoup
