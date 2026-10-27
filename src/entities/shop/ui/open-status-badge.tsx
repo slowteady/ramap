@@ -1,4 +1,5 @@
 import dayjs from "dayjs";
+import { closedDaysLabel, isNoHoliday } from "@/entities/shop/model/derive";
 import type { ShopStatus } from "@/entities/shop/model/types";
 import { cn } from "@/shared/lib/utils";
 
@@ -45,9 +46,14 @@ export function OpenStatusBadge({
     <span className={cn("text-secondary text-gray-500", className)}>
       {parts.join(" · ")}
       {parts.length > 0 && closedDays && " · "}
-      {closedDays && (
-        <span className="font-semibold text-ramen">{closedDays} 휴무</span>
-      )}
+      {closedDays &&
+        (isNoHoliday(closedDays) ? (
+          <span>{closedDays}</span>
+        ) : (
+          <span className="font-semibold text-ramen">
+            {closedDaysLabel(closedDays)}
+          </span>
+        ))}
     </span>
   );
 }

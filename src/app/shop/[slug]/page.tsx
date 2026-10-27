@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import {
   closurePublicState,
+  isSharedInstagram,
   nearbyShops,
   shopById,
   shouldNoindexShop,
@@ -68,6 +69,7 @@ export default async function Page({ params }: Props) {
       shop={shop}
       nearby={nearbyShops(shops, shop, 3)}
       goneLabel={state === "moved" ? "이전" : "폐업"}
+      instagramShared={isSharedInstagram(shops, shop)}
     />
   );
 }

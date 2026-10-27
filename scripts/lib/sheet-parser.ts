@@ -13,6 +13,7 @@ import type {
   ShopStatus,
   Verification,
 } from "../../src/entities/shop/model/types";
+import { normalizeHandle } from "./instagram";
 
 export const SHEET_HEADER = [
   "id",
@@ -114,6 +115,19 @@ function mapLabels(
 function optional(raw: string): string | null {
   const v = raw.trim();
   return v === "" ? null : v;
+}
+
+function parseInstagram(raw: string, ctx: Ctx): string | null {
+  const v = raw.trim();
+  if (v === "") return null;
+  const handle = normalizeHandle(v);
+  if (/^[a-z0-9._]{1,30}$/.test(handle)) return handle;
+  ctx.issues.push({
+    row: ctx.row,
+    field: "인스타",
+    message: `인스타 계정 형식이 아님: ${v}`,
+  });
+  return null;
 }
 
 function parseNumber(raw: string, field: string, ctx: Ctx): number | null {
@@ -250,6 +264,8 @@ export function parseSheetTsv(tsv: string): ParseResult {
       });
     }
 
+    const instagram = parseInstagram(cells.인스타, ctx);
+
     if (ctx.issues.length > 0) {
       issues.push(...ctx.issues);
       continue;
@@ -285,7 +301,7 @@ export function parseSheetTsv(tsv: string): ParseResult {
       photos: splitList(cells.사진 ?? ""),
       seats: optional(cells.좌석),
       tagline: optional(cells.한줄소개),
-      instagram: optional(cells.인스타),
+      instagram,
       naverPlace: optional(cells.네이버플레이스),
       waitingLink: optional(cells.웨이팅링크),
       verification,

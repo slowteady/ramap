@@ -1,4 +1,3 @@
-import { execFileSync } from "node:child_process";
 import { existsSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { basename, dirname, join, resolve } from "node:path";
 import {
@@ -14,6 +13,7 @@ import {
   type PlaceStatus,
   type Snippet,
 } from "./lib/evidence";
+import { get, sleep } from "./lib/http";
 
 /* 갱신 라운드 2차 검수용 증거 수집 — 신규 후보 전부·게재 매장 폐업 전이 전부를 Daum 통합검색으로,
    라멘 미니갤 최근 글을 키워드 검색으로 모은다. 검색 결과 원문은 플랫폼 데이터라 레포에 커밋하지 않는다(출력은 레포 밖).
@@ -26,8 +26,6 @@ if (!reviewDir) {
   process.exit(1);
 }
 
-const UA =
-  "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140 Safari/537.36";
 const GALLERY_KEYWORDS = [
   "오픈",
   "개업",
@@ -39,40 +37,6 @@ const GALLERY_KEYWORDS = [
 ];
 const GALLERY_DAYS = 21;
 const GALLERY_BODY_LIMIT = 30;
-
-/* Node fetch는 HTTPS_PROXY를 따르지 않아 클라우드 프록시를 못 탄다 — curl로 받는다 */
-function get(
-  url: string,
-  referer?: string,
-): { ok: boolean; body: string; error?: string } {
-  try {
-    const args = [
-      "-sS",
-      "-L",
-      "-m",
-      "25",
-      "-A",
-      UA,
-      "-w",
-      "\n__HTTP__%{http_code}",
-    ];
-    if (referer) args.push("-H", `Referer: ${referer}`);
-    const raw = execFileSync("curl", [...args, url], {
-      encoding: "utf8",
-      maxBuffer: 20 << 20,
-    });
-    const code = raw.slice(raw.lastIndexOf("__HTTP__") + 8).trim();
-    const body = raw.slice(0, raw.lastIndexOf("\n__HTTP__"));
-    return code === "200" && body.length > 500
-      ? { ok: true, body }
-      : { ok: false, body, error: `HTTP ${code}, ${body.length}B` };
-  } catch (e) {
-    return { ok: false, body: "", error: (e as Error).message.split("\n")[0] };
-  }
-}
-
-const sleep = (ms: number) =>
-  Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
 
 function readTsv(path: string): Record<string, string>[] {
   if (!existsSync(path)) return [];

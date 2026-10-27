@@ -45,6 +45,22 @@ describe("restaurantJsonLd", () => {
     expect(ld.openingHours).toBeUndefined();
   });
 
+  it("매장 자체 인스타는 sameAs로 연결한다 — 같은 실체임을 검색엔진에 알림", () => {
+    const ld = restaurantJsonLd({
+      ...shop,
+      instagram: "kinka_ramen",
+    }) as Record<string, unknown>;
+    expect(ld.sameAs).toEqual(["https://www.instagram.com/kinka_ramen/"]);
+  });
+
+  it("여러 지점이 함께 쓰는 브랜드 계정은 이 매장과 같은 실체가 아니라 sameAs에서 뺀다", () => {
+    const ld = restaurantJsonLd(
+      { ...shop, instagram: "brand_official" },
+      { instagramShared: true },
+    ) as Record<string, unknown>;
+    expect(ld.sameAs).toBeUndefined();
+  });
+
   it("사진 없으면 image가 빠진다", () => {
     const ld = restaurantJsonLd({ ...shop, photos: [] }) as Record<
       string,

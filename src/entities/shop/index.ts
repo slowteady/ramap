@@ -47,9 +47,14 @@ export {
   listAreaGenrePages,
   isNewOpen,
   nearbyShops,
+  closedDaysLabel,
 } from "@/entities/shop/model/derive";
 export type { GenreSlug } from "@/entities/shop/model/derive";
 export { closurePublicState } from "@/entities/shop/model/closure";
+export {
+  instagramUrl,
+  isSharedInstagram,
+} from "@/entities/shop/model/instagram";
 export type {
   ClosureLedger,
   ClosurePublicState,
