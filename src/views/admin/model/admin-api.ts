@@ -96,6 +96,16 @@ export async function reviewPhoto(
   return !error;
 }
 
+export async function resetPhoto(id: number): Promise<boolean> {
+  const client = getSupabase();
+  if (!client) return false;
+  const { error } = await client
+    .from("record_photos")
+    .update({ status: "pending", reject_reason: null })
+    .eq("id", id);
+  return !error;
+}
+
 export async function fetchReports(): Promise<AdminReport[] | null> {
   const client = getSupabase();
   if (!client) return null;
@@ -166,12 +176,15 @@ export async function resolveReports(
   return !error;
 }
 
-export async function reopenReports(ids: number[]): Promise<boolean> {
+export async function setReportsStatus(
+  ids: number[],
+  status: AdminReport["status"],
+): Promise<boolean> {
   const client = getSupabase();
   if (!client) return false;
   const { error } = await client
     .from("reports")
-    .update({ status: "open", resolution: null, note: null, resolved_at: null })
+    .update({ status })
     .in("id", ids);
   return !error;
 }

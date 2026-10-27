@@ -1,3 +1,4 @@
+import dayjs, { type Dayjs } from "dayjs";
 import type { Shop } from "@/entities/shop";
 import type { AdminReport } from "./admin-api";
 
@@ -164,4 +165,40 @@ export function editRows(
     current: currentOf(item, shop),
     proposed: proposedOf(details.fields[item]),
   }));
+}
+
+export const REPORT_REJECT_REASONS = [
+  "확인 불가",
+  "라멘집 아님",
+  "정보 불일치",
+  "스팸",
+] as const;
+
+export const PHOTO_REJECT_REASONS = [
+  "라멘이 안 보임",
+  "본인 촬영 아님",
+  "부적절",
+] as const;
+
+export function composeReason(chip: string | null, text: string): string {
+  return [chip, text.trim()].filter(Boolean).join(" — ");
+}
+
+export function ageLabel(createdAt: string, now: Dayjs): string {
+  const days = now.startOf("day").diff(dayjs(createdAt).startOf("day"), "day");
+  return days <= 0 ? "오늘" : `${days}일 경과`;
+}
+
+const receivedAt = (g: ReportGroup) =>
+  [g.primary, ...g.duplicates].map((r) => r.createdAt).sort()[0];
+
+export function sortGroups(
+  groups: ReportGroup[],
+  status: AdminReport["status"],
+): ReportGroup[] {
+  return [...groups].sort((a, b) =>
+    status === "open"
+      ? receivedAt(a).localeCompare(receivedAt(b))
+      : (b.primary.resolvedAt ?? "").localeCompare(a.primary.resolvedAt ?? ""),
+  );
 }
