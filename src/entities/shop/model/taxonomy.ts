@@ -102,7 +102,7 @@ export const LINEAGES = [
     slug: "honto",
     label: "본토직영",
     kind: "trait",
-    description: "일본 본점이 직접 낸 한국 지점",
+    description: "일본 브랜드가 한국에 낸 정식 지점",
   },
 ] as const satisfies readonly TaxonomyItem[];
 

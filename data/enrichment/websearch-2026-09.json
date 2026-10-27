@@ -708,13 +708,12 @@
   },
   {
     "name": "라멘81번옥",
-    "chainWide": true,
     "soups": ["쇼유", "미소", "돈코츠", "탄탄멘"],
     "forms": ["라멘"],
     "lineages": ["자가제면"],
     "instagram": "https://www.instagram.com/ramen81_",
     "naverPlace": "https://map.naver.com/p/entry/place/1582558351",
-    "sourceNote": "웹 조사"
+    "sourceNote": "웹 조사; 2026-10-27 체인 전체 자가제면 해제 — 근거가 한 지점뿐(D-12 조사)"
   },
   {
     "name": "보스라멘",
@@ -969,12 +968,11 @@
   },
   {
     "name": "멘야 다이고미",
-    "chainWide": true,
     "soups": ["돈코츠"],
     "forms": ["라멘"],
     "lineages": ["자가제면"],
     "soupDetail": ["카라이"],
-    "sourceNote": "웹 조사"
+    "sourceNote": "웹 조사; 2026-10-27 체인 전체 자가제면 해제 — 근거가 한 지점뿐(D-12 조사)"
   },
   {
     "name": "주돈라멘",
@@ -1029,11 +1027,10 @@
   },
   {
     "name": "멘야산다이메",
-    "chainWide": true,
     "soups": ["돈코츠"],
     "forms": ["라멘"],
     "lineages": ["자가제면"],
-    "sourceNote": "웹 조사"
+    "sourceNote": "웹 조사; 2026-10-27 체인 전체 자가제면 해제 — 근거가 한 지점뿐(D-12 조사)"
   },
   {
     "name": "멘야붕",
