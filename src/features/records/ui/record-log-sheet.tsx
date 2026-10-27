@@ -5,6 +5,7 @@ import { Check } from "lucide-react";
 import { cn } from "@/shared/lib/utils";
 import { DiscardDialog } from "@/shared/ui/discard-dialog";
 import { Drawer, DrawerContent, DrawerTitle } from "@/shared/ui/drawer";
+import { track } from "@/shared/lib/analytics";
 import { PhotoPicker } from "@/shared/ui/photo-picker";
 import { COMMENT_MAX, RECORD_PHOTO_MAX } from "../model/record-photo-ops";
 import { submitRecordPhotos } from "../model/record-photos";
@@ -44,6 +45,13 @@ export function RecordLogSheet({
     if (files.length === 0 || state === "submitting") return;
     setState("submitting");
     const ok = await submitRecordPhotos({ shopId, files, comment, consent });
+    track("record_log_submitted", {
+      shop_id: shopId,
+      photo_count: files.length,
+      has_comment: comment.trim().length > 0,
+      revisit: Boolean(revisit),
+      ok,
+    });
     if (!ok) {
       setState("failed");
       return;

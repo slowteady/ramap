@@ -7,6 +7,7 @@ import { cn } from "@/shared/lib/utils";
 import type { MapFilters } from "../model/filter";
 import { FILTER_AXES, visibleItems } from "../model/filter-axes";
 import { buildSuggestions, matchRank } from "../model/search";
+import { track } from "@/shared/lib/analytics";
 import { useRecentSearches } from "../model/use-recent-searches";
 
 type SearchOverlayProps = {
@@ -72,6 +73,7 @@ export function SearchOverlay({
   const typing = query.trim().length > 0;
 
   const pickShop = (pin: ShopPin) => {
+    track("search_result_selected", { kind: "shop", value: pin.id, query });
     recent.add(pin.name);
     onSelectShop(pin);
   };
@@ -80,10 +82,12 @@ export function SearchOverlay({
     slug: string,
     label: string,
   ) => {
+    track("search_result_selected", { kind: "genre", value: slug, query });
     recent.add(label);
     onSelectGenre(filterKey, slug);
   };
   const pickArea = (area: string) => {
+    track("search_result_selected", { kind: "area", value: area, query });
     recent.add(area);
     onSelectArea(area);
     onClose();

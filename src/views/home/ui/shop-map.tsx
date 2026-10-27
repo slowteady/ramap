@@ -6,6 +6,7 @@ import { toast } from "sonner";
 import type { ShopPin } from "@/entities/shop";
 import { useRecords } from "@/features/records";
 import { ReportSheet, useReportQuery } from "@/features/report";
+import { track } from "@/shared/lib/analytics";
 import { useMapFilters } from "../model/use-map-filters";
 import { useSearchQuery } from "../model/use-search-query";
 import { useSelectedShop } from "../model/use-selected-shop";
@@ -46,7 +47,17 @@ export function ShopMap({ pins }: { pins: ShopPin[] }) {
     panTo,
     coordsAt,
     locate,
-  } = useShopMap(basePins, filters, selectedId, visitedIds, select, clear);
+  } = useShopMap(
+    basePins,
+    filters,
+    selectedId,
+    visitedIds,
+    (id) => {
+      track("shop_selected", { shop_id: id, source: "map" });
+      select(id);
+    },
+    clear,
+  );
   const [sheetAxis, setSheetAxis] = useState<FilterAxis | null>(null);
 
   return (
@@ -57,7 +68,10 @@ export function ShopMap({ pins }: { pins: ShopPin[] }) {
           onOpenAxis={setSheetAxis}
           onApply={apply}
           hideVisited={visitedIds.size > 0 ? hideVisited : null}
-          onToggleHideVisited={() => setHideVisited((v) => !v)}
+          onToggleHideVisited={() => {
+            track("hide_visited_toggled", { on: !hideVisited });
+            setHideVisited((v) => !v);
+          }}
           hasNew={pins.some((p) => p.isNew)}
         />
         <button
@@ -84,8 +98,12 @@ export function ShopMap({ pins }: { pins: ShopPin[] }) {
             <button
               type="button"
               onClick={() =>
-                locate(() =>
-                  toast("위치 권한이 없어 현위치를 표시할 수 없어요"),
+                locate(
+                  () => track("locate_clicked", { granted: true }),
+                  () => {
+                    track("locate_clicked", { granted: false });
+                    toast("위치 권한이 없어 현위치를 표시할 수 없어요");
+                  },
                 )
               }
               className="absolute right-3 bottom-28 z-10 flex items-center gap-1 rounded-pill bg-white py-2.5 pr-3.5 pl-3 text-secondary font-semibold text-ink shadow-[0_1px_5px_rgba(26,27,31,0.2)]"
@@ -109,6 +127,7 @@ export function ShopMap({ pins }: { pins: ShopPin[] }) {
           userLocation={userLocation}
           selectedShop={selectedShop}
           onSelectPin={(pin) => {
+            track("shop_selected", { shop_id: pin.id, source: "list" });
             select(pin.id);
             panToPin(pin);
           }}
@@ -126,6 +145,7 @@ export function ShopMap({ pins }: { pins: ShopPin[] }) {
         <SearchOverlay
           pins={pins}
           onSelectShop={(pin) => {
+            track("shop_selected", { shop_id: pin.id, source: "search" });
             select(pin.id);
             panToPin(pin);
           }}

@@ -333,7 +333,7 @@ export function ShopDetailPage({
           <h2 className="text-title font-bold text-ink">오시는 길</h2>
           <div className="flex items-center justify-between gap-3">
             <p className="text-body text-ink">{shop.address}</p>
-            <CopyAddress address={shop.address} />
+            <CopyAddress shopId={shop.id} address={shop.address} />
           </div>
         </section>
       )}

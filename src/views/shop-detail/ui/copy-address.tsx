@@ -2,11 +2,19 @@
 
 import { Copy } from "lucide-react";
 import { toast } from "sonner";
+import { track } from "@/shared/lib/analytics";
 
-export function CopyAddress({ address }: { address: string }) {
+export function CopyAddress({
+  shopId,
+  address,
+}: {
+  shopId: string;
+  address: string;
+}) {
   const copy = async () => {
     try {
       await navigator.clipboard.writeText(address);
+      track("address_copied", { shop_id: shopId });
       toast("주소를 복사했어요");
     } catch {
       toast("복사에 실패했어요. 길게 눌러 복사해 주세요.");

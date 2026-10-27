@@ -6,6 +6,7 @@ import {
   getSupabase,
   signInWithKakao as kakaoSignIn,
 } from "@/shared/api/supabase";
+import { identifyUser, resetUser, track } from "@/shared/lib/analytics";
 
 export function useAuth() {
   const [user, setUser] = useState<User | null>(null);
@@ -29,9 +30,17 @@ export function useAuth() {
     return () => sub.subscription.unsubscribe();
   }, []);
 
-  const signInWithKakao = useCallback(() => kakaoSignIn(), []);
+  useEffect(() => {
+    if (user) identifyUser(user.id);
+  }, [user]);
+
+  const signInWithKakao = useCallback(() => {
+    track("login_started", {});
+    return kakaoSignIn();
+  }, []);
 
   const signOut = useCallback(() => {
+    resetUser();
     void getSupabase()?.auth.signOut();
   }, []);
 
@@ -41,6 +50,8 @@ export function useAuth() {
     if (!client) return false;
     const { error } = await client.rpc("delete_own_account");
     if (error) return false;
+    track("account_deleted", {});
+    resetUser();
     await client.auth.signOut({ scope: "local" });
     return true;
   }, []);

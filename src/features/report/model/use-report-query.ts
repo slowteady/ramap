@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useMemo } from "react";
+import { track } from "@/shared/lib/analytics";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import {
   isPickQuery,
@@ -22,6 +23,7 @@ export function useReportQuery() {
   }, [searchParams]);
 
   const openNew = useCallback(() => {
+    track("report_opened", { type: "new" });
     const params = new URLSearchParams(searchParams.toString());
     params.set(REPORT_PARAM, "new");
     params.delete("search");
@@ -30,6 +32,7 @@ export function useReportQuery() {
 
   const openEdit = useCallback(
     (shopId: string) => {
+      track("report_opened", { type: "edit" });
       const params = new URLSearchParams(searchParams.toString());
       params.set(REPORT_PARAM, "edit");
       params.set(SHOP_PARAM, shopId);
