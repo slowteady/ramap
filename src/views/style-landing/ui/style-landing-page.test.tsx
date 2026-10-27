@@ -12,8 +12,9 @@ vi.mock("next/navigation", () => ({
   usePathname: () => nav.current.handlers.usePathname(),
   useSearchParams: () => nav.current.handlers.useSearchParams(),
 }));
+const records = vi.hoisted(() => ({ visitedIds: new Set<string>() }));
 vi.mock("@/features/records", () => ({
-  useRecords: () => ({ visitedIds: new Set<string>() }),
+  useRecords: () => records,
 }));
 
 const shop = (over: Partial<Shop>): Shop => ({
@@ -83,5 +84,18 @@ describe("StyleLandingPage 목록", () => {
       screen.getByText("11:00-21:00 · 브레이크 15:00-17:00"),
     ).toBeInTheDocument();
     expect(screen.getByText("휴업 중")).toBeInTheDocument();
+  });
+
+  it("진행률 막대는 보류 — 완식이 있어도 그리지 않고 완식 표시만 남긴다", () => {
+    records.visitedIds = new Set(["a"]);
+    render(
+      <StyleLandingPage
+        lineage={iekei}
+        shops={[shop({ id: "a", name: "멘야 카엔" }), shop({ id: "b" })]}
+      />,
+    );
+    expect(screen.queryByText(/전국 이에케/)).not.toBeInTheDocument();
+    expect(screen.queryByText("1/2")).not.toBeInTheDocument();
+    expect(screen.getByText("완식 ✓")).toBeInTheDocument();
   });
 });

@@ -9,7 +9,7 @@ import {
   guideBySlug,
   OpenStatusBadge,
 } from "@/entities/shop";
-import { StyleProgress, VisitedCheck } from "./style-progress";
+import { VisitedCheck } from "./visited-check";
 
 type StyleLandingPageProps = {
   lineage: TaxonomyItem;
@@ -91,8 +91,6 @@ export function StyleLandingPage({ lineage, shops }: StyleLandingPageProps) {
           </div>
         </div>
       </div>
-
-      <StyleProgress label={lineage.label} shopIds={shops.map((s) => s.id)} />
 
       {shops.length === 0 && (
         <p className="px-4 pt-6 text-body text-gray-400">
