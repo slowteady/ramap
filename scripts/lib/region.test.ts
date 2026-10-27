@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { regionDistrictOf, sidoOf } from "./region";
+import { normalizeAddress, regionDistrictOf, sidoOf } from "./region";
 
 describe("sidoOf", () => {
   it("주소 첫 토큰에서 시도를 뽑는다", () => {
@@ -52,5 +52,22 @@ describe("전국 시도", () => {
       regionDistrictOf("전남광주통합특별시 완도군 완도읍 개포로145번길 23"),
     ).toBe("완도군");
     expect(sidoOf("제주특별자치도 제주시 관덕로 1")).toBe("제주");
+  });
+});
+
+describe("normalizeAddress", () => {
+  it("원본 공공데이터의 시도 중복 표기를 하나로 줄인다", () => {
+    expect(
+      normalizeAddress("세종특별자치시 세종특별자치시 한누리대로 287"),
+    ).toBe("세종특별자치시 한누리대로 287");
+  });
+
+  it("중복이 없으면 그대로, 앞뒤·연속 공백만 정리한다", () => {
+    expect(normalizeAddress("  서울특별시  마포구 동교로 262-3 ")).toBe(
+      "서울특별시 마포구 동교로 262-3",
+    );
+    expect(normalizeAddress("서울특별시 종로구 세종대로 1")).toBe(
+      "서울특별시 종로구 세종대로 1",
+    );
   });
 });

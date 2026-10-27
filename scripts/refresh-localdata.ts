@@ -1,3 +1,4 @@
+import { normalizeAddress } from "./lib/region";
 import {
   closeSync,
   createReadStream,
@@ -165,9 +166,10 @@ parser.on("readable", () => {
     const name = record[c.name!]?.trim() ?? "";
     if (!name) continue;
     /* 도로명이 비면 지번으로 대신 — 조사 단계에서 보정되는 시딩 후보라 빈 주소보다 낫다 */
-    const roadAddress =
+    const roadAddress = normalizeAddress(
       record[c.roadAddress!]?.trim() ||
-      (c.lotAddress ? (record[c.lotAddress]?.trim() ?? "") : "");
+        (c.lotAddress ? (record[c.lotAddress]?.trim() ?? "") : ""),
+    );
     const core = roadAddress ? roadCore(roadAddress) : null;
     const hit =
       RAMEN_KEYWORDS.some((k) => name.includes(k)) ||

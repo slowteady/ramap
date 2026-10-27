@@ -1,7 +1,7 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { areaLabelOf, inheritNearestArea } from "./lib/area-label";
-import { regionDistrictOf, sidoOf } from "./lib/region";
+import { normalizeAddress, regionDistrictOf, sidoOf } from "./lib/region";
 import { normalizeShopName } from "./lib/merge-candidates";
 import {
   matchEnrichment,
@@ -87,6 +87,7 @@ for (const line of lines.slice(1)) {
     cells[h] = values[i] ?? "";
   });
 
+  cells.주소 = normalizeAddress(cells.주소);
   const matches = matchEnrichment(cells.상호, cells.지점명, enrichments);
   const ambiguous =
     (normCounts.get(normalizeShopName(cells.상호 + cells.지점명)) ?? 0) > 1;
