@@ -55,6 +55,7 @@ declare global {
           xAnchor?: number;
           yAnchor?: number;
           clickable?: boolean;
+          zIndex?: number;
         }) => KakaoOverlay;
         event: {
           addListener(target: unknown, type: string, cb: () => void): void;
@@ -84,4 +85,5 @@ export type KakaoMap = {
 export type KakaoOverlay = {
   setMap(map: KakaoMap | null): void;
   setContent(content: HTMLElement): void;
+  setZIndex(zIndex: number): void;
 };

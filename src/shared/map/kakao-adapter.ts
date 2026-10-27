@@ -25,23 +25,39 @@ function dot(size: number, ring: string): string {
 const BOOKMARK_PATH =
   "M17 3a2 2 0 0 1 2 2v15a1 1 0 0 1-1.496.868l-4.512-2.578a2 2 0 0 0-1.984 0l-4.512 2.578A1 1 0 0 1 5 20V5a2 2 0 0 1 2-2z";
 
-function savedDot(size: number): HTMLElement {
+/* 완식 마커 = 완식 버튼과 같은 lucide Check — 회색조는 비활성처럼 읽혀 폐기(2026-10-27 PO), 기본보다 한 단계 약한 흰 원 */
+const CHECK_PATH = "M20 6 9 17l-5-5";
+
+function glyphDot(
+  size: number,
+  colors: { fill: string; border: string; glyph: string },
+  glyph: "bookmark" | "check",
+): HTMLElement {
   const el = document.createElement("span");
   el.style.cssText = [
     `width:${size}px;height:${size}px;border-radius:9999px;flex:none`,
-    "display:flex;align-items:center;justify-content:center;background:#e23c36",
-    "border:3px solid #fff;box-shadow:0 1px 5px rgba(26,27,31,.35)",
+    `display:flex;align-items:center;justify-content:center;background:${colors.fill}`,
+    `border:3px solid ${colors.border};box-shadow:0 1px 5px rgba(26,27,31,.35)`,
   ].join(";");
   const svgNs = "http://www.w3.org/2000/svg";
   const svg = document.createElementNS(svgNs, "svg");
-  const glyph = Math.round(size * 0.5);
+  const px = String(Math.round(size * 0.55));
   svg.setAttribute("viewBox", "0 0 24 24");
-  svg.setAttribute("width", String(glyph));
-  svg.setAttribute("height", String(glyph));
+  svg.setAttribute("width", px);
+  svg.setAttribute("height", px);
   svg.setAttribute("aria-hidden", "true");
   const path = document.createElementNS(svgNs, "path");
-  path.setAttribute("d", BOOKMARK_PATH);
-  path.setAttribute("fill", "#fff");
+  if (glyph === "bookmark") {
+    path.setAttribute("d", BOOKMARK_PATH);
+    path.setAttribute("fill", colors.glyph);
+  } else {
+    path.setAttribute("d", CHECK_PATH);
+    path.setAttribute("fill", "none");
+    path.setAttribute("stroke", colors.glyph);
+    path.setAttribute("stroke-width", "4");
+    path.setAttribute("stroke-linecap", "round");
+    path.setAttribute("stroke-linejoin", "round");
+  }
   svg.append(path);
   el.append(svg);
   return el;
@@ -55,14 +71,27 @@ function markerEl(marker: MapMarker, onTap: (id: string) => void): HTMLElement {
   el.type = "button";
   const selected = marker.state === "selected";
   const visited = marker.state === "visited";
-  const ring = visited ? "#c9cdd3" : "#e23c36";
   const size = selected ? 28 : 22;
   el.style.cssText = `display:flex;flex-direction:column;align-items:center;gap:2px;padding:${HIT_PAD}px;border:0;background:none;cursor:pointer;margin-top:-${HIT_PAD + size / 2}px`;
   if (marker.state === "saved") {
-    el.append(savedDot(size));
+    el.append(
+      glyphDot(
+        size,
+        { fill: "#1a1b1f", border: "#fff", glyph: "#fff" },
+        "bookmark",
+      ),
+    );
+  } else if (visited) {
+    el.append(
+      glyphDot(
+        size,
+        { fill: "#fff", border: "#e23c36", glyph: "#e23c36" },
+        "check",
+      ),
+    );
   } else {
     const dotEl = document.createElement("span");
-    dotEl.style.cssText = dot(size, ring);
+    dotEl.style.cssText = dot(size, "#e23c36");
     el.append(dotEl);
   }
   if (marker.kind === "dot" && !selected) {
@@ -75,7 +104,7 @@ function markerEl(marker: MapMarker, onTap: (id: string) => void): HTMLElement {
       "padding:3px 8px;border-radius:9999px;background:#fff",
       "box-shadow:0 1px 4px rgba(26,27,31,.22)",
       `font:800 13px Pretendard,-apple-system,sans-serif`,
-      `color:${visited ? "#9aa0a8" : selected ? "#e23c36" : "#1a1b1f"}`,
+      `color:${selected ? "#e23c36" : "#1a1b1f"}`,
     ].join(";");
     if (marker.isNew && !visited) {
       const badge = document.createElement("span");
@@ -114,6 +143,12 @@ function clusterEl(
   return el;
 }
 
+/* 라벨이 점 위에 — 점이 다른 매장 라벨을 가리지 않게 */
+function markerZ(m: MapMarker): number {
+  if (m.state === "selected") return 3;
+  return m.kind === "pill" ? 2 : 1;
+}
+
 function markerSig(m: MapMarker): string {
   return `${m.kind}|${m.state}|${m.label}|${m.isNew}`;
 }
@@ -132,6 +167,7 @@ export async function createKakaoAdapter(
     pos: LatLng,
     content: HTMLElement,
     anchor: { x: number; y: number },
+    zIndex: number,
   ): KakaoOverlay => {
     const overlay = new window.kakao.maps.CustomOverlay({
       position: new window.kakao.maps.LatLng(pos.lat, pos.lng),
@@ -139,6 +175,7 @@ export async function createKakaoAdapter(
       xAnchor: anchor.x,
       yAnchor: anchor.y,
       clickable: true,
+      zIndex,
     });
     if (map) overlay.setMap(map);
     return overlay;
@@ -185,6 +222,7 @@ export async function createKakaoAdapter(
           el: () => HTMLElement;
           sig: string;
           anchor: { x: number; y: number };
+          zIndex: number;
         }
       >();
       for (const m of markers) {
@@ -193,6 +231,7 @@ export async function createKakaoAdapter(
           el: () => markerEl(m, onMarkerTap),
           sig: markerSig(m),
           anchor: { x: 0.5, y: 0 },
+          zIndex: markerZ(m),
         });
       }
       for (const c of clusters) {
@@ -201,6 +240,7 @@ export async function createKakaoAdapter(
           el: () => clusterEl(c, onClusterTap),
           sig: `cluster|${c.label}`,
           anchor: { x: 0.5, y: 0.5 },
+          zIndex: 1,
         });
       }
 
@@ -214,11 +254,12 @@ export async function createKakaoAdapter(
         const cached = cache.get(key);
         if (!cached) {
           cache.set(key, {
-            overlay: makeOverlay(item.pos, item.el(), item.anchor),
+            overlay: makeOverlay(item.pos, item.el(), item.anchor, item.zIndex),
             sig: item.sig,
           });
         } else if (cached.sig !== item.sig) {
           cached.overlay.setContent(item.el());
+          cached.overlay.setZIndex(item.zIndex);
           cached.sig = item.sig;
         }
       }

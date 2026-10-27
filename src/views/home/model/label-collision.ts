@@ -67,19 +67,31 @@ export function planMarkers(
   );
 
   const kept: Box[] = [];
+  const pills: Box[] = [];
   const markers: MapMarker[] = [];
   for (const pin of ordered) {
     const box = pillBox(pin, unit);
     const collides = kept.some((k) => intersects(k, box));
     const pill = pin.id === selectedId || !collides;
+    const state = stateOf(pin);
+    /* 라벨을 가리는 하위 점은 그 축척에서 숨김 — 저장·신규는 남긴다 (구글 OPTIONAL_AND_HIDES_LOWER_PRIORITY) */
+    if (
+      !pill &&
+      !pin.isNew &&
+      (state === "default" || state === "visited") &&
+      pills.some((k) => intersects(k, dotBox(pin, unit)))
+    ) {
+      continue;
+    }
     kept.push(pill ? box : dotBox(pin, unit));
+    if (pill) pills.push(box);
     markers.push({
       id: pin.id,
       pos: { lat: pin.lat, lng: pin.lng },
       label: pin.name,
       kind: pill ? "pill" : "dot",
       isNew: pin.isNew,
-      state: stateOf(pin),
+      state,
     });
   }
   return markers;

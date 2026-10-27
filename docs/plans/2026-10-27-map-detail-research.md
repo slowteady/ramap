@@ -30,12 +30,12 @@
 - 코드: `src/views/home/model/filter.ts`(`MapFilters`), `src/views/home/ui/filter-sheet.tsx`, 시간 파싱 순수 함수 신설(`entities/shop/model/`)
 - 작업량: 중(파싱·테스트) / 결정:
 
-### M2. 저장한 곳 지도 표시 + "저장한 곳만" 토글 — `대기`
+### M2. 저장한 곳 지도 표시 + "저장한 곳만" 토글 — `채택`
 - 제안: 저장(가고 싶다) 매장을 북마크 마커로, 칩으로 저장한 곳만 보기
 - 근거: 네이버 저장리스트 지도 토글([ZDNet](https://zdnet.co.kr/view/?no=20221213140210)), 타베로그 行った・行きたい地図, Corner
 - **명세에 있는데 구현 누락**: `docs/planning/17` §1 "마커 상태 = 선택 > 저장(북마크) > 기본 > 완식". 코드 `MarkerState`는 `default|selected|visited`뿐(`src/shared/map/types.ts`)
 - 코드: `src/shared/map/kakao-adapter.ts`(`markerEl`), `src/views/home/model/label-collision.ts`(상태 우선순위), `src/views/home/ui/shop-map.tsx`(`visitedIds` 옆에 `savedIds`), `filter-chips.tsx`(`hideVisited` 패턴 재사용)
-- 작업량: 소 / 결정:
+- 작업량: 소 / 결정: **채택(2026-10-27)** — 저장 = 근흑+흰 북마크(C안), 완식도 회색조 폐기 → 흰 원+빨간 체크(V2안), 라벨 겹침은 구글식 하위 점 숨김 + 라벨 위 그리기까지 함께
 
 ### M3. 목록 행에 영업 정보 한 줄 — `대기`
 - 제안: 바텀시트 목록 행에 "11:00-21:00 · 브레이크 15:00" (라이브 판정 없이 시간만)

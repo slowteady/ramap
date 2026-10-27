@@ -9,6 +9,8 @@ import {
   formatDistance,
 } from "./label-collision";
 
+const LNG_SCALE = 1 / Math.cos((37.5 * Math.PI) / 180);
+
 const pin = (id: string, lat: number, lng: number): ShopPin => ({
   id,
   name: id,
@@ -44,10 +46,13 @@ describe("planMarkers", () => {
     expect(markers.every((m) => m.kind === "pill")).toBe(true);
   });
 
-  it("겹치면 하위 우선순위를 점으로 강등한다", () => {
+  it("라벨이 겹치면 하위 우선순위를 점으로 강등한다", () => {
     const unit = degPerPx(5);
     const markers = planMarkers(
-      [pin("aaa", 37.5, 127.0), pin("bbb", 37.5 + unit * 5, 127.0)],
+      [
+        pin("aaa", 37.5, 127.0),
+        pin("bbb", 37.5, 127.0 + unit * 35 * LNG_SCALE),
+      ],
       5,
       null,
       new Set(),
@@ -74,7 +79,10 @@ describe("planMarkers", () => {
   it("완식 핀은 미방문 핀보다 우선순위가 낮다", () => {
     const unit = degPerPx(5);
     const markers = planMarkers(
-      [pin("aaa", 37.5, 127.0), pin("bbb", 37.5 + unit * 5, 127.0)],
+      [
+        pin("aaa", 37.5, 127.0),
+        pin("bbb", 37.5, 127.0 + unit * 35 * LNG_SCALE),
+      ],
       5,
       null,
       new Set(["aaa"]),
@@ -87,7 +95,10 @@ describe("planMarkers", () => {
   it("저장 핀은 일반 핀보다 우선해 라벨을 지킨다", () => {
     const unit = degPerPx(5);
     const markers = planMarkers(
-      [pin("aaa", 37.5, 127.0), pin("bbb", 37.5 + unit * 5, 127.0)],
+      [
+        pin("aaa", 37.5, 127.0),
+        pin("bbb", 37.5, 127.0 + unit * 35 * LNG_SCALE),
+      ],
       5,
       null,
       new Set(),
@@ -120,6 +131,39 @@ describe("planMarkers", () => {
     expect(markers[0].state).toBe("selected");
   });
 
+  it("라벨과 겹치는 일반·완식 점은 숨긴다 (구글 OPTIONAL_AND_HIDES_LOWER_PRIORITY)", () => {
+    const unit = degPerPx(5);
+    const markers = planMarkers(
+      [
+        pin("aaa", 37.5, 127.0),
+        pin("bbb", 37.5 + unit * 5, 127.0),
+        pin("ccc", 37.5 - unit * 5, 127.0),
+      ],
+      5,
+      null,
+      new Set(["ccc"]),
+    );
+    expect(markers.map((m) => m.id)).toEqual(["aaa"]);
+  });
+
+  it("저장·신규 점은 라벨과 겹쳐도 숨기지 않는다", () => {
+    const unit = degPerPx(5);
+    const markers = planMarkers(
+      [
+        { ...pin("aaa", 37.5, 127.0), isNew: true },
+        pin("bbb", 37.5 + unit * 5, 127.0),
+        { ...pin("ccc", 37.5 - unit * 5, 127.0), isNew: true },
+      ],
+      5,
+      null,
+      new Set(),
+      new Set(["bbb"]),
+    );
+    const byId = Object.fromEntries(markers.map((m) => [m.id, m]));
+    expect(byId.bbb).toMatchObject({ state: "saved" });
+    expect(byId.ccc).toBeDefined();
+  });
+
   it("줌 아웃할수록 셀이 커진다 (같은 거리라도 강등 발생)", () => {
     const unit3 = degPerPx(3);
     const pins = [
@@ -129,7 +173,7 @@ describe("planMarkers", () => {
     const atLevel3 = planMarkers(pins, 3, null, new Set());
     const atLevel5 = planMarkers(pins, 5, null, new Set());
     expect(atLevel3.every((m) => m.kind === "pill")).toBe(true);
-    expect(atLevel5.some((m) => m.kind === "dot")).toBe(true);
+    expect(atLevel5.filter((m) => m.kind === "pill")).toHaveLength(1);
   });
 });
 
