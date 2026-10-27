@@ -711,6 +711,10 @@
     "date": "2026-10-27",
     "hash": "e1418388580e6fd4"
   },
+  "ramenkeulleop-sai": {
+    "date": "2026-10-27",
+    "hash": "56ada9af1342a6ce"
+  },
   "nisimuramen-yeonnambonjeom": {
     "date": "2026-10-19",
     "hash": "250946c0d6469e68"
@@ -1908,8 +1912,8 @@
     "hash": "8fd66a3fd2288017"
   },
   "higotoramen": {
-    "date": "2026-10-05",
-    "hash": "f768b311bd6868a0"
+    "date": "2026-10-27",
+    "hash": "272f660ef27fd4df"
   },
   "hondaramen-nyeongnamdaejeom": {
     "date": "2026-10-27",
@@ -5282,5 +5286,9 @@
   "hinoaji-busandaejeom": {
     "date": "2026-10-27",
     "hash": "6107b2642ed2c35b"
+  },
+  "dokyoseulleopkeulleop": {
+    "date": "2026-10-27",
+    "hash": "f034e56af22bf822"
   }
 }
