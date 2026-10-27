@@ -6,8 +6,27 @@ const base = { hours: "11:00-21:00", breakTime: null, closedDays: null };
 
 describe("OpenStatusBadge", () => {
   it("영업 매장은 영업시간 원문을 보여준다", () => {
+    const { container } = render(
+      <OpenStatusBadge status="open" {...base} closedDays="월" />,
+    );
+    expect(container).toHaveTextContent("11:00-21:00 · 월 휴무");
+  });
+
+  it("휴무는 놓치면 헛걸음이라 강조색으로 따로 표시한다", () => {
     render(<OpenStatusBadge status="open" {...base} closedDays="월" />);
-    expect(screen.getByText("11:00-21:00 · 월 휴무")).toBeInTheDocument();
+    expect(screen.getByText("월 휴무")).toHaveClass("text-ramen");
+  });
+
+  it("휴무만 있어도 구분자 없이 강조해 보여준다", () => {
+    const { container } = render(
+      <OpenStatusBadge
+        status="open"
+        hours={null}
+        breakTime={null}
+        closedDays="일"
+      />,
+    );
+    expect(container).toHaveTextContent(/^일 휴무$/);
   });
 
   it("휴업 매장은 '휴업 중'", () => {

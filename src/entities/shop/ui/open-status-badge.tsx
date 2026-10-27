@@ -39,12 +39,15 @@ export function OpenStatusBadge({
   const parts: string[] = [];
   if (hours) parts.push(hours);
   if (breakTime) parts.push(`브레이크 ${breakTime}`);
-  if (closedDays) parts.push(`${closedDays} 휴무`);
-  if (parts.length === 0) return null;
+  if (parts.length === 0 && !closedDays) return null;
 
   return (
     <span className={cn("text-secondary text-gray-500", className)}>
       {parts.join(" · ")}
+      {parts.length > 0 && closedDays && " · "}
+      {closedDays && (
+        <span className="font-semibold text-ramen">{closedDays} 휴무</span>
+      )}
     </span>
   );
 }
