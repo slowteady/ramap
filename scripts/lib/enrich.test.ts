@@ -522,3 +522,22 @@ describe("mergeMatched — 대표값 정합성", () => {
     expect(e.primarySoup).toBeUndefined();
   });
 });
+
+describe("mergeEnrichments — 판정 표시는 조사 날짜 순", () => {
+  it("파일 순서와 무관하게 가장 최근 조사의 판정이 남는다", () => {
+    const merged = mergeEnrichments([
+      { name: "가게", soupDetail: ["라멘집 아님"], observedAt: "2026-10-27" },
+      { name: "가게", soups: ["돈코츠"], observedAt: "2026-09-00" },
+    ]);
+    expect(merged.soupDetail).toContain("라멘집 아님");
+    expect(merged.soups).toEqual(["돈코츠"]);
+  });
+
+  it("더 최근 재검증이 판정을 지우면 지운 결과가 남는다", () => {
+    const merged = mergeEnrichments([
+      { name: "가게", soupDetail: ["실존 미확인"], observedAt: "2026-09-03" },
+      { name: "가게", soupDetail: ["영업 확인"], observedAt: "2026-10-15" },
+    ]);
+    expect(merged.soupDetail).toEqual(["영업 확인"]);
+  });
+});
