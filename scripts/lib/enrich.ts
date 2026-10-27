@@ -401,6 +401,13 @@ export function mergeMatched(
       (!opts.ambiguous || m.addrHint),
   );
   const own = mergeEnrichments(exact);
+  /* 영업시간·메뉴처럼 바뀌는 사실은 최신 조사가 이긴다 (2026-10-27: 9월 조사의 옛 영업시간이 10월 장소 카드를 가리던 결함).
+     동네 라벨은 큐레이션 값이라 기존 순서 유지 */
+  const current = mergeEnrichments(
+    [...exact].sort((a, b) =>
+      (b.observedAt ?? "").localeCompare(a.observedAt ?? ""),
+    ),
+  );
   /* 승계는 같은 체인으로 판정된 항목만, 주소 지정 항목은 그 주소 매장만, 계보는 chainWide만 */
   const chainBrands = new Set(
     matches
@@ -444,13 +451,13 @@ export function mergeMatched(
     soupDetail: [...new Set(soupDetail)],
     area: own.area,
     areaConfirmed: own.areaConfirmed,
-    hours: own.hours,
-    breakTime: own.breakTime,
-    closedDays: own.closedDays,
-    seats: own.seats,
-    menus: own.menus,
-    naverPlace: own.naverPlace,
-    openedAt: own.openedAt,
+    hours: current.hours,
+    breakTime: current.breakTime,
+    closedDays: current.closedDays,
+    seats: current.seats,
+    menus: current.menus,
+    naverPlace: current.naverPlace,
+    openedAt: current.openedAt,
     closed: own.closed,
     unverified: own.unverified,
   };
