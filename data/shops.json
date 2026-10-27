@@ -1233,56 +1233,6 @@
     "note": null
   },
   {
-    "id": "icheumoramen-sillimjikgyeongjeom",
-    "name": "이츠모라멘 신림직영점",
-    "branch": null,
-    "address": "서울특별시 관악구 신림로68길 7 (신림동)",
-    "city": "서울",
-    "district": "관악구",
-    "areaLabel": "신림",
-    "lat": 37.486556,
-    "lng": 126.929737,
-    "coordSource": "localdata",
-    "hours": "11:30-20:00",
-    "breakTime": null,
-    "closedDays": "화요일",
-    "openedAt": null,
-    "status": "open",
-    "statusChangedAt": null,
-    "forms": [
-      "ramen",
-      "tsukemen"
-    ],
-    "primaryForm": "ramen",
-    "soups": [
-      "tonkotsu",
-      "shoyu"
-    ],
-    "primarySoup": "tonkotsu",
-    "soupDetail": [
-      "청탕"
-    ],
-    "lineages": [],
-    "amenities": [],
-    "confidence": "certain",
-    "menus": [
-      {
-        "name": "이츠모 돈코츠라멘",
-        "price": 10500
-      }
-    ],
-    "photos": [],
-    "seats": null,
-    "tagline": null,
-    "instagram": "itsumo_ramen",
-    "naverPlace": null,
-    "waitingLink": null,
-    "verification": "pending",
-    "lastVerifiedAt": null,
-    "source": "시딩v2(인허가+상가); 라벨 부여(다음검색) — '초당'으로 다수 표기; 정보수집(다음검색); 정보수집(다음검색); 정보수집(다음검색); 휴무 교정 — 표본 대조(다음): 무휴 확인 2026-09-02; 서울 디깅(다음검색); 정보 보강(다음검색); 정보 보강(다음검색); 재검증(다음검색); 웹 조사; 웹 조사; 웹 조사",
-    "note": null
-  },
-  {
     "id": "meigecheu-ramen-sillimjeom",
     "name": "메이게츠 라멘 신림점",
     "branch": null,
@@ -2964,63 +2914,6 @@
     "note": null
   },
   {
-    "id": "kyoramen-kyo-ramen",
-    "name": "쿄라멘(Kyo ramen)",
-    "branch": null,
-    "address": "서울특별시 마포구 동교로46길 25, 지층 (연남동)",
-    "city": "서울",
-    "district": "마포구",
-    "areaLabel": "연남",
-    "lat": 37.562307,
-    "lng": 126.926177,
-    "coordSource": "localdata",
-    "hours": "11:30-19:30",
-    "breakTime": "14:50-17:00",
-    "closedDays": "월요일",
-    "openedAt": null,
-    "status": "open",
-    "statusChangedAt": null,
-    "forms": [
-      "ramen",
-      "tsukemen"
-    ],
-    "primaryForm": "ramen",
-    "soups": [
-      "tonkotsu",
-      "shoyu",
-      "niboshi"
-    ],
-    "primarySoup": "tonkotsu",
-    "soupDetail": [],
-    "lineages": [],
-    "amenities": [],
-    "confidence": "certain",
-    "menus": [
-      {
-        "name": "쿄라멘",
-        "price": 8000
-      },
-      {
-        "name": "매운돈코츠라멘",
-        "price": 8500
-      },
-      {
-        "name": "츠케멘",
-        "price": 10000
-      }
-    ],
-    "photos": [],
-    "seats": null,
-    "tagline": null,
-    "instagram": "kyoramen",
-    "naverPlace": null,
-    "waitingLink": null,
-    "verification": "pending",
-    "lastVerifiedAt": null,
-    "source": "시딩v2(인허가+상가I20303+상가); 정보수집(다음검색); 디시 라멘 갤러리 정리글; 디깅 발굴 조사(다음검색); 서울 디깅(다음검색); 2차 디깅(다음검색) · 가재울; 미디어(하입비스트·GQ 외)",
-    "note": null
-  },
-  {
     "id": "akiya-ramen",
     "name": "아키야 라멘",
     "branch": null,
@@ -4170,66 +4063,6 @@
     "lastVerifiedAt": null,
     "source": "시딩v2(인허가+상가I20303+상가); 2차 디깅(다음검색) · 아산 배방; 정보 보강(다음검색); 정보 보강(다음검색); 정보 보강 — 상세 미확인; 경기 조사(다음검색) — 영업중; 보류 재심사(다음검색); 지역 조사(다음검색) — 블로그 다수, 진한 돈코츠 라멘 언급, 영업시간 미확인; 웹 조사",
     "note": "LOCALDATA 2026-10 폐업 기록이나 Daum 플레이스 영업중(명의변경 의심) — 영업 유지, 확인 대상(폐업일 2026-09-22, 관리번호 3010000-101-2021-00242)"
-  },
-  {
-    "id": "566ramen-566ramen",
-    "name": "566라멘(566RAMEN)",
-    "branch": null,
-    "address": "서울특별시 마포구 연남로3길 33, 1층 (연남동)",
-    "city": "서울",
-    "district": "마포구",
-    "areaLabel": "연남",
-    "lat": 37.560593,
-    "lng": 126.920887,
-    "coordSource": "localdata",
-    "hours": "11:00-20:30",
-    "breakTime": "15:00-17:00",
-    "closedDays": null,
-    "openedAt": null,
-    "status": "open",
-    "statusChangedAt": null,
-    "forms": [
-      "ramen"
-    ],
-    "primaryForm": "ramen",
-    "soups": [
-      "niboshi",
-      "miso",
-      "tonkotsu"
-    ],
-    "primarySoup": "niboshi",
-    "soupDetail": [
-      "시루나시"
-    ],
-    "lineages": [
-      "jiro"
-    ],
-    "amenities": [],
-    "confidence": "certain",
-    "menus": [
-      {
-        "name": "라멘(소)",
-        "price": 11000
-      },
-      {
-        "name": "시루나시(소)",
-        "price": 11000
-      },
-      {
-        "name": "니보시 마제 지로(소)",
-        "price": 12000
-      }
-    ],
-    "photos": [],
-    "seats": null,
-    "tagline": null,
-    "instagram": "566ramen",
-    "naverPlace": null,
-    "waitingLink": null,
-    "verification": "pending",
-    "lastVerifiedAt": null,
-    "source": "시딩v2(인허가+상가I20303+상가); 정보수집(다음검색); 디시 라멘 갤러리 정리글; 디깅 발굴 조사(다음검색) — 연중무휴, 니보시·마제·지로 메뉴 구성; 서울 디깅(다음검색); 2차 디깅(다음검색) · 가재울; 미디어(하입비스트·GQ 외)",
-    "note": null
   },
   {
     "id": "mennyahanabi-hapjeongjeom",
@@ -6804,62 +6637,6 @@
     "note": null
   },
   {
-    "id": "mennyapomo-seoulsupjeom",
-    "name": "멘야포모 서울숲점",
-    "branch": null,
-    "address": "서울특별시 성동구 서울숲4길 28, 2층 (성수동1가)",
-    "city": "서울",
-    "district": "성동구",
-    "areaLabel": "성수",
-    "lat": 37.546908,
-    "lng": 127.043884,
-    "coordSource": "localdata",
-    "hours": "11:00-20:30",
-    "breakTime": "15:30-17:00",
-    "closedDays": "토요일·일요일",
-    "openedAt": null,
-    "status": "open",
-    "statusChangedAt": null,
-    "forms": [
-      "ramen",
-      "mazesoba"
-    ],
-    "primaryForm": "ramen",
-    "soups": [
-      "tantanmen",
-      "tomato"
-    ],
-    "primarySoup": "tantanmen",
-    "soupDetail": [],
-    "lineages": [],
-    "amenities": [],
-    "confidence": "estimated",
-    "menus": [
-      {
-        "name": "토마토라멘",
-        "price": 9500
-      },
-      {
-        "name": "치즈 토마토라멘",
-        "price": 11800
-      },
-      {
-        "name": "스페셜 토마토라멘",
-        "price": 13800
-      }
-    ],
-    "photos": [],
-    "seats": null,
-    "tagline": null,
-    "instagram": "menyapomo",
-    "naverPlace": "https://map.naver.com/p/entry/place/2066487603",
-    "waitingLink": null,
-    "verification": "pending",
-    "lastVerifiedAt": null,
-    "source": "시딩v2(인허가+상가+상가); 정보수집(다음검색); 디깅 발굴 조사(다음검색); 서울 디깅(다음검색); 웹 조사",
-    "note": null
-  },
-  {
     "id": "sonokiramen-hannyangdaejeom",
     "name": "소노키라멘 한양대점",
     "branch": null,
@@ -7903,62 +7680,6 @@
     "note": null
   },
   {
-    "id": "mennyari-menyalee",
-    "name": "멘야리(MenyaLee)",
-    "branch": null,
-    "address": "서울특별시 성북구 동소문로20다길 30-11, 1층 (동선동1가)",
-    "city": "서울",
-    "district": "성북구",
-    "areaLabel": "성신여대",
-    "lat": 37.591695,
-    "lng": 127.018587,
-    "coordSource": "localdata",
-    "hours": "11:00-21:30",
-    "breakTime": null,
-    "closedDays": "연중무휴",
-    "openedAt": null,
-    "status": "open",
-    "statusChangedAt": null,
-    "forms": [
-      "ramen",
-      "mazesoba",
-      "aburasoba"
-    ],
-    "primaryForm": "ramen",
-    "soups": [
-      "tonkotsu"
-    ],
-    "primarySoup": "tonkotsu",
-    "soupDetail": [],
-    "lineages": [],
-    "amenities": [],
-    "confidence": "certain",
-    "menus": [
-      {
-        "name": "마제소바",
-        "price": 10000
-      },
-      {
-        "name": "돈코츠라멘",
-        "price": 11000
-      },
-      {
-        "name": "아부라소바",
-        "price": 12500
-      }
-    ],
-    "photos": [],
-    "seats": null,
-    "tagline": null,
-    "instagram": null,
-    "naverPlace": null,
-    "waitingLink": null,
-    "verification": "pending",
-    "lastVerifiedAt": null,
-    "source": "시딩v2(인허가+상가+상가); 정보수집(다음검색); 디깅 발굴 조사(다음검색) — 연중무휴, 메뉴판에 성신여대직영점 표기; 서울 디깅(다음검색); 정보 보강(다음검색); 웹 조사",
-    "note": null
-  },
-  {
     "id": "yoramen",
     "name": "요라멘",
     "branch": null,
@@ -8427,56 +8148,6 @@
     "verification": "pending",
     "lastVerifiedAt": null,
     "source": "시딩v2(인허가+상가+상가); 정보수집(다음검색); 정보수집(다음검색); 서울 디깅(다음검색); 2차 디깅(다음검색) · 갈현동; 웹 조사; 웹 조사",
-    "note": null
-  },
-  {
-    "id": "orenoramen-eunpyeong",
-    "name": "오레노라멘 은평",
-    "branch": null,
-    "address": "서울특별시 은평구 불광천길 366 (응암동, 1층)",
-    "city": "서울",
-    "district": "은평구",
-    "areaLabel": "응암",
-    "lat": 37.590308,
-    "lng": 126.914362,
-    "coordSource": "localdata",
-    "hours": "11:00-20:30",
-    "breakTime": "14:30-17:00",
-    "closedDays": null,
-    "openedAt": null,
-    "status": "open",
-    "statusChangedAt": null,
-    "forms": [
-      "ramen"
-    ],
-    "primaryForm": "ramen",
-    "soups": [
-      "toripaitan"
-    ],
-    "primarySoup": "toripaitan",
-    "soupDetail": [],
-    "lineages": [],
-    "amenities": [],
-    "confidence": "estimated",
-    "menus": [
-      {
-        "name": "토리빠이탄라멘",
-        "price": 13000
-      },
-      {
-        "name": "카라빠이탄라멘",
-        "price": 13000
-      }
-    ],
-    "photos": [],
-    "seats": null,
-    "tagline": null,
-    "instagram": "https://www.instagram.com/orenoramen",
-    "naverPlace": null,
-    "waitingLink": null,
-    "verification": "pending",
-    "lastVerifiedAt": null,
-    "source": "시딩v2(인허가+상가I20303+상가); 정보수집(다음검색); 정보수집(다음검색); 디시 라멘 갤러리 정리글; 충청 디깅(다음검색) · 대전; 서울 디깅(다음검색); 2차 디깅(다음검색) · 대전; 미디어(하입비스트·GQ 외)",
     "note": null
   },
   {
@@ -12360,65 +12031,6 @@
     "note": null
   },
   {
-    "id": "denkiramen-denki-ramen",
-    "name": "덴키라멘(DENKI RAMEN)",
-    "branch": null,
-    "address": "서울특별시 강남구 논현로30길 43, 지상1층 (도곡동)",
-    "city": "서울",
-    "district": "강남구",
-    "areaLabel": "도곡",
-    "lat": 37.484915,
-    "lng": 127.045111,
-    "coordSource": "localdata",
-    "hours": "11:00-21:00",
-    "breakTime": "15:00-17:00",
-    "closedDays": "토요일, 일요일",
-    "openedAt": null,
-    "status": "open",
-    "statusChangedAt": null,
-    "forms": [
-      "ramen",
-      "aburasoba"
-    ],
-    "primaryForm": "ramen",
-    "soups": [
-      "tonkotsu",
-      "niboshi",
-      "tonkotsu-shoyu"
-    ],
-    "primarySoup": "tonkotsu-shoyu",
-    "soupDetail": [],
-    "lineages": [
-      "iekei"
-    ],
-    "amenities": [],
-    "confidence": "certain",
-    "menus": [
-      {
-        "name": "농후이에케라멘",
-        "price": 10000
-      },
-      {
-        "name": "매운농후이에케라멘",
-        "price": 10500
-      },
-      {
-        "name": "농후니보시이에케라멘",
-        "price": 11000
-      }
-    ],
-    "photos": [],
-    "seats": null,
-    "tagline": null,
-    "instagram": "https://www.instagram.com/project_denki",
-    "naverPlace": null,
-    "waitingLink": null,
-    "verification": "pending",
-    "lastVerifiedAt": null,
-    "source": "시딩v2(인허가+상가I20303+상가); 정보수집(다음검색); 2차 디깅(다음검색) · 도곡동; 발굴분 조사(다음검색) — 플레이스 강남구 논현로30길 43, 일본식라면; 웹 조사",
-    "note": null
-  },
-  {
     "id": "yuramen-gangnamnyeoksamsinnonhyeonnyeokc",
     "name": "유라멘 강남역삼신논현역CGV점심저녁",
     "branch": null,
@@ -14368,63 +13980,6 @@
     "lastVerifiedAt": null,
     "source": "시딩v2(상가); 정보수집(다음검색); 정보 보강(다음검색); 정보 보강 — 상세 미확인; 경기 조사(다음검색); 웹 조사",
     "note": "LOCALDATA 2026-10 폐업 전이(폐업일 2022-10-24, 관리번호 5770000-101-2015-00386)"
-  },
-  {
-    "id": "yeoreosimennyakaori-jeongjajeom",
-    "name": "여러시멘야카오리",
-    "branch": "정자점",
-    "address": "경기도 성남시 분당구 성남대로 295",
-    "city": "경기",
-    "district": "성남시",
-    "areaLabel": "정자동",
-    "lat": 37.362509,
-    "lng": 127.107544,
-    "coordSource": "sanggwon",
-    "hours": "11:30-21:00",
-    "breakTime": "15:00-17:00",
-    "closedDays": "일요일",
-    "openedAt": null,
-    "status": "open",
-    "statusChangedAt": null,
-    "forms": [
-      "mazesoba",
-      "ramen"
-    ],
-    "primaryForm": "mazesoba",
-    "soups": [
-      "etc-soup"
-    ],
-    "primarySoup": "etc-soup",
-    "soupDetail": [
-      "마제소바 전문"
-    ],
-    "lineages": [],
-    "amenities": [],
-    "confidence": "estimated",
-    "menus": [
-      {
-        "name": "카오리마제소바",
-        "price": 11000
-      },
-      {
-        "name": "카라이마제소바",
-        "price": 12000
-      },
-      {
-        "name": "사천마라마제소바",
-        "price": 12500
-      }
-    ],
-    "photos": [],
-    "seats": null,
-    "tagline": null,
-    "instagram": "menyakaori",
-    "naverPlace": null,
-    "waitingLink": null,
-    "verification": "pending",
-    "lastVerifiedAt": null,
-    "source": "시딩v2(상가); 정보수집(다음검색); 경기 조사(다음검색); 재검증(다음검색) · 스프 종류는 미확정(마제소바 중심), 일부 블로그에 폐업 표기 있으나 지점 특정 불가; 웹 조사",
-    "note": null
   },
   {
     "id": "jenpudeuhinoajiseutapildeu-anseongjeom",
@@ -32620,64 +32175,6 @@
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
-    "id": "doma-yujeuramen",
-    "name": "도마;유즈라멘",
-    "branch": null,
-    "address": "서울특별시 종로구 북촌로2길 14",
-    "city": "서울",
-    "district": "종로구",
-    "areaLabel": "안국",
-    "lat": 37.577836,
-    "lng": 126.986528,
-    "coordSource": "sanggwon",
-    "hours": "11:00-21:30",
-    "breakTime": "15:00-17:00",
-    "closedDays": "마지막주 월요일",
-    "openedAt": null,
-    "status": "open",
-    "statusChangedAt": null,
-    "forms": [
-      "ramen",
-      "tsukemen"
-    ],
-    "primaryForm": "ramen",
-    "soups": [
-      "shio",
-      "shoyu"
-    ],
-    "primarySoup": "shio",
-    "soupDetail": [
-      "유즈"
-    ],
-    "lineages": [],
-    "amenities": [],
-    "confidence": "certain",
-    "menus": [
-      {
-        "name": "유즈시오라멘",
-        "price": 12000
-      },
-      {
-        "name": "유즈쇼유라멘",
-        "price": 12000
-      },
-      {
-        "name": "유즈츠케멘",
-        "price": 14000
-      }
-    ],
-    "photos": [],
-    "seats": null,
-    "tagline": null,
-    "instagram": "https://www.instagram.com/yuzu_ramen2",
-    "naverPlace": null,
-    "waitingLink": null,
-    "verification": "pending",
-    "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 정보수집(다음검색); 재검증(다음검색); 웹 조사",
-    "note": "I20303 발굴 — 라멘 여부 확인 필요"
-  },
-  {
     "id": "jingawa-koria",
     "name": "진가와",
     "branch": "코리아",
@@ -34423,48 +33920,6 @@
     "verification": "pending",
     "lastVerifiedAt": null,
     "source": "시딩v2(상가I20303); 정보 보강(다음검색); 발굴분 조사 — 플레이스 동대문구 제기로2길 23 업종 일식으로 확인되나 메뉴 미확인, 라멘 취급 확정 불가; 웹 조사; 웹 조사; 웹 조사; 웹 조사; 웹 조사; 웹 조사",
-    "note": "I20303 발굴 — 라멘 여부 확인 필요"
-  },
-  {
-    "id": "yuramensamsinnonhyeonnyeokcgvjeomsimjeon",
-    "name": "유라멘삼신논현역CGV점심저녁",
-    "branch": "강남역",
-    "address": "서울특별시 강남구 봉은사로4길 32",
-    "city": "서울",
-    "district": "강남구",
-    "areaLabel": "강남역",
-    "lat": 37.502762,
-    "lng": 127.026668,
-    "coordSource": "sanggwon",
-    "hours": null,
-    "breakTime": null,
-    "closedDays": null,
-    "openedAt": null,
-    "status": "open",
-    "statusChangedAt": null,
-    "forms": [
-      "ramen",
-      "mazesoba"
-    ],
-    "primaryForm": "ramen",
-    "soups": [
-      "tonkotsu"
-    ],
-    "primarySoup": "tonkotsu",
-    "soupDetail": [],
-    "lineages": [],
-    "amenities": [],
-    "confidence": "estimated",
-    "menus": [],
-    "photos": [],
-    "seats": null,
-    "tagline": null,
-    "instagram": "uramen_4u",
-    "naverPlace": null,
-    "waitingLink": null,
-    "verification": "pending",
-    "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 정보 보강(다음검색); 2026-10-27 D-11 재조사(다음검색) — 블로그 2026-09-04 '돈코츠 육수에 가늘고 쫄깃한 하카타 스타일 면발', 2026-09-25 '라멘과 마제소바 유 라멘 강남신논현본점', '풀토핑 돈코츠 라멘' 후기. 같은 주소 '유라멘 강남역삼신논현역CGV점심저녁' 행과 동일 매장(중복 행)",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -46304,60 +45759,6 @@
     "note": null
   },
   {
-    "id": "mennyasanchoku-menasanchoku-muko",
-    "name": "멘야산초쿠(MENASANCHOKU)묵호",
-    "branch": null,
-    "address": "강원특별자치도 동해시 발한로 229-3, 1층 (발한동)",
-    "city": "강원",
-    "district": "동해시",
-    "areaLabel": "발한동",
-    "lat": 37.549596,
-    "lng": 129.107736,
-    "coordSource": "sanggwon",
-    "hours": "11:30-20:00",
-    "breakTime": "14:00-17:30",
-    "closedDays": "수요일",
-    "openedAt": null,
-    "status": "open",
-    "statusChangedAt": null,
-    "forms": [
-      "mazesoba"
-    ],
-    "primaryForm": "mazesoba",
-    "soups": [
-      "etc-soup"
-    ],
-    "primarySoup": "etc-soup",
-    "soupDetail": [],
-    "lineages": [],
-    "amenities": [],
-    "confidence": "estimated",
-    "menus": [
-      {
-        "name": "마제소바",
-        "price": 11000
-      },
-      {
-        "name": "카라이마제소바",
-        "price": 11500
-      },
-      {
-        "name": "붓카케우동",
-        "price": 14000
-      }
-    ],
-    "photos": [],
-    "seats": null,
-    "tagline": null,
-    "instagram": null,
-    "naverPlace": null,
-    "waitingLink": null,
-    "verification": "pending",
-    "lastVerifiedAt": null,
-    "source": "시딩v2(상가); 보류 재검증(다음검색) — 플레이스 '멘야산초쿠 묵호지점' 동해시 발한로 229-3 1층(발한동 293-11) 도로명 일치, 일본식라면",
-    "note": null
-  },
-  {
     "id": "gattteuramen-2",
     "name": "갓뜨라멘",
     "branch": null,
@@ -47261,47 +46662,6 @@
     "verification": "pending",
     "lastVerifiedAt": null,
     "source": "시딩v2(상가); 2차 디깅(다음검색) · 진주시 충무공동; 정보 보강(다음검색); 지역 조사(다음검색)",
-    "note": null
-  },
-  {
-    "id": "ilbollamenjeonmunjeom-ryuhei",
-    "name": "일본라멘전문점 류헤이",
-    "branch": null,
-    "address": "경상남도 진주시 가좌길 28, 1층일부 (가좌동)",
-    "city": "경남",
-    "district": "진주시",
-    "areaLabel": "가좌동",
-    "lat": 35.156703,
-    "lng": 128.104863,
-    "coordSource": "sanggwon",
-    "hours": null,
-    "breakTime": null,
-    "closedDays": null,
-    "openedAt": null,
-    "status": "open",
-    "statusChangedAt": null,
-    "forms": [
-      "ramen"
-    ],
-    "primaryForm": "ramen",
-    "soups": [
-      "etc-soup"
-    ],
-    "primarySoup": "etc-soup",
-    "soupDetail": [],
-    "lineages": [],
-    "amenities": [],
-    "confidence": "estimated",
-    "menus": [],
-    "photos": [],
-    "seats": null,
-    "tagline": null,
-    "instagram": null,
-    "naverPlace": null,
-    "waitingLink": null,
-    "verification": "pending",
-    "lastVerifiedAt": null,
-    "source": "시딩v2(상가); 보류 재검증(다음검색) — 플레이스 경남 진주시 가좌길 28 1층(가좌동 1444-1) 영업중 확인",
     "note": null
   },
   {
@@ -60294,64 +59654,6 @@
     "note": null
   },
   {
-    "id": "yujeuramen",
-    "name": "유즈라멘",
-    "branch": null,
-    "address": "서울특별시 중구 만리재로 217",
-    "city": "서울",
-    "district": "중구",
-    "areaLabel": "만리동",
-    "lat": 37.556884,
-    "lng": 126.96822,
-    "coordSource": "sanggwon",
-    "hours": "11:00-21:00",
-    "breakTime": "15:00-17:00",
-    "closedDays": "마지막주 월요일",
-    "openedAt": null,
-    "status": "open",
-    "statusChangedAt": null,
-    "forms": [
-      "ramen",
-      "tsukemen"
-    ],
-    "primaryForm": "ramen",
-    "soups": [
-      "shio",
-      "shoyu"
-    ],
-    "primarySoup": "shio",
-    "soupDetail": [
-      "유즈"
-    ],
-    "lineages": [],
-    "amenities": [],
-    "confidence": "certain",
-    "menus": [
-      {
-        "name": "유즈시오라멘",
-        "price": 12000
-      },
-      {
-        "name": "한우 육회츠케멘",
-        "price": 15000
-      },
-      {
-        "name": "유즈쇼유라멘",
-        "price": 12000
-      }
-    ],
-    "photos": [],
-    "seats": null,
-    "tagline": null,
-    "instagram": "https://www.instagram.com/yuzu_ramen",
-    "naverPlace": null,
-    "waitingLink": null,
-    "verification": "pending",
-    "lastVerifiedAt": null,
-    "source": "시딩v2(디깅발굴(상가)); 정보수집(다음검색); 디깅 발굴 조사(다음검색); 서울 디깅(다음검색); 2차 디깅(다음검색) · 중구; 미디어(하입비스트·GQ 외); 재검증(다음검색); 재검증(다음검색); 웹 조사; 웹 조사",
-    "note": null
-  },
-  {
     "id": "sarukame",
     "name": "사루카메",
     "branch": null,
@@ -60850,48 +60152,6 @@
     "verification": "pending",
     "lastVerifiedAt": null,
     "source": "시딩v2(디깅발굴(상가)); 정보수집(다음검색); 2차 디깅(다음검색) · 도곡동; 발굴분 조사(다음검색) — 플레이스 강남구 논현로30길 43, 일본식라면; 웹 조사",
-    "note": null
-  },
-  {
-    "id": "hauseuobeukoi",
-    "name": "하우스오브코이",
-    "branch": null,
-    "address": "서울특별시 강남구 압구정로46길 75",
-    "city": "서울",
-    "district": "강남구",
-    "areaLabel": "신사",
-    "lat": 37.523852,
-    "lng": 127.036709,
-    "coordSource": "sanggwon",
-    "hours": "11:00-22:00",
-    "breakTime": null,
-    "closedDays": null,
-    "openedAt": null,
-    "status": "open",
-    "statusChangedAt": null,
-    "forms": [
-      "ramen",
-      "mazesoba"
-    ],
-    "primaryForm": "ramen",
-    "soups": [
-      "etc-soup"
-    ],
-    "primarySoup": "etc-soup",
-    "soupDetail": [],
-    "lineages": [],
-    "amenities": [],
-    "confidence": "estimated",
-    "menus": [],
-    "photos": [],
-    "seats": null,
-    "tagline": null,
-    "instagram": null,
-    "naverPlace": null,
-    "waitingLink": null,
-    "verification": "pending",
-    "lastVerifiedAt": null,
-    "source": "시딩v2(디깅발굴(상가)); 디깅 발굴 조사(다음검색) — 업종 일식라면(매운라멘·부타동·마제소바), 가격·장르 상세 미확인; 서울 디깅(다음검색)",
     "note": null
   },
   {
@@ -64372,49 +63632,6 @@
     "verification": "pending",
     "lastVerifiedAt": null,
     "source": "시딩v2(디깅발굴(상가)); 대구경북 디깅(다음검색) — 표기 원문 그대로, 확인 필요 · 수성구; 인천 디깅(다음검색); 2차 디깅(다음검색) · 구미 인동; 정보 보강 — 상세 미확인; 보류 재검증(다음검색) — 플레이스 대구 수성구 달구벌대로480길 9 1층 112호(범어동 551-7), 일본식라면",
-    "note": null
-  },
-  {
-    "id": "itssimnamen",
-    "name": "잇씸라멘",
-    "branch": null,
-    "address": "대구광역시 달서구 야외음악당로39서길 40, 1층 (두류동)",
-    "city": "대구",
-    "district": "달서구",
-    "areaLabel": "두류동",
-    "lat": 35.85331,
-    "lng": 128.551768,
-    "coordSource": "sanggwon",
-    "hours": null,
-    "breakTime": null,
-    "closedDays": null,
-    "openedAt": null,
-    "status": "open",
-    "statusChangedAt": null,
-    "forms": [
-      "ramen",
-      "mazesoba"
-    ],
-    "primaryForm": "ramen",
-    "soups": [
-      "tonkotsu",
-      "toripaitan"
-    ],
-    "primarySoup": "tonkotsu",
-    "soupDetail": [],
-    "lineages": [],
-    "amenities": [],
-    "confidence": "estimated",
-    "menus": [],
-    "photos": [],
-    "seats": null,
-    "tagline": null,
-    "instagram": null,
-    "naverPlace": null,
-    "waitingLink": null,
-    "verification": "pending",
-    "lastVerifiedAt": null,
-    "source": "시딩v2(디깅발굴(상가)); 2차 디깅(다음검색) · 두류; 2026-10-27 D-11 재조사(다음검색) — Daum 장소 카드 '잇씸라멘' 일본식라면(브레이크타임 표기, 메뉴 매운 돈코츠라멘·토리파이탄·매운 토리파이탄), 후기(날짜 미표기) '대표메뉴 : 돈코츠라멘'·'얼큰돈코츠라멘부터 마제소바까지', 2026-04-25 방문기. 같은 주소 '잇씸라멘;",
     "note": null
   },
   {
