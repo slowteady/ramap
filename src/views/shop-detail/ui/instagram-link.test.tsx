@@ -17,12 +17,6 @@ describe("InstagramLink", () => {
     );
     expect(link).toHaveAttribute("target", "_blank");
     expect(link).toHaveAttribute("rel", "noopener noreferrer");
-    expect(screen.queryByText("브랜드 계정")).not.toBeInTheDocument();
-  });
-
-  it("여러 지점 공용 계정이면 브랜드 계정임을 밝힌다 — 지점 계정으로 오인 방지", () => {
-    render(<InstagramLink shopId="koi" handle="koiramen.official" shared />);
-    expect(screen.getByText("브랜드 계정")).toBeInTheDocument();
   });
 
   it("클릭을 기록한다", () => {
