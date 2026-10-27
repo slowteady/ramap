@@ -2240,7 +2240,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(인허가+상가+상가); 정보수집(다음검색); 정보수집(다음검색); 서울 디깅(다음검색); 2차 디깅(다음검색) · 목동; 확인 불가 — 다음검색에 목동중앙북로 86 지점만 노출; 동명 재검증(다음검색) — 일요일은 17:30-22:00; 정보 보강(다음검색); 웹 조사; 웹 조사",
+    "source": "시딩v2(인허가+상가+상가); 정보수집(다음검색); 정보수집(다음검색); 서울 디깅(다음검색); 2차 디깅(다음검색) · 목동; 확인 불가 — 다음검색에 목동중앙북로 86 지점만 노출; 동명 재검증(다음검색) — 일요일은 17:30-22:00; 정보 보강(다음검색); 2026-10-27 D-16 계보 재조사 — Daum 장소 카드 2026-10-27 '멘야",
     "note": null
   },
   {
@@ -3973,9 +3973,9 @@
     "lat": 37.546292,
     "lng": 126.872613,
     "coordSource": "localdata",
-    "hours": "11:00-22:00",
+    "hours": "11:00-21:00",
     "breakTime": "15:00-17:00",
-    "closedDays": null,
+    "closedDays": "일",
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
@@ -3994,7 +3994,12 @@
     "lineages": [],
     "amenities": [],
     "confidence": "estimated",
-    "menus": [],
+    "menus": [
+      {
+        "name": "돈코츠라멘",
+        "price": 10000
+      }
+    ],
     "photos": [],
     "seats": null,
     "tagline": null,
@@ -4003,7 +4008,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(인허가+상가); 정보수집(다음검색); 정보수집(다음검색); 서울 디깅(다음검색); 2차 디깅(다음검색) · 목동; 확인 불가 — 다음검색에 목동중앙북로 86 지점만 노출; 동명 재검증(다음검색) — 일요일은 17:30-22:00; 정보 보강(다음검색); 웹 조사; 웹 조사",
+    "source": "시딩v2(인허가+상가); 정보수집(다음검색); 정보수집(다음검색); 서울 디깅(다음검색); 2차 디깅(다음검색) · 목동; 확인 불가 — 다음검색에 목동중앙북로 86 지점만 노출; 동명 재검증(다음검색) — 일요일은 17:30-22:00; 정보 보강(다음검색); 2026-10-27 D-16 계보 재조사 — Daum 장소 카드 2026-10-27 '멘야가와",
     "note": null
   },
   {
@@ -8243,7 +8248,7 @@
     "coordSource": "localdata",
     "hours": "11:00-20:30",
     "breakTime": "15:30-17:00",
-    "closedDays": "일요일",
+    "closedDays": "일",
     "openedAt": "2009-08-25",
     "status": "open",
     "statusChangedAt": null,
@@ -12550,12 +12555,12 @@
         "price": 10500
       },
       {
-        "name": "매운라멘",
-        "price": 10500
-      },
-      {
         "name": "마제소바",
         "price": 11500
+      },
+      {
+        "name": "매운라멘",
+        "price": 10500
       }
     ],
     "photos": [],
@@ -26292,16 +26297,32 @@
     ],
     "primaryForm": "ramen",
     "soups": [
-      "etc-soup"
+      "tonkotsu-shoyu",
+      "shoyu"
     ],
-    "primarySoup": "etc-soup",
+    "primarySoup": "tonkotsu-shoyu",
     "soupDetail": [
       "지로라멘"
     ],
-    "lineages": [],
+    "lineages": [
+      "jiro"
+    ],
     "amenities": [],
-    "confidence": "estimated",
-    "menus": [],
+    "confidence": "certain",
+    "menus": [
+      {
+        "name": "쇼유지로케",
+        "price": 12000
+      },
+      {
+        "name": "카라이 소유지로케",
+        "price": 12500
+      },
+      {
+        "name": "청탕소유지로케",
+        "price": 12000
+      }
+    ],
     "photos": [],
     "seats": null,
     "tagline": null,
@@ -26310,7 +26331,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303+상가); 부산 디깅(다음검색); 대구경북 디깅(다음검색, '대구 라멘 성지') · 대구; 2차 디깅(다음검색) · 부산진구 전포동; 정보 보강(다음검색); 지역 조사(다음검색) — '청탕쇼유지로케·블랙아부라소바' 캡션 근거, 국물 장르 상세 미확인",
+    "source": "시딩v2(상가I20303+상가); 부산 디깅(다음검색); 대구경북 디깅(다음검색, '대구 라멘 성지') · 대구; 2차 디깅(다음검색) · 부산진구 전포동; 정보 보강(다음검색); 2026-10-27 D-16 계보 재조사 — 블로그 2026-09-27 메뉴 정보 '쇼유지로케 12,000 / 카라이 소유지로케 12,500 / 청탕소유지로케 12,000 / 이",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -42454,9 +42475,10 @@
     ],
     "primaryForm": "ramen",
     "soups": [
+      "tonkotsu-shoyu",
       "shoyu"
     ],
-    "primarySoup": "shoyu",
+    "primarySoup": "tonkotsu-shoyu",
     "soupDetail": [
       "지로라멘"
     ],
@@ -42464,7 +42486,7 @@
       "iekei"
     ],
     "amenities": [],
-    "confidence": "estimated",
+    "confidence": "certain",
     "menus": [
       {
         "name": "이에케쇼유",
@@ -42487,7 +42509,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가); 부산 디깅(다음검색); 대구경북 디깅(다음검색, '대구 라멘 성지') · 대구; 2차 디깅(다음검색) · 부산진구 전포동; 정보 보강(다음검색); 지역 조사(다음검색) — '청탕쇼유지로케·블랙아부라소바' 캡션 근거, 국물 장르 상세 미확인",
+    "source": "시딩v2(상가); 부산 디깅(다음검색); 대구경북 디깅(다음검색, '대구 라멘 성지') · 대구; 2차 디깅(다음검색) · 부산진구 전포동; 정보 보강(다음검색); 2026-10-27 D-16 계보 재조사 — 블로그 2026-09-27 메뉴 정보 '쇼유지로케 12,000 / 카라이 소유지로케 12,500 / 청탕소유지로케 12,000 / 이에케라멘 11,0",
     "note": null
   },
   {
@@ -45741,7 +45763,7 @@
     "coordSource": "sanggwon",
     "hours": "11:00-20:00",
     "breakTime": "15:00-17:00",
-    "closedDays": "수요일",
+    "closedDays": "수",
     "openedAt": null,
     "status": "open",
     "statusChangedAt": null,
@@ -50712,7 +50734,8 @@
     "statusChangedAt": null,
     "forms": [
       "ramen",
-      "mazesoba"
+      "mazesoba",
+      "tsukemen"
     ],
     "primaryForm": "ramen",
     "soups": [
@@ -50746,7 +50769,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(디깅발굴); 디깅 발굴 조사(다음검색); 디깅 발굴 조사(다음검색); 경기 디깅(다음검색); 서울 디깅(다음검색); 2차 디깅(다음검색) · 성남 분당 서현동; 2차 디깅(다음검색) · 서초; 2차 디깅(다음검색) · 방배; 발굴분 조사(다음검색) — 플레이스 서울 서초구 방배로 89 성지빌딩 1층, 업종 일본식라면(돈코츠)",
+    "source": "시딩v2(디깅발굴); 디깅 발굴 조사(다음검색); 디깅 발굴 조사(다음검색); 경기 디깅(다음검색); 서울 디깅(다음검색); 2차 디깅(다음검색) · 성남 분당 서현동; 2차 디깅(다음검색) · 서초; 2차 디깅(다음검색) · 방배; 2026-10-27 신규 후보(LOCALDATA 영업/정상, 인허가 2023-05-12) — Daum 장소 카드 2026-1",
     "note": null
   },
   {
@@ -65317,7 +65340,7 @@
     "coordSource": "localdata",
     "hours": "11:00-20:00",
     "breakTime": null,
-    "closedDays": "일요일",
+    "closedDays": "토, 일",
     "openedAt": "2018-04-25",
     "status": "open",
     "statusChangedAt": null,
@@ -65416,7 +65439,7 @@
     "coordSource": "localdata",
     "hours": "11:00-20:00",
     "breakTime": "14:30-17:30",
-    "closedDays": "둘째·넷째 토요일·일요일, 공휴일",
+    "closedDays": "금, 둘째·넷째 토·일, 공휴일",
     "openedAt": "2026-04-20",
     "status": "open",
     "statusChangedAt": null,
@@ -65438,15 +65461,15 @@
     "menus": [
       {
         "name": "돈코츠라멘",
-        "price": 13000
+        "price": 11000
       },
       {
         "name": "니보시라멘",
-        "price": 13000
+        "price": 11000
       },
       {
         "name": "마제소바",
-        "price": 13000
+        "price": 11000
       }
     ],
     "photos": [],
@@ -65814,5 +65837,268 @@
     "lastVerifiedAt": null,
     "source": "폐업 재검증 2026-10; 2026-10-27 폐업 재검증(다음검색) — 블로그 2026-10-08 '멘야산다이메가 있던 그 위치 그대로 리뉴얼된 도쿄슬럽클럽', 2026-09-26 '기존 상호 멘야산다이메에서 도쿄슬럽클럽으로 새로이 오픈', 라멘 부산갤 2026-09-27 '이름이랑 메뉴 바꿔서 재오픈'. 장르 미확인",
     "note": "2026-10-27 멘야산(멘야산다이메 동성로) 자리 상호 변경 재오픈 — 블로그 2026-09-26·2026-10-08, 라멘 부산갤 2026-09-27. 좌표는 같은 건물 멘야산 인허가 좌표"
+  },
+  {
+    "id": "butanomaekseu",
+    "name": "부타노맥스",
+    "branch": null,
+    "address": "서울특별시 강남구 학동로 338, SB110호 (논현동)",
+    "city": "서울",
+    "district": "강남구",
+    "areaLabel": "논현",
+    "lat": 37.516551,
+    "lng": 127.040139,
+    "coordSource": "localdata",
+    "hours": "11:00-23:30",
+    "breakTime": "14:00-17:30",
+    "closedDays": null,
+    "openedAt": null,
+    "status": "open",
+    "statusChangedAt": null,
+    "forms": [
+      "ramen"
+    ],
+    "primaryForm": "ramen",
+    "soups": [
+      "tonkotsu-shoyu",
+      "gyokai"
+    ],
+    "primarySoup": "tonkotsu-shoyu",
+    "soupDetail": [],
+    "lineages": [],
+    "amenities": [],
+    "confidence": "certain",
+    "menus": [],
+    "photos": [],
+    "seats": null,
+    "tagline": null,
+    "instagram": null,
+    "naverPlace": null,
+    "waitingLink": null,
+    "verification": "pending",
+    "lastVerifiedAt": null,
+    "source": "LOCALDATA 시딩 2026-10; 라멘갤·Daum 장소 카드 2026-10-27; 2026-10-27 신규 후보(LOCALDATA 영업/정상, 인허가 2013-04-24) — Daum 장소 카드 2026-10-27 '부타노 맥스 일본식라면 학동로 338 … 11:00~23:30, 휴게 14:00~17:30', 라멘갤 2026-10-16 '심야 교카이쇼",
+    "note": null
+  },
+  {
+    "id": "mennoaji-gangnambonjeom",
+    "name": "멘노아지",
+    "branch": "강남본점",
+    "address": "서울특별시 강남구 강남대로94길 27, 지상1층 (역삼동)",
+    "city": "서울",
+    "district": "강남구",
+    "areaLabel": "역삼",
+    "lat": 37.499879,
+    "lng": 127.029454,
+    "coordSource": "localdata",
+    "hours": "11:00-21:30",
+    "breakTime": null,
+    "closedDays": null,
+    "openedAt": null,
+    "status": "open",
+    "statusChangedAt": null,
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
+    "primaryForm": "ramen",
+    "soups": [
+      "tonkotsu"
+    ],
+    "primarySoup": "tonkotsu",
+    "soupDetail": [],
+    "lineages": [],
+    "amenities": [],
+    "confidence": "certain",
+    "menus": [],
+    "photos": [],
+    "seats": null,
+    "tagline": null,
+    "instagram": null,
+    "naverPlace": null,
+    "waitingLink": null,
+    "verification": "pending",
+    "lastVerifiedAt": null,
+    "source": "LOCALDATA 시딩 2026-10; 라멘갤·Daum 장소 카드 2026-10-27; 디깅 발굴 조사(다음검색); 서울 디깅(다음검색); 2026-10-27 신규 후보(LOCALDATA 영업/정상, 인허가 2023-05-12) — Daum 장소 카드 2026-10-27 '멘노 아지 일본식라면 강남대로94길 27 1층 영업중', 블로그 2026-10-10·",
+    "note": null
+  },
+  {
+    "id": "mennoaji-gangnamnyeoksinbundangseonjeom",
+    "name": "멘노아지",
+    "branch": "강남역신분당선점",
+    "address": "서울특별시 강남구 테헤란로4길 38, 태영빌딩 지상1층 (역삼동)",
+    "city": "서울",
+    "district": "강남구",
+    "areaLabel": "역삼",
+    "lat": 37.496006,
+    "lng": 127.030432,
+    "coordSource": "localdata",
+    "hours": "11:00-21:00",
+    "breakTime": null,
+    "closedDays": null,
+    "openedAt": null,
+    "status": "open",
+    "statusChangedAt": null,
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
+    "primaryForm": "ramen",
+    "soups": [
+      "tonkotsu"
+    ],
+    "primarySoup": "tonkotsu",
+    "soupDetail": [],
+    "lineages": [],
+    "amenities": [],
+    "confidence": "certain",
+    "menus": [
+      {
+        "name": "매운돈코츠라멘",
+        "price": 10000
+      },
+      {
+        "name": "모츠라멘",
+        "price": 14500
+      }
+    ],
+    "photos": [],
+    "seats": null,
+    "tagline": null,
+    "instagram": null,
+    "naverPlace": null,
+    "waitingLink": null,
+    "verification": "pending",
+    "lastVerifiedAt": null,
+    "source": "LOCALDATA 시딩 2026-10; 라멘갤·Daum 장소 카드 2026-10-27; 디깅 발굴 조사(다음검색); 서울 디깅(다음검색); 2026-10-27 신규 후보(LOCALDATA 영업/정상, 인허가 2023-12-07) — Daum 장소 카드 2026-10-27 '멘노 아지 강남역 신분당선점 테헤란로4길 38 태영빌딩 1층 영업중 11:00~21:",
+    "note": null
+  },
+  {
+    "id": "mennoaji-hongdaejeom",
+    "name": "멘노아지",
+    "branch": "홍대점",
+    "address": "서울특별시 마포구 홍익로 10, 제지하1층 142호일부,141호 (서교동, 서교푸르지오)",
+    "city": "서울",
+    "district": "마포구",
+    "areaLabel": "홍대",
+    "lat": 37.553793,
+    "lng": 126.923695,
+    "coordSource": "localdata",
+    "hours": "11:00-21:00",
+    "breakTime": null,
+    "closedDays": null,
+    "openedAt": null,
+    "status": "open",
+    "statusChangedAt": null,
+    "forms": [
+      "ramen",
+      "mazesoba",
+      "tsukemen"
+    ],
+    "primaryForm": "ramen",
+    "soups": [
+      "tonkotsu"
+    ],
+    "primarySoup": "tonkotsu",
+    "soupDetail": [],
+    "lineages": [],
+    "amenities": [],
+    "confidence": "certain",
+    "menus": [],
+    "photos": [],
+    "seats": null,
+    "tagline": null,
+    "instagram": null,
+    "naverPlace": null,
+    "waitingLink": null,
+    "verification": "pending",
+    "lastVerifiedAt": null,
+    "source": "LOCALDATA 시딩 2026-10; 라멘갤·Daum 장소 카드 2026-10-27; 디깅 발굴 조사(다음검색); 서울 디깅(다음검색); 2026-10-27 신규 후보(LOCALDATA 영업/정상, 인허가 2025-05-13) — 블로그 2026-09-26 방문 후기·'2026.09.영수증' 매운 돈코츠라멘, '2026.08.결제' 블랙가쓰오라멘·츠케멘(",
+    "note": null
+  },
+  {
+    "id": "mennoaji-seochojeom",
+    "name": "멘노아지",
+    "branch": "서초점",
+    "address": "서울특별시 서초구 서초대로 248, 104호 (서초동)",
+    "city": "서울",
+    "district": "서초구",
+    "areaLabel": "서초",
+    "lat": 37.491863,
+    "lng": 127.008779,
+    "coordSource": "localdata",
+    "hours": "11:00-21:00",
+    "breakTime": null,
+    "closedDays": null,
+    "openedAt": null,
+    "status": "open",
+    "statusChangedAt": null,
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
+    "primaryForm": "ramen",
+    "soups": [
+      "tonkotsu"
+    ],
+    "primarySoup": "tonkotsu",
+    "soupDetail": [],
+    "lineages": [],
+    "amenities": [],
+    "confidence": "certain",
+    "menus": [],
+    "photos": [],
+    "seats": null,
+    "tagline": null,
+    "instagram": null,
+    "naverPlace": null,
+    "waitingLink": null,
+    "verification": "pending",
+    "lastVerifiedAt": null,
+    "source": "LOCALDATA 시딩 2026-10; 라멘갤·Daum 장소 카드 2026-10-27; 디깅 발굴 조사(다음검색); 서울 디깅(다음검색); 2차 디깅(다음검색) · 서초; 2026-10-27 신규 후보(LOCALDATA 영업/정상, 인허가 2025-03-07) — Daum 장소 카드 2026-10-27 '멘노 아지 서초점 서초대로 248 1층 104호 영업",
+    "note": null
+  },
+  {
+    "id": "mennoaji-jongnojeom",
+    "name": "멘노아지",
+    "branch": "종로점",
+    "address": "서울특별시 종로구 종로5길 7, Tower 8 1층 101호 (청진동)",
+    "city": "서울",
+    "district": "종로구",
+    "areaLabel": "광화문",
+    "lat": 37.570694,
+    "lng": 126.980571,
+    "coordSource": "localdata",
+    "hours": "11:00-21:00",
+    "breakTime": null,
+    "closedDays": null,
+    "openedAt": null,
+    "status": "open",
+    "statusChangedAt": null,
+    "forms": [
+      "ramen",
+      "mazesoba",
+      "tsukemen"
+    ],
+    "primaryForm": "ramen",
+    "soups": [
+      "tonkotsu"
+    ],
+    "primarySoup": "tonkotsu",
+    "soupDetail": [],
+    "lineages": [],
+    "amenities": [],
+    "confidence": "certain",
+    "menus": [],
+    "photos": [],
+    "seats": null,
+    "tagline": null,
+    "instagram": null,
+    "naverPlace": null,
+    "waitingLink": null,
+    "verification": "pending",
+    "lastVerifiedAt": null,
+    "source": "LOCALDATA 시딩 2026-10; 라멘갤·Daum 장소 카드 2026-10-27; 디깅 발굴 조사(다음검색); 서울 디깅(다음검색); 2026-10-27 신규 후보(LOCALDATA 영업/정상, 인허가 2025-08-06) — Daum 장소 카드 2026-10-27 '멘노 아지 종로점 종로5길 7 타워8 1층 101호 영업중 매일 11:00~21:00",
+    "note": null
   }
 ]

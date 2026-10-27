@@ -185,7 +185,7 @@
   },
   "mennyagawa": {
     "date": "2026-10-27",
-    "hash": "e2b2e5b704886247"
+    "hash": "c974a33cf3e09e1a"
   },
   "itttoramen-nowonjeom": {
     "date": "2026-10-27",
@@ -325,7 +325,7 @@
   },
   "mennyagawa-2": {
     "date": "2026-10-27",
-    "hash": "221f4b182c76bc7a"
+    "hash": "fe7cbbce6582bcd1"
   },
   "syoburamen-seosomunjeom": {
     "date": "2026-10-27",
@@ -656,8 +656,8 @@
     "hash": "66a2439db7facc89"
   },
   "mamanoramen": {
-    "date": "2026-10-05",
-    "hash": "680c8d73c76e56f4"
+    "date": "2026-10-27",
+    "hash": "d50823290d831bec"
   },
   "seuseuramen": {
     "date": "2026-09-04",
@@ -1001,7 +1001,7 @@
   },
   "koiramen": {
     "date": "2026-10-27",
-    "hash": "dfa3800d07575db5"
+    "hash": "fa2b63764477f50d"
   },
   "taeyangui-tomatoramen-songnidangiljeom": {
     "date": "2026-10-27",
@@ -2077,7 +2077,7 @@
   },
   "nauipineullameneurodoeeoisseo": {
     "date": "2026-10-27",
-    "hash": "049f9f3f08166402"
+    "hash": "60711f4eb5f0b682"
   },
   "warairamen": {
     "date": "2026-09-04",
@@ -2348,7 +2348,7 @@
     "hash": "19aafab5ee45d0c2"
   },
   "jenpudeuhinoajirotdebaekwajeom-senteomsi": {
-    "date": "2026-09-04",
+    "date": "2026-10-27",
     "hash": "e720ff59e74601e5"
   },
   "gensyosimmyaramen-3": {
@@ -3365,7 +3365,7 @@
   },
   "naui-pineun-rameneuro-doeeoisseo": {
     "date": "2026-10-27",
-    "hash": "318e012b07f7ef67"
+    "hash": "a046512114efc84d"
   },
   "eonniramen": {
     "date": "2026-09-04",
@@ -3640,8 +3640,8 @@
     "hash": "625d3dfd3916a8e2"
   },
   "mennyajukeon": {
-    "date": "2026-09-04",
-    "hash": "abeed0b5c1ab5ad6"
+    "date": "2026-10-27",
+    "hash": "741fdd805cdadabb"
   },
   "gattteuramen-2": {
     "date": "2026-10-27",
@@ -4053,7 +4053,7 @@
   },
   "mennoaji": {
     "date": "2026-10-27",
-    "hash": "9287f0902fef7665"
+    "hash": "b7859bfa865c1309"
   },
   "menpura": {
     "date": "2026-09-03",
@@ -5249,7 +5249,7 @@
   },
   "raramen-2": {
     "date": "2026-10-27",
-    "hash": "69341b920256ab3b"
+    "hash": "1c29444d5a4c2850"
   },
   "ramennya-sammidang": {
     "date": "2026-10-15",
@@ -5257,7 +5257,7 @@
   },
   "choiramen-4": {
     "date": "2026-10-27",
-    "hash": "3f2212e5dc526836"
+    "hash": "65e3429a0e172d08"
   },
   "masitaramen-3": {
     "date": "2026-10-27",
@@ -5290,5 +5290,29 @@
   "dokyoseulleopkeulleop": {
     "date": "2026-10-27",
     "hash": "f034e56af22bf822"
+  },
+  "butanomaekseu": {
+    "date": "2026-10-27",
+    "hash": "f01008046bfac649"
+  },
+  "mennoaji-gangnambonjeom": {
+    "date": "2026-10-27",
+    "hash": "81b8ff568c8b07b9"
+  },
+  "mennoaji-gangnamnyeoksinbundangseonjeom": {
+    "date": "2026-10-27",
+    "hash": "fbba4fd00abad653"
+  },
+  "mennoaji-hongdaejeom": {
+    "date": "2026-10-27",
+    "hash": "9719a3cef8037da8"
+  },
+  "mennoaji-seochojeom": {
+    "date": "2026-10-27",
+    "hash": "ed018e9cc164e596"
+  },
+  "mennoaji-jongnojeom": {
+    "date": "2026-10-27",
+    "hash": "9b3ec94357b2c7e8"
   }
 }

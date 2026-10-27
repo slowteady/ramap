@@ -96,6 +96,35 @@ describe("mergeMatched", () => {
     expect(e.instagram).toBe("@butanchu");
   });
 
+  it("영업시간·메뉴 등 위치 필드는 최신 조사가 이긴다 — 파일 나열 순서와 무관", () => {
+    const e = mergeMatched("멘야가와", "", [
+      {
+        name: "멘야가와",
+        hours: "11:00-22:00",
+        menus: ["돈코츠라멘|9000"],
+        observedAt: "2026-09-00",
+      },
+      {
+        name: "멘야가와",
+        hours: "11:00-21:00",
+        closedDays: "일",
+        menus: ["돈코츠라멘|10000"],
+        observedAt: "2026-10-27",
+      },
+    ]);
+    expect(e.hours).toBe("11:00-21:00");
+    expect(e.closedDays).toBe("일");
+    expect(e.menus).toEqual(["돈코츠라멘|10000"]);
+  });
+
+  it("최신 조사에 없는 위치 필드는 이전 조사 값을 쓴다", () => {
+    const e = mergeMatched("멘야가와", "", [
+      { name: "멘야가와", breakTime: "15:00-17:00", observedAt: "2026-09-00" },
+      { name: "멘야가와", hours: "11:00-21:00", observedAt: "2026-10-27" },
+    ]);
+    expect(e.breakTime).toBe("15:00-17:00");
+  });
+
   it("정확 일치 매칭은 위치 필드도 그대로", () => {
     const matches = [
       { ...base, name: "혼네", area: "서울대입구", hours: "11:00-20:00" },
