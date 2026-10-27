@@ -51,6 +51,17 @@ function infoRows(shop: Shop, instagramShared: boolean): InfoRow[] {
   if (shop.hours) rows.push({ label: "영업시간", value: shop.hours });
   if (shop.breakTime) rows.push({ label: "브레이크", value: shop.breakTime });
   if (shop.closedDays) rows.push({ label: "휴무", value: shop.closedDays });
+  if (shop.instagram)
+    rows.push({
+      label: "SNS",
+      value: (
+        <InstagramLink
+          shopId={shop.id}
+          handle={shop.instagram}
+          shared={instagramShared}
+        />
+      ),
+    });
 
   const soups = labelsOf(shop.soups, (s) => soupBySlug(s)?.label, ["etc-soup"]);
   const soupDetail = shop.soupDetail.join(", ");
@@ -113,18 +124,6 @@ function infoRows(shop: Shop, instagramShared: boolean): InfoRow[] {
       ),
     });
   }
-
-  if (shop.instagram)
-    rows.push({
-      label: "인스타",
-      value: (
-        <InstagramLink
-          shopId={shop.id}
-          handle={shop.instagram}
-          shared={instagramShared}
-        />
-      ),
-    });
 
   if (shop.openedAt)
     rows.push({ label: "오픈", value: dayjs(shop.openedAt).format("YYYY.M") });
