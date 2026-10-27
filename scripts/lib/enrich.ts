@@ -106,13 +106,12 @@ const SOUP_DETAIL_ALIASES: Record<string, string> = {
   카모파이탄: "카모",
 };
 
+/* 세부 메모의 계보 '스타일' 표기만 승격 — "지로라멘" 같은 메뉴명은 메뉴 하나일 수 있어 계보가 아니다(대표 라멘 기준, 2026-10-27 PO) */
 const LINEAGE_PROMOTIONS: Record<string, string> = {
-  지로라멘: "지로계",
   지로: "지로계",
   지로케: "지로계",
   지로계: "지로계",
   이에케: "이에케",
-  이에케라멘: "이에케",
   이에계: "이에케",
 };
 
@@ -212,6 +211,13 @@ const MENU_GENRE_RULES: {
   { axis: "lineages", label: "지로계", re: /지로/g },
 ];
 
+export function lineageFromName(name: string): string[] {
+  return [
+    ...(/이에케|이에계|家系/.test(name) ? ["이에케"] : []),
+    ...(/지로|二郎/.test(name) ? ["지로계"] : []),
+  ];
+}
+
 export function promoteFromMenus(e: Enrichment): Enrichment {
   let text = [
     ...(e.menus ?? []).map((m) => m.split("|")[0]),
@@ -232,11 +238,25 @@ export function promoteFromMenus(e: Enrichment): Enrichment {
       soupAt.push({ label: rule.label, at: m.index });
       /* 같은 길이 공백으로 지워 뒤 규칙의 위치 계산이 어긋나지 않게 */
       text = text.replace(rule.re, (s) => " ".repeat(s.length));
-    } else {
-      found[rule.axis].push(rule.label);
+    } else if (rule.axis === "forms") {
+      found.forms.push(rule.label);
     }
   }
   found.soups = soupAt.sort((a, b) => a.at - b.at).map((s) => s.label);
+  /* 계보는 대표 라멘 기준 — 첫 메뉴이거나 메뉴의 절반 이상일 때만 (메뉴 하나로 계보를 붙이면 라오타가 찾는 '이에케 집'이 흐려진다) */
+  const menuNames = (e.menus ?? []).map((m) => m.split("|")[0]);
+  for (const rule of MENU_GENRE_RULES.filter((r) => r.axis === "lineages")) {
+    const hits = menuNames.filter((n) => {
+      rule.re.lastIndex = 0;
+      const hit = rule.re.test(n);
+      rule.re.lastIndex = 0;
+      return hit;
+    });
+    const representative =
+      menuNames.length > 0 &&
+      (hits.includes(menuNames[0]) || hits.length * 2 >= menuNames.length);
+    if (representative) found.lineages.push(rule.label);
+  }
   const union = (base: string[] | undefined, add: string[]) =>
     add.length > 0 ? [...new Set([...(base ?? []), ...add])] : base;
   return {

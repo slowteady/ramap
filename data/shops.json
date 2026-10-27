@@ -2212,10 +2212,10 @@
       "shio"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [],
-    "lineages": [
-      "jiro"
+    "soupDetail": [
+      "지로라멘"
     ],
+    "lineages": [],
     "amenities": [],
     "confidence": "estimated",
     "menus": [
@@ -2883,9 +2883,7 @@
     ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
-    "lineages": [
-      "iekei"
-    ],
+    "lineages": [],
     "amenities": [],
     "confidence": "estimated",
     "menus": [
@@ -2910,7 +2908,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(인허가+상가I20303+상가); 정보수집(다음검색); 디시 라멘 갤러리 정리글; 디깅 발굴 조사(다음검색) — 플레이스 주소는 독막로14길 31(상수동)로 입력 주소(와우산로7길 6)와 상이, 이전 가능성; 서울 디깅(다음검색); 2차 디깅(다음검색) · 목동; 미디어(하입비스트·GQ 외)",
+    "source": "시딩v2(인허가+상가I20303+상가); 정보수집(다음검색); 디시 라멘 갤러리 정리글; 2026-10-27 체인 전체 계보 해제 — 대표 라멘이 아니라 메뉴 중 하나(D-12 조사); 디깅 발굴 조사(다음검색) — 플레이스 주소는 독막로14길 31(상수동)로 입력 주소(와우산로7길 6)와 상이, 이전 가능성; 서울 디깅(다음검색); 2차 디깅(다음검색)",
     "note": null
   },
   {
@@ -3990,10 +3988,10 @@
       "tonkotsu"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [],
-    "lineages": [
-      "jiro"
+    "soupDetail": [
+      "지로라멘"
     ],
+    "lineages": [],
     "amenities": [],
     "confidence": "estimated",
     "menus": [],
@@ -4611,9 +4609,7 @@
     ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
-    "lineages": [
-      "iekei"
-    ],
+    "lineages": [],
     "amenities": [],
     "confidence": "estimated",
     "menus": [
@@ -4638,7 +4634,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(인허가+상가I20303+상가I20303+상가); 정보수집(다음검색); 디시 라멘 갤러리 정리글; 디깅 발굴 조사(다음검색) — 플레이스 주소는 독막로14길 31(상수동)로 입력 주소(와우산로7길 6)와 상이, 이전 가능성; 서울 디깅(다음검색); 미디어(하입비스트·GQ 외)",
+    "source": "시딩v2(인허가+상가I20303+상가I20303+상가); 정보수집(다음검색); 디시 라멘 갤러리 정리글; 2026-10-27 체인 전체 계보 해제 — 대표 라멘이 아니라 메뉴 중 하나(D-12 조사); 디깅 발굴 조사(다음검색) — 플레이스 주소는 독막로14길 31(상수동)로 입력 주소(와우산로7길 6)와 상이, 이전 가능성; 서울 디깅(다음검색); 미디어",
     "note": null
   },
   {
@@ -5222,9 +5218,7 @@
     ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
-    "lineages": [
-      "iekei"
-    ],
+    "lineages": [],
     "amenities": [],
     "confidence": "estimated",
     "menus": [
@@ -5249,7 +5243,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(인허가+상가I20303+상가); 정보수집(다음검색); 디시 라멘 갤러리 정리글; 디깅 발굴 조사(다음검색) — 플레이스 주소는 독막로14길 31(상수동)로 입력 주소(와우산로7길 6)와 상이, 이전 가능성; 서울 디깅(다음검색); 미디어(하입비스트·GQ 외)",
+    "source": "시딩v2(인허가+상가I20303+상가); 정보수집(다음검색); 디시 라멘 갤러리 정리글; 2026-10-27 체인 전체 계보 해제 — 대표 라멘이 아니라 메뉴 중 하나(D-12 조사); 디깅 발굴 조사(다음검색) — 플레이스 주소는 독막로14길 31(상수동)로 입력 주소(와우산로7길 6)와 상이, 이전 가능성; 서울 디깅(다음검색); 미디어(하입비스트·GQ",
     "note": null
   },
   {
@@ -5700,9 +5694,7 @@
     "soupDetail": [
       "구로마유"
     ],
-    "lineages": [
-      "jikaseimen"
-    ],
+    "lineages": [],
     "amenities": [],
     "confidence": "certain",
     "menus": [],
@@ -6098,9 +6090,7 @@
     "soupDetail": [
       "냉라멘"
     ],
-    "lineages": [
-      "jikaseimen"
-    ],
+    "lineages": [],
     "amenities": [],
     "confidence": "certain",
     "menus": [],
@@ -6350,9 +6340,7 @@
     "soupDetail": [
       "구로마유"
     ],
-    "lineages": [
-      "jikaseimen"
-    ],
+    "lineages": [],
     "amenities": [],
     "confidence": "certain",
     "menus": [],
@@ -7438,9 +7426,7 @@
     ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
-    "lineages": [
-      "iekei"
-    ],
+    "lineages": [],
     "amenities": [],
     "confidence": "estimated",
     "menus": [
@@ -7465,7 +7451,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(인허가+상가I20303+상가); 정보수집(다음검색); 디시 라멘 갤러리 정리글; 디깅 발굴 조사(다음검색) — 플레이스 주소는 독막로14길 31(상수동)로 입력 주소(와우산로7길 6)와 상이, 이전 가능성; 서울 디깅(다음검색); 2차 디깅(다음검색) · 장안동; 미디어(하입비스트·GQ 외)",
+    "source": "시딩v2(인허가+상가I20303+상가); 정보수집(다음검색); 디시 라멘 갤러리 정리글; 2026-10-27 체인 전체 계보 해제 — 대표 라멘이 아니라 메뉴 중 하나(D-12 조사); 디깅 발굴 조사(다음검색) — 플레이스 주소는 독막로14길 31(상수동)로 입력 주소(와우산로7길 6)와 상이, 이전 가능성; 서울 디깅(다음검색); 2차 디깅(다음검색)",
     "note": null
   },
   {
@@ -8147,7 +8133,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(인허가+상가+상가); 정보수집(다음검색); 정보수집(다음검색); 서울 디깅(다음검색); 2차 디깅(다음검색) · 갈현동; 웹 조사; 웹 조사",
+    "source": "시딩v2(인허가+상가+상가); 정보수집(다음검색); 정보수집(다음검색); 서울 디깅(다음검색); 2차 디깅(다음검색) · 갈현동; 웹 조사; 2026-10-27 체인 전체 자가제면 해제 — 근거가 한 지점뿐(D-12 조사); 웹 조사",
     "note": null
   },
   {
@@ -8529,9 +8515,7 @@
     "soupDetail": [
       "구로마유"
     ],
-    "lineages": [
-      "jikaseimen"
-    ],
+    "lineages": [],
     "amenities": [],
     "confidence": "certain",
     "menus": [],
@@ -8943,9 +8927,7 @@
     "soupDetail": [
       "카라이"
     ],
-    "lineages": [
-      "jikaseimen"
-    ],
+    "lineages": [],
     "amenities": [],
     "confidence": "estimated",
     "menus": [
@@ -8970,7 +8952,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(인허가+상가+상가); 정보수집(다음검색); 정보수집(다음검색); 서울 디깅(다음검색); 2차 디깅(다음검색) · 갈현동; 웹 조사; 웹 조사",
+    "source": "시딩v2(인허가+상가+상가); 정보수집(다음검색); 정보수집(다음검색); 서울 디깅(다음검색); 2차 디깅(다음검색) · 갈현동; 웹 조사; 2026-10-27 체인 전체 자가제면 해제 — 근거가 한 지점뿐(D-12 조사); 웹 조사",
     "note": null
   },
   {
@@ -9096,7 +9078,9 @@
       "gyokai"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [],
+    "soupDetail": [
+      "지로라멘"
+    ],
     "lineages": [
       "jiro"
     ],
@@ -9636,7 +9620,9 @@
       "gyokai"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [],
+    "soupDetail": [
+      "지로라멘"
+    ],
     "lineages": [
       "jiro"
     ],
@@ -12412,9 +12398,7 @@
     "soupDetail": [
       "구로마유"
     ],
-    "lineages": [
-      "jikaseimen"
-    ],
+    "lineages": [],
     "amenities": [],
     "confidence": "certain",
     "menus": [],
@@ -12455,10 +12439,10 @@
       "tonkotsu"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [],
-    "lineages": [
-      "jiro"
+    "soupDetail": [
+      "지로라멘"
     ],
+    "lineages": [],
     "amenities": [],
     "confidence": "certain",
     "menus": [
@@ -12554,10 +12538,10 @@
       "shoyu"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [],
-    "lineages": [
-      "jiro"
+    "soupDetail": [
+      "지로라멘"
     ],
+    "lineages": [],
     "amenities": [],
     "confidence": "certain",
     "menus": [
@@ -14142,10 +14126,10 @@
       "shoyu"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [],
-    "lineages": [
-      "jiro"
+    "soupDetail": [
+      "지로라멘"
     ],
+    "lineages": [],
     "amenities": [],
     "confidence": "certain",
     "menus": [],
@@ -15109,10 +15093,10 @@
       "shoyu"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [],
-    "lineages": [
-      "jiro"
+    "soupDetail": [
+      "지로라멘"
     ],
+    "lineages": [],
     "amenities": [],
     "confidence": "certain",
     "menus": [],
@@ -18486,10 +18470,10 @@
       "tonkotsu"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [],
-    "lineages": [
-      "jiro"
+    "soupDetail": [
+      "지로라멘"
     ],
+    "lineages": [],
     "amenities": [],
     "confidence": "certain",
     "menus": [
@@ -19714,10 +19698,10 @@
       "shoyu"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [],
-    "lineages": [
-      "jiro"
+    "soupDetail": [
+      "지로라멘"
     ],
+    "lineages": [],
     "amenities": [],
     "confidence": "certain",
     "menus": [],
@@ -19820,9 +19804,7 @@
     "soupDetail": [
       "구로마유"
     ],
-    "lineages": [
-      "jikaseimen"
-    ],
+    "lineages": [],
     "amenities": [],
     "confidence": "certain",
     "menus": [
@@ -26047,9 +26029,7 @@
     "soupDetail": [
       "냉라멘"
     ],
-    "lineages": [
-      "jikaseimen"
-    ],
+    "lineages": [],
     "amenities": [],
     "confidence": "certain",
     "menus": [
@@ -26315,10 +26295,10 @@
       "etc-soup"
     ],
     "primarySoup": "etc-soup",
-    "soupDetail": [],
-    "lineages": [
-      "jiro"
+    "soupDetail": [
+      "지로라멘"
     ],
+    "lineages": [],
     "amenities": [],
     "confidence": "estimated",
     "menus": [],
@@ -27442,9 +27422,7 @@
     "soupDetail": [
       "구로마유"
     ],
-    "lineages": [
-      "jikaseimen"
-    ],
+    "lineages": [],
     "amenities": [],
     "confidence": "certain",
     "menus": [
@@ -27807,10 +27785,10 @@
       "shio"
     ],
     "primarySoup": "toripaitan",
-    "soupDetail": [],
-    "lineages": [
-      "jiro"
+    "soupDetail": [
+      "지로라멘"
     ],
+    "lineages": [],
     "amenities": [],
     "confidence": "certain",
     "menus": [
@@ -28019,9 +27997,7 @@
     "soupDetail": [
       "냉라멘"
     ],
-    "lineages": [
-      "jikaseimen"
-    ],
+    "lineages": [],
     "amenities": [],
     "confidence": "certain",
     "menus": [
@@ -28046,7 +28022,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303+상가); 정보수집(다음검색); 정보수집(다음검색); 경기 디깅(다음검색); 호남제주 디깅(다음검색) — 라면81번옥 표기도 병용 · 전주 신시가지; 인천 디깅(다음검색); 2차 디깅(다음검색) · 대전 궁동; 2차 디깅(다음검색) · 전주 효자동; 동명 재검증(다음검색); 동명 재검증(다음검색); 지역 조사(다음검색) — 연중무휴;",
+    "source": "시딩v2(상가I20303+상가); 정보수집(다음검색); 정보수집(다음검색); 경기 디깅(다음검색); 호남제주 디깅(다음검색) — 라면81번옥 표기도 병용 · 전주 신시가지; 인천 디깅(다음검색); 2차 디깅(다음검색) · 대전 궁동; 2차 디깅(다음검색) · 전주 효자동; 동명 재검증(다음검색); 동명 재검증(다음검색); 2026-10-27 D-12 계보",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -29277,9 +29253,7 @@
     "soupDetail": [
       "구로마유"
     ],
-    "lineages": [
-      "jikaseimen"
-    ],
+    "lineages": [],
     "amenities": [],
     "confidence": "certain",
     "menus": [
@@ -31277,7 +31251,9 @@
       "etc-soup"
     ],
     "primarySoup": "etc-soup",
-    "soupDetail": [],
+    "soupDetail": [
+      "지로라멘"
+    ],
     "lineages": [
       "jiro"
     ],
@@ -40515,10 +40491,10 @@
       "tonkotsu"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [],
-    "lineages": [
-      "jiro"
+    "soupDetail": [
+      "지로라멘"
     ],
+    "lineages": [],
     "amenities": [],
     "confidence": "certain",
     "menus": [
@@ -42481,9 +42457,10 @@
       "shoyu"
     ],
     "primarySoup": "shoyu",
-    "soupDetail": [],
+    "soupDetail": [
+      "지로라멘"
+    ],
     "lineages": [
-      "jiro",
       "iekei"
     ],
     "amenities": [],
@@ -42584,9 +42561,7 @@
     "soupDetail": [
       "구로마유"
     ],
-    "lineages": [
-      "jikaseimen"
-    ],
+    "lineages": [],
     "amenities": [],
     "confidence": "certain",
     "menus": [],
@@ -48461,7 +48436,9 @@
       "shoyu"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [],
+    "soupDetail": [
+      "지로라멘"
+    ],
     "lineages": [
       "jiro"
     ],
@@ -48617,6 +48594,7 @@
     ],
     "primarySoup": "tonkotsu-shoyu",
     "soupDetail": [
+      "지로라멘",
       "시루나시"
     ],
     "lineages": [
@@ -48769,6 +48747,7 @@
     ],
     "primarySoup": "etc-soup",
     "soupDetail": [
+      "지로라멘",
       "시루나시"
     ],
     "lineages": [
@@ -50855,9 +50834,7 @@
     ],
     "primarySoup": "tonkotsu",
     "soupDetail": [],
-    "lineages": [
-      "jiro"
-    ],
+    "lineages": [],
     "amenities": [],
     "confidence": "certain",
     "menus": [
@@ -50882,7 +50859,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(디깅발굴); 라벨 검수(다음검색) — 롯데월드몰 3층 '홍그라운드' 입점 매장. 블로그 제목은 '잠실'로 표기, '홍대'는 매장 컨셉·본점 언급. 주소판정 유지; 정보수집(다음검색); 디시 라멘 갤러리 정리글; 디깅 발굴 조사(다음검색) — 도쿄 라멘 체인, 롯데월드몰 3층 위치 확인, 현재 영업 여부 미확인; 서울 디깅(다음검색); 2차 디깅(다",
+    "source": "시딩v2(디깅발굴); 2차 디깅(다음검색) · 화양동; 발굴분 조사(다음검색) — 플레이스 서울 광진구 동일로22길 117-14 1층(화양동), 일본식라면",
     "note": null
   },
   {
@@ -54102,7 +54079,9 @@
       "tonkotsu"
     ],
     "primarySoup": "tonkotsu",
-    "soupDetail": [],
+    "soupDetail": [
+      "지로라멘"
+    ],
     "lineages": [
       "jiro"
     ],
@@ -59931,7 +59910,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(디깅발굴(상가)); 정보수집(다음검색); 정보수집(다음검색); 정보수집(다음검색); 정보수집(다음검색); 디시 라멘 갤러리 정리글; 디깅 발굴 조사(다음검색) — 플레이스 주소는 독막로14길 31(상수동)로 입력 주소(와우산로7길 6)와 상이, 이전 가능성; 서울 디깅(다음검색); 2차 디깅(다음검색) · 장안동; 2차 디깅(다음검색) · 목동;",
+    "source": "시딩v2(디깅발굴(상가)); 정보수집(다음검색); 정보수집(다음검색); 정보수집(다음검색); 정보수집(다음검색); 디시 라멘 갤러리 정리글; 2026-10-27 체인 전체 계보 해제 — 대표 라멘이 아니라 메뉴 중 하나(D-12 조사); 디깅 발굴 조사(다음검색) — 플레이스 주소는 독막로14길 31(상수동)로 입력 주소(와우산로7길 6)와 상이, 이전 가",
     "note": "LOCALDATA 2026-10 폐업 전이(폐업일 2022-10-17, 관리번호 3130000-101-2014-00728)"
   },
   {
@@ -60273,6 +60252,7 @@
     ],
     "primarySoup": "niboshi",
     "soupDetail": [
+      "지로라멘",
       "시루나시"
     ],
     "lineages": [

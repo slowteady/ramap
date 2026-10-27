@@ -7,6 +7,7 @@ import {
   matchEnrichment,
   mergeEnrichments,
   mergeMatched,
+  lineageFromName,
   promoteFromMenus,
   promoteSoups,
   toSheetLine,
@@ -100,7 +101,7 @@ for (const line of lines.slice(1)) {
   const matches = matchEnrichment(cells.상호, cells.지점명, enrichments);
   const ambiguous =
     (normCounts.get(normalizeShopName(cells.상호 + cells.지점명)) ?? 0) > 1;
-  const e = promoteFromMenus(
+  const promoted = promoteFromMenus(
     promoteSoups(
       mergeMatched(cells.상호, cells.지점명, matches, {
         ambiguous,
@@ -108,6 +109,16 @@ for (const line of lines.slice(1)) {
       }),
     ),
   );
+  const nameLineages = lineageFromName(`${cells.상호} ${cells.지점명}`);
+  const e =
+    nameLineages.length > 0
+      ? {
+          ...promoted,
+          lineages: [
+            ...new Set([...(promoted.lineages ?? []), ...nameLineages]),
+          ],
+        }
+      : promoted;
 
   cells.id = toSlug(cells.상호, cells.지점명, taken);
   cells.시 = sidoOf(cells.주소) ?? "서울";

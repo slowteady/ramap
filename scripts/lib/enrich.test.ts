@@ -4,6 +4,7 @@ import {
   mergeMatched,
   mergeEnrichments,
   promoteFromMenus,
+  lineageFromName,
   promoteSoups,
   toSlug,
   type Enrichment,
@@ -329,9 +330,26 @@ describe("promoteFromMenus — 메뉴명·세부에 있는 장르를 필터 값�
     expect(run(["아부라소바|11000"]).forms).not.toContain("마제소바");
   });
 
-  it("계보: 이에케·지로 메뉴는 계보로", () => {
+  it("계보: 대표 메뉴(첫 메뉴)가 이에케·지로면 계보로", () => {
     expect(run(["이에케라멘|10000"]).lineages).toEqual(["이에케"]);
-    expect(run(["지로라멘"]).lineages).toEqual(["지로계"]);
+    expect(run(["지로라멘", "돈코츠라멘"]).lineages).toEqual(["지로계"]);
+  });
+
+  it("계보: 여러 메뉴 중 하나일 뿐이면 계보로 올리지 않는다 (대표 라멘 기준, 2026-10-27 PO)", () => {
+    expect(
+      run(["오리지날라멘|10500", "마제소바|11500", "오리지날 지로라멘|15000"])
+        .lineages ?? [],
+    ).toEqual([]);
+  });
+
+  it("계보: 메뉴의 절반 이상이면 첫 메뉴가 아니어도 계보로", () => {
+    expect(run(["교자", "이에케라멘", "이에케 차슈라멘"]).lineages).toEqual([
+      "이에케",
+    ]);
+  });
+
+  it("계보: 세부 메모의 메뉴명(지로라멘)만으로는 올리지 않는다", () => {
+    expect(run([], ["지로라멘"]).lineages ?? []).toEqual([]);
   });
 
   it("형태 칸이 비어 있던 매장(기본값 라멘)에 새 형태를 더해도 라멘은 남는다", () => {
@@ -539,5 +557,14 @@ describe("mergeEnrichments — 판정 표시는 조사 날짜 순", () => {
       { name: "가게", soupDetail: ["영업 확인"], observedAt: "2026-10-15" },
     ]);
     expect(merged.soupDetail).toEqual(["영업 확인"]);
+  });
+});
+
+describe("lineageFromName — 상호에 계보명이 들어가면 계보", () => {
+  it("이에케·家系·지로를 잡는다", () => {
+    expect(lineageFromName("코이라멘지로")).toEqual(["지로계"]);
+    expect(lineageFromName("요코하마 이에케 라멘")).toEqual(["이에케"]);
+    expect(lineageFromName("家系ラーメン 王道")).toEqual(["이에케"]);
+    expect(lineageFromName("멘야 카엔")).toEqual([]);
   });
 });
