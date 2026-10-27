@@ -3,22 +3,27 @@
 import { useState } from "react";
 import dayjs from "dayjs";
 import Link from "next/link";
-import { ExternalLink } from "lucide-react";
+import { Check, ExternalLink, MoreHorizontal } from "lucide-react";
+import { DropdownMenu } from "radix-ui";
 import { toast } from "sonner";
 import { cn } from "@/shared/lib/utils";
 import {
-  reopenReports,
   resolveReports,
+  setReportsStatus,
   type AdminReport,
   type ReportResolution,
 } from "../model/admin-api";
 import {
+  ageLabel,
   editRows,
   linkLabel,
   parseDetails,
+  REPORT_REJECT_REASONS,
   type AdminShop,
   type ReportGroup,
 } from "../model/report-view";
+import { RejectPanel } from "./reject-panel";
+import { toastWithUndo } from "./undo-toast";
 
 const TYPE_LABELS: Record<AdminReport["type"], string> = {
   new: "신규",
@@ -32,11 +37,37 @@ const RESOLUTION_LABELS: Record<ReportResolution, string> = {
   rejected: "반려",
 };
 
-const chip =
-  "inline-flex items-center gap-1 rounded-chip bg-gray-050 px-2 py-1 text-secondary text-gray-500";
+const linkChip =
+  "inline-flex h-8 items-center gap-1 rounded-chip bg-gray-050 px-2 text-secondary text-gray-500";
 
 function isUrl(raw: string): boolean {
   return /^https?:\/\//.test(raw);
+}
+
+function DoneMenu({ onReopen }: { onReopen: () => void }) {
+  return (
+    <DropdownMenu.Root modal={false}>
+      <DropdownMenu.Trigger
+        aria-label="더보기"
+        className="-mt-2 -mr-2 flex size-11 shrink-0 items-center justify-center rounded-pill text-gray-400"
+      >
+        <MoreHorizontal className="size-5" />
+      </DropdownMenu.Trigger>
+      <DropdownMenu.Portal>
+        <DropdownMenu.Content
+          align="end"
+          className="z-50 min-w-32 rounded-card border border-gray-150 bg-white py-1"
+        >
+          <DropdownMenu.Item
+            onSelect={onReopen}
+            className="flex h-11 items-center px-4 text-secondary text-ink outline-none data-highlighted:bg-gray-050"
+          >
+            다시 열기
+          </DropdownMenu.Item>
+        </DropdownMenu.Content>
+      </DropdownMenu.Portal>
+    </DropdownMenu.Root>
+  );
 }
 
 export function ReportCard({
@@ -52,11 +83,13 @@ export function ReportCard({
   const ids = [r.id, ...duplicates.map((d) => d.id)];
   const d = parseDetails(r.details);
   const rows = r.type === "new" ? [] : editRows(d, shop);
+  const done = r.status === "done";
   const [rejecting, setRejecting] = useState(false);
-  const [reason, setReason] = useState("");
+  const [memoOpen, setMemoOpen] = useState(false);
+  const [memo, setMemo] = useState("");
 
-  const reopen = async () => {
-    if (await reopenReports(ids)) onChanged();
+  const setStatus = async (status: AdminReport["status"]) => {
+    if (await setReportsStatus(ids, status)) onChanged();
     else toast("처리에 실패했어요");
   };
 
@@ -66,14 +99,42 @@ export function ReportCard({
       return;
     }
     onChanged();
-    toast(`${RESOLUTION_LABELS[resolution]}으로 처리했어요`, {
-      action: { label: "되돌리기", onClick: () => void reopen() },
-    });
+    toastWithUndo(
+      `${RESOLUTION_LABELS[resolution]}으로 처리했어요`,
+      () => void setStatus("open"),
+    );
   };
+
+  const reopen = async () => {
+    if (!(await setReportsStatus(ids, "open"))) {
+      toast("처리에 실패했어요");
+      return;
+    }
+    onChanged();
+    toastWithUndo("다시 열었어요", () => void setStatus("done"));
+  };
+
+  const message = r.message && (
+    <p className="border-l-2 border-gray-150 pl-3 text-secondary whitespace-pre-line text-ink wrap-anywhere">
+      {r.message}
+    </p>
+  );
 
   return (
     <li className="flex flex-col gap-3 border-b border-gray-100 py-5">
       <div className="flex items-start gap-2">
+        {done && r.resolution && (
+          <span
+            className={cn(
+              "mt-0.5 shrink-0 rounded-chip px-1.5 py-0.5 text-caption font-semibold whitespace-nowrap",
+              r.resolution === "applied"
+                ? "bg-gray-050 text-open"
+                : "bg-gray-100 text-gray-500",
+            )}
+          >
+            {RESOLUTION_LABELS[r.resolution]}
+          </span>
+        )}
         <span
           className={cn(
             "mt-0.5 shrink-0 rounded-chip px-1.5 py-0.5 text-caption font-semibold whitespace-nowrap",
@@ -92,54 +153,78 @@ export function ReportCard({
             )}
           </p>
           <p className="text-caption text-gray-400">
-            {dayjs(r.createdAt).format("M.D HH:mm")} · #{r.id}
-            {duplicates.length > 0 && ` · 같은 제보 ${duplicates.length}건 더`}
+            {done && r.resolvedAt
+              ? `${dayjs(r.resolvedAt).format("M.D")} 처리 · 접수 ${dayjs(r.createdAt).format("M.D")}`
+              : dayjs(r.createdAt).format("M.D HH:mm")}
+            {` · #${r.id}`}
+            {duplicates.length > 0 &&
+              (done
+                ? ` 외 ${duplicates.length}건`
+                : ` · 같은 제보 ${duplicates.length}건 더`)}
           </p>
         </div>
+        {done ? (
+          <DoneMenu onReopen={() => void reopen()} />
+        ) : (
+          <span className="shrink-0 text-caption font-semibold text-gray-400">
+            {ageLabel(r.createdAt, dayjs())}
+          </span>
+        )}
       </div>
 
+      {done && r.note && (
+        <p className="text-secondary text-gray-500 wrap-anywhere">
+          메모: {r.note}
+        </p>
+      )}
+
       {r.type === "new" ? (
-        <div className="flex flex-wrap gap-1.5">
-          {d.links.map((url) => (
-            <a
-              key={url}
-              href={url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={chip}
-            >
-              {linkLabel(url)}
-              <ExternalLink className="size-3" />
-            </a>
-          ))}
-          {d.pin && (
-            <a
-              href={`https://map.kakao.com/link/map/${encodeURIComponent(r.shopName)},${d.pin.lat},${d.pin.lng}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={chip}
-            >
-              핀 위치
-              <ExternalLink className="size-3" />
-            </a>
-          )}
-          {r.location && !isUrl(r.location) && (
-            <span className="text-secondary text-gray-500 wrap-anywhere">
-              {r.location}
-            </span>
-          )}
-        </div>
+        <>
+          <div className="flex flex-wrap gap-1.5">
+            {d.links.map((url) => (
+              <a
+                key={url}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={linkChip}
+              >
+                {linkLabel(url)}
+                <ExternalLink className="size-3" />
+              </a>
+            ))}
+            {d.pin && (
+              <a
+                href={`https://map.kakao.com/link/map/${encodeURIComponent(r.shopName)},${d.pin.lat},${d.pin.lng}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={linkChip}
+              >
+                핀 위치
+                <ExternalLink className="size-3" />
+              </a>
+            )}
+            {r.location && !isUrl(r.location) && (
+              <span className="text-secondary text-gray-500 wrap-anywhere">
+                {r.location}
+              </span>
+            )}
+          </div>
+          {message}
+        </>
       ) : (
         <div className="flex flex-col gap-2">
           {d.shopId && (
             <Link
               href={`/shop/${d.shopId}`}
               target="_blank"
-              className="self-start text-secondary text-gray-500 underline underline-offset-2 wrap-anywhere"
+              className="inline-flex items-center gap-1 self-start text-secondary text-gray-500 underline underline-offset-2 wrap-anywhere"
             >
               {shop?.address ?? r.location}
+              <ExternalLink className="size-3 shrink-0" />
             </Link>
           )}
+          {message}
           {rows.map((row) => (
             <div
               key={row.label}
@@ -147,22 +232,19 @@ export function ReportCard({
             >
               <span className="font-semibold text-ink">{row.label}</span>
               <span className="text-gray-400 wrap-anywhere">
-                현재 {row.current ?? "정보 없음"}
+                현재{" "}
+                <span className={cn(row.proposed && "line-through")}>
+                  {row.current ?? "정보 없음"}
+                </span>
               </span>
               {row.proposed && (
-                <span className="text-ink wrap-anywhere">
+                <span className="font-semibold text-ink wrap-anywhere">
                   제보 {row.proposed}
                 </span>
               )}
             </div>
           ))}
         </div>
-      )}
-
-      {r.message && (
-        <p className="border-l-2 border-gray-150 pl-3 text-secondary whitespace-pre-line text-ink wrap-anywhere">
-          {r.message}
-        </p>
       )}
 
       {r.photoUrls.length > 0 && (
@@ -180,63 +262,62 @@ export function ReportCard({
         </div>
       )}
 
-      {r.status === "done" ? (
-        <div className="flex items-center gap-2 text-secondary">
-          <span className="min-w-0 flex-1 text-gray-500 wrap-anywhere">
-            {r.resolution ? RESOLUTION_LABELS[r.resolution] : "처리됨"}
-            {r.note && ` — ${r.note}`}
-            {r.resolvedAt && ` · ${dayjs(r.resolvedAt).format("M.D")}`}
-          </span>
-          <button
-            type="button"
-            onClick={() => void reopen()}
-            className="shrink-0 font-semibold text-gray-400 underline underline-offset-2"
-          >
-            다시 열기
-          </button>
-        </div>
-      ) : rejecting ? (
-        <div className="flex gap-2">
-          <input
-            type="text"
-            value={reason}
-            onChange={(e) => setReason(e.target.value)}
-            placeholder="반려 사유"
-            className="h-10 min-w-0 flex-1 rounded-card border border-gray-150 px-3 text-secondary"
+      {!done &&
+        (rejecting ? (
+          <RejectPanel
+            reasons={REPORT_REJECT_REASONS}
+            onCancel={() => setRejecting(false)}
+            onConfirm={(reason) => void resolve("rejected", reason)}
           />
-          <button
-            type="button"
-            onClick={() => void resolve("rejected", reason)}
-            className="h-10 shrink-0 rounded-pill bg-gray-500 px-4 text-secondary font-bold text-white"
-          >
-            반려 확정
-          </button>
-        </div>
-      ) : (
-        <div className="flex gap-2">
-          <button
-            type="button"
-            onClick={() => void resolve("applied")}
-            className="h-10 flex-1 rounded-pill bg-ramen text-secondary font-bold text-white"
-          >
-            반영함
-          </button>
-          <button
-            type="button"
-            onClick={() => void resolve("duplicate")}
-            className="h-10 rounded-pill bg-gray-100 px-4 text-secondary font-semibold text-gray-500"
-          >
-            중복
-          </button>
-          <button
-            type="button"
-            onClick={() => setRejecting(true)}
-            className="h-10 rounded-pill bg-gray-100 px-4 text-secondary font-semibold text-gray-500"
-          >
-            반려
-          </button>
-        </div>
-      )}
+        ) : (
+          <>
+            {memoOpen ? (
+              <input
+                type="text"
+                value={memo}
+                onChange={(e) => setMemo(e.target.value)}
+                placeholder="메모 (반영함·중복과 함께 저장)"
+                className="h-11 min-w-0 rounded-card border border-gray-150 px-3 text-secondary"
+              />
+            ) : (
+              <button
+                type="button"
+                onClick={() => setMemoOpen(true)}
+                className="h-8 self-start text-secondary font-semibold text-gray-400"
+              >
+                + 메모 추가
+              </button>
+            )}
+            <div className="flex gap-2">
+              <button
+                type="button"
+                onClick={() =>
+                  void resolve("applied", memo.trim() || undefined)
+                }
+                className="flex h-11 items-center gap-1 rounded-pill bg-ramen px-5 text-secondary font-bold text-white"
+              >
+                <Check className="size-4" />
+                반영함
+              </button>
+              <button
+                type="button"
+                onClick={() =>
+                  void resolve("duplicate", memo.trim() || undefined)
+                }
+                className="h-11 rounded-pill bg-gray-100 px-4 text-secondary font-semibold text-gray-500"
+              >
+                중복
+              </button>
+              <button
+                type="button"
+                onClick={() => setRejecting(true)}
+                className="ml-auto h-11 rounded-pill bg-gray-100 px-4 text-secondary font-semibold text-gray-500"
+              >
+                반려
+              </button>
+            </div>
+          </>
+        ))}
     </li>
   );
 }

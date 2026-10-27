@@ -1,24 +1,23 @@
 "use client";
 
 import { Suspense, useCallback, useEffect, useMemo, useState } from "react";
-import dayjs from "dayjs";
 import Link from "next/link";
-import { toast } from "sonner";
 import { useAuth, useProfile } from "@/features/auth";
 import { cn } from "@/shared/lib/utils";
 import { PageHeader } from "@/shared/ui/page-header";
 import {
   fetchPendingPhotos,
   fetchReports,
-  reviewPhoto,
   type AdminReport,
   type PendingPhoto,
 } from "../model/admin-api";
 import {
   groupReports,
   parseDetails,
+  sortGroups,
   type AdminShop,
 } from "../model/report-view";
+import { PhotoCard } from "./photo-card";
 import { ReportCard } from "./report-card";
 
 const TABS = [
@@ -28,90 +27,6 @@ const TABS = [
 
 type TabKey = (typeof TABS)[number]["key"];
 type ReportFilter = AdminReport["status"];
-
-function PhotoCard({
-  photo,
-  onDone,
-}: {
-  photo: PendingPhoto;
-  onDone: () => void;
-}) {
-  const [rejecting, setRejecting] = useState(false);
-  const [reason, setReason] = useState("");
-
-  const act = async (status: "approved" | "rejected") => {
-    const ok = await reviewPhoto(photo.id, status, reason || undefined);
-    if (!ok) {
-      toast("처리에 실패했어요");
-      return;
-    }
-    onDone();
-  };
-
-  return (
-    <li className="flex flex-col gap-2 border-b border-gray-050 py-4">
-      {photo.url ? (
-        <img
-          src={photo.url}
-          alt=""
-          loading="lazy"
-          className="h-56 w-full rounded-card object-cover"
-        />
-      ) : (
-        <div className="h-56 w-full rounded-card bg-gray-050" />
-      )}
-      <div className="flex items-baseline gap-2">
-        <Link
-          href={`/shop/${photo.shopId}`}
-          className="text-body font-bold text-ink underline underline-offset-2"
-        >
-          {photo.shopId}
-        </Link>
-        <span className="text-caption text-gray-400">
-          {photo.nickname} · {dayjs(photo.createdAt).format("M.D HH:mm")}
-        </span>
-      </div>
-      {photo.comment && (
-        <p className="text-secondary text-ink">{photo.comment}</p>
-      )}
-      {rejecting ? (
-        <div className="flex gap-2">
-          <input
-            type="text"
-            value={reason}
-            onChange={(e) => setReason(e.target.value)}
-            placeholder="반려 사유"
-            className="h-11 flex-1 rounded-card border border-gray-100 px-3 text-body"
-          />
-          <button
-            type="button"
-            onClick={() => act("rejected")}
-            className="h-11 rounded-card-lg bg-gray-500 px-4 text-body font-bold text-white"
-          >
-            반려 확정
-          </button>
-        </div>
-      ) : (
-        <div className="flex gap-2">
-          <button
-            type="button"
-            onClick={() => setRejecting(true)}
-            className="h-11 flex-1 rounded-card-lg bg-gray-050 text-body font-semibold text-gray-500"
-          >
-            반려
-          </button>
-          <button
-            type="button"
-            onClick={() => act("approved")}
-            className="h-11 flex-1 rounded-card-lg bg-ramen text-body font-bold text-white"
-          >
-            승인
-          </button>
-        </div>
-      )}
-    </li>
-  );
-}
 
 function AdminBody({ shops }: { shops: AdminShop[] }) {
   const { ready } = useAuth();
@@ -151,7 +66,10 @@ function AdminBody({ shops }: { shops: AdminShop[] }) {
   const groups = groupReports(reports ?? []);
   const openCount = groups.filter((g) => g.primary.status === "open").length;
   const doneCount = groups.length - openCount;
-  const visible = groups.filter((g) => g.primary.status === filter);
+  const visible = sortGroups(
+    groups.filter((g) => g.primary.status === filter),
+    filter,
+  );
 
   return (
     <div className="flex min-h-dvh flex-col pb-10">
@@ -185,7 +103,12 @@ function AdminBody({ shops }: { shops: AdminShop[] }) {
       {tab === "photos" ? (
         <ul className="flex flex-col px-4">
           {(photos ?? []).map((p) => (
-            <PhotoCard key={p.id} photo={p} onDone={() => void load()} />
+            <PhotoCard
+              key={p.id}
+              photo={p}
+              shopName={shopById.get(p.shopId)?.name}
+              onChanged={() => void load()}
+            />
           ))}
           {photos?.length === 0 && (
             <p className="py-16 text-center text-secondary text-gray-400">

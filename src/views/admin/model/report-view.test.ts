@@ -1,7 +1,11 @@
+import dayjs from "dayjs";
 import { describe, expect, it } from "vitest";
 import type { AdminReport } from "./admin-api";
 import {
+  ageLabel,
+  composeReason,
   editRows,
+  sortGroups,
   groupReports,
   linkLabel,
   parseDetails,
@@ -134,5 +138,55 @@ describe("editRows", () => {
     expect(
       editRows({ items: ["hours"], fields: {} }, undefined)[0].current,
     ).toBeNull();
+  });
+});
+
+describe("ageLabel", () => {
+  const now = dayjs("2026-10-27T12:00:00+09:00");
+  it("접수 후 지난 날수", () => {
+    expect(ageLabel("2026-10-27T09:00:00+09:00", now)).toBe("오늘");
+    expect(ageLabel("2026-10-26T13:00:00+09:00", now)).toBe("1일 경과");
+    expect(ageLabel("2026-10-23T13:00:00+09:00", now)).toBe("4일 경과");
+  });
+});
+
+describe("sortGroups", () => {
+  const g = (
+    id: number,
+    createdAt: string,
+    resolvedAt: string | null = null,
+  ) => ({
+    primary: report({ id, createdAt, resolvedAt }),
+    duplicates: [],
+  });
+
+  it("대기는 오래 기다린 순 — 묶음은 가장 이른 접수 기준", () => {
+    const groups = [
+      g(6, "2026-10-24T00:00:00Z"),
+      {
+        primary: report({ id: 5, createdAt: "2026-10-23T04:11:00Z" }),
+        duplicates: [report({ id: 4, createdAt: "2026-10-23T04:10:00Z" })],
+      },
+    ];
+    expect(sortGroups(groups, "open").map((x) => x.primary.id)).toEqual([5, 6]);
+  });
+
+  it("처리됨은 처리 시각 최신순", () => {
+    const groups = [
+      g(1, "2026-10-01T00:00:00Z", "2026-10-02T00:00:00Z"),
+      g(2, "2026-10-01T00:00:00Z", "2026-10-05T00:00:00Z"),
+    ];
+    expect(sortGroups(groups, "done").map((x) => x.primary.id)).toEqual([2, 1]);
+  });
+});
+
+describe("composeReason", () => {
+  it("칩과 직접 입력을 합친다", () => {
+    expect(composeReason("확인 불가", "")).toBe("확인 불가");
+    expect(composeReason("확인 불가", " 전화 안 받음 ")).toBe(
+      "확인 불가 — 전화 안 받음",
+    );
+    expect(composeReason(null, "기타 사유")).toBe("기타 사유");
+    expect(composeReason(null, "  ")).toBe("");
   });
 });
