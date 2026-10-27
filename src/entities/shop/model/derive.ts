@@ -23,6 +23,17 @@ export function shouldNoindexShop(shop: Shop): boolean {
   return isThinShop(shop);
 }
 
+const AREA_INDEX_MIN = 3;
+
+/* 매장 1~2곳 지역 페이지는 매장 페이지와 내용이 겹쳐 GSC "크롤링됨-미색인"으로 쌓인다(2026-10-27 GSC 실측) */
+export function shouldNoindexArea(shopCount: number): boolean {
+  return shopCount < AREA_INDEX_MIN;
+}
+
+export function shouldNoindexAreaGenre(genre: GenreSlug): boolean {
+  return genre === "etc-soup";
+}
+
 /* 지역 리스트 인트로의 장르 분포 문장용 — Airbnb·Zillow식 집계 텍스트(고유 콘텐츠 신호) */
 export function soupBreakdown(
   shops: Shop[],
