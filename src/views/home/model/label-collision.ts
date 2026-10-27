@@ -45,11 +45,23 @@ export function planMarkers(
   level: number,
   selectedId: string | null,
   visitedIds: ReadonlySet<string>,
+  savedIds: ReadonlySet<string> = new Set(),
 ): MapMarker[] {
   const unit = degPerPx(level);
+  const stateOf = (p: ShopPin): MapMarker["state"] =>
+    p.id === selectedId
+      ? "selected"
+      : savedIds.has(p.id)
+        ? "saved"
+        : visitedIds.has(p.id)
+          ? "visited"
+          : "default";
   /* 신규 오픈은 라벨 충돌 시 점으로 강등되지 않게 일반보다 우선 (13번 C절 2단 위계) */
-  const priority = (p: ShopPin) =>
-    p.id === selectedId ? 0 : p.isNew ? 1 : visitedIds.has(p.id) ? 3 : 2;
+  const rank = { selected: 0, saved: 2, default: 3, visited: 4 } as const;
+  const priority = (p: ShopPin) => {
+    const state = stateOf(p);
+    return state === "selected" ? 0 : p.isNew ? 1 : rank[state];
+  };
   const ordered = [...pins].sort(
     (a, b) => priority(a) - priority(b) || a.name.localeCompare(b.name),
   );
@@ -67,12 +79,7 @@ export function planMarkers(
       label: pin.name,
       kind: pill ? "pill" : "dot",
       isNew: pin.isNew,
-      state:
-        pin.id === selectedId
-          ? "selected"
-          : visitedIds.has(pin.id)
-            ? "visited"
-            : "default",
+      state: stateOf(pin),
     });
   }
   return markers;

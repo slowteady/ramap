@@ -21,6 +21,32 @@ function dot(size: number, ring: string): string {
   ].join(";");
 }
 
+/* 저장 마커 = 저장 버튼과 같은 lucide Bookmark 글리프를 마커 안에 (구글 별·카카오 폴더 별 관례 — 아이콘은 라벨이 아닌 마커에) */
+const BOOKMARK_PATH =
+  "M17 3a2 2 0 0 1 2 2v15a1 1 0 0 1-1.496.868l-4.512-2.578a2 2 0 0 0-1.984 0l-4.512 2.578A1 1 0 0 1 5 20V5a2 2 0 0 1 2-2z";
+
+function savedDot(size: number): HTMLElement {
+  const el = document.createElement("span");
+  el.style.cssText = [
+    `width:${size}px;height:${size}px;border-radius:9999px;flex:none`,
+    "display:flex;align-items:center;justify-content:center;background:#e23c36",
+    "border:3px solid #fff;box-shadow:0 1px 5px rgba(26,27,31,.35)",
+  ].join(";");
+  const svgNs = "http://www.w3.org/2000/svg";
+  const svg = document.createElementNS(svgNs, "svg");
+  const glyph = Math.round(size * 0.5);
+  svg.setAttribute("viewBox", "0 0 24 24");
+  svg.setAttribute("width", String(glyph));
+  svg.setAttribute("height", String(glyph));
+  svg.setAttribute("aria-hidden", "true");
+  const path = document.createElementNS(svgNs, "path");
+  path.setAttribute("d", BOOKMARK_PATH);
+  path.setAttribute("fill", "#fff");
+  svg.append(path);
+  el.append(svg);
+  return el;
+}
+
 /* 시각 크기와 별개로 터치 타깃 44px 확보(명세 §1) — 투명 패딩 + 앵커 마진 보정 */
 const HIT_PAD = 10;
 
@@ -32,9 +58,13 @@ function markerEl(marker: MapMarker, onTap: (id: string) => void): HTMLElement {
   const ring = visited ? "#c9cdd3" : "#e23c36";
   const size = selected ? 28 : 22;
   el.style.cssText = `display:flex;flex-direction:column;align-items:center;gap:2px;padding:${HIT_PAD}px;border:0;background:none;cursor:pointer;margin-top:-${HIT_PAD + size / 2}px`;
-  const dotEl = document.createElement("span");
-  dotEl.style.cssText = dot(size, ring);
-  el.append(dotEl);
+  if (marker.state === "saved") {
+    el.append(savedDot(size));
+  } else {
+    const dotEl = document.createElement("span");
+    dotEl.style.cssText = dot(size, ring);
+    el.append(dotEl);
+  }
   if (marker.kind === "dot" && !selected) {
     el.setAttribute("aria-label", marker.label);
   } else {

@@ -84,6 +84,42 @@ describe("planMarkers", () => {
     expect(byId.aaa).toMatchObject({ kind: "dot", state: "visited" });
   });
 
+  it("저장 핀은 일반 핀보다 우선해 라벨을 지킨다", () => {
+    const unit = degPerPx(5);
+    const markers = planMarkers(
+      [pin("aaa", 37.5, 127.0), pin("bbb", 37.5 + unit * 5, 127.0)],
+      5,
+      null,
+      new Set(),
+      new Set(["bbb"]),
+    );
+    const byId = Object.fromEntries(markers.map((m) => [m.id, m]));
+    expect(byId.bbb).toMatchObject({ kind: "pill", state: "saved" });
+    expect(byId.aaa).toMatchObject({ kind: "dot", state: "default" });
+  });
+
+  it("완식이면서 저장한 핀은 저장 상태로 표시한다", () => {
+    const markers = planMarkers(
+      [pin("aaa", 37.5, 127.0)],
+      5,
+      null,
+      new Set(["aaa"]),
+      new Set(["aaa"]),
+    );
+    expect(markers[0].state).toBe("saved");
+  });
+
+  it("선택은 저장보다 우선한다", () => {
+    const markers = planMarkers(
+      [pin("aaa", 37.5, 127.0)],
+      5,
+      "aaa",
+      new Set(),
+      new Set(["aaa"]),
+    );
+    expect(markers[0].state).toBe("selected");
+  });
+
   it("줌 아웃할수록 셀이 커진다 (같은 거리라도 강등 발생)", () => {
     const unit3 = degPerPx(3);
     const pins = [

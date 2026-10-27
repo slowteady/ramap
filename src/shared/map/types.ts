@@ -1,6 +1,6 @@
 export type LatLng = { lat: number; lng: number };
 
-export type MarkerState = "default" | "selected" | "visited";
+export type MarkerState = "default" | "selected" | "saved" | "visited";
 
 export type MapMarker = {
   id: string;

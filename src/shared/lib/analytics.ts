@@ -10,6 +10,7 @@ type EventMap = {
     active_count: number;
   };
   hide_visited_toggled: { on: boolean };
+  saved_only_toggled: { on: boolean };
   search_result_selected: {
     kind: "shop" | "genre" | "area";
     value: string;

@@ -17,6 +17,8 @@ type FilterChipsProps = {
   onApply: (next: MapFilters) => void;
   hideVisited: boolean | null;
   onToggleHideVisited: () => void;
+  savedOnly?: boolean | null;
+  onToggleSavedOnly?: () => void;
   hasNew: boolean;
 };
 
@@ -28,6 +30,8 @@ export function FilterChips({
   onApply,
   hideVisited,
   onToggleHideVisited,
+  savedOnly = null,
+  onToggleSavedOnly,
   hasNew,
 }: FilterChipsProps) {
   const drag = useDragScroll();
@@ -113,19 +117,45 @@ export function FilterChips({
         );
       })}
       {hideVisited !== null && (
-        <button
-          type="button"
+        <ToggleChip
+          label="안 가본 집"
+          on={hideVisited}
           onClick={onToggleHideVisited}
-          className={cn(
-            "shrink-0 rounded-pill border py-1.5 px-3.5 text-secondary font-semibold whitespace-nowrap transition-colors duration-150",
-            hideVisited
-              ? "border-ramen bg-ramen-050 text-ramen"
-              : "border-gray-100 bg-white text-ink shadow-[0_1px_4px_rgba(26,27,31,0.06)]",
-          )}
-        >
-          안 가본 집
-        </button>
+        />
+      )}
+      {savedOnly !== null && onToggleSavedOnly && (
+        <ToggleChip
+          label="저장한 곳"
+          on={savedOnly}
+          onClick={onToggleSavedOnly}
+        />
       )}
     </div>
+  );
+}
+
+function ToggleChip({
+  label,
+  on,
+  onClick,
+}: {
+  label: string;
+  on: boolean;
+  onClick: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      aria-pressed={on}
+      onClick={onClick}
+      className={cn(
+        "shrink-0 rounded-pill border px-3.5 py-1.5 text-secondary font-semibold whitespace-nowrap transition-colors duration-150",
+        on
+          ? "border-ramen bg-ramen-050 text-ramen"
+          : "border-gray-100 bg-white text-ink shadow-[0_1px_4px_rgba(26,27,31,0.06)]",
+      )}
+    >
+      {label}
+    </button>
   );
 }
