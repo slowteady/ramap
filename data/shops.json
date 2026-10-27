@@ -67207,5 +67207,51 @@
     "lastVerifiedAt": null,
     "source": "LOCALDATA 시딩 2026-10-15; 2026-10-15 갱신 검수(다음검색) — Daum 장소 카드 '멘지 상암 DMC점' 일본식라면, 월드컵북로54길 17 2층, 메뉴 토리파이탄·땡초토리파이탄·카라탄탄멘·냉라멘, 블로그 후기 2026-10-01",
     "note": "2026-10-15 검수: 멘쇼우라멘 상암DMC점 폐업 전이 같은 건물 영업 인허가에서 발굴"
+  },
+  {
+    "id": "hinoaji-busandaejeom",
+    "name": "히노아지",
+    "branch": "부산대점",
+    "address": "부산광역시 금정구 부산대학로63번길 2, 문창회관 1층",
+    "city": "부산",
+    "district": "금정구",
+    "areaLabel": "부산대",
+    "lat": 35.233879,
+    "lng": 129.082322,
+    "coordSource": "manual-pin",
+    "hours": null,
+    "breakTime": null,
+    "closedDays": null,
+    "openedAt": null,
+    "status": "open",
+    "statusChangedAt": null,
+    "forms": [
+      "ramen"
+    ],
+    "primaryForm": "ramen",
+    "soups": [
+      "tonkotsu"
+    ],
+    "primarySoup": "tonkotsu",
+    "soupDetail": [],
+    "lineages": [],
+    "amenities": [],
+    "confidence": "certain",
+    "menus": [
+      {
+        "name": "카라 돈코츠 라멘",
+        "price": 9900
+      }
+    ],
+    "photos": [],
+    "seats": null,
+    "tagline": null,
+    "instagram": null,
+    "naverPlace": null,
+    "waitingLink": null,
+    "verification": "pending",
+    "lastVerifiedAt": null,
+    "source": "제보 2026-10; 2026-10-27 제보 #4·#5 검수(다음검색) — 블로그 후기 2025-10-24 신규 오픈 방문·2025-12-17 카라 돈코츠 라멘 9,900원·2026-05-20 주소 부산대학로63번길 2 문창회관 1층. 체인 타 지점 보강 승계 차단",
+    "note": "2026-10-27 제보 #4·#5 반영 — 블로그 후기 2025-10-24(\"최근에 열었더라구요\")·2026-05-20(주소 문창회관 1층). 좌표는 제보자 핀. 구 주소 부산대학로63번길 29는 2019년 자리"
   }
 ]
