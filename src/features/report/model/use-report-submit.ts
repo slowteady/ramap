@@ -2,6 +2,7 @@
 
 import { useCallback, useState } from "react";
 import { toast } from "sonner";
+import { track } from "@/shared/lib/analytics";
 import type { ReportRow } from "./report-payload";
 import { submitReport } from "./report-sink";
 
@@ -19,6 +20,7 @@ export function useReportSubmit() {
       return;
     }
     const result = await submitReport(row);
+    track("report_submitted", { type: row.type, ok: result.ok });
     if (result.ok) {
       setPhase("done");
       return;

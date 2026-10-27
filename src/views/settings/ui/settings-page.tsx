@@ -7,11 +7,13 @@ import {
   ChevronLeft,
   FileText,
   LogOut,
+  Mail,
   ShieldCheck,
   UserX,
 } from "lucide-react";
 import { toast } from "sonner";
 import { useAuth } from "@/features/auth";
+import { CONTACT_EMAIL } from "@/shared/config/legal";
 import { deleteMyRecordPhotoFiles } from "@/features/records/index.client";
 import { Drawer, DrawerContent, DrawerTitle } from "@/shared/ui/drawer";
 import { MenuList, type MenuSection } from "@/shared/ui/menu-list";
@@ -21,6 +23,11 @@ const POLICY_SECTION: MenuSection = {
   items: [
     { icon: FileText, label: "이용약관", href: "/terms" },
     { icon: ShieldCheck, label: "개인정보 처리방침", href: "/privacy" },
+    {
+      icon: Mail,
+      label: "문의하기",
+      href: `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("[라맵] 문의")}`,
+    },
   ],
 };
 

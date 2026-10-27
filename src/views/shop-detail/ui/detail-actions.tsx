@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ExternalLink, Map, Navigation, Share2 } from "lucide-react";
 import { toast } from "sonner";
+import { track } from "@/shared/lib/analytics";
 import { Drawer, DrawerContent, DrawerTitle } from "@/shared/ui/drawer";
 import { directionLinks, type DirectionTarget } from "../model/directions";
 
@@ -23,9 +24,11 @@ export function DetailActions({ shopId, target }: DetailActionsProps) {
     const url = window.location.href;
     try {
       if (navigator.share) {
+        track("share_clicked", { shop_id: shopId, method: "native" });
         await navigator.share({ title: `${target.name} — 라맵`, url });
         return;
       }
+      track("share_clicked", { shop_id: shopId, method: "clipboard" });
       await navigator.clipboard.writeText(url);
       toast("링크를 복사했어요");
     } catch {
@@ -66,7 +69,13 @@ export function DetailActions({ shopId, target }: DetailActionsProps) {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={() => setDirectionsOpen(false)}
+                  onClick={() => {
+                    track("directions_clicked", {
+                      app: link.label,
+                      shop_id: shopId,
+                    });
+                    setDirectionsOpen(false);
+                  }}
                   className="flex h-13 items-center justify-between border-b border-gray-050 text-body font-semibold text-ink last:border-b-0"
                 >
                   {link.label}

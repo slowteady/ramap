@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { getSupabase } from "@/shared/api/supabase";
+import { excludeOperator } from "@/shared/lib/analytics";
 import { PRIVACY_VERSION, TERMS_VERSION } from "@/shared/config/legal";
 import { useAuth } from "./use-auth";
 
@@ -48,6 +49,10 @@ export function useProfile() {
       cancelled = true;
     };
   }, [user]);
+
+  useEffect(() => {
+    if (state.role === "admin") excludeOperator();
+  }, [state.role]);
 
   const agree = useCallback(async () => {
     const client = getSupabase();

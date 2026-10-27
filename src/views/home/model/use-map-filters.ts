@@ -2,6 +2,7 @@
 
 import { useCallback, useMemo } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { track } from "@/shared/lib/analytics";
 import {
   EMPTY_FILTERS,
   isActive,
@@ -22,6 +23,17 @@ export function useMapFilters() {
 
   const apply = useCallback(
     (next: MapFilters) => {
+      track("filter_changed", {
+        soups: next.soups,
+        forms: next.forms,
+        lineages: next.lineages,
+        new_only: next.newOnly,
+        active_count:
+          next.soups.length +
+          next.forms.length +
+          next.lineages.length +
+          (next.newOnly ? 1 : 0),
+      });
       const params = new URLSearchParams(serializeFilters(next));
       const shop = searchParams.get("shop");
       if (shop) params.set("shop", shop);

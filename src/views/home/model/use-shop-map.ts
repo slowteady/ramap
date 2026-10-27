@@ -23,6 +23,7 @@ import {
   sortByDistance,
   withinBounds,
 } from "./label-collision";
+import { track } from "@/shared/lib/analytics";
 import { toClusterMarkers } from "./markers";
 
 type MapStatus = "loading" | "ready" | "failed";
@@ -108,7 +109,9 @@ export function useShopMap(
         setStatus("ready");
       })
       .catch(() => {
-        if (!cancelled) setStatus("failed");
+        if (cancelled) return;
+        track("map_load_failed", {});
+        setStatus("failed");
       });
 
     return () => {
@@ -182,13 +185,14 @@ export function useShopMap(
     [],
   );
 
-  const locate = useCallback((onDenied: () => void) => {
+  const locate = useCallback((onGranted: () => void, onDenied: () => void) => {
     if (!navigator.geolocation) {
       onDenied();
       return;
     }
     navigator.geolocation.getCurrentPosition(
       ({ coords }) => {
+        onGranted();
         const adapter = adapterRef.current;
         if (!adapter) return;
         const pos = { lat: coords.latitude, lng: coords.longitude };
