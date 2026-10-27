@@ -46,3 +46,11 @@ export function regionDistrictOf(address: string): string | null {
     return tokens[1]?.match(/^[가-힣]+(구|군)$/)?.[0] ?? null;
   return tokens[1]?.match(/^[가-힣]+(시|군)$/)?.[0] ?? null;
 }
+
+/* 원본(LOCALDATA·상가정보)에 "세종특별자치시 세종특별자치시 …"처럼 첫 토큰이 반복된 주소가 있다 (2026-10-27, 12행) */
+export function normalizeAddress(address: string): string {
+  return address
+    .trim()
+    .replace(/\s+/g, " ")
+    .replace(/^(\S+) \1(?= |$)/, "$1");
+}
