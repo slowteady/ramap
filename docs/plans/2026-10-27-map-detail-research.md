@@ -62,11 +62,11 @@
 - **데이터 없음**: `lastVerifiedAt` 0곳. 대안 = `data/shop-lastmod.json`(데이터 변경일, 확인일 아님). 확인일 운영 체계부터 정해야 함
 - 작업량: 중(운영) / 결정:
 
-### D3. 네이버 길찾기를 좌표 길찾기로 — `대기`
+### D3. 네이버 길찾기를 좌표 길찾기로 — `기각`
 - 제안: 지금 네이버는 이름 검색(`map.naver.com/p/search/{이름}`) → 좌표 경로 URL. 공식 스킴 `nmap://route/public?dlat=..&dlng=..&dname=..&appname=ramap.kr`(`appname` 필수), 앱 미설치 시 웹 폴백 필요
 - 근거: [NCloud URL Scheme](https://guide.ncloud-docs.com/docs/maps-url-scheme). 공공데이터 좌표를 외부로 넘기는 링크라 약관 무관
 - 코드: `src/views/shop-detail/model/directions.ts`(+ 테스트)
-- 작업량: 소 / 결정:
+- 작업량: 소 / 결정: **기각(2026-10-27)** — `nmap://`은 앱 전용이고 공식 웹 폴백이 없어(NCloud 문서) 앱 미설치 폰·PC에서 열리지 않는다. 도착지 정확도보다 도달성이 우선. 대안(검색어에 지점명·구 추가)은 별도 소과제
 
 ### D4. "주문 방법" 블록 — `대기`
 - 제안: 식권기 여부, 면 굳기·맛 농도·기름량(이에케), 콜(지로) 사실 정보
