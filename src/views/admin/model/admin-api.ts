@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 import { getSupabase } from "@/shared/api/supabase";
 
 const RECORD_BUCKET = "record-photos";
@@ -23,7 +24,12 @@ export type AdminReport = {
   photoUrls: string[];
   createdAt: string;
   status: "open" | "done";
+  resolution: ReportResolution | null;
+  note: string | null;
+  resolvedAt: string | null;
 };
+
+export type ReportResolution = "applied" | "duplicate" | "rejected";
 
 /* 어드민 조회는 RLS(is_admin)가 강제 — 비관리자는 빈 결과 */
 export async function fetchPendingPhotos(): Promise<PendingPhoto[] | null> {
@@ -96,7 +102,7 @@ export async function fetchReports(): Promise<AdminReport[] | null> {
   const { data, error } = await client
     .from("reports")
     .select(
-      "id, type, shop_name, location, message, details, created_at, status",
+      "id, type, shop_name, location, message, details, created_at, status, resolution, note, resolved_at",
     )
     .order("created_at", { ascending: false });
   if (error || !data) return null;
@@ -109,6 +115,9 @@ export async function fetchReports(): Promise<AdminReport[] | null> {
     details: { photos?: string[] } | null;
     created_at: string;
     status: AdminReport["status"];
+    resolution: ReportResolution | null;
+    note: string | null;
+    resolved_at: string | null;
   }[];
   const allPaths = rows.flatMap((r) => r.details?.photos ?? []);
   const urls = new Map<string, string>();
@@ -132,18 +141,37 @@ export async function fetchReports(): Promise<AdminReport[] | null> {
       .filter((u): u is string => Boolean(u)),
     createdAt: r.created_at,
     status: r.status,
+    resolution: r.resolution,
+    note: r.note,
+    resolvedAt: r.resolved_at,
   }));
 }
 
-export async function setReportStatus(
-  id: number,
-  status: "open" | "done",
+export async function resolveReports(
+  ids: number[],
+  resolution: ReportResolution,
+  note?: string,
 ): Promise<boolean> {
   const client = getSupabase();
   if (!client) return false;
   const { error } = await client
     .from("reports")
-    .update({ status })
-    .eq("id", id);
+    .update({
+      status: "done",
+      resolution,
+      note: note || null,
+      resolved_at: dayjs().toISOString(),
+    })
+    .in("id", ids);
+  return !error;
+}
+
+export async function reopenReports(ids: number[]): Promise<boolean> {
+  const client = getSupabase();
+  if (!client) return false;
+  const { error } = await client
+    .from("reports")
+    .update({ status: "open", resolution: null, note: null, resolved_at: null })
+    .in("id", ids);
   return !error;
 }

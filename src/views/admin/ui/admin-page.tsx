@@ -1,20 +1,25 @@
 "use client";
 
-import { Suspense, useCallback, useEffect, useState } from "react";
+import { Suspense, useCallback, useEffect, useMemo, useState } from "react";
 import dayjs from "dayjs";
 import Link from "next/link";
-import { ChevronLeft } from "lucide-react";
 import { toast } from "sonner";
 import { useAuth, useProfile } from "@/features/auth";
 import { cn } from "@/shared/lib/utils";
+import { PageHeader } from "@/shared/ui/page-header";
 import {
   fetchPendingPhotos,
   fetchReports,
   reviewPhoto,
-  setReportStatus,
   type AdminReport,
   type PendingPhoto,
 } from "../model/admin-api";
+import {
+  groupReports,
+  parseDetails,
+  type AdminShop,
+} from "../model/report-view";
+import { ReportCard } from "./report-card";
 
 const TABS = [
   { key: "photos", label: "사진 검수" },
@@ -22,6 +27,7 @@ const TABS = [
 ] as const;
 
 type TabKey = (typeof TABS)[number]["key"];
+type ReportFilter = AdminReport["status"];
 
 function PhotoCard({
   photo,
@@ -107,84 +113,14 @@ function PhotoCard({
   );
 }
 
-function ReportCard({
-  report,
-  onToggle,
-}: {
-  report: AdminReport;
-  onToggle: () => void;
-}) {
-  const typeLabel =
-    report.type === "new"
-      ? "신규 등록"
-      : report.type === "edit"
-        ? "정보 수정"
-        : "폐업";
-  return (
-    <li
-      className={cn(
-        "flex flex-col gap-1.5 border-b border-gray-050 py-4",
-        report.status === "done" && "opacity-45",
-      )}
-    >
-      <div className="flex items-baseline gap-2">
-        <span className="rounded-chip bg-ramen-050 px-1.5 py-0.5 text-caption font-semibold text-ramen">
-          {typeLabel}
-        </span>
-        <span className="text-body font-bold text-ink">{report.shopName}</span>
-        <span className="text-caption text-gray-400">{report.location}</span>
-        <span className="ml-auto text-caption text-gray-400">
-          {dayjs(report.createdAt).format("M.D")}
-        </span>
-      </div>
-      {report.message && (
-        <p className="text-secondary text-ink">{report.message}</p>
-      )}
-      {report.photoUrls.length > 0 && (
-        <div className="flex gap-1.5 overflow-x-auto">
-          {report.photoUrls.map((url) => (
-            <img
-              key={url}
-              src={url}
-              alt=""
-              loading="lazy"
-              className="size-20 shrink-0 rounded-card object-cover"
-            />
-          ))}
-        </div>
-      )}
-      <details className="text-caption text-gray-400">
-        <summary>상세 페이로드</summary>
-        <pre className="overflow-x-auto rounded-card bg-gray-050 p-2 text-caption">
-          {JSON.stringify(report.details, null, 1)}
-        </pre>
-      </details>
-      <button
-        type="button"
-        onClick={async () => {
-          const next = report.status === "open" ? "done" : "open";
-          if (await setReportStatus(report.id, next)) onToggle();
-          else toast("처리에 실패했어요");
-        }}
-        className={cn(
-          "h-10 self-start rounded-pill px-4 text-secondary font-semibold",
-          report.status === "open"
-            ? "bg-ink text-white"
-            : "bg-gray-050 text-gray-500",
-        )}
-      >
-        {report.status === "open" ? "처리 완료로" : "다시 열기"}
-      </button>
-    </li>
-  );
-}
-
-function AdminBody() {
+function AdminBody({ shops }: { shops: AdminShop[] }) {
   const { ready } = useAuth();
   const { isAdmin, profileLoaded } = useProfile();
   const [tab, setTab] = useState<TabKey>("photos");
   const [photos, setPhotos] = useState<PendingPhoto[] | null>(null);
   const [reports, setReports] = useState<AdminReport[] | null>(null);
+  const [filter, setFilter] = useState<ReportFilter>("open");
+  const shopById = useMemo(() => new Map(shops.map((s) => [s.id, s])), [shops]);
 
   const load = useCallback(async () => {
     const [p, r] = await Promise.all([fetchPendingPhotos(), fetchReports()]);
@@ -212,19 +148,14 @@ function AdminBody() {
     );
   }
 
-  const openReports = (reports ?? []).filter((r) => r.status === "open");
+  const groups = groupReports(reports ?? []);
+  const openCount = groups.filter((g) => g.primary.status === "open").length;
+  const doneCount = groups.length - openCount;
+  const visible = groups.filter((g) => g.primary.status === filter);
 
   return (
     <div className="flex min-h-dvh flex-col pb-10">
-      <header className="flex items-center px-2 py-2">
-        <Link
-          href="/me"
-          aria-label="마이로 돌아가기"
-          className="flex size-10 items-center justify-center rounded-pill text-ink"
-        >
-          <ChevronLeft className="size-5" />
-        </Link>
-      </header>
+      <PageHeader />
       <h1 className="px-4 pt-1 text-heading font-extrabold text-ink">운영</h1>
 
       <div className="flex gap-5 border-b border-gray-100 px-4 pt-5">
@@ -244,8 +175,8 @@ function AdminBody() {
             {t.key === "photos" && photos && photos.length > 0 && (
               <span className="pl-1 text-ramen">{photos.length}</span>
             )}
-            {t.key === "reports" && openReports.length > 0 && (
-              <span className="pl-1 text-ramen">{openReports.length}</span>
+            {t.key === "reports" && openCount > 0 && (
+              <span className="pl-1 text-ramen">{openCount}</span>
             )}
           </button>
         ))}
@@ -263,25 +194,59 @@ function AdminBody() {
           )}
         </ul>
       ) : (
-        <ul className="flex flex-col px-4">
-          {(reports ?? []).map((r) => (
-            <ReportCard key={r.id} report={r} onToggle={() => void load()} />
-          ))}
-          {reports?.length === 0 && (
-            <p className="py-16 text-center text-secondary text-gray-400">
-              접수된 제보가 없어요
-            </p>
-          )}
-        </ul>
+        <>
+          <div className="flex gap-2 px-4 pt-4">
+            {(
+              [
+                { key: "open", label: `대기 ${openCount}` },
+                { key: "done", label: `처리됨 ${doneCount}` },
+              ] as const
+            ).map((f) => (
+              <button
+                key={f.key}
+                type="button"
+                aria-pressed={filter === f.key}
+                onClick={() => setFilter(f.key)}
+                className={cn(
+                  "rounded-pill border px-3.5 py-1.5 text-secondary font-semibold",
+                  filter === f.key
+                    ? "border-ramen bg-ramen-050 text-ramen"
+                    : "border-gray-100 bg-white text-ink",
+                )}
+              >
+                {f.label}
+              </button>
+            ))}
+          </div>
+          <ul className="flex flex-col px-4">
+            {visible.map((g) => (
+              <ReportCard
+                key={g.primary.id}
+                group={g}
+                shop={shopById.get(
+                  parseDetails(g.primary.details).shopId ?? "",
+                )}
+                onChanged={() => void load()}
+              />
+            ))}
+            {reports && visible.length === 0 && (
+              <p className="py-16 text-center text-secondary text-gray-400">
+                {filter === "open"
+                  ? "대기 중인 제보가 없어요"
+                  : "처리한 제보가 없어요"}
+              </p>
+            )}
+          </ul>
+        </>
       )}
     </div>
   );
 }
 
-export function AdminPage() {
+export function AdminPage({ shops }: { shops: AdminShop[] }) {
   return (
     <Suspense>
-      <AdminBody />
+      <AdminBody shops={shops} />
     </Suspense>
   );
 }
