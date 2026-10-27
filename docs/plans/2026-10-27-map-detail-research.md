@@ -23,12 +23,12 @@
 
 ## 항목
 
-### M1. "지금 영업중" 필터 — `대기`
+### M1. "지금 영업중" 필터 — `기각`
 - 제안: 필터에 영업중 토글. 시간 파싱으로 현재 영업 중인 매장만
 - 근거: 카카오맵 검색 영업중 필터([클리앙](https://www.clien.net/service/board/news/16455813)), jirolianmap 상태 색 핀([GitHub](https://github.com/kohyalab/jirolianmap))
 - **기존 결정과 충돌**: `src/entities/shop/ui/open-status-badge.tsx` — "실시간 '영업중' 판정은 시트 데이터 최신성이 보장되기 전까지 표시하지 않는다". 영업시간 보유 69%, 확인일 0%라 틀린 "영업중"이 나올 위험. 채택 시 최신성 기준(예: 최근 N개월 내 확인된 매장만 판정)을 먼저 정해야 함
 - 코드: `src/views/home/model/filter.ts`(`MapFilters`), `src/views/home/ui/filter-sheet.tsx`, 시간 파싱 순수 함수 신설(`entities/shop/model/`)
-- 작업량: 중(파싱·테스트) / 결정:
+- 작업량: 중(파싱·테스트) / 결정: **기각(2026-10-27)** — 실시간 영업 여부는 알 수 없다(등록 영업시간 대비 현재 시각 추정일 뿐, 임시 휴무·재료 소진 조기 마감·명절 미반영). 오안내는 헛걸음과 신뢰 손실 → 기존 결정(`open-status-badge.tsx` 주석) 유지
 
 ### M2. 저장한 곳 지도 표시 + "저장한 곳만" 토글 — `채택`
 - 제안: 저장(가고 싶다) 매장을 북마크 마커로, 칩으로 저장한 곳만 보기
@@ -49,12 +49,12 @@
 - 코드: `style-progress.tsx`의 계산을 순수 함수로 내려 홈 시트에서 재사용(2페이지 재사용 → entities/records 또는 features로 추출 조건 충족 여부 확인)
 - 작업량: 소 / 결정:
 
-### D1. 상세 상단 영업 정보 재배치 + 라스트오더 — `대기`
+### D1. 상세 상단 영업 정보 재배치 + 라스트오더 — `기각`
 - 제안: 상태(휴업 등) → 정기휴무 → 시간·브레이크 순, 라스트오더 필드 신설
 - 근거: Retty 상단 상태([예시](https://retty.me/restaurant/100001526949/)), 네이버 플레이스 라스트오더 별도 입력([eventmoa](https://eventmoa.kr/k/%EB%84%A4%EC%9D%B4%EB%B2%84-%ED%94%8C%EB%A0%88%EC%9D%B4%EC%8A%A4-%EC%A0%95%EB%B3%B4-%EB%B3%80%EA%B2%BD/))
 - 라스트오더는 시트 스키마 컬럼 추가 필요(`docs/planning/15`, `scripts/lib/sheet-parser.ts`, `Shop` 타입)
 - 코드: `src/views/shop-detail/ui/shop-detail-page.tsx`, `open-status-badge.tsx`
-- 작업량: 중(스키마) / 결정:
+- 작업량: 중(스키마) / 결정: **기각(2026-10-27)** — 실시간 영업 여부는 알 수 없다(등록 영업시간 대비 현재 시각 추정일 뿐, 임시 휴무·재료 소진 조기 마감·명절 미반영). 오안내는 헛걸음과 신뢰 손실 → 기존 결정(`open-status-badge.tsx` 주석) 유지. 라스트오더는 데이터 확보 시 정보 표 한 줄로 별도 검토
 
 ### D2. "정보 확인일" 상단 노출 — `대기`
 - 제안: 마지막 확인일을 영업 정보 옆에, 오래되면 표시
