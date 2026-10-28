@@ -1,6 +1,7 @@
 ---
-status: 유효
+status: 대체됨
 date: 2026-10-28
+superseded_by: 0023-report-results-tab.md
 ---
 
 # 기여 결과는 마이 "기여" 탭으로 알린다

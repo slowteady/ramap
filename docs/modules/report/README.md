@@ -9,4 +9,5 @@
 | [decisions/0001-open-intake-full-review.md](decisions/0001-open-intake-full-review.md) | 검수 없이 반영하자는 제안이 나왔을 때 |
 | [decisions/0002-anonymous-reports.md](decisions/0002-anonymous-reports.md) | 제보에 로그인을 요구하거나 스팸 대책을 바꿀 때 |
 | [decisions/0014-closure-report-second-check.md](decisions/0014-closure-report-second-check.md) | 유형별 반영 규칙, 특히 폐업 제보를 처리할 때 |
-| [decisions/0022-contribution-feedback.md](decisions/0022-contribution-feedback.md) | 제보·사진 검수 결과를 기여자에게 보여 주는 방식을 바꿀 때 |
+| [decisions/0022-contribution-feedback.md](decisions/0022-contribution-feedback.md) | (대체됨) "기여" 탭 안과 그 근거(BP)를 볼 때 |
+| [decisions/0023-report-results-tab.md](decisions/0023-report-results-tab.md) | 제보·사진 검수 결과를 보여 주는 위치·이름을 바꿀 때 |
