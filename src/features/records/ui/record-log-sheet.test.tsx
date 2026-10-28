@@ -108,7 +108,6 @@ describe("RecordLogSheet — 완식 기록(확인해야 기록)", () => {
     expect(
       screen.getByRole("heading", { name: "4번째 완식" }),
     ).toBeInTheDocument();
-    expect(screen.getByText("사진과 한줄평은 선택이에요")).toBeInTheDocument();
     await user.click(screen.getByRole("button", { name: "기록하기" }));
     expect(onVisit).toHaveBeenCalledOnce();
     expect(submitRecordPhotos).not.toHaveBeenCalled();

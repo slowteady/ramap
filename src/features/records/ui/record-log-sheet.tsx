@@ -77,18 +77,11 @@ export function RecordLogSheet({
     <Drawer open onOpenChange={(next) => !next && requestClose()}>
       <DrawerContent showClose>
         <div className="flex flex-col gap-4 overflow-y-auto px-4 pt-5 pb-8">
-          <div className="flex flex-col gap-1">
-            <DrawerTitle className="text-title font-bold text-ink">
-              {visitMode && nextOrdinal
-                ? `${visitOrdinalLabel(nextOrdinal)} 완식`
-                : "완식 기록 남기기"}
-            </DrawerTitle>
-            <p className="text-secondary text-gray-500">
-              {visitMode
-                ? "사진과 한줄평은 선택이에요"
-                : "오늘의 한 그릇을 사진으로 남겨보세요"}
-            </p>
-          </div>
+          <DrawerTitle className="text-title font-bold text-ink">
+            {visitMode && nextOrdinal
+              ? `${visitOrdinalLabel(nextOrdinal)} 완식`
+              : "완식 기록 남기기"}
+          </DrawerTitle>
 
           <PhotoPicker
             files={files}
