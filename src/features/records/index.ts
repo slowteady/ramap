@@ -4,6 +4,7 @@ export { RecordButtons } from "./ui/record-buttons";
 export { RecordCtaBar } from "./ui/record-cta-bar";
 export { LoginPromptSheet } from "./ui/login-prompt-sheet";
 export { RecordLogSheet } from "./ui/record-log-sheet";
+export { VisitSummaryLine } from "./ui/visit-summary-line";
 export {
   visibleLogEntries,
   visitOrdinals,

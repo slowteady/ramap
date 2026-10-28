@@ -13,7 +13,11 @@ import {
   type ShopPin,
 } from "@/entities/shop";
 import type { ShopRecord } from "@/entities/record";
-import { RecordButtons, useRecords } from "@/features/records";
+import {
+  RecordButtons,
+  useRecords,
+  VisitSummaryLine,
+} from "@/features/records";
 import { cn } from "@/shared/lib/utils";
 import { Drawer, DrawerContent, DrawerTitle } from "@/shared/ui/drawer";
 import type { LatLng } from "@/shared/map/types";
@@ -185,6 +189,7 @@ function ShopCardBody({
       </div>
       <Link href={`/shop/${shop.id}`} className="flex min-w-0 flex-col gap-1.5">
         <MetaRow pin={shop} center={center} full />
+        <VisitSummaryLine shopId={shop.id} />
         <GenreChips
           soups={shop.soups}
           forms={shop.forms}

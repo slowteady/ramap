@@ -1,11 +1,10 @@
 "use client";
 
-import { Bookmark } from "lucide-react";
+import { Bookmark, Check } from "lucide-react";
 import { cn } from "@/shared/lib/utils";
 import { useVisitAction } from "../model/use-visit-action";
 import { LoginPromptSheet } from "./login-prompt-sheet";
 import { RecordLogSheet } from "./record-log-sheet";
-import { VisitButtonContent } from "./visit-button-content";
 
 export function RecordButtons({
   shopId,
@@ -35,7 +34,8 @@ export function RecordButtons({
         onClick={visit}
         className="flex h-11 flex-1 items-center justify-center gap-1.5 rounded-pill bg-ramen px-3.5 text-secondary font-bold text-white"
       >
-        <VisitButtonContent record={record} iconClassName="size-4" />
+        <Check className="size-4" />
+        완식
       </button>
       <button
         type="button"

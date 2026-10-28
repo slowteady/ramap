@@ -37,15 +37,11 @@ describe("RecordButtons", () => {
     expect(action.save).toHaveBeenCalledOnce();
   });
 
-  it("완식 후에도 채워진 버튼으로 '한 그릇 더'와 횟수를 보여 준다 — 눌린 모양이면 다시 누르지 않는다", () => {
+  it("완식 후에도 버튼은 같은 동사·채운 모양 — 횟수는 버튼 밖 상태 줄로(Untappd·Swarm)", () => {
     action.get.mockReturnValue({ visited: true, saved: false, count: 3 });
     render(<RecordButtons shopId="kinka" />);
-    const button = screen.getByRole("button", { name: /한 그릇 더/ });
-    expect(button).toHaveTextContent("3회");
+    const button = screen.getByRole("button", { name: "완식" });
     expect(button.className).toContain("bg-ramen");
     expect(button.className).not.toContain("border-ramen");
-    expect(
-      screen.getByRole("button", { name: "저장" }).className,
-    ).not.toContain("border-ramen");
   });
 });

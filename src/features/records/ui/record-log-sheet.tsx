@@ -139,10 +139,6 @@ export function RecordLogSheet({
             </span>
           </button>
 
-          <p className="text-caption text-gray-400">
-            라멘이 주인공 · 직접 찍은 사진 · 다른 사람 얼굴이 안 나오게
-          </p>
-
           {state === "failed" && (
             <p className="text-secondary text-ramen">
               저장에 실패했어요. 잠시 후 다시 시도해주세요

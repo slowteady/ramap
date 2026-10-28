@@ -1,11 +1,10 @@
 "use client";
 
-import { Bookmark } from "lucide-react";
+import { Bookmark, Check } from "lucide-react";
 import { cn } from "@/shared/lib/utils";
 import { useVisitAction } from "../model/use-visit-action";
 import { LoginPromptSheet } from "./login-prompt-sheet";
 import { RecordLogSheet } from "./record-log-sheet";
-import { VisitButtonContent } from "./visit-button-content";
 
 /* 상세 하단 고정 CTA — 보조 아이콘 + 주 버튼 1개 (캐치테이블 문법) */
 export function RecordCtaBar({ shopId }: { shopId: string }) {
@@ -44,7 +43,8 @@ export function RecordCtaBar({ shopId }: { shopId: string }) {
           onClick={visit}
           className="flex h-12 flex-1 items-center justify-center gap-1.5 rounded-card bg-ramen text-body font-bold text-white"
         >
-          <VisitButtonContent record={record} iconClassName="size-4.5" />
+          <Check className="size-4.5" />
+          완식
         </button>
       </div>
       <LoginPromptSheet open={authPrompt} onClose={closeAuthPrompt} />
