@@ -20,19 +20,22 @@ description: GitHub 이슈 번호나 이슈 URL을 받아 작업을 시작하거
 
 - 완료 조건과 근거 문서에 없는 일은 하지 않는다. 필요해 보이면 멈추고 묻는다.
 - 이슈 본문은 고치지 않는다. 본문은 사람이 관리한다.
-- 라맵 규칙은 `CLAUDE.md`를 따른다: 신규 기능은 TDD, 커밋은 한국어 컨벤셔널(`feat:`·`fix:`·`chore:`·`docs:`·`refactor:`), 주석 금지 원칙, 이슈 "작업 유형"에 적힌 스킬(ramap-ui·data-integrity·closure-verification)
+- 로직은 `superpowers:test-driven-development` 스킬로 테스트를 먼저 쓴다: 실패하는 테스트 → 통과하는 최소 구현 → 정리.
+- 버그나 테스트 실패를 만나면 `superpowers:systematic-debugging` 스킬로 원인부터 찾는다.
+- 라맵 규칙은 `CLAUDE.md`를 따른다: 커밋은 한국어 컨벤셔널(`feat:`·`fix:`·`chore:`·`docs:`·`refactor:`), 주석 금지 원칙, 이슈 "작업 유형"에 적힌 스킬(ramap-ui·data-integrity·closure-verification)
 
 ## 마무리
 
-1. 완료 조건을 하나씩 실제로 확인한다(테스트 실행, 화면 확인 등). 확인하지 못한 항목은 "미확인"으로 남긴다.
+1. `superpowers:verification-before-completion` 스킬로 완료 조건을 하나씩 실제로 확인한다(테스트 실행, 화면 확인 등). 확인하지 못한 항목은 "미확인"으로 남긴다.
    - 라맵 공통: `npm test`, `npm run build`. 핵심 여정을 건드렸으면 `npm run test:e2e`
    - 매장 데이터: `npm run enrich-candidates -- data/out/candidates.tsv data/enrichment/*.json` → `npm run sync-sheet -- data/out/seed.tsv` → `npm run audit-integrity`, 리포트 첫 줄과 소실·계보 변경 표를 PR 본문에 붙인다
    - UI 변경: 로컬 서버는 3001 포트(카카오맵 도메인 허용, 3000은 다른 프로젝트가 씀). 모바일 폭 430px 스크린샷을 PR 본문에 넣는다 — 사람이 PR에서 화면을 검수하고 머지한다
-2. "진행 기록" 아티팩트(generic)를 하나만 유지한다. 없으면 만들고, 있으면 고친다.
+2. `pr-review` 스킬로 현재 브랜치를 리뷰하고(`--comment` 없이), 🔴 지적은 고친다. PR에 붙는 자동 리뷰와 같은 기준이다.
+3. "진행 기록" 아티팩트(generic)를 하나만 유지한다. 없으면 만들고, 있으면 고친다.
    내용: 한 일 / 내린 결정 / 확인한 완료 조건 / 미확인 / 남은 일
-3. PR 본문에 `Closes #이슈번호`를 넣는다.
-4. 이슈는 닫지 않는다. 사람이 PR을 머지하면 자동으로 닫힌다.
-5. main에 직접 머지·푸시하지 않는다. main 머지가 곧 Vercel 프로덕션 배포라서 사람이 PR에서 결정한다. 머지 후 IndexNow(`npm run indexnow`)는 사람이 요청할 때 실행한다
+4. PR 본문에 `Closes #이슈번호`를 넣는다.
+5. 이슈는 닫지 않는다. 사람이 PR을 머지하면 자동으로 닫힌다.
+6. main에 직접 머지·푸시하지 않는다. main 머지가 곧 Vercel 프로덕션 배포라서 사람이 PR에서 결정한다. 머지 후 IndexNow(`npm run indexnow`)는 사람이 요청할 때 실행한다
 
 ## 아티팩트 사용법
 

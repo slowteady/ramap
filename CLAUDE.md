@@ -37,7 +37,7 @@ scripts/        # 파이프라인 (LOCALDATA 시딩·시트 동기화)
 - **테스트:** 3계층, 신규 기능은 TDD(테스트 선행) — ①순수 함수(`model/`·`api/`) Vitest `*.test.ts` co-location 필수 ②훅·leaf 컴포넌트는 Testing Library `*.test.tsx` co-location(renderHook·render — next/navigation은 `shared/testing/next-navigation` 스텁, jsdom 폴리필은 `vitest.setup.ts`) ③핵심 여정은 `e2e/*.spec.ts` Playwright(비로그인 여정만 — OAuth 자동화 불가). 지도 오버레이 클릭은 `dispatchEvent("click")`(재배치로 안정성 검사 실패)
 - **에러:** 데이터 없음은 null 반환 + 호출부 분기 / 외부 SDK(카카오맵) 실패는 반드시 폴백 UI(리스트 + 안내 배너 — 지도 결함은 치명 결함) / 기록 저장 실패는 무음 폴백
 - **스타일링:** Tailwind만, 임의값(`w-[13px]`) 금지 — globals.css `@theme` 토큰 유틸만 / 클래스 조합은 `cn()` / CSS 파일 추가 금지 / **UI 작업 시 ramap-ui 스킬 필수** (.claude/skills/ramap-ui)
-- **주석 금지:** 코드가 표현 못 하는 제약(약관 금지, 비자명한 수치 근거)만 허용. 서사형·자명·출처 주석 전부 금지
+- **주석 금지 (2026-10-28~ 전면):** 새 코드에 주석·JSDoc·eslint/ts 무시 지시문을 쓰지 않는다 — `.claude/hooks/no-comments.py`가 막는다. 약관 금지·비자명한 수치 근거 같은 제약은 테스트 이름·`docs/`·PR 본문에 남긴다. 기존 주석은 그대로 둔다
 - **포맷:** Prettier 기본 설정, 스타일 논쟁 금지
 
 ## 미도입 라이브러리 — 선탑재 금지, 트리거 명시
@@ -69,7 +69,7 @@ scripts/        # 파이프라인 (LOCALDATA 시딩·시트 동기화)
 
 ## 커밋·브랜치
 
-- **이슈 기반 작업 (2026-10-28~):** 기능·데이터·파이프라인 변경은 GitHub 이슈 1개 = PR 1개. 이슈 만들기는 `issue-create` 스킬(분할안 승인 후 생성), 작업은 `issue-work` 스킬(구현 계획·진행 기록은 이슈 아티팩트, 댓글은 사람 몫). **에이전트는 PR까지만** — main 머지(=Vercel 배포)와 이슈 닫기는 사람이 한다(`.claude/hooks/block-issue-close.py`가 이슈 닫기를 차단). Orca 앱에서 이슈로 워크트리를 만들면 `orca.yaml` 지시가 들어간다
+- **이슈 기반 작업 (2026-10-28~):** 기능·데이터·파이프라인 변경은 GitHub 이슈 1개 = PR 1개. 이슈 만들기는 `issue-create` 스킬(분할안 승인 후 생성), 작업은 `issue-work` 스킬(구현 계획·진행 기록은 이슈 아티팩트, 댓글은 사람 몫), 리뷰 기준은 `pr-review` 스킬(PR을 열면 `.github/workflows/claude-review.yml`이 같은 기준으로 자동 리뷰). superpowers 스킬 쓰는 위치는 `.claude/rules/superpowers.md`. **에이전트는 PR까지만** — main 머지(=Vercel 배포)와 이슈 닫기는 사람이 한다(`.claude/hooks/block-issue-close.py`가 이슈 닫기를 차단). Orca 앱에서 이슈로 워크트리를 만들면 `orca.yaml` 지시가 들어간다
 - 브랜치: 작업 단위마다 `feat/`·`fix/`·`chore/`. main 직접 커밋 금지(docs·설정 1파일 예외 — 백로그 상태 갱신 등)
 - 커밋: 한국어 컨벤셔널(`feat:`·`chore:`·`docs:`·`refactor:`), 푸터 `Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>`
 
