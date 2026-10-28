@@ -42,7 +42,7 @@ updated: 2026-10-28
 - 열기는 `push`(뒤로가기 = 닫기), 닫기는 `replace`. 등록을 열면 `search` 파라미터를 지운다.
 - `/report`는 `/?report=new`로 리다이렉트.
 
-결정: [진입점](decisions/0004-진입점이-유형을-결정.md)
+결정: [진입점](decisions/0004-entry-point-sets-type.md)
 
 ## 시트 공통
 
@@ -67,7 +67,7 @@ updated: 2026-10-28
 
 완료: "등록 요청이 접수됐어요 / 라맵이 확인한 뒤 지도에 등록해 드려요."
 
-결정: [링크 우선](decisions/0005-신규-등록은-링크-우선.md), [라벨과 카피](decisions/0006-등록-라벨과-카피.md), [제출 조건](decisions/0013-제출-조건은-이름과-링크-또는-핀.md)
+결정: [링크 우선](decisions/0005-new-shop-link-first.md), [라벨과 카피](decisions/0006-registration-label-copy.md), [제출 조건](decisions/0013-submit-name-link-or-pin.md)
 
 ## 핀 피커
 
@@ -79,7 +79,7 @@ updated: 2026-10-28
 - 좌표는 소수 6자리(≈0.1m)로 반올림해 `details.pin`에 저장. 주소 표시 없음.
 - 좌표 → 컨테이너 변환은 지도 어댑터의 `coordsAt`(카카오 `coordsFromContainerPoint`) → [map 설계](../map/design.md)
 
-결정: [핀 피커](decisions/0011-지도-핀-피커.md)
+결정: [핀 피커](decisions/0011-map-pin-picker.md)
 
 ## 정보 수정 폼
 
@@ -97,7 +97,7 @@ updated: 2026-10-28
 
 완료: "수정 요청이 접수됐어요 / 라맵이 확인한 뒤 반영해 드려요. 폐업·휴업은 한 번 더 확인해요."
 
-결정: [수정 폼](decisions/0008-정보-수정은-항목-체크와-항목별-필드.md)
+결정: [수정 폼](decisions/0008-edit-field-checklist.md)
 
 ## 제출과 데이터
 
@@ -121,14 +121,14 @@ updated: 2026-10-28
 | `reports` | 누구나 insert, 관리자만 select·update |
 | `report-photos` 버킷(비공개, 5MB, `image/jpeg`) | anon·authenticated 업로드, 관리자만 열람 |
 
-결정: [details jsonb](decisions/0009-제보-내용은-details-jsonb.md), [자체 폼](decisions/0003-자체-폼과-Supabase-테이블.md)
+결정: [details jsonb](decisions/0009-report-details-jsonb.md), [자체 폼](decisions/0003-custom-form-supabase-table.md)
 
 ## 검수 `/admin`
 
 - noindex, 앱 내 링크 없음. 프로필 로드 전엔 빈 화면, `role != admin`이면 "운영자만 볼 수 있어요" + [지도로 가기].
 - 헤더(뒤로가기) + "운영" + 탭 [사진 검수 N][제보 N](대기 건수, 레드). 기본 탭은 사진 검수.
 
-결정: [앱 내 /admin](decisions/0016-검수는-앱-내-admin.md)
+결정: [앱 내 /admin](decisions/0016-review-in-app-admin.md)
 
 ### 사진 검수 탭
 
@@ -153,7 +153,7 @@ updated: 2026-10-28
 - 다시 열기(⋯ 메뉴) → `status=open`만 변경(결과·메모·처리일 보존), 토스트 "다시 열었어요" + [되돌리기](→ done).
 - 실패 시 토스트 "처리에 실패했어요".
 
-결정: [처리 결과](decisions/0017-처리-결과-3종과-대기-처리됨.md), [검수 카드](decisions/0018-검수-카드는-현재-값-대비-제보-값.md), [되돌리기](decisions/0019-확인-창-대신-되돌리기-토스트.md)
+결정: [처리 결과](decisions/0017-three-outcomes-queue-states.md), [검수 카드](decisions/0018-review-card-current-vs-reported.md), [되돌리기](decisions/0019-undo-toast-not-confirm.md)
 
 ## 운영 흐름
 
@@ -166,7 +166,7 @@ updated: 2026-10-28
 ```
 
 - "반영함"은 처리 기록일 뿐 매장 데이터를 바꾸지 않는다. 실제 반영은 파트너가 매장 시트에 하고 동기화가 사이트에 올린다 → [data 설계](../data/design.md)
-- 신규는 실존 확인 후 시딩과 같은 태깅 절차(확신도 `추정`으로 시작 가능), 폐업·휴업은 2차 확인 후 → [폐업 2차 확인](decisions/0014-폐업-휴업-제보는-2차-확인-후-반영.md)
+- 신규는 실존 확인 후 시딩과 같은 태깅 절차(확신도 `추정`으로 시작 가능), 폐업·휴업은 2차 확인 후 → [폐업 2차 확인](decisions/0014-closure-report-second-check.md)
 - 완식 사진 승인은 status만 바꾸며 그 순간 다른 사람에게 보인다 → [records 설계](../records/design.md)
 
 ## 이용 통계 이벤트
@@ -176,7 +176,7 @@ updated: 2026-10-28
 ## 알려진 한계
 
 - 스팸 방어(IP 속도 제한·허니팟)가 구현돼 있지 않다 — `reports` 익명 insert에 레이트리밋 없음. 스팸이 생기면 캡차·엣지 검토.
-- 제보 결과 통지·"내 제보"가 없다 → [내 제보](decisions/0021-내-제보는-로그인-제보-귀속.md)
+- 제보 결과 통지·"내 제보"가 없다 → [내 제보](decisions/0021-my-reports-login-attribution.md)
 - 처리 이력은 마지막 결과만 남는다(재처리 시 덮어씀).
 - 처리된 완식 사진을 다시 볼 목록이 없다.
 - 수정 제보의 현재 값 비교는 영업시간·위치만.

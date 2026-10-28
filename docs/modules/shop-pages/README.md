@@ -6,18 +6,18 @@
 |---|---|
 | [requirements.md](requirements.md) | 이 페이지들이 무엇을 해야 하는지, 목표 검색 쿼리와 제약·범위 밖을 확인할 때 |
 | [design.md](design.md) | 화면 구성·메타데이터·JSON-LD·사이트맵을 고치거나 코드 위치를 찾을 때 |
-| [0001 SEO 하이브리드 구조](decisions/0001-SEO-하이브리드-구조.md) | 왜 지도와 별도로 SSG 랜딩망을 두는지, SSR 페이지에 지도를 넣으려 할 때 |
-| [0002 지역×장르 페이지 생성 기준](decisions/0002-지역-장르-페이지-생성-기준.md) | 조합 페이지를 늘리거나 3곳 기준을 바꾸려 할 때 |
-| [0003 매장 상세 구조](decisions/0003-매장-상세-구조.md) | 상세 블록 순서·액션·사진 없는 화면을 바꾸려 할 때 |
-| [0004 신규 오픈 전용 페이지 폐기](decisions/0004-신규-오픈-전용-페이지-폐기.md) | NEW 칩·90일 기준이나 신규 오픈 목록을 다룰 때 |
-| [0005 장르 가이드 범위와 대표 매장](decisions/0005-장르-가이드-범위와-대표-매장.md) | 가이드 대상·본문 원칙·대표 매장 순위를 바꿀 때 |
-| [0006 근처 라멘집 반경 상한](decisions/0006-근처-라멘집-반경-상한.md) | 근처 라멘집에 거리 상한을 걸 시점을 판단할 때 |
-| [0007 실시간 영업 상태 미표시](decisions/0007-실시간-영업-상태-미표시.md) | "영업 중" 표시나 영업 줄 표기를 바꾸려 할 때 |
-| [0008 얇은 매장 페이지 색인 제외](decisions/0008-얇은-매장-페이지-색인-제외.md) | 매장 noindex 기준(`isThinShop`)을 바꿀 때 |
-| [0009 구조화 데이터 규칙](decisions/0009-구조화-데이터-규칙.md) | JSON-LD 필드를 추가·수정할 때 |
-| [0010 SEO 기술 최적화 범위](decisions/0010-SEO-기술-최적화-범위.md) | 사이트맵 분할·크롤 예산 등 기술 SEO 작업을 제안받았을 때 |
-| [0011 홈에 SEO 링크 섹션을 두지 않음](decisions/0011-홈에-SEO-링크-섹션을-두지-않음.md) | 홈에 랜딩 링크를 넣자는 제안이 나왔을 때 |
-| [0012 폐업 매장 페이지 공개와 색인](decisions/0012-폐업-매장-페이지-공개와-색인.md) | 폐업·이전 매장 페이지의 노출·색인을 다룰 때 |
-| [0013 지역 페이지 색인 제외 기준](decisions/0013-지역-페이지-색인-제외-기준.md) | 지역·지역×장르 noindex 기준을 바꿀 때 |
-| [0014 인스타 링크 표기](decisions/0014-인스타-링크-표기.md) | 상세 SNS 행이나 `sameAs`를 다룰 때 |
-| [0015 네이버 길찾기는 이름 검색 유지](decisions/0015-네이버-길찾기는-이름-검색-유지.md) | 길찾기 링크를 바꾸려 할 때 |
+| [0001 SEO 하이브리드 구조](decisions/0001-seo-hybrid-structure.md) | 왜 지도와 별도로 SSG 랜딩망을 두는지, SSR 페이지에 지도를 넣으려 할 때 |
+| [0002 지역×장르 페이지 생성 기준](decisions/0002-area-genre-page-criteria.md) | 조합 페이지를 늘리거나 3곳 기준을 바꾸려 할 때 |
+| [0003 매장 상세 구조](decisions/0003-shop-detail-structure.md) | 상세 블록 순서·액션·사진 없는 화면을 바꾸려 할 때 |
+| [0004 신규 오픈 전용 페이지 폐기](decisions/0004-drop-new-openings-page.md) | NEW 칩·90일 기준이나 신규 오픈 목록을 다룰 때 |
+| [0005 장르 가이드 범위와 대표 매장](decisions/0005-genre-guide-featured-shops.md) | 가이드 대상·본문 원칙·대표 매장 순위를 바꿀 때 |
+| [0006 근처 라멘집 반경 상한](decisions/0006-nearby-shops-radius-cap.md) | 근처 라멘집에 거리 상한을 걸 시점을 판단할 때 |
+| [0007 실시간 영업 상태 미표시](decisions/0007-no-live-open-status.md) | "영업 중" 표시나 영업 줄 표기를 바꾸려 할 때 |
+| [0008 얇은 매장 페이지 색인 제외](decisions/0008-noindex-thin-shop-pages.md) | 매장 noindex 기준(`isThinShop`)을 바꿀 때 |
+| [0009 구조화 데이터 규칙](decisions/0009-structured-data-rules.md) | JSON-LD 필드를 추가·수정할 때 |
+| [0010 SEO 기술 최적화 범위](decisions/0010-technical-seo-scope.md) | 사이트맵 분할·크롤 예산 등 기술 SEO 작업을 제안받았을 때 |
+| [0011 홈에 SEO 링크 섹션을 두지 않음](decisions/0011-no-home-seo-links.md) | 홈에 랜딩 링크를 넣자는 제안이 나왔을 때 |
+| [0012 폐업 매장 페이지 공개와 색인](decisions/0012-closed-shop-page-indexing.md) | 폐업·이전 매장 페이지의 노출·색인을 다룰 때 |
+| [0013 지역 페이지 색인 제외 기준](decisions/0013-area-page-noindex-criteria.md) | 지역·지역×장르 noindex 기준을 바꿀 때 |
+| [0014 인스타 링크 표기](decisions/0014-instagram-link-display.md) | 상세 SNS 행이나 `sameAs`를 다룰 때 |
+| [0015 네이버 길찾기는 이름 검색 유지](decisions/0015-naver-directions-name-search.md) | 길찾기 링크를 바꾸려 할 때 |

@@ -26,24 +26,24 @@ updated: 2026-10-28
 
 | 그룹 | 토큰 | 규칙 |
 |---|---|---|
-| 액센트 | `ramen`, `ramen-050`, `ramen-100` | 유일한 유채색. 틴트는 활성(050)·선택(100) 칩 배경. shadcn `primary`도 같은 값([결정](decisions/0002-라멘-레드-E23C36.md)) |
+| 액센트 | `ramen`, `ramen-050`, `ramen-100` | 유일한 유채색. 틴트는 활성(050)·선택(100) 칩 배경. shadcn `primary`도 같은 값([결정](decisions/0002-ramen-red-e23c36.md)) |
 | 텍스트 | `ink` | 근흑. 순흑 금지 |
 | 그레이 | `gray-050` ~ `gray-500` | 배경·구분선·보조 텍스트·비활성. 상태 표현은 이 단계 차로 |
 | 시맨틱 | `open` | 그린. 영업 정보 전용 |
-| radius | `rounded-card`·`rounded-card-lg` / `rounded-pill` / `rounded-chip` | 카드 / 컨트롤 / 태그 배지. 그 외 금지([결정](decisions/0003-radius-4값과-형태-문법.md)) |
+| radius | `rounded-card`·`rounded-card-lg` / `rounded-pill` / `rounded-chip` | 카드 / 컨트롤 / 태그 배지. 그 외 금지([결정](decisions/0003-four-radii-shape-grammar.md)) |
 | 타이포 | `text-caption`·`text-secondary`·`text-body`·`text-title`·`text-heading`·`text-display` | 6단 고정. 위계는 굵기(400/600/700)와 그레이 단계로 |
 | 폰트 | `font-sans` | Pretendard Variable. 기본 폰트(Inter·Roboto) 흔적 금지 |
 | 레이아웃 | `max-w-app`, `h-sheet-card` | 앱 셸 최대 폭(시트·오버레이 포함 전 화면 공통), 지도 홈 매장 카드 높이 |
 
-- 규칙 전체: 흰 배경 + 그레이 + 유채 1색, 색 = 누를 수 있는 곳, 카드 구획은 여백([결정](decisions/0001-토큰-외-값-금지와-색-예산.md))
+- 규칙 전체: 흰 배경 + 그레이 + 유채 1색, 색 = 누를 수 있는 곳, 카드 구획은 여백([결정](decisions/0001-tokens-only-color-budget.md))
 - shadcn `accent`는 호버 서피스(그레이)이지 브랜드색이 아니다
-- 다크모드 없음 — `.dark` 블록 없음([공통 결정](../../decisions/0003-라이트-모드-고정.md))
+- 다크모드 없음 — `.dark` 블록 없음([공통 결정](../../decisions/0003-light-mode-only.md))
 - 클릭 요소는 `<button>`/`<a>`만. 커서는 base 레이어가 `button`·`[role="button"]`에 일괄 pointer
 - 그라데이션은 가로 스크롤 에지 페이드 마스크 `mask-fade-r` 한 곳만 예외
 
 ## 플랫폼과 앱 셸
 
-- 모바일웹 퍼스트([결정](decisions/0006-모바일웹-퍼스트.md)). 모든 화면이 `max-w-app` 폭의 흰 중앙 컬럼 안에 그려지고, 바깥 여백은 `gray-050`
+- 모바일웹 퍼스트([결정](decisions/0006-mobile-web-first.md)). 모든 화면이 `max-w-app` 폭의 흰 중앙 컬럼 안에 그려지고, 바깥 여백은 `gray-050`
 - 데스크톱은 같은 단일 컬럼(무붕괴). 스플릿 뷰 없음
 
 ## 정보 구조
@@ -55,7 +55,7 @@ updated: 2026-10-28
 [필터 칩 행 ……………………………………]  [라멘집 등록]
 ```
 
-- 메뉴 없음. 홈 = 지도, 필터는 지도 안 컨트롤, 기여는 버튼([결정](decisions/0008-내비게이션은-코어-뷰와-최소-메뉴.md))
+- 메뉴 없음. 홈 = 지도, 필터는 지도 안 컨트롤, 기여는 버튼([결정](decisions/0008-nav-core-views-minimal-menu.md))
 - 검색은 헤더 아이콘, 프로필은 로그인 기능이 켜졌을 때만 보이는 `/me` 링크
 - 장르 가이드는 메뉴가 아니라 필터·매장·마이 페이지의 컨텍스트 링크로 진입
 - 필터 칩 행 구성·동작은 [map design](../map/design.md)
@@ -79,7 +79,7 @@ updated: 2026-10-28
 
 - 각 화면 명세: 홈·검색 = [map design](../map/design.md), 등록 시트 = [report design](../report/design.md), 상세·지역·계보·가이드 = [shop-pages design](../shop-pages/design.md), 마이·설정 = [records design](../records/design.md)
 - SEO 착지 페이지(상세·지역·계보·가이드)는 내비에 없다. 검색이 입구이고, 크롤러 발견은 `sitemap.xml`·`robots.txt`와 랜딩 간 상호 크로스링크가 담당
-- 신규 오픈 전용 페이지는 없다([결정](../shop-pages/decisions/0004-신규-오픈-전용-페이지-폐기.md))
+- 신규 오픈 전용 페이지는 없다([결정](../shop-pages/decisions/0004-drop-new-openings-page.md))
 - 홈 아래 SSR 콘텐츠 섹션은 없다 — [map design](../map/design.md)
 
 ### 헤더
@@ -87,7 +87,7 @@ updated: 2026-10-28
 | 화면 | 헤더 |
 |---|---|
 | 홈 | 로고(h1, 스크린리더 "라맵") · 검색 아이콘 · 프로필 아이콘 |
-| 2뎁스 전부(가이드·지역·계보·마이·설정·약관·상세·운영) | 뒤로가기 + 우측 보조 액션 1개. 로고·홈 링크 없음([결정](decisions/0009-2뎁스-헤더는-뒤로가기와-보조-액션.md)) |
+| 2뎁스 전부(가이드·지역·계보·마이·설정·약관·상세·운영) | 뒤로가기 + 우측 보조 액션 1개. 로고·홈 링크 없음([결정](decisions/0009-subpage-header-back-action.md)) |
 | 풀스크린 오버레이(검색 등) | 뒤로가기(=닫기) + 입력/제목 |
 
 - `PageHeader`를 쓰는 화면: 운영, 지역 리스트, 장르 가이드(목록·본문), 계보 랜딩. 매장 상세·마이·설정·약관은 같은 형태를 자체 마크업으로 그린다
@@ -102,7 +102,7 @@ updated: 2026-10-28
 | 매장 상세 수정·폐업 진입 | 잘못된 정보가 있나요? (일급 행) |
 | 지도 실패 배너 | 지도를 불러오지 못했어요 |
 
-"제보"는 신규 등록 라벨로 쓰지 않는다([결정](decisions/0007-유저-기여-라벨-라멘집-등록.md)).
+"제보"는 신규 등록 라벨로 쓰지 않는다([결정](decisions/0007-contribution-label-add-shop.md)).
 
 ## 지도 실패 폴백
 
@@ -110,7 +110,7 @@ updated: 2026-10-28
 
 ## AI티 방지 게이트
 
-빌드 시 모든 화면이 통과해야 한다([결정](decisions/0004-AI티-방지-게이트.md)). 코드 작성 규율 실물은 [`ramap-ui` 스킬](../../../.claude/skills/ramap-ui/SKILL.md).
+빌드 시 모든 화면이 통과해야 한다([결정](decisions/0004-anti-ai-look-gate.md)). 코드 작성 규율 실물은 [`ramap-ui` 스킬](../../../.claude/skills/ramap-ui/SKILL.md).
 
 **금지 시그니처**
 
@@ -138,7 +138,7 @@ updated: 2026-10-28
 - [ ] FAQ는 기본 아코디언 대신 답변 노출형 Q&A
 - [ ] 모든 레이아웃 패턴에 실측 레퍼런스 출처가 있다. 출처를 못 대면 제거
 
-벤치마크 배정: 앱 구조·검색·카드 = 캐치테이블 / 지도 = 호갱노노 / 바텀 카드·상세 탭 = 오늘의집 / 토큰 규율 = 토스([결정](decisions/0005-시각-벤치마크-배정.md)).
+벤치마크 배정: 앱 구조·검색·카드 = 캐치테이블 / 지도 = 호갱노노 / 바텀 카드·상세 탭 = 오늘의집 / 토큰 규율 = 토스([결정](decisions/0005-visual-benchmarks.md)).
 
 ## 안티패턴
 

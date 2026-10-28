@@ -27,7 +27,9 @@ paths:
 ## 이름과 상태 표시
 
 - 폴더와 살아 있는 문서 이름은 고정: `requirements.md`, `design.md`, `decisions/`, `research/`, `notes/`, `data/`, `prototype/`
-- 결정은 `0001-제목.md`처럼 4자리 번호와 하이픈 제목. 번호는 다시 쓰지 않는다.
+- 파일 이름은 영어 kebab-case로 짧게(3~5단어) 쓴다. 한국어 제목은 문서 첫 줄 `# 제목`에 둔다. 한글 파일명은 링크가 `%EB…`로 인코딩되고 macOS·Linux 사이에서 유니코드 정규화(NFC/NFD)가 달라 같은 파일이 다른 파일로 잡힐 수 있다.
+- 결정은 `0001-short-title.md`처럼 4자리 번호와 영어 제목. 번호는 다시 쓰지 않는다.
+- 보고서는 `2026-01-31-short-title.md`처럼 조사 날짜와 영어 제목.
 - 명세, 결정, 보고서는 맨 위에 frontmatter를 붙인다. 노트, 데이터, 프로토타입은 붙이지 않는다.
   - 명세: `status`(초안 / 유효 / 대체됨), `updated`
   - 결정, 보고서: `status`, `date`, 대체됐으면 `superseded_by`

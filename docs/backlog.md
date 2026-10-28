@@ -8,11 +8,11 @@
 
 | 약칭 | 문서 |
 |---|---|
-| research M·D·F | [지도·상세 검수 조사](research/2026-10-27-지도-상세-검수-조사.md) |
-| benchmark | [경쟁·유사 서비스 벤치마크](research/2026-09-05-경쟁-유사-서비스-벤치마크.md) |
-| backlog §N | [전국 확장 후 잔여 작업](research/2026-09-03-전국-확장-후-잔여-작업.md) |
+| research M·D·F | [지도·상세 검수 조사](research/2026-10-27-map-detail-review.md) |
+| benchmark | [경쟁·유사 서비스 벤치마크](research/2026-09-05-competitor-benchmark.md) |
+| backlog §N | [전국 확장 후 잔여 작업](research/2026-09-03-post-nationwide-remaining-work.md) |
 | data-refresh | [data 설계](modules/data/design.md) |
-| product/research 라멘갤 | [라멘갤 페인포인트 조사](modules/product/research/2026-10-28-라멘갤-페인포인트-조사.md) |
+| product/research 라멘갤 | [라멘갤 페인포인트 조사](modules/product/research/2026-10-28-ramengal-pain-points.md) |
 | 14번 | [records 요구사항](modules/records/requirements.md) |
 | 그 외 모듈명/design | `docs/modules/<모듈>/design.md` |
 

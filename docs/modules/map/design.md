@@ -53,7 +53,7 @@ updated: 2026-10-28
 [상시 바텀시트 — 목록 모드 ↔ 매장 카드 모드]
 ```
 
-- 홈은 `h-dvh` 고정, 페이지 스크롤 없음([결정](decisions/0001-풀맵과-논모달-상시-바텀시트.md), [결정](decisions/0003-홈-하단-SSR-섹션-폐기.md))
+- 홈은 `h-dvh` 고정, 페이지 스크롤 없음([결정](decisions/0001-full-map-nonmodal-sheet.md), [결정](decisions/0003-drop-home-ssr-sections.md))
 - 그 위에 뜨는 것: 필터 값 시트(모달), 검색 오버레이(풀스크린), 등록 시트([라멘집 등록] 또는 검색 빈 결과)
 
 ## 데이터 흐름
@@ -62,7 +62,7 @@ updated: 2026-10-28
 2. 클라이언트 `ShopMap`: 내 기록(`useRecords`)에서 완식 id·저장 id 집합을 만든다
 3. "안 가본 집"·"저장한 곳" 토글로 핀을 거른다(컴포넌트 로컬 상태 — URL에 없음)
 4. URL 필터를 `applyFilters`로 적용 → 지도 마커·클러스터·목록이 같은 결과를 쓴다
-5. 서버 재조회 없음 — 지도 이동은 클라이언트 계산만([결정](decisions/0012-지도-이동-시-목록-자동-갱신.md))
+5. 서버 재조회 없음 — 지도 이동은 클라이언트 계산만([결정](decisions/0012-list-updates-on-map-move.md))
 
 ## URL 쿼리
 
@@ -74,7 +74,7 @@ updated: 2026-10-28
 | `search` | `1` | 열기 push / 닫기 replace | 검색어는 URL에 없음 |
 | `report`, `pick` | 등록 시트·핀 피커 | — | [report design](../report/design.md) |
 
-원칙은 [결정](decisions/0004-지도-상태의-URL화.md).
+원칙은 [결정](decisions/0004-map-state-in-url.md).
 
 ## 필터
 
@@ -91,7 +91,7 @@ updated: 2026-10-28
 | 라멘집 등록 | 항상(칩 행 오른쪽 고정, 레드 pill) | `?report=new` |
 
 - 칩 행은 가로 스크롤 + 마우스 드래그 스크롤(`useDragScroll`) + 오른쪽 페이드 마스크
-- 칩 구조의 근거: [결정](decisions/0009-필터는-축-단위-칩.md)
+- 칩 구조의 근거: [결정](decisions/0009-filter-chips-per-axis.md)
 
 ### 값 시트
 
@@ -100,7 +100,7 @@ updated: 2026-10-28
 - 결과 0이고 선택 안 된 값은 비활성
 - 숨김 값: 기타(`etc-form`·`etc-soup`), 특성(칩 행이 담당)
 - 적용된 값 전체(축 무관)를 X 칩으로 나열 → 개별 해제
-- 하단: [초기화] + [매장 N곳 보기](닫기). 값 탭은 즉시 반영([결정](decisions/0010-필터-즉시-반영.md))
+- 하단: [초기화] + [매장 N곳 보기](닫기). 값 탭은 즉시 반영([결정](decisions/0010-instant-filter-apply.md))
 - 의미: 축 간 AND, 축 내 OR, `new`는 AND
 
 ## 마커·클러스터
@@ -114,13 +114,13 @@ updated: 2026-10-28
 | 9 | 구 클러스터 | 레벨 8 |
 | 10+ | 시·도 클러스터 | 레벨 9 |
 
-- 클러스터 = "이름 개수" 알약(흰 배경·레드 테두리·개수 레드). 필터 결과로 계산([결정](decisions/0005-행정구역-시맨틱-클러스터와-줌-티어.md))
+- 클러스터 = "이름 개수" 알약(흰 배경·레드 테두리·개수 레드). 필터 결과로 계산([결정](decisions/0005-area-clusters-zoom-tiers.md))
 - 기본 뷰: 서울 중심, 레벨 8
 
 ### 개별 마커
 
 - 화면 범위 + 30% 버퍼 안의 핀만 그린다
-- 모든 마커는 라멘 레드 기반 단색([결정](decisions/0006-마커-스프-색-인코딩-폐기.md))
+- 모든 마커는 라멘 레드 기반 단색([결정](decisions/0006-drop-marker-soup-colors.md))
 
 | 상태 | 모양 |
 |---|---|
@@ -129,12 +129,12 @@ updated: 2026-10-28
 | 저장 | 근흑 원 + 흰 북마크 |
 | 완식 | 흰 원 + 레드 테두리 + 레드 체크 |
 
-- 라벨: 점 아래 흰 pill에 상호(굵기 800). 신규면 라벨 앞 레드 "NEW" 칩(완식 마커 제외)([결정](decisions/0007-마커-가독성-라벨-pill과-타일-톤다운.md))
-- 겹침(`planMarkers`): 우선순위 선택 > 신규 > 저장 > 기본 > 완식 순으로 배치. 겹치면 하위는 점으로 강등, 라벨을 가리는 기본·완식 점은 숨김(신규·저장 점은 유지). 위치는 옮기지 않는다([결정](decisions/0008-저장-완식-마커와-라벨-우선순위.md))
+- 라벨: 점 아래 흰 pill에 상호(굵기 800). 신규면 라벨 앞 레드 "NEW" 칩(완식 마커 제외)([결정](decisions/0007-marker-label-pill-tile-tone.md))
+- 겹침(`planMarkers`): 우선순위 선택 > 신규 > 저장 > 기본 > 완식 순으로 배치. 겹치면 하위는 점으로 강등, 라벨을 가리는 기본·완식 점은 숨김(신규·저장 점은 유지). 위치는 옮기지 않는다([결정](decisions/0008-save-visit-marker-priority.md))
 - 그리기 순서: 선택 > 라벨 > 점
 - 터치 타깃: 투명 패딩 10px로 44px 확보
 - 지도 빈 곳 탭 → 선택 해제
-- 어댑터는 마커 키별 diff 렌더(바뀐 것만 DOM 교체), 뷰포트 이벤트는 `idle` 후 150ms 디바운스([결정](decisions/0016-MapAdapter-이음새.md))
+- 어댑터는 마커 키별 diff 렌더(바뀐 것만 DOM 교체), 뷰포트 이벤트는 `idle` 후 150ms 디바운스([결정](decisions/0016-map-adapter-seam.md))
 - 현위치 점: 파란 원(구글 내 위치 관례)
 
 ## 상시 바텀시트
@@ -168,8 +168,8 @@ vaul Drawer, 비모달·`dismissible=false`. 제스처 규율은 `ramap-ui` 스�
 | 6 | 대표 메뉴 1개(이름·가격) |
 | 7 | 기록 버튼 `RecordButtons`(저장·완식) — [records design](../records/design.md) |
 
-- 2~6 영역 전체가 `/shop/{slug}` 링크. 시트 full 확장은 없다([결정](decisions/0002-매장-상세는-시트-확장-대신-페이지-이동.md))
-- 실시간 "영업중"은 표시하지 않는다(`OpenStatusBadge` — 시간 정보만)([결정](decisions/0015-지금-영업중-필터-기각.md))
+- 2~6 영역 전체가 `/shop/{slug}` 링크. 시트 full 확장은 없다([결정](decisions/0002-shop-detail-as-page.md))
+- 실시간 "영업중"은 표시하지 않는다(`OpenStatusBadge` — 시간 정보만)([결정](decisions/0015-reject-open-now-filter.md))
 - 닫기: ‹ 버튼·지도 빈 곳 탭·뒤로가기 → 목록 모드 45% 스냅 / 카드를 72px로 끌어내림 → 목록 모드 접힘
 
 ### 선택 진입
@@ -183,12 +183,12 @@ vaul Drawer, 비모달·`dismissible=false`. 제스처 규율은 `ramap-ui` 스�
 ## 현위치
 
 - 지도 준비 후 오른쪽 아래 [◎ 내주변] pill
-- 탭 → 브라우저 위치 권한 요청 → 성공 시 현위치 점 + 레벨 4로 이동. 실패·미지원 시 토스트 "위치 권한이 없어 현위치를 표시할 수 없어요"([결정](decisions/0011-위치-권한은-현위치-버튼에서만.md))
+- 탭 → 브라우저 위치 권한 요청 → 성공 시 현위치 점 + 레벨 4로 이동. 실패·미지원 시 토스트 "위치 권한이 없어 현위치를 표시할 수 없어요"([결정](decisions/0011-location-permission-on-button.md))
 - 거리(목록·카드)는 현위치를 얻은 뒤에만 표시
 
 ## 검색
 
-헤더 검색 아이콘 → `?search=1` 풀스크린 오버레이, 아래→위 전환, 뒤로가기 = 닫기([결정](decisions/0014-검색-진입은-헤더-아이콘.md), [결정](decisions/0013-검색은-클라이언트-즉시-제안.md)).
+헤더 검색 아이콘 → `?search=1` 풀스크린 오버레이, 아래→위 전환, 뒤로가기 = 닫기([결정](decisions/0014-search-header-icon.md), [결정](decisions/0013-client-instant-search.md)).
 
 | 상태 | 화면 |
 |---|---|

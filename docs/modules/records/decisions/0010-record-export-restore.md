@@ -1,0 +1,20 @@
+---
+status: 대체됨
+date: 2026-08-26
+superseded_by: 0017-drop-export-account-deletion.md
+---
+
+# 기록 JSON 내보내기·복원을 MVP에 포함한다
+
+## 맥락
+
+MVP는 무로그인 + 기기 localStorage 저장이라 브라우저 데이터가 지워지면 기록이 사라진다.
+
+## 결정
+
+- 기록을 JSON으로 내보내고 복원하는 기능을 MVP에 넣는다.
+- 첫 완식 직후 "기록은 기기에 저장돼요 · 백업하기" 토스트로 백업을 안내한다.
+
+## 근거
+
+기록 소실은 최대의 배신 — Beanconqueror의 유일 약점. 출처: [딥리서치 보고서](../research/2026-08-26-engagement-retention-research.md)

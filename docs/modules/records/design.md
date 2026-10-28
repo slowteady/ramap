@@ -52,7 +52,7 @@ updated: 2026-10-28
 
 `records` 테이블: PK `(user_id, shop_id)`, `visited`·`saved`·`count`·`first_at`·`last_at`·`updated_at`, 제약 `visited or saved`. RLS: 본인 행만 조회·삭제, 추가·수정은 본인 + `profiles.agreed_at is not null`.
 
-결정: [공존](decisions/0019-완식과-저장-공존.md)
+결정: [공존](decisions/0019-visit-save-coexist.md)
 
 ## 저장소와 로그인 전환
 
@@ -74,7 +74,7 @@ updated: 2026-10-28
 
 로그아웃: 이관 중단, 로컬 스토어(빈 상태)로 복귀. 서버 기록은 그대로.
 
-결정: [서버 저장과 병합](decisions/0012-기록-서버-저장과-로그인-병합.md), [로그인 필수](decisions/0013-기록은-로그인-필수.md)
+결정: [서버 저장과 병합](decisions/0012-server-records-login-merge.md), [로그인 필수](decisions/0013-records-require-login.md)
 
 ## 완식 흐름
 
@@ -89,7 +89,7 @@ updated: 2026-10-28
 - 저장은 바로 토글된다(로그인 필요).
 - 완식을 누르면: 비로그인 → `LoginPromptSheet` / 로그인 → `RecordLogSheet`(visit 모드).
 
-결정: [기록 시트](decisions/0021-완식은-기록-시트에서-확인해야-기록.md)
+결정: [기록 시트](decisions/0021-visit-confirm-in-sheet.md)
 
 ### 기록 시트 `RecordLogSheet`
 
@@ -134,7 +134,7 @@ updated: 2026-10-28
 - 차수: 같은 유저의 묶음을 오래된 순으로 센다(`visitOrdinals`, 묶음 1개 = 1완식).
 - 검수는 report 모듈의 /admin 사진 검수 탭 → [report 설계](../report/design.md)
 
-결정: [부가물·검수 승격](decisions/0015-사진-한줄평은-선택-부가물-검수-승격.md)
+결정: [부가물·검수 승격](decisions/0015-optional-photo-note-review.md)
 
 ## 상세 "완식 기록" 섹션 `RecordLogSection`
 
@@ -159,7 +159,7 @@ SSG 껍데기(`getShops()`를 서버에서 내려줌) + 클라이언트 섬. noi
 - 두 탭 모두 20개씩, [기록 더보기 (남은 수)].
 - 빈 상태: "아직 완식한(저장한) 라멘집이 없어요 / 지도에서 완식(저장)을 찍으면 여기에 모여요 / [지도 보기]".
 
-결정: [사진 그리드](decisions/0022-완식-탭은-사진-그리드.md), [더보기](decisions/0020-기록-목록은-더보기-버튼.md)
+결정: [사진 그리드](decisions/0022-visit-tab-photo-grid.md), [더보기](decisions/0020-record-list-load-more.md)
 
 ### 기록 뷰어 `RecordViewerSheet`
 
@@ -180,7 +180,7 @@ noindex. 헤더 [←](마이) + "설정".
 
 회원탈퇴 시트: "정말 탈퇴할까요? / 완식·저장 기록과 남긴 사진이 모두 지워지고 되돌릴 수 없어요." [취소][탈퇴하기]. 실행 = 본인 `record-photos` 파일 삭제 → `delete_own_account()` RPC → 로컬 세션 종료 → 토스트 "탈퇴가 완료됐어요" → 홈. 실패 시 토스트 "탈퇴에 실패했어요. 잠시 후 다시 시도해 주세요."
 
-결정: [설정 페이지](decisions/0023-설정은-별도-페이지.md), [탈퇴](decisions/0017-기록-내보내기-폐기와-회원탈퇴.md)
+결정: [설정 페이지](decisions/0023-settings-separate-page.md), [탈퇴](decisions/0017-drop-export-account-deletion.md)
 
 ## 로그인·약관 동의·프로필
 
@@ -191,7 +191,7 @@ noindex. 헤더 [←](마이) + "설정".
 - 닉네임 사전: 형용사 30개(수줍은·씩씩한·…·콧테리·앗사리) × 명사 30개(돈코츠·쇼유·…·토쿠세이). 중복 시 10회 재시도 → 4자리 접미사 10회(12자 이하) → 폴백 `라멘` + 8자리.
 - 운영자(`role=admin`)는 이용 통계에서 제외된다 → [platform 설계](../platform/design.md)
 
-결정: [가입 확정·닉네임](decisions/0018-가입-확정은-약관-동의-닉네임은-DB-자동-할당.md)
+결정: [가입 확정·닉네임](decisions/0018-signup-terms-auto-nickname.md)
 
 ## 이용 통계 이벤트
 

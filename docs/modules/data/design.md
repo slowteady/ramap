@@ -22,7 +22,7 @@ data/enrichment/*.json (조사 결과)
 
 - **원천은 `data/out/candidates.tsv`(시트 형식, Git 추적)와 `data/enrichment/*.json`이다.** `seed.tsv`·`held.tsv`·`shops.json`은 재생성 산출물이라 직접 고치지 않는다.
 - `data/out/`은 gitignore지만 `candidates.tsv`만 추적한다. `seed-candidates`를 다시 돌리면 `candidates.tsv`를 덮어써 누적된 반영(폐업·신규·수정)이 사라진다.
-- 시트 스키마가 곧 데이터 스키마다 → [결정](decisions/0012-시트-스키마가-매장-데이터-스키마.md)
+- 시트 스키마가 곧 데이터 스키마다 → [결정](decisions/0012-sheet-schema-is-shop-schema.md)
 
 ## 파일
 
@@ -68,7 +68,7 @@ data/enrichment/*.json (조사 결과)
 | 계보 | 이에케(`iekei`, 맛) · 지로계(`jiro`, 맛) · 자가제면(`jikaseimen`, 특성) · 본토직영(`honto`, 특성) |
 | 편의 | 식권기 · 카에다마 · 원격 웨이팅 · 한정메뉴 · 심야 · 주차 · 1인 카운터 |
 
-- 값별 결정: [3축·한국화](decisions/0001-택소노미-3축-직교와-한국화-원칙.md) · [복수+대표](decisions/0002-형태와-스프는-복수-허용과-대표값.md) · [스프 구성](decisions/0003-스프-계열-값-구성.md) · [니보시·교카이](decisions/0004-니보시-교카이-병립.md) · [토마토](decisions/0005-토마토-스프-승격.md) · [아부라소바](decisions/0006-아부라소바-별도-형태.md) · [이에케 표기](decisions/0007-이에케-표기.md) · [무화조 제외](decisions/0008-무화조-태그-제외.md) · [본토직영](decisions/0009-본토직영-태그.md) · [편의 태그](decisions/0010-편의-태그-한국화.md) · [계보 기준](decisions/0011-계보는-대표-라멘-기준.md)
+- 값별 결정: [3축·한국화](decisions/0001-taxonomy-axes-localization.md) · [복수+대표](decisions/0002-multi-form-soup-primary.md) · [스프 구성](decisions/0003-soup-family-values.md) · [니보시·교카이](decisions/0004-niboshi-gyokai-coexist.md) · [토마토](decisions/0005-tomato-soup-promotion.md) · [아부라소바](decisions/0006-aburasoba-separate-form.md) · [이에케 표기](decisions/0007-iekei-notation.md) · [무화조 제외](decisions/0008-exclude-msg-free-tag.md) · [본토직영](decisions/0009-japan-direct-tag.md) · [편의 태그](decisions/0010-convenience-tags-localized.md) · [계보 기준](decisions/0011-lineage-by-signature-ramen.md)
 - 스프 값 설명 문구(`description`)·일본어 표기(`labelJa`)도 같은 파일에 있다.
 - 편의 태그는 값만 정의돼 있고 현재 채운 매장이 없다.
 
@@ -121,11 +121,11 @@ data/enrichment/*.json (조사 결과)
 
 - `Shop`·`ShopList` 타입은 `src/entities/shop/model/types.ts`. `photos`는 시트 열이 없어 항상 `[]`이다(매장 사진은 아직 없음).
 - `ShopList`(소목록)는 타입만 있고 데이터·시트는 없다 → [요구사항](requirements.md#범위-밖-아직-안-함)
-- 검증 결정: [운영자확인](decisions/0014-운영자확인은-사람-검수일-때만.md). 태깅확신도 산정은 `scripts/lib/grade.ts`.
+- 검증 결정: [운영자확인](decisions/0014-operator-verified-human-only.md). 태깅확신도 산정은 `scripts/lib/grade.ts`.
 
 ### 동네라벨
 
-[결정](decisions/0013-동네라벨은-캐치테이블-상권명.md). `enrich-candidates`의 우선순위:
+[결정](decisions/0013-neighborhood-label-catchtable.md). `enrich-candidates`의 우선순위:
 
 1. 조사에서 검색으로 확증한 라벨(`area` + `areaConfirmed: true`)
 2. 주소 사전 판정 `areaLabelOf` — 키 `구|법정동`(괄호 속 동), 일부는 도로명 직접 판정 (`scripts/lib/area-label.ts`)
@@ -136,7 +136,7 @@ data/enrichment/*.json (조사 결과)
 
 ## 시딩
 
-[결정](decisions/0017-시드는-보편-추출과-디깅-보강-2층.md) · [조사](research/2026-09-02-시드-소스-딥리서치와-실측.md)
+[결정](decisions/0017-seed-two-layer-extraction.md) · [조사](research/2026-09-02-seed-source-deep-research.md)
 
 | 단계 | 규칙 | 코드 |
 |---|---|---|
@@ -150,7 +150,7 @@ data/enrichment/*.json (조사 결과)
 
 - CSV 인코딩은 UTF-8·EUC-KR을 자동 판별(`scripts/lib/csv.ts`). 원본 CSV는 레포 밖에 두고 경로를 인자로 준다.
 - 원본: LOCALDATA 일반음식점(아래 갱신 라운드 접근 정보), 소상공인 상가(상권)정보 data.go.kr 15083033(업종코드 15067631, WGS84 좌표 포함), 지자체 인허가 원본은 `extract-lic`로 변환해 상가정보 인자로 넣는다.
-- 디깅 소스 사용 경계 → [결정](decisions/0018-디깅-소스-저작권-경계.md)
+- 디깅 소스 사용 경계 → [결정](decisions/0018-digging-source-copyright.md)
 
 ## 보강 (enrich-candidates)
 
@@ -174,15 +174,15 @@ data/enrichment/*.json (조사 결과)
 ### 병합 규칙
 
 - 매칭: 정규화 상호(+지점명)가 같거나 짧은 쪽 3자 이상 **접두** 일치(`matchEnrichment`). 중간 포함은 쓰지 않는다.
-- 승계(같은 체인 판정·계보·인스타·위치 필드)와 검수 절차는 [data-integrity 스킬](../../../.claude/skills/data-integrity/SKILL.md)이 원천 → [결정](decisions/0020-정보는-같은-가게-같은-체인에만-승계.md)
-- 최신 조사일 우선 필드 → [결정](decisions/0021-조사-결과는-최신-조사일-우선.md)
+- 승계(같은 체인 판정·계보·인스타·위치 필드)와 검수 절차는 [data-integrity 스킬](../../../.claude/skills/data-integrity/SKILL.md)이 원천 → [결정](decisions/0020-inherit-same-shop-chain.md)
+- 최신 조사일 우선 필드 → [결정](decisions/0021-latest-research-wins.md)
 - 동명 행(상호+지점 정규화가 같은 행)이 여럿이면 정확 일치 항목도 `addrHint`가 있어야 위치 필드를 준다.
 - 오픈일은 조사값이 있으면 그 값, 없으면 시트 값(인허가일).
 - 형태가 비면 `라멘`, 스프가 비면 `기타`가 기본값이다.
 
 ### 게재 판정
 
-[결정](decisions/0019-게재-게이트는-웹-실존-신호.md). 콘솔에 `후보 N → 게재 / 보류 / 제외` 건수를 찍는다.
+[결정](decisions/0019-publish-gate-web-presence.md). 콘솔에 `후보 N → 게재 / 보류 / 제외` 건수를 찍는다.
 
 ## 동기화 (sync-sheet)
 
@@ -201,7 +201,7 @@ data/enrichment/*.json (조사 결과)
 
 ## 갱신 라운드
 
-[결정](decisions/0022-갱신-라운드는-LOCALDATA-전국본-대조.md) · 지난 라운드 결과 → [조사](research/2026-10-19-데이터-갱신-라운드-결과.md)
+[결정](decisions/0022-refresh-round-localdata-national.md) · 지난 라운드 결과 → [조사](research/2026-10-19-data-refresh-round-results.md)
 
 ### 원천 접근
 
@@ -246,7 +246,7 @@ npm test
 
 ### 2차 검수
 
-[결정](decisions/0025-2차-검수-수단-고정.md)
+[결정](decisions/0025-secondary-review-collect-evidence.md)
 
 - 수집: `collect-evidence` — 대상은 `refresh-new.tsv` 전부 + `refresh-closed.tsv`의 게재=Y 전부. 항목당 Daum 통합검색 2회(상호+법정동, 상호+도로명)에서 장소 카드 영업 표기와 상호가 들어간 후기 조각(뒤 220자 안의 첫 날짜). 라멘 미니갤(`goodramen`) 최근 21일 키워드 7종(오픈·개업·폐업·영업종료·이전·휴업·2호점) + 사건성 제목 글 본문 최대 30건. 직전 라운드 `closed-verify.tsv` 판정과 같은 건물 영업 인허가를 함께 붙인다.
 - 검색 원문은 커밋하지 않는다. 사람이 읽을 요약은 `<출력>.txt`.
@@ -276,7 +276,7 @@ enrichment를 쓸 때(스킬의 "항목을 추가·수정할 때"에 더해):
 
 ### 격주 루틴
 
-[결정](decisions/0026-격주-루틴은-검토-자료까지.md)
+[결정](decisions/0026-biweekly-routine-review-only.md)
 
 | 항목 | 값 |
 |---|---|
@@ -290,7 +290,7 @@ enrichment를 쓸 때(스킬의 "항목을 추가·수정할 때"에 더해):
 
 ## 폐업 장부
 
-[결정](decisions/0024-폐업은-직접-증거로만-확정.md)
+[결정](decisions/0024-closure-direct-evidence-only.md)
 
 - 판정·증거·장부 형식·보고는 [closure-verification 스킬](../../../.claude/skills/closure-verification/SKILL.md)이 원천.
 - 앱: `getClosureLedger`(`src/entities/shop/api/get-closure-ledger.ts`)가 장부를 읽고, `closurePublicState(shop, ledger)`(`src/entities/shop/model/closure.ts`)가 `open`/`closed`/`moved`/`hidden`을 정한다. 폐업 매장 페이지 표현 → [shop-pages 설계](../shop-pages/design.md)
@@ -298,7 +298,7 @@ enrichment를 쓸 때(스킬의 "항목을 추가·수정할 때"에 더해):
 
 ## 인스타 검수 라운드
 
-[결정](decisions/0027-인스타-링크는-지점-브랜드-비움-순.md) · 근거·우선순위 규칙은 [data-integrity 스킬](../../../.claude/skills/data-integrity/SKILL.md) "인스타" 절 · 1차 결과 → [조사](research/2026-10-27-인스타-링크-1차-검수.md)
+[결정](decisions/0027-instagram-link-priority.md) · 근거·우선순위 규칙은 [data-integrity 스킬](../../../.claude/skills/data-integrity/SKILL.md) "인스타" 절 · 1차 결과 → [조사](research/2026-10-27-instagram-link-first-review.md)
 
 ### 대기열 — `data/review/instagram-2026-11/pending.tsv`
 
@@ -321,7 +321,7 @@ enrichment를 쓸 때(스킬의 "항목을 추가·수정할 때"에 더해):
 
 ### 절차
 
-1. 이슈 브랜치에서 작업한다([공통 결정](../../decisions/0005-이슈-기반-작업.md)).
+1. 이슈 브랜치에서 작업한다([공통 결정](../../decisions/0005-issue-based-workflow.md)).
 2. `pending.tsv`를 구분별로 25~30곳 묶음 JSON으로 나눈다(같은 브랜드는 한 묶음). 필드: `id, name, brand, brandSize, city, area, address, existing`
 3. 조사 에이전트(general-purpose, sonnet)에 아래 지시문을 그대로 준다.
 4. 결과 반영:
@@ -369,7 +369,7 @@ Reply at the end with only: counts of kind and existingVerdict values, and up to
 
 ## 정기 휴무 수집
 
-[결정](decisions/0028-정기-휴무는-후기-2건-일치로-채택.md)
+[결정](decisions/0028-closed-days-two-reviews.md)
 
 - 추출: `extractClosedDays(text)` — 후기 조각에서 "월요일 휴무", "정기휴무: 화", "매주 월·화 휴무", "연중무휴" 꼴을 요일 배열로. 매치 자체나 그 앞 16자 안에 임시·명절·연휴·날짜·n번째·격주·매월·마지막 같은 비정기 표현이 있으면 버린다. 장소 카드 문구는 `null` (`scripts/lib/closed-days.ts`)
 - 채택: `decideClosedDays(evidence[])` — 같은 요일 조합 2건 이상 + 반대 근거의 3배 이상일 때만 라벨(`월요일`, `토요일, 일요일`, `연중무휴`), 아니면 `null`
