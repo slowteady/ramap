@@ -16,7 +16,7 @@ updated: 2026-10-28
 | 지도 | 카카오맵 JS SDK, 어댑터 뒤에서만 사용 | 아래 "지도" 절 |
 | 백엔드 | Supabase(무료 티어) — 카카오 Auth, `profiles`·`records`·`record_photos`·`reports` 테이블, 사진 스토리지 | 서버 없이 브라우저가 직접 호출하고 RLS가 권한을 강제. 스키마는 `supabase/schema.sql` |
 | 매장 데이터 | 시트 → 동기화 스크립트 → `data/*.json` → 빌드 반영 | DB가 아니라 Git이 이력을 가진다 → [data 설계](../data/design.md) |
-| 호스팅 | Vercel | main 머지가 곧 프로덕션 배포 |
+| 호스팅 | Vercel | main 머지가 곧 프로덕션 배포. 직전 커밋 대비 바뀐 파일이 문서·에이전트 설정(`*.md`, `docs/`, `.claude/`, `.github/`, `orca.yaml`)뿐이면 빌드·배포를 건너뛴다 — `vercel.json`의 `ignoreCommand`(`git diff --quiet`, 0이면 건너뜀). 무료 배포 저장소(10GB)를 배포 1회 약 200MB씩 쓰기 때문 |
 | 이용 통계 | PostHog | 아래 "이용 통계" 절. GA4는 쓰지 않는다 — 기능별 이벤트·히트맵을 한 도구에서 보려고 |
 | 검색 유입 | Google Search Console · 네이버 서치어드바이저 · IndexNow(`npm run indexnow`) | |
 
