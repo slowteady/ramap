@@ -55,6 +55,7 @@
 - 이슈 본문 끝에 `## 작업 유형`(UI / 데이터 / 파이프라인 / 문서)을 붙인다. UI면 `ramap-ui`, 매장 데이터면 `data-integrity`·`closure-verification` 스킬을 따른다.
 - main 직접 커밋 금지(docs·설정 1파일 예외). main 머지가 곧 Vercel 프로덕션 배포라 PO가 한다 → [결정](../../docs/decisions/0005-이슈-기반-작업.md)
 - 머지 후 IndexNow(`npm run indexnow`)는 PO가 요청할 때 실행한다.
+- PR 자동 리뷰(GitHub Actions `claude-review.yml`)는 쓰지 않는다. 보일러플레이트를 복사할 때 그 파일은 빼고, 리뷰는 PR 전에 로컬 `pr-review`로 한다 → [결정](../../docs/decisions/0008-자동-PR-리뷰-미사용.md)
 
 ## 검증
 
