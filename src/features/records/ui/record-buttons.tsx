@@ -3,6 +3,7 @@
 import { Bookmark, Check } from "lucide-react";
 import { cn } from "@/shared/lib/utils";
 import { useVisitAction } from "../model/use-visit-action";
+import { visitLabel } from "../model/visit-label";
 import { LoginPromptSheet } from "./login-prompt-sheet";
 import { RecordLogSheet } from "./record-log-sheet";
 
@@ -16,6 +17,8 @@ export function RecordButtons({
   const {
     get,
     visit,
+    undoVisit,
+    visitOrdinal,
     save,
     authPrompt,
     closeAuthPrompt,
@@ -39,7 +42,7 @@ export function RecordButtons({
         )}
       >
         <Check className="size-4" />
-        완식
+        {visitLabel(record)}
       </button>
       <button
         type="button"
@@ -58,7 +61,8 @@ export function RecordButtons({
       <RecordLogSheet
         shopId={shopId}
         open={logPrompt}
-        revisit={false}
+        ordinal={visitOrdinal}
+        onUndo={undoVisit}
         onClose={closeLogPrompt}
       />
     </div>

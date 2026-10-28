@@ -9,24 +9,24 @@ import { track } from "@/shared/lib/analytics";
 import { PhotoPicker } from "@/shared/ui/photo-picker";
 import { COMMENT_MAX, RECORD_PHOTO_MAX } from "../model/record-photo-ops";
 import { submitRecordPhotos } from "../model/record-photos";
-import { useRecords } from "../model/use-records";
 
 type SheetState = "idle" | "submitting" | "failed";
 
 export function RecordLogSheet({
   shopId,
   open,
-  revisit,
+  ordinal,
+  onUndo,
   onClose,
   onSubmitted,
 }: {
   shopId: string;
   open: boolean;
-  revisit: boolean;
+  ordinal?: number | null;
+  onUndo?: () => void;
   onClose: () => void;
   onSubmitted?: () => void;
 }) {
-  const { recordRevisit } = useRecords();
   const [files, setFiles] = useState<File[]>([]);
   const [comment, setComment] = useState("");
   const [consent, setConsent] = useState(true);
@@ -44,19 +44,24 @@ export function RecordLogSheet({
   const submit = async () => {
     if (files.length === 0 || state === "submitting") return;
     setState("submitting");
-    const ok = await submitRecordPhotos({ shopId, files, comment, consent });
+    const result = await submitRecordPhotos({
+      shopId,
+      files,
+      comment,
+      consent,
+    });
     track("record_log_submitted", {
       shop_id: shopId,
       photo_count: files.length,
       has_comment: comment.trim().length > 0,
-      revisit: Boolean(revisit),
-      ok,
+      revisit: (ordinal ?? 1) > 1,
+      ok: result.ok,
+      ...(result.ok ? {} : { failed_step: result.step }),
     });
-    if (!ok) {
+    if (!result.ok) {
       setState("failed");
       return;
     }
-    if (revisit) recordRevisit(shopId, new Date());
     onSubmitted?.();
     onClose();
   };
@@ -69,11 +74,22 @@ export function RecordLogSheet({
             <DrawerTitle className="text-title font-bold text-ink">
               완식 기록 남기기
             </DrawerTitle>
-            <p className="text-secondary text-gray-500">
-              {revisit
-                ? "다시 온 한 그릇도 기록이 돼요"
-                : "오늘의 한 그릇을 사진으로 남겨보세요"}
-            </p>
+            {ordinal && onUndo ? (
+              <p className="flex items-center gap-2 text-secondary text-gray-500">
+                {ordinal}번째 완식으로 기록했어요
+                <button
+                  type="button"
+                  onClick={onUndo}
+                  className="-my-3 flex min-h-11 items-center font-semibold text-ink underline underline-offset-2"
+                >
+                  되돌리기
+                </button>
+              </p>
+            ) : (
+              <p className="text-secondary text-gray-500">
+                오늘의 한 그릇을 사진으로 남겨보세요
+              </p>
+            )}
           </div>
 
           <PhotoPicker

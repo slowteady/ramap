@@ -25,8 +25,10 @@ vi.mock("@/features/auth", () => ({
 }));
 
 const RECORD_TOTAL = 45;
+const clearVisit = vi.hoisted(() => vi.fn());
 vi.mock("@/features/records", () => ({
   useRecords: () => ({
+    clearVisit,
     records: Array.from({ length: 45 }, (_, i) => ({
       shopId: `shop-${i}`,
       visited: true,
@@ -150,5 +152,24 @@ describe("MePage — 기록 뷰어 (인스타 문법)", () => {
       "/shop/shop-44",
     );
     myPhotos.value = null;
+  });
+});
+
+describe("MePage — 완식 기록 삭제", () => {
+  it("사진 없는 기록도 뷰어가 열리고, 확인을 거쳐야 완식 기록이 지워진다", async () => {
+    const user = userEvent.setup();
+    nav.current = createNavigationStub();
+    render(<MePage shops={shops} />);
+    await user.click(
+      screen.getByRole("button", { name: "라멘집44 기록 보기" }),
+    );
+    expect(screen.getByText("완식 1회")).toBeInTheDocument();
+
+    await user.click(screen.getByRole("button", { name: "완식 기록 삭제" }));
+    expect(clearVisit).not.toHaveBeenCalled();
+    expect(screen.getByText("완식 기록을 지울까요?")).toBeInTheDocument();
+
+    await user.click(screen.getByRole("button", { name: "지우기" }));
+    expect(clearVisit).toHaveBeenCalledWith("shop-44");
   });
 });

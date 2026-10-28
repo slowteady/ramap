@@ -26,6 +26,7 @@ type EventMap = {
     has_comment: boolean;
     revisit: boolean;
     ok: boolean;
+    failed_step?: "auth" | "encode" | "upload" | "insert";
   };
   report_opened: { type: "new" | "edit" };
   report_submitted: { type: string; ok: boolean };

@@ -129,7 +129,6 @@ export function RecordLogSection({ shopId }: { shopId: string }) {
       <RecordLogSheet
         shopId={shopId}
         open={sheetOpen}
-        revisit
         onClose={() => setSheetOpen(false)}
         onSubmitted={() => void load()}
       />

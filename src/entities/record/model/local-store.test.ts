@@ -23,36 +23,44 @@ describe("RecordStore(localStorage)", () => {
     store = createLocalRecordStore(mem());
   });
 
-  it("완식 토글 on — 날짜 기록, off — 행 삭제", () => {
-    const r = store.toggleVisited("kinka", new Date("2026-08-26"));
+  it("완식은 누를 때마다 count가 오르고 해제되지 않는다", () => {
+    const r = store.addVisit("kinka", new Date("2026-08-26"));
     expect(r).toMatchObject({ visited: true, count: 1 });
-    expect(r?.firstAt).toContain("2026-08-26");
-    expect(store.toggleVisited("kinka")).toBeNull();
-    expect(store.get("kinka")).toBeNull();
+    expect(r.firstAt).toContain("2026-08-26");
+    expect(store.addVisit("kinka")).toMatchObject({ visited: true, count: 2 });
+    expect(store.get("kinka")?.count).toBe(2);
   });
 
   it("날짜 없는 완식(온보딩)은 firstAt null", () => {
-    const r = store.toggleVisited("kinka");
-    expect(r?.firstAt).toBeNull();
-    expect(r?.count).toBe(1);
+    const r = store.addVisit("kinka");
+    expect(r.firstAt).toBeNull();
+    expect(r.count).toBe(1);
   });
 
-  it("완식과 저장은 공존하고, 하나를 꺼도 다른 쪽은 남는다", () => {
+  it("완식 기록 삭제 — 저장은 남고, 저장도 없으면 행이 사라진다", () => {
     store.toggleSaved("konoha");
-    expect(store.toggleVisited("konoha")).toMatchObject({
-      visited: true,
-      saved: true,
-    });
-    expect(store.toggleVisited("konoha")).toMatchObject({
+    store.addVisit("konoha");
+    expect(store.clearVisit("konoha")).toMatchObject({
       visited: false,
       saved: true,
     });
-    expect(store.toggleSaved("konoha")).toBeNull();
+    store.addVisit("kinka");
+    expect(store.clearVisit("kinka")).toBeNull();
+    expect(store.get("kinka")).toBeNull();
+  });
+
+  it("restore는 되돌리기 — 직전 스냅샷으로, null이면 행 삭제", () => {
+    const before = store.addVisit("kinka", new Date("2026-08-26"));
+    store.addVisit("kinka");
+    store.restore("kinka", before);
+    expect(store.get("kinka")).toEqual(before);
+    store.restore("kinka", null);
+    expect(store.get("kinka")).toBeNull();
   });
 
   it("저장 후 새 스토어 인스턴스에서도 읽힌다", () => {
     const storage = mem();
-    createLocalRecordStore(storage).toggleVisited("kinka");
+    createLocalRecordStore(storage).addVisit("kinka");
     expect(createLocalRecordStore(storage).get("kinka")?.count).toBe(1);
   });
 
@@ -79,7 +87,7 @@ describe("RecordStore(localStorage)", () => {
   });
 
   it("export(v2)→import 왕복 보존, 병합은 OR·count max", () => {
-    store.toggleVisited("kinka");
+    store.addVisit("kinka");
     const json = store.exportJson();
     expect(JSON.parse(json).version).toBe(2);
     const other = createLocalRecordStore(mem());
@@ -123,6 +131,6 @@ describe("RecordStore(localStorage)", () => {
     } as Storage;
     const s = createLocalRecordStore(broken);
     expect(() => s.all()).not.toThrow();
-    expect(() => s.toggleVisited("kinka")).not.toThrow();
+    expect(() => s.addVisit("kinka")).not.toThrow();
   });
 });

@@ -4,8 +4,12 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 import { RecordButtons } from "./record-buttons";
 
 const action = vi.hoisted(() => ({
-  get: vi.fn(() => null as null | { visited: boolean; saved: boolean }),
+  get: vi.fn(
+    () => null as null | { visited: boolean; saved: boolean; count: number },
+  ),
   visit: vi.fn(),
+  undoVisit: vi.fn(),
+  visitOrdinal: null,
   save: vi.fn(),
   authPrompt: false,
   closeAuthPrompt: vi.fn(),
@@ -33,12 +37,12 @@ describe("RecordButtons", () => {
     expect(action.save).toHaveBeenCalledOnce();
   });
 
-  it("완식 상태면 활성 스타일(테두리형)로 바뀐다", () => {
-    action.get.mockReturnValue({ visited: true, saved: false });
+  it("완식 상태면 횟수를 보여 주고 활성 스타일(테두리형)로 바뀐다", () => {
+    action.get.mockReturnValue({ visited: true, saved: false, count: 3 });
     render(<RecordButtons shopId="kinka" />);
-    expect(screen.getByRole("button", { name: "완식" }).className).toContain(
-      "border-ramen",
-    );
+    expect(
+      screen.getByRole("button", { name: "완식 3회" }).className,
+    ).toContain("border-ramen");
     expect(
       screen.getByRole("button", { name: "저장" }).className,
     ).not.toContain("border-ramen");

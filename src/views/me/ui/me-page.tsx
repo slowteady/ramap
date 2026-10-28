@@ -37,7 +37,7 @@ function MeBody({ shops }: { shops: Shop[] }) {
   const params = useSearchParams();
   const { user, ready } = useAuth();
   const { displayName, profileLoaded } = useProfile();
-  const { records } = useRecords();
+  const { records, clearVisit } = useRecords();
   const [loginOpen, setLoginOpen] = useState(false);
   const [photosByShop, setPhotosByShop] = useState<Map<string, RecordPhoto[]>>(
     new Map(),
@@ -188,15 +188,17 @@ function MeBody({ shops }: { shops: Shop[] }) {
                 if (!first) {
                   return (
                     <li key={record.shopId}>
-                      <Link
-                        href={`/shop/${shop.id}`}
-                        className="flex aspect-square flex-col items-center justify-center gap-1.5 bg-ramen-050 px-2"
+                      <button
+                        type="button"
+                        aria-label={`${shop.name} 기록 보기`}
+                        onClick={() => setViewerShopId(shop.id)}
+                        className="flex aspect-square w-full flex-col items-center justify-center gap-1.5 bg-ramen-050 px-2"
                       >
                         <Soup className="size-6 text-ramen" />
                         <span className="line-clamp-1 text-caption font-semibold text-ink">
                           {shop.name}
                         </span>
-                      </Link>
+                      </button>
                     </li>
                   );
                 }
@@ -310,6 +312,13 @@ function MeBody({ shops }: { shops: Shop[] }) {
           shopId={viewerShopId}
           shopName={shopById.get(viewerShopId)?.name ?? ""}
           photos={photosByShop.get(viewerShopId) ?? []}
+          visitCount={
+            records.find((r) => r.shopId === viewerShopId)?.count ?? 1
+          }
+          onDelete={() => {
+            clearVisit(viewerShopId);
+            setViewerShopId(null);
+          }}
           onClose={() => setViewerShopId(null)}
         />
       )}
