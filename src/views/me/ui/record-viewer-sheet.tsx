@@ -97,19 +97,19 @@ export function RecordViewerSheet({
             </div>
           )}
 
-          <div
-            className={cn("flex flex-col gap-1", photos.length > 1 && "pt-3")}
-          >
-            {current?.comment && (
-              <p className="text-body text-ink">{current.comment}</p>
-            )}
-            {current && (
+          {current && (
+            <div
+              className={cn("flex flex-col gap-1", photos.length > 1 && "pt-3")}
+            >
+              {current.comment && (
+                <p className="text-body text-ink">{current.comment}</p>
+              )}
               <p className="text-caption text-gray-400">
                 {ordinals.get(current.id) ?? 1}번째 완식 ·{" "}
                 {dayjs(current.createdAt).format("YYYY.M.D")}
               </p>
-            )}
-          </div>
+            </div>
+          )}
 
           <Link
             href={`/shop/${shopId}`}
