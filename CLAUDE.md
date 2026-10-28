@@ -69,7 +69,8 @@ scripts/        # 파이프라인 (LOCALDATA 시딩·시트 동기화)
 
 ## 커밋·브랜치
 
-- 브랜치: 작업 단위마다 `feat/`·`fix/`·`chore/` → 완료 시 main 머지 후 삭제. main 직접 커밋 금지(docs·설정 1파일 예외)
+- **이슈 기반 작업 (2026-10-28~):** 기능·데이터·파이프라인 변경은 GitHub 이슈 1개 = PR 1개. 이슈 만들기는 `issue-create` 스킬(분할안 승인 후 생성), 작업은 `issue-work` 스킬(구현 계획·진행 기록은 이슈 아티팩트, 댓글은 사람 몫). **에이전트는 PR까지만** — main 머지(=Vercel 배포)와 이슈 닫기는 사람이 한다(`.claude/hooks/block-issue-close.py`가 이슈 닫기를 차단). Orca 앱에서 이슈로 워크트리를 만들면 `orca.yaml` 지시가 들어간다
+- 브랜치: 작업 단위마다 `feat/`·`fix/`·`chore/`. main 직접 커밋 금지(docs·설정 1파일 예외 — 백로그 상태 갱신 등)
 - 커밋: 한국어 컨벤셔널(`feat:`·`chore:`·`docs:`·`refactor:`), 푸터 `Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>`
 
 <!-- BEGIN:nextjs-agent-rules -->
