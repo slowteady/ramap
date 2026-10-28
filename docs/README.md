@@ -27,6 +27,7 @@
 | [0006-docs-module-structure](decisions/0006-docs-module-structure.md) | 옛 `docs/planning`·`docs/plans` 문서가 어디로 갔는지 찾을 때 |
 | [0007-shared-git-rules](decisions/0007-shared-git-rules.md) | 커밋·머지 형식을 확인할 때 |
 | [0008-no-auto-pr-review](decisions/0008-no-auto-pr-review.md) | 보일러플레이트를 다시 복사하거나 PR 리뷰 방식을 바꿀 때 |
+| [0009-no-live-open-status](decisions/0009-no-live-open-status.md) | 영업 상태·"영업중" 필터를 넣자는 얘기가 나올 때 |
 
 ## 공통 조사
 

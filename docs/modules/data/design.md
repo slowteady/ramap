@@ -68,7 +68,7 @@ data/enrichment/*.json (조사 결과)
 | 계보 | 이에케(`iekei`, 맛) · 지로계(`jiro`, 맛) · 자가제면(`jikaseimen`, 특성) · 본토직영(`honto`, 특성) |
 | 편의 | 식권기 · 카에다마 · 원격 웨이팅 · 한정메뉴 · 심야 · 주차 · 1인 카운터 |
 
-- 값별 결정: [3축·한국화](decisions/0001-taxonomy-axes-localization.md) · [복수+대표](decisions/0002-multi-form-soup-primary.md) · [스프 구성](decisions/0003-soup-family-values.md) · [니보시·교카이](decisions/0004-niboshi-gyokai-coexist.md) · [토마토](decisions/0005-tomato-soup-promotion.md) · [아부라소바](decisions/0006-aburasoba-separate-form.md) · [이에케 표기](decisions/0007-iekei-notation.md) · [무화조 제외](decisions/0008-exclude-msg-free-tag.md) · [본토직영](decisions/0009-japan-direct-tag.md) · [편의 태그](decisions/0010-convenience-tags-localized.md) · [계보 기준](decisions/0011-lineage-by-signature-ramen.md)
+- 값별 결정: [3축·한국화](decisions/0001-taxonomy-axes-localization.md) · [값 구성(복수+대표·스프 구성·니보시·교카이·토마토·아부라소바·이에케 표기·무화조 제외·본토직영·편의 태그)](decisions/0002-taxonomy-values.md) · [계보 기준](decisions/0011-lineage-by-signature-ramen.md)
 - 스프 값 설명 문구(`description`)·일본어 표기(`labelJa`)도 같은 파일에 있다.
 - 편의 태그는 값만 정의돼 있고 현재 채운 매장이 없다.
 
@@ -121,11 +121,23 @@ data/enrichment/*.json (조사 결과)
 
 - `Shop`·`ShopList` 타입은 `src/entities/shop/model/types.ts`. `photos`는 시트 열이 없어 항상 `[]`이다(매장 사진은 아직 없음).
 - `ShopList`(소목록)는 타입만 있고 데이터·시트는 없다 → [요구사항](requirements.md#범위-밖-아직-안-함)
-- 검증 결정: [운영자확인](decisions/0014-operator-verified-human-only.md). 태깅확신도 산정은 `scripts/lib/grade.ts`.
+
+### 검증상태와 태깅확신도
+
+- `검증상태=운영자확인`은 사람이 실제로 검수(제보 처리·현장 확인)했을 때만 올린다. 파이프라인은 이 값을 건드리지 않는다.
+- 조사 기반 자동 신뢰도는 `태깅확신도`가 따로 맡는다 — 업종 분류·상호 키워드로만 걸러진 매장은 장르를 실제로 확인한 것이 아니라서 사람 검수와 한 칸에 섞지 않는다. 화면의 "확인됨" 칩은 태깅확신도로 표시한다.
+- `확정` = 조사 항목이 매칭되고, 판정 표시(라멘집 아님·실존 미확인)가 없고, 스프(대표값 포함)와 형태가 채워진 매장(`scripts/lib/grade.ts`). 나머지는 `추정`.
 
 ### 동네라벨
 
-[결정](decisions/0013-neighborhood-label-catchtable.md). `enrich-candidates`의 우선순위:
+동네라벨은 **캐치테이블 지역 필터의 상권 구획·명칭**을 따른다 — 행정동은 사람들이 쓰는 말과 달라 위치 표시·지역 SEO 단위로 못 쓴다.
+
+- 슬래시 번들 중 매장이 속한 **개별 상권명 하나**를 쓴다(성수/서울숲 → `성수` 또는 `서울숲`). 캐치테이블 목록 카드도 "청담 · 양식"처럼 단일 상권명으로 표기한다.
+- 캐치테이블 목록에 없는 동은 가장 가까운 번들 구성원 이름으로 쓴다(자양동 → `건대`).
+- 행정동·법정동 이름은 쓰지 않는다.
+- 기준 번들(서울): 강남/역삼/선릉 · 강남구청 · 건대/군자/구의 · 금호/옥수/신당 · 명동/을지로/충무로 · 방이 · 북촌/삼청 · 삼성/대치 · 상수/합정/망원 · 서울역/회현 · 서초/방배 · 서촌 · 성수/서울숲 · 신사/논현 · 신촌/홍대/서교 · 압구정 · 압구정로데오 · 청담 · 양재/도곡 · 연남 · 영등포/여의도 · 용산/삼각지 · 이태원/한남 · 잠실/송파 · 종로/광화문
+
+`enrich-candidates`의 우선순위:
 
 1. 조사에서 검색으로 확증한 라벨(`area` + `areaConfirmed: true`)
 2. 주소 사전 판정 `areaLabelOf` — 키 `구|법정동`(괄호 속 동), 일부는 도로명 직접 판정 (`scripts/lib/area-label.ts`)
@@ -201,7 +213,7 @@ data/enrichment/*.json (조사 결과)
 
 ## 갱신 라운드
 
-[결정](decisions/0022-refresh-round-localdata-national.md) · 지난 라운드 결과 → [조사](research/2026-10-19-data-refresh-round-results.md)
+정기 갱신은 LOCALDATA 전국 일반음식점 최신본을 `candidates.tsv`(기지 후보)·`shops.json`(게재분)과 대조해 신규 오픈·폐업·이전을 따라간다(`refresh-localdata`). 지난 라운드 결과 → [조사](research/2026-10-19-data-refresh-round-results.md)
 
 ### 원천 접근
 
@@ -243,6 +255,14 @@ npm test
 | `refresh-excluded.tsv` | 임시 영업장(`isTemporaryVenue`) 또는 `data/refresh-exclusions.tsv` 일치(상호 포함관계 + 같은 건물) |
 
 대조 대상은 스트리밍 중 라멘 키워드·기지 상호·기지 건물 중 하나라도 걸리는 행으로 줄인다. 주소는 `normalizeAddress`로 정리한다.
+
+매칭 규칙 — 인허가 데이터에 체인 다지점·재인허가·명의변경·주소 개편·임시 영업장이 섞여 있어서 정한 기준이다.
+
+- **같은 매장 = 상호 포함관계(정규화 후 2자 이상) 그리고 같은 건물.** 상호 단독 비교는 금지(체인 다지점이 한 매장으로 붙는다).
+- 같은 건물 = 상세·괄호부를 뗀 도로명 주소가 같거나, 도로명+건물번호가 같고 시군구·읍면동 토큰이 하나 이상 겹침(시군구가 없으면 시도 비교). 도로명+건물번호 보정은 행정구역 개편(화성시 동탄구·병점구·만세구, 인천 영종구·제물포구·검단구·서해구, 전남광주통합특별시)으로 주소 접두부가 바뀐 매장을 놓치지 않기 위해서다.
+- 폐업 전이 = 매칭되는 최신 행이 **모두** 폐업. 폐업 행과 영업 행이 공존하면 재인허가로 보고 영업 유지.
+- 미발견은 자동 폐업하지 않는다 — 폐업 확정은 직접 증거로만 한다([폐업 장부](#폐업-장부)).
+- 임시 영업장(주소·상호에 축제·페스티벌·행사장·박람회·부스·푸드트럭·임시)과 `data/refresh-exclusions.tsv`는 신규에서 자동 제외한다. 사람이 중복 인허가·비라멘으로 판정한 행은 후보에서 지워도 매 라운드 신규로 재등장하므로 제외 목록에 누적한다.
 
 ### 2차 검수
 

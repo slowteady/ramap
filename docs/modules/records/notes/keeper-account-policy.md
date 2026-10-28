@@ -1,6 +1,6 @@
 # keeper 계정 정책 원문 정리
 
-[가입 확정·닉네임 결정](../decisions/0018-signup-terms-auto-nickname.md)과 닉네임 변경(후속)이 인용하는 keeper 정책 추출(2026-09-01, `docs/plans/2026-09-01-my-records.md`에서 옮김).
+[records 설계 — 로그인·약관 동의·프로필](../design.md#로그인약관-동의프로필)과 닉네임 변경(후속)이 인용하는 keeper 정책 추출(2026-09-01, `docs/plans/2026-09-01-my-records.md`에서 옮김).
 
 원본: `gh repo clone slowteady/keeper-app` / `git clone https://github.com/slowteady/keeper-backend.git`
 

@@ -29,8 +29,8 @@ updated: 2026-10-28
 
 ## 제약
 
-- 토큰 외 값 금지 — Tailwind 임의값(`w-[13px]`) 금지, `@theme` 토큰 유틸만, CSS 파일 추가 금지([결정](decisions/0001-tokens-only-color-budget.md))
-- 유채색은 라멘 레드 1색 + 시맨틱 그린뿐([결정](decisions/0002-ramen-red-e23c36.md))
+- 토큰 외 값 금지 — Tailwind 임의값(`w-[13px]`) 금지, `@theme` 토큰 유틸만, CSS 파일 추가 금지([결정](decisions/0001-design-token-rules.md))
+- 유채색은 라멘 레드 1색 + 시맨틱 그린뿐([결정](decisions/0001-design-token-rules.md))
 - 라이트 모드 고정, `.dark` 블록 금지([공통 결정](../../decisions/0003-light-mode-only.md))
 - 타사 로고 사용 금지([공통 결정](../../decisions/0002-third-party-data-boundary.md))
 - 이모지 아이콘 금지 — lucide 단일 세트
@@ -43,3 +43,6 @@ updated: 2026-10-28
 | 데스크톱 스플릿 뷰(좌 리스트 + 우 지도) | 모바일 트래픽 비중 확인 후 |
 | 랭킹·어워드 메뉴 | 3막 — 데이터 축적 후 |
 | 네이티브 앱 | 없음 |
+| 메뉴 다수 구성 | 기각 — 얕은 메뉴만 늘어난다(BlackRoad 19개 메뉴 반면교사) |
+| 2뎁스 헤더의 로고·홈 링크 | 기각 — 뒤로가기의 홈 폴백으로 충분 |
+| 신규 등록 라벨 "제보하기" | 기각 — 수정·폐업과 구분되지 않는다 |

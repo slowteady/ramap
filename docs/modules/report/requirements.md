@@ -22,18 +22,18 @@ updated: 2026-10-28
   - 정보 수정(폐업·휴업 포함): 매장 상세. 매장을 모르는 수정 제보 경로는 없다
 - 폼은 현재 화면 위에 열리고, 브라우저 뒤로가기로 닫힌다. 입력한 채로 닫으려 하면 확인한다.
 - 새 라멘집 등록은 링크 우선: 가게 이름 + (링크 또는 지도 핀)이면 낼 수 있다. 장르·영업시간·메뉴·주소·좌석·편의는 묻지 않는다 → [링크 우선](decisions/0005-new-shop-link-first.md), [제출 조건](decisions/0013-submit-name-link-or-pin.md)
-- 지도 위치는 사용자가 직접 조준한 수동 핀이다. 주소를 역지오코딩해 보여주거나 저장하지 않는다 → [핀 피커](decisions/0011-map-pin-picker.md), [타사 플랫폼 데이터 경계](../../decisions/0002-third-party-data-boundary.md)
-- 정보 수정은 항목을 골라 그 항목만 적는다 → [수정 폼](decisions/0008-edit-field-checklist.md)
+- 지도 위치는 사용자가 직접 조준한 수동 핀이다. 주소를 역지오코딩해 보여주거나 저장하지 않는다 → [핀 피커](design.md#핀-피커), [타사 플랫폼 데이터 경계](../../decisions/0002-third-party-data-boundary.md)
+- 정보 수정은 항목을 골라 그 항목만 적는다. 구조화 데이터가 자산이라 자유 텍스트 하나로 받지 않는다 → [수정 폼](design.md#정보-수정-폼)
 - 사진은 확인용으로 출처 불문 받는다(최대 5장). 게재는 파트너가 직접 촬영을 확인한 것만. 위치정보(EXIF)는 지운다 → [확인용 사진](decisions/0007-report-photo-verification.md)
-- 검수 안내는 완료 화면에만 둔다. 처리 기간은 약속하지 않는다 → [라벨과 카피](decisions/0006-registration-label-copy.md)
+- 검수 안내는 완료 화면에만 둔다. 처리 기간은 약속하지 않는다(검수 리듬이 바뀌면 문구 부채가 된다) → [등록 폼](design.md#새-라멘집-등록-폼)
 - 스팸은 IP 속도 제한·허니팟으로 막는다. 기기 핑거프린팅은 하지 않는다.
 
 ## 검수
 
 - 검수 화면은 운영자 계정만 들어갈 수 있고, 앱 안에 링크를 두지 않는다 → [앱 내 /admin](decisions/0016-review-in-app-admin.md)
 - 제보 처리 결과는 반영함·중복·반려로 남긴다. 반려는 사유가 필수다 → [처리 결과](decisions/0017-three-outcomes-queue-states.md)
-- 수정 제보는 현재 값과 제보 값을 나란히 보고 판단한다. 같은 제보는 묶어서 한 번에 처리한다 → [검수 카드](decisions/0018-review-card-current-vs-reported.md)
-- 처리는 되돌릴 수 있어야 한다 — 확인 창 대신 되돌리기 → [되돌리기](decisions/0019-undo-toast-not-confirm.md)
+- 수정 제보는 현재 값과 제보 값을 나란히 보고 판단한다. 같은 제보는 묶어서 한 번에 처리한다 → [제보 탭](design.md#제보-탭)
+- 처리는 되돌릴 수 있어야 한다 — 확인 창 대신 되돌리기 → [검수 화면](design.md#검수-admin)
 - 폐업·휴업 제보는 2차 확인(전화·인스타·인허가 diff) 전에 반영하지 않는다 → [폐업 2차 확인](decisions/0014-closure-report-second-check.md)
 - 완식 사진은 승인된 것만 다른 사람에게 보인다. 반려는 사유가 필수다(공개 기준은 [records 요구사항](../records/requirements.md)).
 

@@ -17,7 +17,7 @@ date: 2026-09-05
   - `openingHours`는 생략 — 시트 원문은 hh:mm 스펙을 충족하지 못하고, 잘못된 형식이 없는 것보다 해롭다
   - `url`·`image`(사진 있을 때) 추가
   - `aggregateRating`·리뷰는 실데이터가 생기기 전 절대 금지(수동 조치 대상)
-  - 인스타 계정은 `sameAs` — 여러 지점 공용 계정이면 제외 → [0014](0014-instagram-link-display.md)
+  - 인스타 계정은 `sameAs` — 여러 지점 공용 계정이면 제외 → [설계](../design.md#구조화-데이터)
 - 가이드는 Article(author·publisher = Organization 라맵)
 - 홈(루트 URL 전용)에 WebSite(name 라맵, alternateName Ramap) + Organization(logo)
 - FAQ 마크업은 새로 늘리지 않는다. 이미 있는 상세(영업시간)·지역×장르(장르 정의) FAQPage는 무해하므로 둔다

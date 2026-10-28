@@ -67,7 +67,10 @@ updated: 2026-10-28
 
 완료: "등록 요청이 접수됐어요 / 라맵이 확인한 뒤 지도에 등록해 드려요."
 
-결정: [링크 우선](decisions/0005-new-shop-link-first.md), [라벨과 카피](decisions/0006-registration-label-copy.md), [제출 조건](decisions/0013-submit-name-link-or-pin.md)
+- 라벨은 "제보하기"가 아니라 "라멘집 등록" — "제보"는 폐업·수정까지 뭉뚱그리는 말이고, 신규는 카카오맵·네이버 "신규 장소 등록" 관례를 따른다.
+- 리드에는 로그인·검수 같은 시스템 사정을 넣지 않고, CTA 아래 설명 캡션도 두지 않는다(HIG). 검수 안내는 완료 화면에만 → [요구사항](requirements.md#제보-폼)
+
+결정: [링크 우선](decisions/0005-new-shop-link-first.md), [제출 조건](decisions/0013-submit-name-link-or-pin.md)
 
 ## 핀 피커
 
@@ -79,7 +82,14 @@ updated: 2026-10-28
 - 좌표는 소수 6자리(≈0.1m)로 반올림해 `details.pin`에 저장. 주소 표시 없음.
 - 좌표 → 컨테이너 변환은 지도 어댑터의 `coordsAt`(카카오 `coordsFromContainerPoint`) → [map 설계](../map/design.md)
 
-결정: [핀 피커](decisions/0011-map-pin-picker.md)
+왜 이 모양인지:
+
+- 십자선 고정 + 지도 이동: 핀 드래그는 손가락이 목표를 가리고, 탭-투-드롭은 하단 바에 가린 곳을 못 찍는다. 조준점을 40%로 올린 것도 엄지·바에 안 가리게.
+- 폼을 언마운트하지 않는다: 초안이 훅 상태라 언마운트하면 날아간다.
+- 홈 지도를 재사용한다: SDK 인스턴스 중복·relayout·타일 재요청이 없고, 기존 마커가 보여 중복 제보가 준다.
+- 줌은 소프트 게이트다: 하드 블록은 "왜 안 움직이지?" 혼란을 낳는다.
+- 주소 표시·주소 검색이 없다: 역지오코딩 저장 금지 → [타사 플랫폼 데이터 경계](../../decisions/0002-third-party-data-boundary.md). 주소 검색은 카카오 로컬 API가 필요하다. 링크 우선 모델이라 핀은 운영자가 동네를 찾아갈 힌트로 충분하다.
+- 카카오맵·네이버지도 제보는 앱 전용이라 모바일 웹 선례가 없다. OSM 노트(패널이 지도를 위 55%로 누른 채 정확한 위치를 요구)는 반면교사.
 
 ## 정보 수정 폼
 
@@ -97,7 +107,7 @@ updated: 2026-10-28
 
 완료: "수정 요청이 접수됐어요 / 라맵이 확인한 뒤 반영해 드려요. 폐업·휴업은 한 번 더 확인해요."
 
-결정: [수정 폼](decisions/0008-edit-field-checklist.md)
+- 매장은 진입한 상세 페이지로 정해진다. 자유 텍스트 하나(캐치테이블식)로 받지 않는 이유 → [요구사항](requirements.md#제보-폼)
 
 ## 제출과 데이터
 
@@ -121,7 +131,8 @@ updated: 2026-10-28
 | `reports` | 누구나 insert, 관리자만 select·update |
 | `report-photos` 버킷(비공개, 5MB, `image/jpeg`) | anon·authenticated 업로드, 관리자만 열람 |
 
-결정: [details jsonb](decisions/0009-report-details-jsonb.md), [자체 폼](decisions/0003-custom-form-supabase-table.md)
+- 접수는 외부 폼(구글 폼 등) 임베드가 아니라 앱 안 자체 폼 + Supabase `reports`다(UX, Supabase 스택 → [기술 스택](../../decisions/0001-tech-stack-lite-fsd.md)).
+- 컬럼은 늘리지 않고 유형별 구조는 `details` jsonb에 둔다. 사람이 바로 읽을 값(`shop_name`·`location`)만 컬럼에 두고, 폼을 바꿔도 마이그레이션이 필요 없다.
 
 ## 검수 `/admin`
 
@@ -153,7 +164,10 @@ updated: 2026-10-28
 - 다시 열기(⋯ 메뉴) → `status=open`만 변경(결과·메모·처리일 보존), 토스트 "다시 열었어요" + [되돌리기](→ done).
 - 실패 시 토스트 "처리에 실패했어요".
 
-결정: [처리 결과](decisions/0017-three-outcomes-queue-states.md), [검수 카드](decisions/0018-review-card-current-vs-reported.md), [되돌리기](decisions/0019-undo-toast-not-confirm.md)
+- 수정 제보는 현재 값 대비 제보 값으로 판단한다(Stack Overflow suggested edits·OSMCha 태그 비교). 링크는 원문 URL 대신 서비스 칩 — 긴 URL이 가게명을 한 글자씩 접히게 밀어냈다. 넘침은 flex 자식 `min-w-0`, URL `wrap-anywhere`, 배지 `shrink-0 whitespace-nowrap`로 막는다.
+- 처리(제보·사진)와 다시 열기는 확인 창 없이 즉시 실행하고 10초 되돌리기 토스트를 띄운다. 연달아 처리하는 검수자에게 확인 창은 느리고 습관적으로 눌러 실수도 막지 못한다(NN/g, Polaris 액션 토스트 ≥10초).
+
+결정: [처리 결과](decisions/0017-three-outcomes-queue-states.md)
 
 ## 운영 흐름
 
@@ -176,7 +190,7 @@ updated: 2026-10-28
 ## 알려진 한계
 
 - 스팸 방어(IP 속도 제한·허니팟)가 구현돼 있지 않다 — `reports` 익명 insert에 레이트리밋 없음. 스팸이 생기면 캡차·엣지 검토.
-- 제보 결과 통지·"내 제보"가 없다 → [내 제보](decisions/0021-my-reports-login-attribution.md)
+- 제보 결과 통지(마이 "기여" 탭)가 아직 구현되지 않았다 → [기여 결과 피드백](decisions/0022-contribution-feedback.md)
 - 처리 이력은 마지막 결과만 남는다(재처리 시 덮어씀).
 - 처리된 완식 사진을 다시 볼 목록이 없다.
 - 수정 제보의 현재 값 비교는 영업시간·위치만.

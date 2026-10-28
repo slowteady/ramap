@@ -22,7 +22,7 @@ updated: 2026-10-28
 - 4축: 제공 형태 · 스프 계열 · 계보·특성 태그 · 편의·운영 태그. 앞의 셋은 서로 직교한다 → [결정](decisions/0001-taxonomy-axes-localization.md)
 - 분류값은 결과가 5곳 이상일 때만 둔다. 미달 값은 내부 세부값으로 보관하고 5곳을 넘으면 승격한다.
 - 값 이름은 한국 커뮤니티 실사용어로 쓴다(니보시·이에케·츠케멘).
-- 형태·스프는 매장당 복수 + 대표 1개 필수 → [결정](decisions/0002-multi-form-soup-primary.md)
+- 형태·스프는 매장당 복수 + 대표 1개 필수 → [결정](decisions/0002-taxonomy-values.md)
 - 계보(이에케·지로계)는 대표 라멘이 그 계보인 가게에만 붙인다 → [결정](decisions/0011-lineage-by-signature-ramen.md)
 - 현재 값 목록은 [design.md](design.md#택소노미)
 
@@ -33,8 +33,8 @@ updated: 2026-10-28
 - 좌표는 공공데이터(LOCALDATA·상가정보) 또는 수동 핀만.
 - 오픈일은 인허가일 기준, 실제 오픈일이 확인되면 교체한다. 신규 오픈 표시의 원료다.
 - 대표메뉴는 장르 판별 근거이자 가격대·SEO 원료다. 전체 메뉴판은 수집하지 않는다.
-- 동네라벨은 캐치테이블 상권 구획의 개별 상권명, 행정동 이름 금지 → [결정](decisions/0013-neighborhood-label-catchtable.md)
-- `검증상태=운영자확인`은 사람이 실제 검수했을 때만. 자동 신뢰도는 태깅확신도가 맡는다 → [결정](decisions/0014-operator-verified-human-only.md)
+- 동네라벨은 캐치테이블 상권 구획의 개별 상권명, 행정동 이름 금지 → [설계](design.md#동네라벨)
+- `검증상태=운영자확인`은 사람이 실제 검수했을 때만. 업종·상호 키워드만으로는 장르를 확인한 게 아니라서 자동 신뢰도는 태깅확신도가 따로 맡는다 → [설계](design.md#검증상태와-태깅확신도)
 - 정기 휴무는 후기 2건 이상 일치할 때만 채운다 → [결정](decisions/0028-closed-days-two-reviews.md)
 - 인스타는 지점 계정 → 브랜드 공식 계정 → 비움 → [결정](decisions/0027-instagram-link-priority.md)
 
@@ -47,7 +47,7 @@ updated: 2026-10-28
 
 ## 갱신·폐업
 
-- 격주로 LOCALDATA 전국본과 대조해 신규·폐업 전이·미발견·이전 의심을 뽑고 웹 근거로 2차 검수한다 → [결정](decisions/0022-refresh-round-localdata-national.md), [결정](decisions/0025-secondary-review-collect-evidence.md)
+- 격주로 LOCALDATA 전국본과 대조해 신규·폐업 전이·미발견·이전 의심을 뽑고 웹 근거로 2차 검수한다. 같은 매장은 상호 포함관계 + 같은 건물로만 판정한다(상호만 비교하면 체인 다지점이 붙는다) → [설계](design.md#갱신-라운드), [결정](decisions/0025-secondary-review-collect-evidence.md)
 - 자동 루틴은 검토 자료까지만 만들고 반영은 사람이 한다 → [결정](decisions/0026-biweekly-routine-review-only.md)
 - 폐업은 행 삭제가 아니라 상태 변경이다.
 - 폐업은 직접 증거로만 확정하고, 장부에 오른 매장만 폐업·이전 페이지를 공개한다 → [결정](decisions/0024-closure-direct-evidence-only.md)

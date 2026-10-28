@@ -6,13 +6,7 @@
 |---|---|
 | [requirements.md](requirements.md) | UI가 지켜야 할 사용자 요구·범위·제약을 확인할 때 |
 | [design.md](design.md) | 토큰 쓰는 법, 라우트 맵, 헤더 형태, AI티 게이트·안티패턴을 확인할 때. UI 작업 전 필독 |
-| [decisions/0001-tokens-only-color-budget.md](decisions/0001-tokens-only-color-budget.md) | 새 색·임의값을 쓰고 싶을 때, 색 예산의 근거가 궁금할 때 |
-| [decisions/0002-ramen-red-e23c36.md](decisions/0002-ramen-red-e23c36.md) | 액센트 색값과 캐치테이블과의 분리 근거가 궁금할 때 |
-| [decisions/0003-four-radii-shape-grammar.md](decisions/0003-four-radii-shape-grammar.md) | 모서리 값을 고를 때, 태그가 왜 5px인지 궁금할 때 |
+| [decisions/0001-design-token-rules.md](decisions/0001-design-token-rules.md) | 새 색·임의값·radius를 쓰고 싶을 때, 색 예산·라멘 레드 값·태그가 왜 5px인지 궁금할 때 |
 | [decisions/0004-anti-ai-look-gate.md](decisions/0004-anti-ai-look-gate.md) | 화면 검수 기준과 "출처를 댈 수 있어야 한다" 원칙의 근거가 필요할 때 |
-| [decisions/0005-visual-benchmarks.md](decisions/0005-visual-benchmarks.md) | 화면 영역별로 어느 서비스를 참고할지 정할 때 |
 | [decisions/0006-mobile-web-first.md](decisions/0006-mobile-web-first.md) | 데스크톱·앱 대응 범위를 정할 때 |
-| [decisions/0007-contribution-label-add-shop.md](decisions/0007-contribution-label-add-shop.md) | 등록·수정 진입점 문구를 정할 때 |
-| [decisions/0008-nav-core-views-minimal-menu.md](decisions/0008-nav-core-views-minimal-menu.md) | 메뉴·내비 항목 추가를 검토할 때 |
-| [decisions/0009-subpage-header-back-action.md](decisions/0009-subpage-header-back-action.md) | 새 페이지 헤더를 만들 때 |
 | [ramap-ui 스킬](../../../.claude/skills/ramap-ui/SKILL.md) | UI 코드를 쓰거나 리뷰할 때(규율 실물) |

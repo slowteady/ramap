@@ -5,30 +5,17 @@
 | 문서 | 언제 읽나 |
 |---|---|
 | [requirements.md](requirements.md) | 데이터 원칙·수집 필드·게재·폐업 요구를 확인할 때 |
-| [design.md](design.md) | 파이프라인 명령·파일·시트 열·택소노미 값·갱신 라운드·인스타 검수 절차를 볼 때 |
-| [decisions/0001-taxonomy-axes-localization.md](decisions/0001-taxonomy-axes-localization.md) | 분류 축이나 값을 추가·삭제할 때 |
-| [decisions/0002-multi-form-soup-primary.md](decisions/0002-multi-form-soup-primary.md) | 대표값·겸업 매장 처리를 바꿀 때 |
-| [decisions/0003-soup-family-values.md](decisions/0003-soup-family-values.md) | 스프 값을 늘리거나 기타로 흡수할 때 |
-| [decisions/0004-niboshi-gyokai-coexist.md](decisions/0004-niboshi-gyokai-coexist.md) | 어패계 스프 이름·묶음을 다시 논의할 때 |
-| [decisions/0005-tomato-soup-promotion.md](decisions/0005-tomato-soup-promotion.md) | 세부값을 정식 스프로 승격할 때 |
-| [decisions/0006-aburasoba-separate-form.md](decisions/0006-aburasoba-separate-form.md) | 아부라소바·마제소바 분류를 건드릴 때 |
-| [decisions/0007-iekei-notation.md](decisions/0007-iekei-notation.md) | 계보 이름 표기·슬러그를 바꿀 때 |
-| [decisions/0008-exclude-msg-free-tag.md](decisions/0008-exclude-msg-free-tag.md) | 무화조 태그 요청이 나올 때 |
-| [decisions/0009-japan-direct-tag.md](decisions/0009-japan-direct-tag.md) | 본토직영 부여 기준이 헷갈릴 때 |
-| [decisions/0010-convenience-tags-localized.md](decisions/0010-convenience-tags-localized.md) | 편의 태그를 추가·삭제할 때 |
+| [design.md](design.md) | 파이프라인 명령·파일·시트 열·택소노미 값·동네라벨·검증상태·갱신 라운드 매칭 규칙·인스타 검수 절차를 볼 때 |
+| [decisions/0001-taxonomy-axes-localization.md](decisions/0001-taxonomy-axes-localization.md) | 분류 축이나 한국화 원칙(5곳 실효성·커뮤니티 용어·겸업)을 바꿀 때 |
+| [decisions/0002-taxonomy-values.md](decisions/0002-taxonomy-values.md) | 형태·스프 값(대표값·니보시·토마토·아부라소바 등), 이에케 표기, 본토직영·편의 태그를 추가·삭제·승격하거나 다시 논의할 때 |
 | [decisions/0011-lineage-by-signature-ramen.md](decisions/0011-lineage-by-signature-ramen.md) | 이에케·지로계를 붙일지 판단할 때 |
 | [decisions/0012-sheet-schema-is-shop-schema.md](decisions/0012-sheet-schema-is-shop-schema.md) | 시트 열을 추가·변경하거나 DB 도입을 검토할 때 |
-| [decisions/0013-neighborhood-label-catchtable.md](decisions/0013-neighborhood-label-catchtable.md) | 동네라벨 이름을 정할 때 |
-| [decisions/0014-operator-verified-human-only.md](decisions/0014-operator-verified-human-only.md) | 검증상태·태깅확신도·"확인됨" 표시를 바꿀 때 |
 | [decisions/0015-user-contribution-review-gate.md](decisions/0015-user-contribution-review-gate.md) | 유저 편집·제보 반영 방식을 바꿀 때 |
-| [decisions/0016-seed-partner-curation-seoul.md](decisions/0016-seed-partner-curation-seoul.md) | 초기 시드 방식의 이력이 궁금할 때 |
 | [decisions/0017-seed-two-layer-extraction.md](decisions/0017-seed-two-layer-extraction.md) | 후보 소스·발굴 방식·카카오 장소 ID 사용을 바꿀 때 |
 | [decisions/0018-digging-source-copyright.md](decisions/0018-digging-source-copyright.md) | 미디어·갤러리 글을 조사에 쓸 때 |
 | [decisions/0019-publish-gate-web-presence.md](decisions/0019-publish-gate-web-presence.md) | 후보가 게재·보류·제외된 이유를 볼 때 |
 | [decisions/0020-inherit-same-shop-chain.md](decisions/0020-inherit-same-shop-chain.md) | 다른 가게 정보가 번졌거나 체인 승계를 바꿀 때 |
 | [decisions/0021-latest-research-wins.md](decisions/0021-latest-research-wins.md) | 같은 매장의 조사가 충돌할 때 |
-| [decisions/0022-refresh-round-localdata-national.md](decisions/0022-refresh-round-localdata-national.md) | 신규·폐업·미발견 분류 기준을 바꿀 때 |
-| [decisions/0023-localdata-closure-applied.md](decisions/0023-localdata-closure-applied.md) | 예전 폐업 반영 방식의 이력이 궁금할 때 |
 | [decisions/0024-closure-direct-evidence-only.md](decisions/0024-closure-direct-evidence-only.md) | 폐업을 확정·공개할 때 |
 | [decisions/0025-secondary-review-collect-evidence.md](decisions/0025-secondary-review-collect-evidence.md) | 갱신 라운드 근거 수집 수단을 바꿀 때 |
 | [decisions/0026-biweekly-routine-review-only.md](decisions/0026-biweekly-routine-review-only.md) | 자동 루틴의 범위를 바꿀 때 |

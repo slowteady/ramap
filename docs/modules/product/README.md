@@ -7,14 +7,11 @@
 | [requirements.md](requirements.md) | 라맵이 무엇이고 누구를 위해 무엇을 해야 하는지, 범위(MUST·SHOULD·범위 밖)·성장 전략·성공 지표를 확인할 때 |
 | [0001 라멘 장르 지도 선정](decisions/0001-ramen-genre-map.md) | 왜 라멘이고 왜 이 서비스인지 설명해야 할 때 |
 | [0002 문제를 분류 체계 부재로 정의](decisions/0002-problem-missing-taxonomy.md) | 지도 UI와 택소노미·데이터 중 어디에 힘을 쏟을지 판단할 때 |
-| [0003 서비스명 라맵](decisions/0003-service-name-ramap.md) | 브랜드·도메인·다른 면 요리로의 확장 명명을 다룰 때 |
 | [0004 초기 타겟 코어 라오타](decisions/0004-core-ramen-otaku-target.md) | 기능·문구를 누구 기준으로 맞출지 정할 때 |
 | [0005 무수익 지속 구조](decisions/0005-no-revenue-sustainability.md) | 유료 서비스 도입·광고·수익화를 검토할 때 |
-| [0006 수익 대신 성공 지표](decisions/0006-success-metrics-not-revenue.md) | 성과를 측정·보고하거나 이벤트 추적을 설계할 때 |
 | [0007 의도적으로 안 하는 것](decisions/0007-intentional-non-goals.md) | 리뷰·예약·앱·어워드 같은 기능 제안이 나왔을 때 |
 | [0008 콜드스타트는 팀이 채운 데이터로](decisions/0008-cold-start-team-data.md) | 공개 시점·데이터 충실도 기준을 판단할 때 |
-| [0009 라멘 투데이와 제휴 우선](decisions/0009-ramen-today-partnership.md) | 영업 변동·이벤트 정보 기능이나 커뮤니티 도구와의 관계를 다룰 때 |
-| [0010 갤러리 공개는 검증된 플레이북으로](decisions/0010-gallery-launch-playbook.md) | 라멘갤 소개 글을 준비할 때 |
+| [0009 라멘 투데이 제휴와 갤러리 공개 플레이북](decisions/0009-ramen-today-and-gallery-launch.md) | 영업 변동·이벤트 정보 기능이나 커뮤니티 도구와의 관계를 다룰 때, 라멘갤 소개 글을 준비할 때 |
 | [0011 가게 단일 순위를 만들지 않는다](decisions/0011-no-single-shop-ranking.md) | 랭킹·티어·광고·줄 길이 기능 제안이 나왔을 때 |
 | [5각도 탐색 검증](research/2026-08-25-unserved-niches-five-angles.md) | 서비스 선정 1라운드 조사(34개 기회) 원자료가 필요할 때 |
 | [소비·취미 2라운드 탐색 검증](research/2026-08-25-hobby-domains-round-two.md) | 서비스 선정 2라운드 조사(29개 후보)·인접 버티컬 후보를 볼 때 |

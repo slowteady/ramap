@@ -7,7 +7,7 @@ date: 2026-09-03
 
 ## 맥락
 
-[대시보드 검수](0015-review-in-supabase-dashboard.md)는 파트너가 쓰기 어렵고, 사진을 보며 판정하기 불편했다. 검수·반영 주 담당은 파트너다 → [입구 개방·출구 검수](0001-open-intake-full-review.md)
+Supabase 대시보드 검수(2026-08-27, 서버 코드 없이 service role로 조회)는 파트너가 쓰기 어렵고, 사진을 보며 판정하기 불편했다. 검수·반영 주 담당은 파트너다 → [입구 개방·출구 검수](0001-open-intake-full-review.md)
 
 ## 결정
 
@@ -21,4 +21,4 @@ date: 2026-09-03
 
 ## 버린 안
 
-- Supabase 대시보드 검수.
+- Supabase 대시보드(service role) 검수 — `reports` select 정책 없이 시작했으나 파트너가 쓰기 어렵고 사진을 보며 판정하기 불편했다.

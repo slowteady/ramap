@@ -21,7 +21,7 @@ updated: 2026-10-28
 ### 매장 상세 `/shop/{id}`
 
 - 상호·동네·장르를 첫 화면에 보인다. 장르는 가이드가 있으면 가이드로 이어진다
-- 영업시간·브레이크·휴무를 등록된 원문으로 보인다. "지금 영업 중" 같은 실시간 판정은 하지 않는다 → [결정](decisions/0007-no-live-open-status.md)
+- 영업시간·브레이크·휴무를 등록된 원문으로 보인다. "지금 영업 중" 같은 실시간 판정은 하지 않는다 → [공통 결정](../../decisions/0009-no-live-open-status.md)
 - 지도에서 보기, 길찾기(카카오맵·네이버 지도·티맵 중 선택), 공유, 주소 복사를 제공한다
 - 정보 표: 영업시간·브레이크·휴무·SNS·국물·종류·스타일·좌석·편의·오픈·정보 확인 중 값이 있는 행만
 - 대표 메뉴(이름·가격), 오시는 길(주소), 근처 라멘집 3곳
@@ -44,7 +44,7 @@ updated: 2026-10-28
 
 ### 장르 가이드 `/guide`, `/guide/{장르}`
 
-- 대상은 국물 8(돈코츠·쇼유·시오·미소·돈코츠쇼유·니보시·토리파이탄·탄탄멘) + 맛 계보 2(이에케·지로계). 자가제면·본토직영 같은 특성 태그는 가이드 대상이 아니다 → [결정](decisions/0005-genre-guide-featured-shops.md)
+- 대상은 국물 8(돈코츠·쇼유·시오·미소·돈코츠쇼유·니보시·토리파이탄·탄탄멘) + 맛 계보 2(이에케·지로계). 자가제면·본토직영 같은 특성 태그는 맛 계열이 아니라 가이드 대상이 아니다
 - 본문은 출처(ramendb·新横浜ラーメン博物館 등)에 근거하고 하단에 출처를 표기한다. "초안·감수" 류 문구 금지
 - 대표 매장 최대 5곳 + 초과 시 지도로 전체 보기
 
@@ -60,7 +60,7 @@ updated: 2026-10-28
 요구:
 
 - 색인 대상 페이지는 모두 canonical을 가진다. 홈은 쿼리 변형을 `/`로 흡수한다
-- 정보가 거의 없는 매장 페이지·매장 3곳 미만 지역 페이지·기타 장르 조합은 색인에서 뺀다(페이지는 유지) → [결정](decisions/0008-noindex-thin-shop-pages.md), [결정](decisions/0013-area-page-noindex-criteria.md)
+- 정보가 거의 없는 매장 페이지·매장 3곳 미만 지역 페이지·기타 장르 조합은 색인에서 뺀다(페이지는 유지) → [결정](decisions/0008-noindex-criteria.md)
 - 사이트맵은 색인 대상과 정확히 일치한다(404·noindex URL 없음)
 - 구조화 데이터는 검색엔진 필수 형식을 지키고, 확인할 수 없는 값은 싣지 않는다 → [결정](decisions/0009-structured-data-rules.md)
 - 구글 서치콘솔·네이버 서치어드바이저에 등록돼 있고, 데이터 라운드 뒤 IndexNow로 변경을 알린다
@@ -73,10 +73,10 @@ updated: 2026-10-28
 | 평점(`aggregateRating`)·리뷰 마크업은 실데이터 전까지 금지 | [결정](decisions/0009-structured-data-rules.md) |
 | FAQ 마크업 신규 확장 금지(기존 잔존은 유지) | [결정](decisions/0009-structured-data-rules.md) |
 | 정적 지도 이미지의 사전 생성·캐싱 금지, 지오코딩 결과 저장 금지 | [공통 결정](../../decisions/0002-third-party-data-boundary.md) |
-| 타사 로고 금지 — 인스타 링크는 텍스트로만 | [공통 결정](../../decisions/0002-third-party-data-boundary.md), [결정](decisions/0014-instagram-link-display.md) |
+| 타사 로고 금지 — 인스타 링크는 텍스트로만 | [공통 결정](../../decisions/0002-third-party-data-boundary.md) |
 | SSR 페이지에 지도 위젯을 바로 띄우지 않는다. 넣는다면 facade + 클릭(또는 뷰포트 진입) 시 로드, CLS 방지 컨테이너 크기 명시. 지금은 "지도에서 보기" 링크만 둔다 | [결정](decisions/0001-seo-hybrid-structure.md) |
 | 라이트 모드 고정 — 계보 랜딩의 어두운 헤더는 다크 모드가 아니라 고정 색 블록 | [공통 결정](../../decisions/0003-light-mode-only.md) |
-| 홈은 순수 지도 앱으로 두고 SEO용 링크 섹션을 넣지 않는다 | [결정](decisions/0011-no-home-seo-links.md) |
+| 홈은 순수 지도 앱으로 두고 SEO용 링크 섹션을 넣지 않는다. 랜딩 발견은 sitemap·robots, 링크 그래프는 랜딩 간 교차 링크가 맡는다 | 몰입형 지도 홈에 스크롤 푸터는 맞지 않는다(구현 후 PO 기각). 홈의 링크 주스는 포기 |
 
 ## 범위 밖
 
@@ -84,8 +84,12 @@ updated: 2026-10-28
 |---|---|
 | 신규 오픈 전용 페이지(`/new`) | [결정](decisions/0004-drop-new-openings-page.md) |
 | 상세 메뉴 탭·전화 버튼 | [결정](decisions/0003-shop-detail-structure.md) |
-| 실시간 "영업 중" 표시 | [결정](decisions/0007-no-live-open-status.md) |
+| 실시간 "영업 중" 표시 | [공통 결정](../../decisions/0009-no-live-open-status.md) |
 | 계보 랜딩 진행률 바 | [결정](../records/decisions/0024-defer-progress-display.md) |
 | 역 거리("○○역 도보 N분") | 시트에 필드 없음. 파트너 태깅 확장 후보 |
 | 요일별 영업시간 | 시트는 단일 문자열. 요일별 편차 매장이 늘면 스키마 확장 |
-| SEO 기술 최적화(사이트맵 분할·크롤 예산·SearchAction·UA 분기 렌더링·백링크 구매) | [결정](decisions/0010-technical-seo-scope.md) |
+| 사이트맵 분할(`generateSitemaps`)·크롤 예산 최적화 | 약 2k 페이지라 규모에 맞지 않는다(50k 한도의 4%, 크롤 예산은 100만+ 대상 기법) |
+| SearchAction·UA 분기 동적 렌더링 | SearchAction은 폐지, UA 분기는 전량 SSG라 불필요·비권장 |
+| 백링크 구매 | 네이버 명시 제재 |
+| 가이드 대표 매장 수동 지정 | 운영 부담, 기준 불투명 — 순위는 데이터에서 계산 |
+| 네이버 `nmap://` 좌표 길찾기 | 앱 전용이라 앱 미설치 폰·PC에서 열리지 않는다. 도착지 정확도보다 도달성 우선 — 이름 검색 + 지도 중심 좌표로 대신한다 |
