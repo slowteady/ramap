@@ -3,8 +3,7 @@
 한국 라멘을 장르로 찾는 지도 — ramap.kr
 
 - **배포: https://ramap-delta.vercel.app** (Vercel, main 자동 배포 — ramap.kr 연결 예정)
-- **기획·설계 문서: [docs/planning](docs/planning)** (01 서비스개요 ~ 18 데이터전략) — 이 레포가 단일 원천
-- 탐색·검증 리서치: [docs/research](docs/research)
+- **문서: [docs/README.md](docs/README.md)** — 모듈별 명세(requirements·design)·결정·조사 색인. 후보는 [docs/backlog.md](docs/backlog.md)
 
 배포 주의: 새 도메인 연결 시 Keeper 앱 JS SDK 도메인·Supabase Auth Redirect URLs에 추가 필요.
 

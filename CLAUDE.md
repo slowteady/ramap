@@ -1,77 +1,10 @@
 # 라맵 (Ramap)
 
-한국 라멘을 장르로 찾는 지도 — ramap.kr. Next.js(App Router) + TypeScript + Tailwind v4 + shadcn/ui + Vitest.
+한국 라멘을 장르로 찾는 지도 — ramap.kr. Next.js(App Router) + TypeScript + Tailwind v4 + shadcn/ui + Supabase + Vitest/Playwright.
 
-- **스펙 단일 원천: `docs/planning/` 01~19.** 할지 말지 정할 후보는 `19.백로그.md`에만 둔다(상태: 대기·채택·보류·기각·완료). 코드와 충돌하면 문서 우선, 결정 변경은 문서 갱신과 함께. 구현 계획은 `docs/plans/` — **문서만 읽고 다른 에이전트가 이어받을 수 있어야 완성**: 설계 근거 외에 기존 코드 포인터(수정 대상 파일·역할), 재사용할 패턴의 위치, 검증 명령, 작업 절차(브랜치·로컬 검수 후 머지)를 반드시 포함. 아이디에이션 레포의 03.라맵은 동결 스냅샷 — 참조 금지
-- 명령: `npm run dev` / `npm run build` / `npm test` / `npm run test:e2e` / `npm run format`
-
-## 아키텍처 — 축소형 FSD (4레이어 + 로직 3분법)
-
-```
-src/
-├── app/        # Next 라우팅 전용 — page.tsx는 views 재수출 + generateStaticParams만
-├── views/      # 코드의 기본 거주지 (FSD pages, v2.1 pages-first) — 슬라이스: ui/ + model/ + index.ts
-├── features/   # (예약) 사용자 시나리오가 2개 페이지 이상에서 재사용될 때만 생성
-├── entities/   # 도메인: shop, record — api/(서버 조회) + model/(순수 함수·타입) + ui/
-└── shared/     # ui(shadcn) · lib(범용 유틸·훅) · config
-data/           # 정적 데이터 (시트 동기화 산출물)
-scripts/        # 파이프라인 (LOCALDATA 시딩·시트 동기화)
-```
-
-1. **import 방향: app → views → features → entities → shared 단방향만.** 역방향·동일 레이어 슬라이스 간 금지
-2. **로직 3분법** — 컴포넌트 본문에 비즈니스 로직 금지, 형태는 종류에 따라:
-   - 데이터 읽기(매장 조회·목록) → `entities/*/api/`의 plain async 함수 + `import 'server-only'` (+필요 시 `React.cache`)
-   - 순수 계산(필터 술어·정렬·집계·통계) → `model/`·`lib/`의 순수 TS 함수 — 훅을 호출하지 않는 로직은 훅으로 감싸지 않는다
-   - 상태·이펙트·브라우저 API → 클라이언트 섬 한정 **view-model 훅** (`use-*`, `{ 상태, 파생 불린, 핸들러 }` 객체 반환, 계산은 순수 함수에 위임하는 얇은 계층). 이 레포에서 view-model 훅이란 이 정의를 말한다
-3. **기본은 Server Component.** `'use client'`는 인터랙션이 필요한 잎(leaf) 컴포넌트에만. 클라이언트 섬: 지도·필터 UI·바텀시트·완식 기록. localStorage 등 브라우저 전용 모듈엔 `import 'client-only'`
-4. **public API:** 슬라이스는 `index.ts`로만 외부 노출. 서버 전용 export는 `index.server.ts`, 클라이언트 전용(비컴포넌트) export는 `index.client.ts`로 분리(상호 모듈 그래프 오염 방지 — `'use client'` 컴포넌트는 경계라 index.ts에 둬도 됨). `shared/ui`는 배럴 강제 제외(shadcn CLI 호환)
-5. **추출 조건:** 코드는 views 슬라이스에서 시작, 2개 페이지 이상 재사용 확인 시에만 features/entities로 내린다. widgets 레이어는 필요가 증명되기 전까지 만들지 않는다
-6. 뮤테이션(향후 서버 저장 전환 시): Server Action은 `features/*/api/`에 얇게, 로직은 함수 계층에 위임
-
-## 코드 컨벤션
-
-- **네이밍:** 파일·폴더 kebab-case / 컴포넌트 PascalCase / 훅 `use-*` / 서버 조회 함수 `get*` / 상수 UPPER_SNAKE / 도메인 용어는 코드에서 영어(soup·form·lineage), UI 문자열만 한국어
-- **타입:** `type` 기본, `interface`는 다중 구현 계약(RecordStore 등 이음새)만 / enum 금지 — `as const` + 유니온 / `any` 금지, 불가피하면 `unknown` + 내로잉
-- **export:** named 기본, default는 Next가 요구하는 곳(page·layout)만
-- **상태:** 공유 상태의 원천은 URL 쿼리(필터·시트·선택 매장 — 공유·뒤로가기·SEO 겸용) / 컴포넌트 로컬은 useState / 기록은 RecordStore 인터페이스 경유만 — localStorage 직접 호출 금지
-- **테스트:** 3계층, 신규 기능은 TDD(테스트 선행) — ①순수 함수(`model/`·`api/`) Vitest `*.test.ts` co-location 필수 ②훅·leaf 컴포넌트는 Testing Library `*.test.tsx` co-location(renderHook·render — next/navigation은 `shared/testing/next-navigation` 스텁, jsdom 폴리필은 `vitest.setup.ts`) ③핵심 여정은 `e2e/*.spec.ts` Playwright(비로그인 여정만 — OAuth 자동화 불가). 지도 오버레이 클릭은 `dispatchEvent("click")`(재배치로 안정성 검사 실패)
-- **에러:** 데이터 없음은 null 반환 + 호출부 분기 / 외부 SDK(카카오맵) 실패는 반드시 폴백 UI(리스트 + 안내 배너 — 지도 결함은 치명 결함) / 기록 저장 실패는 무음 폴백
-- **스타일링:** Tailwind만, 임의값(`w-[13px]`) 금지 — globals.css `@theme` 토큰 유틸만 / 클래스 조합은 `cn()` / CSS 파일 추가 금지 / **UI 작업 시 ramap-ui 스킬 필수** (.claude/skills/ramap-ui)
-- **주석 금지 (2026-10-28~ 전면):** 새 코드에 주석·JSDoc·eslint/ts 무시 지시문을 쓰지 않는다 — `.claude/hooks/no-comments.py`가 막는다. 약관 금지·비자명한 수치 근거 같은 제약은 테스트 이름·`docs/`·PR 본문에 남긴다. 기존 주석은 그대로 둔다
-- **포맷:** Prettier 기본 설정, 스타일 논쟁 금지
-
-## 미도입 라이브러리 — 선탑재 금지, 트리거 명시
-
-| 라이브러리              | v1     | 도입 트리거                                                                                                                                                                                                                                                                                                          |
-| ----------------------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| TanStack Query          | 미도입 | 지도 뷰포트 런타임 API 전환, 또는 기록 외 server state가 늘어날 때. 로그인 도입(2026-08-27) 시 재검토했으나 기록은 1회 로드+write-through(캐시·리페치 없음)라 보류                                                                                                                                                   |
-| @supabase/supabase-js   | 도입   | 2026-08-27 도입 — Auth(카카오)·기록·제보. 백엔드 서버 없이 브라우저 직호출 + RLS. 스키마는 `supabase/schema.sql`                                                                                                                                                                                                     |
-| dayjs                   | 도입   | 2026-08-27 도입 — 날짜 파싱·포맷·차이 계산 단일 창구. `new Date` 직접 연산 금지                                                                                                                                                                                                                                      |
-| es-hangul               | 도입   | 2026-09-01 도입 — 검색 초성 추출(getChoseong)·영타 변환(convertQwertyToHangul). 토스 유지보수·의존성 0·트리셰이커블. 편집거리 폴백만 자체(`views/home/model/hangul.ts`)                                                                                                                                              |
-| zod                     | 미도입 | 서버 응답 런타임 파싱 경계가 3곳 이상으로 늘 때 — 현재 records·record_photos 2곳은 수동 내로잉으로 충분(2026-09-01 검토). 폼 검증용으로는 도입 안 함(강제는 전부 DB 제약)                                                                                                                                            |
-| react-hook-form         | 미도입 | 필드 5개+ 폼 또는 필드 배열이 생길 때 — 제보 폼도 자체 훅(use-report-form)으로 충분함이 검증됨(2026-09-01 검토)                                                                                                                                                                                                      |
-| 전역 스토어(zustand 등) | 미도입 | URL+useState로 부족한 공유 상태가 실증될 때                                                                                                                                                                                                                                                                          |
-| framer-motion           | 미도입 | CSS+vaul로 부족한 모션이 실증될 때                                                                                                                                                                                                                                                                                   |
-| @use-gesture            | 미도입 | 관성(플릭) 스크롤·핀치 줌·복합 제스처가 필요할 때 — 단순 드래그는 `shared/lib/use-drag-scroll` (2026-09-01)                                                                                                                                                                                                          |
-| steiger(FSD 린터)       | 미도입 | 베타 안정화 + 팀 확장 시                                                                                                                                                                                                                                                                                             |
-| @testing-library/react  | 도입   | 2026-09-02 도입 (devDependency) — 렌더링 계층(훅·leaf 컴포넌트). user-event·jest-dom 동반. @vitejs/plugin-react는 babel peer 충돌로 미사용 — vitest `esbuild.jsx: "automatic"`으로 JSX 처리                                                                                                                          |
-| @playwright/test        | 도입   | 2026-09-02 도입 (devDependency) — 시나리오 계층(`e2e/`). chromium 단일, dev 서버 자동 기동(`playwright.config.ts` webServer)                                                                                                                                                                                         |
-| csv-parse               | 도입   | 2026-09-02 도입 (devDependency, `scripts/` 전용) — 공공데이터 CSV 파싱(따옴표·BOM·행 이형). 앱 번들과 무관                                                                                                                                                                                                           |
-| proj4                   | 도입   | 2026-09-03 도입 (devDependency, `scripts/` 전용) — 지자체 인허가 원본의 EPSG:5174(중부원점 TM) → WGS84 변환. 좌표계 변환은 순수 수학이라 지도사 지오코딩 저장 금지와 무관. 앱 번들과 무관                                                                                                                            |
-| posthog-js              | 도입   | 2026-10-27 도입 — 이용 통계(페이지 유형·유입·클릭·히트맵·오류·웹바이탈 + 커스텀 이벤트 `shared/lib/analytics.ts`의 `track`). `src/instrumentation-client.ts` 단일 초기화, `/ingest` 리버스 프록시(next.config rewrites), 토큰은 Vercel Production 환경변수에만(로컬 미수집). 세션 녹화는 꺼둠. 운영자 계정은 opt-out |
-| patch-package           | 도입   | 2026-08-31 도입 — vaul 1.1.2가 radix Dialog에 `modal`을 전달하지 않아 `modal={false}` 시트가 앱 셸 전체에 aria-hidden·포커스 트랩을 거는 버그(vaul #582·#497·#519, 미수정) 한 줄 패치. 업스트림 수정 시 `patches/` 제거                                                                                              |
-
-## 도메인 금지사항 (약관·정책)
-
-- 지도사(카카오·네이버) 지오코딩 API 결과의 저장·DB화 금지 — 서비스 중단 사유. 좌표는 공공데이터·수동 핀만
-- 네이버·카카오 플랫폼 데이터 크롤링 금지. 타사 연동은 아웃바운드 링크·사실 기록까지 (docs/planning/09 경계선)
-- 다크모드 금지 — 라이트 고정 (카카오맵 다크 타일 부재). `.dark` 블록 추가 금지
-
-## 커밋·브랜치
-
-- **이슈 기반 작업 (2026-10-28~):** 기능·데이터·파이프라인 변경은 GitHub 이슈 1개 = PR 1개. 이슈 만들기는 `issue-create` 스킬(분할안 승인 후 생성), 작업은 `issue-work` 스킬(구현 계획·진행 기록은 이슈 아티팩트, 댓글은 사람 몫), 리뷰 기준은 `pr-review` 스킬(PR을 열면 `.github/workflows/claude-review.yml`이 같은 기준으로 자동 리뷰). superpowers 스킬 쓰는 위치는 `.claude/rules/superpowers.md`. **에이전트는 PR까지만** — main 머지(=Vercel 배포)와 이슈 닫기는 사람이 한다(`.claude/hooks/block-issue-close.py`가 이슈 닫기를 차단). Orca 앱에서 이슈로 워크트리를 만들면 `orca.yaml` 지시가 들어간다
-- 브랜치: 작업 단위마다 `feat/`·`fix/`·`chore/`. main 직접 커밋 금지(docs·설정 1파일 예외 — 백로그 상태 갱신 등)
-- 커밋: 한국어 컨벤셔널(`feat:`·`chore:`·`docs:`·`refactor:`), 푸터 `Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>`
+- 규칙은 `.claude/rules/`가 원천이다: `project.md`(라맵 전용 — 구조·컨벤션·금지·검증·리뷰 기준)만 이 레포에서 고치고, `git.md`·`code.md`·`docs.md`·`superpowers.md`와 `.claude/hooks`·`.claude/skills`의 issue-create·issue-work·pr-review는 보일러플레이트 `slowteady/ai-issue-workflow`가 원본이다(여기서 고치지 않고 원본에서 고친 뒤 복사, 단 `.github/workflows/claude-review.yml`은 라맵에서 쓰지 않음).
+- 문서 색인: `docs/README.md`. 모듈별 명세는 `docs/modules/<모듈>/`, 할지 말지 정할 후보는 `docs/backlog.md`.
+- 명령: `npm run dev -- -p 3001` / `npm run build` / `npm test` / `npm run test:e2e` / `npm run format`
 
 <!-- BEGIN:nextjs-agent-rules -->
 

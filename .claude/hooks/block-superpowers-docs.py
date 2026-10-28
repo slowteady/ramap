@@ -25,7 +25,7 @@ if blocked:
         'hookSpecificOutput': {
             'hookEventName': 'PreToolUse',
             'permissionDecision': 'deny',
-            'permissionDecisionReason': 'docs/superpowers/에는 문서를 만들지 않아요. 스펙 변경은 docs/planning/ 해당 문서에, 설계·조사는 docs/plans/YYYY-MM-DD-<주제>.md에, 이슈 단위 구현 계획은 이슈의 "구현 계획" 아티팩트에 남겨요. (.claude/rules/superpowers.md)'
+            'permissionDecisionReason': 'docs/superpowers/에는 문서를 만들지 않아요. 설계는 docs/modules/<모듈>/design.md에, 구현 계획은 이슈의 "구현 계획" 아티팩트에 남겨요. (.claude/rules/superpowers.md)'
         }
     }, ensure_ascii=False))
 sys.exit(0)
