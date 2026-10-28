@@ -52,11 +52,17 @@ updated: 2026-10-28
 
 `records` 테이블: PK `(user_id, shop_id)`, `visited`·`saved`·`count`·`first_at`·`last_at`·`updated_at`, 제약 `visited or saved`. RLS: 본인 행만 조회·삭제, 추가·수정은 본인 + `profiles.agreed_at is not null`.
 
-결정: [공존](decisions/0019-완식과-저장-공존.md)
+- 완식·저장은 배타 상태(가고 싶다 → 완식 전이)가 아니라 두 불리언이다. 완식한 가게도 다시 가려고 저장해 둘 수 있어야 해서다. 완식해도 저장은 풀리지 않고, 저장을 풀어도 완식은 남는다. "가고 싶다"의 이름은 "저장"이다 → [요구사항](requirements.md#기록)
+- `first_at`·`last_at`은 화면 노출과 무관하게 저장한다. 날짜가 쌓여야 2단 연말 정산(Year in 라멘)이 가능하다(Letterboxd 다이어리). 별점 필드는 없다 → [금지 목록](decisions/0002-gamification-ban-list.md)
 
 ## 저장소와 로그인 전환
 
-화면은 `useRecords()`만 쓴다. 저장소는 `RecordStore` 이음새 뒤에 있다 → [platform 설계](../platform/design.md)
+화면은 `useRecords()`만 쓴다. 저장소는 `RecordStore` 이음새 뒤에 있어 로그인을 붙여도 화면 코드를 고치지 않았다 → [platform 설계](../platform/design.md)
+
+- 백엔드 서버 없이 브라우저가 Supabase Auth·DB를 직접 호출하고, 보안은 RLS(`auth.uid() = user_id`)로 건다. Auth 세션·PKCE를 손으로 짤 이유가 없어 `@supabase/supabase-js`를 쓴다.
+- 기록 의미론(완식 +1, 저장 토글, 병합)은 순수 함수(`record-ops.ts`)로 두고 로컬·서버 스토어가 함께 쓴다.
+- 서버 스토어는 메모리 write-through다. 동기 `RecordStore` 인터페이스를 유지하고 쓰기는 fire-and-forget upsert. 1회 로드 + write-through라 캐시·리페치 수요가 없어 TanStack Query는 쓰지 않는다 → [platform 라이브러리](../platform/design.md#라이브러리)
+- 카카오 OAuth는 기존 카카오 ramap 앱을 쓴다(지도 키와 별개).
 
 | 상황 | 활성 저장소 |
 |---|---|
@@ -72,9 +78,9 @@ updated: 2026-10-28
 4. 이관 중 조작은 큐에 쌓았다가 새 스토어에 재적용(저장은 목표 상태로 멱등 적용)
 5. 서버 스토어로 교체, 로컬 스토리지 비움
 
-로그아웃: 이관 중단, 로컬 스토어(빈 상태)로 복귀. 서버 기록은 그대로.
+로그아웃: 이관 중단, 로컬 스토어(빈 상태)로 복귀. 서버 기록은 그대로. 이관 뒤 로컬 스토리지를 비우는 것은, 로컬이 남아 있으면 로그아웃할 때 옛 기록이 되살아나기 때문이다.
 
-결정: [서버 저장과 병합](decisions/0012-기록-서버-저장과-로그인-병합.md), [로그인 필수](decisions/0013-기록은-로그인-필수.md)
+요구: [기록](requirements.md#기록), [계정](requirements.md#계정)
 
 ## 완식 흐름
 
@@ -89,7 +95,7 @@ updated: 2026-10-28
 - 저장은 바로 토글된다(로그인 필요).
 - 완식을 누르면: 비로그인 → `LoginPromptSheet` / 로그인 → `RecordLogSheet`(visit 모드).
 
-결정: [기록 시트](decisions/0021-완식은-기록-시트에서-확인해야-기록.md)
+결정: [기록 시트](decisions/0021-visit-confirm-in-sheet.md)
 
 ### 기록 시트 `RecordLogSheet`
 
@@ -134,7 +140,7 @@ updated: 2026-10-28
 - 차수: 같은 유저의 묶음을 오래된 순으로 센다(`visitOrdinals`, 묶음 1개 = 1완식).
 - 검수는 report 모듈의 /admin 사진 검수 탭 → [report 설계](../report/design.md)
 
-결정: [부가물·검수 승격](decisions/0015-사진-한줄평은-선택-부가물-검수-승격.md)
+결정: [부가물·검수 승격](decisions/0015-optional-photo-note-review.md)
 
 ## 상세 "완식 기록" 섹션 `RecordLogSection`
 
@@ -156,10 +162,10 @@ SSG 껍데기(`getShops()`를 서버에서 내려줌) + 클라이언트 섬. noi
 - 완식 탭: 3열 정사각 그리드. 내 사진 중 첫 장, 사진이 여러 장이면 겹침 아이콘. 사진 없으면 라멘 아이콘 타일 + 상호. 탭 → 기록 뷰어.
 - 저장 탭: 리스트 — 상호 · 지역 · 기록 날짜(`YYYY.M.D`) + 장르 칩 → 매장 상세.
 - 정렬: 최근순(`lastAt ?? firstAt`, 날짜 없으면 뒤로).
-- 두 탭 모두 20개씩, [기록 더보기 (남은 수)].
+- 두 탭 모두 20개씩, [기록 더보기 (남은 수)]. 무한 스크롤은 목록 아래 요소에 닿을 수 없게 만들어 쓰지 않는다. 수백 개 규모가 실증되면 목록 전용 페이지 + 서버 페이지네이션으로 바꾼다.
 - 빈 상태: "아직 완식한(저장한) 라멘집이 없어요 / 지도에서 완식(저장)을 찍으면 여기에 모여요 / [지도 보기]".
-
-결정: [사진 그리드](decisions/0022-완식-탭은-사진-그리드.md), [더보기](decisions/0020-기록-목록은-더보기-버튼.md)
+- 완식 탭이 사진 그리드인 것은 PO가 고른 인스타그램 프로필 그리드 문법이다. 매장 이동은 그리드에서 바로가 아니라 뷰어의 [매장 보기]로 한 단계 뒤. 저장 탭은 사진이 없어 리스트를 유지한다.
+- 설정성 메뉴는 마이에 두지 않고 헤더 ⚙ → `/settings`로 뺐다. 기록 목록이 마이의 마지막 요소라 길어져도 밀리는 요소가 없다. 라멘집 등록은 홈 두 곳과 중복이라 마이에 두지 않는다.
 
 ### 기록 뷰어 `RecordViewerSheet`
 
@@ -171,7 +177,7 @@ SSG 껍데기(`getShops()`를 서버에서 내려줌) + 클라이언트 섬. noi
 
 ## 설정 `/settings`
 
-noindex. 헤더 [←](마이) + "설정".
+noindex. 헤더 [←](마이) + "설정". 시트가 아닌 전용 페이지다(네이버 MY플레이스 ⚙ 문법, PO 선택).
 
 | 섹션 | 항목 | 노출 |
 |---|---|---|
@@ -180,7 +186,10 @@ noindex. 헤더 [←](마이) + "설정".
 
 회원탈퇴 시트: "정말 탈퇴할까요? / 완식·저장 기록과 남긴 사진이 모두 지워지고 되돌릴 수 없어요." [취소][탈퇴하기]. 실행 = 본인 `record-photos` 파일 삭제 → `delete_own_account()` RPC → 로컬 세션 종료 → 토스트 "탈퇴가 완료됐어요" → 홈. 실패 시 토스트 "탈퇴에 실패했어요. 잠시 후 다시 시도해 주세요."
 
-결정: [설정 페이지](decisions/0023-설정은-별도-페이지.md), [탈퇴](decisions/0017-기록-내보내기-폐기와-회원탈퇴.md)
+- 탈퇴는 Edge Function 없이 security definer RPC로 본인 `auth.users` 행을 지운다(profiles·records·record_photos는 cascade). 서버 코드 없이 충분하다(Supabase discussion #1066 패턴).
+- 스토리지 객체를 가진 사용자는 계정 삭제가 막혀서(Supabase 문서) 본인 `record-photos` 파일을 먼저 지운다.
+
+요구: [계정](requirements.md#계정)
 
 ## 로그인·약관 동의·프로필
 
@@ -191,7 +200,12 @@ noindex. 헤더 [←](마이) + "설정".
 - 닉네임 사전: 형용사 30개(수줍은·씩씩한·…·콧테리·앗사리) × 명사 30개(돈코츠·쇼유·…·토쿠세이). 중복 시 10회 재시도 → 4자리 접미사 10회(12자 이하) → 폴백 `라멘` + 8자리.
 - 운영자(`role=admin`)는 이용 통계에서 제외된다 → [platform 설계](../platform/design.md)
 
-결정: [가입 확정·닉네임](decisions/0018-가입-확정은-약관-동의-닉네임은-DB-자동-할당.md)
+계정 라이프사이클은 keeper 정책을 Supabase에 맞춰 옮긴 것이다(원문 [keeper 계정 정책 노트](notes/keeper-account-policy.md)):
+
+- 소셜 인증 ≠ 가입, 가입 확정 = 약관 동의. Supabase는 OAuth 완료 = `auth.users` 생성이라 keeper의 signupToken 중간 상태가 없다. 대신 profiles를 즉시 만들고 `agreed_at null`을 "미동의 상태"로 쓴다. 기록 쓰기는 클라이언트 게이트와 RLS 양쪽에서 막고, 동의 없이 이탈하면 다음 로그인에 시트가 다시 뜬다.
+- 토큰 회전·세션 테이블은 Supabase Auth 내장(PKCE·자동 갱신)이라 옮기지 않았다. 카카오 단일이라 이메일 중복 소셜 감지도 없다.
+- 닉네임은 클라이언트가 동의 시점에 만들지 않고 DB 트리거가 생성 시점에 만든다 — 레이스가 없고, 동의 전엔 노출되지 않아 체감은 같다. 사전 명사는 라멘 어휘(도메인 정체성).
+- 닉네임 변경은 쿨다운 트리거와 함께 열 후속 기능이다. 그 전까지 update 정책으로 불변을 강제한다. 카카오 이름 폴백 표시는 없다(프로필 스코프를 받지 않으므로).
 
 ## 이용 통계 이벤트
 

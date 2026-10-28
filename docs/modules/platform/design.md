@@ -17,14 +17,14 @@ updated: 2026-10-28
 | 백엔드 | Supabase(무료 티어) — 카카오 Auth, `profiles`·`records`·`record_photos`·`reports` 테이블, 사진 스토리지 | 서버 없이 브라우저가 직접 호출하고 RLS가 권한을 강제. 스키마는 `supabase/schema.sql` |
 | 매장 데이터 | 시트 → 동기화 스크립트 → `data/*.json` → 빌드 반영 | DB가 아니라 Git이 이력을 가진다 → [data 설계](../data/design.md) |
 | 호스팅 | Vercel | main 머지가 곧 프로덕션 배포 |
-| 이용 통계 | PostHog | 아래 "이용 통계" 절 → [결정](decisions/0005-이용-통계-PostHog.md) |
+| 이용 통계 | PostHog | 아래 "이용 통계" 절. GA4는 쓰지 않는다 — 기능별 이벤트·히트맵을 한 도구에서 보려고 |
 | 검색 유입 | Google Search Console · 네이버 서치어드바이저 · IndexNow(`npm run indexnow`) | |
 
-아키텍처(축소형 FSD, 로직 3분법, Server Component 기본)는 `.claude/rules/project.md`가 규칙의 원천 → [결정](../../decisions/0001-기술-스택과-축소형-FSD.md)
+아키텍처(축소형 FSD, 로직 3분법, Server Component 기본)는 `.claude/rules/project.md`가 규칙의 원천 → [결정](../../decisions/0001-tech-stack-lite-fsd.md)
 
 ## 라이브러리
 
-새 라이브러리는 미리 넣지 않고, 아래 트리거가 실제로 생겼을 때 도입한다 → [결정](../../decisions/0004-라이브러리-도입-트리거.md)
+새 라이브러리는 미리 넣지 않고(쓰지 않는 추상화와 번들이 쌓인다), 아래 트리거가 실제로 생겼을 때 도입한다. 도입하거나 트리거를 바꾸면 이 표를 같은 PR에서 고친다.
 
 | 라이브러리 | 상태 | 쓰는 곳·도입 트리거 |
 |---|---|---|
@@ -48,14 +48,14 @@ updated: 2026-10-28
 ## 지도
 
 - 인터페이스: `src/shared/map/types.ts`의 `MapAdapter`. 구현체 `src/shared/map/kakao-adapter.ts`, SDK 로더 `kakao-loader.ts`. 화면은 어댑터만 호출한다.
-- 키: `NEXT_PUBLIC_KAKAO_MAP_KEY`는 Keeper 앱의 JS 키를 공유한다. 키 도메인에 ramap.kr·Vercel·localhost:3001이 등록돼 있다 → [결정](decisions/0002-카카오맵-키-Keeper-앱-공유.md)
+- 키: `NEXT_PUBLIC_KAKAO_MAP_KEY`는 Keeper 앱의 JS 키를 공유한다. 키 도메인에 ramap.kr·Vercel·localhost:3001이 등록돼 있다 → [결정](decisions/0002-kakao-key-shared-keeper.md)
 - 로컬 개발은 3001 포트(카카오 허용 도메인, 3000은 다른 프로젝트가 쓴다).
 - SDK 로드 실패 시 폴백 리스트 + 안내 배너, `map_load_failed` 이벤트.
-- 교체 경로(Plan B): B-1 네이버 지도(월 600만 무료, 카드 필수, 콘솔 한도 캡) → B-2 MapLibre GL + OpenFreeMap(무제한·무가입·상업 허용, SLA 없음, 자체 호스팅 이전 가능). 전환 트리거: 일 로드 70%가 2주 연속이면 B-1 검토, 무료 정책 변경 공지 시 30일 안에 B-2 프로토타입, 분기 1회 양사 약관 점검 → [결정](decisions/0001-카카오맵-선택과-지도-어댑터.md)
+- 교체 경로(Plan B): B-1 네이버 지도(월 600만 무료, 카드 필수, 콘솔 한도 캡) → B-2 MapLibre GL + OpenFreeMap(무제한·무가입·상업 허용, SLA 없음, 자체 호스팅 이전 가능). 전환 트리거: 일 로드 70%가 2주 연속이면 B-1 검토, 무료 정책 변경 공지 시 30일 안에 B-2 프로토타입, 분기 1회 양사 약관 점검 → [결정](decisions/0001-kakao-map-adapter.md)
 
 ## 모듈 이음새
 
-로그인을 나중에 붙여도 화면을 고치지 않도록 처음부터 분리한 4개 → [결정](decisions/0003-로그인-이음새-4개.md)
+로그인을 나중에 붙여도 화면을 고치지 않도록 처음부터 분리한 4개. 카카오 로그인 도입 때 화면 수정 없이 저장소 구현체만 바꿔 붙였다.
 
 1. 기록 저장소 — 화면은 `RecordStore` 인터페이스(`src/entities/record/`)만 호출. 비로그인은 localStorage 구현체, 로그인은 Supabase 동기화 구현체. 기록 스키마 = JSON 내보내기 포맷 = Supabase 테이블 형태
 2. 사용자 식별 — "현재 사용자"는 비로그인(null)에서 시작해 카카오 세션으로 채운다

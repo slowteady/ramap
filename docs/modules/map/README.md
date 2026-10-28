@@ -6,20 +6,7 @@
 |---|---|
 | [requirements.md](requirements.md) | 지도 홈이 해야 할 일·제약·아직 없는 명세를 확인할 때 |
 | [design.md](design.md) | 화면 구성, URL 쿼리, 필터·마커·시트·검색 동작과 코드 위치를 확인할 때. 홈 코드 수정 전 필독 |
-| [decisions/0001-풀맵과-논모달-상시-바텀시트.md](decisions/0001-풀맵과-논모달-상시-바텀시트.md) | 홈 구조(풀맵 + 상시 시트)를 바꾸자는 얘기가 나올 때 |
-| [decisions/0002-매장-상세는-시트-확장-대신-페이지-이동.md](decisions/0002-매장-상세는-시트-확장-대신-페이지-이동.md) | 카드를 full로 펼쳐 상세를 보여 주자는 얘기가 나올 때 |
-| [decisions/0003-홈-하단-SSR-섹션-폐기.md](decisions/0003-홈-하단-SSR-섹션-폐기.md) | 홈 아래에 콘텐츠·SEO 섹션을 붙이자는 얘기가 나올 때 |
-| [decisions/0004-지도-상태의-URL화.md](decisions/0004-지도-상태의-URL화.md) | 새 지도 상태를 URL에 둘지 정할 때 |
-| [decisions/0005-행정구역-시맨틱-클러스터와-줌-티어.md](decisions/0005-행정구역-시맨틱-클러스터와-줌-티어.md) | 클러스터 모양·줌 레벨을 바꿀 때 |
-| [decisions/0006-마커-스프-색-인코딩-폐기.md](decisions/0006-마커-스프-색-인코딩-폐기.md) | 마커에 장르 색을 넣자는 얘기가 나올 때 |
-| [decisions/0007-마커-가독성-라벨-pill과-타일-톤다운.md](decisions/0007-마커-가독성-라벨-pill과-타일-톤다운.md) | 마커·라벨 모양이나 타일 필터를 바꿀 때 |
-| [decisions/0008-저장-완식-마커와-라벨-우선순위.md](decisions/0008-저장-완식-마커와-라벨-우선순위.md) | 마커 상태·라벨 겹침 규칙을 바꿀 때 |
-| [decisions/0009-필터는-축-단위-칩.md](decisions/0009-필터는-축-단위-칩.md) | 필터 칩 구성을 바꾸거나 값 칩 승격을 검토할 때 |
-| [decisions/0010-필터-즉시-반영.md](decisions/0010-필터-즉시-반영.md) | Apply 버튼·뷰포트 이동·0건 처리를 검토할 때 |
-| [decisions/0011-위치-권한은-현위치-버튼에서만.md](decisions/0011-위치-권한은-현위치-버튼에서만.md) | 위치 권한 요청 시점을 바꾸자는 얘기가 나올 때 |
-| [decisions/0012-지도-이동-시-목록-자동-갱신.md](decisions/0012-지도-이동-시-목록-자동-갱신.md) | "이 지역 재검색" 버튼을 검토할 때 |
-| [decisions/0013-검색은-클라이언트-즉시-제안.md](decisions/0013-검색은-클라이언트-즉시-제안.md) | 검색 매칭·결과 화면·서버 검색을 검토할 때 |
-| [decisions/0014-검색-진입은-헤더-아이콘.md](decisions/0014-검색-진입은-헤더-아이콘.md) | 홈 헤더에 검색바를 넣자는 얘기가 나올 때 |
-| [decisions/0015-지금-영업중-필터-기각.md](decisions/0015-지금-영업중-필터-기각.md) | 영업중 필터·실시간 영업 표시를 다시 검토할 때 |
-| [decisions/0016-MapAdapter-이음새.md](decisions/0016-MapAdapter-이음새.md) | 지도 SDK를 바꾸거나 지도 코드를 어디에 둘지 정할 때 |
-| [지도·상세 검수 조사 (2026-10-27)](../../research/2026-10-27-지도-상세-검수-조사.md) | 지도·상세 개선 후보(M·D·F 항목)와 경쟁(라멘GPS) 조사 근거가 필요할 때 |
+| [decisions/0001-full-map-nonmodal-sheet.md](decisions/0001-full-map-nonmodal-sheet.md) | 홈 구조(풀맵 + 상시 시트)를 바꾸자는 얘기가 나올 때 |
+| [decisions/0005-area-clusters-zoom-tiers.md](decisions/0005-area-clusters-zoom-tiers.md) | 클러스터 모양·줌 레벨을 바꿀 때 |
+| [공통 0009 실시간 영업 상태 미표시](../../decisions/0009-no-live-open-status.md) | 영업중 필터·실시간 영업 표시를 다시 검토할 때 |
+| [지도·상세 검수 조사 (2026-10-27)](../../research/2026-10-27-map-detail-review.md) | 지도·상세 개선 후보(M·D·F 항목)와 경쟁(라멘GPS) 조사 근거가 필요할 때 |
