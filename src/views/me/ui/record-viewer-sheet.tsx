@@ -13,14 +13,19 @@ export function RecordViewerSheet({
   shopName,
   shopId,
   photos,
+  visitCount,
+  onDelete,
   onClose,
 }: {
   shopName: string;
   shopId: string;
   photos: RecordPhoto[];
+  visitCount: number;
+  onDelete: () => void;
   onClose: () => void;
 }) {
   const [index, setIndex] = useState(0);
+  const [confirming, setConfirming] = useState(false);
   const scroller = useRef<HTMLDivElement>(null);
   const ordinals = visitOrdinals(photos);
   const current = photos[index] ?? photos[0];
@@ -35,71 +40,76 @@ export function RecordViewerSheet({
     <Drawer open onOpenChange={(next) => !next && onClose()}>
       <DrawerContent showClose>
         <div className="flex flex-col gap-3 overflow-y-auto px-4 pt-4 pb-8">
-          <DrawerTitle className="text-title font-bold text-ink">
-            {shopName}
-          </DrawerTitle>
-
-          <div className="relative">
-            <div
-              ref={scroller}
-              onScroll={onScroll}
-              className="flex snap-x snap-mandatory overflow-x-auto rounded-card [scrollbar-width:none]"
-            >
-              {photos.map((p) => (
-                <div
-                  key={p.id}
-                  className="relative w-full shrink-0 snap-center"
-                >
-                  {p.url ? (
-                    <img
-                      src={p.url}
-                      alt={p.comment ?? shopName}
-                      className="aspect-square w-full object-cover"
-                    />
-                  ) : (
-                    <div className="aspect-square w-full bg-gray-050" />
-                  )}
-                  {p.status === "pending" && (
-                    <span className="absolute top-2 left-2 rounded-chip bg-ink/60 px-1.5 py-0.5 text-caption font-semibold text-white">
-                      검토 중
-                    </span>
-                  )}
-                  {p.status === "rejected" && (
-                    <span className="absolute top-2 left-2 rounded-chip bg-gray-500 px-1.5 py-0.5 text-caption font-semibold text-white">
-                      반려됨
-                    </span>
-                  )}
-                </div>
-              ))}
-            </div>
-            {photos.length > 1 && (
-              <div className="absolute right-0 -bottom-4 left-0 flex justify-center gap-1.5">
-                {photos.map((p, i) => (
-                  <span
-                    key={p.id}
-                    className={cn(
-                      "size-1.5 rounded-pill",
-                      i === index ? "bg-ramen" : "bg-gray-200",
-                    )}
-                  />
-                ))}
-              </div>
-            )}
+          <div className="flex flex-col gap-0.5">
+            <DrawerTitle className="text-title font-bold text-ink">
+              {shopName}
+            </DrawerTitle>
+            <p className="text-secondary text-gray-500">완식 {visitCount}회</p>
           </div>
 
-          <div
-            className={cn("flex flex-col gap-1", photos.length > 1 && "pt-3")}
-          >
-            {current?.comment && (
-              <p className="text-body text-ink">{current.comment}</p>
-            )}
-            {current && (
+          {photos.length > 0 && (
+            <div className="relative">
+              <div
+                ref={scroller}
+                onScroll={onScroll}
+                className="flex snap-x snap-mandatory overflow-x-auto rounded-card [scrollbar-width:none]"
+              >
+                {photos.map((p) => (
+                  <div
+                    key={p.id}
+                    className="relative w-full shrink-0 snap-center"
+                  >
+                    {p.url ? (
+                      <img
+                        src={p.url}
+                        alt={p.comment ?? shopName}
+                        className="aspect-square w-full object-cover"
+                      />
+                    ) : (
+                      <div className="aspect-square w-full bg-gray-050" />
+                    )}
+                    {p.status === "pending" && (
+                      <span className="absolute top-2 left-2 rounded-chip bg-ink/60 px-1.5 py-0.5 text-caption font-semibold text-white">
+                        검토 중
+                      </span>
+                    )}
+                    {p.status === "rejected" && (
+                      <span className="absolute top-2 left-2 rounded-chip bg-gray-500 px-1.5 py-0.5 text-caption font-semibold text-white">
+                        반려됨
+                      </span>
+                    )}
+                  </div>
+                ))}
+              </div>
+              {photos.length > 1 && (
+                <div className="absolute right-0 -bottom-4 left-0 flex justify-center gap-1.5">
+                  {photos.map((p, i) => (
+                    <span
+                      key={p.id}
+                      className={cn(
+                        "size-1.5 rounded-pill",
+                        i === index ? "bg-ramen" : "bg-gray-200",
+                      )}
+                    />
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
+
+          {current && (
+            <div
+              className={cn("flex flex-col gap-1", photos.length > 1 && "pt-3")}
+            >
+              {current.comment && (
+                <p className="text-body text-ink">{current.comment}</p>
+              )}
               <p className="text-caption text-gray-400">
                 {ordinals.get(current.id) ?? 1}번째 완식 ·{" "}
                 {dayjs(current.createdAt).format("YYYY.M.D")}
               </p>
-            )}
-          </div>
+            </div>
+          )}
 
           <Link
             href={`/shop/${shopId}`}
@@ -107,6 +117,44 @@ export function RecordViewerSheet({
           >
             매장 보기
           </Link>
+
+          {confirming ? (
+            <div className="flex flex-col gap-3 rounded-card-lg bg-gray-050 p-4">
+              <div className="flex flex-col gap-1">
+                <p className="text-body font-bold text-ink">
+                  완식 기록을 지울까요?
+                </p>
+                <p className="text-secondary text-gray-500">
+                  완식 {visitCount}회 기록이 지워져요. 남긴 사진은 그대로 남아요
+                </p>
+              </div>
+              <div className="flex gap-2">
+                <button
+                  type="button"
+                  autoFocus
+                  onClick={() => setConfirming(false)}
+                  className="h-11 flex-1 rounded-card-lg bg-white text-body font-semibold text-ink"
+                >
+                  취소
+                </button>
+                <button
+                  type="button"
+                  onClick={onDelete}
+                  className="h-11 flex-1 rounded-card-lg bg-ramen text-body font-bold text-white"
+                >
+                  지우기
+                </button>
+              </div>
+            </div>
+          ) : (
+            <button
+              type="button"
+              onClick={() => setConfirming(true)}
+              className="flex min-h-11 items-center justify-center text-secondary text-gray-400"
+            >
+              완식 기록 삭제
+            </button>
+          )}
         </div>
       </DrawerContent>
     </Drawer>

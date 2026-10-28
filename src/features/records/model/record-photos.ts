@@ -1,5 +1,6 @@
 import { getSupabase } from "@/shared/api/supabase";
 import { toJpegBlob } from "@/shared/lib/image";
+import { withTimeout } from "@/shared/lib/with-timeout";
 import {
   normalizeComment,
   type RecordPhoto,
@@ -39,43 +40,74 @@ function fromRow(row: RecordPhotoRow): RecordPhoto {
   };
 }
 
+export const SUBMIT_STEP_TIMEOUT_MS = 20_000;
+
+export type SubmitStep = "auth" | "encode" | "upload" | "insert";
+export type SubmitResult = { ok: true } | { ok: false; step: SubmitStep };
+
+class StepError extends Error {
+  constructor(readonly step: SubmitStep) {
+    super(step);
+  }
+}
+
+async function step<T>(name: SubmitStep, run: () => Promise<T>): Promise<T> {
+  try {
+    return await withTimeout(run(), SUBMIT_STEP_TIMEOUT_MS);
+  } catch {
+    throw new StepError(name);
+  }
+}
+
 /* 다중 사진 = 한 제출 묶음(entry_id 공유), 한줄평은 첫 행에만 — 부분 실패는 전체 실패로 처리 */
 export async function submitRecordPhotos(input: {
   shopId: string;
   files: File[];
   comment: string;
   consent: boolean;
-}): Promise<boolean> {
+}): Promise<SubmitResult> {
   const client = getSupabase();
-  if (!client || input.files.length === 0) return false;
-  const { data } = await client.auth.getUser();
-  const user = data.user;
-  if (!user) return false;
+  if (!client || input.files.length === 0) return { ok: false, step: "auth" };
   try {
+    const user = await step("auth", async () => {
+      const { data } = await client.auth.getSession();
+      if (!data.session) throw new Error("no session");
+      return data.session.user;
+    });
     const entryId = crypto.randomUUID();
-    const blobs = await Promise.all(input.files.map((f) => toJpegBlob(f)));
+    const blobs = await step("encode", () =>
+      Promise.all(input.files.map((f) => toJpegBlob(f))),
+    );
     const paths = blobs.map(() => `${user.id}/${crypto.randomUUID()}.jpg`);
-    const uploads = await Promise.all(
-      blobs.map((blob, i) =>
-        client.storage
-          .from(BUCKET)
-          .upload(paths[i], blob, { contentType: "image/jpeg" }),
-      ),
-    );
-    if (uploads.some((u) => u.error)) return false;
-    const inserted = await client.from("record_photos").insert(
-      paths.map((path, i) => ({
-        user_id: user.id,
-        shop_id: input.shopId,
-        photo_path: path,
-        comment: i === 0 ? normalizeComment(input.comment) : null,
-        consent: input.consent,
-        entry_id: entryId,
-      })),
-    );
-    return !inserted.error;
-  } catch {
-    return false;
+    await step("upload", async () => {
+      const uploads = await Promise.all(
+        blobs.map((blob, i) =>
+          client.storage
+            .from(BUCKET)
+            .upload(paths[i], blob, { contentType: "image/jpeg" }),
+        ),
+      );
+      if (uploads.some((u) => u.error)) throw new Error("upload");
+    });
+    await step("insert", async () => {
+      const inserted = await client.from("record_photos").insert(
+        paths.map((path, i) => ({
+          user_id: user.id,
+          shop_id: input.shopId,
+          photo_path: path,
+          comment: i === 0 ? normalizeComment(input.comment) : null,
+          consent: input.consent,
+          entry_id: entryId,
+        })),
+      );
+      if (inserted.error) throw new Error("insert");
+    });
+    return { ok: true };
+  } catch (error) {
+    return {
+      ok: false,
+      step: error instanceof StepError ? error.step : "encode",
+    };
   }
 }
 

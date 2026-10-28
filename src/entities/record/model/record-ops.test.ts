@@ -4,9 +4,9 @@ import {
   mergeRecord,
   mergeRecords,
   normalizeRecord,
-  revisited,
   toggledSaved,
-  toggledVisited,
+  visitAdded,
+  visitCleared,
 } from "./record-ops";
 
 const record = (over: Partial<ShopRecord>): ShopRecord => ({
@@ -19,41 +19,15 @@ const record = (over: Partial<ShopRecord>): ShopRecord => ({
   ...over,
 });
 
-describe("toggledVisited", () => {
-  it("신규는 visited on, count 1", () => {
-    expect(toggledVisited(null, "kinka", new Date("2026-08-26"))).toMatchObject(
-      { visited: true, saved: false, count: 1 },
-    );
+describe("visitAdded", () => {
+  it("첫 완식은 visited on, count 1, 날짜 기록", () => {
+    const next = visitAdded(null, "kinka", new Date("2026-08-26"));
+    expect(next).toMatchObject({ visited: true, saved: false, count: 1 });
+    expect(next.firstAt).toBe("2026-08-26T00:00:00.000Z");
   });
 
-  it("저장돼 있던 매장의 완식은 saved를 보존한다", () => {
-    const next = toggledVisited(record({ saved: true }), "kinka");
-    expect(next).toMatchObject({ visited: true, saved: true, count: 1 });
-  });
-
-  it("완식 해제 — saved 없으면 행 삭제(null), 있으면 saved만 남는다", () => {
-    expect(
-      toggledVisited(record({ visited: true, count: 1 }), "kinka"),
-    ).toBeNull();
-    expect(
-      toggledVisited(record({ visited: true, saved: true, count: 1 }), "kinka"),
-    ).toMatchObject({ visited: false, saved: true, count: 0 });
-  });
-
-  it("firstAt은 보존, lastAt은 갱신", () => {
-    const next = toggledVisited(
-      record({ saved: true, firstAt: "2026-01-01T00:00:00.000Z" }),
-      "kinka",
-      new Date("2026-08-27"),
-    );
-    expect(next?.firstAt).toBe("2026-01-01T00:00:00.000Z");
-    expect(next?.lastAt).toBe("2026-08-27T00:00:00.000Z");
-  });
-});
-
-describe("revisited", () => {
-  it("완식 상태에서 count 증가, firstAt 보존·lastAt 갱신", () => {
-    const next = revisited(
+  it("다시 누르면 count 증가 — 해제되지 않는다, firstAt 보존·lastAt 갱신", () => {
+    const next = visitAdded(
       record({ visited: true, count: 2, firstAt: "2026-01-01T00:00:00.000Z" }),
       "kinka",
       new Date("2026-09-01"),
@@ -63,12 +37,25 @@ describe("revisited", () => {
     expect(next.lastAt).toBe("2026-09-01T00:00:00.000Z");
   });
 
-  it("미완식(저장만) 상태면 완식 전환 + count 1", () => {
-    expect(revisited(record({ saved: true }), "kinka")).toMatchObject({
+  it("저장만 돼 있던 매장은 saved 보존 + count 1", () => {
+    expect(visitAdded(record({ saved: true }), "kinka")).toMatchObject({
       visited: true,
       saved: true,
       count: 1,
     });
+  });
+});
+
+describe("visitCleared", () => {
+  it("saved 없으면 행 삭제(null), 있으면 saved만 남는다", () => {
+    expect(visitCleared(record({ visited: true, count: 3 }))).toBeNull();
+    expect(
+      visitCleared(record({ visited: true, saved: true, count: 3 })),
+    ).toMatchObject({ visited: false, saved: true, count: 0 });
+  });
+
+  it("기록이 없으면 null", () => {
+    expect(visitCleared(null)).toBeNull();
   });
 });
 

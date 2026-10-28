@@ -13,7 +13,7 @@ describe("createSyncedRecordStore", () => {
   it("쓰기마다 sink로 write-through한다", () => {
     const sink = mockSink();
     const store = createSyncedRecordStore([], sink);
-    store.toggleVisited("kinka");
+    store.addVisit("kinka");
     store.toggleSaved("menya");
     expect(store.get("kinka")?.count).toBe(1);
     expect(sink.upsert).toHaveBeenCalledTimes(2);
@@ -28,13 +28,13 @@ describe("createSyncedRecordStore", () => {
     expect(sink.remove).toHaveBeenCalledWith("menya");
   });
 
-  it("완식+저장 공존 상태에서 완식만 꺼도 upsert로 남긴다", () => {
+  it("완식+저장 공존 상태에서 완식 기록만 지워도 upsert로 남긴다", () => {
     const sink = mockSink();
     const store = createSyncedRecordStore([], sink);
-    store.toggleVisited("kinka");
+    store.addVisit("kinka");
     store.toggleSaved("kinka");
     sink.upsert.mockClear();
-    store.toggleVisited("kinka");
+    store.clearVisit("kinka");
     expect(sink.remove).not.toHaveBeenCalled();
     expect(sink.upsert).toHaveBeenCalledTimes(1);
     expect(store.get("kinka")).toMatchObject({ visited: false, saved: true });

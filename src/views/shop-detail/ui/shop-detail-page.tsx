@@ -17,7 +17,7 @@ import {
   toJsonLdHtml,
   type Shop,
 } from "@/entities/shop";
-import { RecordCtaBar } from "@/features/records";
+import { RecordCtaBar, VisitSummaryLine } from "@/features/records";
 import { ReportEntryRow, ReportSheet } from "@/features/report";
 import { genreMeta } from "../model/genre-meta";
 import { CopyAddress } from "./copy-address";
@@ -285,6 +285,7 @@ export function ShopDetailPage({
           goneLabel={goneLabel}
           className="block"
         />
+        <VisitSummaryLine shopId={shop.id} />
         <div className="pt-3">
           <DetailActions
             shopId={shop.id}

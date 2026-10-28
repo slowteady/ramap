@@ -9,24 +9,25 @@ import { track } from "@/shared/lib/analytics";
 import { PhotoPicker } from "@/shared/ui/photo-picker";
 import { COMMENT_MAX, RECORD_PHOTO_MAX } from "../model/record-photo-ops";
 import { submitRecordPhotos } from "../model/record-photos";
-import { useRecords } from "../model/use-records";
+import { visitOrdinalLabel } from "../model/visit-ordinal";
 
 type SheetState = "idle" | "submitting" | "failed";
 
 export function RecordLogSheet({
   shopId,
   open,
-  revisit,
+  nextOrdinal,
+  onVisit,
   onClose,
   onSubmitted,
 }: {
   shopId: string;
   open: boolean;
-  revisit: boolean;
+  nextOrdinal?: number | null;
+  onVisit?: () => void;
   onClose: () => void;
   onSubmitted?: () => void;
 }) {
-  const { recordRevisit } = useRecords();
   const [files, setFiles] = useState<File[]>([]);
   const [comment, setComment] = useState("");
   const [consent, setConsent] = useState(true);
@@ -41,23 +42,34 @@ export function RecordLogSheet({
     else onClose();
   };
 
+  const visitMode = onVisit !== undefined;
+  const canSubmit = (visitMode || files.length > 0) && state !== "submitting";
+
   const submit = async () => {
-    if (files.length === 0 || state === "submitting") return;
-    setState("submitting");
-    const ok = await submitRecordPhotos({ shopId, files, comment, consent });
-    track("record_log_submitted", {
-      shop_id: shopId,
-      photo_count: files.length,
-      has_comment: comment.trim().length > 0,
-      revisit: Boolean(revisit),
-      ok,
-    });
-    if (!ok) {
-      setState("failed");
-      return;
+    if (!canSubmit) return;
+    if (files.length > 0) {
+      setState("submitting");
+      const result = await submitRecordPhotos({
+        shopId,
+        files,
+        comment,
+        consent,
+      });
+      track("record_log_submitted", {
+        shop_id: shopId,
+        photo_count: files.length,
+        has_comment: comment.trim().length > 0,
+        revisit: (nextOrdinal ?? 1) > 1,
+        ok: result.ok,
+        ...(result.ok ? {} : { failed_step: result.step }),
+      });
+      if (!result.ok) {
+        setState("failed");
+        return;
+      }
+      onSubmitted?.();
     }
-    if (revisit) recordRevisit(shopId, new Date());
-    onSubmitted?.();
+    onVisit?.();
     onClose();
   };
 
@@ -65,16 +77,11 @@ export function RecordLogSheet({
     <Drawer open onOpenChange={(next) => !next && requestClose()}>
       <DrawerContent showClose>
         <div className="flex flex-col gap-4 overflow-y-auto px-4 pt-5 pb-8">
-          <div className="flex flex-col gap-1">
-            <DrawerTitle className="text-title font-bold text-ink">
-              완식 기록 남기기
-            </DrawerTitle>
-            <p className="text-secondary text-gray-500">
-              {revisit
-                ? "다시 온 한 그릇도 기록이 돼요"
-                : "오늘의 한 그릇을 사진으로 남겨보세요"}
-            </p>
-          </div>
+          <DrawerTitle className="text-title font-bold text-ink">
+            {visitMode && nextOrdinal
+              ? `${visitOrdinalLabel(nextOrdinal)} 완식`
+              : "완식 기록 남기기"}
+          </DrawerTitle>
 
           <PhotoPicker
             files={files}
@@ -95,8 +102,13 @@ export function RecordLogSheet({
               value={comment}
               maxLength={COMMENT_MAX}
               onChange={(e) => setComment(e.target.value)}
-              placeholder="한줄평 (선택)"
-              className="h-12 rounded-card border border-gray-100 bg-white px-3.5 text-body text-ink placeholder:text-gray-300 focus:border-gray-300 focus:outline-none"
+              disabled={files.length === 0}
+              placeholder={
+                files.length === 0
+                  ? "한줄평 (사진을 넣으면 쓸 수 있어요)"
+                  : "한줄평 (선택)"
+              }
+              className="h-12 rounded-card border border-gray-100 bg-white px-3.5 text-body text-ink placeholder:text-gray-300 focus:border-gray-300 focus:outline-none disabled:bg-gray-050"
             />
             <span className="self-end text-caption text-gray-300">
               {comment.length}/{COMMENT_MAX}
@@ -123,10 +135,6 @@ export function RecordLogSheet({
             </span>
           </button>
 
-          <p className="text-caption text-gray-400">
-            라멘이 주인공 · 직접 찍은 사진 · 다른 사람 얼굴이 안 나오게
-          </p>
-
           {state === "failed" && (
             <p className="text-secondary text-ramen">
               저장에 실패했어요. 잠시 후 다시 시도해주세요
@@ -139,20 +147,22 @@ export function RecordLogSheet({
               onClick={requestClose}
               className="h-13 rounded-card-lg px-5 text-body font-semibold text-gray-500"
             >
-              다음에
+              {visitMode ? "취소" : "다음에"}
             </button>
             <button
               type="button"
               onClick={submit}
-              disabled={files.length === 0 || state === "submitting"}
+              disabled={!canSubmit}
               className={cn(
                 "h-13 flex-1 rounded-card-lg text-body font-bold text-white",
-                files.length > 0 && state !== "submitting"
-                  ? "bg-ramen"
-                  : "bg-gray-200",
+                canSubmit ? "bg-ramen" : "bg-gray-200",
               )}
             >
-              {state === "submitting" ? "올리는 중…" : "남기기"}
+              {state === "submitting"
+                ? "올리는 중…"
+                : visitMode
+                  ? "기록하기"
+                  : "남기기"}
             </button>
           </div>
         </div>

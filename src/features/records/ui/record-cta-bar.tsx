@@ -11,6 +11,8 @@ export function RecordCtaBar({ shopId }: { shopId: string }) {
   const {
     get,
     visit,
+    commitVisit,
+    nextOrdinal,
     save,
     authPrompt,
     closeAuthPrompt,
@@ -18,7 +20,6 @@ export function RecordCtaBar({ shopId }: { shopId: string }) {
     closeLogPrompt,
   } = useVisitAction(shopId);
   const record = get(shopId);
-  const visited = record?.visited ?? false;
   const saved = record?.saved ?? false;
 
   return (
@@ -40,12 +41,7 @@ export function RecordCtaBar({ shopId }: { shopId: string }) {
         <button
           type="button"
           onClick={visit}
-          className={cn(
-            "flex h-12 flex-1 items-center justify-center gap-1.5 rounded-card text-body font-bold",
-            visited
-              ? "border border-ramen bg-ramen-050 text-ramen"
-              : "bg-ramen text-white",
-          )}
+          className="flex h-12 flex-1 items-center justify-center gap-1.5 rounded-card bg-ramen text-body font-bold text-white"
         >
           <Check className="size-4.5" />
           완식
@@ -55,7 +51,8 @@ export function RecordCtaBar({ shopId }: { shopId: string }) {
       <RecordLogSheet
         shopId={shopId}
         open={logPrompt}
-        revisit={false}
+        nextOrdinal={nextOrdinal}
+        onVisit={commitVisit}
         onClose={closeLogPrompt}
       />
     </div>

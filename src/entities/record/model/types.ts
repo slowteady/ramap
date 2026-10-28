@@ -16,9 +16,9 @@ export type RecordExport = {
 export interface RecordStore {
   get(shopId: string): ShopRecord | null;
   all(): ShopRecord[];
-  toggleVisited(shopId: string, at?: Date): ShopRecord | null;
+  addVisit(shopId: string, at?: Date): ShopRecord;
+  clearVisit(shopId: string): ShopRecord | null;
   toggleSaved(shopId: string): ShopRecord | null;
-  recordRevisit(shopId: string, at?: Date): ShopRecord;
   exportJson(): string;
   importJson(json: string): { imported: number };
 }

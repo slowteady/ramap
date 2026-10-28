@@ -23,7 +23,7 @@ export function PhotoPicker({
   );
 
   return (
-    <div className="flex gap-2 overflow-x-auto [scrollbar-width:none]">
+    <div className="flex shrink-0 gap-2 overflow-x-auto [scrollbar-width:none]">
       {files.length < max && (
         <label className="flex size-20 shrink-0 cursor-pointer flex-col items-center justify-center gap-0.5 rounded-card border border-dashed border-gray-200 bg-white text-gray-400">
           <Plus className="size-5" />

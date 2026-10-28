@@ -3,9 +3,9 @@ import dayjs from "dayjs";
 import {
   mergeRecord,
   normalizeRecord,
-  revisited,
   toggledSaved,
-  toggledVisited,
+  visitAdded,
+  visitCleared,
 } from "./record-ops";
 import { fromRow, toRow, type RecordRow } from "./row-mapping";
 import type { RecordExport, RecordStore, ShopRecord } from "./types";
@@ -42,16 +42,16 @@ export function createSyncedRecordStore(
     all() {
       return [...map.values()];
     },
-    toggleVisited(shopId, at) {
-      return apply(shopId, toggledVisited(map.get(shopId) ?? null, shopId, at));
+    addVisit(shopId, at) {
+      const next = visitAdded(map.get(shopId) ?? null, shopId, at);
+      apply(shopId, next);
+      return next;
+    },
+    clearVisit(shopId) {
+      return apply(shopId, visitCleared(map.get(shopId) ?? null));
     },
     toggleSaved(shopId) {
       return apply(shopId, toggledSaved(map.get(shopId) ?? null, shopId));
-    },
-    recordRevisit(shopId, at) {
-      const next = revisited(map.get(shopId) ?? null, shopId, at);
-      apply(shopId, next);
-      return next;
     },
     exportJson() {
       const payload: RecordExport = {

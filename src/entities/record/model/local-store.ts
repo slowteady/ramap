@@ -2,9 +2,9 @@ import dayjs from "dayjs";
 import {
   mergeRecord,
   normalizeRecord,
-  revisited,
   toggledSaved,
-  toggledVisited,
+  visitAdded,
+  visitCleared,
 } from "@/entities/record/model/record-ops";
 import type {
   RecordExport,
@@ -76,23 +76,19 @@ export function createLocalRecordStore(storage?: Storage): RecordStore {
     all() {
       return [...load().values()];
     },
-    toggleVisited(shopId, at) {
+    addVisit(shopId, at) {
       const map = load();
-      return apply(
-        map,
-        shopId,
-        toggledVisited(map.get(shopId) ?? null, shopId, at),
-      );
+      const next = visitAdded(map.get(shopId) ?? null, shopId, at);
+      apply(map, shopId, next);
+      return next;
+    },
+    clearVisit(shopId) {
+      const map = load();
+      return apply(map, shopId, visitCleared(map.get(shopId) ?? null));
     },
     toggleSaved(shopId) {
       const map = load();
       return apply(map, shopId, toggledSaved(map.get(shopId) ?? null, shopId));
-    },
-    recordRevisit(shopId, at) {
-      const map = load();
-      const next = revisited(map.get(shopId) ?? null, shopId, at);
-      apply(map, shopId, next);
-      return next;
     },
     exportJson() {
       const payload: RecordExport = {

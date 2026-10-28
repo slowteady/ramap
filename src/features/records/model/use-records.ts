@@ -16,9 +16,9 @@ import {
 import { getSupabase } from "@/shared/api/supabase";
 
 type PendingOp =
-  | { type: "visited"; shopId: string; on: boolean; at?: Date }
-  | { type: "saved"; shopId: string; on: boolean }
-  | { type: "revisit"; shopId: string; at?: Date };
+  | { type: "visit"; shopId: string; at?: Date }
+  | { type: "clearVisit"; shopId: string }
+  | { type: "saved"; shopId: string; on: boolean };
 
 let localStore: RecordStore | null = null;
 let activeStore: RecordStore | null = null;
@@ -37,17 +37,12 @@ function notify() {
   for (const listener of listeners) listener();
 }
 
-/* 토글 재적용은 merge 결과에 따라 역전될 수 있어 목표 상태로 멱등 적용 */
+/* 저장 토글 재적용은 merge 결과에 따라 역전될 수 있어 목표 상태로 멱등 적용 */
 function applyOp(store: RecordStore, op: PendingOp) {
-  const current = store.get(op.shopId);
-  if (op.type === "visited") {
-    if ((current?.visited ?? false) !== op.on)
-      store.toggleVisited(op.shopId, op.at);
-  } else if (op.type === "saved") {
-    if ((current?.saved ?? false) !== op.on) store.toggleSaved(op.shopId);
-  } else {
-    store.recordRevisit(op.shopId, op.at);
-  }
+  if (op.type === "visit") store.addVisit(op.shopId, op.at);
+  else if (op.type === "clearVisit") store.clearVisit(op.shopId);
+  else if ((store.get(op.shopId)?.saved ?? false) !== op.on)
+    store.toggleSaved(op.shopId);
 }
 
 function abortAdopt() {
@@ -151,14 +146,16 @@ export function useRecords() {
     () => EMPTY,
   );
 
-  const toggleVisited = useCallback((shopId: string, at?: Date) => {
-    const record = getStore().toggleVisited(shopId, at);
-    pendingOps?.push({
-      type: "visited",
-      shopId,
-      on: record?.visited ?? false,
-      at,
-    });
+  const addVisit = useCallback((shopId: string, at?: Date) => {
+    const record = getStore().addVisit(shopId, at);
+    pendingOps?.push({ type: "visit", shopId, at });
+    notify();
+    return record;
+  }, []);
+
+  const clearVisit = useCallback((shopId: string) => {
+    const record = getStore().clearVisit(shopId);
+    pendingOps?.push({ type: "clearVisit", shopId });
     notify();
     return record;
   }, []);
@@ -166,13 +163,6 @@ export function useRecords() {
   const toggleSaved = useCallback((shopId: string) => {
     const record = getStore().toggleSaved(shopId);
     pendingOps?.push({ type: "saved", shopId, on: record?.saved ?? false });
-    notify();
-    return record;
-  }, []);
-
-  const recordRevisit = useCallback((shopId: string, at?: Date) => {
-    const record = getStore().recordRevisit(shopId, at);
-    pendingOps?.push({ type: "revisit", shopId, at });
     notify();
     return record;
   }, []);
@@ -190,9 +180,9 @@ export function useRecords() {
     records,
     visitedIds,
     get,
-    toggleVisited,
+    addVisit,
+    clearVisit,
     toggleSaved,
-    recordRevisit,
     isSynced: synced,
     isAuthed: sessionUserId !== null,
   };

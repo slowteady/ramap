@@ -4,8 +4,12 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 import { RecordButtons } from "./record-buttons";
 
 const action = vi.hoisted(() => ({
-  get: vi.fn(() => null as null | { visited: boolean; saved: boolean }),
+  get: vi.fn(
+    () => null as null | { visited: boolean; saved: boolean; count: number },
+  ),
   visit: vi.fn(),
+  commitVisit: vi.fn(),
+  nextOrdinal: 1,
   save: vi.fn(),
   authPrompt: false,
   closeAuthPrompt: vi.fn(),
@@ -33,14 +37,11 @@ describe("RecordButtons", () => {
     expect(action.save).toHaveBeenCalledOnce();
   });
 
-  it("완식 상태면 활성 스타일(테두리형)로 바뀐다", () => {
-    action.get.mockReturnValue({ visited: true, saved: false });
+  it("완식 후에도 버튼은 같은 동사·채운 모양 — 횟수는 버튼 밖 상태 줄로(Untappd·Swarm)", () => {
+    action.get.mockReturnValue({ visited: true, saved: false, count: 3 });
     render(<RecordButtons shopId="kinka" />);
-    expect(screen.getByRole("button", { name: "완식" }).className).toContain(
-      "border-ramen",
-    );
-    expect(
-      screen.getByRole("button", { name: "저장" }).className,
-    ).not.toContain("border-ramen");
+    const button = screen.getByRole("button", { name: "완식" });
+    expect(button.className).toContain("bg-ramen");
+    expect(button.className).not.toContain("border-ramen");
   });
 });

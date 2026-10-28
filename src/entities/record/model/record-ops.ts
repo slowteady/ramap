@@ -1,28 +1,7 @@
 import dayjs from "dayjs";
 import type { ShopRecord } from "./types";
 
-export function toggledVisited(
-  prev: ShopRecord | null,
-  shopId: string,
-  at?: Date,
-): ShopRecord | null {
-  if (prev?.visited) {
-    if (!prev.saved) return null;
-    return { ...prev, visited: false, count: 0 };
-  }
-  const iso = at ? dayjs(at).toISOString() : null;
-  return {
-    shopId,
-    visited: true,
-    saved: prev?.saved ?? false,
-    count: 1,
-    firstAt: prev?.firstAt ?? iso,
-    lastAt: iso ?? prev?.lastAt ?? null,
-  };
-}
-
-/* 재방문 누적 — 완식 기록 재제출 경로에서만 호출 (버튼 토글은 count 1 고정) */
-export function revisited(
+export function visitAdded(
   prev: ShopRecord | null,
   shopId: string,
   at?: Date,
@@ -36,6 +15,11 @@ export function revisited(
     firstAt: prev?.firstAt ?? iso,
     lastAt: iso ?? prev?.lastAt ?? null,
   };
+}
+
+export function visitCleared(prev: ShopRecord | null): ShopRecord | null {
+  if (!prev?.saved) return null;
+  return { ...prev, visited: false, count: 0 };
 }
 
 export function toggledSaved(
