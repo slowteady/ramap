@@ -137,7 +137,7 @@ updated: 2026-10-28
 | 리스트 | 상호 + 완식 ✓(`ui/visited-check.tsx`, `useRecords().visitedIds`) / 계보·라멘 외 형태·동네 / 영업 줄. 영업 매장만 |
 | 더 알아보기 | "{계보}란? 가이드" + 다른 taste 계보 링크 |
 
-- 진행률 바 없음 → [결정](decisions/0016-계보-랜딩-진행률-바-보류.md)
+- 진행률 바 없음 → [결정](../records/decisions/0024-진행률-노출-보류.md)
 - 메타: title `{계보} 라멘 지도`, description `{계보} — {설명}. 전국 {계보} 라멘집 {N}곳을 라맵에서 확인하세요.`, canonical `/style/{slug}`. JSON-LD 없음
 - trait 계보 slug 요청은 404
 

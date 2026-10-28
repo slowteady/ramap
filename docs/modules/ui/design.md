@@ -79,7 +79,7 @@ updated: 2026-10-28
 
 - 각 화면 명세: 홈·검색 = [map design](../map/design.md), 등록 시트 = [report design](../report/design.md), 상세·지역·계보·가이드 = [shop-pages design](../shop-pages/design.md), 마이·설정 = [records design](../records/design.md)
 - SEO 착지 페이지(상세·지역·계보·가이드)는 내비에 없다. 검색이 입구이고, 크롤러 발견은 `sitemap.xml`·`robots.txt`와 랜딩 간 상호 크로스링크가 담당
-- 신규 오픈 전용 페이지는 없다([결정](decisions/0010-신규-오픈-전용-페이지-폐기.md))
+- 신규 오픈 전용 페이지는 없다([결정](../shop-pages/decisions/0004-신규-오픈-전용-페이지-폐기.md))
 - 홈 아래 SSR 콘텐츠 섹션은 없다 — [map design](../map/design.md)
 
 ### 헤더
