@@ -79,11 +79,13 @@ export function RecordLogSheet({
         <div className="flex flex-col gap-4 overflow-y-auto px-4 pt-5 pb-8">
           <div className="flex flex-col gap-1">
             <DrawerTitle className="text-title font-bold text-ink">
-              완식 기록 남기기
+              {visitMode && nextOrdinal
+                ? `${visitOrdinalLabel(nextOrdinal)} 완식`
+                : "완식 기록 남기기"}
             </DrawerTitle>
             <p className="text-secondary text-gray-500">
-              {visitMode && nextOrdinal
-                ? `${visitOrdinalLabel(nextOrdinal)} 완식이에요`
+              {visitMode
+                ? "사진과 한줄평은 선택이에요"
                 : "오늘의 한 그릇을 사진으로 남겨보세요"}
             </p>
           </div>
@@ -166,7 +168,7 @@ export function RecordLogSheet({
               {state === "submitting"
                 ? "올리는 중…"
                 : visitMode
-                  ? "완식 기록"
+                  ? "기록하기"
                   : "남기기"}
             </button>
           </div>

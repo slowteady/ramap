@@ -92,7 +92,7 @@ describe("RecordLogSheet — 완식 기록(확인해야 기록)", () => {
   beforeEach(() => submitRecordPhotos.mockClear());
   const visitProps = { nextOrdinal: 4, onVisit: vi.fn() };
 
-  it("몇 번째 완식인지 알리고, 사진 없이도 완식 기록을 누를 수 있다", async () => {
+  it("제목이 몇 번째 완식인지 알리고, 사진 없이도 기록하기를 누를 수 있다", async () => {
     const user = userEvent.setup();
     const onVisit = vi.fn();
     const onClose = vi.fn();
@@ -105,8 +105,11 @@ describe("RecordLogSheet — 완식 기록(확인해야 기록)", () => {
         onClose={onClose}
       />,
     );
-    expect(screen.getByText("4번째 완식이에요")).toBeInTheDocument();
-    await user.click(screen.getByRole("button", { name: "완식 기록" }));
+    expect(
+      screen.getByRole("heading", { name: "4번째 완식" }),
+    ).toBeInTheDocument();
+    expect(screen.getByText("사진과 한줄평은 선택이에요")).toBeInTheDocument();
+    await user.click(screen.getByRole("button", { name: "기록하기" }));
     expect(onVisit).toHaveBeenCalledOnce();
     expect(submitRecordPhotos).not.toHaveBeenCalled();
     expect(onClose).toHaveBeenCalledOnce();
@@ -148,11 +151,11 @@ describe("RecordLogSheet — 완식 기록(확인해야 기록)", () => {
       document.querySelector('input[type="file"]') as HTMLInputElement,
       new File(["a"], "a.jpg", { type: "image/jpeg" }),
     );
-    await user.click(screen.getByRole("button", { name: "완식 기록" }));
+    await user.click(screen.getByRole("button", { name: "기록하기" }));
     expect(onVisit).not.toHaveBeenCalled();
     expect(screen.getByText(/저장에 실패했어요/)).toBeInTheDocument();
 
-    await user.click(screen.getByRole("button", { name: "완식 기록" }));
+    await user.click(screen.getByRole("button", { name: "기록하기" }));
     expect(onVisit).toHaveBeenCalledOnce();
   });
 });

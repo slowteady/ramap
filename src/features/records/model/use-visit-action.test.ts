@@ -15,7 +15,6 @@ const records = vi.hoisted(() => ({
 vi.mock("./use-records", () => ({ useRecords: () => records }));
 vi.mock("@/shared/api/supabase", () => ({ getSupabase: () => ({}) }));
 vi.mock("@/shared/lib/analytics", () => ({ track: vi.fn() }));
-vi.mock("sonner", () => ({ toast: vi.fn() }));
 
 describe("useVisitAction", () => {
   beforeEach(() => {

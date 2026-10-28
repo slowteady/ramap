@@ -1,11 +1,9 @@
 "use client";
 
 import { useCallback, useState } from "react";
-import { toast } from "sonner";
 import { getSupabase } from "@/shared/api/supabase";
 import { track } from "@/shared/lib/analytics";
 import { useRecords } from "./use-records";
-import { visitOrdinalLabel } from "./visit-ordinal";
 
 export function useVisitAction(shopId: string) {
   const records = useRecords();
@@ -20,9 +18,8 @@ export function useVisitAction(shopId: string) {
   }, [isAuthed]);
 
   const commitVisit = useCallback(() => {
-    const record = addVisit(shopId, new Date());
+    addVisit(shopId, new Date());
     track("record_toggled", { kind: "visited", on: true, shop_id: shopId });
-    toast(`${visitOrdinalLabel(record.count)} 완식을 기록했어요`);
   }, [shopId, addVisit]);
 
   const visit = useCallback(() => {
