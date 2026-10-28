@@ -41,6 +41,11 @@
 - 문구: 해요체, 짧게. 회색 보조 설명 줄·결과가 화면에 보이는 확인 토스트는 넣지 않는다. 버튼은 구체 동사("기록하기"), 일반어(확인·완료) 지양.
 - 라이브러리는 트리거가 생길 때만 도입 — 현황은 `docs/modules/platform/design.md`의 라이브러리 표.
 
+## 브랜치
+
+- 기본 브랜치: `main` (머지 = Vercel 프로덕션 배포)
+- 이름 규칙: `타입/짧은-영어-설명` — 타입은 소문자 `feat`·`fix`·`docs`·`refactor`·`test`·`style`·`chore` (예: `feat/contribution-feedback`, `fix/record-upload-timeout`)
+
 ## 금지 (약관·정책)
 
 `docs/decisions/0002-타사-플랫폼-데이터-경계.md` 요약:

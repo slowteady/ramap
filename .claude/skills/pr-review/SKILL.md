@@ -9,7 +9,7 @@ description: PR이나 현재 브랜치의 변경을 리뷰할 때 사용한다. 
 
 ## 1. 대상 정하기
 - 인자에 `owner/repo/pull/N`이 있으면 그 PR을 리뷰한다: `gh pr view N --json title,body,files`, `gh pr diff N`
-- 없으면 현재 브랜치와 main의 차이를 리뷰한다: `git diff main...HEAD`
+- 없으면 현재 브랜치와 기본 브랜치의 차이를 리뷰한다: `git diff origin/<기본 브랜치>...HEAD`. 기본 브랜치는 `.claude/rules/project.md`의 브랜치 규칙을 따르고, 적혀 있지 않으면 `main`이다.
 - PR 본문(로컬이면 브랜치 이름)의 이슈 번호로 `gh issue view N`을 읽고 완료 조건, 범위 밖, 근거 문서를 확인한다.
 - `.claude/rules/project.md`를 읽어 프로젝트 전용 리뷰 기준을 확인한다.
 
