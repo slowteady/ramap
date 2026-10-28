@@ -18,7 +18,6 @@ import { getSupabase } from "@/shared/api/supabase";
 type PendingOp =
   | { type: "visit"; shopId: string; at?: Date }
   | { type: "clearVisit"; shopId: string }
-  | { type: "restore"; shopId: string; record: ShopRecord | null }
   | { type: "saved"; shopId: string; on: boolean };
 
 let localStore: RecordStore | null = null;
@@ -42,7 +41,6 @@ function notify() {
 function applyOp(store: RecordStore, op: PendingOp) {
   if (op.type === "visit") store.addVisit(op.shopId, op.at);
   else if (op.type === "clearVisit") store.clearVisit(op.shopId);
-  else if (op.type === "restore") store.restore(op.shopId, op.record);
   else if ((store.get(op.shopId)?.saved ?? false) !== op.on)
     store.toggleSaved(op.shopId);
 }
@@ -162,12 +160,6 @@ export function useRecords() {
     return record;
   }, []);
 
-  const restore = useCallback((shopId: string, record: ShopRecord | null) => {
-    getStore().restore(shopId, record);
-    pendingOps?.push({ type: "restore", shopId, record });
-    notify();
-  }, []);
-
   const toggleSaved = useCallback((shopId: string) => {
     const record = getStore().toggleSaved(shopId);
     pendingOps?.push({ type: "saved", shopId, on: record?.saved ?? false });
@@ -190,7 +182,6 @@ export function useRecords() {
     get,
     addVisit,
     clearVisit,
-    restore,
     toggleSaved,
     isSynced: synced,
     isAuthed: sessionUserId !== null,

@@ -11,8 +11,8 @@ export function RecordCtaBar({ shopId }: { shopId: string }) {
   const {
     get,
     visit,
-    undoVisit,
-    visitOrdinal,
+    commitVisit,
+    nextOrdinal,
     save,
     authPrompt,
     closeAuthPrompt,
@@ -51,8 +51,8 @@ export function RecordCtaBar({ shopId }: { shopId: string }) {
       <RecordLogSheet
         shopId={shopId}
         open={logPrompt}
-        ordinal={visitOrdinal}
-        onUndo={undoVisit}
+        nextOrdinal={nextOrdinal}
+        onVisit={commitVisit}
         onClose={closeLogPrompt}
       />
     </div>

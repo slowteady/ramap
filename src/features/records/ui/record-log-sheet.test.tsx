@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { describe, expect, it, vi } from "vitest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 import { RecordLogSheet } from "./record-log-sheet";
 
 const submitRecordPhotos = vi.hoisted(() =>
@@ -24,6 +24,10 @@ describe("RecordLogSheet — 미저장 이탈 확인", () => {
     const user = userEvent.setup();
     const onClose = vi.fn();
     render(<RecordLogSheet shopId="kinka" open onClose={onClose} />);
+    await user.upload(
+      document.querySelector('input[type="file"]') as HTMLInputElement,
+      new File(["a"], "a.jpg", { type: "image/jpeg" }),
+    );
     await user.type(screen.getByPlaceholderText(/한줄평/), "국물이 진하다");
     await user.click(screen.getByRole("button", { name: "다음에" }));
     expect(onClose).not.toHaveBeenCalled();
@@ -37,6 +41,10 @@ describe("RecordLogSheet — 미저장 이탈 확인", () => {
     const user = userEvent.setup();
     const onClose = vi.fn();
     render(<RecordLogSheet shopId="kinka" open onClose={onClose} />);
+    await user.upload(
+      document.querySelector('input[type="file"]') as HTMLInputElement,
+      new File(["a"], "a.jpg", { type: "image/jpeg" }),
+    );
     await user.type(screen.getByPlaceholderText(/한줄평/), "재방문 예정");
     await user.click(screen.getByRole("button", { name: "다음에" }));
     const dialogButtons = screen.getAllByRole("button", {
@@ -47,7 +55,12 @@ describe("RecordLogSheet — 미저장 이탈 확인", () => {
     expect(screen.getByDisplayValue("재방문 예정")).toBeInTheDocument();
   });
 
-  it("사진 없이는 남기기 버튼이 비활성", () => {
+  it("한줄평은 사진과 함께 저장되므로 사진을 넣기 전엔 입력할 수 없다", () => {
+    render(<RecordLogSheet shopId="kinka" open onClose={() => {}} />);
+    expect(screen.getByPlaceholderText(/한줄평/)).toBeDisabled();
+  });
+
+  it("사진 추가 시트(완식 기록 섹션)는 사진 없이 남기기 버튼이 비활성", () => {
     render(<RecordLogSheet shopId="kinka" open onClose={() => {}} />);
     expect(screen.getByRole("button", { name: "남기기" })).toBeDisabled();
   });
@@ -75,29 +88,72 @@ describe("RecordLogSheet — 다중 사진 제출", () => {
   });
 });
 
-describe("RecordLogSheet — 완식 직후 되돌리기", () => {
-  it("완식 버튼으로 열리면 몇 번째 완식인지 알리고 되돌리기를 준다", async () => {
+describe("RecordLogSheet — 완식 기록(확인해야 기록)", () => {
+  beforeEach(() => submitRecordPhotos.mockClear());
+  const visitProps = { nextOrdinal: 4, onVisit: vi.fn() };
+
+  it("몇 번째 완식인지 알리고, 사진 없이도 완식 기록을 누를 수 있다", async () => {
     const user = userEvent.setup();
-    const onUndo = vi.fn();
+    const onVisit = vi.fn();
+    const onClose = vi.fn();
     render(
       <RecordLogSheet
         shopId="kinka"
         open
-        ordinal={3}
-        onUndo={onUndo}
+        nextOrdinal={4}
+        onVisit={onVisit}
+        onClose={onClose}
+      />,
+    );
+    expect(screen.getByText("4번째 완식이에요")).toBeInTheDocument();
+    await user.click(screen.getByRole("button", { name: "완식 기록" }));
+    expect(onVisit).toHaveBeenCalledOnce();
+    expect(submitRecordPhotos).not.toHaveBeenCalled();
+    expect(onClose).toHaveBeenCalledOnce();
+  });
+
+  it("닫으면 기록되지 않는다 — 잘못 누른 완식은 닫기로 끝", async () => {
+    const user = userEvent.setup();
+    const onVisit = vi.fn();
+    render(
+      <RecordLogSheet
+        shopId="kinka"
+        open
+        nextOrdinal={1}
+        onVisit={onVisit}
         onClose={() => {}}
       />,
     );
-    expect(screen.getByText("3번째 완식으로 기록했어요")).toBeInTheDocument();
-    await user.click(screen.getByRole("button", { name: "되돌리기" }));
-    expect(onUndo).toHaveBeenCalledOnce();
-  });
-
-  it("완식 기록 섹션에서 열면 되돌리기가 없다 — 횟수를 바꾸지 않는 사진 추가", () => {
-    render(<RecordLogSheet shopId="kinka" open onClose={() => {}} />);
+    await user.click(screen.getByRole("button", { name: "취소" }));
+    expect(onVisit).not.toHaveBeenCalled();
     expect(
       screen.queryByRole("button", { name: "되돌리기" }),
     ).not.toBeInTheDocument();
+  });
+
+  it("사진이 있으면 올린 뒤에 기록하고, 업로드가 실패하면 기록하지 않는다", async () => {
+    submitRecordPhotos.mockResolvedValueOnce({ ok: false, step: "upload" });
+    const user = userEvent.setup();
+    const onVisit = vi.fn();
+    render(
+      <RecordLogSheet
+        shopId="kinka"
+        open
+        {...visitProps}
+        onVisit={onVisit}
+        onClose={() => {}}
+      />,
+    );
+    await user.upload(
+      document.querySelector('input[type="file"]') as HTMLInputElement,
+      new File(["a"], "a.jpg", { type: "image/jpeg" }),
+    );
+    await user.click(screen.getByRole("button", { name: "완식 기록" }));
+    expect(onVisit).not.toHaveBeenCalled();
+    expect(screen.getByText(/저장에 실패했어요/)).toBeInTheDocument();
+
+    await user.click(screen.getByRole("button", { name: "완식 기록" }));
+    expect(onVisit).toHaveBeenCalledOnce();
   });
 });
 

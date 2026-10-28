@@ -49,15 +49,6 @@ describe("RecordStore(localStorage)", () => {
     expect(store.get("kinka")).toBeNull();
   });
 
-  it("restore는 되돌리기 — 직전 스냅샷으로, null이면 행 삭제", () => {
-    const before = store.addVisit("kinka", new Date("2026-08-26"));
-    store.addVisit("kinka");
-    store.restore("kinka", before);
-    expect(store.get("kinka")).toEqual(before);
-    store.restore("kinka", null);
-    expect(store.get("kinka")).toBeNull();
-  });
-
   it("저장 후 새 스토어 인스턴스에서도 읽힌다", () => {
     const storage = mem();
     createLocalRecordStore(storage).addVisit("kinka");

@@ -86,9 +86,6 @@ export function createLocalRecordStore(storage?: Storage): RecordStore {
       const map = load();
       return apply(map, shopId, visitCleared(map.get(shopId) ?? null));
     },
-    restore(shopId, record) {
-      return apply(load(), shopId, record);
-    },
     toggleSaved(shopId) {
       const map = load();
       return apply(map, shopId, toggledSaved(map.get(shopId) ?? null, shopId));

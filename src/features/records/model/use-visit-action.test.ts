@@ -8,7 +8,6 @@ const records = vi.hoisted(() => ({
   current: null as Rec,
   get: vi.fn(),
   addVisit: vi.fn(),
-  restore: vi.fn(),
   toggleSaved: vi.fn(),
   isAuthed: true,
 }));
@@ -16,10 +15,12 @@ const records = vi.hoisted(() => ({
 vi.mock("./use-records", () => ({ useRecords: () => records }));
 vi.mock("@/shared/api/supabase", () => ({ getSupabase: () => ({}) }));
 vi.mock("@/shared/lib/analytics", () => ({ track: vi.fn() }));
+vi.mock("sonner", () => ({ toast: vi.fn() }));
 
 describe("useVisitAction", () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    records.isAuthed = true;
     records.current = { shopId: "menkoji", visited: true, count: 2 };
     records.get.mockImplementation(() => records.current);
     records.addVisit.mockImplementation(() => ({
@@ -29,28 +30,33 @@ describe("useVisitAction", () => {
     }));
   });
 
-  it("완식을 다시 누르면 해제가 아니라 횟수를 올리고 기록 시트를 연다", () => {
+  it("완식을 누르면 기록 시트만 열고 아직 기록하지 않는다 — 확인을 눌러야 기록(Untappd·Swarm·Letterboxd)", () => {
     const { result } = renderHook(() => useVisitAction("menkoji"));
     act(() => result.current.visit());
-    expect(records.addVisit).toHaveBeenCalledWith("menkoji", expect.any(Date));
+    expect(records.addVisit).not.toHaveBeenCalled();
     expect(result.current.logPrompt).toBe(true);
-    expect(result.current.visitOrdinal).toBe(3);
+    expect(result.current.nextOrdinal).toBe(3);
   });
 
-  it("되돌리기는 누르기 직전 기록으로 복원하고 시트를 닫는다", () => {
+  it("시트에서 확인하면 그때 횟수가 오른다", () => {
     const { result } = renderHook(() => useVisitAction("menkoji"));
-    const before = records.current;
     act(() => result.current.visit());
-    act(() => result.current.undoVisit());
-    expect(records.restore).toHaveBeenCalledWith("menkoji", before);
-    expect(result.current.logPrompt).toBe(false);
+    act(() => result.current.commitVisit());
+    expect(records.addVisit).toHaveBeenCalledWith("menkoji", expect.any(Date));
   });
 
-  it("처음 완식을 되돌리면 기록 없음(null)으로 복원", () => {
+  it("처음이면 1번째", () => {
     records.current = null;
     const { result } = renderHook(() => useVisitAction("menkoji"));
     act(() => result.current.visit());
-    act(() => result.current.undoVisit());
-    expect(records.restore).toHaveBeenCalledWith("menkoji", null);
+    expect(result.current.nextOrdinal).toBe(1);
+  });
+
+  it("로그인 전이면 시트 대신 로그인 안내", () => {
+    records.isAuthed = false;
+    const { result } = renderHook(() => useVisitAction("menkoji"));
+    act(() => result.current.visit());
+    expect(result.current.authPrompt).toBe(true);
+    expect(result.current.logPrompt).toBe(false);
   });
 });

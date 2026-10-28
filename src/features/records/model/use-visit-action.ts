@@ -1,18 +1,17 @@
 "use client";
 
 import { useCallback, useState } from "react";
-import type { ShopRecord } from "@/entities/record";
+import { toast } from "sonner";
 import { getSupabase } from "@/shared/api/supabase";
 import { track } from "@/shared/lib/analytics";
 import { useRecords } from "./use-records";
-
-type LogPrompt = { ordinal: number; before: ShopRecord | null };
+import { visitOrdinalLabel } from "./visit-ordinal";
 
 export function useVisitAction(shopId: string) {
   const records = useRecords();
-  const { get, addVisit, restore, toggleSaved, isAuthed } = records;
+  const { get, addVisit, toggleSaved, isAuthed } = records;
   const [authPrompt, setAuthPrompt] = useState(false);
-  const [logPrompt, setLogPrompt] = useState<LogPrompt | null>(null);
+  const [logPrompt, setLogPrompt] = useState(false);
 
   const requireAuth = useCallback(() => {
     if (getSupabase() === null || isAuthed) return true;
@@ -20,20 +19,17 @@ export function useVisitAction(shopId: string) {
     return false;
   }, [isAuthed]);
 
-  const visit = useCallback(() => {
-    if (!requireAuth()) return;
-    const before = get(shopId);
+  const commitVisit = useCallback(() => {
     const record = addVisit(shopId, new Date());
     track("record_toggled", { kind: "visited", on: true, shop_id: shopId });
-    if (getSupabase() !== null) setLogPrompt({ ordinal: record.count, before });
-  }, [shopId, requireAuth, get, addVisit]);
+    toast(`${visitOrdinalLabel(record.count)} 완식을 기록했어요`);
+  }, [shopId, addVisit]);
 
-  const undoVisit = useCallback(() => {
-    if (!logPrompt) return;
-    restore(shopId, logPrompt.before);
-    track("record_toggled", { kind: "visited", on: false, shop_id: shopId });
-    setLogPrompt(null);
-  }, [shopId, logPrompt, restore]);
+  const visit = useCallback(() => {
+    if (!requireAuth()) return;
+    if (getSupabase() === null) commitVisit();
+    else setLogPrompt(true);
+  }, [requireAuth, commitVisit]);
 
   const save = useCallback(() => {
     if (!requireAuth()) return;
@@ -46,17 +42,20 @@ export function useVisitAction(shopId: string) {
   }, [shopId, requireAuth, toggleSaved]);
 
   const closeAuthPrompt = useCallback(() => setAuthPrompt(false), []);
-  const closeLogPrompt = useCallback(() => setLogPrompt(null), []);
+  const closeLogPrompt = useCallback(() => setLogPrompt(false), []);
+
+  const current = get(shopId);
+  const nextOrdinal = (current?.visited ? current.count : 0) + 1;
 
   return {
     ...records,
     visit,
-    undoVisit,
+    commitVisit,
     save,
     authPrompt,
     closeAuthPrompt,
-    logPrompt: logPrompt !== null,
-    visitOrdinal: logPrompt?.ordinal ?? null,
+    logPrompt,
+    nextOrdinal,
     closeLogPrompt,
   };
 }

@@ -50,9 +50,6 @@ export function createSyncedRecordStore(
     clearVisit(shopId) {
       return apply(shopId, visitCleared(map.get(shopId) ?? null));
     },
-    restore(shopId, record) {
-      return apply(shopId, record);
-    },
     toggleSaved(shopId) {
       return apply(shopId, toggledSaved(map.get(shopId) ?? null, shopId));
     },

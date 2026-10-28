@@ -40,18 +40,6 @@ describe("createSyncedRecordStore", () => {
     expect(store.get("kinka")).toMatchObject({ visited: false, saved: true });
   });
 
-  it("restore도 write-through — 스냅샷은 upsert, null은 remove", () => {
-    const sink = mockSink();
-    const store = createSyncedRecordStore([], sink);
-    const before = store.addVisit("kinka");
-    store.addVisit("kinka");
-    sink.upsert.mockClear();
-    store.restore("kinka", before);
-    expect(sink.upsert).toHaveBeenCalledWith(before);
-    store.restore("kinka", null);
-    expect(sink.remove).toHaveBeenCalledWith("kinka");
-  });
-
   it("seed에서 시작한다", () => {
     const seed: ShopRecord[] = [
       {
