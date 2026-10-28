@@ -1,11 +1,11 @@
 "use client";
 
-import { Bookmark, Check } from "lucide-react";
+import { Bookmark } from "lucide-react";
 import { cn } from "@/shared/lib/utils";
 import { useVisitAction } from "../model/use-visit-action";
-import { visitLabel } from "../model/visit-label";
 import { LoginPromptSheet } from "./login-prompt-sheet";
 import { RecordLogSheet } from "./record-log-sheet";
+import { VisitButtonContent } from "./visit-button-content";
 
 /* 상세 하단 고정 CTA — 보조 아이콘 + 주 버튼 1개 (캐치테이블 문법) */
 export function RecordCtaBar({ shopId }: { shopId: string }) {
@@ -21,7 +21,6 @@ export function RecordCtaBar({ shopId }: { shopId: string }) {
     closeLogPrompt,
   } = useVisitAction(shopId);
   const record = get(shopId);
-  const visited = record?.visited ?? false;
   const saved = record?.saved ?? false;
 
   return (
@@ -43,15 +42,9 @@ export function RecordCtaBar({ shopId }: { shopId: string }) {
         <button
           type="button"
           onClick={visit}
-          className={cn(
-            "flex h-12 flex-1 items-center justify-center gap-1.5 rounded-card text-body font-bold",
-            visited
-              ? "border border-ramen bg-ramen-050 text-ramen"
-              : "bg-ramen text-white",
-          )}
+          className="flex h-12 flex-1 items-center justify-center gap-1.5 rounded-card bg-ramen text-body font-bold text-white"
         >
-          <Check className="size-4.5" />
-          {visitLabel(record)}
+          <VisitButtonContent record={record} iconClassName="size-4.5" />
         </button>
       </div>
       <LoginPromptSheet open={authPrompt} onClose={closeAuthPrompt} />
