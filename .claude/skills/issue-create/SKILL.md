@@ -18,20 +18,26 @@ description: 설계 문서나 대화 내용을 GitHub 이슈로 만들거나 쪼
 
 ```markdown
 ## 목표
+
 (한두 줄)
 
 ## 범위 밖
+
 (이번에 하지 않는 것)
 
 ## 완료 조건
+
 - [ ] ...
 
 ## 근거 문서
+
 docs/... (절 번호까지)
 
 ## 충돌 주의
+
 (없으면 "없음")
 
 ## 작업 유형
+
 (UI / 데이터 / 파이프라인 / 문서 중 해당하는 것. UI면 ramap-ui 스킬, 매장 데이터면 data-integrity·closure-verification 스킬을 따른다)
 ```

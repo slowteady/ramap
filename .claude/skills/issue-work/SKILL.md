@@ -8,6 +8,7 @@ description: GitHub 이슈 번호나 이슈 URL을 받아 작업을 시작하거
 에이전트의 계획과 진행 기록은 이슈 **아티팩트**에 남긴다. 댓글은 사람이 지시를 남기는 자리라서 에이전트는 댓글을 쓰지 않는다.
 
 ## 시작
+
 1. GitHub MCP `issue_read`로 이슈 본문(method: get)과 댓글(method: get_comments)을 읽는다.
    댓글에는 사람이 덧붙인 지시가 있을 수 있다. 처음 작업하는 이슈라면 댓글이 없는 게 정상이다.
 2. 아티팩트 목록을 읽는다. "진행 기록"(generic)이나 "구현 계획"(plan)이 있으면 거기서 이어서 한다.
@@ -16,11 +17,13 @@ description: GitHub 이슈 번호나 이슈 URL을 받아 작업을 시작하거
 5. "구현 계획" 아티팩트가 없으면 plan 타입으로 만든다. 완료 조건을 어떤 순서로 채울지만 짧게 적는다.
 
 ## 작업 중
+
 - 완료 조건과 근거 문서에 없는 일은 하지 않는다. 필요해 보이면 멈추고 묻는다.
 - 이슈 본문은 고치지 않는다. 본문은 사람이 관리한다.
 - 라맵 규칙은 `CLAUDE.md`를 따른다: 신규 기능은 TDD, 커밋은 한국어 컨벤셔널(`feat:`·`fix:`·`chore:`·`docs:`·`refactor:`), 주석 금지 원칙, 이슈 "작업 유형"에 적힌 스킬(ramap-ui·data-integrity·closure-verification)
 
 ## 마무리
+
 1. 완료 조건을 하나씩 실제로 확인한다(테스트 실행, 화면 확인 등). 확인하지 못한 항목은 "미확인"으로 남긴다.
    - 라맵 공통: `npm test`, `npm run build`. 핵심 여정을 건드렸으면 `npm run test:e2e`
    - 매장 데이터: `npm run enrich-candidates -- data/out/candidates.tsv data/enrichment/*.json` → `npm run sync-sheet -- data/out/seed.tsv` → `npm run audit-integrity`, 리포트 첫 줄과 소실·계보 변경 표를 PR 본문에 붙인다
