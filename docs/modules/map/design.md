@@ -74,7 +74,7 @@ updated: 2026-10-28
 | `search` | `1` | 열기 push / 닫기 replace | 검색어는 URL에 없음 |
 | `report`, `pick` | 등록 시트·핀 피커 | — | [report design](../report/design.md) |
 
-원칙은 [결정](decisions/0004-map-state-in-url.md).
+원칙: 공유할 가치가 있는 지도 상태는 URL이 원천이다(뒤로가기·공유 해결). 선택·오버레이 열기는 push(뒤로가기로 닫힘), 해제·필터 변경은 replace(히스토리 스팸 방지). 검색어는 선택 즉시 닫히는 내비게이터라 공유 가치가 없어 싣지 않는다. "안 가본 집"·"저장한 곳"은 내 기록에 따른 개인 상태라 로컬 상태다.
 
 ## 필터
 
@@ -120,7 +120,7 @@ updated: 2026-10-28
 ### 개별 마커
 
 - 화면 범위 + 30% 버퍼 안의 핀만 그린다
-- 모든 마커는 라멘 레드 기반 단색([결정](decisions/0006-drop-marker-soup-colors.md))
+- 모든 마커는 라멘 레드 기반 단색. 마커가 드러내는 정보는 상호 라벨과 상태(선택·신규·저장·완식)이고, 스프는 필터와 목록·카드의 장르 칩으로 전달한다 — 스프 값 수가 색 구분 한계를 넘고 유채색 1색 예산([ui design](../ui/design.md))과도 맞지 않는다
 
 | 상태 | 모양 |
 |---|---|
@@ -169,7 +169,7 @@ vaul Drawer, 비모달·`dismissible=false`. 제스처 규율은 `ramap-ui` 스�
 | 6 | 대표 메뉴 1개(이름·가격) |
 | 7 | 기록 버튼 `RecordButtons`(저장·완식) — [records design](../records/design.md) |
 
-- 2~6 영역 전체가 `/shop/{slug}` 링크. 시트 full 확장은 없다([결정](decisions/0002-shop-detail-as-page.md))
+- 2~6 영역 전체가 `/shop/{slug}` 링크. 시트 full 확장은 없다 — 상세는 고유 URL을 가진 SSR 페이지(SEO 단위)라 페이지로 이동한다
 - 실시간 "영업중"은 표시하지 않는다(`OpenStatusBadge` — 시간 정보만)([공통 결정](../../decisions/0009-no-live-open-status.md))
 - 닫기: ‹ 버튼·지도 빈 곳 탭·뒤로가기 → 목록 모드 45% 스냅 / 카드를 72px로 끌어내림 → 목록 모드 접힘
 
@@ -217,7 +217,7 @@ vaul Drawer, 비모달·`dismissible=false`. 제스처 규율은 `ramap-ui` 스�
 
 ## 신규 오픈 표시
 
-기준: 오픈일(인허가일) 90일 이내, 빌드 시 계산(`isNewOpen`). 전용 페이지는 없다 — [ui design](../ui/design.md).
+기준: 오픈일(인허가일) 90일 이내, 빌드 시 계산(`isNewOpen`). 90일은 네이버·배민·Google 신규 배지와 같은 기준이다. 오픈일은 절대일로 표기한다(상대 표기 "3일 전"을 쓰는 서비스가 없다). 전용 페이지는 없다 → [shop-pages 요구사항](../shop-pages/requirements.md). 매장 상세의 NEW 칩·"오픈 YYYY.M" 행은 [shop-pages 설계](../shop-pages/design.md).
 
 | 위치 | 표시 |
 |---|---|

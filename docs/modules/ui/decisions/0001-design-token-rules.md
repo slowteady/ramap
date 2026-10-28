@@ -54,6 +54,6 @@ date: 2026-08-26
 
 ## 버린 안
 
-- shadcn 기본 팔레트(slate/zinc) 그대로 사용 — AI티의 대표 시그니처([0004](0004-anti-ai-look-gate.md)).
+- shadcn 기본 팔레트(slate/zinc) 그대로 사용 — AI티의 대표 시그니처([AI티 방지 게이트](../design.md#ai티-방지-게이트)).
 - 구 라멘 레드 `#E8442E` — 캐치테이블 브랜드색과 hue가 가까워 폐기.
 - radius 3값 체계(카드·pill만) — 장르·편의 태그가 pill이면 누를 수 있는 칩처럼 읽힌다.

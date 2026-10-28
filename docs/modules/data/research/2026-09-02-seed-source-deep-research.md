@@ -5,7 +5,7 @@ date: 2026-09-02
 
 # 시드 소스 딥리서치와 실측
 
-원문: `docs/plans/2026-09-02-seed-pipeline-v2.md`의 조사·실측·드라이런 절 (원문 그대로). 설계는 [data 설계](../design.md), 결정은 [0017](../decisions/0017-seed-two-layer-extraction.md).
+원문: `docs/plans/2026-09-02-seed-pipeline-v2.md`의 조사·실측·드라이런 절 (원문 그대로). 설계·결정은 [data 설계](../design.md#시딩).
 
 ## 조사 결론 요약 (2026-09-02 딥리서치, 근거는 하단)
 

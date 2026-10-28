@@ -17,14 +17,14 @@ updated: 2026-10-28
 | 백엔드 | Supabase(무료 티어) — 카카오 Auth, `profiles`·`records`·`record_photos`·`reports` 테이블, 사진 스토리지 | 서버 없이 브라우저가 직접 호출하고 RLS가 권한을 강제. 스키마는 `supabase/schema.sql` |
 | 매장 데이터 | 시트 → 동기화 스크립트 → `data/*.json` → 빌드 반영 | DB가 아니라 Git이 이력을 가진다 → [data 설계](../data/design.md) |
 | 호스팅 | Vercel | main 머지가 곧 프로덕션 배포 |
-| 이용 통계 | PostHog | 아래 "이용 통계" 절 → [결정](decisions/0005-posthog-analytics.md) |
+| 이용 통계 | PostHog | 아래 "이용 통계" 절. GA4는 쓰지 않는다 — 기능별 이벤트·히트맵을 한 도구에서 보려고 |
 | 검색 유입 | Google Search Console · 네이버 서치어드바이저 · IndexNow(`npm run indexnow`) | |
 
 아키텍처(축소형 FSD, 로직 3분법, Server Component 기본)는 `.claude/rules/project.md`가 규칙의 원천 → [결정](../../decisions/0001-tech-stack-lite-fsd.md)
 
 ## 라이브러리
 
-새 라이브러리는 미리 넣지 않고, 아래 트리거가 실제로 생겼을 때 도입한다 → [결정](../../decisions/0004-library-adoption-triggers.md)
+새 라이브러리는 미리 넣지 않고(쓰지 않는 추상화와 번들이 쌓인다), 아래 트리거가 실제로 생겼을 때 도입한다. 도입하거나 트리거를 바꾸면 이 표를 같은 PR에서 고친다.
 
 | 라이브러리 | 상태 | 쓰는 곳·도입 트리거 |
 |---|---|---|
@@ -55,7 +55,7 @@ updated: 2026-10-28
 
 ## 모듈 이음새
 
-로그인을 나중에 붙여도 화면을 고치지 않도록 처음부터 분리한 4개 → [결정](decisions/0003-four-login-seams.md)
+로그인을 나중에 붙여도 화면을 고치지 않도록 처음부터 분리한 4개. 카카오 로그인 도입 때 화면 수정 없이 저장소 구현체만 바꿔 붙였다.
 
 1. 기록 저장소 — 화면은 `RecordStore` 인터페이스(`src/entities/record/`)만 호출. 비로그인은 localStorage 구현체, 로그인은 Supabase 동기화 구현체. 기록 스키마 = JSON 내보내기 포맷 = Supabase 테이블 형태
 2. 사용자 식별 — "현재 사용자"는 비로그인(null)에서 시작해 카카오 세션으로 채운다

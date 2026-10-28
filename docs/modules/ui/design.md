@@ -37,13 +37,13 @@ updated: 2026-10-28
 
 - 규칙 전체: 흰 배경 + 그레이 + 유채 1색, 색 = 누를 수 있는 곳, 카드 구획은 여백([결정](decisions/0001-design-token-rules.md))
 - shadcn `accent`는 호버 서피스(그레이)이지 브랜드색이 아니다
-- 다크모드 없음 — `.dark` 블록 없음([공통 결정](../../decisions/0003-light-mode-only.md))
+- 다크모드 없음 — `.dark` 블록 없음(이유는 [요구사항](requirements.md))
 - 클릭 요소는 `<button>`/`<a>`만. 커서는 base 레이어가 `button`·`[role="button"]`에 일괄 pointer
 - 그라데이션은 가로 스크롤 에지 페이드 마스크 `mask-fade-r` 한 곳만 예외
 
 ## 플랫폼과 앱 셸
 
-- 모바일웹 퍼스트([결정](decisions/0006-mobile-web-first.md)). 모든 화면이 `max-w-app` 폭의 흰 중앙 컬럼 안에 그려지고, 바깥 여백은 `gray-050`
+- 모바일웹 퍼스트 — 이유는 [요구사항](requirements.md). 모든 화면이 `max-w-app` 폭의 흰 중앙 컬럼 안에 그려지고, 바깥 여백은 `gray-050`
 - 데스크톱은 같은 단일 컬럼(무붕괴). 스플릿 뷰 없음
 
 ## 정보 구조
@@ -79,7 +79,7 @@ updated: 2026-10-28
 
 - 각 화면 명세: 홈·검색 = [map design](../map/design.md), 등록 시트 = [report design](../report/design.md), 상세·지역·계보·가이드 = [shop-pages design](../shop-pages/design.md), 마이·설정 = [records design](../records/design.md)
 - SEO 착지 페이지(상세·지역·계보·가이드)는 내비에 없다. 검색이 입구이고, 크롤러 발견은 `sitemap.xml`·`robots.txt`와 랜딩 간 상호 크로스링크가 담당
-- 신규 오픈 전용 페이지는 없다([결정](../shop-pages/decisions/0004-drop-new-openings-page.md))
+- 신규 오픈 전용 페이지는 없다 — NEW 칩과 "새로 오픈" 필터로 대신한다([shop-pages 요구사항](../shop-pages/requirements.md), 표시 규칙은 [map design](../map/design.md#신규-오픈-표시))
 - 홈 아래 SSR 콘텐츠 섹션은 없다 — [map design](../map/design.md)
 
 ### 헤더
@@ -110,7 +110,7 @@ updated: 2026-10-28
 
 ## AI티 방지 게이트
 
-빌드 시 모든 화면이 통과해야 한다([결정](decisions/0004-anti-ai-look-gate.md)). 코드 작성 규율 실물은 [`ramap-ui` 스킬](../../../.claude/skills/ramap-ui/SKILL.md).
+빌드 시 모든 화면이 통과해야 한다. AI티는 레퍼런스 없이 기본값으로 생성된 흔적이고, 무국적 화면은 "라맵 화면"으로 식별되지 않는다. 대원칙: 모든 레이아웃 패턴은 실측 레퍼런스 출처를 댈 수 있어야 하고, 못 대면 제거한다. shadcn 컴포넌트는 토큰 테마로 덮기 전에 쓰지 않는다. 게이트는 `ramap-ui` 스킬로 모든 UI 작업에 적용되고, 코드 작성 규율 실물은 [`ramap-ui` 스킬](../../../.claude/skills/ramap-ui/SKILL.md)이다.
 
 **금지 시그니처**
 
@@ -127,15 +127,15 @@ updated: 2026-10-28
 
 **금지 구조 패턴 (AI 단골 레이아웃)**
 
-- [ ] 아이콘 + 제목 + 설명 3열 특징 카드 그리드 없음 → 에디토리얼 문장 속 인라인 정보로
+- [ ] 아이콘 + 제목 + 설명 3열 특징 카드 그리드 없음 → 에디토리얼 문장 속 인라인 정보로(Culture Trip·Hitosara)
 - [ ] 중앙 정렬 히어로(제목 + 서브 + CTA 2개) 없음
-- [ ] 숫자 나란한 통계 밴드 없음 (다크 헤더의 인라인 통계는 예외)
+- [ ] 숫자 나란한 통계 밴드 없음 (다크 헤더의 인라인 통계는 예외 — Hitosara 이원 톤)
 - [ ] 섹션 제목 위 pill 배지("NEW" 류) 없음
 - [ ] 아이콘 원형 파스텔 배경 없음
 - [ ] 모든 섹션이 같은 리듬(제목-설명-그리드) 반복 없음
 - [ ] 페이지 끝 CTA 밴드 재등장 없음
 - [ ] 3단계 스텝퍼 온보딩 없음 (온보딩은 단일 화면)
-- [ ] FAQ는 기본 아코디언 대신 답변 노출형 Q&A
+- [ ] FAQ는 기본 아코디언 대신 답변 노출형 Q&A(Yelp·Tripadvisor — 답이 HTML에 노출돼 SEO에도 유리)
 - [ ] 모든 레이아웃 패턴에 실측 레퍼런스 출처가 있다. 출처를 못 대면 제거
 
 벤치마크 배정: 앱 구조·검색·카드 = 캐치테이블(도메인 최근접) / 지도 = 호갱노노 / 바텀 카드·상세 탭 = 오늘의집 / 토큰 규율 = 토스. 구조·동작은 한국 컨벤션을, 시각 언어는 미려 레퍼런스를 따른다.

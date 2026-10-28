@@ -52,12 +52,17 @@ updated: 2026-10-28
 
 `records` 테이블: PK `(user_id, shop_id)`, `visited`·`saved`·`count`·`first_at`·`last_at`·`updated_at`, 제약 `visited or saved`. RLS: 본인 행만 조회·삭제, 추가·수정은 본인 + `profiles.agreed_at is not null`.
 
-- 완식·저장은 배타 상태(가고 싶다 → 완식 전이)가 아니라 두 불리언이다. 완식한 가게도 다시 가려고 저장해 둘 수 있어야 해서다. 완식해도 저장은 풀리지 않고, 저장을 풀어도 완식은 남는다. "가고 싶다"의 이름은 "저장"이다 → [상태](decisions/0005-record-states-visit-save.md)
+- 완식·저장은 배타 상태(가고 싶다 → 완식 전이)가 아니라 두 불리언이다. 완식한 가게도 다시 가려고 저장해 둘 수 있어야 해서다. 완식해도 저장은 풀리지 않고, 저장을 풀어도 완식은 남는다. "가고 싶다"의 이름은 "저장"이다 → [요구사항](requirements.md#기록)
 - `first_at`·`last_at`은 화면 노출과 무관하게 저장한다. 날짜가 쌓여야 2단 연말 정산(Year in 라멘)이 가능하다(Letterboxd 다이어리). 별점 필드는 없다 → [금지 목록](decisions/0002-gamification-ban-list.md)
 
 ## 저장소와 로그인 전환
 
-화면은 `useRecords()`만 쓴다. 저장소는 `RecordStore` 이음새 뒤에 있다 → [platform 설계](../platform/design.md)
+화면은 `useRecords()`만 쓴다. 저장소는 `RecordStore` 이음새 뒤에 있어 로그인을 붙여도 화면 코드를 고치지 않았다 → [platform 설계](../platform/design.md)
+
+- 백엔드 서버 없이 브라우저가 Supabase Auth·DB를 직접 호출하고, 보안은 RLS(`auth.uid() = user_id`)로 건다. Auth 세션·PKCE를 손으로 짤 이유가 없어 `@supabase/supabase-js`를 쓴다.
+- 기록 의미론(완식 +1, 저장 토글, 병합)은 순수 함수(`record-ops.ts`)로 두고 로컬·서버 스토어가 함께 쓴다.
+- 서버 스토어는 메모리 write-through다. 동기 `RecordStore` 인터페이스를 유지하고 쓰기는 fire-and-forget upsert. 1회 로드 + write-through라 캐시·리페치 수요가 없어 TanStack Query는 쓰지 않는다 → [platform 라이브러리](../platform/design.md#라이브러리)
+- 카카오 OAuth는 기존 카카오 ramap 앱을 쓴다(지도 키와 별개).
 
 | 상황 | 활성 저장소 |
 |---|---|
@@ -73,9 +78,9 @@ updated: 2026-10-28
 4. 이관 중 조작은 큐에 쌓았다가 새 스토어에 재적용(저장은 목표 상태로 멱등 적용)
 5. 서버 스토어로 교체, 로컬 스토리지 비움
 
-로그아웃: 이관 중단, 로컬 스토어(빈 상태)로 복귀. 서버 기록은 그대로.
+로그아웃: 이관 중단, 로컬 스토어(빈 상태)로 복귀. 서버 기록은 그대로. 이관 뒤 로컬 스토리지를 비우는 것은, 로컬이 남아 있으면 로그아웃할 때 옛 기록이 되살아나기 때문이다.
 
-결정: [서버 저장과 병합](decisions/0012-server-records-login-merge.md), [로그인 필수](decisions/0013-records-require-login.md)
+요구: [기록](requirements.md#기록), [계정](requirements.md#계정)
 
 ## 완식 흐름
 
@@ -181,7 +186,10 @@ noindex. 헤더 [←](마이) + "설정". 시트가 아닌 전용 페이지다(�
 
 회원탈퇴 시트: "정말 탈퇴할까요? / 완식·저장 기록과 남긴 사진이 모두 지워지고 되돌릴 수 없어요." [취소][탈퇴하기]. 실행 = 본인 `record-photos` 파일 삭제 → `delete_own_account()` RPC → 로컬 세션 종료 → 토스트 "탈퇴가 완료됐어요" → 홈. 실패 시 토스트 "탈퇴에 실패했어요. 잠시 후 다시 시도해 주세요."
 
-결정: [탈퇴](decisions/0017-drop-export-account-deletion.md)
+- 탈퇴는 Edge Function 없이 security definer RPC로 본인 `auth.users` 행을 지운다(profiles·records·record_photos는 cascade). 서버 코드 없이 충분하다(Supabase discussion #1066 패턴).
+- 스토리지 객체를 가진 사용자는 계정 삭제가 막혀서(Supabase 문서) 본인 `record-photos` 파일을 먼저 지운다.
+
+요구: [계정](requirements.md#계정)
 
 ## 로그인·약관 동의·프로필
 

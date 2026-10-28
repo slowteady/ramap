@@ -37,7 +37,7 @@
 ## 화면
 
 - UI 작업은 `ramap-ui` 스킬 필수(`.claude/skills/ramap-ui`). 토큰은 `src/app/globals.css`의 `@theme`만, 임의값(`w-[13px]`) 금지, 클래스 조합은 `shared/lib/utils`의 `cn()`, CSS 파일 추가 금지.
-- 라이트 모드 고정 — `.dark` 블록 금지 → [결정](../../docs/decisions/0003-light-mode-only.md)
+- 라이트 모드 고정 — `.dark` 블록 금지(카카오맵에 다크 타일이 없어 지도가 주인공인 화면에서 UI만 어둡게 할 수 없다)
 - 문구: 해요체, 짧게. 회색 보조 설명 줄·결과가 화면에 보이는 확인 토스트는 넣지 않는다. 버튼은 구체 동사("기록하기"), 일반어(확인·완료) 지양.
 - 라이브러리는 트리거가 생길 때만 도입 — 현황은 `docs/modules/platform/design.md`의 라이브러리 표.
 
@@ -60,7 +60,7 @@
 - 이슈 본문 끝에 `## 작업 유형`(UI / 데이터 / 파이프라인 / 문서)을 붙인다. UI면 `ramap-ui`, 매장 데이터면 `data-integrity`·`closure-verification` 스킬을 따른다.
 - main 직접 커밋 금지(docs·설정 1파일 예외). main 머지가 곧 Vercel 프로덕션 배포라 PO가 한다 → [결정](../../docs/decisions/0005-issue-based-workflow.md)
 - 머지 후 IndexNow(`npm run indexnow`)는 PO가 요청할 때 실행한다.
-- PR 자동 리뷰(GitHub Actions `claude-review.yml`)는 쓰지 않는다. 보일러플레이트를 복사할 때 그 파일은 빼고, 리뷰는 PR 전에 로컬 `pr-review`로 한다 → [결정](../../docs/decisions/0008-no-auto-pr-review.md)
+- PR 자동 리뷰(GitHub Actions `claude-review.yml`)는 쓰지 않는다. 보일러플레이트를 복사할 때 그 파일은 빼고, 리뷰는 PR 전에 로컬 `pr-review`로 한다 (Claude 앱·토큰 없이 두면 PR마다 실패로 표시된다)
 
 ## 검증
 

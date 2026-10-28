@@ -8,12 +8,5 @@
 | [design.md](design.md) | 제보 시트·핀 피커·/admin 코드를 고치거나 reports 스키마를 바꿀 때 |
 | [decisions/0001-open-intake-full-review.md](decisions/0001-open-intake-full-review.md) | 검수 없이 반영하자는 제안이 나왔을 때 |
 | [decisions/0002-anonymous-reports.md](decisions/0002-anonymous-reports.md) | 제보에 로그인을 요구하거나 스팸 대책을 바꿀 때 |
-| [decisions/0004-entry-point-sets-type.md](decisions/0004-entry-point-sets-type.md) | 제보 진입점·유형 구성을 바꿀 때 |
-| [decisions/0005-new-shop-link-first.md](decisions/0005-new-shop-link-first.md) | 등록 폼에 필드를 추가하자는 제안이 나왔을 때 |
-| [decisions/0007-report-photo-verification.md](decisions/0007-report-photo-verification.md) | 제보 사진 정책·게재를 다룰 때 |
-| [decisions/0013-submit-name-link-or-pin.md](decisions/0013-submit-name-link-or-pin.md) | 등록 제출 조건을 바꿀 때 |
 | [decisions/0014-closure-report-second-check.md](decisions/0014-closure-report-second-check.md) | 유형별 반영 규칙, 특히 폐업 제보를 처리할 때 |
-| [decisions/0016-review-in-app-admin.md](decisions/0016-review-in-app-admin.md) | 검수 화면 권한·위치를 바꿀 때 |
-| [decisions/0017-three-outcomes-queue-states.md](decisions/0017-three-outcomes-queue-states.md) | 처리 결과·반려 사유·다시 열기를 고칠 때 |
-| [decisions/0020-no-report-rewards.md](decisions/0020-no-report-rewards.md) | 제보 포인트·리워드 제안이 나왔을 때 |
 | [decisions/0022-contribution-feedback.md](decisions/0022-contribution-feedback.md) | 제보·사진 검수 결과를 기여자에게 보여 주는 방식을 바꿀 때 |

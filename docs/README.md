@@ -1,6 +1,6 @@
 # 라맵 문서 색인
 
-문서 규칙은 `.claude/rules/docs.md`. 지금 유효한 사실은 각 모듈의 `requirements.md`·`design.md`에만 있다. 할지 말지 정할 후보는 [백로그](backlog.md).
+문서 규칙은 `.claude/rules/docs.md`. 옛 `docs/planning`·`docs/plans`(2026-10-28 이관 전)는 git 이력에 있다. 지금 유효한 사실은 각 모듈의 `requirements.md`·`design.md`에만 있다. 할지 말지 정할 후보는 [백로그](backlog.md).
 
 ## 모듈
 
@@ -21,12 +21,7 @@
 |---|---|
 | [0001-tech-stack-lite-fsd](decisions/0001-tech-stack-lite-fsd.md) | 코드 위치·레이어·import 방향을 정할 때 |
 | [0002-third-party-data-boundary](decisions/0002-third-party-data-boundary.md) | 좌표·타사 데이터·사진·링크를 다룰 때 |
-| [0003-light-mode-only](decisions/0003-light-mode-only.md) | 테마·색을 건드릴 때 |
-| [0004-library-adoption-triggers](decisions/0004-library-adoption-triggers.md) | 새 라이브러리를 넣으려 할 때 |
 | [0005-issue-based-workflow](decisions/0005-issue-based-workflow.md) | 작업 단위·머지·배포 권한을 확인할 때 |
-| [0006-docs-module-structure](decisions/0006-docs-module-structure.md) | 옛 `docs/planning`·`docs/plans` 문서가 어디로 갔는지 찾을 때 |
-| [0007-shared-git-rules](decisions/0007-shared-git-rules.md) | 커밋·머지 형식을 확인할 때 |
-| [0008-no-auto-pr-review](decisions/0008-no-auto-pr-review.md) | 보일러플레이트를 다시 복사하거나 PR 리뷰 방식을 바꿀 때 |
 | [0009-no-live-open-status](decisions/0009-no-live-open-status.md) | 영업 상태·"영업중" 필터를 넣자는 얘기가 나올 때 |
 
 ## 공통 조사

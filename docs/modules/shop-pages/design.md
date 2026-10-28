@@ -34,7 +34,7 @@ updated: 2026-10-28
 |---|---|---|
 | 사진 | 사진이 있을 때만: 히어로 캐러셀(스냅 스와이프, `1/N`) → 탭하면 앨범 3열 그리드(`?photos=1`, 뒤로가기로 닫힘) → 전체화면 뷰어(스와이프·카운터·X). 이미지는 plain `<img>`(첫 장 eager, 나머지 lazy) | `ui/photo-gallery.tsx`, 드래그는 `shared/lib/use-drag-scroll` |
 | 뒤로 | 사진 있으면 사진 위 흰 원형 버튼, 없으면 헤더 행. `/`로 이동, aria "지도로 돌아가기" | `ui/shop-detail-page.tsx` |
-| 상호 | H1. 오픈 90일 이내면 앞에 NEW 칩(`isNewOpen`, 빌드 시점 계산) | `entities/shop/ui/new-chip.tsx` |
+| 상호 | H1. 오픈 90일 이내면 앞에 NEW 칩(`isNewOpen`, 빌드 시점 계산). 기준·다른 화면 표시는 [map 설계](../map/design.md#신규-오픈-표시) | `entities/shop/ui/new-chip.tsx` |
 | 서브라인 | `동네 \| 장르, 장르` 텍스트. 동네는 `/area/{동네}` 링크(폐업 매장은 링크 없음), 장르는 국물 → 라멘 외 형태 → taste 계보 순, 가이드가 있으면 `/guide/{slug}` 링크. 장르는 **최대 2개**, `etc-soup`·`etc-form`·`ramen` 제외. 칩 없음 | `model/genre-meta.ts` |
 | 영업 줄 | 영업 매장: `영업시간 · 브레이크 {시간} · {휴무}`(요일 휴무는 레드, "무휴"는 그대로). 휴업: "휴업 중". 폐업·이전: `폐업 · YYYY년 M월` / `이전 · …`(변경일 없으면 라벨만). 값이 없으면 숨김. 실시간 "영업 중" 판정 없음 → [공통 결정](../../decisions/0009-no-live-open-status.md) | `entities/shop/ui/open-status-badge.tsx` |
 | 완식 요약 줄 | → [records 설계](../records/design.md) | `VisitSummaryLine` |
@@ -123,7 +123,7 @@ updated: 2026-10-28
 | JSON-LD | ItemList(매장 상세 URL) + BreadcrumbList | ItemList + BreadcrumbList + FAQPage |
 
 - 매장 집합: `shopsByArea`(동네라벨 일치, 폐업 제외), `shopsByAreaGenre`(+ 국물 또는 계보 slug 포함)
-- 생성: 지역은 `listAreaPages`(동네라벨 기준 클러스터 중 영업 매장이 있는 것 — 지도 클러스터의 구 폴백 묶음은 제외), 지역×장르는 `listAreaGenrePages(shops, 3)` → [결정](decisions/0002-area-genre-page-criteria.md). 미생성 조합 요청은 `notFound()`
+- 생성: 지역은 `listAreaPages`(동네라벨 기준 클러스터 중 영업 매장이 있는 것 — 지도 클러스터의 구 폴백 묶음은 제외), 지역×장르는 `listAreaGenrePages(shops, 3)`(3곳 기준의 이유는 [요구사항](requirements.md)). 미생성 조합 요청은 `notFound()`. 모든 조합을 만들고 noindex하는 방식은 쓰지 않는다 — 크롤 표면만 늘고 사이트맵·내부 링크 정합이 깨진다
 - 색인 제외 → [결정](decisions/0008-noindex-criteria.md)
 
 ## 계보 랜딩 `/style/{계보}`
@@ -137,7 +137,7 @@ updated: 2026-10-28
 | 리스트 | 상호 + 완식 ✓(`ui/visited-check.tsx`, `useRecords().visitedIds`) / 계보·라멘 외 형태·동네 / 영업 줄. 영업 매장만 |
 | 더 알아보기 | "{계보}란? 가이드" + 다른 taste 계보 링크 |
 
-- 진행률 바 없음 → [결정](../records/decisions/0024-defer-progress-display.md)
+- 진행률 바 없음 → [records 요구사항](../records/requirements.md#1단-소목록-진행률-보류)
 - 메타: title `{계보} 라멘 지도`, description `{계보} — {설명}. 전국 {계보} 라멘집 {N}곳을 라맵에서 확인하세요.`, canonical `/style/{slug}`. JSON-LD 없음
 - trait 계보 slug 요청은 404
 
@@ -165,11 +165,11 @@ updated: 2026-10-28
 
 ## 구조화 데이터
 
-빌더는 `src/entities/shop/model/structured-data.ts`(+test) → [결정](decisions/0009-structured-data-rules.md)
+빌더는 `src/entities/shop/model/structured-data.ts`(+test). 검색엔진 필수 형식을 지키고, 확인할 수 없는 값은 싣지 않는다.
 
 | 빌더 | 쓰는 곳 | 필드 |
 |---|---|---|
-| `toJsonLdHtml(...objs)` | 모든 JSON-LD `<script>` | 1개면 객체, 여러 개면 배열로 직렬화하고 `<`를 `<`로 이스케이프 |
+| `toJsonLdHtml(...objs)` | 모든 JSON-LD `<script>` | 1개면 객체, 여러 개면 배열로 직렬화하고 `<`를 `<`로 이스케이프(Next 공식 가이드 방식). 직렬화는 이 함수 하나로만 |
 | `websiteJsonLd` | 홈(`src/views/home/ui/home-page.tsx`) | WebSite name "라맵", alternateName "Ramap", url |
 | `organizationJsonLd` | 홈 | Organization name·url·logo(`/apple-icon.png`) |
 | `restaurantJsonLd(shop, {instagramShared})` | 상세(영업 매장) | name, url, servesCuisine "라멘", address(PostalAddress: streetAddress·addressRegion=city·addressLocality=district·addressCountry KR), image(사진), geo, hasMenu(MenuItem + Offer KRW), sameAs(인스타, 공용 계정이면 생략 — `sameAs`는 같은 실체를 뜻하는데 공용 계정은 이 매장과 같은 실체가 아니다), keywords(국물 라벨). openingHours·priceRange·aggregateRating 없음 |
@@ -179,6 +179,17 @@ updated: 2026-10-28
 | `articleJsonLd` | 가이드 | headline, url, description, author·publisher Organization |
 
 공용 계정 판정 `isSharedInstagram`(`entities/shop/model/instagram.ts`): 같은 계정을 **주소가 다른** 다른 매장도 쓰면 공용.
+
+| 규칙 | 이유 |
+|---|---|
+| Restaurant `address`는 `PostalAddress` 객체(+`addressCountry: KR`) | 구글 LocalBusiness 필수 요건(name + PostalAddress) |
+| `openingHours` 없음 | 시트 원문은 hh:mm 스펙을 충족하지 못한다. 잘못된 형식은 없는 것보다 해롭다 |
+| `priceRange` 없음 | 근거 데이터가 없다 |
+| `aggregateRating`·리뷰 없음(실데이터 전까지) | 근거 없는 평점 마크업은 구글 스팸 정책상 수동 조치 대상 |
+| WebSite는 홈(루트 URL)에만, Organization logo는 112px 이상 | 구글 site-names·organization 요건 |
+| FAQPage는 기존 두 곳만, 새로 늘리지 않는다 | 구글·네이버가 FAQ 리치결과를 폐지했다. 기존 것은 무해하다 |
+| SearchAction 없음 | 사이트링크 검색창 폐지 |
+| 폐업 매장 상세에는 Restaurant 없음 | [결정](decisions/0012-closed-shop-page-indexing.md) |
 
 ## 색인·사이트맵
 

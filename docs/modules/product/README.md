@@ -6,13 +6,8 @@
 |---|---|
 | [requirements.md](requirements.md) | 라맵이 무엇이고 누구를 위해 무엇을 해야 하는지, 범위(MUST·SHOULD·범위 밖)·성장 전략·성공 지표를 확인할 때 |
 | [0001 라멘 장르 지도 선정](decisions/0001-ramen-genre-map.md) | 왜 라멘이고 왜 이 서비스인지 설명해야 할 때 |
-| [0002 문제를 분류 체계 부재로 정의](decisions/0002-problem-missing-taxonomy.md) | 지도 UI와 택소노미·데이터 중 어디에 힘을 쏟을지 판단할 때 |
 | [0004 초기 타겟 코어 라오타](decisions/0004-core-ramen-otaku-target.md) | 기능·문구를 누구 기준으로 맞출지 정할 때 |
-| [0005 무수익 지속 구조](decisions/0005-no-revenue-sustainability.md) | 유료 서비스 도입·광고·수익화를 검토할 때 |
-| [0007 의도적으로 안 하는 것](decisions/0007-intentional-non-goals.md) | 리뷰·예약·앱·어워드 같은 기능 제안이 나왔을 때 |
-| [0008 콜드스타트는 팀이 채운 데이터로](decisions/0008-cold-start-team-data.md) | 공개 시점·데이터 충실도 기준을 판단할 때 |
 | [0009 라멘 투데이 제휴와 갤러리 공개 플레이북](decisions/0009-ramen-today-and-gallery-launch.md) | 영업 변동·이벤트 정보 기능이나 커뮤니티 도구와의 관계를 다룰 때, 라멘갤 소개 글을 준비할 때 |
-| [0011 가게 단일 순위를 만들지 않는다](decisions/0011-no-single-shop-ranking.md) | 랭킹·티어·광고·줄 길이 기능 제안이 나왔을 때 |
 | [5각도 탐색 검증](research/2026-08-25-unserved-niches-five-angles.md) | 서비스 선정 1라운드 조사(34개 기회) 원자료가 필요할 때 |
 | [소비·취미 2라운드 탐색 검증](research/2026-08-25-hobby-domains-round-two.md) | 서비스 선정 2라운드 조사(29개 후보)·인접 버티컬 후보를 볼 때 |
 | [고객 발견](research/2026-08-25-customer-discovery.md) | 가설 H1~H3과 Mom Test 인터뷰 방법·판정 기준을 볼 때 |
