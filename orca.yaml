@@ -1,0 +1,3 @@
+issueCommand: |
+  {{artifact_url}} 이슈를 작업해.
+  issue-work 스킬의 절차를 처음부터 끝까지 따른다.
