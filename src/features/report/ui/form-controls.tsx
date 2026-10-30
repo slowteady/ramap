@@ -200,10 +200,12 @@ export function BottomCta({
 export function DoneView({
   title,
   description,
+  closeLabel,
   onClose,
 }: {
   title: string;
   description: string;
+  closeLabel: string;
   onClose: () => void;
 }) {
   return (
@@ -215,7 +217,7 @@ export function DoneView({
         onClick={onClose}
         className="mt-4 rounded-pill bg-ink px-6 py-3 text-body font-bold text-white"
       >
-        지도로 돌아가기
+        {closeLabel}
       </button>
     </div>
   );

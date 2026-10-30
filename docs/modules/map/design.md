@@ -15,6 +15,8 @@ updated: 2026-10-28
 | `src/views/home/ui/home-page.tsx` | 서버 컴포넌트. `getShops()` → `toMapManifest()`로 핀을 만들어 `ShopMap`에 전달. 헤더(로고·검색·프로필), WebSite·Organization JSON-LD |
 | `src/views/home/ui/shop-map.tsx` | 클라이언트 섬 조립 — 필터 칩 행, 지도, 내주변 버튼, 필터 시트, 목록 시트, 등록 시트, 검색 오버레이 |
 | `src/views/home/model/use-shop-map.ts` | 지도 view-model 훅 — 어댑터 마운트, 마커·클러스터 렌더, 목록 핀 계산, `panToPin`·`panToArea`·`locate` |
+| `src/views/home/model/use-area-focus.ts` | `?area=`를 읽어 지도 준비 후 그 지역으로 이동하고 URL에서 지운다 |
+| `src/views/home/model/locate.ts` | 현위치 실패 원인(`GeolocationPositionError.code`)별 토스트 문구 |
 | `src/views/home/model/use-map-filters.ts` | 필터 ↔ URL 동기화 훅 |
 | `src/views/home/model/use-selected-shop.ts` | 선택 매장 `?shop` 훅(선택 push, 해제 replace) |
 | `src/views/home/model/use-search-query.ts` | 검색 오버레이 `?search=1` 훅 |
@@ -72,6 +74,7 @@ updated: 2026-10-28
 | `new` | `1` | replace | 새로 오픈만 |
 | `shop` | 매장 id | 선택 push / 해제 replace | 선택 시 `search` 제거. 필터 변경 시 유지 |
 | `search` | `1` | 열기 push / 닫기 replace | 검색어는 URL에 없음 |
+| `area` | 지역 이름(`areaLabel`) | 읽은 뒤 replace로 제거 | 지도 준비 후 그 지역 핀 중심으로 이동(`panToArea`, 검색의 지역 선택과 같음). 지역 페이지의 "지도로 보기"가 넘긴다 |
 | `report`, `pick` | 등록 시트·핀 피커 | — | [report design](../report/design.md) |
 
 원칙: 공유할 가치가 있는 지도 상태는 URL이 원천이다(뒤로가기·공유 해결). 선택·오버레이 열기는 push(뒤로가기로 닫힘), 해제·필터 변경은 replace(히스토리 스팸 방지). 검색어는 선택 즉시 닫히는 내비게이터라 공유 가치가 없어 싣지 않는다. "안 가본 집"·"저장한 곳"은 내 기록에 따른 개인 상태라 로컬 상태다.
@@ -184,7 +187,7 @@ vaul Drawer, 비모달·`dismissible=false`. 제스처 규율은 `ramap-ui` 스�
 ## 현위치
 
 - 지도 준비 후 오른쪽 아래 [◎ 내주변] pill
-- 탭 → 브라우저 위치 권한 요청 → 성공 시 현위치 점 + 레벨 4로 이동. 실패·미지원 시 토스트 "위치 권한이 없어 현위치를 표시할 수 없어요"
+- 탭 → 브라우저 위치 권한 요청 → 성공 시 현위치 점 + 레벨 4로 이동. 실패하면 원인별 토스트 — 권한 거부: "위치 접근을 허용하면 내 주변 라멘집을 볼 수 있어요" / 위치 못 찾음·시간 초과: "내 위치를 찾지 못했어요. 잠시 뒤에 다시 눌러 주세요" / 브라우저 미지원: "이 브라우저에서는 내 위치를 찾을 수 없어요"
 - 진입 시에는 권한을 요청하지 않는다 — 버튼을 누른 맥락에서 요청해야 수락률이 높다
 - 거리(목록·카드)는 현위치를 얻은 뒤에만 표시
 

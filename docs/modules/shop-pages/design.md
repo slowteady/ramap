@@ -22,7 +22,7 @@ updated: 2026-10-28
 - 2뎁스 헤더는 `src/shared/ui/page-header.tsx`(뒤로가기 + 우측 보조 액션 1개, 로고·홈 링크 없음) → [ui 설계](../ui/design.md)
 - 지역 slug는 `areaLabel` 원문(한글), 장르 slug는 국물·계보 slug(`taxonomy.ts`). 매장 slug는 `shop.id`
 - `generateStaticParams`는 지역을 **인코딩하지 않은 원문**으로 반환한다(인코딩하면 Next가 이중 인코딩해 percent-encoded 요청이 404). 페이지에서는 `decodeURIComponent`로 읽는다
-- SSR 페이지에는 지도 위젯이 없다. 지도는 링크로만 이어진다(`/?shop={id}`, `/?soup={slug}`, `/?lineage={slug}`) → 홈 쪽 동작은 [map 설계](../map/design.md)
+- SSR 페이지에는 지도 위젯이 없다. 지도는 링크로만 이어진다(`/?shop={id}`, `/?soup={slug}`, `/?lineage={slug}`, `/?area={지역}`) → 홈 쪽 동작은 [map 설계](../map/design.md)
 
 ## 매장 상세 `/shop/{id}`
 
@@ -105,12 +105,12 @@ updated: 2026-10-28
 
 | 블록 | 내용 |
 |---|---|
-| 헤더 | `PageHeader` + 우측 "지도로 보기" |
+| 헤더 | `PageHeader` + 우측 "지도로 보기"(아래 "지도에서 보기"와 같은 링크) |
 | 브레드크럼 | 텍스트 `라맵 › {지역}( › {장르})` |
 | H1 | `{지역}( {장르}) 라멘 맛집 {N}곳 ({빌드 연도})` |
 | 인트로 | 지역: "{지역}의 라멘집을 한 곳에 모았습니다." + 대표 국물 분포 상위 3(`soupBreakdown`, "니보시 3곳 · …"). 지역×장르: "{지역}에서 {장르}을/를 내는 집만 모았습니다."(`es-hangul` `josa`) |
 | 매장 리스트 | 행마다 상호 / 장르 칩(`GenreChips`) / 영업 줄 + 편의(식권기·카에다마·원격 웨이팅). 상세 링크. 썸네일 없음 |
-| 지도에서 보기 | 지역: `/`. 지역×장르: `/?soup={slug}` 또는 `/?lineage={slug}` |
+| 지도에서 보기 | 지역: `/?area={지역}`. 지역×장르: `/?soup={slug}&area={지역}` 또는 `/?lineage={slug}&area={지역}` — 홈이 그 지역으로 이동(`views/area-list/model/map-href.ts`) |
 | FAQ | 지역×장르만: "{장르} 라멘이란?" → 택소노미 `description` |
 | 교차 링크 | "함께 찾는 지역·장르" 칩. 지역: 그 지역의 생성된 장르 조합 전부(↓) + 가까운 지역 6곳 `{지역} 라멘 {N}곳`(→, `nearestAreas`). 지역×장르: `{지역} 전체`(↑) + 다른 생성 조합 5개 |
 

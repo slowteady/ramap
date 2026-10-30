@@ -8,7 +8,12 @@ import {
   shouldNoindexArea,
 } from "@/entities/shop";
 import { getShops } from "@/entities/shop/api/get-shops";
-import { AreaListPage, genreLabelOf, type CrossLink } from "@/views/area-list";
+import {
+  AreaListPage,
+  areaMapHref,
+  genreLabelOf,
+  type CrossLink,
+} from "@/views/area-list";
 
 type Props = { params: Promise<{ area: string }> };
 
@@ -59,7 +64,7 @@ export default async function Page({ params }: Props) {
       genreLabel={null}
       genreDescription={null}
       shops={areaShops}
-      mapHref="/"
+      mapHref={areaMapHref(area)}
       pageUrl={`https://ramap.kr/area/${encodeURIComponent(area)}`}
       crossLinks={crossLinks}
     />

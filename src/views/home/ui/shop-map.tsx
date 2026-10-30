@@ -7,11 +7,13 @@ import type { ShopPin } from "@/entities/shop";
 import { useRecords } from "@/features/records";
 import { ReportSheet, useReportQuery } from "@/features/report";
 import { track } from "@/shared/lib/analytics";
+import { useAreaFocus } from "../model/use-area-focus";
 import { useMapFilters } from "../model/use-map-filters";
 import { useSearchQuery } from "../model/use-search-query";
 import { useSelectedShop } from "../model/use-selected-shop";
 import { useShopMap } from "../model/use-shop-map";
 import type { FilterAxis } from "../model/filter-axes";
+import { locateFailureMessage } from "../model/locate";
 import { FilterChips } from "./filter-chips";
 import { FilterSheet } from "./filter-sheet";
 import { MapFallback } from "./map-fallback";
@@ -69,6 +71,7 @@ export function ShopMap({ pins }: { pins: ShopPin[] }) {
     },
     clear,
   );
+  useAreaFocus(status === "ready", panToArea);
   const [sheetAxis, setSheetAxis] = useState<FilterAxis | null>(null);
 
   return (
@@ -116,9 +119,9 @@ export function ShopMap({ pins }: { pins: ShopPin[] }) {
               onClick={() =>
                 locate(
                   () => track("locate_clicked", { granted: true }),
-                  () => {
+                  (code) => {
                     track("locate_clicked", { granted: false });
-                    toast("위치 권한이 없어 현위치를 표시할 수 없어요");
+                    toast(locateFailureMessage(code));
                   },
                 )
               }

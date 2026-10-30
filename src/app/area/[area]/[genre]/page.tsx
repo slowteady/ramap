@@ -9,7 +9,12 @@ import {
   type GenreSlug,
 } from "@/entities/shop";
 import { getShops } from "@/entities/shop/api/get-shops";
-import { AreaListPage, genreLabelOf, type CrossLink } from "@/views/area-list";
+import {
+  AreaListPage,
+  areaMapHref,
+  genreLabelOf,
+  type CrossLink,
+} from "@/views/area-list";
 
 type Props = { params: Promise<{ area: string; genre: string }> };
 
@@ -62,7 +67,10 @@ export default async function Page({ params }: Props) {
 
   const genreShops = shopsByAreaGenre(shops, area, genre);
   const isSoup = Boolean(soupBySlug(genre));
-  const mapHref = isSoup ? `/?soup=${genre}` : `/?lineage=${genre}`;
+  const mapHref = areaMapHref(
+    area,
+    isSoup ? { soup: genre } : { lineage: genre },
+  );
 
   const crossLinks: CrossLink[] = [
     { label: `${area} 전체`, href: `/area/${encodeURIComponent(area)}` },
