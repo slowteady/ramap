@@ -1,7 +1,7 @@
-import { josa } from "es-hangul";
 import dayjs from "dayjs";
 import Link from "next/link";
 import { PageHeader } from "@/shared/ui/page-header";
+import { faqAnswer } from "../model/area-copy";
 import {
   breadcrumbJsonLd,
   faqJsonLd,
@@ -32,7 +32,7 @@ function cardMeta(shop: Shop): string {
   const parts: string[] = [];
   if (shop.amenities.includes("ticket-machine")) parts.push("식권기");
   if (shop.amenities.includes("kaedama")) parts.push("카에다마");
-  if (shop.amenities.includes("remote-waiting")) parts.push("원격 웨이팅");
+  if (shop.amenities.includes("remote-waiting")) parts.push("원격 줄서기");
   return parts.join(" · ");
 }
 
@@ -54,12 +54,16 @@ export function AreaListPage({
   crossLinks,
 }: AreaListPageProps) {
   const year = dayjs().year();
+  const breakdown = soupBreakdown(shops)
+    .slice(0, 3)
+    .map((b) => `${b.label} ${b.count}곳`)
+    .join(" · ");
   const h1 = genreLabel
     ? `${area} ${genreLabel} 라멘 맛집 ${shops.length}곳 (${year})`
     : `${area} 라멘 맛집 ${shops.length}곳 (${year})`;
   const faqs =
     genreLabel && genreDescription
-      ? [{ q: `${genreLabel} 라멘이란?`, a: `${genreDescription}입니다.` }]
+      ? [{ q: `${genreLabel} 라멘이란?`, a: faqAnswer(genreDescription) }]
       : [];
   const breadcrumb = [
     { name: "라맵", url: "https://ramap.kr" },
@@ -85,7 +89,7 @@ export function AreaListPage({
             href={mapHref}
             className="text-secondary font-semibold text-ink"
           >
-            지도로 보기
+            지도에서 보기
           </Link>
         }
       />
@@ -95,19 +99,9 @@ export function AreaListPage({
           {breadcrumb.map((b) => b.name).join(" › ")}
         </nav>
         <h1 className="text-heading font-extrabold text-ink">{h1}</h1>
-        <p className="text-secondary text-gray-500">
-          {genreLabel
-            ? `${area}에서 ${josa(genreLabel, "을/를")} 내는 집만 모았습니다.`
-            : [
-                `${area}의 라멘집을 한 곳에 모았습니다.`,
-                soupBreakdown(shops)
-                  .slice(0, 3)
-                  .map((b) => `${b.label} ${b.count}곳`)
-                  .join(" · "),
-              ]
-                .filter(Boolean)
-                .join(" ")}
-        </p>
+        {!genreLabel && breakdown && (
+          <p className="text-secondary text-gray-500">{breakdown}</p>
+        )}
       </div>
 
       <ul className="flex flex-col px-4 pt-4">
@@ -167,7 +161,7 @@ export function AreaListPage({
 
       {crossLinks.length > 0 && (
         <section className="flex flex-col gap-2 px-4 pt-8">
-          <h2 className="text-title font-bold text-ink">함께 찾는 지역·장르</h2>
+          <h2 className="text-title font-bold text-ink">근처 지역·다른 장르</h2>
           <div className="flex flex-wrap gap-2">
             {crossLinks.map((link) => (
               <Link

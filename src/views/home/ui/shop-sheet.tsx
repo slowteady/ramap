@@ -283,7 +283,7 @@ export function ShopSheet({
         ) : (
           <div className="flex h-full min-h-0 flex-col px-4 pt-1">
             <span className="shrink-0 py-2 text-secondary font-bold text-ink">
-              이 지역 매장 {listPins.length}곳
+              이 지역 라멘집 {listPins.length}곳
             </span>
             <ul
               onPointerDownCapture={(e) => {
@@ -311,8 +311,7 @@ export function ShopSheet({
               ))}
               {listPins.length === 0 && (
                 <li className="py-6 text-secondary text-gray-400">
-                  이 지역에 조건에 맞는 매장이 없어요. 지도를 움직이거나 필터를
-                  풀어보세요.
+                  지도를 옮기거나 필터를 줄이면 라멘집을 더 볼 수 있어요
                 </li>
               )}
             </ul>

@@ -47,7 +47,7 @@ export function FilterChips({
       {activeCount > 0 && (
         <button
           type="button"
-          aria-label="필터 초기화"
+          aria-label="필터 모두 지우기"
           onClick={() => onApply(EMPTY_FILTERS)}
           className="flex size-8 shrink-0 items-center justify-center rounded-pill border border-gray-100 bg-white text-gray-500 shadow-[0_1px_4px_rgba(26,27,31,0.06)] duration-150 animate-in fade-in zoom-in-95"
         >
@@ -118,7 +118,7 @@ export function FilterChips({
       })}
       {hideVisited !== null && (
         <ToggleChip
-          label="안 가본 집"
+          label="안 가본 곳"
           on={hideVisited}
           onClick={onToggleHideVisited}
         />

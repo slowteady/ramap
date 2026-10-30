@@ -110,7 +110,7 @@ export function ShopMap({ pins }: { pins: ShopPin[] }) {
           <div ref={containerRef} className="map-tone size-full" />
           {status === "loading" && (
             <div className="absolute inset-0 flex items-center justify-center bg-gray-050 text-secondary text-gray-400">
-              지도를 불러오는 중
+              지도를 불러오고 있어요
             </div>
           )}
           {status === "ready" && (
@@ -127,8 +127,7 @@ export function ShopMap({ pins }: { pins: ShopPin[] }) {
               }
               className="absolute right-3 bottom-28 z-10 flex items-center gap-1 rounded-pill bg-white py-2.5 pr-3.5 pl-3 text-secondary font-semibold text-ink shadow-[0_1px_5px_rgba(26,27,31,0.2)]"
             >
-              <LocateFixed className="size-4 text-ramen" />
-              내주변
+              <LocateFixed className="size-4 text-ramen" />내 위치
             </button>
           )}
         </div>

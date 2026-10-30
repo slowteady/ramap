@@ -13,12 +13,12 @@ const baseProps = {
 };
 
 describe("FilterChips", () => {
-  it("필터 없으면 초기화 버튼이 없다", () => {
+  it("필터 없으면 모두 지우기 버튼이 없다", () => {
     render(<FilterChips {...baseProps} filters={EMPTY_FILTERS} />);
-    expect(screen.queryByLabelText("필터 초기화")).not.toBeInTheDocument();
+    expect(screen.queryByLabelText("필터 모두 지우기")).not.toBeInTheDocument();
   });
 
-  it("활성 필터가 있으면 초기화 버튼이 나타나고 EMPTY로 되돌린다", async () => {
+  it("활성 필터가 있으면 모두 지우기 버튼이 나타나고 EMPTY로 되돌린다", async () => {
     const user = userEvent.setup();
     const onApply = vi.fn();
     render(
@@ -28,7 +28,7 @@ describe("FilterChips", () => {
         filters={{ ...EMPTY_FILTERS, soups: ["tonkotsu"] }}
       />,
     );
-    await user.click(screen.getByLabelText("필터 초기화"));
+    await user.click(screen.getByLabelText("필터 모두 지우기"));
     expect(onApply).toHaveBeenCalledWith(EMPTY_FILTERS);
   });
 

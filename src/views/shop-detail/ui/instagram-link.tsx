@@ -17,10 +17,11 @@ export function InstagramLink({
       href={instagramUrl(handle)}
       target="_blank"
       rel="noopener noreferrer"
+      aria-label="인스타그램 계정 보기"
       onClick={() => track("instagram_clicked", { shop_id: shopId, shared })}
       className="-my-2.5 flex min-h-11 items-center font-semibold text-ink underline underline-offset-2"
     >
-      인스타그램 ↗
+      계정 보기 ↗
     </a>
   );
 }

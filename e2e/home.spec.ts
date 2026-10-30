@@ -13,7 +13,7 @@ test("홈: 지도가 뜨고 상권 클러스터와 목록 카운트가 함께 �
 }) => {
   await page.goto("/");
   await waitForMap(page);
-  await expect(page.getByText(/이 지역 매장 \d+곳/)).toBeVisible();
+  await expect(page.getByText(/이 지역 라멘집 \d+곳/)).toBeVisible();
 });
 
 test("클러스터를 탭하면 그 동네로 줌인돼 개별 매장이 보인다", async ({
@@ -23,7 +23,7 @@ test("클러스터를 탭하면 그 동네로 줌인돼 개별 매장이 보인�
   await waitForMap(page);
   const count = () =>
     page
-      .getByText(/이 지역 매장 \d+곳/)
+      .getByText(/이 지역 라멘집 \d+곳/)
       .textContent()
       .then((t) => Number(t?.match(/\d+/)?.[0]));
   const before = await count();
@@ -39,14 +39,14 @@ test("클러스터를 탭하면 그 동네로 줌인돼 개별 매장이 보인�
 test("필터: 국물을 고르면 목록이 줄고 URL에 남는다", async ({ page }) => {
   await page.goto("/");
   await waitForMap(page);
-  const before = await page.getByText(/이 지역 매장 \d+곳/).textContent();
+  const before = await page.getByText(/이 지역 라멘집 \d+곳/).textContent();
 
   await page.getByRole("button", { name: /국물/ }).click();
   await page.getByRole("button", { name: /니보시/ }).click();
-  await page.getByRole("button", { name: /매장 \d+곳 보기/ }).click();
+  await page.getByRole("button", { name: /라멘집 \d+곳 보기/ }).click();
 
   await expect(page).toHaveURL(/soup=niboshi/);
-  const after = await page.getByText(/이 지역 매장 \d+곳/).textContent();
+  const after = await page.getByText(/이 지역 라멘집 \d+곳/).textContent();
   expect(after).not.toBe(before);
 });
 

@@ -17,7 +17,7 @@ export function CopyAddress({
       track("address_copied", { shop_id: shopId });
       toast("주소를 복사했어요");
     } catch {
-      toast("복사에 실패했어요. 길게 눌러 복사해 주세요.");
+      toast("주소를 복사하지 못했어요. 주소를 길게 눌러 복사해 주세요");
     }
   };
   return (

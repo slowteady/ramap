@@ -41,7 +41,7 @@ export function DetailActions({ shopId, target }: DetailActionsProps) {
       <div className="flex items-center rounded-card bg-gray-050">
         <Link href={`/?shop=${shopId}`} className={ACTION_CLASS}>
           <Map className="size-5" />
-          지도
+          지도 보기
         </Link>
         <button
           type="button"
@@ -53,7 +53,7 @@ export function DetailActions({ shopId, target }: DetailActionsProps) {
         </button>
         <button type="button" onClick={share} className={ACTION_CLASS}>
           <Share2 className="size-5" />
-          공유
+          공유하기
         </button>
       </div>
       {directionsOpen && (

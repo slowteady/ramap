@@ -26,9 +26,6 @@ export function GuideIndexPage() {
 
       <div className="flex flex-col gap-1.5 px-4 pt-1">
         <h1 className="text-heading font-extrabold text-ink">장르 가이드</h1>
-        <p className="text-secondary text-gray-500">
-          처음이라면 여기서 취향을 찾아보세요.
-        </p>
       </div>
 
       <ul className="flex flex-col px-4 pt-4">

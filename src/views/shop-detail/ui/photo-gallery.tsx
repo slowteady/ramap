@@ -44,7 +44,7 @@ export function PhotoGallery({ shopName, photos }: PhotoGalleryProps) {
             <button
               key={src}
               type="button"
-              aria-label={`사진 크게 보기 ${i + 1}`}
+              aria-label={`사진 ${i + 1} 크게 보기`}
               onClick={() => {
                 if (!heroDrag.dragged()) openAlbum();
               }}

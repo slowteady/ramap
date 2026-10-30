@@ -37,3 +37,14 @@ describe("taxonomy v2.1", () => {
     expect(AMENITIES).toHaveLength(7);
   });
 });
+
+describe("장르 설명", () => {
+  it("업계 용어 대신 일상어로 쓴다", () => {
+    for (const item of [...SOUPS, ...LINEAGES]) {
+      const description = "description" in item ? item.description : "";
+      expect(description).not.toMatch(
+        /백탁|다레|다시|크리미|클래식|퓨전|볼륨|베이스/,
+      );
+    }
+  });
+});

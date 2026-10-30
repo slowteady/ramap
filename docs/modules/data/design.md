@@ -68,7 +68,7 @@ data/enrichment/*.json (조사 결과)
 | 형태 | 라멘(`ramen`) · 츠케멘(`tsukemen`) · 마제소바(`mazesoba`) · 아부라소바(`aburasoba`) · 기타(`etc-form`) |
 | 스프 | 돈코츠(`tonkotsu`) · 쇼유(`shoyu`) · 시오(`shio`) · 미소(`miso`) · 돈코츠쇼유(`tonkotsu-shoyu`) · 니보시(`niboshi`) · 토리파이탄(`toripaitan`) · 탄탄멘(`tantanmen`) · 교카이(`gyokai`) · 토마토(`tomato`) · 기타(`etc-soup`) |
 | 계보 | 이에케(`iekei`, 맛) · 지로계(`jiro`, 맛) · 자가제면(`jikaseimen`, 특성) · 본토직영(`honto`, 특성) |
-| 편의 | 식권기 · 카에다마 · 원격 웨이팅 · 한정메뉴 · 심야 · 주차 · 1인 카운터 |
+| 편의 | 식권기 · 카에다마 · 원격 줄서기 · 한정메뉴 · 심야 · 주차 · 1인 카운터 |
 
 - 값별 결정: [3축·한국화](decisions/0001-taxonomy-axes-localization.md) · [값 구성(복수+대표·스프 구성·니보시·교카이·토마토·아부라소바·이에케 표기·무화조 제외·본토직영·편의 태그)](decisions/0002-taxonomy-values.md) · [계보 기준](decisions/0011-lineage-by-signature-ramen.md)
 - 스프 값 설명 문구(`description`)·일본어 표기(`labelJa`)도 같은 파일에 있다.
