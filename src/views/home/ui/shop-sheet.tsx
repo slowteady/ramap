@@ -82,17 +82,23 @@ function MetaRow({
         hours={pin.hours}
         breakTime={full ? pin.breakTime : null}
         closedDays={full ? pin.closedDays : null}
-        className="truncate"
+        className={full ? undefined : "truncate"}
       />
     ),
   ].filter(Boolean);
   if (parts.length === 0) return null;
 
   return (
-    <span className="flex min-w-0 items-baseline gap-1.5">
+    <span className={full ? "block" : "flex min-w-0 items-baseline gap-1.5"}>
       {parts.map((part, i) => (
         <span key={i} className="contents">
-          {i > 0 && <span className="text-secondary text-gray-300">·</span>}
+          {i > 0 && (
+            <span
+              className={cn("text-secondary text-gray-300", full && "mx-1.5")}
+            >
+              ·
+            </span>
+          )}
           {part}
         </span>
       ))}
