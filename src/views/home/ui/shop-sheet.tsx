@@ -89,7 +89,11 @@ function MetaRow({
   if (parts.length === 0) return null;
 
   return (
-    <span className={full ? "block" : "flex min-w-0 items-baseline gap-1.5"}>
+    <span
+      className={
+        full ? "block break-keep" : "flex min-w-0 items-baseline gap-1.5"
+      }
+    >
       {parts.map((part, i) => (
         <span key={i} className="contents">
           {i > 0 && (

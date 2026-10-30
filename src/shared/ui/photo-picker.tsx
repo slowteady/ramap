@@ -57,9 +57,11 @@ export function PhotoPicker({
             type="button"
             aria-label="사진 빼기"
             onClick={() => onRemove(i)}
-            className="absolute top-1 right-1 flex size-6 items-center justify-center rounded-pill bg-ink/70 text-white"
+            className="absolute top-0 right-0 flex size-11 items-start justify-end p-1"
           >
-            <X className="size-3.5" />
+            <span className="flex size-6 items-center justify-center rounded-pill bg-ink/70 text-white">
+              <X className="size-3.5" />
+            </span>
           </button>
         </div>
       ))}

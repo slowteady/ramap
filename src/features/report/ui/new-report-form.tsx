@@ -88,7 +88,7 @@ export function NewReportForm({
                         type="button"
                         aria-label="링크 삭제"
                         onClick={() => form.removeLink(i)}
-                        className="flex size-9 shrink-0 items-center justify-center rounded-pill text-gray-300"
+                        className="flex size-11 shrink-0 items-center justify-center rounded-pill text-gray-300"
                       >
                         <X className="size-4" />
                       </button>
@@ -131,7 +131,7 @@ export function NewReportForm({
                       type="button"
                       aria-label="고른 위치 지우기"
                       onClick={() => form.set("pin", null)}
-                      className="flex size-7 items-center justify-center rounded-pill text-gray-300"
+                      className="-my-2 flex size-11 items-center justify-center rounded-pill text-gray-300"
                     >
                       <X className="size-3.5" />
                     </button>

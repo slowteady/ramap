@@ -81,4 +81,18 @@ describe("FilterChips", () => {
     await user.click(chip);
     expect(onToggleSavedOnly).toHaveBeenCalled();
   });
+
+  it("같은 줄의 조작 요소는 높이를 맞춘다", () => {
+    render(
+      <FilterChips
+        {...baseProps}
+        filters={{ ...EMPTY_FILTERS, soups: ["tonkotsu"] }}
+        hasNew
+        hideVisited={false}
+      />,
+    );
+    for (const button of screen.getAllByRole("button")) {
+      expect(button.className).toMatch(/\b(h-9|size-9)\b/);
+    }
+  });
 });

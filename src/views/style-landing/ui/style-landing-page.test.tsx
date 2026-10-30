@@ -99,3 +99,27 @@ describe("StyleLandingPage 목록", () => {
     expect(screen.getByText("완식 ✓")).toBeInTheDocument();
   });
 });
+
+describe("StyleLandingPage 머리말", () => {
+  beforeEach(() => {
+    nav.current = createNavigationStub();
+  });
+
+  it("통계 밴드 대신 제목 아래 한 줄로 개수와 주요 국물을 보여준다", () => {
+    render(
+      <StyleLandingPage
+        lineage={iekei}
+        shops={[shop({}), shop({ id: "b", soups: ["tonkotsu", "shoyu"] })]}
+      />,
+    );
+    expect(screen.getByText("전국 2곳 · 주로 돈코츠·쇼유")).toBeInTheDocument();
+    expect(screen.queryByText("등록")).not.toBeInTheDocument();
+  });
+
+  it("라멘집이 없으면 등록 시트로 가는 버튼을 준다", () => {
+    render(<StyleLandingPage lineage={iekei} shops={[]} />);
+    expect(
+      screen.getByRole("link", { name: "라멘집 등록하기" }),
+    ).toHaveAttribute("href", "/?report=new");
+  });
+});

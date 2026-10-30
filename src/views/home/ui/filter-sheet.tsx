@@ -159,7 +159,7 @@ export function FilterSheet({
                 aria-label={`${config.sheetTitle} 설명 보기`}
                 onClick={() => setHelpOpen((v) => !v)}
                 className={cn(
-                  "flex items-center gap-1 text-secondary transition-colors",
+                  "flex min-h-11 items-center gap-1 text-secondary transition-colors",
                   helpOpen ? "text-ink" : "text-gray-500",
                 )}
               >

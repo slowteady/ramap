@@ -118,9 +118,11 @@ export function SearchOverlay({
               type="button"
               aria-label="지우기"
               onClick={() => setQuery("")}
-              className="flex size-5 shrink-0 items-center justify-center rounded-pill bg-gray-200 text-white"
+              className="-m-3 flex size-11 shrink-0 items-center justify-center"
             >
-              <X className="size-3" />
+              <span className="flex size-5 items-center justify-center rounded-pill bg-gray-200 text-white">
+                <X className="size-3" />
+              </span>
             </button>
           )}
         </div>
@@ -157,7 +159,7 @@ export function SearchOverlay({
                 <button
                   type="button"
                   onClick={recent.clear}
-                  className="text-caption text-gray-400"
+                  className="-my-3 py-3 text-secondary text-gray-400"
                 >
                   모두 지우기
                 </button>
@@ -176,7 +178,7 @@ export function SearchOverlay({
                     type="button"
                     aria-label={`${term} 지우기`}
                     onClick={() => recent.remove(term)}
-                    className="p-1.5 text-gray-300"
+                    className="-mr-3 flex size-11 items-center justify-center text-gray-300"
                   >
                     <X className="size-4" />
                   </button>
