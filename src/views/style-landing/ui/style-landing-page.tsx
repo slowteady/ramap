@@ -24,7 +24,7 @@ function dominantSoups(shops: Shop[]): string {
     .sort((a, b) => b[1] - a[1])
     .slice(0, 2)
     .map(([slug]) => soupBySlug(slug)?.label ?? slug)
-    .join(" · ");
+    .join("·");
 }
 
 function cardTags(shop: Shop): string {
@@ -52,16 +52,13 @@ export function StyleLandingPage({ lineage, shops }: StyleLandingPageProps) {
           action={
             <Link
               href={`/?lineage=${lineage.slug}`}
-              className="text-secondary font-semibold text-white/80"
+              className="-mr-2 flex min-h-11 items-center px-2 text-secondary font-semibold text-white/80"
             >
               지도에서 보기
             </Link>
           }
         />
         <div className="flex flex-col gap-2 px-4 pt-2">
-          <span className="text-caption font-semibold tracking-wide text-white/50">
-            스타일
-          </span>
           <div className="flex items-baseline gap-2">
             <h1 className="text-display font-extrabold">{lineage.label}</h1>
             {lineage.labelJa && (
@@ -75,27 +72,29 @@ export function StyleLandingPage({ lineage, shops }: StyleLandingPageProps) {
               {lineage.description}
             </p>
           )}
-          <div className="flex gap-5 pt-2">
-            <div className="flex flex-col">
-              <span className="text-caption text-white/50">등록</span>
-              <span className="text-title font-bold">{shops.length}곳</span>
-            </div>
-            {shops.length > 0 && (
-              <div className="flex flex-col">
-                <span className="text-caption text-white/50">국물</span>
-                <span className="text-title font-bold">
-                  {dominantSoups(shops)}
-                </span>
-              </div>
-            )}
-          </div>
+          <p className="pt-1 text-body font-semibold text-white">
+            {[
+              `전국 ${shops.length}곳`,
+              shops.length > 0 && `주로 ${dominantSoups(shops)}`,
+            ]
+              .filter(Boolean)
+              .join(" · ")}
+          </p>
         </div>
       </div>
 
       {shops.length === 0 && (
-        <p className="px-4 pt-6 text-body text-gray-400">
-          {lineage.label} 라멘집을 알면 알려주세요
-        </p>
+        <div className="flex flex-col items-start gap-3 px-4 pt-6">
+          <p className="text-body font-bold text-ink">
+            {lineage.label} 라멘집을 알면 알려주세요
+          </p>
+          <Link
+            href="/?report=new"
+            className="rounded-pill bg-ink px-6 py-3 text-body font-bold text-white"
+          >
+            라멘집 등록하기
+          </Link>
+        </div>
       )}
       <ul className="flex flex-col px-4 pt-2">
         {shops.map((shop) => (

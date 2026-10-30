@@ -48,9 +48,6 @@ function labelsOf(
 
 function infoRows(shop: Shop, instagramShared: boolean): InfoRow[] {
   const rows: InfoRow[] = [];
-  if (shop.hours) rows.push({ label: "영업시간", value: shop.hours });
-  if (shop.breakTime) rows.push({ label: "브레이크", value: shop.breakTime });
-  if (shop.closedDays) rows.push({ label: "휴무", value: shop.closedDays });
   if (shop.instagram)
     rows.push({
       label: "인스타그램",
@@ -286,7 +283,7 @@ export function ShopDetailPage({
           closedDays={shop.closedDays}
           closedAt={shop.statusChangedAt}
           goneLabel={goneLabel}
-          className="block"
+          className="block break-keep"
         />
         <VisitSummaryLine shopId={shop.id} />
         <div className="pt-3">

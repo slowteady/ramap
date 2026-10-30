@@ -45,9 +45,9 @@ export function GenreGuidePage({ guide, shops }: GenreGuidePageProps) {
         action={
           <Link
             href={mapHref}
-            className="text-secondary font-semibold text-ink"
+            className="-mr-2 flex min-h-11 items-center px-2 text-secondary font-semibold text-ink"
           >
-            지도로 보기
+            지도에서 보기
           </Link>
         }
       />

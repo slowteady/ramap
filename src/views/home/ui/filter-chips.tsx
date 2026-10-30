@@ -49,7 +49,7 @@ export function FilterChips({
           type="button"
           aria-label="필터 모두 지우기"
           onClick={() => onApply(EMPTY_FILTERS)}
-          className="flex size-8 shrink-0 items-center justify-center rounded-pill border border-gray-100 bg-white text-gray-500 shadow-[0_1px_4px_rgba(26,27,31,0.06)] duration-150 animate-in fade-in zoom-in-95"
+          className="flex size-9 shrink-0 items-center justify-center rounded-pill border border-gray-100 bg-white text-gray-500 shadow-[0_1px_4px_rgba(26,27,31,0.06)] duration-150 animate-in fade-in zoom-in-95"
         >
           <RotateCcw className="size-4" />
         </button>
@@ -63,7 +63,7 @@ export function FilterChips({
             type="button"
             onClick={() => onOpenAxis(axis.axis)}
             className={cn(
-              "flex shrink-0 items-center gap-0.5 rounded-pill border py-1.5 pr-2.5 pl-3.5 text-secondary font-semibold whitespace-nowrap",
+              "flex h-9 shrink-0 items-center gap-0.5 rounded-pill border pr-2.5 pl-3.5 text-secondary font-semibold whitespace-nowrap",
               active
                 ? "border-ramen bg-ramen-050 text-ramen"
                 : "border-gray-100 bg-white text-ink shadow-[0_1px_4px_rgba(26,27,31,0.06)]",
@@ -82,7 +82,7 @@ export function FilterChips({
           type="button"
           onClick={() => onApply({ ...filters, newOnly: !filters.newOnly })}
           className={cn(
-            "shrink-0 rounded-pill border px-3.5 py-1.5 text-secondary font-semibold whitespace-nowrap transition-colors duration-150",
+            "flex h-9 shrink-0 items-center rounded-pill border px-3.5 text-secondary font-semibold whitespace-nowrap transition-colors duration-150",
             filters.newOnly
               ? "border-ramen bg-ramen-050 text-ramen"
               : "border-gray-100 bg-white text-ink shadow-[0_1px_4px_rgba(26,27,31,0.06)]",
@@ -106,7 +106,7 @@ export function FilterChips({
               })
             }
             className={cn(
-              "shrink-0 rounded-pill border px-3.5 py-1.5 text-secondary font-semibold whitespace-nowrap transition-colors duration-150",
+              "flex h-9 shrink-0 items-center rounded-pill border px-3.5 text-secondary font-semibold whitespace-nowrap transition-colors duration-150",
               active
                 ? "border-ramen bg-ramen-050 text-ramen"
                 : "border-gray-100 bg-white text-ink shadow-[0_1px_4px_rgba(26,27,31,0.06)]",
@@ -149,7 +149,7 @@ function ToggleChip({
       aria-pressed={on}
       onClick={onClick}
       className={cn(
-        "shrink-0 rounded-pill border px-3.5 py-1.5 text-secondary font-semibold whitespace-nowrap transition-colors duration-150",
+        "flex h-9 shrink-0 items-center rounded-pill border px-3.5 text-secondary font-semibold whitespace-nowrap transition-colors duration-150",
         on
           ? "border-ramen bg-ramen-050 text-ramen"
           : "border-gray-100 bg-white text-ink shadow-[0_1px_4px_rgba(26,27,31,0.06)]",

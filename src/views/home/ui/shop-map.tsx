@@ -96,7 +96,7 @@ export function ShopMap({ pins }: { pins: ShopPin[] }) {
         <button
           type="button"
           onClick={openReport}
-          className="mr-4 shrink-0 rounded-pill bg-ramen px-3.5 py-1.5 text-secondary font-bold whitespace-nowrap text-white"
+          className="mr-4 flex h-9 shrink-0 items-center rounded-pill bg-ramen px-3.5 text-secondary font-bold whitespace-nowrap text-white"
         >
           라멘집 등록
         </button>
