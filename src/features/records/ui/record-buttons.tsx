@@ -40,6 +40,7 @@ export function RecordButtons({
       <button
         type="button"
         onClick={save}
+        aria-pressed={saved}
         className={cn(
           "flex flex-1 items-center justify-center gap-1.5 h-11 rounded-pill px-3.5 text-secondary font-bold",
           saved

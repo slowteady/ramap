@@ -18,7 +18,8 @@ export function ConsentSheet() {
     setPending(true);
     const ok = await agree();
     setPending(false);
-    if (!ok) toast("동의 처리에 실패했어요. 잠시 후 다시 시도해 주세요.");
+    if (!ok)
+      toast("동의하지 못했어요. 인터넷 연결을 확인하고 다시 눌러 주세요");
   };
 
   return (
@@ -26,7 +27,7 @@ export function ConsentSheet() {
       <DrawerContent>
         <div className="flex flex-col gap-3 px-4 pt-4 pb-8">
           <DrawerTitle className="text-title font-bold text-ink">
-            시작하기 전에 동의가 필요해요
+            약관에 동의하면 바로 시작할 수 있어요
           </DrawerTitle>
           <label className="flex items-start gap-2.5 rounded-card bg-gray-050 px-3.5 py-3">
             <input
@@ -35,9 +36,8 @@ export function ConsentSheet() {
               onChange={(e) => setChecked(e.target.checked)}
               className="mt-0.5 size-4.5 accent-[var(--color-ramen)]"
             />
-            <span className="flex flex-col gap-1 text-body text-ink">
-              <span className="font-semibold">전체 동의</span>
-              <span className="text-secondary text-gray-500">
+            <span className="text-body text-ink">
+              <span>
                 <Link
                   href="/terms"
                   target="_blank"
@@ -53,7 +53,7 @@ export function ConsentSheet() {
                 >
                   개인정보 처리방침
                 </Link>
-                에 동의합니다 (필수)
+                에 동의해요 (필수)
               </span>
             </span>
           </label>
@@ -62,7 +62,7 @@ export function ConsentSheet() {
             disabled={!checked || pending}
             onClick={submit}
             className={cn(
-              "w-full rounded-pill py-3 text-body font-bold text-white transition-colors duration-150",
+              "h-13 w-full rounded-card-lg text-body font-bold text-white transition-colors duration-150",
               checked ? "bg-ramen" : "bg-gray-200",
             )}
           >

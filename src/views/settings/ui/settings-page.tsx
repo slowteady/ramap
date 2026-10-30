@@ -19,7 +19,7 @@ import { Drawer, DrawerContent, DrawerTitle } from "@/shared/ui/drawer";
 import { MenuList, type MenuSection } from "@/shared/ui/menu-list";
 
 const POLICY_SECTION: MenuSection = {
-  label: "약관 및 정책",
+  label: "약관·정책",
   items: [
     { icon: FileText, label: "이용약관", href: "/terms" },
     { icon: ShieldCheck, label: "개인정보 처리방침", href: "/privacy" },
@@ -78,10 +78,10 @@ export function SettingsPage() {
             <div className="flex flex-col gap-4 px-4 pt-5 pb-8">
               <div className="flex flex-col gap-1">
                 <DrawerTitle className="text-title font-bold text-ink">
-                  정말 탈퇴할까요?
+                  탈퇴할까요?
                 </DrawerTitle>
                 <p className="text-secondary text-gray-500">
-                  완식·저장 기록과 남긴 사진이 모두 지워지고 되돌릴 수 없어요.
+                  완식·저장 기록과 남긴 사진이 모두 지워지고 되돌릴 수 없어요
                 </p>
               </div>
               <div className="flex gap-2">
@@ -90,7 +90,7 @@ export function SettingsPage() {
                   onClick={() => setWithdrawOpen(false)}
                   className="h-13 flex-1 rounded-card-lg bg-gray-050 text-body font-semibold text-ink"
                 >
-                  취소
+                  닫기
                 </button>
                 <button
                   type="button"
@@ -102,16 +102,18 @@ export function SettingsPage() {
                       (await deleteAccount());
                     setWithdrawing(false);
                     if (!ok) {
-                      toast("탈퇴에 실패했어요. 잠시 후 다시 시도해 주세요.");
+                      toast(
+                        "탈퇴하지 못했어요. 인터넷 연결을 확인하고 다시 눌러 주세요",
+                      );
                       return;
                     }
                     setWithdrawOpen(false);
-                    toast("탈퇴가 완료됐어요");
+                    toast("탈퇴했어요");
                     router.push("/");
                   }}
                   className="h-13 flex-1 rounded-card-lg bg-ramen text-body font-bold text-white disabled:opacity-40"
                 >
-                  {withdrawing ? "처리 중…" : "탈퇴하기"}
+                  {withdrawing ? "탈퇴하는 중…" : "탈퇴하기"}
                 </button>
               </div>
             </div>

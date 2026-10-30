@@ -41,7 +41,7 @@ describe("SettingsPage", () => {
     nav.current = createNavigationStub();
     render(<SettingsPage />);
     await user.click(screen.getByText("회원탈퇴"));
-    expect(screen.getByText("정말 탈퇴할까요?")).toBeInTheDocument();
+    expect(screen.getByText("탈퇴할까요?")).toBeInTheDocument();
   });
 
   it("비로그인이면 계정 섹션이 없다", () => {

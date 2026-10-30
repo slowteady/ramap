@@ -71,15 +71,15 @@ export function RecordLogSection({ shopId }: { shopId: string }) {
           <button
             type="button"
             onClick={() => setSheetOpen(true)}
-            className="flex items-center gap-1 text-secondary font-semibold text-ramen"
+            className="flex min-h-11 items-center gap-1 text-secondary font-semibold text-ramen"
           >
             <Camera className="size-4" />
-            남기기
+            사진 남기기
           </button>
         )}
       </div>
 
-      {entries.length > 0 ? (
+      {entries.length > 0 && (
         <ul
           {...handlers}
           className="-mx-4 flex gap-3 overflow-x-auto px-4 pb-1"
@@ -120,10 +120,6 @@ export function RecordLogSection({ shopId }: { shopId: string }) {
             </li>
           ))}
         </ul>
-      ) : (
-        <p className="text-secondary text-gray-400">
-          첫 완식 기록을 남겨보세요
-        </p>
       )}
 
       <RecordLogSheet

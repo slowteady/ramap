@@ -75,7 +75,7 @@ export function RecordLogSheet({
 
   return (
     <Drawer open onOpenChange={(next) => !next && requestClose()}>
-      <DrawerContent showClose>
+      <DrawerContent>
         <div className="flex flex-col gap-4 overflow-y-auto px-4 pt-5 pb-8">
           <DrawerTitle className="text-title font-bold text-ink">
             {visitMode && nextOrdinal
@@ -117,6 +117,8 @@ export function RecordLogSheet({
 
           <button
             type="button"
+            role="checkbox"
+            aria-checked={consent}
             onClick={() => setConsent((prev) => !prev)}
             className="flex items-center gap-2 text-left"
           >
@@ -131,13 +133,13 @@ export function RecordLogSheet({
               {consent && <Check className="size-3.5" />}
             </span>
             <span className="text-secondary text-gray-500">
-              매장 페이지에 소개돼도 좋아요
+              라멘집 페이지에 소개돼도 좋아요
             </span>
           </button>
 
           {state === "failed" && (
             <p className="text-secondary text-ramen">
-              저장에 실패했어요. 잠시 후 다시 시도해주세요
+              사진을 올리지 못했어요. 인터넷 연결을 확인하고 다시 눌러 주세요
             </p>
           )}
 
@@ -145,9 +147,9 @@ export function RecordLogSheet({
             <button
               type="button"
               onClick={requestClose}
-              className="h-13 rounded-card-lg px-5 text-body font-semibold text-gray-500"
+              className="h-13 rounded-card-lg bg-gray-050 px-5 text-body font-semibold text-ink"
             >
-              {visitMode ? "취소" : "다음에"}
+              닫기
             </button>
             <button
               type="button"
@@ -168,7 +170,7 @@ export function RecordLogSheet({
         </div>
         <DiscardDialog
           open={confirming}
-          title="기록 작성을 그만할까요?"
+          title="기록을 그만 쓸까요?"
           onLeave={() => {
             setConfirming(false);
             onClose();

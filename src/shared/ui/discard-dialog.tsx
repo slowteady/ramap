@@ -30,7 +30,7 @@ export function DiscardDialog({
         <div className="flex flex-col gap-1">
           <p className="text-title font-bold text-ink">{title}</p>
           <p className="text-secondary text-gray-500">
-            지금 나가면 작성한 내용이 사라져요
+            지금 나가면 쓴 내용이 사라져요
           </p>
         </div>
         <div className="flex gap-2">

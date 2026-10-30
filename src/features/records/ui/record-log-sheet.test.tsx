@@ -11,11 +11,11 @@ const submitRecordPhotos = vi.hoisted(() =>
 vi.mock("../model/record-photos", () => ({ submitRecordPhotos }));
 
 describe("RecordLogSheet — 미저장 이탈 확인", () => {
-  it("입력 없으면 '다음에'로 즉시 닫힌다", async () => {
+  it("입력 없으면 '닫기'로 즉시 닫힌다", async () => {
     const user = userEvent.setup();
     const onClose = vi.fn();
     render(<RecordLogSheet shopId="kinka" open onClose={onClose} />);
-    await user.click(screen.getByRole("button", { name: "다음에" }));
+    await user.click(screen.getByRole("button", { name: "닫기" }));
     expect(onClose).toHaveBeenCalledOnce();
     expect(screen.queryByRole("alertdialog")).not.toBeInTheDocument();
   });
@@ -29,9 +29,9 @@ describe("RecordLogSheet — 미저장 이탈 확인", () => {
       new File(["a"], "a.jpg", { type: "image/jpeg" }),
     );
     await user.type(screen.getByPlaceholderText(/한줄평/), "국물이 진하다");
-    await user.click(screen.getByRole("button", { name: "다음에" }));
+    await user.click(screen.getByRole("button", { name: "닫기" }));
     expect(onClose).not.toHaveBeenCalled();
-    expect(screen.getByText("기록 작성을 그만할까요?")).toBeInTheDocument();
+    expect(screen.getByText("기록을 그만 쓸까요?")).toBeInTheDocument();
 
     await user.click(screen.getByRole("button", { name: "나가기" }));
     expect(onClose).toHaveBeenCalledOnce();
@@ -46,7 +46,7 @@ describe("RecordLogSheet — 미저장 이탈 확인", () => {
       new File(["a"], "a.jpg", { type: "image/jpeg" }),
     );
     await user.type(screen.getByPlaceholderText(/한줄평/), "재방문 예정");
-    await user.click(screen.getByRole("button", { name: "다음에" }));
+    await user.click(screen.getByRole("button", { name: "닫기" }));
     const dialogButtons = screen.getAllByRole("button", {
       name: "계속 쓰기",
     });
@@ -126,7 +126,7 @@ describe("RecordLogSheet — 완식 기록(확인해야 기록)", () => {
         onClose={() => {}}
       />,
     );
-    await user.click(screen.getByRole("button", { name: "취소" }));
+    await user.click(screen.getByRole("button", { name: "닫기" }));
     expect(onVisit).not.toHaveBeenCalled();
     expect(
       screen.queryByRole("button", { name: "되돌리기" }),
@@ -152,7 +152,7 @@ describe("RecordLogSheet — 완식 기록(확인해야 기록)", () => {
     );
     await user.click(screen.getByRole("button", { name: "기록하기" }));
     expect(onVisit).not.toHaveBeenCalled();
-    expect(screen.getByText(/저장에 실패했어요/)).toBeInTheDocument();
+    expect(screen.getByText(/사진을 올리지 못했어요/)).toBeInTheDocument();
 
     await user.click(screen.getByRole("button", { name: "기록하기" }));
     expect(onVisit).toHaveBeenCalledOnce();
@@ -171,7 +171,7 @@ describe("RecordLogSheet — 업로드 실패", () => {
       new File(["a"], "a.jpg", { type: "image/jpeg" }),
     );
     await user.click(screen.getByRole("button", { name: "남기기" }));
-    expect(screen.getByText(/저장에 실패했어요/)).toBeInTheDocument();
+    expect(screen.getByText(/사진을 올리지 못했어요/)).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "남기기" })).toBeEnabled();
     expect(onClose).not.toHaveBeenCalled();
   });
