@@ -9,6 +9,7 @@ import {
   groupReports,
   linkLabel,
   parseDetails,
+  resolvedMessage,
   type AdminShop,
 } from "./report-view";
 
@@ -188,5 +189,13 @@ describe("composeReason", () => {
     );
     expect(composeReason(null, "기타 사유")).toBe("기타 사유");
     expect(composeReason(null, "  ")).toBe("");
+  });
+});
+
+describe("resolvedMessage", () => {
+  it("처리 결과마다 한 문장으로 알린다", () => {
+    expect(resolvedMessage("applied")).toBe("반영했어요");
+    expect(resolvedMessage("duplicate")).toBe("중복으로 닫았어요");
+    expect(resolvedMessage("rejected")).toBe("반려했어요");
   });
 });

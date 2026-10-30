@@ -186,25 +186,28 @@ export function useShopMap(
     [],
   );
 
-  const locate = useCallback((onGranted: () => void, onDenied: () => void) => {
-    if (!navigator.geolocation) {
-      onDenied();
-      return;
-    }
-    navigator.geolocation.getCurrentPosition(
-      ({ coords }) => {
-        onGranted();
-        const adapter = adapterRef.current;
-        if (!adapter) return;
-        const pos = { lat: coords.latitude, lng: coords.longitude };
-        setUserLocation(pos);
-        adapter.setUserLocation(pos);
-        adapter.setLevel(CLUSTER_LEVEL_THRESHOLD - 2);
-        adapter.panTo(pos);
-      },
-      () => onDenied(),
-    );
-  }, []);
+  const locate = useCallback(
+    (onGranted: () => void, onFailed: (code: number | null) => void) => {
+      if (!navigator.geolocation) {
+        onFailed(null);
+        return;
+      }
+      navigator.geolocation.getCurrentPosition(
+        ({ coords }) => {
+          onGranted();
+          const adapter = adapterRef.current;
+          if (!adapter) return;
+          const pos = { lat: coords.latitude, lng: coords.longitude };
+          setUserLocation(pos);
+          adapter.setUserLocation(pos);
+          adapter.setLevel(CLUSTER_LEVEL_THRESHOLD - 2);
+          adapter.panTo(pos);
+        },
+        (error) => onFailed(error.code),
+      );
+    },
+    [],
+  );
 
   return {
     containerRef,

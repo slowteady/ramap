@@ -1,6 +1,6 @@
 import dayjs, { type Dayjs } from "dayjs";
 import type { Shop } from "@/entities/shop";
-import type { AdminReport } from "./admin-api";
+import type { AdminReport, ReportResolution } from "./admin-api";
 
 export type AdminShop = {
   id: string;
@@ -179,6 +179,16 @@ export const PHOTO_REJECT_REASONS = [
   "본인 촬영 아님",
   "부적절",
 ] as const;
+
+const RESOLVED_MESSAGES: Record<ReportResolution, string> = {
+  applied: "반영했어요",
+  duplicate: "중복으로 닫았어요",
+  rejected: "반려했어요",
+};
+
+export function resolvedMessage(resolution: ReportResolution): string {
+  return RESOLVED_MESSAGES[resolution];
+}
 
 export function composeReason(chip: string | null, text: string): string {
   return [chip, text.trim()].filter(Boolean).join(" — ");

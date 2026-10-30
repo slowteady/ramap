@@ -19,6 +19,7 @@ import {
   linkLabel,
   parseDetails,
   REPORT_REJECT_REASONS,
+  resolvedMessage,
   type AdminShop,
   type ReportGroup,
 } from "../model/report-view";
@@ -99,10 +100,7 @@ export function ReportCard({
       return;
     }
     onChanged();
-    toastWithUndo(
-      `${RESOLUTION_LABELS[resolution]}으로 처리했어요`,
-      () => void setStatus("open"),
-    );
+    toastWithUndo(resolvedMessage(resolution), () => void setStatus("open"));
   };
 
   const reopen = async () => {
