@@ -31,3 +31,4 @@
 | [2026-09-03-post-nationwide-remaining-work](research/2026-09-03-post-nationwide-remaining-work.md) | 백로그 "backlog §N" 근거를 볼 때 |
 | [2026-09-05-competitor-benchmark](research/2026-09-05-competitor-benchmark.md) | 경쟁 서비스 기능·백로그 "benchmark" 근거를 볼 때 |
 | [2026-10-27-map-detail-review](research/2026-10-27-map-detail-review.md) | 지도·상세 개선 후보, 백로그 "research M·D·F" 근거를 볼 때 |
+| [2026-10-29-ui-copy-audit](research/2026-10-29-ui-copy-audit.md) | 화면 문구·배치를 고치거나 ui.md 위반 목록이 필요할 때 |
