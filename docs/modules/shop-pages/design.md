@@ -44,7 +44,7 @@ updated: 2026-10-28
 | 대표 메뉴 | 이름 · 가격(`N원`, 가격 없으면 이름만) | |
 | 오시는 길 | 주소 + [복사]. 정적 지도 없음 | `ui/copy-address.tsx` |
 | 완식 기록 섹션 | → [records 설계](../records/design.md) | `ui/record-log-section.tsx` |
-| 제보 진입 행 | "잘못된 정보가 있나요?" — 수정·폐업 제보 → [report 설계](../report/design.md) | `ReportEntryRow`·`ReportSheet` |
+| 제보 진입 행 | "정보가 달라졌다면 알려주세요" — 수정·폐업 제보 → [report 설계](../report/design.md) | `ReportEntryRow`·`ReportSheet` |
 | 근처 라멘집 | 3곳. 행 전체가 상세 링크(상호 + 서브라인, 서브라인 안에는 링크 없음). 자기 자신·폐업·좌표 없음 제외, 거리순, 반경 상한 없음(밀도가 낮은 지역에서 섹션을 비우면 교차 링크가 사라진다. 상권당 3곳 이상으로 차면 3km 상한 + 0곳이면 섹션 생략으로 바꾼다) | `nearbyShops(shops, shop, 3)` |
 | 하단 고정 CTA | [저장][완식] → [records 설계](../records/design.md) | `RecordCtaBar` |
 

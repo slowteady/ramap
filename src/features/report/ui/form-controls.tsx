@@ -10,14 +10,12 @@ const INPUT_CLASS =
 
 export function Field({
   label,
-  required,
   optional,
   hint,
   error,
   children,
 }: {
   label: string;
-  required?: boolean;
   optional?: boolean;
   hint?: string;
   error?: string | null;
@@ -27,7 +25,6 @@ export function Field({
     <label className="flex flex-col gap-1.5">
       <span className="text-secondary font-semibold text-ink">
         {label}
-        {required && <span className="text-ramen"> *</span>}
         {optional && (
           <span className="pl-1 font-normal text-gray-400">(선택)</span>
         )}

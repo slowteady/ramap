@@ -37,7 +37,9 @@ describe("useNewReportForm", () => {
     act(() => result.current.setLink(0, "not-a-url"));
     expect(result.current.linkError(0)).toBeNull();
     act(() => result.current.touchLink(0));
-    expect(result.current.linkError(0)).toContain("링크 형식");
+    expect(result.current.linkError(0)).toBe(
+      "주소창에 있는 주소를 그대로 붙여넣어 주세요",
+    );
   });
 
   it("사진은 MAX_PHOTOS를 넘겨 추가해도 잘린다", () => {

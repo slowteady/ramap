@@ -112,7 +112,7 @@ function AdminBody({ shops }: { shops: AdminShop[] }) {
           ))}
           {photos?.length === 0 && (
             <p className="py-16 text-center text-secondary text-gray-400">
-              검수할 사진이 없어요
+              사진을 모두 확인했어요
             </p>
           )}
         </ul>
@@ -155,7 +155,7 @@ function AdminBody({ shops }: { shops: AdminShop[] }) {
             {reports && visible.length === 0 && (
               <p className="py-16 text-center text-secondary text-gray-400">
                 {filter === "open"
-                  ? "대기 중인 제보가 없어요"
+                  ? "제보를 모두 확인했어요"
                   : "처리한 제보가 없어요"}
               </p>
             )}

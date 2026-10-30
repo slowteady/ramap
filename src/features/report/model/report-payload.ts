@@ -39,7 +39,7 @@ export const EDIT_ITEMS = [
   { key: "genre", label: "장르가 달라요" },
   { key: "amenities", label: "편의 정보가 달라요" },
   { key: "location", label: "위치가 달라요" },
-  { key: "etc", label: "기타" },
+  { key: "etc", label: "다른 게 달라요" },
 ] as const;
 
 export type EditItem = (typeof EDIT_ITEMS)[number]["key"];

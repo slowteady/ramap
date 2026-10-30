@@ -8,7 +8,7 @@ describe("DoneView", () => {
     const onClose = vi.fn();
     render(
       <DoneView
-        title="수정 요청이 접수됐어요"
+        title="고칠 내용을 보냈어요"
         description="확인하고 고쳐 둘게요"
         closeLabel="닫기"
         onClose={onClose}

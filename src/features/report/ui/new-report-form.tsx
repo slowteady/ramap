@@ -38,8 +38,8 @@ export function NewReportForm({
   if (form.phase === "done")
     return (
       <DoneView
-        title="등록 요청이 접수됐어요"
-        description="라맵이 확인한 뒤 지도에 등록해 드려요."
+        title="등록 요청을 보냈어요"
+        description="확인하고 지도에 올릴게요"
         closeLabel="지도로 돌아가기"
         onClose={onClose}
       />
@@ -49,18 +49,9 @@ export function NewReportForm({
     <>
       <div className={cn("contents", picking && "hidden")}>
         <div className="flex min-h-0 flex-1 flex-col gap-5 overflow-y-auto overscroll-contain px-4 pt-1 pb-8">
-          <div className="flex items-baseline justify-between gap-3">
-            <p className="text-body text-gray-500">
-              아직 라맵에 없는 라멘집을 알려주세요.
-            </p>
-            <span className="shrink-0 text-caption text-gray-400">
-              <span className="text-ramen">*</span> 필수
-            </span>
-          </div>
-
           <div className="grid grid-cols-3 gap-3">
             <div className="col-span-2">
-              <Field label="가게 이름" required>
+              <Field label="라멘집 이름">
                 <TextInput
                   value={draft.shopName}
                   onChange={(e) => form.set("shopName", e.target.value)}
@@ -76,10 +67,7 @@ export function NewReportForm({
           </div>
 
           <div className="flex flex-col gap-1.5">
-            <span className="text-secondary font-semibold text-ink">
-              링크
-              {!draft.pin && <span className="text-ramen"> *</span>}
-            </span>
+            <span className="text-secondary font-semibold text-ink">링크</span>
             {draft.links.map((link, i) => {
               const error = form.linkError(i);
               return (
@@ -90,6 +78,8 @@ export function NewReportForm({
                       onChange={(e) => form.setLink(i, e.target.value)}
                       onBlur={() => form.touchLink(i)}
                       inputMode="url"
+                      aria-label={`링크 ${i + 1}`}
+                      placeholder="인스타그램·카카오맵·네이버 지도 링크"
                       aria-invalid={Boolean(error)}
                       className="flex-1"
                     />
@@ -110,9 +100,6 @@ export function NewReportForm({
                 </div>
               );
             })}
-            <span className="text-caption text-gray-400">
-              인스타그램, 카카오맵, 네이버 지도 중 하나면 충분해요
-            </span>
             <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
               {draft.links.length < MAX_LINKS && (
                 <button
@@ -136,13 +123,13 @@ export function NewReportForm({
                   >
                     <MapPin className="size-4" />
                     {draft.pin
-                      ? "위치 지정됨 · 다시 지정"
-                      : "지도에서 위치 지정"}
+                      ? "위치를 골랐어요 · 다시 고르기"
+                      : "지도에서 위치 고르기"}
                   </button>
                   {draft.pin && (
                     <button
                       type="button"
-                      aria-label="지정한 위치 삭제"
+                      aria-label="고른 위치 지우기"
                       onClick={() => form.set("pin", null)}
                       className="flex size-7 items-center justify-center rounded-pill text-gray-300"
                     >
@@ -169,12 +156,13 @@ export function NewReportForm({
           <TextArea
             value={draft.message}
             onChange={(e) => form.set("message", e.target.value)}
-            placeholder="더 알려주실 내용이 있다면 자유롭게 적어주세요"
+            placeholder="더 알려줄 내용을 적어 주세요"
+            aria-label="더 알려줄 내용"
             maxLength={500}
           />
         </div>
         <BottomCta
-          label="등록하기"
+          label="보내기"
           disabled={!form.canSubmit}
           submitting={form.phase === "submitting"}
           onSubmit={form.submit}

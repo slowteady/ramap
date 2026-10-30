@@ -146,8 +146,8 @@ describe("ageLabel", () => {
   const now = dayjs("2026-10-27T12:00:00+09:00");
   it("접수 후 지난 날수", () => {
     expect(ageLabel("2026-10-27T09:00:00+09:00", now)).toBe("오늘");
-    expect(ageLabel("2026-10-26T13:00:00+09:00", now)).toBe("1일 경과");
-    expect(ageLabel("2026-10-23T13:00:00+09:00", now)).toBe("4일 경과");
+    expect(ageLabel("2026-10-26T13:00:00+09:00", now)).toBe("1일 전");
+    expect(ageLabel("2026-10-23T13:00:00+09:00", now)).toBe("4일 전");
   });
 });
 
