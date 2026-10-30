@@ -101,9 +101,6 @@ function MeBody({ shops }: { shops: Shop[] }) {
             로그인하기
             <ChevronRight className="size-5 text-gray-400" />
           </button>
-          <p className="text-secondary text-gray-500">
-            로그인하면 완식·저장 기록이 여기에 모여요
-          </p>
         </div>
         <LoginPromptSheet
           open={loginOpen}
@@ -154,11 +151,16 @@ function MeBody({ shops }: { shops: Shop[] }) {
         </div>
       </div>
 
-      <div className="sticky top-0 z-10 flex gap-5 border-b border-gray-100 bg-white px-4 pt-5">
+      <div
+        role="tablist"
+        className="sticky top-0 z-10 flex gap-5 border-b border-gray-100 bg-white px-4 pt-5"
+      >
         {TABS.map((t) => (
           <button
             key={t.key}
             type="button"
+            role="tab"
+            aria-selected={tab === t.key}
             onClick={() =>
               router.replace(t.key === "visited" ? "/me" : "/me?tab=saved", {
                 scroll: false,
@@ -233,7 +235,7 @@ function MeBody({ shops }: { shops: Shop[] }) {
                   }
                   className="h-12 w-full rounded-card-lg bg-gray-050 text-body font-semibold text-ink"
                 >
-                  기록 더보기 ({listed.length - visibleCount})
+                  {listed.length - visibleCount}개 더 보기
                 </button>
               </div>
             )}
@@ -284,7 +286,7 @@ function MeBody({ shops }: { shops: Shop[] }) {
                   }
                   className="h-12 w-full rounded-card-lg bg-gray-050 text-body font-semibold text-ink"
                 >
-                  기록 더보기 ({listed.length - visibleCount})
+                  {listed.length - visibleCount}개 더 보기
                 </button>
               </li>
             )}
@@ -293,10 +295,7 @@ function MeBody({ shops }: { shops: Shop[] }) {
       ) : (
         <div className="flex flex-1 flex-col items-center justify-center gap-2 px-4 py-16">
           <p className="text-body font-bold text-ink">
-            아직 {tab === "visited" ? "완식한" : "저장한"} 라멘집이 없어요
-          </p>
-          <p className="text-secondary text-gray-500">
-            지도에서 {tab === "visited" ? "완식" : "저장"}을 찍으면 여기에
+            지도에서 {tab === "visited" ? "완식" : "저장"}을 누르면 여기에
             모여요
           </p>
           <Link

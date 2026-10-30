@@ -34,6 +34,7 @@ export function PhotoPicker({
             type="file"
             accept="image/*"
             multiple
+            aria-label="사진 추가"
             className="sr-only"
             onChange={(e) => {
               /* FileList는 live — value 초기화 전에 복사해야 지연 실행되는 상태 업데이터가 빈 목록을 받지 않는다 */
@@ -54,7 +55,7 @@ export function PhotoPicker({
           />
           <button
             type="button"
-            aria-label="사진 삭제"
+            aria-label="사진 빼기"
             onClick={() => onRemove(i)}
             className="absolute top-1 right-1 flex size-6 items-center justify-center rounded-pill bg-ink/70 text-white"
           >

@@ -65,7 +65,7 @@ describe("MePage — 기록 목록 점진 렌더", () => {
     render(<MePage shops={shops} />);
     expect(screen.getAllByText(/^라멘집\d+$/)).toHaveLength(20);
     expect(
-      screen.getByRole("button", { name: "기록 더보기 (25)" }),
+      screen.getByRole("button", { name: "25개 더 보기" }),
     ).toBeInTheDocument();
   });
 
@@ -73,12 +73,12 @@ describe("MePage — 기록 목록 점진 렌더", () => {
     const user = userEvent.setup();
     nav.current = createNavigationStub();
     render(<MePage shops={shops} />);
-    await user.click(screen.getByRole("button", { name: /기록 더보기/ }));
+    await user.click(screen.getByRole("button", { name: /개 더 보기/ }));
     expect(screen.getAllByText(/^라멘집\d+$/)).toHaveLength(40);
-    await user.click(screen.getByRole("button", { name: "기록 더보기 (5)" }));
+    await user.click(screen.getByRole("button", { name: "5개 더 보기" }));
     expect(screen.getAllByText(/^라멘집\d+$/)).toHaveLength(45);
     expect(
-      screen.queryByRole("button", { name: /기록 더보기/ }),
+      screen.queryByRole("button", { name: /개 더 보기/ }),
     ).not.toBeInTheDocument();
   });
 });
@@ -107,7 +107,7 @@ describe("MePage — 메뉴 배치", () => {
 });
 
 describe("MePage — 기록 뷰어 (인스타 문법)", () => {
-  it("사진 셀을 탭하면 뷰어가 열리고 스와이프 사진·한줄평·매장 보기가 있다", async () => {
+  it("사진 셀을 탭하면 뷰어가 열리고 스와이프 사진·한줄평·라멘집 보기가 있다", async () => {
     myPhotos.value = [
       {
         id: 1,
@@ -147,7 +147,7 @@ describe("MePage — 기록 뷰어 (인스타 문법)", () => {
     await user.click(cell);
     expect(screen.getByText("인생 라멘")).toBeInTheDocument();
     expect(screen.getByText(/1번째 완식/)).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "매장 보기" })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: "라멘집 보기" })).toHaveAttribute(
       "href",
       "/shop/shop-44",
     );
@@ -155,7 +155,7 @@ describe("MePage — 기록 뷰어 (인스타 문법)", () => {
   });
 });
 
-describe("MePage — 완식 기록 삭제", () => {
+describe("MePage — 완식 기록 지우기", () => {
   it("사진 없는 기록도 뷰어가 열리고, 확인을 거쳐야 완식 기록이 지워진다", async () => {
     const user = userEvent.setup();
     nav.current = createNavigationStub();
@@ -165,7 +165,7 @@ describe("MePage — 완식 기록 삭제", () => {
     );
     expect(screen.getByText("완식 1회")).toBeInTheDocument();
 
-    await user.click(screen.getByRole("button", { name: "완식 기록 삭제" }));
+    await user.click(screen.getByRole("button", { name: "완식 기록 지우기" }));
     expect(clearVisit).not.toHaveBeenCalled();
     expect(screen.getByText("완식 기록을 지울까요?")).toBeInTheDocument();
 

@@ -22,7 +22,7 @@ export function LoginPromptSheet({
             라맵과 함께할까요?
           </DrawerTitle>
           <p className="text-body text-gray-400">
-            카카오 계정으로 3초 만에 시작해요
+            로그인하면 완식·저장을 기록할 수 있어요
           </p>
           <div className="w-full pt-4">
             <KakaoLoginButton />

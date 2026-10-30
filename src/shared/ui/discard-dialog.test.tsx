@@ -8,7 +8,7 @@ describe("DiscardDialog", () => {
     const { container } = render(
       <DiscardDialog
         open={false}
-        title="기록 작성을 그만할까요?"
+        title="기록을 그만 쓸까요?"
         onLeave={() => {}}
         onStay={() => {}}
       />,
@@ -23,14 +23,14 @@ describe("DiscardDialog", () => {
     render(
       <DiscardDialog
         open
-        title="기록 작성을 그만할까요?"
+        title="기록을 그만 쓸까요?"
         onLeave={onLeave}
         onStay={onStay}
       />,
     );
     expect(screen.getByRole("alertdialog")).toBeInTheDocument();
     expect(
-      screen.getByText("지금 나가면 작성한 내용이 사라져요"),
+      screen.getByText("지금 나가면 쓴 내용이 사라져요"),
     ).toBeInTheDocument();
 
     const dialog = within(screen.getByRole("alertdialog"));

@@ -115,7 +115,7 @@ export function RecordViewerSheet({
             href={`/shop/${shopId}`}
             className="mt-1 flex h-12 items-center justify-center rounded-card-lg bg-gray-050 text-body font-semibold text-ink"
           >
-            매장 보기
+            라멘집 보기
           </Link>
 
           {confirming ? (
@@ -125,7 +125,7 @@ export function RecordViewerSheet({
                   완식 기록을 지울까요?
                 </p>
                 <p className="text-secondary text-gray-500">
-                  완식 {visitCount}회 기록이 지워져요. 남긴 사진은 그대로 남아요
+                  완식 {visitCount}회 기록이 지워져요. 올린 사진은 그대로 있어요
                 </p>
               </div>
               <div className="flex gap-2">
@@ -135,7 +135,7 @@ export function RecordViewerSheet({
                   onClick={() => setConfirming(false)}
                   className="h-11 flex-1 rounded-card-lg bg-white text-body font-semibold text-ink"
                 >
-                  취소
+                  닫기
                 </button>
                 <button
                   type="button"
@@ -152,7 +152,7 @@ export function RecordViewerSheet({
               onClick={() => setConfirming(true)}
               className="flex min-h-11 items-center justify-center text-secondary text-gray-400"
             >
-              완식 기록 삭제
+              완식 기록 지우기
             </button>
           )}
         </div>

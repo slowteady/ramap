@@ -28,6 +28,7 @@ export function RecordCtaBar({ shopId }: { shopId: string }) {
         <button
           type="button"
           aria-label="저장"
+          aria-pressed={saved}
           onClick={save}
           className={cn(
             "flex size-12 shrink-0 items-center justify-center rounded-card border",
