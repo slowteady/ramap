@@ -34,15 +34,15 @@ updated: 2026-10-28
 |---|---|---|
 | 사진 | 사진이 있을 때만: 히어로 캐러셀(스냅 스와이프, `1/N`) → 탭하면 앨범 3열 그리드(`?photos=1`, 뒤로가기로 닫힘) → 전체화면 뷰어(스와이프·카운터·X). 이미지는 plain `<img>`(첫 장 eager, 나머지 lazy) | `ui/photo-gallery.tsx`, 드래그는 `shared/lib/use-drag-scroll` |
 | 뒤로 | 사진 있으면 사진 위 흰 원형 버튼, 없으면 헤더 행. `/`로 이동, aria "지도로 돌아가기" | `ui/shop-detail-page.tsx` |
-| 상호 | H1. 오픈 90일 이내면 앞에 NEW 칩(`isNewOpen`, 빌드 시점 계산). 기준·다른 화면 표시는 [map 설계](../map/design.md#신규-오픈-표시) | `entities/shop/ui/new-chip.tsx` |
+| 상호 | H1. 오픈 90일 이내면 앞에 "새로 오픈" 칩(`isNewOpen`, 빌드 시점 계산). 기준·다른 화면 표시는 [map 설계](../map/design.md#신규-오픈-표시) | `entities/shop/ui/new-chip.tsx` |
 | 서브라인 | `동네 \| 장르, 장르` 텍스트. 동네는 `/area/{동네}` 링크(폐업 매장은 링크 없음), 장르는 국물 → 라멘 외 형태 → taste 계보 순, 가이드가 있으면 `/guide/{slug}` 링크. 장르는 **최대 2개**, `etc-soup`·`etc-form`·`ramen` 제외. 칩 없음 | `model/genre-meta.ts` |
 | 영업 줄 | 영업 매장: `영업시간 · 브레이크 {시간} · {휴무}`(요일 휴무는 레드, "무휴"는 그대로). 휴업: "휴업 중". 폐업·이전: `폐업 · YYYY년 M월` / `이전 · …`(변경일 없으면 라벨만). 값이 없으면 숨김. 실시간 "영업 중" 판정 없음 → [공통 결정](../../decisions/0009-no-live-open-status.md) | `entities/shop/ui/open-status-badge.tsx` |
 | 완식 요약 줄 | → [records 설계](../records/design.md) | `VisitSummaryLine` |
-| 액션 행 | `지도 · 길찾기 · 공유` 3칸 | `ui/detail-actions.tsx` |
+| 액션 행 | `지도 보기 · 길찾기 · 공유하기` 3칸 | `ui/detail-actions.tsx` |
 | 한줄소개 | 인용 아이콘 + 테두리 박스. 값 있을 때만 | |
 | 정보 표 | `dl`, 값 있는 행만(아래 표) | `infoRows()` |
 | 대표 메뉴 | 이름 · 가격(`N원`, 가격 없으면 이름만) | |
-| 오시는 길 | 주소 + [복사]. 정적 지도 없음 | `ui/copy-address.tsx` |
+| 찾아가는 길 | 주소 + [복사]. 정적 지도 없음 | `ui/copy-address.tsx` |
 | 완식 기록 섹션 | → [records 설계](../records/design.md) | `ui/record-log-section.tsx` |
 | 제보 진입 행 | "정보가 달라졌다면 알려주세요" — 수정·폐업 제보 → [report 설계](../report/design.md) | `ReportEntryRow`·`ReportSheet` |
 | 근처 라멘집 | 3곳. 행 전체가 상세 링크(상호 + 서브라인, 서브라인 안에는 링크 없음). 자기 자신·폐업·좌표 없음 제외, 거리순, 반경 상한 없음(밀도가 낮은 지역에서 섹션을 비우면 교차 링크가 사라진다. 상권당 3곳 이상으로 차면 3km 상한 + 0곳이면 섹션 생략으로 바꾼다) | `nearbyShops(shops, shop, 3)` |
@@ -53,23 +53,23 @@ updated: 2026-10-28
 | 행 | 값 |
 |---|---|
 | 영업시간·브레이크·휴무 | 시트 원문 |
-| SNS | "인스타그램 ↗" 텍스트 새 탭 아웃링크, 터치 높이 44px. 계정명·로고 없음(타사 로고 금지 → [공통 결정](../../decisions/0002-third-party-data-boundary.md)), "인스타그램" 축약 없음(Meta 상표 규칙), 지점·브랜드 계정 구분 표기 없음(네이버 플레이스 관례) (`ui/instagram-link.tsx`) |
+| 인스타그램 | "계정 보기 ↗" 텍스트(aria "인스타그램 계정 보기") 새 탭 아웃링크, 터치 높이 44px. 계정명·로고 없음(타사 로고 금지 → [공통 결정](../../decisions/0002-third-party-data-boundary.md)), "인스타그램" 축약 없음(Meta 상표 규칙), 지점·브랜드 계정 구분 표기 없음(네이버 플레이스 관례) (`ui/instagram-link.tsx`) |
 | 국물 | 국물 라벨(`etc-soup` 제외) + 회색으로 ` · 스프 세부` |
 | 종류 | 형태 라벨(`etc-form` 제외) |
 | 스타일 | taste 계보 라벨 |
 | 좌석 | 원문 |
 | 편의 | trait 계보(자가제면·본토직영) + 편의 태그 라벨, `·` 구분 + 원격 줄서기 링크 있으면 "원격 줄서기 ↗" |
-| 오픈 | `YYYY.M` |
-| 정보 확인 | `lastVerifiedAt`를 `YYYY.M.D` |
+| 문 연 날 | `YYYY.M` |
+| 확인한 날 | `lastVerifiedAt`를 `YYYY.M.D` |
 
 ### 동작
 
 | 동작 | 규칙 | 이벤트(`track`) |
 |---|---|---|
-| 지도 | `/?shop={id}` 링크 | — |
+| 지도 보기 | `/?shop={id}` 링크 | — |
 | 길찾기 | Drawer 시트에 앱 목록. 카카오맵 `https://map.kakao.com/link/to/{상호},{lat},{lng}`(좌표 있을 때) / 네이버 지도: `naverPlace` URL, 없으면 `https://map.naver.com/p/search/{괄호 뺀 상호}` + 좌표가 있으면 `?c={WebMercator x},{y},15,0,0,0,dh`(지도 중심을 매장에 둬 가까운 동명 지점이 먼저. 비공식 파라미터라 무시돼도 이름 검색과 같다) / 티맵 `tmap://route?goalname=&goalx={lng}&goaly={lat}`(좌표 있을 때). 네이버 공식 좌표 스킴 `nmap://`은 앱 전용이고 웹 폴백이 없어 앱 미설치 폰·PC에서 열리지 않으므로 쓰지 않는다 | `directions_clicked {app, shop_id}` |
-| 공유 | `navigator.share({title: "{상호} — 라맵", url})`, 없으면 클립보드 복사 + 토스트 "링크를 복사했어요". 공유 시트 취소는 무음 | `share_clicked {method: native\|clipboard}` |
-| 주소 복사 | 클립보드 + 토스트 "주소를 복사했어요", 실패 시 "복사에 실패했어요. 길게 눌러 복사해 주세요." | `address_copied` |
+| 공유하기 | `navigator.share({title: "{상호} — 라맵", url})`, 없으면 클립보드 복사 + 토스트 "링크를 복사했어요". 공유 시트 취소는 무음 | `share_clicked {method: native\|clipboard}` |
+| 주소 복사 | 클립보드 + 토스트 "주소를 복사했어요", 실패 시 "주소를 복사하지 못했어요. 주소를 길게 눌러 복사해 주세요" | `address_copied` |
 | 인스타 | 새 탭 | `instagram_clicked {shop_id, shared}` |
 
 길찾기 링크 생성은 `src/views/shop-detail/model/directions.ts`(+test).
@@ -81,7 +81,7 @@ updated: 2026-10-28
 | 상태 | 조건 | 페이지 |
 |---|---|---|
 | `open` | `status`가 closed 아님 | 일반 |
-| `closed`·`moved` | closed + 검증 장부(`data/closure-verification.json`, `getClosureLedger`)에 판정 있음 | 제목 앞 `[폐업]`/`[이전]`, 설명 앞 "폐업한 매장입니다(YYYY년 M월). ", 영업 줄에 폐업·이전 표기, 서브라인 동네 링크 없음, Restaurant JSON-LD 없음. 색인 기준은 일반 매장과 같다 |
+| `closed`·`moved` | closed + 검증 장부(`data/closure-verification.json`, `getClosureLedger`)에 판정 있음 | 제목 앞 `[폐업]`/`[이전]`, 설명 앞 "YYYY년 M월에 문을 닫았어요. "/"YYYY년 M월에 이전했어요. "(`views/shop-detail/model/gone-description.ts`), 영업 줄에 폐업·이전 표기, 서브라인 동네 링크 없음, Restaurant JSON-LD 없음. 색인 기준은 일반 매장과 같다 |
 | `hidden` | closed인데 장부에 없음 | 정적 생성 안 함 → 404, 사이트맵 제외 |
 
 폐업 매장은 지역·지역×장르·계보·가이드 리스트와 근처 라멘집에서 빠진다. 폐업 판정 절차 → [data 설계](../data/design.md)
@@ -105,19 +105,19 @@ updated: 2026-10-28
 
 | 블록 | 내용 |
 |---|---|
-| 헤더 | `PageHeader` + 우측 "지도로 보기"(아래 "지도에서 보기"와 같은 링크) |
+| 헤더 | `PageHeader` + 우측 "지도에서 보기"(아래 버튼과 같은 링크) |
 | 브레드크럼 | 텍스트 `라맵 › {지역}( › {장르})` |
 | H1 | `{지역}( {장르}) 라멘 맛집 {N}곳 ({빌드 연도})` |
-| 인트로 | 지역: "{지역}의 라멘집을 한 곳에 모았습니다." + 대표 국물 분포 상위 3(`soupBreakdown`, "니보시 3곳 · …"). 지역×장르: "{지역}에서 {장르}을/를 내는 집만 모았습니다."(`es-hangul` `josa`) |
-| 매장 리스트 | 행마다 상호 / 장르 칩(`GenreChips`) / 영업 줄 + 편의(식권기·카에다마·원격 웨이팅). 상세 링크. 썸네일 없음 |
+| 인트로 | 지역: 대표 국물 분포 상위 3(`soupBreakdown`, "니보시 3곳 · …") 한 줄. 지역×장르: 없음(H1이 같은 말을 한다) |
+| 매장 리스트 | 행마다 상호 / 장르 칩(`GenreChips`) / 영업 줄 + 편의(식권기·카에다마·원격 줄서기). 상세 링크. 썸네일 없음 |
 | 지도에서 보기 | 지역: `/?area={지역}`. 지역×장르: `/?soup={slug}&area={지역}` 또는 `/?lineage={slug}&area={지역}` — 홈이 그 지역으로 이동(`views/area-list/model/map-href.ts`) |
-| FAQ | 지역×장르만: "{장르} 라멘이란?" → 택소노미 `description` |
-| 교차 링크 | "함께 찾는 지역·장르" 칩. 지역: 그 지역의 생성된 장르 조합 전부(↓) + 가까운 지역 6곳 `{지역} 라멘 {N}곳`(→, `nearestAreas`). 지역×장르: `{지역} 전체`(↑) + 다른 생성 조합 5개 |
+| FAQ | 지역×장르만: "{장르} 라멘이란?" → 택소노미 `description` + "이에요/예요"(`model/area-copy.ts` `faqAnswer`) |
+| 교차 링크 | "근처 지역·다른 장르" 칩. 지역: 그 지역의 생성된 장르 조합 전부(↓) + 가까운 지역 6곳 `{지역} 라멘 {N}곳`(→, `nearestAreas`). 지역×장르: `{지역} 전체`(↑) + 다른 생성 조합 5개 |
 
 | 메타 | 지역 | 지역×장르 |
 |---|---|---|
 | title | `{지역} 라멘 맛집 {N}곳` | `{지역} {장르} 라멘 맛집 {N}곳` |
-| description | `{지역}의 라멘집 {N}곳. 스프 계열·영업 정보와 위치를 라맵 지도에서 확인하세요.` | `{지역}의 {장르} 라멘집 {N}곳. 영업 정보와 위치를 라맵 지도에서 확인하세요.` |
+| description | `{지역}의 라멘집 {N}곳. 국물 종류·영업시간과 위치를 라맵 지도에서 확인하세요.` | `{지역}의 {장르} 라멘집 {N}곳. 영업 정보와 위치를 라맵 지도에서 확인하세요.` |
 | canonical | `/area/{인코딩 지역}` | `/area/{인코딩 지역}/{장르}` |
 | noindex | 매장 3곳 미만(`shouldNoindexArea`) | `etc-soup`(`shouldNoindexAreaGenre`) |
 | JSON-LD | ItemList(매장 상세 URL) + BreadcrumbList | ItemList + BreadcrumbList + FAQPage |
@@ -132,10 +132,10 @@ updated: 2026-10-28
 
 | 블록 | 내용 |
 |---|---|
-| 에디토리얼 헤더 | `bg-ink` 고정 색 블록(다크 모드 아님): `PageHeader dark` + 우측 "지도로 보기"(`/?lineage={slug}`) / "스타일" 아이브로 / 계보명(H1) + 일본어 표기 / 설명 / 통계: 등록 N곳 · 스프(많은 국물 상위 2) |
-| 빈 상태 | "아직 등록된 {계보} 매장이 없어요. 알고 계신 곳이 있다면 제보해 주세요." |
+| 에디토리얼 헤더 | `bg-ink` 고정 색 블록(다크 모드 아님): `PageHeader dark` + 우측 "지도에서 보기"(`/?lineage={slug}`) / "스타일" 아이브로 / 계보명(H1) + 일본어 표기 / 설명 / 통계: 등록 N곳 · 국물(많은 국물 상위 2) |
+| 빈 상태 | "{계보} 라멘집을 알면 알려주세요" |
 | 리스트 | 상호 + 완식 ✓(`ui/visited-check.tsx`, `useRecords().visitedIds`) / 계보·라멘 외 형태·동네 / 영업 줄. 영업 매장만 |
-| 더 알아보기 | "{계보}란? 가이드" + 다른 taste 계보 링크 |
+| 더 알아보기 | "{계보} 가이드" + 다른 taste 계보 링크 |
 
 - 진행률 바 없음 → [records 요구사항](../records/requirements.md#1단-소목록-진행률-보류)
 - 메타: title `{계보} 라멘 지도`, description `{계보} — {설명}. 전국 {계보} 라멘집 {N}곳을 라맵에서 확인하세요.`, canonical `/style/{slug}`. JSON-LD 없음
@@ -152,11 +152,11 @@ updated: 2026-10-28
 
 | 블록 | 내용 |
 |---|---|
-| 헤더 | `PageHeader` + 우측 "지도로 보기"(`/?soup=` 또는 `/?lineage=`) |
+| 헤더 | `PageHeader` + 우측 "지도에서 보기"(`/?soup=` 또는 `/?lineage=`) |
 | 제목 | 장르명(H1) + 일본어 표기 |
 | 본문 | `intro` 문단들 + `boundary` |
 | 한눈에 | 맛 · 농도 · 기원 표 |
-| 대표 {장르} 매장 | `shopsByGenre` 상위 5곳(상호 / 동네 · 한줄소개). 5곳 초과면 "지도에서 {N}곳 모두 보기" |
+| 대표 {장르} 라멘집 | `shopsByGenre` 상위 5곳(상호 / 동네 · 한줄소개). 5곳 초과면 "지도에서 {N}곳 모두 보기" |
 | 참고 | 출처 링크(새 탭) |
 
 - `shopsByGenre` 순위: 대표 국물 일치(계보는 포함 여부) > 운영자 확인(`verification === "confirmed"`) > 태깅확신도 확정(`confidence === "certain"`) > 한줄소개 있음 > 최근 확인일. 폐업 제외

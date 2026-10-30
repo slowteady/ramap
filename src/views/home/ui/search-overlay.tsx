@@ -159,7 +159,7 @@ export function SearchOverlay({
                   onClick={recent.clear}
                   className="text-caption text-gray-400"
                 >
-                  전체 삭제
+                  모두 지우기
                 </button>
               </div>
               {recent.items.map((term) => (
@@ -174,7 +174,7 @@ export function SearchOverlay({
                   </button>
                   <button
                     type="button"
-                    aria-label={`${term} 삭제`}
+                    aria-label={`${term} 지우기`}
                     onClick={() => recent.remove(term)}
                     className="p-1.5 text-gray-300"
                   >
@@ -241,9 +241,8 @@ export function SearchOverlay({
           )}
           {suggestions.length === 0 && (
             <div className="flex flex-1 flex-col items-center justify-center gap-2 py-16">
-              <p className="text-body font-bold text-ink">검색 결과가 없어요</p>
-              <p className="text-secondary text-gray-500">
-                찾는 라멘집이 라맵에 없다면 알려주세요
+              <p className="text-body font-bold text-ink">
+                찾는 라멘집을 알려주세요
               </p>
               <button
                 type="button"

@@ -54,7 +54,7 @@ export function StyleLandingPage({ lineage, shops }: StyleLandingPageProps) {
               href={`/?lineage=${lineage.slug}`}
               className="text-secondary font-semibold text-white/80"
             >
-              지도로 보기
+              지도에서 보기
             </Link>
           }
         />
@@ -82,7 +82,7 @@ export function StyleLandingPage({ lineage, shops }: StyleLandingPageProps) {
             </div>
             {shops.length > 0 && (
               <div className="flex flex-col">
-                <span className="text-caption text-white/50">스프</span>
+                <span className="text-caption text-white/50">국물</span>
                 <span className="text-title font-bold">
                   {dominantSoups(shops)}
                 </span>
@@ -94,8 +94,7 @@ export function StyleLandingPage({ lineage, shops }: StyleLandingPageProps) {
 
       {shops.length === 0 && (
         <p className="px-4 pt-6 text-body text-gray-400">
-          아직 등록된 {lineage.label} 매장이 없어요. 알고 계신 곳이 있다면
-          제보해 주세요.
+          {lineage.label} 라멘집을 알면 알려주세요
         </p>
       )}
       <ul className="flex flex-col px-4 pt-2">
@@ -133,7 +132,7 @@ export function StyleLandingPage({ lineage, shops }: StyleLandingPageProps) {
               href={`/guide/${lineage.slug}`}
               className="rounded-pill bg-gray-050 px-3.5 py-1.5 text-secondary font-semibold text-ink"
             >
-              {lineage.label}란? 가이드
+              {lineage.label} 가이드
             </Link>
           )}
           {related.map((l) => (

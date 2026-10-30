@@ -108,7 +108,7 @@ function markerEl(marker: MapMarker, onTap: (id: string) => void): HTMLElement {
     ].join(";");
     if (marker.isNew && !visited) {
       const badge = document.createElement("span");
-      badge.textContent = "NEW";
+      badge.textContent = "새로 오픈";
       badge.style.cssText =
         "display:inline-block;padding:1px 4px;border-radius:4px;background:#e23c36;color:#fff;font:800 9px Pretendard,-apple-system,sans-serif";
       label.append(badge);

@@ -151,21 +151,20 @@ export function FilterSheet({
         </div>
 
         <div className="flex items-center gap-1.5 px-4 pt-4">
-          <DrawerTitle className="text-title font-bold text-ink">
-            {config.sheetTitle}
-          </DrawerTitle>
+          <DrawerTitle className="sr-only">{config.sheetTitle}</DrawerTitle>
           {described.length > 0 && (
             <div className="relative flex items-center">
               <button
                 type="button"
-                aria-label={`${config.sheetTitle} 설명`}
+                aria-label={`${config.sheetTitle} 설명 보기`}
                 onClick={() => setHelpOpen((v) => !v)}
                 className={cn(
-                  "transition-colors",
-                  helpOpen ? "text-ink" : "text-gray-300",
+                  "flex items-center gap-1 text-secondary transition-colors",
+                  helpOpen ? "text-ink" : "text-gray-500",
                 )}
               >
                 <CircleHelp className="size-4" />
+                설명 보기
               </button>
               {helpOpen && (
                 <>
@@ -206,6 +205,7 @@ export function FilterSheet({
                 key={`${item.axis.axis}:${item.slug}`}
                 type="button"
                 onClick={() => removeValue(item)}
+                aria-label={`${item.label} 빼기`}
                 className="flex shrink-0 items-center gap-1 rounded-card border border-ramen bg-ramen-050 px-2.5 py-1.5 text-secondary font-semibold text-ramen duration-150 animate-in fade-in zoom-in-95"
               >
                 {item.label}
@@ -222,13 +222,13 @@ export function FilterSheet({
             onClick={() => onApply(EMPTY_FILTERS)}
             className="shrink-0 rounded-card border border-gray-100 bg-white px-6 py-3 text-body font-semibold text-ink disabled:text-gray-300"
           >
-            초기화
+            모두 지우기
           </button>
           <DrawerClose
             className="flex-1 rounded-card bg-ramen py-3 text-body font-bold text-white"
             onClick={onClose}
           >
-            매장 {resultCount}곳 보기
+            라멘집 {resultCount}곳 보기
           </DrawerClose>
         </div>
       </DrawerContent>

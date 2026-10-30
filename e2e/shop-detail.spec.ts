@@ -5,7 +5,7 @@ test("상세: 매장 정보·영업 상태·행동 버튼이 있다", async ({ p
   await expect(page.getByRole("heading", { name: /잇짱라멘/ })).toBeVisible();
   await expect(page.getByText("국물", { exact: true })).toBeVisible();
   await expect(page.getByRole("button", { name: "길찾기" })).toBeVisible();
-  await expect(page.getByRole("button", { name: "공유" })).toBeVisible();
+  await expect(page.getByRole("button", { name: "공유하기" })).toBeVisible();
   await expect(page.getByRole("button", { name: /완식/ })).toBeVisible();
 });
 

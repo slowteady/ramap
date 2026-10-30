@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (count === 0) return {};
   return {
     title: `${area} 라멘 맛집 ${count}곳`,
-    description: `${area}의 라멘집 ${count}곳. 스프 계열·영업 정보와 위치를 라맵 지도에서 확인하세요.`,
+    description: `${area}의 라멘집 ${count}곳. 국물 종류·영업시간과 위치를 라맵 지도에서 확인하세요.`,
     alternates: { canonical: `/area/${encodeURIComponent(area)}` },
     ...(shouldNoindexArea(count) && { robots: { index: false } }),
   };

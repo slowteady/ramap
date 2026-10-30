@@ -9,7 +9,7 @@ export function NewChip({ className }: { className?: string }) {
         className,
       )}
     >
-      NEW
+      새로 오픈
     </span>
   );
 }

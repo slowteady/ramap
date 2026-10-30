@@ -6,11 +6,12 @@ const track = vi.hoisted(() => vi.fn());
 vi.mock("@/shared/lib/analytics", () => ({ track }));
 
 describe("InstagramLink", () => {
-  it("'인스타그램' 텍스트를 새 탭 아웃링크로 보여준다 — 계정명·로고 없음(네이버 플레이스 관례·타사 로고 금지)", () => {
+  it("'계정 보기'를 새 탭 아웃링크로 보여준다 — 계정명·로고 없음(네이버 플레이스 관례·타사 로고 금지)", () => {
     render(
       <InstagramLink shopId="koi" handle="koiramen.bangbro" shared={false} />,
     );
-    const link = screen.getByRole("link", { name: /인스타그램/ });
+    const link = screen.getByRole("link", { name: "인스타그램 계정 보기" });
+    expect(link).toHaveTextContent("계정 보기");
     expect(link).not.toHaveTextContent("@");
     expect(link).toHaveAttribute(
       "href",

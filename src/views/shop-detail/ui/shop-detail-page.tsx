@@ -53,7 +53,7 @@ function infoRows(shop: Shop, instagramShared: boolean): InfoRow[] {
   if (shop.closedDays) rows.push({ label: "휴무", value: shop.closedDays });
   if (shop.instagram)
     rows.push({
-      label: "SNS",
+      label: "인스타그램",
       value: (
         <InstagramLink
           shopId={shop.id}
@@ -126,10 +126,13 @@ function infoRows(shop: Shop, instagramShared: boolean): InfoRow[] {
   }
 
   if (shop.openedAt)
-    rows.push({ label: "오픈", value: dayjs(shop.openedAt).format("YYYY.M") });
+    rows.push({
+      label: "문 연 날",
+      value: dayjs(shop.openedAt).format("YYYY.M"),
+    });
   if (shop.lastVerifiedAt)
     rows.push({
-      label: "정보 확인",
+      label: "확인한 날",
       value: dayjs(shop.lastVerifiedAt).format("YYYY.M.D"),
     });
   return rows;
@@ -348,7 +351,7 @@ export function ShopDetailPage({
 
       {shop.address && (
         <section className="flex flex-col gap-1 px-4 pt-7">
-          <h2 className="text-title font-bold text-ink">오시는 길</h2>
+          <h2 className="text-title font-bold text-ink">찾아가는 길</h2>
           <div className="flex items-center justify-between gap-3">
             <p className="text-body text-ink">{shop.address}</p>
             <CopyAddress shopId={shop.id} address={shop.address} />

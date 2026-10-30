@@ -1,4 +1,3 @@
-import dayjs from "dayjs";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import {
@@ -11,7 +10,7 @@ import {
 } from "@/entities/shop";
 import { getClosureLedger } from "@/entities/shop/api/get-closure-ledger";
 import { getShops } from "@/entities/shop/api/get-shops";
-import { ShopDetailPage } from "@/views/shop-detail";
+import { goneDescription, ShopDetailPage } from "@/views/shop-detail";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -38,9 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const topMenu = shop.menus[0];
   /* 공유 카드 설명 = 위치·장르·대표메뉴 정보 신호 (네이버=리뷰 수·카카오=주소 실측 문법) */
   const description =
-    (gone
-      ? `${goneLabel}한 매장입니다${shop.statusChangedAt ? `(${dayjs(shop.statusChangedAt).format("YYYY년 M월")})` : ""}. `
-      : "") +
+    (gone ? goneDescription(goneLabel, shop.statusChangedAt) : "") +
     ([
       shop.areaLabel ?? shop.district,
       soups,
@@ -48,9 +45,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         `${topMenu.name}${topMenu.price ? ` ${topMenu.price.toLocaleString()}원` : ""}`,
     ]
       .filter(Boolean)
-      .join(" · ") || `${shop.name} 정보를 라맵에서 확인하세요.`);
+      .join(" · ") || `${shop.name} 정보를 라맵에서 확인하세요`);
   return {
-    title: `${gone ? `[${goneLabel}] ` : ""}${shop.name} — ${shop.areaLabel ?? shop.district ?? ""} 라멘`,
+    title: `${gone ? `[${goneLabel}] ` : ""}${shop.name} — ${[shop.areaLabel ?? shop.district, "라멘"].filter(Boolean).join(" ")}`,
     description,
     alternates: { canonical: `/shop/${shop.id}` },
     ...(shouldNoindexShop(shop) && { robots: { index: false } }),

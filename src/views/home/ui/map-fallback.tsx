@@ -19,7 +19,7 @@ export function MapFallback({ pins }: { pins: ShopPin[] }) {
   return (
     <div className="flex flex-col gap-4 px-4 pb-8">
       <div className="rounded-card bg-gray-050 p-3 text-secondary text-gray-500">
-        지도를 불러오지 못했어요. 목록으로 보여드릴게요.
+        지도를 불러오지 못해 목록으로 보여 줘요
       </div>
       {[...groups.entries()].map(([area, shops]) => (
         <section key={area} className="flex flex-col gap-2">
