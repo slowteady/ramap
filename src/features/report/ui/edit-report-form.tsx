@@ -44,8 +44,8 @@ export function EditReportForm({
   if (form.phase === "done")
     return (
       <DoneView
-        title="수정 요청이 접수됐어요"
-        description="라맵이 확인한 뒤 반영해 드려요. 폐업·휴업은 한 번 더 확인해요."
+        title="고칠 내용을 보냈어요"
+        description="확인하고 고쳐 둘게요"
         closeLabel="닫기"
         onClose={onClose}
       />
@@ -56,10 +56,7 @@ export function EditReportForm({
       <div className="flex min-h-0 flex-1 flex-col gap-5 overflow-y-auto overscroll-contain px-4 pt-1 pb-8">
         <div className="flex flex-col gap-1">
           <span className="text-secondary font-semibold text-ink">
-            수정 항목
-          </span>
-          <span className="text-caption text-gray-400">
-            해당하는 것을 모두 선택해 주세요
+            무엇이 달라졌나요?
           </span>
           <div className="grid grid-cols-2 gap-x-3">
             {EDIT_ITEMS.map((item) => (
@@ -83,12 +80,10 @@ export function EditReportForm({
             <TextInput
               value={form.draft.closedEvidence}
               onChange={(e) => form.set("closedEvidence", e.target.value)}
-              placeholder="근거 링크 — 인스타 공지, 리뷰 등"
+              placeholder="확인할 수 있는 링크 (인스타그램 공지 등)"
+              aria-label="확인할 수 있는 링크"
               className="bg-white"
             />
-            <p className="text-caption text-gray-400">
-              폐업·휴업은 한 번 더 확인하고 반영해요.
-            </p>
           </div>
         )}
 
@@ -107,7 +102,7 @@ export function EditReportForm({
             <TextInput
               value={form.draft.menu}
               onChange={(e) => form.set("menu", e.target.value)}
-              placeholder="예) 니보시 시오 13,000원으로 인상"
+              placeholder="예) 니보시 시오 13,000원으로 올랐어요"
             />
           </Field>
         )}
@@ -149,11 +144,11 @@ export function EditReportForm({
           </Field>
         )}
 
-        <Field label="상세 내용" required={form.has("etc")}>
+        <Field label="더 알려줄 내용">
           <TextArea
             value={form.draft.message}
             onChange={(e) => form.set("message", e.target.value)}
-            placeholder="알고 계신 내용을 자유롭게 적어주세요"
+            placeholder="아는 내용을 적어 주세요"
             maxLength={500}
           />
         </Field>

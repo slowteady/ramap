@@ -142,7 +142,7 @@ describe("AdminPage", () => {
     render(<AdminPage shops={SHOPS} />);
     await screen.findByText("진한 국물");
     await user.click(screen.getByRole("button", { name: "반려" }));
-    const confirm = screen.getByRole("button", { name: "반려 확정" });
+    const confirm = screen.getByRole("button", { name: "반려하기" });
     expect(confirm).toBeDisabled();
     await user.click(screen.getByRole("button", { name: "본인 촬영 아님" }));
     await user.type(screen.getByPlaceholderText("직접 입력 (선택)"), "캡처");
@@ -163,7 +163,7 @@ describe("AdminPage", () => {
     expect(screen.getByText("브레이크타임 15:00-17:00")).toBeInTheDocument();
     expect(screen.getByText("11:00-21:00")).toBeInTheDocument();
     const card = screen.getByText("킨카").closest("li")!;
-    await user.click(within(card).getByRole("button", { name: "반영함" }));
+    await user.click(within(card).getByRole("button", { name: "반영하기" }));
     expect(api.resolveReports).toHaveBeenCalledWith([9], "applied", undefined);
   });
 
@@ -175,7 +175,7 @@ describe("AdminPage", () => {
     await user.click(screen.getByRole("button", { name: /제보/ }));
     expect(screen.getByRole("button", { name: "대기 2" })).toBeInTheDocument();
     const card = screen.getByText("히노아지 부산대점").closest("li")!;
-    expect(within(card).getByText(/같은 제보 1건 더/)).toBeInTheDocument();
+    expect(within(card).getByText(/같은 제보 1건/)).toBeInTheDocument();
     expect(
       within(card).getByRole("link", { name: "네이버 지도" }),
     ).toBeInTheDocument();
@@ -187,7 +187,7 @@ describe("AdminPage", () => {
     );
   });
 
-  it("메모를 펼쳐 반영함과 함께 저장한다", async () => {
+  it("메모를 펼쳐 반영과 함께 저장한다", async () => {
     profile.isAdmin = true;
     const user = userEvent.setup();
     render(<AdminPage shops={SHOPS} />);
@@ -196,7 +196,7 @@ describe("AdminPage", () => {
     const card = screen.getByText("킨카").closest("li")!;
     await user.click(within(card).getByRole("button", { name: "+ 메모 추가" }));
     await user.type(within(card).getByRole("textbox"), "전화 확인");
-    await user.click(within(card).getByRole("button", { name: "반영함" }));
+    await user.click(within(card).getByRole("button", { name: "반영하기" }));
     expect(api.resolveReports).toHaveBeenCalledWith(
       [9],
       "applied",
@@ -215,7 +215,7 @@ describe("AdminPage", () => {
     expect(
       within(card).getByText("메모: 브레이크 14:30-16:30 반영"),
     ).toBeInTheDocument();
-    expect(within(card).queryByRole("button", { name: "반영함" })).toBeNull();
+    expect(within(card).queryByRole("button", { name: "반영하기" })).toBeNull();
     expect(screen.queryByText("다시 열기")).toBeNull();
     await user.click(within(card).getByRole("button", { name: "더보기" }));
     await user.click(

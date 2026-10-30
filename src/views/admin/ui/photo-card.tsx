@@ -23,7 +23,7 @@ export function PhotoCard({
 
   const act = async (status: "approved" | "rejected", reason?: string) => {
     if (!(await reviewPhoto(photo.id, status, reason))) {
-      toast("처리에 실패했어요");
+      toast("처리하지 못했어요. 새로고침하고 다시 눌러 주세요.");
       return;
     }
     onChanged();
@@ -31,7 +31,7 @@ export function PhotoCard({
       status === "approved" ? "승인했어요" : "반려했어요",
       async () => {
         if (await resetPhoto(photo.id)) onChanged();
-        else toast("처리에 실패했어요");
+        else toast("처리하지 못했어요. 새로고침하고 다시 눌러 주세요.");
       },
     );
   };

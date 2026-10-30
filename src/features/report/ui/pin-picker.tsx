@@ -37,7 +37,7 @@ export function PinPicker({
           onClick={onCancel}
           className="pointer-events-auto absolute top-3 left-3 rounded-pill bg-white px-3.5 py-2 text-secondary font-semibold text-ink shadow-[0_1px_5px_rgba(26,27,31,0.2)]"
         >
-          취소
+          닫기
         </button>
 
         <div
@@ -69,7 +69,7 @@ export function PinPicker({
             onClick={picker.confirm}
             className="flex h-12 w-full items-center justify-center rounded-card bg-ramen text-body font-bold text-white disabled:opacity-40"
           >
-            이 위치로 지정
+            이 위치로 정하기
           </button>
         </div>
       </div>

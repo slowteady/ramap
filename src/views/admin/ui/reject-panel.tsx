@@ -51,7 +51,7 @@ export function RejectPanel({
           onClick={onCancel}
           className="h-11 rounded-pill px-4 text-secondary font-semibold text-gray-400"
         >
-          취소
+          닫기
         </button>
         <button
           type="button"
@@ -59,7 +59,7 @@ export function RejectPanel({
           onClick={() => onConfirm(reason)}
           className="h-11 rounded-pill bg-gray-500 px-5 text-secondary font-bold text-white disabled:bg-gray-200"
         >
-          반려 확정
+          반려하기
         </button>
       </div>
     </div>

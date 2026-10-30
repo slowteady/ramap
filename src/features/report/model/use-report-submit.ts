@@ -28,8 +28,8 @@ export function useReportSubmit() {
     setPhase("editing");
     toast(
       result.reason === "unconfigured"
-        ? "접수 준비 중이에요. 인스타그램 DM으로 보내주세요."
-        : "전송에 실패했어요. 잠시 후 다시 시도해 주세요.",
+        ? "지금은 인스타그램 메시지로 보내 주세요. 입력한 내용은 그대로 있어요."
+        : "보내지 못했어요. 인터넷 연결을 확인하고 다시 보내 주세요.",
     );
   }, []);
 

@@ -91,12 +91,12 @@ export function ReportCard({
 
   const setStatus = async (status: AdminReport["status"]) => {
     if (await setReportsStatus(ids, status)) onChanged();
-    else toast("처리에 실패했어요");
+    else toast("처리하지 못했어요. 새로고침하고 다시 눌러 주세요.");
   };
 
   const resolve = async (resolution: ReportResolution, note?: string) => {
     if (!(await resolveReports(ids, resolution, note))) {
-      toast("처리에 실패했어요");
+      toast("처리하지 못했어요. 새로고침하고 다시 눌러 주세요.");
       return;
     }
     onChanged();
@@ -105,7 +105,7 @@ export function ReportCard({
 
   const reopen = async () => {
     if (!(await setReportsStatus(ids, "open"))) {
-      toast("처리에 실패했어요");
+      toast("처리하지 못했어요. 새로고침하고 다시 눌러 주세요.");
       return;
     }
     onChanged();
@@ -157,8 +157,8 @@ export function ReportCard({
             {` · #${r.id}`}
             {duplicates.length > 0 &&
               (done
-                ? ` 외 ${duplicates.length}건`
-                : ` · 같은 제보 ${duplicates.length}건 더`)}
+                ? ` · 같은 제보 ${duplicates.length}건`
+                : ` · 같은 제보 ${duplicates.length}건`)}
           </p>
         </div>
         {done ? (
@@ -274,7 +274,7 @@ export function ReportCard({
                 type="text"
                 value={memo}
                 onChange={(e) => setMemo(e.target.value)}
-                placeholder="메모 (반영함·중복과 함께 저장)"
+                placeholder="메모"
                 className="h-11 min-w-0 rounded-card border border-gray-150 px-3 text-secondary"
               />
             ) : (
@@ -295,7 +295,7 @@ export function ReportCard({
                 className="flex h-11 items-center gap-1 rounded-pill bg-ramen px-5 text-secondary font-bold text-white"
               >
                 <Check className="size-4" />
-                반영함
+                반영하기
               </button>
               <button
                 type="button"

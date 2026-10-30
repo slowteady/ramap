@@ -97,7 +97,7 @@ export function useNewReportForm() {
     (index: number) => {
       const value = draft.links[index]?.trim() ?? "";
       return touchedLinks.includes(index) && value !== "" && !isLikelyUrl(value)
-        ? "링크 형식이 아니에요. 주소창의 URL을 붙여넣어 주세요."
+        ? "주소창에 있는 주소를 그대로 붙여넣어 주세요"
         : null;
     },
     [draft.links, touchedLinks],
@@ -110,7 +110,7 @@ export function useNewReportForm() {
       if (draft.photos.length > 0) {
         const uploaded = await uploadReportPhotos(draft.photos, "new");
         if (!uploaded) {
-          toast("사진 업로드에 실패했어요. 사진을 빼거나 다시 시도해 주세요.");
+          toast("사진을 올리지 못했어요. 사진을 빼거나 다시 보내 주세요.");
           return null;
         }
         paths = uploaded;
@@ -174,7 +174,7 @@ export function useEditReportForm(target: ReportTarget) {
       if (draft.photos.length > 0) {
         const uploaded = await uploadReportPhotos(draft.photos, "edit");
         if (!uploaded) {
-          toast("사진 업로드에 실패했어요. 사진을 빼거나 다시 시도해 주세요.");
+          toast("사진을 올리지 못했어요. 사진을 빼거나 다시 보내 주세요.");
           return null;
         }
         paths = uploaded;

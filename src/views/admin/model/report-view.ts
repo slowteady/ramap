@@ -196,7 +196,7 @@ export function composeReason(chip: string | null, text: string): string {
 
 export function ageLabel(createdAt: string, now: Dayjs): string {
   const days = now.startOf("day").diff(dayjs(createdAt).startOf("day"), "day");
-  return days <= 0 ? "오늘" : `${days}일 경과`;
+  return days <= 0 ? "오늘" : `${days}일 전`;
 }
 
 const receivedAt = (g: ReportGroup) =>
