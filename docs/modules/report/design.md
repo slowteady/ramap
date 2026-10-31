@@ -123,13 +123,13 @@ updated: 2026-10-28
 | `message` | 자유 입력 | 더 알려줄 내용 |
 | `details` | `{ type, shopName, branch?, links?, pin?, photos?, message? }` | `{ type, shopId, shopName, items, fields: { closed?: {status, evidence?}, hours?, menu?, location?, genre?: {soups?, forms?, lineages?}, amenities? }, photos?, message? }` |
 
-`reports` 나머지 컬럼: `id`, `created_at`, `user_id`(nullable, `auth.users` 참조, 탈퇴하면 null로 — 제보는 익명으로 남는다), `status`(`open`/`done`, 기본 open), `resolution`(`applied`/`duplicate`/`rejected`), `note`, `resolved_at`. `type` check에 `closed`가 남아 있지만 쓰지 않는다.
+`reports` 나머지 컬럼: `id`, `created_at`, `user_id`(nullable, `auth.users` 참조, 탈퇴하면 null로 — 제보는 익명으로 남는다), `status`(`open`/`done`, 기본 open), `resolution`(`applied`/`duplicate`/`rejected`), `reject_reason`(반려 사유 칩만), `note`(운영자 메모 — 제보자에게 보이지 않음), `resolved_at`. `type` check에 `closed`가 남아 있지만 쓰지 않는다.
 
 권한(RLS):
 
 | 대상 | 정책 |
 |---|---|
-| `reports` | insert는 `user_id`가 null이거나 본인일 때만, select는 본인 제보 + 관리자 전체, update는 관리자만 |
+| `reports` | insert는 `user_id`가 null이거나 본인일 때만, select·update는 관리자만. 제보자는 메모를 뺀 security definer 함수 `my_reports()`로만 본인 제보를 읽는다(스팸 사유는 null로) |
 | `report-photos` 버킷(비공개, 5MB, `image/jpeg`) | anon·authenticated 업로드, 관리자만 열람 |
 
 - 운영 DB의 칸·정책 변경은 `supabase/schema.sql`에 먼저 쓰고 마이그레이션으로 적용한다. 대시보드에서 정책을 직접 만들지 않는다 — 운영에만 있는 정책이 규칙을 무력화한 적이 있다(2026-11-01 `reports_insert_any`). 칸을 새로 쓰는 코드는 운영 적용·조회 확인 뒤에 머지한다
@@ -164,6 +164,7 @@ updated: 2026-10-28
 - 사진 썸네일(80px, 새 탭 원본).
 - 액션(대기): [+ 메모 추가] → 입력(플레이스홀더 "메모") / [✓ 반영하기] [중복] … 오른쪽 끝 [반려] → 반려 패널(확인 불가·라멘집 아님·정보 불일치·스팸 + 직접 입력). 반려를 반영하기와 떨어뜨리는 것은 결과가 다른 버튼을 붙여 두지 않기 위해서다(NN/g).
 - 처리 → `status=done`·결과·메모·처리 시각 기록, 토스트는 결과별 문장 "반영했어요"/"중복으로 닫았어요"/"반려했어요" + 10초 [되돌리기](→ open).
+- 반려는 사유 칩을 `reject_reason`, 직접 입력을 `note`에 따로 저장한다(`resolvePatch`). 처리됨 카드에 "사유: …"와 "메모: …"를 따로 보인다.
 - 다시 열기(⋯ 메뉴) → `status=open`만 변경(결과·메모·처리일 보존), 토스트 "다시 열었어요" + [되돌리기](→ done).
 - 실패 시 토스트 "처리하지 못했어요. 새로고침하고 다시 눌러 주세요."(사진 검수도 같음). 비어 있으면 "사진을 모두 확인했어요" / "제보를 모두 확인했어요"(대기) / "처리한 제보가 없어요"(처리됨).
 
@@ -171,6 +172,22 @@ updated: 2026-10-28
 - 처리(제보·사진)와 다시 열기는 확인 창 없이 즉시 실행하고 10초 되돌리기 토스트를 띄운다. 연달아 처리하는 검수자에게 확인 창은 느리고 습관적으로 눌러 실수도 막지 못한다(NN/g, Polaris 액션 토스트 ≥10초).
 
 요구: [검수](requirements.md#검수)
+
+## 내 제보 결과
+
+마이 "제보" 탭(→ [records 설계](../records/design.md#마이-me))에서 보이는 상태와 문장. `views/me/model/report-result.ts` `reportResult`.
+
+| 조건 | 상태 | 문장 | 링크 |
+|---|---|---|---|
+| `status=open`(다시 열림 포함) 또는 결과 없음 | 검토 중 | — | — |
+| `applied` | 반영됨 | "지도에 반영했어요" | 정보 수정만 [라멘집 보기 ›](`/shop/{shopId}`) |
+| `duplicate` | 이미 있는 정보 | "이미 라맵에 있는 정보예요" | — |
+| `rejected` + 확인 불가 | 반영 안 됨 | "보내 준 정보로는 확인하지 못했어요" | — |
+| `rejected` + 라멘집 아님 | 반영 안 됨 | "라멘을 내는 곳이 아니라서 지도에 올리지 않았어요" | — |
+| `rejected` + 정보 불일치 | 반영 안 됨 | "확인한 정보와 달라서 반영하지 않았어요" | — |
+| `rejected` + 스팸·사유 없음 | 반영 안 됨 | — | — |
+
+운영자 메모(`note`)는 어떤 경우에도 제보자에게 보내지 않는다(함수가 반환하지 않음).
 
 ## 운영 흐름
 
@@ -188,7 +205,7 @@ updated: 2026-10-28
 
 ## 이용 통계 이벤트
 
-`report_opened`(type new/edit) · `report_submitted`(type, 성공 여부, `logged_in` — 로그인 제보 비율 지표). 규칙은 [platform 설계](../platform/design.md)
+`report_opened`(type new/edit) · `report_submitted`(type, 성공 여부, `logged_in` — 로그인 제보 비율 지표) · `my_reports_viewed`(count, new_results — 결과 확인율·재제보율 지표). 규칙은 [platform 설계](../platform/design.md)
 
 ## 알려진 한계
 

@@ -42,6 +42,7 @@ const api = vi.hoisted(() => ({
       createdAt: "2026-09-03T09:00:00Z",
       status: "open" as const,
       resolution: null,
+      rejectReason: null,
       note: null,
       resolvedAt: null,
     },
@@ -59,6 +60,7 @@ const api = vi.hoisted(() => ({
       createdAt: "2026-10-23T04:11:00Z",
       status: "open" as const,
       resolution: null,
+      rejectReason: null,
       note: null,
       resolvedAt: null,
     },
@@ -75,6 +77,7 @@ const api = vi.hoisted(() => ({
       createdAt: "2026-10-23T04:10:00Z",
       status: "open" as const,
       resolution: null,
+      rejectReason: null,
       note: null,
       resolvedAt: null,
     },
@@ -89,6 +92,7 @@ const api = vi.hoisted(() => ({
       createdAt: "2026-10-23T16:43:00Z",
       status: "done" as const,
       resolution: "applied" as const,
+      rejectReason: null,
       note: "브레이크 14:30-16:30 반영",
       resolvedAt: "2026-10-27T03:00:00Z",
     },
@@ -164,7 +168,12 @@ describe("AdminPage", () => {
     expect(screen.getByText("11:00-21:00")).toBeInTheDocument();
     const card = screen.getByText("킨카").closest("li")!;
     await user.click(within(card).getByRole("button", { name: "반영하기" }));
-    expect(api.resolveReports).toHaveBeenCalledWith([9], "applied", undefined);
+    expect(api.resolveReports).toHaveBeenCalledWith(
+      [9],
+      "applied",
+      undefined,
+      undefined,
+    );
   });
 
   it("같은 링크의 신규 제보는 한 카드로 묶여 함께 처리된다", async () => {
@@ -184,6 +193,29 @@ describe("AdminPage", () => {
       [7, 6],
       "duplicate",
       undefined,
+      undefined,
+    );
+  });
+
+  it("제보 반려는 사유 칩과 직접 입력을 따로 넘긴다", async () => {
+    profile.isAdmin = true;
+    const user = userEvent.setup();
+    render(<AdminPage shops={SHOPS} />);
+    await screen.findByText("진한 국물");
+    await user.click(screen.getByRole("button", { name: /제보/ }));
+    const card = screen.getByText("킨카").closest("li")!;
+    await user.click(within(card).getByRole("button", { name: "반려" }));
+    await user.click(within(card).getByRole("button", { name: "확인 불가" }));
+    await user.type(
+      within(card).getByPlaceholderText("직접 입력 (선택)"),
+      "전화 안 받음",
+    );
+    await user.click(within(card).getByRole("button", { name: "반려하기" }));
+    expect(api.resolveReports).toHaveBeenCalledWith(
+      [9],
+      "rejected",
+      "전화 안 받음",
+      "확인 불가",
     );
   });
 
@@ -201,6 +233,7 @@ describe("AdminPage", () => {
       [9],
       "applied",
       "전화 확인",
+      undefined,
     );
   });
 
