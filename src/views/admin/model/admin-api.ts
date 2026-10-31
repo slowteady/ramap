@@ -1,5 +1,6 @@
 import dayjs from "dayjs";
 import { getSupabase } from "@/shared/api/supabase";
+import { PHOTO_RESET_PATCH, photoReviewPatch } from "./report-view";
 
 const RECORD_BUCKET = "record-photos";
 const REPORT_BUCKET = "report-photos";
@@ -91,7 +92,7 @@ export async function reviewPhoto(
   if (!client) return false;
   const { error } = await client
     .from("record_photos")
-    .update({ status, reject_reason: rejectReason ?? null })
+    .update(photoReviewPatch(status, rejectReason, dayjs()))
     .eq("id", id);
   return !error;
 }
@@ -101,7 +102,7 @@ export async function resetPhoto(id: number): Promise<boolean> {
   if (!client) return false;
   const { error } = await client
     .from("record_photos")
-    .update({ status: "pending", reject_reason: null })
+    .update(PHOTO_RESET_PATCH)
     .eq("id", id);
   return !error;
 }

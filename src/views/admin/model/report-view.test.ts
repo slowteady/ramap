@@ -10,6 +10,8 @@ import {
   linkLabel,
   parseDetails,
   resolvedMessage,
+  photoReviewPatch,
+  PHOTO_RESET_PATCH,
   type AdminShop,
 } from "./report-view";
 
@@ -197,5 +199,28 @@ describe("resolvedMessage", () => {
     expect(resolvedMessage("applied")).toBe("반영했어요");
     expect(resolvedMessage("duplicate")).toBe("중복으로 닫았어요");
     expect(resolvedMessage("rejected")).toBe("반려했어요");
+  });
+});
+
+describe("사진 검수 기록", () => {
+  const now = dayjs("2026-10-31T10:00:00+09:00");
+
+  it("승인·반려하면 검수 시각을 남긴다", () => {
+    expect(photoReviewPatch("approved", undefined, now)).toEqual({
+      status: "approved",
+      reject_reason: null,
+      reviewed_at: now.toISOString(),
+    });
+    expect(photoReviewPatch("rejected", "부적절", now).reject_reason).toBe(
+      "부적절",
+    );
+  });
+
+  it("되돌리면 검수 시각을 비운다", () => {
+    expect(PHOTO_RESET_PATCH).toEqual({
+      status: "pending",
+      reject_reason: null,
+      reviewed_at: null,
+    });
   });
 });

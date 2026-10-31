@@ -1,16 +1,24 @@
 import { getSupabase } from "@/shared/api/supabase";
-import type { ReportRow } from "./report-payload";
+import { withReporter, type ReportRow } from "./report-payload";
 
 export type ReportResult =
-  { ok: true } | { ok: false; reason: "unconfigured" | "network" };
+  | { ok: true; loggedIn: boolean }
+  | { ok: false; loggedIn: boolean; reason: "unconfigured" | "network" };
 
 export async function submitReport(row: ReportRow): Promise<ReportResult> {
   const client = getSupabase();
-  if (!client) return { ok: false, reason: "unconfigured" };
+  if (!client) return { ok: false, loggedIn: false, reason: "unconfigured" };
+  let userId: string | null = null;
   try {
-    const { error } = await client.from("reports").insert(row);
-    return error ? { ok: false, reason: "network" } : { ok: true };
+    const { data } = await client.auth.getSession();
+    userId = data.session?.user.id ?? null;
+    const { error } = await client
+      .from("reports")
+      .insert(withReporter(row, userId));
+    return error
+      ? { ok: false, loggedIn: userId !== null, reason: "network" }
+      : { ok: true, loggedIn: userId !== null };
   } catch {
-    return { ok: false, reason: "network" };
+    return { ok: false, loggedIn: userId !== null, reason: "network" };
   }
 }

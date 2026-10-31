@@ -29,7 +29,7 @@ type EventMap = {
     failed_step?: "auth" | "encode" | "upload" | "insert";
   };
   report_opened: { type: "new" | "edit" };
-  report_submitted: { type: string; ok: boolean };
+  report_submitted: { type: string; ok: boolean; logged_in: boolean };
   directions_clicked: { app: string; shop_id: string };
   instagram_clicked: { shop_id: string; shared: boolean };
   share_clicked: { shop_id: string; method: "native" | "clipboard" };

@@ -194,14 +194,18 @@ export function BottomCta({
   );
 }
 
+export const REPORT_LOGIN_NOTE = "로그인하면 이력을 쌓을 수 있어요";
+
 export function DoneView({
   title,
   description,
+  note,
   closeLabel,
   onClose,
 }: {
   title: string;
   description: string;
+  note?: string;
   closeLabel: string;
   onClose: () => void;
 }) {
@@ -209,6 +213,7 @@ export function DoneView({
     <div className="flex flex-1 flex-col items-center justify-center gap-3 px-6 pb-16 text-center">
       <h2 className="text-heading font-extrabold text-ink">{title}</h2>
       <p className="text-body text-gray-500">{description}</p>
+      {note && <p className="text-body font-semibold text-ink">{note}</p>}
       <button
         type="button"
         onClick={onClose}

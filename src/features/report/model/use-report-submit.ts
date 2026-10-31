@@ -11,6 +11,7 @@ export type ReportPhase = "editing" | "submitting" | "done";
 /* build가 null을 돌려주면 사전 단계(사진 업로드 등) 실패 — 토스트는 호출부 책임 */
 export function useReportSubmit() {
   const [phase, setPhase] = useState<ReportPhase>("editing");
+  const [loggedIn, setLoggedIn] = useState(false);
 
   const submit = useCallback(async (build: () => Promise<ReportRow | null>) => {
     setPhase("submitting");
@@ -20,8 +21,13 @@ export function useReportSubmit() {
       return;
     }
     const result = await submitReport(row);
-    track("report_submitted", { type: row.type, ok: result.ok });
+    track("report_submitted", {
+      type: row.type,
+      ok: result.ok,
+      logged_in: result.loggedIn,
+    });
     if (result.ok) {
+      setLoggedIn(result.loggedIn);
       setPhase("done");
       return;
     }
@@ -33,5 +39,5 @@ export function useReportSubmit() {
     );
   }, []);
 
-  return { phase, submit };
+  return { phase, loggedIn, submit };
 }
