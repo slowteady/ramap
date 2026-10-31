@@ -337,3 +337,22 @@ create policy "record-photos: 관리자 열람" on storage.objects
   for select to authenticated using (bucket_id = 'record-photos' and public.is_admin());
 create policy "report-photos: 관리자 열람" on storage.objects
   for select to authenticated using (bucket_id = 'report-photos' and public.is_admin());
+
+-- 검수 결과 피드백 기반 (2026-10-31): 로그인 제보를 계정에 연결, 사진 검수 시각, 결과 확인 시각
+alter table public.reports
+  add column if not exists user_id uuid references auth.users (id) on delete set null;
+
+drop policy if exists "reports: 누구나 제출" on public.reports;
+create policy "reports: 익명 또는 본인 이름으로 제출" on public.reports
+  for insert with check (user_id is null or user_id = auth.uid());
+create policy "reports: 본인 제보 조회" on public.reports
+  for select to authenticated using (user_id = auth.uid());
+
+alter table public.record_photos
+  add column if not exists reviewed_at timestamptz;
+
+alter table public.profiles
+  add column if not exists reports_seen_at timestamptz,
+  add column if not exists photos_seen_at timestamptz;
+
+grant update (reports_seen_at, photos_seen_at) on public.profiles to authenticated;

@@ -6,6 +6,7 @@ import {
   canSubmitNew,
   EMPTY_EDIT_DRAFT,
   EMPTY_NEW_DRAFT,
+  withReporter,
   isDirtyEdit,
   isDirtyNew,
   isLikelyUrl,
@@ -254,5 +255,23 @@ describe("수정 제보 사진", () => {
         photos: [new File(["x"], "a.jpg")],
       }),
     ).toBe(true);
+  });
+});
+
+describe("withReporter", () => {
+  const row = {
+    type: "new" as const,
+    shop_name: "무구",
+    location: "https://naver.me/abc",
+    message: null,
+    details: { type: "new" as const, shopName: "무구", links: [] },
+  };
+
+  it("로그인 제보는 본인 계정에 연결한다", () => {
+    expect(withReporter(row, "u1").user_id).toBe("u1");
+  });
+
+  it("익명 제보는 계정 없이 보낸다", () => {
+    expect(withReporter(row, null).user_id).toBeNull();
   });
 });

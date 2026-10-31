@@ -20,7 +20,7 @@ updated: 2026-10-28
 | `src/features/report/model/report-payload.ts` | 초안 타입, 제출 가능 판정(`canSubmitNew`·`canSubmitEdit`), 페이로드 빌더, 행 변환(`toReportRow`), `isLikelyUrl`, `MAX_LINKS=3`·`MAX_PHOTOS=5` |
 | `src/features/report/model/report-query.ts` · `use-report-query.ts` | URL 쿼리 파서·열기/닫기 훅 |
 | `src/features/report/model/use-report-form.ts` · `use-report-submit.ts` | 폼 view-model 훅, 제출 단계 |
-| `src/features/report/model/report-sink.ts` | `reports` insert |
+| `src/features/report/model/report-sink.ts` | `reports` insert — 로그인 세션이 있으면 `user_id`를 붙인다(`withReporter`) |
 | `src/features/report/model/photo-upload.ts` | `report-photos` 업로드 |
 | `src/features/report/model/report-options.ts` | 수정 폼 장르·편의 선택지 |
 | `src/features/report/model/pin-pick.ts` · `use-pin-picker.ts` | 조준점 계산·줌 게이트·좌표 반올림, 피커 훅 |
@@ -66,7 +66,7 @@ updated: 2026-10-28
 5. 자유 입력(라벨 없음, 플레이스홀더 "더 알려줄 내용을 적어 주세요", 500자)
 6. CTA [보내기] — 라멘집 이름 + (형식 맞는 링크 1개 이상 또는 핀)일 때만 활성
 
-완료: "등록 요청을 보냈어요 / 확인하고 지도에 올릴게요" + [지도로 돌아가기]
+완료: "등록 요청을 보냈어요 / 확인하고 지도에 올릴게요" + [지도로 돌아가기]. 익명이면 설명 아래 "로그인하면 이력을 쌓을 수 있어요"를 더한다
 
 - 라벨은 "제보하기"가 아니라 "라멘집 등록" — "제보"는 폐업·수정까지 뭉뚱그리는 말이고, 신규는 카카오맵·네이버 "신규 장소 등록" 관례를 따른다.
 - 리드에는 로그인·검수 같은 시스템 사정을 넣지 않고, CTA 아래 설명 캡션도 두지 않는다(HIG). 검수 안내는 완료 화면에만 → [요구사항](requirements.md#제보-폼)
@@ -106,14 +106,14 @@ updated: 2026-10-28
 4. 사진(선택) 최대 5장
 5. CTA [보내기] — 항목 1개 이상 + 고른 항목마다 값이 있거나 더 알려줄 내용이 있을 때 활성(폐업·휴업은 선택 자체가 값)
 
-완료: "고칠 내용을 보냈어요 / 확인하고 고쳐 둘게요" + [닫기]
+완료: "고칠 내용을 보냈어요 / 확인하고 고쳐 둘게요" + [닫기]. 익명이면 "로그인하면 이력을 쌓을 수 있어요"를 더한다
 
 - 매장은 진입한 상세 페이지로 정해진다. 자유 텍스트 하나(캐치테이블식)로 받지 않는 이유 → [요구사항](requirements.md#제보-폼)
 
 ## 제출과 데이터
 
 1. 사진이 있으면 `toJpegBlob`(1600px·JPEG·EXIF 제거) → `report-photos/{new|edit}/{uuid}.jpg` 업로드
-2. `reports` insert
+2. `reports` insert(로그인 상태면 `user_id` = 본인, 익명이면 null)
 
 | 컬럼 | 신규 | 수정 |
 |---|---|---|
@@ -123,13 +123,13 @@ updated: 2026-10-28
 | `message` | 자유 입력 | 더 알려줄 내용 |
 | `details` | `{ type, shopName, branch?, links?, pin?, photos?, message? }` | `{ type, shopId, shopName, items, fields: { closed?: {status, evidence?}, hours?, menu?, location?, genre?: {soups?, forms?, lineages?}, amenities? }, photos?, message? }` |
 
-`reports` 나머지 컬럼: `id`, `created_at`, `status`(`open`/`done`, 기본 open), `resolution`(`applied`/`duplicate`/`rejected`), `note`, `resolved_at`. `type` check에 `closed`가 남아 있지만 쓰지 않는다.
+`reports` 나머지 컬럼: `id`, `created_at`, `user_id`(nullable, `auth.users` 참조, 탈퇴하면 null로 — 제보는 익명으로 남는다), `status`(`open`/`done`, 기본 open), `resolution`(`applied`/`duplicate`/`rejected`), `note`, `resolved_at`. `type` check에 `closed`가 남아 있지만 쓰지 않는다.
 
 권한(RLS):
 
 | 대상 | 정책 |
 |---|---|
-| `reports` | 누구나 insert, 관리자만 select·update |
+| `reports` | insert는 `user_id`가 null이거나 본인일 때만, select는 본인 제보 + 관리자 전체, update는 관리자만 |
 | `report-photos` 버킷(비공개, 5MB, `image/jpeg`) | anon·authenticated 업로드, 관리자만 열람 |
 
 - 접수는 외부 폼(구글 폼 등) 임베드가 아니라 앱 안 자체 폼 + Supabase `reports`다(UX, Supabase 스택 → [기술 스택](../../decisions/0001-tech-stack-lite-fsd.md)).
@@ -147,7 +147,7 @@ updated: 2026-10-28
 - `record_photos`의 pending만, 오래된 순.
 - 카드: 사진(서명 URL 1시간) / 매장명(새 탭 매장 링크) / 닉네임 · `M.D HH:mm` / 우측 "N일 전"(당일은 "오늘") / 한줄평 인용.
 - [✓ 승인] / 오른쪽 끝 [반려] → 반려 패널: 사유 칩(라멘이 안 보임·본인 촬영 아님·부적절) + 직접 입력(선택) → [반려하기](칩·입력 중 하나 이상 필요, 칩과 입력은 " — "로 합침), [닫기].
-- 처리 후 토스트 "승인했어요"/"반려했어요" + 10초 [되돌리기] → pending 복귀, 사유 삭제.
+- 승인·반려하면 `reviewed_at`에 검수 시각을 남기고, 토스트 "승인했어요"/"반려했어요" + 10초 [되돌리기] → pending 복귀, 사유·검수 시각 삭제(`photoReviewPatch`·`PHOTO_RESET_PATCH`).
 - 처리된 사진 목록은 없다.
 
 ### 제보 탭
@@ -186,7 +186,7 @@ updated: 2026-10-28
 
 ## 이용 통계 이벤트
 
-`report_opened`(type new/edit) · `report_submitted`(type, 성공 여부). 규칙은 [platform 설계](../platform/design.md)
+`report_opened`(type new/edit) · `report_submitted`(type, 성공 여부, `logged_in` — 로그인 제보 비율 지표). 규칙은 [platform 설계](../platform/design.md)
 
 ## 알려진 한계
 

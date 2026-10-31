@@ -14,6 +14,7 @@ import {
   CheckRow,
   ChipGrid,
   DoneView,
+  REPORT_LOGIN_NOTE,
   Field,
   PhotoPicker,
   SegmentedPills,
@@ -46,6 +47,7 @@ export function EditReportForm({
       <DoneView
         title="고칠 내용을 보냈어요"
         description="확인하고 고쳐 둘게요"
+        note={form.loggedIn ? undefined : REPORT_LOGIN_NOTE}
         closeLabel="닫기"
         onClose={onClose}
       />

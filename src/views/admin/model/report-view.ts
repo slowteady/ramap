@@ -212,3 +212,21 @@ export function sortGroups(
       : (b.primary.resolvedAt ?? "").localeCompare(a.primary.resolvedAt ?? ""),
   );
 }
+
+export function photoReviewPatch(
+  status: "approved" | "rejected",
+  rejectReason: string | undefined,
+  now: Dayjs,
+) {
+  return {
+    status,
+    reject_reason: rejectReason ?? null,
+    reviewed_at: now.toISOString(),
+  };
+}
+
+export const PHOTO_RESET_PATCH = {
+  status: "pending",
+  reject_reason: null,
+  reviewed_at: null,
+} as const;

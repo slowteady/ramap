@@ -46,7 +46,7 @@ function useDraft<D extends object>(initial: D) {
 
 export function useNewReportForm() {
   const { draft, setDraft, set } = useDraft<NewReportDraft>(EMPTY_NEW_DRAFT);
-  const { phase, submit } = useReportSubmit();
+  const { phase, loggedIn, submit } = useReportSubmit();
   const canSubmit = phase === "editing" && canSubmitNew(draft);
 
   const setLink = useCallback(
@@ -130,6 +130,7 @@ export function useNewReportForm() {
     touchLink,
     linkError,
     phase,
+    loggedIn,
     canSubmit,
     submit: handleSubmit,
   };
@@ -138,7 +139,7 @@ export function useNewReportForm() {
 export function useEditReportForm(target: ReportTarget) {
   const { draft, setDraft, set, toggle } =
     useDraft<EditReportDraft>(EMPTY_EDIT_DRAFT);
-  const { phase, submit } = useReportSubmit();
+  const { phase, loggedIn, submit } = useReportSubmit();
   const canSubmit = phase === "editing" && canSubmitEdit(draft);
 
   const toggleItem = useCallback(
@@ -192,6 +193,7 @@ export function useEditReportForm(target: ReportTarget) {
     addPhotos,
     removePhoto,
     phase,
+    loggedIn,
     canSubmit,
     submit: handleSubmit,
   };

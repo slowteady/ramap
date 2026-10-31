@@ -10,6 +10,7 @@ import { useReportQuery } from "../model/use-report-query";
 import {
   BottomCta,
   DoneView,
+  REPORT_LOGIN_NOTE,
   Field,
   PhotoPicker,
   TextArea,
@@ -40,6 +41,7 @@ export function NewReportForm({
       <DoneView
         title="등록 요청을 보냈어요"
         description="확인하고 지도에 올릴게요"
+        note={form.loggedIn ? undefined : REPORT_LOGIN_NOTE}
         closeLabel="지도로 돌아가기"
         onClose={onClose}
       />

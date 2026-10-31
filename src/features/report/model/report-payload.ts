@@ -272,3 +272,10 @@ export function toReportRow(
     details: payload,
   };
 }
+
+export function withReporter(
+  row: ReportRow,
+  userId: string | null,
+): ReportRow & { user_id: string | null } {
+  return { ...row, user_id: userId };
+}
