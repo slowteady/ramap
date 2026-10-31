@@ -10,6 +10,7 @@ type ProfileState = {
   nickname: string | null;
   agreedAt: string | null;
   role: string | null;
+  reportsSeenAt: string | null;
   loaded: boolean;
 };
 
@@ -17,6 +18,7 @@ const EMPTY: ProfileState = {
   nickname: null,
   agreedAt: null,
   role: null,
+  reportsSeenAt: null,
   loaded: false,
 };
 
@@ -33,7 +35,7 @@ export function useProfile() {
     let cancelled = false;
     void client
       .from("profiles")
-      .select("nickname, agreed_at, role")
+      .select("nickname, agreed_at, role, reports_seen_at")
       .eq("user_id", user.id)
       .maybeSingle()
       .then(({ data }) => {
@@ -42,6 +44,7 @@ export function useProfile() {
           nickname: data?.nickname ?? null,
           agreedAt: data?.agreed_at ?? null,
           role: data?.role ?? null,
+          reportsSeenAt: data?.reports_seen_at ?? null,
           loaded: data !== null,
         });
       });
@@ -77,6 +80,7 @@ export function useProfile() {
     displayName: state.nickname ?? "라멘 러버",
     profileLoaded: state.loaded,
     agreedAt: state.agreedAt,
+    reportsSeenAt: state.reportsSeenAt,
     needsConsent: state.loaded && state.agreedAt === null,
     agree,
   };

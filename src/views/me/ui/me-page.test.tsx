@@ -50,6 +50,11 @@ vi.mock("@/features/records/index.client", () => ({
   deleteMyRecordPhotoFiles: vi.fn(async () => true),
 }));
 
+const myReports = vi.hoisted(() => ({ value: [] as object[] }));
+vi.mock("../model/my-reports-api", () => ({
+  fetchMyReports: vi.fn(async () => myReports.value),
+}));
+
 const shops = Array.from({ length: RECORD_TOTAL }, (_, i) => ({
   id: `shop-${i}`,
   name: `라멘집${i}`,
@@ -171,5 +176,59 @@ describe("MePage — 완식 기록 지우기", () => {
 
     await user.click(screen.getByRole("button", { name: "지우기" }));
     expect(clearVisit).toHaveBeenCalledWith("shop-44");
+  });
+});
+
+describe("MePage — 제보 탭", () => {
+  it("내 제보를 결과와 함께 보여 주고, 반영된 정보 수정은 라멘집으로 이어진다", async () => {
+    nav.current = createNavigationStub("tab=reports", "/me");
+    myReports.value = [
+      {
+        id: 2,
+        type: "edit",
+        shopName: "멘텐",
+        shopId: "menten",
+        createdAt: "2026-10-30T01:00:00Z",
+        status: "done",
+        resolution: "applied",
+        rejectReason: null,
+        resolvedAt: "2026-10-31T01:00:00Z",
+      },
+      {
+        id: 1,
+        type: "new",
+        shopName: "히노아지",
+        shopId: null,
+        createdAt: "2026-10-29T01:00:00Z",
+        status: "done",
+        resolution: "rejected",
+        rejectReason: "확인 불가",
+        resolvedAt: "2026-10-30T01:00:00Z",
+      },
+    ];
+    render(<MePage shops={shops} />);
+    expect(await screen.findByText("멘텐")).toBeInTheDocument();
+    expect(screen.getByText("지도에 반영했어요")).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "라멘집 보기" })).toHaveAttribute(
+      "href",
+      "/shop/menten",
+    );
+    expect(screen.getByText("반영 안 됨")).toBeInTheDocument();
+    expect(
+      screen.getByText("보내 준 정보로는 확인하지 못했어요"),
+    ).toBeInTheDocument();
+    expect(screen.getByRole("tab", { name: "제보" })).toHaveAttribute(
+      "aria-selected",
+      "true",
+    );
+  });
+
+  it("제보가 없으면 등록으로 가는 버튼을 준다", async () => {
+    nav.current = createNavigationStub("tab=reports", "/me");
+    myReports.value = [];
+    render(<MePage shops={shops} />);
+    expect(
+      await screen.findByRole("link", { name: "라멘집 등록하기" }),
+    ).toHaveAttribute("href", "/?report=new");
   });
 });

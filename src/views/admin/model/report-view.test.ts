@@ -11,11 +11,13 @@ import {
   parseDetails,
   resolvedMessage,
   photoReviewPatch,
+  resolvePatch,
   PHOTO_RESET_PATCH,
   type AdminShop,
 } from "./report-view";
 
 const report = (over: Partial<AdminReport>): AdminReport => ({
+  rejectReason: null,
   id: 1,
   type: "new",
   shopName: "히노아지",
@@ -221,6 +223,27 @@ describe("사진 검수 기록", () => {
       status: "pending",
       reject_reason: null,
       reviewed_at: null,
+    });
+  });
+});
+
+describe("resolvePatch", () => {
+  const now = dayjs("2026-10-31T10:00:00+09:00");
+
+  it("반려는 사유 칩과 메모를 따로 저장한다", () => {
+    expect(resolvePatch("rejected", "전화 안 받음", "확인 불가", now)).toEqual({
+      status: "done",
+      resolution: "rejected",
+      note: "전화 안 받음",
+      reject_reason: "확인 불가",
+      resolved_at: now.toISOString(),
+    });
+  });
+
+  it("반려가 아니면 사유를 비운다", () => {
+    expect(resolvePatch("applied", undefined, "확인 불가", now)).toMatchObject({
+      note: null,
+      reject_reason: null,
     });
   });
 });
