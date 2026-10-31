@@ -343,6 +343,8 @@ alter table public.reports
   add column if not exists user_id uuid references auth.users (id) on delete set null;
 
 drop policy if exists "reports: 누구나 제출" on public.reports;
+-- 대시보드에서 따로 만든 true 정책 — 남아 있으면 본인 이름 제출 규칙이 무력화된다(2026-11-01 운영에서 삭제)
+drop policy if exists "reports_insert_any" on public.reports;
 create policy "reports: 익명 또는 본인 이름으로 제출" on public.reports
   for insert with check (user_id is null or user_id = auth.uid());
 create policy "reports: 본인 제보 조회" on public.reports

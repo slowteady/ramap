@@ -132,6 +132,8 @@ updated: 2026-10-28
 | `reports` | insert는 `user_id`가 null이거나 본인일 때만, select는 본인 제보 + 관리자 전체, update는 관리자만 |
 | `report-photos` 버킷(비공개, 5MB, `image/jpeg`) | anon·authenticated 업로드, 관리자만 열람 |
 
+- 운영 DB의 칸·정책 변경은 `supabase/schema.sql`에 먼저 쓰고 마이그레이션으로 적용한다. 대시보드에서 정책을 직접 만들지 않는다 — 운영에만 있는 정책이 규칙을 무력화한 적이 있다(2026-11-01 `reports_insert_any`). 칸을 새로 쓰는 코드는 운영 적용·조회 확인 뒤에 머지한다
+
 - 접수는 외부 폼(구글 폼 등) 임베드가 아니라 앱 안 자체 폼 + Supabase `reports`다(UX, Supabase 스택 → [기술 스택](../../decisions/0001-tech-stack-lite-fsd.md)).
 - 컬럼은 늘리지 않고 유형별 구조는 `details` jsonb에 둔다. 사람이 바로 읽을 값(`shop_name`·`location`)만 컬럼에 두고, 폼을 바꿔도 마이그레이션이 필요 없다.
 
