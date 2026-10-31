@@ -76,6 +76,10 @@ create policy "profiles: 본인 동의 정보만 수정" on public.profiles
     and nickname = (select p.nickname from public.profiles p where p.user_id = auth.uid())
   );
 -- insert 정책 없음 = 클라 생성 불가, 아래 트리거(definer)만 생성
+-- 수정은 동의 칸만 (2026-10-31): 정책만으로는 role 변경을 막지 못해 로그인 유저가 스스로 관리자가 될 수 있었다 — 칸 단위 권한으로 제한
+revoke update on public.profiles from anon, authenticated;
+grant update (agreed_at, agreed_terms_version, agreed_privacy_version)
+  on public.profiles to authenticated;
 -- 닉네임 변경은 후속 플랜(30일 쿨다운 트리거)에서 개방 — 그 전까지 with check로 불변 강제
 
 create or replace function public.generate_nickname()

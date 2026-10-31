@@ -198,7 +198,7 @@ noindex. 헤더 [←](마이) + "설정". 시트가 아닌 전용 페이지다(�
 - 진입: 홈 헤더 프로필 아이콘은 항상 `/me`로 간다(env 없으면 아이콘 숨김). 완식·저장을 누른 비로그인 사용자는 로그인 시트.
 - 로그인 시트: 🍜 "라맵과 함께할까요? / 로그인하면 완식·저장을 기록할 수 있어요" + [카카오로 계속하기](카카오 브랜드 색 `#FEE500` — 유일 유채색 원칙의 명시적 예외). OAuth 후 현재 화면으로 돌아온다(`redirectTo` = 현재 URL).
 - 약관 동의 시트(`ConsentSheet`, 루트 레이아웃에 전역 마운트): 프로필이 로드됐고 `agreed_at`이 없으면 닫을 수 없는 시트 "약관에 동의하면 바로 시작할 수 있어요" / 체크 한 줄 "이용약관과 개인정보 처리방침에 동의해요 (필수)"(두 문서 링크) / [동의하고 시작하기](h-13) → `agreed_at`·`agreed_terms_version`·`agreed_privacy_version` 기록. 실패 시 토스트 "동의하지 못했어요. 인터넷 연결을 확인하고 다시 눌러 주세요".
-- `profiles`: `user_id`, `nickname`(2~12자, 유일), `nickname_updated_at`, `agreed_at`, 약관·방침 버전, `role`(`user`/`admin`), `created_at`. 생성은 `auth.users` 트리거(`handle_new_user` → `generate_nickname`)만, 클라이언트 insert 불가. 수정은 본인 행, 닉네임 불변 강제.
+- `profiles`: `user_id`, `nickname`(2~12자, 유일), `nickname_updated_at`, `agreed_at`, 약관·방침 버전, `role`(`user`/`admin`), `created_at`. 생성은 `auth.users` 트리거(`handle_new_user` → `generate_nickname`)만, 클라이언트 insert 불가. 수정은 본인 행의 동의 칸(`agreed_at`·약관·방침 버전)만 — 칸 단위 `grant update`로 강제하고 `role`·닉네임·`user_id`는 클라이언트가 바꿀 수 없다(RLS 정책은 행만 거르고 칸은 못 막는다).
 - 닉네임 사전: 형용사 30개(수줍은·씩씩한·…·콧테리·앗사리) × 명사 30개(돈코츠·쇼유·…·토쿠세이). 중복 시 10회 재시도 → 4자리 접미사 10회(12자 이하) → 폴백 `라멘` + 8자리.
 - 운영자(`role=admin`)는 이용 통계에서 제외된다 → [platform 설계](../platform/design.md)
 
