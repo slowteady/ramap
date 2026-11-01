@@ -67,7 +67,7 @@ function ShopRows({
               <div className="flex min-w-0 flex-1 flex-col gap-1.5">
                 <span className="flex flex-col">
                   {michelinYear !== undefined && (
-                    <span className="text-caption font-semibold text-ink">
+                    <span className="self-start rounded-chip bg-ink px-1.5 py-0.5 text-caption font-bold text-white">
                       {michelinLabel(michelinYear)}
                     </span>
                   )}
