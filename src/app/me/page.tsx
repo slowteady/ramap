@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getShops } from "@/entities/shop/api/get-shops";
-import { MePage } from "@/views/me";
+import { MePage, toMeShops } from "@/views/me";
 
 export const metadata: Metadata = {
   title: "마이",
@@ -9,5 +9,5 @@ export const metadata: Metadata = {
 
 export default async function Page() {
   const shops = await getShops();
-  return <MePage shops={shops} />;
+  return <MePage shops={toMeShops(shops)} />;
 }

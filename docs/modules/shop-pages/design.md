@@ -9,19 +9,19 @@ updated: 2026-10-28
 
 | 경로 | 라우트 | 뷰 | 생성 |
 |---|---|---|---|
-| `/shop/{id}` | `src/app/shop/[slug]/page.tsx` (+`opengraph-image.tsx`) | `src/views/shop-detail/` | 전 매장 SSG(검증 안 된 폐업 제외) |
-| `/area/{지역}` | `src/app/area/[area]/page.tsx` | `src/views/area-list/` | `listAreaPages` — 영업 매장이 있는 동네라벨만 |
-| `/area/{지역}/{장르}` | `src/app/area/[area]/[genre]/page.tsx` | `src/views/area-list/` | `listAreaGenrePages(min=3)` 통과 조합만 |
+| `/shop/{id}` | `src/app/shop/[slug]/page.tsx` (+`opengraph-image.tsx`) | `src/views/shop-detail/` | 첫 요청 때 생성(ISR), 검증 안 된 폐업·없는 id는 404 |
+| `/area/{지역}` | `src/app/area/[area]/page.tsx` | `src/views/area-list/` | 첫 요청 때 생성(ISR) — 영업 매장이 있는 동네라벨만, 없으면 404 |
+| `/area/{지역}/{장르}` | `src/app/area/[area]/[genre]/page.tsx` | `src/views/area-list/` | 첫 요청 때 생성(ISR) — `listAreaGenrePages(min=3)` 통과 조합만, 아니면 404 |
 | `/style/{계보}` | `src/app/style/[lineage]/page.tsx` | `src/views/style-landing/` | taste 계보 2개(iekei·jiro) |
 | `/guide` | `src/app/guide/page.tsx` | `src/views/genre-guide/ui/guide-index-page.tsx` | 정적 |
 | `/guide/{장르}` | `src/app/guide/[slug]/page.tsx` | `src/views/genre-guide/ui/genre-guide-page.tsx` | `GUIDES` 10개 |
 | `/sitemap.xml`·`/robots.txt` | `src/app/sitemap.ts`·`src/app/robots.ts` | — | 빌드 시 |
 
-- 전부 빌드 타임 SSG(`getShops()` → `data/*.json`). 페이지는 서버 컴포넌트, 클라이언트 섬은 상세의 액션·주소 복사·인스타 링크·사진 갤러리와 계보 랜딩의 완식 표시뿐 → [결정](decisions/0001-seo-hybrid-structure.md)
+- 데이터는 `getShops()` → `data/*.json`. 매장·지역 페이지는 `generateStaticParams`가 빈 배열이라 첫 요청 때 만들어 다음 배포까지 캐시하고(ISR, [platform 결정](../platform/decisions/0003-runtime-page-generation.md)), 가이드·스타일 랜딩은 빌드 때 만든다. 페이지는 서버 컴포넌트, 클라이언트 섬은 상세의 액션·주소 복사·인스타 링크·사진 갤러리와 계보 랜딩의 완식 표시뿐 → [결정](decisions/0001-seo-hybrid-structure.md)
 - 파생 계산은 `src/entities/shop/model/`의 순수 함수(`derive.ts`·`area-clusters.ts`·`closure.ts`·`instagram.ts`·`structured-data.ts`), 각자 co-located `*.test.ts`
 - 2뎁스 헤더는 `src/shared/ui/page-header.tsx`(뒤로가기 + 우측 보조 액션 1개, 로고·홈 링크 없음) → [ui 설계](../ui/design.md)
 - 지역 slug는 `areaLabel` 원문(한글), 장르 slug는 국물·계보 slug(`taxonomy.ts`). 매장 slug는 `shop.id`
-- `generateStaticParams`는 지역을 **인코딩하지 않은 원문**으로 반환한다(인코딩하면 Next가 이중 인코딩해 percent-encoded 요청이 404). 페이지에서는 `decodeURIComponent`로 읽는다
+- 지역 param은 페이지에서 `decodeURIComponent`로 읽는다(빌드 때 지역 목록을 다시 만들 일이 생기면 원문으로 반환해야 한다 — 인코딩하면 Next가 이중 인코딩해 404)
 - SSR 페이지에는 지도 위젯이 없다. 지도는 링크로만 이어진다(`/?shop={id}`, `/?soup={slug}`, `/?lineage={slug}`, `/?area={지역}`) → 홈 쪽 동작은 [map 설계](../map/design.md)
 
 ## 매장 상세 `/shop/{id}`
@@ -83,7 +83,7 @@ updated: 2026-10-28
 |---|---|---|
 | `open` | `status`가 closed 아님 | 일반 |
 | `closed`·`moved` | closed + 검증 장부(`data/closure-verification.json`, `getClosureLedger`)에 판정 있음 | 제목 앞 `[폐업]`/`[이전]`, 설명 앞 "YYYY년 M월에 문을 닫았어요. "/"YYYY년 M월에 이전했어요. "(`views/shop-detail/model/gone-description.ts`), 영업 줄에 폐업·이전 표기, 서브라인 동네 링크 없음, Restaurant JSON-LD 없음. 색인 기준은 일반 매장과 같다 |
-| `hidden` | closed인데 장부에 없음 | 정적 생성 안 함 → 404, 사이트맵 제외 |
+| `hidden` | closed인데 장부에 없음 | 404, 사이트맵 제외 |
 
 폐업 매장은 지역·지역×장르·계보·가이드 리스트와 근처 라멘집에서 빠진다. 폐업 판정 절차 → [data 설계](../data/design.md)
 
@@ -124,7 +124,7 @@ updated: 2026-10-28
 | JSON-LD | ItemList(매장 상세 URL) + BreadcrumbList | ItemList + BreadcrumbList + FAQPage |
 
 - 매장 집합: `shopsByArea`(동네라벨 일치, 폐업 제외), `shopsByAreaGenre`(+ 국물 또는 계보 slug 포함)
-- 생성: 지역은 `listAreaPages`(동네라벨 기준 클러스터 중 영업 매장이 있는 것 — 지도 클러스터의 구 폴백 묶음은 제외), 지역×장르는 `listAreaGenrePages(shops, 3)`(3곳 기준의 이유는 [요구사항](requirements.md)). 미생성 조합 요청은 `notFound()`. 모든 조합을 만들고 noindex하는 방식은 쓰지 않는다 — 크롤 표면만 늘고 사이트맵·내부 링크 정합이 깨진다
+- 생성: 지역은 `listAreaPages`(동네라벨 기준 클러스터 중 영업 매장이 있는 것 — 지도 클러스터의 구 폴백 묶음은 제외), 지역×장르는 `listAreaGenrePages(shops, 3)`(3곳 기준의 이유는 [요구사항](requirements.md)). 그 밖의 조합 요청은 `notFound()`. 모든 조합을 만들고 noindex하는 방식은 쓰지 않는다 — 크롤 표면만 늘고 사이트맵·내부 링크 정합이 깨진다
 - 색인 제외 → [결정](decisions/0008-noindex-criteria.md)
 
 ## 계보 랜딩 `/style/{계보}`

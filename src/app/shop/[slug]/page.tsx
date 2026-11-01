@@ -14,12 +14,8 @@ import { goneDescription, ShopDetailPage } from "@/views/shop-detail";
 
 type Props = { params: Promise<{ slug: string }> };
 
-export async function generateStaticParams() {
-  const shops = await getShops();
-  const ledger = await getClosureLedger();
-  return shops
-    .filter((s) => closurePublicState(s, ledger) !== "hidden")
-    .map((s) => ({ slug: s.id }));
+export function generateStaticParams() {
+  return [];
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

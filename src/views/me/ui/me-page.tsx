@@ -12,7 +12,7 @@ import {
   Settings,
   Soup,
 } from "lucide-react";
-import { GenreChips, type Shop } from "@/entities/shop";
+import { GenreChips } from "@/entities/shop";
 import { useAuth, useNewResults, useProfile } from "@/features/auth";
 import {
   LoginPromptSheet,
@@ -21,6 +21,7 @@ import {
 } from "@/features/records";
 import { fetchMyRecordPhotos } from "@/features/records/index.client";
 import { cn } from "@/shared/lib/utils";
+import type { MeShop } from "../model/me-shop";
 import { hasMore, nextCount, PAGE_SIZE, visibleSlice } from "../model/paging";
 import { recordTime, sortRecordsByRecent } from "../model/sort-records";
 import { useMyReports } from "../model/use-my-reports";
@@ -35,7 +36,7 @@ const TABS = [
 
 type TabKey = (typeof TABS)[number]["key"];
 
-function MeBody({ shops }: { shops: Shop[] }) {
+function MeBody({ shops }: { shops: MeShop[] }) {
   const router = useRouter();
   const params = useSearchParams();
   const { user, ready } = useAuth();
@@ -351,7 +352,7 @@ function MeBody({ shops }: { shops: Shop[] }) {
   );
 }
 
-export function MePage({ shops }: { shops: Shop[] }) {
+export function MePage({ shops }: { shops: MeShop[] }) {
   return (
     <Suspense>
       <MeBody shops={shops} />
