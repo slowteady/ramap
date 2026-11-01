@@ -30,7 +30,7 @@ updated: 2026-10-28
 | `src/views/home/ui/shop-sheet.tsx` | 상시 바텀시트(목록 모드·매장 카드 모드) |
 | `src/views/home/ui/search-bar.tsx`, `search-overlay.tsx` | 헤더 검색 아이콘, 검색 오버레이 |
 | `src/views/home/ui/map-fallback.tsx` | 지도 실패 시 동네별 목록 |
-| `src/views/home/ui/auth-entry.tsx` | 헤더 프로필 아이콘(로그인 기능 켜졌을 때만, `/me` 링크) |
+| `src/views/home/ui/auth-entry.tsx` | 헤더 프로필 아이콘(로그인 기능 켜졌을 때만, `/me` 링크). 새 검수 결과가 있으면 레드 점(`useNewResults`) |
 | `src/shared/map/types.ts` | `MapAdapter` 인터페이스, `MapMarker`·`MarkerState`·`MapView`, 카카오 전역 최소 타입 |
 | `src/shared/map/kakao-loader.ts` | SDK 스크립트 로더(`autoload=false`, 키 없음·실패 reject, 중복 호출 공유) |
 | `src/shared/map/kakao-adapter.ts` | `MapAdapter` 카카오 구현 — CustomOverlay 마커·클러스터 DOM, diff 렌더, 뷰포트 이벤트 |

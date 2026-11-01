@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import dayjs from "dayjs";
 import { getSupabase } from "@/shared/api/supabase";
 import { excludeOperator } from "@/shared/lib/analytics";
 import { PRIVACY_VERSION, TERMS_VERSION } from "@/shared/config/legal";
@@ -11,6 +12,7 @@ type ProfileState = {
   agreedAt: string | null;
   role: string | null;
   reportsSeenAt: string | null;
+  photosSeenAt: string | null;
   loaded: boolean;
 };
 
@@ -19,6 +21,7 @@ const EMPTY: ProfileState = {
   agreedAt: null,
   role: null,
   reportsSeenAt: null,
+  photosSeenAt: null,
   loaded: false,
 };
 
@@ -35,7 +38,7 @@ export function useProfile() {
     let cancelled = false;
     void client
       .from("profiles")
-      .select("nickname, agreed_at, role, reports_seen_at")
+      .select("nickname, agreed_at, role, reports_seen_at, photos_seen_at")
       .eq("user_id", user.id)
       .maybeSingle()
       .then(({ data }) => {
@@ -45,6 +48,7 @@ export function useProfile() {
           agreedAt: data?.agreed_at ?? null,
           role: data?.role ?? null,
           reportsSeenAt: data?.reports_seen_at ?? null,
+          photosSeenAt: data?.photos_seen_at ?? null,
           loaded: data !== null,
         });
       });
@@ -74,6 +78,29 @@ export function useProfile() {
     return true;
   }, [user]);
 
+  const markSeen = useCallback(
+    async (kind: "reports" | "photos") => {
+      const client = getSupabase();
+      if (!client || !user) return;
+      const seenAt = dayjs().toISOString();
+      const { error } = await client
+        .from("profiles")
+        .update(
+          kind === "reports"
+            ? { reports_seen_at: seenAt }
+            : { photos_seen_at: seenAt },
+        )
+        .eq("user_id", user.id);
+      if (error) return;
+      setState((prev) =>
+        kind === "reports"
+          ? { ...prev, reportsSeenAt: seenAt }
+          : { ...prev, photosSeenAt: seenAt },
+      );
+    },
+    [user],
+  );
+
   return {
     nickname: state.nickname,
     isAdmin: state.role === "admin",
@@ -81,6 +108,8 @@ export function useProfile() {
     profileLoaded: state.loaded,
     agreedAt: state.agreedAt,
     reportsSeenAt: state.reportsSeenAt,
+    photosSeenAt: state.photosSeenAt,
+    markSeen,
     needsConsent: state.loaded && state.agreedAt === null,
     agree,
   };
