@@ -51,6 +51,7 @@ export {
 } from "@/entities/shop/model/derive";
 export type { GenreSlug } from "@/entities/shop/model/derive";
 export { closurePublicState } from "@/entities/shop/model/closure";
+export type { AreaPicks } from "@/entities/shop/model/area-picks";
 export {
   instagramUrl,
   isSharedInstagram,

@@ -1,0 +1,30 @@
+{
+  "checkedAt": "2026-11-01",
+  "areas": {
+    "홍대": ["mennyasu", "mennyajun", "masitaya", "566ramen"],
+    "연남": [
+      "hakuten",
+      "kyoramen",
+      "nisimuramen-yeonnambonjeom",
+      "sarukame",
+      "ramen-rong-sijeun-japanese-ramen-long-se"
+    ],
+    "합정": ["irieramen", "orenoramen", "damtaek"],
+    "망원": ["huiok", "ryujin"],
+    "역삼": ["watsyoiken", "orenoramengangnam"],
+    "신사": ["mensyoku"],
+    "서울대입구": ["mennya-kaen", "koujjang-ramen", "rairaiken"],
+    "군자": ["yunideuramen"],
+    "송도": ["ramennacheu"],
+    "구월동": ["genkiramen", "kikyou"],
+    "미사": ["sollamen"],
+    "광안리": ["sakanaramen", "kujiraseutorang", "warugakinoasobi"]
+  },
+  "michelinBibGourmand": {
+    "nisimuramen-yeonnambonjeom": 2026,
+    "sarukame": 2026,
+    "damtaek": 2026,
+    "orenoramen": 2026,
+    "nagahamamangecheu": 2026
+  }
+}

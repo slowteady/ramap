@@ -2,6 +2,8 @@ import dayjs from "dayjs";
 import Link from "next/link";
 import { PageHeader } from "@/shared/ui/page-header";
 import { faqAnswer } from "../model/area-copy";
+import { michelinLabel, splitAreaPicks } from "../model/area-picks";
+import { PickCriteriaButton } from "./pick-criteria-button";
 import {
   breadcrumbJsonLd,
   faqJsonLd,
@@ -23,6 +25,9 @@ type AreaListPageProps = {
   genreLabel: string | null;
   genreDescription: string | null;
   shops: Shop[];
+  pickIds: string[];
+  michelin: Record<string, number>;
+  checkedMonth: string;
   mapHref: string;
   pageUrl: string;
   crossLinks: CrossLink[];
@@ -44,16 +49,74 @@ export function genreLabelOf(genre: GenreSlug): string | null {
   );
 }
 
+function ShopRows({
+  shops,
+  michelin,
+}: {
+  shops: Shop[];
+  michelin: Record<string, number>;
+}) {
+  return (
+    <ul className="flex flex-col px-4">
+      {shops.map((shop) => {
+        const michelinYear = michelin[shop.id];
+        return (
+          <li key={shop.id} className="border-b border-gray-050">
+            <Link
+              href={`/shop/${shop.id}`}
+              className="flex items-center gap-3 py-3"
+            >
+              <div className="flex min-w-0 flex-1 flex-col gap-1.5">
+                <span className="flex flex-col">
+                  {michelinYear !== undefined && (
+                    <span className="text-caption font-semibold text-ink">
+                      {michelinLabel(michelinYear)}
+                    </span>
+                  )}
+                  <span className="truncate text-body font-semibold text-ink">
+                    {shop.name}
+                  </span>
+                </span>
+                <GenreChips
+                  soups={shop.soups}
+                  forms={shop.forms}
+                  lineages={shop.lineages}
+                />
+                <span className="flex min-w-0 gap-2">
+                  <OpenStatusBadge
+                    status={shop.status}
+                    hours={shop.hours}
+                    breakTime={shop.breakTime}
+                    closedDays={shop.closedDays}
+                    className="shrink-0"
+                  />
+                  <span className="truncate text-secondary text-gray-500">
+                    {cardMeta(shop)}
+                  </span>
+                </span>
+              </div>
+            </Link>
+          </li>
+        );
+      })}
+    </ul>
+  );
+}
+
 export function AreaListPage({
   area,
   genreLabel,
   genreDescription,
   shops,
+  pickIds,
+  michelin,
+  checkedMonth,
   mapHref,
   pageUrl,
   crossLinks,
 }: AreaListPageProps) {
   const year = dayjs().year();
+  const { picks, rest } = splitAreaPicks(shops, pickIds);
   const breakdown = soupBreakdown(shops)
     .slice(0, 3)
     .map((b) => `${b.label} ${b.count}곳`)
@@ -77,7 +140,7 @@ export function AreaListPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: toJsonLdHtml(
-            itemListJsonLd(shops, pageUrl),
+            itemListJsonLd([...picks, ...rest], pageUrl),
             breadcrumbJsonLd(breadcrumb),
             ...(faqs.length > 0 ? [faqJsonLd(faqs)] : []),
           ),
@@ -104,39 +167,34 @@ export function AreaListPage({
         )}
       </div>
 
-      <ul className="flex flex-col px-4 pt-4">
-        {shops.map((shop) => (
-          <li key={shop.id} className="border-b border-gray-050">
-            <Link
-              href={`/shop/${shop.id}`}
-              className="flex items-center gap-3 py-3"
-            >
-              <div className="flex min-w-0 flex-1 flex-col gap-1.5">
-                <span className="truncate text-body font-semibold text-ink">
-                  {shop.name}
-                </span>
-                <GenreChips
-                  soups={shop.soups}
-                  forms={shop.forms}
-                  lineages={shop.lineages}
-                />
-                <span className="flex min-w-0 gap-2">
-                  <OpenStatusBadge
-                    status={shop.status}
-                    hours={shop.hours}
-                    breakTime={shop.breakTime}
-                    closedDays={shop.closedDays}
-                    className="shrink-0"
-                  />
-                  <span className="truncate text-secondary text-gray-500">
-                    {cardMeta(shop)}
-                  </span>
-                </span>
-              </div>
-            </Link>
-          </li>
-        ))}
-      </ul>
+      {picks.length > 0 ? (
+        <>
+          <section aria-labelledby="area-picks" className="flex flex-col pt-6">
+            <div className="flex items-center justify-between px-4">
+              <h2 id="area-picks" className="text-title font-bold text-ink">
+                라맵 추천 {picks.length}곳
+              </h2>
+              <PickCriteriaButton checkedMonth={checkedMonth} />
+            </div>
+            <ShopRows shops={picks} michelin={michelin} />
+          </section>
+          {rest.length > 0 && (
+            <section aria-labelledby="area-rest" className="flex flex-col pt-8">
+              <h2
+                id="area-rest"
+                className="px-4 pb-1 text-title font-bold text-ink"
+              >
+                다른 라멘집 {rest.length}곳
+              </h2>
+              <ShopRows shops={rest} michelin={michelin} />
+            </section>
+          )}
+        </>
+      ) : (
+        <div className="pt-4">
+          <ShopRows shops={rest} michelin={michelin} />
+        </div>
+      )}
 
       <div className="px-4 pt-4">
         <Link

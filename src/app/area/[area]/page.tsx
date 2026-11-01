@@ -8,9 +8,11 @@ import {
   shouldNoindexArea,
 } from "@/entities/shop";
 import { getShops } from "@/entities/shop/api/get-shops";
+import { getAreaPicks } from "@/entities/shop/index.server";
 import {
   AreaListPage,
   areaMapHref,
+  checkedMonthLabel,
   genreLabelOf,
   type CrossLink,
 } from "@/views/area-list";
@@ -38,6 +40,7 @@ export default async function Page({ params }: Props) {
   const shops = await getShops();
   const areaShops = shopsByArea(shops, area);
   if (areaShops.length === 0) notFound();
+  const areaPicks = await getAreaPicks();
 
   const genrePages = listAreaGenrePages(shops);
   const crossLinks: CrossLink[] = [
@@ -59,6 +62,9 @@ export default async function Page({ params }: Props) {
       genreLabel={null}
       genreDescription={null}
       shops={areaShops}
+      pickIds={areaPicks.areas[area] ?? []}
+      michelin={areaPicks.michelinBibGourmand}
+      checkedMonth={checkedMonthLabel(areaPicks.checkedAt)}
       mapHref={areaMapHref(area)}
       pageUrl={`https://ramap.kr/area/${encodeURIComponent(area)}`}
       crossLinks={crossLinks}
