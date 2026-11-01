@@ -32,3 +32,4 @@
 | [2026-09-05-competitor-benchmark](research/2026-09-05-competitor-benchmark.md) | 경쟁 서비스 기능·백로그 "benchmark" 근거를 볼 때 |
 | [2026-10-27-map-detail-review](research/2026-10-27-map-detail-review.md) | 지도·상세 개선 후보, 백로그 "research M·D·F" 근거를 볼 때 |
 | [2026-10-29-ui-copy-audit](research/2026-10-29-ui-copy-audit.md) | 화면 문구·배치를 고치거나 ui.md 위반 목록이 필요할 때 |
+| [2026-11-01-area-curation-candidates](research/2026-11-01-area-curation-candidates.md) | 지역 페이지에 "라맵 추천"을 붙이거나, 평판 근거·영업·지역 배정 데이터 정리가 필요할 때 |
