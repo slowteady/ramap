@@ -22,6 +22,13 @@ vi.mock("@/features/auth", () => ({
     deleteAccount: vi.fn(),
   }),
   useProfile: () => ({ displayName: "라멘 러버", profileLoaded: true }),
+  useNewResults: () => newResults,
+}));
+const newResults = vi.hoisted(() => ({
+  reportsNew: false,
+  photosNew: false,
+  anyNew: false,
+  markSeen: vi.fn(),
 }));
 
 const RECORD_TOTAL = 45;
@@ -266,5 +273,30 @@ describe("MePage — 제보 탭", () => {
     expect(
       await screen.findByRole("link", { name: "라멘집 등록하기" }),
     ).toHaveAttribute("href", "/?report=new");
+  });
+});
+
+describe("MePage — 새 결과 점", () => {
+  it("새 결과가 있는 다른 탭에 점을 띄우고, 연 탭은 확인 시각을 저장한다", async () => {
+    nav.current = createNavigationStub();
+    newResults.reportsNew = true;
+    newResults.photosNew = true;
+    newResults.markSeen.mockClear();
+    render(<MePage shops={shops} />);
+    expect(
+      screen.getByRole("tab", { name: "제보, 새 결과 있음" }),
+    ).toBeInTheDocument();
+    expect(newResults.markSeen).toHaveBeenCalledWith("photos");
+    expect(newResults.markSeen).not.toHaveBeenCalledWith("reports");
+    newResults.reportsNew = false;
+    newResults.photosNew = false;
+  });
+
+  it("새 결과가 없으면 점도 저장도 없다", () => {
+    nav.current = createNavigationStub("tab=saved", "/me");
+    newResults.markSeen.mockClear();
+    render(<MePage shops={shops} />);
+    expect(screen.getByRole("tab", { name: "제보" })).toBeInTheDocument();
+    expect(newResults.markSeen).not.toHaveBeenCalled();
   });
 });

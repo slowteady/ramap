@@ -13,7 +13,7 @@ import {
   Soup,
 } from "lucide-react";
 import { GenreChips, type Shop } from "@/entities/shop";
-import { useAuth, useProfile } from "@/features/auth";
+import { useAuth, useNewResults, useProfile } from "@/features/auth";
 import {
   LoginPromptSheet,
   useRecords,
@@ -67,6 +67,13 @@ function MeBody({ shops }: { shops: Shop[] }) {
     Boolean(user) && tab === "reports",
     reportsSeenAt,
   );
+  const { reportsNew, photosNew, markSeen } = useNewResults();
+  const tabHasNew = (key: TabKey) =>
+    (key === "reports" && reportsNew) || (key === "visited" && photosNew);
+  useEffect(() => {
+    if (tab === "visited" && photosNew) void markSeen("photos");
+    if (tab === "reports" && reportsNew) void markSeen("reports");
+  }, [tab, photosNew, reportsNew, markSeen]);
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
   useEffect(() => setVisibleCount(PAGE_SIZE), [tab]);
   const shopById = new Map(shops.map((s) => [s.id, s]));
@@ -169,6 +176,9 @@ function MeBody({ shops }: { shops: Shop[] }) {
             type="button"
             role="tab"
             aria-selected={tab === t.key}
+            aria-label={
+              tabHasNew(t.key) ? `${t.label}, 새 결과 있음` : undefined
+            }
             onClick={() =>
               router.replace(t.key === "visited" ? "/me" : `/me?tab=${t.key}`, {
                 scroll: false,
@@ -182,6 +192,12 @@ function MeBody({ shops }: { shops: Shop[] }) {
             )}
           >
             {t.label}
+            {tabHasNew(t.key) && (
+              <span
+                aria-hidden
+                className="ml-1 inline-block size-1.5 rounded-pill bg-ramen align-top"
+              />
+            )}
           </button>
         ))}
       </div>
