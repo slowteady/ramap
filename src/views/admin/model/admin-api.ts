@@ -1,6 +1,10 @@
 import dayjs from "dayjs";
 import { getSupabase } from "@/shared/api/supabase";
-import { PHOTO_RESET_PATCH, photoReviewPatch } from "./report-view";
+import {
+  PHOTO_RESET_PATCH,
+  photoReviewPatch,
+  resolvePatch,
+} from "./report-view";
 
 const RECORD_BUCKET = "record-photos";
 const REPORT_BUCKET = "report-photos";
@@ -27,6 +31,7 @@ export type AdminReport = {
   status: "open" | "done";
   resolution: ReportResolution | null;
   note: string | null;
+  rejectReason: string | null;
   resolvedAt: string | null;
 };
 
@@ -113,7 +118,7 @@ export async function fetchReports(): Promise<AdminReport[] | null> {
   const { data, error } = await client
     .from("reports")
     .select(
-      "id, type, shop_name, location, message, details, created_at, status, resolution, note, resolved_at",
+      "id, type, shop_name, location, message, details, created_at, status, resolution, note, reject_reason, resolved_at",
     )
     .order("created_at", { ascending: false });
   if (error || !data) return null;
@@ -128,6 +133,7 @@ export async function fetchReports(): Promise<AdminReport[] | null> {
     status: AdminReport["status"];
     resolution: ReportResolution | null;
     note: string | null;
+    reject_reason: string | null;
     resolved_at: string | null;
   }[];
   const allPaths = rows.flatMap((r) => r.details?.photos ?? []);
@@ -154,6 +160,7 @@ export async function fetchReports(): Promise<AdminReport[] | null> {
     status: r.status,
     resolution: r.resolution,
     note: r.note,
+    rejectReason: r.reject_reason,
     resolvedAt: r.resolved_at,
   }));
 }
@@ -162,17 +169,13 @@ export async function resolveReports(
   ids: number[],
   resolution: ReportResolution,
   note?: string,
+  rejectReason?: string,
 ): Promise<boolean> {
   const client = getSupabase();
   if (!client) return false;
   const { error } = await client
     .from("reports")
-    .update({
-      status: "done",
-      resolution,
-      note: note || null,
-      resolved_at: dayjs().toISOString(),
-    })
+    .update(resolvePatch(resolution, note, rejectReason, dayjs()))
     .in("id", ids);
   return !error;
 }

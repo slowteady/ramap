@@ -6,7 +6,11 @@ import Link from "next/link";
 import { Check } from "lucide-react";
 import { toast } from "sonner";
 import { resetPhoto, reviewPhoto, type PendingPhoto } from "../model/admin-api";
-import { ageLabel, PHOTO_REJECT_REASONS } from "../model/report-view";
+import {
+  ageLabel,
+  composeReason,
+  PHOTO_REJECT_REASONS,
+} from "../model/report-view";
 import { RejectPanel } from "./reject-panel";
 import { toastWithUndo } from "./undo-toast";
 
@@ -74,7 +78,9 @@ export function PhotoCard({
         <RejectPanel
           reasons={PHOTO_REJECT_REASONS}
           onCancel={() => setRejecting(false)}
-          onConfirm={(reason) => void act("rejected", reason)}
+          onConfirm={(chip, text) =>
+            void act("rejected", composeReason(chip, text))
+          }
         />
       ) : (
         <div className="flex gap-2">

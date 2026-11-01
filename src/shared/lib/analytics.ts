@@ -30,6 +30,7 @@ type EventMap = {
   };
   report_opened: { type: "new" | "edit" };
   report_submitted: { type: string; ok: boolean; logged_in: boolean };
+  my_reports_viewed: { count: number; new_results: number };
   directions_clicked: { app: string; shop_id: string };
   instagram_clicked: { shop_id: string; shared: boolean };
   share_clicked: { shop_id: string; method: "native" | "clipboard" };

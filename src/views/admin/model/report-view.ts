@@ -230,3 +230,18 @@ export const PHOTO_RESET_PATCH = {
   reject_reason: null,
   reviewed_at: null,
 } as const;
+
+export function resolvePatch(
+  resolution: ReportResolution,
+  note: string | undefined,
+  rejectReason: string | undefined,
+  now: Dayjs,
+) {
+  return {
+    status: "done",
+    resolution,
+    note: note || null,
+    reject_reason: resolution === "rejected" ? (rejectReason ?? null) : null,
+    resolved_at: now.toISOString(),
+  } as const;
+}

@@ -23,11 +23,14 @@ import { fetchMyRecordPhotos } from "@/features/records/index.client";
 import { cn } from "@/shared/lib/utils";
 import { hasMore, nextCount, PAGE_SIZE, visibleSlice } from "../model/paging";
 import { recordTime, sortRecordsByRecent } from "../model/sort-records";
+import { useMyReports } from "../model/use-my-reports";
 import { RecordViewerSheet } from "./record-viewer-sheet";
+import { ReportsTab } from "./reports-tab";
 
 const TABS = [
   { key: "visited", label: "완식" },
   { key: "saved", label: "저장" },
+  { key: "reports", label: "제보" },
 ] as const;
 
 type TabKey = (typeof TABS)[number]["key"];
@@ -36,7 +39,7 @@ function MeBody({ shops }: { shops: Shop[] }) {
   const router = useRouter();
   const params = useSearchParams();
   const { user, ready } = useAuth();
-  const { displayName, profileLoaded } = useProfile();
+  const { displayName, profileLoaded, reportsSeenAt } = useProfile();
   const { records, clearVisit } = useRecords();
   const [loginOpen, setLoginOpen] = useState(false);
   const [photosByShop, setPhotosByShop] = useState<Map<string, RecordPhoto[]>>(
@@ -58,7 +61,12 @@ function MeBody({ shops }: { shops: Shop[] }) {
     });
   }, [user]);
 
-  const tab: TabKey = params.get("tab") === "saved" ? "saved" : "visited";
+  const tab: TabKey =
+    TABS.find((t) => t.key === params.get("tab"))?.key ?? "visited";
+  const myReports = useMyReports(
+    Boolean(user) && tab === "reports",
+    reportsSeenAt,
+  );
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
   useEffect(() => setVisibleCount(PAGE_SIZE), [tab]);
   const shopById = new Map(shops.map((s) => [s.id, s]));
@@ -162,7 +170,7 @@ function MeBody({ shops }: { shops: Shop[] }) {
             role="tab"
             aria-selected={tab === t.key}
             onClick={() =>
-              router.replace(t.key === "visited" ? "/me" : "/me?tab=saved", {
+              router.replace(t.key === "visited" ? "/me" : `/me?tab=${t.key}`, {
                 scroll: false,
               })
             }
@@ -178,7 +186,9 @@ function MeBody({ shops }: { shops: Shop[] }) {
         ))}
       </div>
 
-      {listed.length > 0 ? (
+      {tab === "reports" ? (
+        myReports.reports && <ReportsTab reports={myReports.reports} />
+      ) : listed.length > 0 ? (
         tab === "visited" ? (
           /* 완식 = 인스타형 사진 그리드 — 사진 없는 기록은 아이콘 타일 (2026-09-03 PO) */
           <>

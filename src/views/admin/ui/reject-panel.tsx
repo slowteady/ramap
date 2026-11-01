@@ -11,7 +11,7 @@ export function RejectPanel({
 }: {
   reasons: readonly string[];
   onCancel: () => void;
-  onConfirm: (reason: string) => void;
+  onConfirm: (chip: string | null, text: string) => void;
 }) {
   const [chip, setChip] = useState<string | null>(null);
   const [text, setText] = useState("");
@@ -56,7 +56,7 @@ export function RejectPanel({
         <button
           type="button"
           disabled={!reason}
-          onClick={() => onConfirm(reason)}
+          onClick={() => onConfirm(chip, text.trim())}
           className="h-11 rounded-pill bg-gray-500 px-5 text-secondary font-bold text-white disabled:bg-gray-200"
         >
           반려하기

@@ -358,3 +358,38 @@ alter table public.profiles
   add column if not exists photos_seen_at timestamptz;
 
 grant update (reports_seen_at, photos_seen_at) on public.profiles to authenticated;
+
+-- 마이 "제보" 탭 (2026-11-01): 반려 사유 칩과 운영자 메모를 분리하고, 본인 제보는 메모를 뺀 함수로만 읽는다
+-- RLS는 칸을 가리지 못해 본인 행 조회를 열면 note(운영자 메모)까지 보인다 — select 정책 대신 security definer 함수
+alter table public.reports add column if not exists reject_reason text;
+
+drop policy if exists "reports: 본인 제보 조회" on public.reports;
+
+create or replace function public.my_reports()
+returns table (
+  id bigint,
+  type text,
+  shop_name text,
+  shop_id text,
+  created_at timestamptz,
+  status text,
+  resolution text,
+  reject_reason text,
+  resolved_at timestamptz
+)
+language sql
+stable
+security definer
+set search_path = public
+as $$
+  select r.id, r.type, r.shop_name, r.details ->> 'shopId', r.created_at, r.status, r.resolution,
+    case when r.reject_reason = '스팸' then null else r.reject_reason end,
+    r.resolved_at
+  from public.reports r
+  where r.user_id = auth.uid()
+  order by r.created_at desc;
+$$;
+
+revoke all on function public.my_reports() from public;
+revoke execute on function public.my_reports() from anon;
+grant execute on function public.my_reports() to authenticated;

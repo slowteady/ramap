@@ -94,8 +94,12 @@ export function ReportCard({
     else toast("처리하지 못했어요. 새로고침하고 다시 눌러 주세요.");
   };
 
-  const resolve = async (resolution: ReportResolution, note?: string) => {
-    if (!(await resolveReports(ids, resolution, note))) {
+  const resolve = async (
+    resolution: ReportResolution,
+    note?: string,
+    rejectReason?: string,
+  ) => {
+    if (!(await resolveReports(ids, resolution, note, rejectReason))) {
       toast("처리하지 못했어요. 새로고침하고 다시 눌러 주세요.");
       return;
     }
@@ -170,6 +174,9 @@ export function ReportCard({
         )}
       </div>
 
+      {done && r.rejectReason && (
+        <p className="text-secondary text-gray-500">사유: {r.rejectReason}</p>
+      )}
       {done && r.note && (
         <p className="text-secondary text-gray-500 wrap-anywhere">
           메모: {r.note}
@@ -265,7 +272,9 @@ export function ReportCard({
           <RejectPanel
             reasons={REPORT_REJECT_REASONS}
             onCancel={() => setRejecting(false)}
-            onConfirm={(reason) => void resolve("rejected", reason)}
+            onConfirm={(chip, text) =>
+              void resolve("rejected", text || undefined, chip ?? undefined)
+            }
           />
         ) : (
           <>

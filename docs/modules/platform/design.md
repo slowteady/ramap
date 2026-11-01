@@ -83,7 +83,7 @@ updated: 2026-10-28
 - 켬: 자동 클릭, 페이지뷰·이탈, 히트맵, 데드 클릭, 예외, 웹바이탈. 끔: 세션 녹화(`disable_session_recording`) — 켜려면 이 옵션을 false로 하고 처리방침에 녹화 고지를 추가한다.
 - 공통 속성: `page_type`(`src/shared/lib/analytics-context.ts`의 `pageTypeOf`), `in_app`(카카오톡·인스타·네이버·페이스북·라인 인앱 브라우저).
 - 로그인 사용자는 Supabase user id로만 `identify`, 로그아웃·탈퇴 시 `reset`. 운영자(`role=admin`)는 `opt_out_capturing`.
-- 커스텀 이벤트는 `src/shared/lib/analytics.ts`의 `EventMap`이 단일 원천이다. 새 이벤트는 타입을 먼저 추가하고 `track()`으로만 보낸다(posthog 직접 호출 금지). 현재 이벤트: `filter_changed`, `hide_visited_toggled`, `saved_only_toggled`, `search_result_selected`, `shop_selected`, `locate_clicked`, `map_load_failed`, `record_toggled`, `record_log_submitted`(실패 시 `failed_step`), `report_opened`, `report_submitted`, `directions_clicked`, `instagram_clicked`, `share_clicked`, `address_copied`, `login_started`, `account_deleted`.
+- 커스텀 이벤트는 `src/shared/lib/analytics.ts`의 `EventMap`이 단일 원천이다. 새 이벤트는 타입을 먼저 추가하고 `track()`으로만 보낸다(posthog 직접 호출 금지). 현재 이벤트: `filter_changed`, `hide_visited_toggled`, `saved_only_toggled`, `search_result_selected`, `shop_selected`, `locate_clicked`, `map_load_failed`, `record_toggled`, `record_log_submitted`(실패 시 `failed_step`), `report_opened`, `report_submitted`, `my_reports_viewed`, `directions_clicked`, `instagram_clicked`, `share_clicked`, `address_copied`, `login_started`, `account_deleted`.
 - 유입: `$referring_domain`·utm은 SDK 기본 수집. 인앱 브라우저는 referrer가 비어 `in_app`으로 보완하고, 직접 배포하는 링크에는 `?utm_source=`를 붙인다. 검색어는 Search Console·서치어드바이저에서 본다.
 
 ## 환경 변수
