@@ -83,6 +83,8 @@ export default async function Page({ params }: Props) {
       genreLabel={genreLabelOf(genre)}
       genreDescription={genreDescriptionOf(genre)}
       shops={genreShops}
+      pickIds={[]}
+      michelin={{}}
       mapHref={mapHref}
       pageUrl={`https://ramap.kr/area/${encodeURIComponent(area)}/${genre}`}
       crossLinks={crossLinks}

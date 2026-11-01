@@ -1,6 +1,6 @@
 ---
 status: 유효
-updated: 2026-10-28
+updated: 2026-11-01
 ---
 
 # shop-pages 설계
@@ -111,6 +111,8 @@ updated: 2026-10-28
 | H1 | `{지역}( {장르}) 라멘 맛집 {N}곳 ({빌드 연도})` |
 | 인트로 | 지역: 대표 국물 분포 상위 3(`soupBreakdown`, "니보시 3곳 · …") 한 줄. 지역×장르: 없음(H1이 같은 말을 한다) |
 | 매장 리스트 | 행마다 상호 / 장르 칩(`GenreChips`) / 영업 줄 + 편의(식권기·카에다마·원격 줄서기). 상세 링크. 썸네일 없음 |
+| 라맵 추천 | 지역만: `data/area-picks.json`의 그 지역 라멘집(평판 근거 A 등급)이 있으면 "라맵 추천 {N}곳" 구역을 먼저, 그 아래 "다른 라멘집 {N}곳". 추천된 곳은 아래에서 뺀다. 없으면 구역 제목 없이 전체 리스트. 근거 문장·커뮤니티 출처·등급·선정 기준 설명은 보이지 않는다 → [조사](../../research/2026-11-01-area-recommendation-display.md) |
+| 미쉐린 표시 | `michelinBibGourmand`에 있는 라멘집은 상호 위에 진한 배지(`rounded-chip` · `bg-ink` · 흰 글씨) "미쉐린 빕 구르망 {연도}"(추천 구역·나머지 리스트 모두). 공식 사이트 주소와 같은 지점만, 새 연도 발표마다 다시 확인 |
 | 지도에서 보기 | 지역: `/?area={지역}`. 지역×장르: `/?soup={slug}&area={지역}` 또는 `/?lineage={slug}&area={지역}` — 홈이 그 지역으로 이동(`views/area-list/model/map-href.ts`) |
 | FAQ | 지역×장르만: "{장르} 라멘이란?" → 택소노미 `description` + "이에요/예요"(`model/area-copy.ts` `faqAnswer`) |
 | 교차 링크 | "근처 지역·다른 장르" 칩. 지역: 그 지역의 생성된 장르 조합 전부(↓) + 가까운 지역 6곳 `{지역} 라멘 {N}곳`(→, `nearestAreas`). 지역×장르: `{지역} 전체`(↑) + 다른 생성 조합 5개 |
@@ -121,9 +123,10 @@ updated: 2026-10-28
 | description | `{지역}의 라멘집 {N}곳. 국물 종류·영업시간과 위치를 라맵 지도에서 확인하세요.` | `{지역}의 {장르} 라멘집 {N}곳. 영업 정보와 위치를 라맵 지도에서 확인하세요.` |
 | canonical | `/area/{인코딩 지역}` | `/area/{인코딩 지역}/{장르}` |
 | noindex | 매장 3곳 미만(`shouldNoindexArea`) | `etc-soup`(`shouldNoindexAreaGenre`) |
-| JSON-LD | ItemList(매장 상세 URL) + BreadcrumbList | ItemList + BreadcrumbList + FAQPage |
+| JSON-LD | ItemList(매장 상세 URL, 화면 순서 — 추천 먼저) + BreadcrumbList | ItemList + BreadcrumbList + FAQPage |
 
 - 매장 집합: `shopsByArea`(동네라벨 일치, 폐업 제외), `shopsByAreaGenre`(+ 국물 또는 계보 slug 포함)
+- 추천 데이터: `getAreaPicks`(`entities/shop/api`, `unknown` 내로잉 `toAreaPicks`) → `splitAreaPicks`(`views/area-list/model/area-picks.ts`) — 지역 리스트에 없는 추천 id(폐업·지역 변경)는 건너뛴다. 지역×장르 페이지에는 추천·미쉐린 표시를 쓰지 않는다
 - 생성: 지역은 `listAreaPages`(동네라벨 기준 클러스터 중 영업 매장이 있는 것 — 지도 클러스터의 구 폴백 묶음은 제외), 지역×장르는 `listAreaGenrePages(shops, 3)`(3곳 기준의 이유는 [요구사항](requirements.md)). 그 밖의 조합 요청은 `notFound()`. 모든 조합을 만들고 noindex하는 방식은 쓰지 않는다 — 크롤 표면만 늘고 사이트맵·내부 링크 정합이 깨진다
 - 색인 제외 → [결정](decisions/0008-noindex-criteria.md)
 
