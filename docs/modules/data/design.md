@@ -329,7 +329,7 @@ enrichment를 쓸 때(스킬의 "항목을 추가·수정할 때"에 더해):
 
 ## 인스타 검수 라운드
 
-[결정](decisions/0027-instagram-link-priority.md) · 근거·우선순위 규칙은 [data-integrity 스킬](../../../.claude/skills/data-integrity/SKILL.md) "인스타" 절 · 1차 결과 → [조사](research/2026-10-27-instagram-link-first-review.md)
+[결정](decisions/0027-instagram-link-priority.md) · [브랜드 계정은 3곳 이하 체인만](decisions/0029-instagram-brand-small-chains.md) · 근거·우선순위 규칙은 [data-integrity 스킬](../../../.claude/skills/data-integrity/SKILL.md) "인스타" 절 · 1차 결과 → [조사](research/2026-10-27-instagram-link-first-review.md)
 
 ### 대기열 — `data/review/instagram-2026-11/pending.tsv`
 
@@ -361,6 +361,9 @@ enrichment를 쓸 때(스킬의 "항목을 추가·수정할 때"에 더해):
    - `existingVerdict: "wrong"`이고 대체할 계정이 없으면 `"instagram": ""`
    - `unverified`는 기존 값 유지
    - 에이전트가 `handle: null`로 판정한 매장에 같은 이름 그룹의 브랜드 계정을 자동 대입하지 않는다. 브랜드 대체는 에이전트가 그 매장에 `kind: "brand"`를 준 경우만
+   - 브랜드 계정(`kind: "brand"`)은 영업 지점 3곳 이하 체인에만 넣는다. 4곳 이상은 지점 자체 계정만, 없으면 비운다. 이미 들어가 있고 `confirmed`인 값은 유지
+   - 다른 지점 계정이 여러 지점에 번진 값, 오래 방치된 계정, 브랜드명이 바뀐 계정은 `"instagram": ""`
+   - 항목 `name`은 후보의 **상호+지점명**(정확 일치 기준이 `상호+지점명`이라 상호만 쓰면 승계 항목이 돼 이전 값을 못 이긴다), `observedAt`에 조사일을 넣는다(최신 조사가 이기는 기준 — 없으면 파일 순서상 앞의 옛 조사가 이긴다)
    - 소개글·제목에 위치 근거가 없는 매장·지점 계정은 이름이 고유하고 다른 단서(계정명 지명·전화번호·역 이름)가 있을 때만. 대표 개인·유튜버 계정, 게시물 0개 빈 계정은 쓰지 않는다
    - 교육기관·운영사 계정(예 `tokyoramenschool`, `kyeong_company`)처럼 제목에 브랜드명이 없거나 같은 사업체인지 불분명한 브랜드 계정은 쓰지 않는다
 5. 재생성·검수: `enrich-candidates` → `sync-sheet` → `audit-integrity`. 인스타 변경 행을 표본 확인(바뀐 계정의 프로필 제목이 그 매장인지).
