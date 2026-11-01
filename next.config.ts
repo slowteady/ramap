@@ -3,6 +3,13 @@ import shopRedirects from "./data/shop-redirects.json";
 
 const nextConfig: NextConfig = {
   skipTrailingSlashRedirect: true,
+  outputFileTracingExcludes: {
+    "/**": [
+      "./node_modules/pretendard/dist/public/static/alternative/**",
+      "./node_modules/pretendard/dist/public/static/*.ttf",
+      "./node_modules/pretendard/dist/public/static/Pretendard-{Black,Bold,ExtraLight,Light,Medium,Regular,SemiBold,Thin}.otf",
+    ],
+  },
   /* 같은 가게 중복 행을 합친 뒤 지운 id → 남긴 id (색인·공유 링크 보존) */
   async redirects() {
     return Object.entries(shopRedirects).map(([from, to]) => ({
