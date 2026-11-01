@@ -24216,8 +24216,8 @@
     "breakTime": null,
     "closedDays": "일요일",
     "openedAt": null,
-    "status": "open",
-    "statusChangedAt": null,
+    "status": "closed",
+    "statusChangedAt": "2026-08-25",
     "forms": [
       "ramen"
     ],
@@ -24240,7 +24240,7 @@
     "verification": "pending",
     "lastVerifiedAt": null,
     "source": "시딩v2(상가I20303); 2026-10-28 휴무 조사 — 블로그 후기 2건 일치(날짜 미표기), 장소 카드 제외; 정보 보강 — 상세 미확인; 지역 조사(다음검색)",
-    "note": "I20303 발굴 — 라멘 여부 확인 필요 / LOCALDATA 2026-10 폐업 전이(폐업일 2026-08-25, 관리번호 5220000-101-2022-00019) / 2026-10-27 폐업 재검증: 꾸다체크 국세청 기준 정상 영업 중 → 영업 복원(LOCALDATA 2026-08-25 폐업은 명의변경 추정)"
+    "note": "I20303 발굴 — 라멘 여부 확인 필요 / LOCALDATA 2026-10 폐업 전이(폐업일 2026-08-25, 관리번호 5220000-101-2022-00019) / 2026-10-27 폐업 재검증: 꾸다체크 국세청 기준 정상 영업 중 → 영업 복원(LOCALDATA 2026-08-25 폐업은 명의변경 추정) / 2026-11-01 폐업 확정: 공식 인스타 @higoto__ramen(왜관 맛집) 소개글 '히고토의 매장운영을 종료합니다'(마지막 게시물 2026-06-04), LOCALDATA 폐업일 2026-08-25와 일치, 이후 방문 후기 없음"
   },
   {
     "id": "hondaramen-nyeongnamdaejeom",
@@ -30735,8 +30735,8 @@
     "breakTime": null,
     "closedDays": null,
     "openedAt": null,
-    "status": "open",
-    "statusChangedAt": null,
+    "status": "closed",
+    "statusChangedAt": "2026-10-25",
     "forms": [
       "ramen",
       "tsukemen",
@@ -30764,7 +30764,7 @@
     "verification": "pending",
     "lastVerifiedAt": null,
     "source": "시딩v2(상가I20303+상가); 부산 조사(다음검색); 부산 디깅(다음검색); 2차 디깅(다음검색) · 부산 해운대구; 정보 보강(다음검색)",
-    "note": "I20303 발굴 — 라멘 여부 확인 필요"
+    "note": "I20303 발굴 — 라멘 여부 확인 필요 / 2026-11-01 폐업 확정: 블로그 2026-10-23 '10월 25일까지 영업 후 폐업'(인스타 공지, 재개발), 에펨코리아 2026-10-24 '내일을 마지막으로 영업 종료'"
   },
   {
     "id": "iiramen",
@@ -33581,8 +33581,8 @@
     "breakTime": null,
     "closedDays": null,
     "openedAt": null,
-    "status": "open",
-    "statusChangedAt": null,
+    "status": "closed",
+    "statusChangedAt": "2026-01-28",
     "forms": [
       "ramen"
     ],
@@ -33605,7 +33605,7 @@
     "verification": "pending",
     "lastVerifiedAt": null,
     "source": "시딩v2(상가I20303); 정보수집(다음검색); 정보 보강 — 상세 미확인; 재검증(다음검색); 웹 조사",
-    "note": "I20303 발굴 — 라멘 여부 확인 필요"
+    "note": "I20303 발굴 — 라멘 여부 확인 필요 / 2026-11-01 폐업 확정: 공식 인스타 @jinsimramen 소개글 '2026년 1월 28일부로 영업종료', 다이닝코드 후기 '샤로수길 최애 진심라멘이었으나 폐업', 2025-08 이후 방문 후기 없음"
   },
   {
     "id": "menburi-yeongdeungpojeom",
@@ -48968,7 +48968,7 @@
     "id": "surimsikdang",
     "name": "수림식당",
     "branch": null,
-    "address": "서울특별시 마포구 와우산로21길 19-19, 2층 (서교동)",
+    "address": "서울특별시 마포구 와우산로21길 19-19, 1층 (서교동)",
     "city": "서울",
     "district": "마포구",
     "areaLabel": "홍대",
@@ -49003,7 +49003,7 @@
     "verification": "pending",
     "lastVerifiedAt": null,
     "source": "시딩v2(디깅발굴); 디깅 발굴 조사(다음검색) — 중식당(탄탄면·우육탕면); 부산 디깅(다음검색); 서울 디깅(다음검색); 2차 디깅(다음검색) · 부산 수영구 광안동; 2026-11-01 인스타 2차 검수 — branch 프로필 '수림식당 홍대점 (@surimkitchen_hongdae) • Instagram photos and videos'; 2026",
-    "note": null
+    "note": "2026-11-01 폐업 단서 검증: Daum 장소 카드 '수림식당 홍대점' 영업중(와우산로21길 19-19 1층), 블로그 2026-10 후기 → 영업. 주소 2층→1층"
   },
   {
     "id": "kyusyuulteuraamen-yangjaejeom",
@@ -59574,8 +59574,8 @@
     "breakTime": null,
     "closedDays": null,
     "openedAt": null,
-    "status": "open",
-    "statusChangedAt": null,
+    "status": "closed",
+    "statusChangedAt": "2026-10-30",
     "forms": [
       "ramen"
     ],
@@ -59598,7 +59598,7 @@
     "verification": "pending",
     "lastVerifiedAt": null,
     "source": "시딩v2(디깅발굴(상가)); 발굴 2차 조사(다음검색); 부산 디깅(다음검색); 서울 디깅(다음검색); 2차 디깅(다음검색) · 부산진구 전포동; 정보 보강(다음검색)",
-    "note": null
+    "note": "2026-11-01 폐업 확정: 라멘갤 2026-10-28 '10월30일(금) 점심까지 영업 후 폐업'(goodramen no=126935)"
   },
   {
     "id": "mukageya",
