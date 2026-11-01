@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
+  hiddenPhotoMessage,
   normalizeComment,
   visibleLogEntries,
   withEntryMeta,
@@ -125,5 +126,24 @@ describe("다중 사진 묶음(entry)", () => {
     const entries = withEntryMeta(visibleLogEntries(photos, null));
     expect(entries.map((e) => e.photo.id)).toEqual([3, 1, 2]);
     expect(entries.map((e) => e.showMeta)).toEqual([true, true, false]);
+  });
+});
+
+describe("hiddenPhotoMessage", () => {
+  it("공개하지 않은 사유 칩을 탓하지 않는 문장으로 바꾼다", () => {
+    expect(hiddenPhotoMessage("라멘이 안 보임")).toBe(
+      "라멘이 잘 보이는 사진만 공개해요",
+    );
+    expect(hiddenPhotoMessage("본인 촬영 아님")).toBe(
+      "직접 찍은 사진만 공개해요",
+    );
+    expect(hiddenPhotoMessage("부적절")).toBe(
+      "다른 사람에게 보여 주기 어려운 사진이라 공개하지 않았어요",
+    );
+  });
+
+  it("사유가 없거나 모르는 값이면 문장 없이", () => {
+    expect(hiddenPhotoMessage(null)).toBeNull();
+    expect(hiddenPhotoMessage("운영자 메모")).toBeNull();
   });
 });

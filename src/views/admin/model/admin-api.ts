@@ -91,13 +91,14 @@ export async function fetchPendingPhotos(): Promise<PendingPhoto[] | null> {
 export async function reviewPhoto(
   id: number,
   status: "approved" | "rejected",
-  rejectReason?: string,
+  rejectReason: string | null,
+  note: string,
 ): Promise<boolean> {
   const client = getSupabase();
   if (!client) return false;
   const { error } = await client
     .from("record_photos")
-    .update(photoReviewPatch(status, rejectReason, dayjs()))
+    .update(photoReviewPatch(status, rejectReason, note, dayjs()))
     .eq("id", id);
   return !error;
 }

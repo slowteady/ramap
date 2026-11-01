@@ -137,10 +137,10 @@ describe("AdminPage", () => {
     render(<AdminPage shops={SHOPS} />);
     expect(await screen.findByText("진한 국물")).toBeInTheDocument();
     await user.click(screen.getByRole("button", { name: "승인" }));
-    expect(api.reviewPhoto).toHaveBeenCalledWith(1, "approved", undefined);
+    expect(api.reviewPhoto).toHaveBeenCalledWith(1, "approved", null, "");
   });
 
-  it("사진 반려는 사유 칩·직접 입력을 고른 뒤에만 확정된다", async () => {
+  it("사진 반려는 사유 칩·직접 입력을 고른 뒤에만 확정되고, 둘을 따로 넘긴다", async () => {
     profile.isAdmin = true;
     const user = userEvent.setup();
     render(<AdminPage shops={SHOPS} />);
@@ -154,7 +154,8 @@ describe("AdminPage", () => {
     expect(api.reviewPhoto).toHaveBeenCalledWith(
       1,
       "rejected",
-      "본인 촬영 아님 — 캡처",
+      "본인 촬영 아님",
+      "캡처",
     );
   });
 

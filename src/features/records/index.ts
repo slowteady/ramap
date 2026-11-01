@@ -6,6 +6,7 @@ export { LoginPromptSheet } from "./ui/login-prompt-sheet";
 export { RecordLogSheet } from "./ui/record-log-sheet";
 export { VisitSummaryLine } from "./ui/visit-summary-line";
 export {
+  hiddenPhotoMessage,
   visibleLogEntries,
   visitOrdinals,
   withEntryMeta,

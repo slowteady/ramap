@@ -104,7 +104,7 @@ export function RecordLogSection({ shopId }: { shopId: string }) {
                 )}
                 {entry.userId === myUserId && entry.status === "rejected" && (
                   <span className="absolute top-2 left-2 rounded-chip bg-gray-500 px-1.5 py-0.5 text-caption font-semibold text-white">
-                    반려됨
+                    공개 안 됨
                   </span>
                 )}
               </div>

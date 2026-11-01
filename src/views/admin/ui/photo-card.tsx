@@ -6,11 +6,7 @@ import Link from "next/link";
 import { Check } from "lucide-react";
 import { toast } from "sonner";
 import { resetPhoto, reviewPhoto, type PendingPhoto } from "../model/admin-api";
-import {
-  ageLabel,
-  composeReason,
-  PHOTO_REJECT_REASONS,
-} from "../model/report-view";
+import { ageLabel, PHOTO_REJECT_REASONS } from "../model/report-view";
 import { RejectPanel } from "./reject-panel";
 import { toastWithUndo } from "./undo-toast";
 
@@ -25,8 +21,12 @@ export function PhotoCard({
 }) {
   const [rejecting, setRejecting] = useState(false);
 
-  const act = async (status: "approved" | "rejected", reason?: string) => {
-    if (!(await reviewPhoto(photo.id, status, reason))) {
+  const act = async (
+    status: "approved" | "rejected",
+    chip: string | null = null,
+    note = "",
+  ) => {
+    if (!(await reviewPhoto(photo.id, status, chip, note))) {
       toast("처리하지 못했어요. 새로고침하고 다시 눌러 주세요.");
       return;
     }
@@ -78,9 +78,7 @@ export function PhotoCard({
         <RejectPanel
           reasons={PHOTO_REJECT_REASONS}
           onCancel={() => setRejecting(false)}
-          onConfirm={(chip, text) =>
-            void act("rejected", composeReason(chip, text))
-          }
+          onConfirm={(chip, text) => void act("rejected", chip, text)}
         />
       ) : (
         <div className="flex gap-2">

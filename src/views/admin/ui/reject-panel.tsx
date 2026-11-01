@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { cn } from "@/shared/lib/utils";
-import { composeReason } from "../model/report-view";
+import { canReject } from "../model/report-view";
 
 export function RejectPanel({
   reasons,
@@ -15,7 +15,7 @@ export function RejectPanel({
 }) {
   const [chip, setChip] = useState<string | null>(null);
   const [text, setText] = useState("");
-  const reason = composeReason(chip, text);
+  const ready = canReject(chip, text);
 
   return (
     <div className="flex flex-col gap-2.5 rounded-card bg-gray-050 p-3">
@@ -55,7 +55,7 @@ export function RejectPanel({
         </button>
         <button
           type="button"
-          disabled={!reason}
+          disabled={!ready}
           onClick={() => onConfirm(chip, text.trim())}
           className="h-11 rounded-pill bg-gray-500 px-5 text-secondary font-bold text-white disabled:bg-gray-200"
         >

@@ -190,8 +190,8 @@ export function resolvedMessage(resolution: ReportResolution): string {
   return RESOLVED_MESSAGES[resolution];
 }
 
-export function composeReason(chip: string | null, text: string): string {
-  return [chip, text.trim()].filter(Boolean).join(" — ");
+export function canReject(chip: string | null, text: string): boolean {
+  return chip !== null || text.trim() !== "";
 }
 
 export function ageLabel(createdAt: string, now: Dayjs): string {
@@ -215,12 +215,14 @@ export function sortGroups(
 
 export function photoReviewPatch(
   status: "approved" | "rejected",
-  rejectReason: string | undefined,
+  rejectReason: string | null,
+  note: string,
   now: Dayjs,
 ) {
   return {
     status,
-    reject_reason: rejectReason ?? null,
+    reject_reason: status === "rejected" ? rejectReason : null,
+    review_note: status === "rejected" && note ? note : null,
     reviewed_at: now.toISOString(),
   };
 }
@@ -228,6 +230,7 @@ export function photoReviewPatch(
 export const PHOTO_RESET_PATCH = {
   status: "pending",
   reject_reason: null,
+  review_note: null,
   reviewed_at: null,
 } as const;
 

@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 import dayjs from "dayjs";
 import Link from "next/link";
 import type { RecordPhoto } from "@/features/records";
-import { visitOrdinals } from "@/features/records";
+import { hiddenPhotoMessage, visitOrdinals } from "@/features/records";
 import { cn } from "@/shared/lib/utils";
 import { Drawer, DrawerContent, DrawerTitle } from "@/shared/ui/drawer";
 
@@ -29,6 +29,10 @@ export function RecordViewerSheet({
   const scroller = useRef<HTMLDivElement>(null);
   const ordinals = visitOrdinals(photos);
   const current = photos[index] ?? photos[0];
+  const hiddenMessage =
+    current?.status === "rejected"
+      ? hiddenPhotoMessage(current.rejectReason)
+      : null;
 
   const onScroll = () => {
     const el = scroller.current;
@@ -75,7 +79,7 @@ export function RecordViewerSheet({
                     )}
                     {p.status === "rejected" && (
                       <span className="absolute top-2 left-2 rounded-chip bg-gray-500 px-1.5 py-0.5 text-caption font-semibold text-white">
-                        반려됨
+                        공개 안 됨
                       </span>
                     )}
                   </div>
@@ -103,6 +107,9 @@ export function RecordViewerSheet({
             >
               {current.comment && (
                 <p className="text-body text-ink">{current.comment}</p>
+              )}
+              {hiddenMessage && (
+                <p className="text-secondary text-gray-500">{hiddenMessage}</p>
               )}
               <p className="text-caption text-gray-400">
                 {ordinals.get(current.id) ?? 1}번째 완식 ·{" "}

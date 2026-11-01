@@ -3,7 +3,7 @@ import { describe, expect, it } from "vitest";
 import type { AdminReport } from "./admin-api";
 import {
   ageLabel,
-  composeReason,
+  canReject,
   editRows,
   sortGroups,
   groupReports,
@@ -185,14 +185,11 @@ describe("sortGroups", () => {
   });
 });
 
-describe("composeReason", () => {
-  it("칩과 직접 입력을 합친다", () => {
-    expect(composeReason("확인 불가", "")).toBe("확인 불가");
-    expect(composeReason("확인 불가", " 전화 안 받음 ")).toBe(
-      "확인 불가 — 전화 안 받음",
-    );
-    expect(composeReason(null, "기타 사유")).toBe("기타 사유");
-    expect(composeReason(null, "  ")).toBe("");
+describe("canReject", () => {
+  it("사유 칩이나 직접 입력 중 하나가 있어야 반려할 수 있다", () => {
+    expect(canReject("확인 불가", "")).toBe(true);
+    expect(canReject(null, "기타 사유")).toBe(true);
+    expect(canReject(null, "  ")).toBe(false);
   });
 });
 
@@ -208,20 +205,23 @@ describe("사진 검수 기록", () => {
   const now = dayjs("2026-10-31T10:00:00+09:00");
 
   it("승인·반려하면 검수 시각을 남긴다", () => {
-    expect(photoReviewPatch("approved", undefined, now)).toEqual({
+    expect(photoReviewPatch("approved", null, "", now)).toEqual({
       status: "approved",
       reject_reason: null,
+      review_note: null,
       reviewed_at: now.toISOString(),
     });
-    expect(photoReviewPatch("rejected", "부적절", now).reject_reason).toBe(
-      "부적절",
-    );
+    expect(photoReviewPatch("rejected", "부적절", "흐림", now)).toMatchObject({
+      reject_reason: "부적절",
+      review_note: "흐림",
+    });
   });
 
   it("되돌리면 검수 시각을 비운다", () => {
     expect(PHOTO_RESET_PATCH).toEqual({
       status: "pending",
       reject_reason: null,
+      review_note: null,
       reviewed_at: null,
     });
   });
