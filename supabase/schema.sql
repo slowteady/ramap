@@ -393,3 +393,11 @@ $$;
 revoke all on function public.my_reports() from public;
 revoke execute on function public.my_reports() from anon;
 grant execute on function public.my_reports() to authenticated;
+
+-- 완식 사진 공개 안 됨 사유 (2026-11-01): 사유 칩(reject_reason)과 운영자 메모(review_note)를 분리.
+-- 본인 사진은 행 전체가 열려 있어 메모를 칸 단위 조회 권한에서 뺀다 — 메모는 대시보드(service role)에서만 읽는다
+alter table public.record_photos add column if not exists review_note text;
+revoke select on public.record_photos from anon, authenticated;
+grant select (id, user_id, shop_id, photo_path, comment, consent, status,
+  reject_reason, reviewed_at, created_at, entry_id)
+  on public.record_photos to anon, authenticated;

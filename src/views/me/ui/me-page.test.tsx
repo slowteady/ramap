@@ -26,7 +26,12 @@ vi.mock("@/features/auth", () => ({
 
 const RECORD_TOTAL = 45;
 const clearVisit = vi.hoisted(() => vi.fn());
-vi.mock("@/features/records", () => ({
+vi.mock("@/features/records", async () => ({
+  hiddenPhotoMessage: (
+    await vi.importActual<
+      typeof import("@/features/records/model/record-photo-ops")
+    >("@/features/records/model/record-photo-ops")
+  ).hiddenPhotoMessage,
   useRecords: () => ({
     clearVisit,
     records: Array.from({ length: 45 }, (_, i) => ({
@@ -156,6 +161,37 @@ describe("MePage — 기록 뷰어 (인스타 문법)", () => {
       "href",
       "/shop/shop-44",
     );
+    myPhotos.value = null;
+  });
+});
+
+describe("MePage — 공개 안 된 완식 사진", () => {
+  it("뷰어에서 '공개 안 됨'과 사유 문장을 보여 준다", async () => {
+    myPhotos.value = [
+      {
+        id: 3,
+        userId: "u1",
+        shopId: "shop-44",
+        photoPath: "u1/c.jpg",
+        comment: null,
+        consent: true,
+        status: "rejected",
+        rejectReason: "본인 촬영 아님",
+        createdAt: "2026-09-01T12:00:00Z",
+        entryId: "e2",
+        nickname: null,
+        url: "https://example.com/c.jpg",
+      },
+    ];
+    const user = userEvent.setup();
+    nav.current = createNavigationStub();
+    render(<MePage shops={shops} />);
+    await user.click(
+      await screen.findByRole("button", { name: "라멘집44 기록 보기" }),
+    );
+    expect(screen.getByText("공개 안 됨")).toBeInTheDocument();
+    expect(screen.getByText("직접 찍은 사진만 공개해요")).toBeInTheDocument();
+    expect(screen.queryByText("반려됨")).not.toBeInTheDocument();
     myPhotos.value = null;
   });
 });

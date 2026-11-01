@@ -27,7 +27,7 @@ updated: 2026-10-28
 | `src/app/report/page.tsx` | `/?report=new` 리다이렉트 |
 | `src/views/admin/` | `/admin` 페이지, 제보·사진 카드, 반려 패널, 되돌리기 토스트 |
 | `src/views/admin/model/admin-api.ts` | 관리자 조회·처리 API |
-| `src/views/admin/model/report-view.ts` | 순수 함수: `linkLabel`·`parseDetails`·`groupReports`·`editRows`·`sortGroups`·`ageLabel`·`composeReason`·`toAdminShops`, 반려 사유 칩 |
+| `src/views/admin/model/report-view.ts` | 순수 함수: `linkLabel`·`parseDetails`·`groupReports`·`editRows`·`sortGroups`·`ageLabel`·`canReject`·`resolvePatch`·`photoReviewPatch`·`toAdminShops`, 반려 사유 칩 |
 | `src/app/admin/page.tsx` | 서버에서 `toAdminShops(getShops())`를 내려 현재 값 비교에 사용 |
 | `supabase/schema.sql` | `reports`, `report-photos` 버킷, `profiles.role`·`is_admin()`, 관리자 정책 |
 
@@ -148,8 +148,8 @@ updated: 2026-10-28
 
 - `record_photos`의 pending만, 오래된 순.
 - 카드: 사진(서명 URL 1시간) / 매장명(새 탭 매장 링크) / 닉네임 · `M.D HH:mm` / 우측 "N일 전"(당일은 "오늘") / 한줄평 인용.
-- [✓ 승인] / 오른쪽 끝 [반려] → 반려 패널: 사유 칩(라멘이 안 보임·본인 촬영 아님·부적절) + 직접 입력(선택) → [반려하기](칩·입력 중 하나 이상 필요, 칩과 입력은 " — "로 합침), [닫기].
-- 승인·반려하면 `reviewed_at`에 검수 시각을 남기고, 토스트 "승인했어요"/"반려했어요" + 10초 [되돌리기] → pending 복귀, 사유·검수 시각 삭제(`photoReviewPatch`·`PHOTO_RESET_PATCH`).
+- [✓ 승인] / 오른쪽 끝 [반려] → 반려 패널: 사유 칩(라멘이 안 보임·본인 촬영 아님·부적절) + 직접 입력(선택) → [반려하기](칩·입력 중 하나 이상 필요 — 칩은 `reject_reason`, 입력은 `review_note`에 따로), [닫기].
+- 승인·반려하면 `reviewed_at`에 검수 시각을 남기고, 토스트 "승인했어요"/"반려했어요" + 10초 [되돌리기] → pending 복귀, 사유·메모·검수 시각 삭제(`photoReviewPatch`·`PHOTO_RESET_PATCH`).
 - 처리된 사진 목록은 없다.
 
 ### 제보 탭

@@ -75,3 +75,13 @@ export function withEntryMeta(
     showMeta: i === 0 || entryKey(entries[i - 1]) !== entryKey(photo),
   }));
 }
+
+const HIDDEN_PHOTO_MESSAGES: Record<string, string> = {
+  "라멘이 안 보임": "라멘이 잘 보이는 사진만 공개해요",
+  "본인 촬영 아님": "직접 찍은 사진만 공개해요",
+  부적절: "다른 사람에게 보여 주기 어려운 사진이라 공개하지 않았어요",
+};
+
+export function hiddenPhotoMessage(reason: string | null): string | null {
+  return (reason && HIDDEN_PHOTO_MESSAGES[reason]) ?? null;
+}
