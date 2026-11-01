@@ -12,7 +12,6 @@ import { getAreaPicks } from "@/entities/shop/index.server";
 import {
   AreaListPage,
   areaMapHref,
-  checkedMonthLabel,
   genreLabelOf,
   type CrossLink,
 } from "@/views/area-list";
@@ -64,7 +63,6 @@ export default async function Page({ params }: Props) {
       shops={areaShops}
       pickIds={areaPicks.areas[area] ?? []}
       michelin={areaPicks.michelinBibGourmand}
-      checkedMonth={checkedMonthLabel(areaPicks.checkedAt)}
       mapHref={areaMapHref(area)}
       pageUrl={`https://ramap.kr/area/${encodeURIComponent(area)}`}
       crossLinks={crossLinks}

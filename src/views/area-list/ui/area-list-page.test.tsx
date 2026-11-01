@@ -44,7 +44,6 @@ function renderPage(pickIds: string[], michelin: Record<string, number> = {}) {
       shops={shops}
       pickIds={pickIds}
       michelin={michelin}
-      checkedMonth="2026년 11월"
       mapHref="/?area=망원"
       pageUrl="https://ramap.kr/area/망원"
       crossLinks={[]}

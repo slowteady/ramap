@@ -85,7 +85,6 @@ export default async function Page({ params }: Props) {
       shops={genreShops}
       pickIds={[]}
       michelin={{}}
-      checkedMonth=""
       mapHref={mapHref}
       pageUrl={`https://ramap.kr/area/${encodeURIComponent(area)}/${genre}`}
       crossLinks={crossLinks}

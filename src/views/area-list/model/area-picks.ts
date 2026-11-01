@@ -1,5 +1,3 @@
-import dayjs from "dayjs";
-
 export function splitAreaPicks<T extends { id: string }>(
   shops: T[],
   pickIds: string[],
@@ -15,9 +13,4 @@ export function splitAreaPicks<T extends { id: string }>(
 
 export function michelinLabel(year: number): string {
   return `미쉐린 빕 구르망 ${year}`;
-}
-
-export function checkedMonthLabel(checkedAt: string): string {
-  if (!checkedAt) return "";
-  return dayjs(checkedAt).format("YYYY년 M월");
 }

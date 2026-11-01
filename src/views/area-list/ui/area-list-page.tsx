@@ -3,7 +3,6 @@ import Link from "next/link";
 import { PageHeader } from "@/shared/ui/page-header";
 import { faqAnswer } from "../model/area-copy";
 import { michelinLabel, splitAreaPicks } from "../model/area-picks";
-import { PickCriteriaButton } from "./pick-criteria-button";
 import {
   breadcrumbJsonLd,
   faqJsonLd,
@@ -27,7 +26,6 @@ type AreaListPageProps = {
   shops: Shop[];
   pickIds: string[];
   michelin: Record<string, number>;
-  checkedMonth: string;
   mapHref: string;
   pageUrl: string;
   crossLinks: CrossLink[];
@@ -110,7 +108,6 @@ export function AreaListPage({
   shops,
   pickIds,
   michelin,
-  checkedMonth,
   mapHref,
   pageUrl,
   crossLinks,
@@ -170,12 +167,12 @@ export function AreaListPage({
       {picks.length > 0 ? (
         <>
           <section aria-labelledby="area-picks" className="flex flex-col pt-6">
-            <div className="flex items-center justify-between px-4">
-              <h2 id="area-picks" className="text-title font-bold text-ink">
-                라맵 추천 {picks.length}곳
-              </h2>
-              <PickCriteriaButton checkedMonth={checkedMonth} />
-            </div>
+            <h2
+              id="area-picks"
+              className="px-4 pb-1 text-title font-bold text-ink"
+            >
+              라맵 추천 {picks.length}곳
+            </h2>
             <ShopRows shops={picks} michelin={michelin} />
           </section>
           {rest.length > 0 && (
