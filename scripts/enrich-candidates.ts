@@ -11,7 +11,8 @@ import {
   promoteFromMenus,
   promoteSoups,
   toSheetLine,
-  toSlug,
+  assignShopId,
+  reservedShopIds,
   type Enrichment,
 } from "./lib/enrich";
 import { confidenceLabelOf } from "./lib/grade";
@@ -81,7 +82,16 @@ function verdictOf(
   return signal ? "publish" : "hold";
 }
 
-const taken = new Set<string>();
+const pinnedIds = lines
+  .slice(1)
+  .map((line) => line.split("\t")[SHEET_HEADER.indexOf("id")] ?? "");
+const retiredIds = Object.keys(
+  JSON.parse(readFileSync(resolve("data/shop-redirects.json"), "utf8")) as Record<
+    string,
+    string
+  >,
+);
+const taken = reservedShopIds(pinnedIds, retiredIds);
 const outRows: Record<string, string>[] = [];
 const heldRows: Record<string, string>[] = [];
 /* 검수 큐: 주소 판정과 디깅 라벨이 다른 매장 — 검색 검증 배치의 입력 */
@@ -120,7 +130,7 @@ for (const line of lines.slice(1)) {
         }
       : promoted;
 
-  cells.id = toSlug(cells.상호, cells.지점명, taken);
+  cells.id = assignShopId(cells.id, cells.상호, cells.지점명, taken);
   cells.시 = sidoOf(cells.주소) ?? "서울";
   cells.구 = regionDistrictOf(cells.주소) ?? "";
   /* 검색 확증 라벨 > 주소(공공데이터) 판정 > 미확증 디깅 라벨 — 확증 없는 충돌은 검수 큐로 */
