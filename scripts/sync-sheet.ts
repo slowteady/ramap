@@ -22,6 +22,9 @@ if (issues.length > 0) {
 }
 
 const out = resolve("data/shops.json");
+const prevShops = existsSync(out)
+  ? (JSON.parse(readFileSync(out, "utf8")) as { id: string }[])
+  : [];
 const tmp = `${out}.tmp`;
 writeFileSync(tmp, `${JSON.stringify(shops, null, 2)}\n`);
 renameSync(tmp, out);
@@ -32,7 +35,12 @@ const ledgerPath = resolve("data/shop-lastmod.json");
 const prevLedger = existsSync(ledgerPath)
   ? (JSON.parse(readFileSync(ledgerPath, "utf8")) as LastmodLedger)
   : {};
-const ledger = updateLastmod(prevLedger, shops, dayjs().format("YYYY-MM-DD"));
+const ledger = updateLastmod(
+  prevLedger,
+  shops,
+  dayjs().format("YYYY-MM-DD"),
+  prevShops,
+);
 writeFileSync(ledgerPath, `${JSON.stringify(ledger, null, 2)}\n`);
 const changed = Object.keys(ledger).filter(
   (id) => prevLedger[id]?.hash !== ledger[id].hash,

@@ -34,7 +34,7 @@ data/enrichment/*.json (조사 결과)
 | `data/enrichment/<주제>-<YYYY-MM[-DD]>.json` | 조사 결과 배열. 파일명 날짜 = 조사일 | 원천. `enrich-candidates` 입력 |
 | `data/out/seed.tsv` · `held.tsv` · `area-review.tsv` | 게재분 · 보류분 · 동네라벨 충돌 검수 큐 | 재생성 산출물(미추적) |
 | `data/shops.json` | 게재 매장 배열(`Shop` 타입) | 앱이 읽는다 |
-| `data/shop-lastmod.json` | `{id: {date, hash}}` — 내용 해시가 바뀐 매장만 날짜 갱신 | 사이트맵 lastmod |
+| `data/shop-lastmod.json` | `{id: {date, hash}}` — 화면에 쓰는 내용의 해시가 바뀐 매장만 날짜 갱신. 내부 메모 `source`·`note`는 해시에서 뺀다(조사 메모만 쌓여도 날짜가 오르던 문제). 장부 해시와 다르면 직전 `shops.json`의 같은 매장과 비교해 보이는 내용이 같으면 날짜 유지 | 사이트맵 lastmod |
 | `data/closure-verification.json` | 폐업·이전 장부 `{id: {verdict, checkedAt, evidence[], movedTo?}}` | 폐업·이전 페이지 공개 여부 |
 | `data/shop-redirects.json` | `{지운 id: 남긴 id}` — 같은 가게 중복 행을 합칠 때 | `next.config.ts`가 `/shop/<from>` → `/shop/<to>` 영구 리다이렉트. 지운 id는 `enrich-candidates`가 예약해 새 매장에 다시 주지 않는다 |
 | `data/refresh-exclusions.tsv` | `상호 주소 사유` — 사람이 중복 인허가·비라멘·임시 영업으로 판정한 행 | 갱신 라운드 신규에서 자동 제외 |
