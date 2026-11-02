@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync } from "node:fs";
+import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { areaLabelOf, inheritNearestArea } from "./lib/area-label";
 import { normalizeAddress, regionDistrictOf, sidoOf } from "./lib/region";
@@ -12,6 +12,7 @@ import {
   promoteSoups,
   toSheetLine,
   assignShopId,
+  hasOwnEvidence,
   reservedShopIds,
   type Enrichment,
 } from "./lib/enrich";
@@ -86,12 +87,16 @@ const pinnedIds = lines
   .slice(1)
   .map((line) => line.split("\t")[SHEET_HEADER.indexOf("id")] ?? "");
 const retiredIds = Object.keys(
-  JSON.parse(readFileSync(resolve("data/shop-redirects.json"), "utf8")) as Record<
-    string,
-    string
-  >,
+  JSON.parse(
+    readFileSync(resolve("data/shop-redirects.json"), "utf8"),
+  ) as Record<string, string>,
 );
 const taken = reservedShopIds(pinnedIds, retiredIds);
+const existenceLedger = existsSync(resolve("data/existence-checks.json"))
+  ? (JSON.parse(
+      readFileSync(resolve("data/existence-checks.json"), "utf8"),
+    ) as Record<string, { verdict: string }>)
+  : {};
 const outRows: Record<string, string>[] = [];
 const heldRows: Record<string, string>[] = [];
 /* 검수 큐: 주소 판정과 디깅 라벨이 다른 매장 — 검색 검증 배치의 입력 */
@@ -170,6 +175,16 @@ for (const line of lines.slice(1)) {
   cells.태깅확신도 = confidenceLabelOf(matches.length, e);
 
   let verdict = verdictOf(matches.length, e);
+  if (
+    verdict === "publish" &&
+    cells.상태 !== "폐업" &&
+    !hasOwnEvidence(cells.상호, cells.지점명, matches, {
+      ambiguous,
+      address: cells.주소,
+    }) &&
+    !(existenceLedger[cells.id]?.verdict ?? "").startsWith("존재")
+  )
+    verdict = "hold";
   if (verdict === "publish" && (!cells.lat || !cells.lng)) verdict = "hold";
   /* 위치가 불확실한 매장은 보류 (2026-09-02 PO: 확실하지 않으면 보류) */
   if (verdict === "publish" && (e.sourceNote ?? "").includes("주소 상이"))

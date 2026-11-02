@@ -123,6 +123,38 @@ describe("classifyExistence", () => {
     expect(result.verdict).toBe("none");
   });
 
+  it("도로명이 로·길로 끝나지 않는 주소도 맞춘다(먹자거리 9)", () => {
+    const result = classifyExistence(
+      "울산광역시 중구 먹자거리 9",
+      [
+        search([
+          {
+            text: "오이시 라멘 울산성남점 울산광역시 중구 먹자 거리 9 후기",
+            date: "2026.10.01",
+          },
+        ]),
+      ],
+      CUTOFF,
+    );
+    expect(result.verdict).toBe("recent");
+  });
+
+  it("후기가 길 이름만 줄여 써도 맞춘다(김포한강9로75번길 102 → 75번길 102)", () => {
+    const result = classifyExistence(
+      "경기도 김포시 김포한강9로75번길 102",
+      [
+        search([
+          {
+            text: "혼다 라멘 김포 구래점 75번길 102 1층 101호",
+            date: "2026.02.20",
+          },
+        ]),
+      ],
+      CUTOFF,
+    );
+    expect(result.verdict).toBe("recent");
+  });
+
   it("주소가 맞는 후기가 12개월보다 오래되면 stale과 마지막 날짜", () => {
     const result = classifyExistence(
       ADDRESS,

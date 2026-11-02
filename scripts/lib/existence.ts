@@ -24,26 +24,39 @@ export function isDirectorySnippet(text: string): boolean {
 
 const compact = (text: string) => text.replace(/\s+/g, "");
 
+export function addressKeys(address: string): string[] {
+  const road = roadCore(address);
+  if (road) {
+    const inner = road.match(/(\d+번?길\d+(?:-\d+)?)$/);
+    return inner && inner[1] !== road ? [road, inner[1]] : [road];
+  }
+  const head = address.replace(/[,(].*$/, "");
+  const m = head.match(/([가-힣A-Za-z0-9]+)\s+(\d+(?:-\d+)?)\s*$/);
+  return m ? [`${m[1]}${m[2]}`] : [];
+}
+
 export function classifyExistence(
   address: string,
   searches: EvidenceSearch[],
   cutoff: string,
 ): { verdict: ExistenceVerdict; lastDate: string | null } {
-  const road = roadCore(address);
-  if (!road) return { verdict: "none", lastDate: null };
+  const keys = addressKeys(address);
+  if (keys.length === 0) return { verdict: "none", lastDate: null };
+  const mentions = (text: string) => {
+    const c = compact(text);
+    return keys.some((k) => c.includes(k));
+  };
 
   const hasCard = searches.some(
     (s) =>
       s.place !== null &&
       OPEN_STATUSES.has(s.place.status) &&
-      compact(s.place.card).includes(road),
+      mentions(s.place.card),
   );
 
   const dates = searches
     .flatMap((s) => s.snippets)
-    .filter(
-      (sn) => !isDirectorySnippet(sn.text) && compact(sn.text).includes(road),
-    )
+    .filter((sn) => !isDirectorySnippet(sn.text) && mentions(sn.text))
     .map((sn) => normalizeSnippetDate(sn.date))
     .filter((d): d is string => d !== null)
     .sort();

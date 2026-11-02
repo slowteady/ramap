@@ -211,6 +211,8 @@ data/enrichment/*.json (조사 결과)
 
 [결정](decisions/0019-publish-gate-web-presence.md). 콘솔에 `후보 N → 게재 / 보류 / 제외` 건수를 찍는다.
 
+- 영업 행(`상태=영업`)은 웹 실존 신호에 더해 **그 매장 이름으로 조사한 근거**가 있어야 게재한다(`hasOwnEvidence`: 정확 일치 항목에 장르·형태·계보·인스타·네이버플레이스·영업시간·메뉴 중 하나, 또는 라멘갤·미디어 출처. 동명 다지점은 addrHint가 맞는 항목만). 없으면 `data/existence-checks.json` 판정이 `존재…`일 때만 게재 — 체인 승계 장르만으로 게재되던 빈틈 차단([결정](decisions/0030-hide-unverified-existence.md)). 폐업 행은 장부가 공개를 정하므로 이 조건을 적용하지 않는다
+
 ## 동기화 (sync-sheet)
 
 - 헤더가 `SHEET_HEADER`와 다르면 즉시 실패.

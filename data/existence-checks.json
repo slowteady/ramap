@@ -1,4 +1,9 @@
 {
+  "ajji-ajjiramen": {
+    "checkedAt": "2026-11-02",
+    "verdict": "존재(최근 후기)",
+    "lastEvidence": "2026-08-21"
+  },
   "ajji-ajjiramen-2": {
     "checkedAt": "2026-11-02",
     "verdict": "보류(실존 미확인)",
@@ -14,10 +19,30 @@
     "verdict": "보류(실존 미확인)",
     "lastEvidence": "2023-05-14"
   },
+  "dokyoramen3900-3": {
+    "checkedAt": "2026-11-02",
+    "verdict": "보류(실존 미확인)",
+    "lastEvidence": "2024-11-05"
+  },
+  "dokyoramen3900-4": {
+    "checkedAt": "2026-11-02",
+    "verdict": "존재(장소 카드)",
+    "lastEvidence": "2024-11-25"
+  },
   "dokyoramengimcheonsineumjeom": {
     "checkedAt": "2026-11-02",
     "verdict": "보류(실존 미확인)",
     "lastEvidence": null
+  },
+  "donggyeongnamenhakgyo": {
+    "checkedAt": "2026-11-02",
+    "verdict": "존재(최근 후기)",
+    "lastEvidence": "2026-09-05"
+  },
+  "donggyeongnamenhakgyo-2": {
+    "checkedAt": "2026-11-02",
+    "verdict": "존재(최근 후기)",
+    "lastEvidence": "2026-01-20"
   },
   "gureumnamen": {
     "checkedAt": "2026-11-02",
@@ -64,6 +89,16 @@
     "verdict": "존재(최근 후기)",
     "lastEvidence": "2026-09-24"
   },
+  "hondaramen-3": {
+    "checkedAt": "2026-11-02",
+    "verdict": "존재(최근 후기)",
+    "lastEvidence": "2026-02-20"
+  },
+  "hondaramen-changwonsamgyejeom": {
+    "checkedAt": "2026-11-02",
+    "verdict": "존재(직접 확인)",
+    "lastEvidence": "2024-12-30"
+  },
   "hondaramen-sujigucheongjeom": {
     "checkedAt": "2026-11-02",
     "verdict": "보류(실존 미확인)",
@@ -109,6 +144,11 @@
     "verdict": "보류(실존 미확인)",
     "lastEvidence": null
   },
+  "koiramen-pangyoyeokjeom": {
+    "checkedAt": "2026-11-02",
+    "verdict": "존재(장소 카드)",
+    "lastEvidence": "2026-05-19"
+  },
   "koiramen-sinbuldangjeom": {
     "checkedAt": "2026-11-02",
     "verdict": "존재(최근 후기)",
@@ -129,10 +169,30 @@
     "verdict": "존재(최근 후기)",
     "lastEvidence": "2026-09-19"
   },
+  "mennyasandaime-gyeongseongdaejeom": {
+    "checkedAt": "2026-11-02",
+    "verdict": "보류(실존 미확인)",
+    "lastEvidence": "2023-11-04"
+  },
+  "mensyoku-hanamseutapildeujeom-menshokuna": {
+    "checkedAt": "2026-11-02",
+    "verdict": "존재(직접 확인)",
+    "lastEvidence": null
+  },
   "minburiramen": {
     "checkedAt": "2026-11-02",
     "verdict": "보류(실존 미확인)",
     "lastEvidence": null
+  },
+  "miseuteoramen": {
+    "checkedAt": "2026-11-02",
+    "verdict": "보류(실존 미확인)",
+    "lastEvidence": "2025-04-15"
+  },
+  "miseuteoramen-3": {
+    "checkedAt": "2026-11-02",
+    "verdict": "존재(최근 후기)",
+    "lastEvidence": "2026-10-22"
   },
   "miseuteoramen-6": {
     "checkedAt": "2026-11-02",
@@ -149,6 +209,26 @@
     "verdict": "존재(최근 후기)",
     "lastEvidence": "2026-10-15"
   },
+  "nisimuramen-hyeondaemuyeokjeom": {
+    "checkedAt": "2026-11-02",
+    "verdict": "존재(최근 후기)",
+    "lastEvidence": "2026-10-23"
+  },
+  "oisiramen-2": {
+    "checkedAt": "2026-11-02",
+    "verdict": "존재(장소 카드)",
+    "lastEvidence": "2026-05-26"
+  },
+  "orenoramengangnam": {
+    "checkedAt": "2026-11-02",
+    "verdict": "존재(장소 카드)",
+    "lastEvidence": "2026-10-26"
+  },
+  "orojiramen-iaenssibencheodeurimtawojeom": {
+    "checkedAt": "2026-11-02",
+    "verdict": "존재(최근 후기)",
+    "lastEvidence": "2026-10-09"
+  },
   "orojiramenatiseuporeomjeom": {
     "checkedAt": "2026-11-02",
     "verdict": "존재(최근 후기)",
@@ -164,6 +244,11 @@
     "verdict": "존재(최근 후기)",
     "lastEvidence": "2026-09-23"
   },
+  "ramenjip-6": {
+    "checkedAt": "2026-11-02",
+    "verdict": "보류(실존 미확인)",
+    "lastEvidence": null
+  },
   "ramenmatsim": {
     "checkedAt": "2026-11-02",
     "verdict": "존재(최근 후기)",
@@ -173,6 +258,11 @@
     "checkedAt": "2026-11-02",
     "verdict": "존재(장소 카드)",
     "lastEvidence": "2026-09-02"
+  },
+  "ramenseonsaeng-sujedonkkaseu-jeonnammuan": {
+    "checkedAt": "2026-11-02",
+    "verdict": "보류(실존 미확인)",
+    "lastEvidence": null
   },
   "ramenseonsaengaensujedonkkaseu": {
     "checkedAt": "2026-11-02",
@@ -209,12 +299,47 @@
     "verdict": "보류(실존 미확인)",
     "lastEvidence": "2020-03-22"
   },
+  "taeyangui-tomatoramen-sunaejeom": {
+    "checkedAt": "2026-11-02",
+    "verdict": "존재(최근 후기)",
+    "lastEvidence": "2026-04-01"
+  },
+  "tontori-ramen": {
+    "checkedAt": "2026-11-02",
+    "verdict": "존재(최근 후기)",
+    "lastEvidence": "2026-09-01"
+  },
   "tontoriramen-donkacheujikgyeongjeom-haeu": {
     "checkedAt": "2026-11-02",
     "verdict": "존재(장소 카드)",
     "lastEvidence": null
   },
   "ttattiramen": {
+    "checkedAt": "2026-11-02",
+    "verdict": "보류(실존 미확인)",
+    "lastEvidence": null
+  },
+  "usiramen-5": {
+    "checkedAt": "2026-11-02",
+    "verdict": "존재(장소 카드)",
+    "lastEvidence": "2026-10-29"
+  },
+  "wadaramen": {
+    "checkedAt": "2026-11-02",
+    "verdict": "보류(실존 미확인)",
+    "lastEvidence": "2025-04-04"
+  },
+  "wadaramen-4": {
+    "checkedAt": "2026-11-02",
+    "verdict": "보류(실존 미확인)",
+    "lastEvidence": null
+  },
+  "wadaramen-chilgokjeom": {
+    "checkedAt": "2026-11-02",
+    "verdict": "존재(장소 카드)",
+    "lastEvidence": "2024-06-17"
+  },
+  "wadaramen-donggujeom": {
     "checkedAt": "2026-11-02",
     "verdict": "보류(실존 미확인)",
     "lastEvidence": null
