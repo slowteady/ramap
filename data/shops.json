@@ -56028,13 +56028,13 @@
     "id": "daehodang",
     "name": "대호당",
     "branch": null,
-    "address": "경상북도 경주시 원효로 137-16",
+    "address": "경상북도 경주시 동성로 129",
     "city": "경북",
     "district": "경주시",
-    "areaLabel": "노동동",
-    "lat": 35.842829,
-    "lng": 129.216373,
-    "coordSource": "sanggwon",
+    "areaLabel": "황오동",
+    "lat": 35.84323,
+    "lng": 129.214651,
+    "coordSource": "localdata",
     "hours": null,
     "breakTime": null,
     "closedDays": null,
@@ -56065,7 +56065,7 @@
     "verification": "pending",
     "lastVerifiedAt": null,
     "source": "시딩v2(디깅발굴(상가)); 대구경북 디깅(다음검색) · 경주 황오동; 2차 디깅(다음검색) · 경주 황리단길; 보류 재검증 — 검색 주소 불일치: 경북 경주시 동성로 129(황오동). 입력 주소 원효로 137-16에서는 확인 안 됨; 보류 재검증(다음검색) — 플레이스 없음, 경주 시내 라멘 맛집으로 블로그 5건(마제소바·츠케멘·돈코츠) 뒷받침; 2026",
-    "note": null
+    "note": "2026-11-02 이전 반영: Daum 장소 카드·블로그(2025-10~2026-09) 모두 동성로 129, LOCALDATA 2024-10-08 인허가(영업) 좌표. 구 주소 원효로 137-16"
   },
   {
     "id": "supjemyeonso",
@@ -64808,5 +64808,47 @@
     "lastVerifiedAt": null,
     "source": "LOCALDATA 시딩 2026-10; Daum 장소 카드·블로그 2026-10-27; 라벨 검수(다음검색) — 롯데월드몰 3층 '홍그라운드' 입점 매장. 블로그 제목은 '잠실'로 표기, '홍대'는 매장 컨셉·본점 언급. 주소판정 유지; 정보수집(다음검색); 디시 라멘 갤러리 정리글; 디깅 발굴 조사(다음검색) — 도쿄 라멘 체인, 롯데월드몰 3층 위치 확",
     "note": null
+  },
+  {
+    "id": "yoake",
+    "name": "요아케",
+    "branch": null,
+    "address": "서울특별시 중구 퇴계로74길 9, 1층 (무학동)",
+    "city": "서울",
+    "district": "중구",
+    "areaLabel": "신당",
+    "lat": 37.564624,
+    "lng": 127.014865,
+    "coordSource": "localdata",
+    "hours": null,
+    "breakTime": null,
+    "closedDays": null,
+    "openedAt": null,
+    "status": "open",
+    "statusChangedAt": null,
+    "forms": [
+      "ramen"
+    ],
+    "primaryForm": "ramen",
+    "soups": [
+      "shoyu",
+      "shio"
+    ],
+    "primarySoup": "shoyu",
+    "soupDetail": [],
+    "lineages": [],
+    "amenities": [],
+    "confidence": "estimated",
+    "menus": [],
+    "photos": [],
+    "seats": null,
+    "tagline": null,
+    "instagram": null,
+    "naverPlace": null,
+    "waitingLink": null,
+    "verification": "pending",
+    "lastVerifiedAt": null,
+    "source": "LOCALDATA 2026-11; 2026-11-02 데이터 정리(다음검색) — 도산대로45길 10-11은 '스시 요아케'(스시 오마카세, 블로그 2019-08·2020-09). 라멘집 요아케는 신당(블로그 2026-11-01 '신당과 동묘 사이에 생긴 지 얼마 안 된 라멘집') — 좌표 확보 후 신규 등록; 디시 라멘 갤러리 정리글; 확인 불가 — 다음검",
+    "note": "2026-11-02 등록: 라멘집 요아케(신당·동묘 사이). LOCALDATA '요아케(Yoake)' 영업. 강남 도산대로45길 10-11 행은 스시 요아케로 제외"
   }
 ]

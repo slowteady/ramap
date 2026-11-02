@@ -4460,8 +4460,8 @@
     "hash": "f44915803d922798"
   },
   "daehodang": {
-    "date": "2026-10-27",
-    "hash": "3dc8a5f87215a6d3"
+    "date": "2026-11-02",
+    "hash": "5a526f39ca220329"
   },
   "supjemyeonso": {
     "date": "2026-11-01",
@@ -5198,5 +5198,9 @@
   "butanchyu-sinchonjeom": {
     "date": "2026-11-01",
     "hash": "c2d3aa03da98b7d0"
+  },
+  "yoake": {
+    "date": "2026-11-02",
+    "hash": "fab4ae8142a2556f"
   }
 }
