@@ -109,6 +109,11 @@
     "verdict": "보류(실존 미확인)",
     "lastEvidence": null
   },
+  "hureswi-2hojeom": {
+    "checkedAt": "2026-11-02",
+    "verdict": "존재(최근 후기)",
+    "lastEvidence": "2026-10-17"
+  },
   "hutacheu-gurijeom": {
     "checkedAt": "2026-11-02",
     "verdict": "보류(실존 미확인)",
@@ -168,6 +173,11 @@
     "checkedAt": "2026-11-02",
     "verdict": "존재(최근 후기)",
     "lastEvidence": "2026-09-19"
+  },
+  "mennya-kin": {
+    "checkedAt": "2026-11-02",
+    "verdict": "존재(직접 확인)",
+    "lastEvidence": "2026-11-02"
   },
   "mennyasandaime-gyeongseongdaejeom": {
     "checkedAt": "2026-11-02",
@@ -278,6 +288,11 @@
     "checkedAt": "2026-11-02",
     "verdict": "보류(실존 미확인)",
     "lastEvidence": "2025-07-23"
+  },
+  "saitora": {
+    "checkedAt": "2026-11-02",
+    "verdict": "존재(장소 카드)",
+    "lastEvidence": "2026-10-28"
   },
   "sangsaengnamen": {
     "checkedAt": "2026-11-02",

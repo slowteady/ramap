@@ -3215,6 +3215,10 @@
     "date": "2026-11-01",
     "hash": "b8863281b1bd9b4b"
   },
+  "mennya-kin": {
+    "date": "2026-11-02",
+    "hash": "0c48137c04900c60"
+  },
   "ramenbanwol": {
     "date": "2026-10-28",
     "hash": "13532aa8719f6250"
@@ -5170,5 +5174,13 @@
   "yoake": {
     "date": "2026-11-02",
     "hash": "fab4ae8142a2556f"
+  },
+  "saitora": {
+    "date": "2026-11-02",
+    "hash": "2144551f3d95abeb"
+  },
+  "hureswi-2hojeom": {
+    "date": "2026-11-02",
+    "hash": "7133917555e811ea"
   }
 }

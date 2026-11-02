@@ -40775,6 +40775,53 @@
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
+    "id": "mennya-kin",
+    "name": "멘야 킨",
+    "branch": null,
+    "address": "서울특별시 종로구 새문안로5길 37, 도렴빌딩 지하층 20호 (도렴동)",
+    "city": "서울",
+    "district": "종로구",
+    "areaLabel": "광화문",
+    "lat": 37.573605,
+    "lng": 126.974193,
+    "coordSource": "sanggwon",
+    "hours": "11:00-14:30",
+    "breakTime": null,
+    "closedDays": "토, 일",
+    "openedAt": "2026-09-01",
+    "status": "open",
+    "statusChangedAt": null,
+    "forms": [
+      "ramen"
+    ],
+    "primaryForm": "ramen",
+    "soups": [
+      "shoyu",
+      "shio"
+    ],
+    "primarySoup": "shoyu",
+    "soupDetail": [],
+    "lineages": [],
+    "amenities": [],
+    "confidence": "certain",
+    "menus": [
+      {
+        "name": "쇼유라멘(풀토핑)",
+        "price": 12500
+      }
+    ],
+    "photos": [],
+    "seats": null,
+    "tagline": null,
+    "instagram": null,
+    "naverPlace": null,
+    "waitingLink": null,
+    "verification": "pending",
+    "lastVerifiedAt": null,
+    "source": "시딩v2(상가); 보류 재검증 — 종로 도렴동/광화문 매장 웹 흔적 없음(질의 3회); 발굴분 조사(다음검색) — 3회 질의 모두 흔적 없음; 2026-11-02 라멘갤 대조 조사(다음검색·라멘갤) — Daum 장소 카드 '멘야 킨' 일본식라면 새문안로5길 37 도렴빌딩 지하1층 20호, 블로그 '11:00~14:30(14시 라스트오더), 토·일 휴무, 1",
+    "note": "2026-11-02 오픈 확인: 인허가 2026-09-01(LOCALDATA), 라멘갤 2026-10-27 '광화문 새로운 라멘집 오픈함'(no=126767)"
+  },
+  {
     "id": "ramenbanwol",
     "name": "라멘반월",
     "branch": null,
@@ -64491,5 +64538,88 @@
     "lastVerifiedAt": null,
     "source": "LOCALDATA 2026-11; 2026-11-02 데이터 정리(다음검색) — 도산대로45길 10-11은 '스시 요아케'(스시 오마카세, 블로그 2019-08·2020-09). 라멘집 요아케는 신당(블로그 2026-11-01 '신당과 동묘 사이에 생긴 지 얼마 안 된 라멘집') — 좌표 확보 후 신규 등록; 디시 라멘 갤러리 정리글; 확인 불가 — 다음검",
     "note": "2026-11-02 등록: 라멘집 요아케(신당·동묘 사이). LOCALDATA '요아케(Yoake)' 영업. 강남 도산대로45길 10-11 행은 스시 요아케로 제외"
+  },
+  {
+    "id": "saitora",
+    "name": "사이토라",
+    "branch": null,
+    "address": "서울특별시 종로구 세종대로23길 54 (당주동,지하115,116호)",
+    "city": "서울",
+    "district": "종로구",
+    "areaLabel": "광화문",
+    "lat": 37.571864,
+    "lng": 126.973315,
+    "coordSource": "localdata",
+    "hours": "11:00-20:00(토 ~15:00)",
+    "breakTime": null,
+    "closedDays": "일",
+    "openedAt": null,
+    "status": "open",
+    "statusChangedAt": null,
+    "forms": [
+      "ramen"
+    ],
+    "primaryForm": "ramen",
+    "soups": [
+      "shoyu",
+      "shio"
+    ],
+    "primarySoup": "shoyu",
+    "soupDetail": [],
+    "lineages": [],
+    "amenities": [],
+    "confidence": "certain",
+    "menus": [],
+    "photos": [],
+    "seats": null,
+    "tagline": null,
+    "instagram": null,
+    "naverPlace": null,
+    "waitingLink": null,
+    "verification": "pending",
+    "lastVerifiedAt": null,
+    "source": "라멘갤 대조 2026-11-02; 2026-11-02 라멘갤 대조 조사(다음검색) — Daum 장소 카드 '사이토 라' 일식 세종대로23길 54 지하 115~116호, 영업종료 표기(당일 마감)와 월~금 11:00~20:00·토 11:00~15:00(라스트오더 14:30)·일 휴무. 블로그 2026-09-13 '대표 메뉴 쇼유라멘·시오라멘, 쇼유는 닭 청탕",
+    "note": "2026-11-02 라멘갤 대조: 멘야킨과 비교되는 광화문 라멘집, 데이터 누락. 인허가 2006-09-15(상호 승계로 보여 오픈일 비움)"
+  },
+  {
+    "id": "hureswi-2hojeom",
+    "name": "후레쉬",
+    "branch": "2호점",
+    "address": "서울특별시 마포구 연남로1길 37, 1층 101호 (연남동, 호산나빌)",
+    "city": "서울",
+    "district": "마포구",
+    "areaLabel": "연남",
+    "lat": 37.559944,
+    "lng": 126.921206,
+    "coordSource": "localdata",
+    "hours": "11:30-01:00",
+    "breakTime": "15:00-17:30",
+    "closedDays": null,
+    "openedAt": null,
+    "status": "open",
+    "statusChangedAt": null,
+    "forms": [
+      "ramen"
+    ],
+    "primaryForm": "ramen",
+    "soups": [
+      "shoyu"
+    ],
+    "primarySoup": "shoyu",
+    "soupDetail": [],
+    "lineages": [],
+    "amenities": [],
+    "confidence": "certain",
+    "menus": [],
+    "photos": [],
+    "seats": null,
+    "tagline": null,
+    "instagram": null,
+    "naverPlace": null,
+    "waitingLink": null,
+    "verification": "pending",
+    "lastVerifiedAt": null,
+    "source": "라멘갤 대조 2026-11-02; 2026-11-02 라멘갤 대조 조사(다음검색·라멘갤) — 블로그 2026-09-28 '후레쉬 2호점 연남로1길 37 호산나빌 1층 101호, 11:30~다음날 1시, 브레이크 15~17시 반, 1호점은 없어짐', 2026-09-30·10-17 주소 일치 후기. 라멘갤 2026-10-20 '후레쉬2호점 쇼유'(no=1253",
+    "note": "2026-11-02 라멘갤 대조: 인허가 상호 '후레쉬'(2013-09-24, 오픈일 비움). 1호점은 폐점(블로그), 이 자리가 유일한 영업점"
   }
 ]
