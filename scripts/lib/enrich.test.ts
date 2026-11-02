@@ -7,6 +7,8 @@ import {
   lineageFromName,
   promoteSoups,
   toSlug,
+  assignShopId,
+  reservedShopIds,
   type Enrichment,
 } from "./enrich";
 
@@ -20,6 +22,34 @@ describe("toSlug", () => {
   it("지점명을 포함한다", () => {
     const taken = new Set<string>();
     expect(toSlug("역전우동", "서울역점", taken)).toMatch(/^yeokjeonudong-/);
+  });
+});
+
+describe("assignShopId — 고정 id", () => {
+  it("후보 행에 id가 있으면 그대로 쓴다", () => {
+    const taken = reservedShopIds(["mainichiramen-2"], []);
+    expect(assignShopId("mainichiramen-2", "마이니치라멘", "", taken)).toBe(
+      "mainichiramen-2",
+    );
+  });
+
+  it("id가 비어 있으면 슬러그를 만들되 예약된 id는 피한다", () => {
+    const taken = reservedShopIds(["mainichiramen-2"], ["mainichiramen"]);
+    expect(assignShopId("", "마이니치라멘", "", taken)).toBe(
+      "mainichiramen-3",
+    );
+  });
+
+  it("리다이렉트로 은퇴한 id는 새 매장에 다시 쓰지 않는다", () => {
+    const taken = reservedShopIds([], ["ramenijakayakujan"]);
+    expect(assignShopId("", "라멘이자카야쿠잔", "", taken)).toBe(
+      "ramenijakayakujan-2",
+    );
+  });
+
+  it("형식이 틀린 고정 id는 무시하고 슬러그를 만든다", () => {
+    const taken = reservedShopIds([], []);
+    expect(assignShopId("Bad Id", "멘야준", "", taken)).toBe("mennyajun");
   });
 });
 

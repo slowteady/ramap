@@ -59,6 +59,30 @@ export function toSlug(
   return slug;
 }
 
+const SLUG_PATTERN = /^[a-z0-9][a-z0-9-]*$/;
+
+export function reservedShopIds(
+  pinnedIds: string[],
+  retiredIds: string[],
+): Set<string> {
+  return new Set(
+    [...pinnedIds, ...retiredIds]
+      .map((id) => id.trim())
+      .filter((id) => SLUG_PATTERN.test(id)),
+  );
+}
+
+export function assignShopId(
+  pinnedId: string,
+  name: string,
+  branch: string,
+  taken: Set<string>,
+): string {
+  const pinned = pinnedId.trim();
+  if (SLUG_PATTERN.test(pinned)) return pinned;
+  return toSlug(name, branch, taken);
+}
+
 export function matchEnrichment(
   name: string,
   branch: string,
