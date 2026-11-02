@@ -2182,7 +2182,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(인허가+상가I20303); 정보수집(다음검색); 2차 디깅(다음검색) · 아산 배방; 정보 보강(다음검색); 정보 보강 — 상세 미확인; 경기 조사(다음검색) — 영업중; 2026-11-01 인스타 2차 검수 — branch 프로필 '쇼부라멘 평촌점 (@shoubu_ramen)'; 지역 조사(다음검색) — 블로그 다수, 진한 돈코츠 라멘 언급, 영",
+    "source": "시딩v2(인허가+상가I20303); 정보수집(다음검색); 2차 디깅(다음검색) · 아산 배방; 2026-11-02 존재 재검증 — 웹 근거(영업시간·메뉴·인스타) 없음, LOCALDATA 2026-11 최신본 미발견·폐업, Daum·라멘갤 검색에서 최근 12개월 근거 없음(마지막 근거 2020.03.22). 근거가 생기면 다시 게재; 정보 보강(다음검색);",
     "note": null
   },
   {
@@ -4064,7 +4064,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(인허가+상가I20303+상가); 2차 디깅(다음검색) · 아산 배방; 정보 보강(다음검색); 정보 보강(다음검색); 정보 보강 — 상세 미확인; 경기 조사(다음검색) — 영업중; 보류 재심사(다음검색); 2026-11-01 인스타 2차 검수 — branch 프로필 '쇼부라멘 평촌점 (@shoubu_ramen)'; 지역 조사(다음검색) — 블로그 다",
+    "source": "시딩v2(인허가+상가I20303+상가); 2차 디깅(다음검색) · 아산 배방; 2026-11-02 존재 재검증 — 웹 근거(영업시간·메뉴·인스타) 없음, LOCALDATA 2026-11 최신본 미발견·폐업, Daum·라멘갤 검색에서 최근 12개월 근거 없음(마지막 근거 2020.03.22). 근거가 생기면 다시 게재; 정보 보강(다음검색); 정보 보강(다음",
     "note": "LOCALDATA 2026-10 폐업 기록이나 Daum 플레이스 영업중(명의변경 의심) — 영업 유지, 확인 대상(폐업일 2026-09-22, 관리번호 3010000-101-2021-00242)"
   },
   {
@@ -7054,47 +7054,6 @@
     "verification": "pending",
     "lastVerifiedAt": null,
     "source": "시딩v2(인허가+상가I20303+상가); 정보수집(다음검색); 디시 라멘 갤러리 정리글; 서울 디깅(다음검색); 미디어(하입비스트·GQ 외)",
-    "note": null
-  },
-  {
-    "id": "ttattiramen",
-    "name": "따띠라멘",
-    "branch": null,
-    "address": "서울특별시 광진구 천호대로121길 22, 1층 (중곡동)",
-    "city": "서울",
-    "district": "광진구",
-    "areaLabel": "군자",
-    "lat": 37.556228,
-    "lng": 127.086534,
-    "coordSource": "localdata",
-    "hours": null,
-    "breakTime": null,
-    "closedDays": null,
-    "openedAt": null,
-    "status": "open",
-    "statusChangedAt": null,
-    "forms": [
-      "ramen"
-    ],
-    "primaryForm": "ramen",
-    "soups": [
-      "etc-soup"
-    ],
-    "primarySoup": "etc-soup",
-    "soupDetail": [],
-    "lineages": [],
-    "amenities": [],
-    "confidence": "estimated",
-    "menus": [],
-    "photos": [],
-    "seats": null,
-    "tagline": null,
-    "instagram": null,
-    "naverPlace": null,
-    "waitingLink": null,
-    "verification": "pending",
-    "lastVerifiedAt": null,
-    "source": "시딩v2(인허가); 2차 디깅(다음검색) · 구의동; 정보 보강 — 상세 미확인; 보류 재심사(다음검색); 웹 조사",
     "note": null
   },
   {
@@ -10276,7 +10235,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(인허가+상가I20303); 라벨 부여(다음검색) — '목포대'로 표기(목포대 앞 상권); 정보수집(다음검색); 대구경북 디깅(다음검색) · 안동; 2차 디깅(다음검색) · 안동 옥동; 2차 디깅(다음검색) · 문경; 정보 보강(다음검색); 정보 보강 — 상세 미확인; 정보 보강 — 상세 미확인; 정보 보강 — 상세 미확인; 경기 조사(다음검색);",
+    "source": "시딩v2(인허가+상가I20303); 라벨 부여(다음검색) — '목포대'로 표기(목포대 앞 상권); 정보수집(다음검색); 대구경북 디깅(다음검색) · 안동; 2차 디깅(다음검색) · 안동 옥동; 2차 디깅(다음검색) · 문경; 2026-11-02 존재 재검증 — 웹 근거(영업시간·메뉴·인스타) 없음, LOCALDATA 2026-11 최신본 미발견·폐업, Da",
     "note": null
   },
   {
@@ -12096,7 +12055,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(인허가+상가I20303+상가); 정보수집(다음검색); 2차 디깅(다음검색) · 아산 배방; 정보 보강 — 상세 미확인; 정보 보강(다음검색); 정보 보강 — 상세 미확인; 경기 조사(다음검색) — 영업중; 2026-11-01 인스타 2차 검수 — branch 프로필 '쇼부라멘 평촌점 (@shoubu_ramen)'; 지역 조사(다음검색) — 블로그",
+    "source": "시딩v2(인허가+상가I20303+상가); 정보수집(다음검색); 2차 디깅(다음검색) · 아산 배방; 2026-11-02 존재 재검증 — 웹 근거(영업시간·메뉴·인스타) 없음, LOCALDATA 2026-11 최신본 미발견·폐업, Daum·라멘갤 검색에서 최근 12개월 근거 없음(마지막 근거 2020.03.22). 근거가 생기면 다시 게재; 정보 보강 — 상",
     "note": null
   },
   {
@@ -12153,7 +12112,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(인허가+상가I20303+상가); 정보수집(다음검색); 2차 디깅(다음검색) · 아산 배방; 2차 디깅(다음검색) · 수서동; 정보 보강(다음검색); 정보 보강 — 상세 미확인; 경기 조사(다음검색) — 영업중; 2026-11-01 인스타 2차 검수 — branch 프로필 '쇼부라멘 평촌점 (@shoubu_ramen)'; 지역 조사(다음검색) — 블",
+    "source": "시딩v2(인허가+상가I20303+상가); 정보수집(다음검색); 2차 디깅(다음검색) · 아산 배방; 2차 디깅(다음검색) · 수서동; 2026-11-02 존재 재검증 — 웹 근거(영업시간·메뉴·인스타) 없음, LOCALDATA 2026-11 최신본 미발견·폐업, Daum·라멘갤 검색에서 최근 12개월 근거 없음(마지막 근거 2020.03.22). 근거가 생",
     "note": null
   },
   {
@@ -14837,52 +14796,6 @@
     "note": "I20303 발굴 — 라멘 여부 확인 필요 / LOCALDATA 2026-10 폐업 기록이나 Daum 플레이스 영업중(명의변경 의심) — 영업 유지, 확인 대상(폐업일 2026-07-28, 관리번호 5760000-101-2006-00487)"
   },
   {
-    "id": "dokyoramen3900-2",
-    "name": "도쿄라멘3900",
-    "branch": null,
-    "address": "경기도 안성시 공도읍 송원길 23",
-    "city": "경기",
-    "district": "안성시",
-    "areaLabel": "공도",
-    "lat": 37.007516,
-    "lng": 127.172567,
-    "coordSource": "sanggwon",
-    "hours": null,
-    "breakTime": null,
-    "closedDays": null,
-    "openedAt": null,
-    "status": "open",
-    "statusChangedAt": null,
-    "forms": [
-      "ramen"
-    ],
-    "primaryForm": "ramen",
-    "soups": [
-      "tonkotsu",
-      "miso",
-      "shoyu"
-    ],
-    "primarySoup": "tonkotsu",
-    "soupDetail": [
-      "저가형(3900원대) 라멘",
-      "중원로 지점 실존 미확인(프랜차이즈 — 진해 석동점·용원점만 검색됨)"
-    ],
-    "lineages": [],
-    "amenities": [],
-    "confidence": "estimated",
-    "menus": [],
-    "photos": [],
-    "seats": null,
-    "tagline": null,
-    "instagram": null,
-    "naverPlace": null,
-    "waitingLink": null,
-    "verification": "pending",
-    "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 라벨 부여(다음검색) — '목포대'로 표기(목포대 앞 상권); 정보수집(다음검색); 대구경북 디깅(다음검색) · 안동; 2차 디깅(다음검색) · 안동 옥동; 2차 디깅(다음검색) · 문경; 정보 보강(다음검색); 정보 보강 — 상세 미확인; 정보 보강 — 상세 미확인; 정보 보강 — 상세 미확인; 경기 조사(다음검색); 확인 불",
-    "note": "I20303 발굴 — 라멘 여부 확인 필요"
-  },
-  {
     "id": "ajji-ajjiramen",
     "name": "아찌;아찌라멘",
     "branch": null,
@@ -14922,7 +14835,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303+상가+상가); 라벨 부여(다음검색) — '옥길·옥길지구'로 다수 표기; 정보 보강 — 상세 미확인; 정보 보강 — 상세 미확인; 경기 조사(다음검색); 경기 조사(다음검색) — 롯데백화점 중동 푸드코트 입점 흔적(블로그), 영업 상태 미확정",
+    "source": "시딩v2(상가I20303+상가+상가); 라벨 부여(다음검색) — '옥길·옥길지구'로 다수 표기; 2026-11-02 존재 재검증 — 웹 근거(영업시간·메뉴·인스타) 없음, LOCALDATA 2026-11 최신본 미발견·폐업, Daum·라멘갤 검색에서 최근 12개월 근거 없음(마지막 근거 없음). 근거가 생기면 다시 게재; 정보 보강 — 상세 미확인; 정보",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -15319,7 +15232,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 라벨 부여(다음검색) — 검색결과가 '대관령'으로 표기(횡계 일대 통칭); 라벨 부여(다음검색) — '영통·영통역'으로 다수 표기; 서울 디깅(다음검색); 정보 보강 — 상세 미확인; 정보 보강(다음검색); 정보 보강 — 상세 미확인; 경기 조사(다음검색); 경기 조사(다음검색) — 영업중, 토요일은 10:00-20:00, 메뉴",
+    "source": "시딩v2(상가I20303); 라벨 부여(다음검색) — 검색결과가 '대관령'으로 표기(횡계 일대 통칭); 라벨 부여(다음검색) — '영통·영통역'으로 다수 표기; 서울 디깅(다음검색); 2026-11-02 존재 재검증 — 웹 근거(영업시간·메뉴·인스타) 없음, LOCALDATA 2026-11 최신본 미발견·폐업, Daum·라멘갤 검색에서 최근 12개월 근거",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -15605,51 +15518,6 @@
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
-    "id": "hakoya-3",
-    "name": "하코야",
-    "branch": null,
-    "address": "경기도 여주시 세종로 396-4",
-    "city": "경기",
-    "district": "여주시",
-    "areaLabel": null,
-    "lat": 37.263048,
-    "lng": 127.639922,
-    "coordSource": "sanggwon",
-    "hours": null,
-    "breakTime": null,
-    "closedDays": null,
-    "openedAt": null,
-    "status": "open",
-    "statusChangedAt": null,
-    "forms": [
-      "ramen"
-    ],
-    "primaryForm": "ramen",
-    "soups": [
-      "shoyu",
-      "tonkotsu",
-      "miso"
-    ],
-    "primarySoup": "shoyu",
-    "soupDetail": [
-      "소곱창라멘·냉라멘 변형"
-    ],
-    "lineages": [],
-    "amenities": [],
-    "confidence": "estimated",
-    "menus": [],
-    "photos": [],
-    "seats": null,
-    "tagline": null,
-    "instagram": null,
-    "naverPlace": null,
-    "waitingLink": null,
-    "verification": "pending",
-    "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 라벨 부여(다음검색) — 검색결과가 '대관령'으로 표기(횡계 일대 통칭); 라벨 부여(다음검색) — '영통·영통역'으로 다수 표기; 부산 조사(다음검색) — 영업중, 센트럴스퀘어 지하2층, 간장·돈코츠·된장 차슈라멘 확인(가격·주력 미확인); 경기 디깅(다음검색); 서울 디깅(다음검색); 2차 디깅(다음검색) · 사당; 2차 디",
-    "note": "I20303 발굴 — 라멘 여부 확인 필요"
-  },
-  {
     "id": "ajjiramen",
     "name": "아찌라멘",
     "branch": null,
@@ -15803,48 +15671,6 @@
     "verification": "pending",
     "lastVerifiedAt": null,
     "source": "시딩v2(상가I20303+상가+상가); 경기 디깅(다음검색); 2차 디깅(다음검색) · 평택 고덕동; 경기 조사(다음검색) — 영업중",
-    "note": "I20303 발굴 — 라멘 여부 확인 필요"
-  },
-  {
-    "id": "koiramen-pangyojeom",
-    "name": "코이라멘",
-    "branch": "판교점",
-    "address": "경기도 성남시 분당구 판교역로 230",
-    "city": "경기",
-    "district": "성남시",
-    "areaLabel": "판교",
-    "lat": 37.401286,
-    "lng": 127.110456,
-    "coordSource": "sanggwon",
-    "hours": null,
-    "breakTime": null,
-    "closedDays": "일요일",
-    "openedAt": null,
-    "status": "open",
-    "statusChangedAt": null,
-    "forms": [
-      "ramen",
-      "mazesoba"
-    ],
-    "primaryForm": "ramen",
-    "soups": [
-      "tonkotsu"
-    ],
-    "primarySoup": "tonkotsu",
-    "soupDetail": [],
-    "lineages": [],
-    "amenities": [],
-    "confidence": "certain",
-    "menus": [],
-    "photos": [],
-    "seats": null,
-    "tagline": null,
-    "instagram": null,
-    "naverPlace": null,
-    "waitingLink": null,
-    "verification": "pending",
-    "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 라벨 규칙 — 디깅라벨 '방이동'과 동일 동네, 행정동 표기 대신 상권 통칭 '방이' 채택; 2026-11-02 데이터 정리 — 성남 분당구 야탑로인데 '신중동' 라벨(#52); 2026-10-28 휴무 조사 — 블로그 후기 2건 일치(2026.01.23), 장소 카드 제외; 정보수집(다음검색); 발굴 2차 조사(다음검색); 충",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -16300,52 +16126,6 @@
     "verification": "pending",
     "lastVerifiedAt": null,
     "source": "시딩v2(상가I20303); 인천 디깅(다음검색); 2차 디깅(다음검색) · 광양 중동; 정보 보강 — 상세 미확인; 정보 보강 — 상세 미확인; 경기 조사(다음검색) — 블로그 확인(돈코츠·카라구찌라멘·마제소바 언급, 쌍용본점 등 복수 지점), 플레이스 패널 미표시·영업시간 미확인; 2026-10-27 인스타 전수 검수(brand) — 프로필 '멘야마쯔리",
-    "note": "I20303 발굴 — 라멘 여부 확인 필요"
-  },
-  {
-    "id": "hakadaramen",
-    "name": "하카다라멘",
-    "branch": null,
-    "address": "경기도 파주시 금빛로 19",
-    "city": "경기",
-    "district": "파주시",
-    "areaLabel": "금촌",
-    "lat": 37.751278,
-    "lng": 126.766454,
-    "coordSource": "sanggwon",
-    "hours": null,
-    "breakTime": null,
-    "closedDays": null,
-    "openedAt": null,
-    "status": "open",
-    "statusChangedAt": null,
-    "forms": [
-      "ramen"
-    ],
-    "primaryForm": "ramen",
-    "soups": [
-      "tonkotsu",
-      "shoyu",
-      "miso",
-      "tantanmen"
-    ],
-    "primarySoup": "tonkotsu",
-    "soupDetail": [
-      "하카타 돈코츠"
-    ],
-    "lineages": [],
-    "amenities": [],
-    "confidence": "certain",
-    "menus": [],
-    "photos": [],
-    "seats": null,
-    "tagline": null,
-    "instagram": null,
-    "naverPlace": null,
-    "waitingLink": null,
-    "verification": "pending",
-    "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 부산 조사(다음검색) — 영업중, 연중무휴; 2차 디깅(다음검색) · 부산 중구 남포동3가; 정보 보강 — 상세 미확인; 경기 조사(다음검색) — 블로그 확인(금촌동·금릉, 사골 장시간 육수의 하카다 라멘), 플레이스 패널 없음·영업시간 미확인",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -17126,7 +16906,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 라벨 부여(다음검색) — 검색결과가 '대관령'으로 표기(횡계 일대 통칭); 라벨 부여(다음검색) — '영통·영통역'으로 다수 표기; 서울 디깅(다음검색); 정보 보강 — 상세 미확인; 정보 보강(다음검색); 정보 보강 — 상세 미확인; 정보 보강 — 상세 미확인; 경기 조사(다음검색); 경기 조사(다음검색) — 여주프리미엄아울렛",
+    "source": "시딩v2(상가I20303); 라벨 부여(다음검색) — 검색결과가 '대관령'으로 표기(횡계 일대 통칭); 라벨 부여(다음검색) — '영통·영통역'으로 다수 표기; 서울 디깅(다음검색); 2026-11-02 존재 재검증 — 웹 근거(영업시간·메뉴·인스타) 없음, LOCALDATA 2026-11 최신본 미발견·폐업, Daum·라멘갤 검색에서 최근 12개월 근거",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -17168,7 +16948,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 라벨 부여(다음검색) — '오포·문형동'으로 표기, 오포 상권 통칭 채택; 2차 디깅(다음검색) · 아산 배방; 정보 보강(다음검색); 정보 보강 — 상세 미확인; 정보 보강 — 상세 미확인; 경기 조사(다음검색) — 영업중; 경기 조사(다음검색) — 영업 확인, 메뉴·시간 미확인; 2026-11-01 인스타 2차 검수 — br",
+    "source": "시딩v2(상가I20303); 라벨 부여(다음검색) — '오포·문형동'으로 표기, 오포 상권 통칭 채택; 2차 디깅(다음검색) · 아산 배방; 2026-11-02 존재 재검증 — 웹 근거(영업시간·메뉴·인스타) 없음, LOCALDATA 2026-11 최신본 미발견·폐업, Daum·라멘갤 검색에서 최근 12개월 근거 없음(마지막 근거 2020.03.22). 근",
     "note": "I20303 발굴 — 라멘 여부 확인 필요 / LOCALDATA 2026-10 폐업 전이(폐업일 2025-03-24, 관리번호 5540000-101-2022-00324)"
   },
   {
@@ -17319,55 +17099,8 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가+상가+상가); 라벨 부여(다음검색) — '목천'으로 표기; 정보 보강(다음검색); 정보 보강 — 상세 미확인; 정보 보강 — 상세 미확인; 경기 조사(다음검색); 지역 조사(다음검색) — 영업 확인, 상세 정보 미기재; 지역 조사(다음검색) — 라멘·수제돈까스 겸영, 24시간, 장르 미확인",
+    "source": "시딩v2(상가+상가+상가); 라벨 부여(다음검색) — '목천'으로 표기; 2026-11-02 존재 재검증 — 웹 근거(영업시간·메뉴·인스타) 없음, LOCALDATA 2026-11 최신본 미발견·폐업, Daum·라멘갤 검색에서 최근 12개월 근거 없음(마지막 근거 2023.03.03). 근거가 생기면 다시 게재; 정보 보강(다음검색); 정보 보강 — 상세",
     "note": null
-  },
-  {
-    "id": "hondaramen-sujigucheongjeom",
-    "name": "혼다라멘",
-    "branch": "수지구청점",
-    "address": "경기도 용인시 수지구 풍덕천로129번길 8",
-    "city": "경기",
-    "district": "용인시",
-    "areaLabel": "보정동",
-    "lat": 37.324054,
-    "lng": 127.095732,
-    "coordSource": "sanggwon",
-    "hours": null,
-    "breakTime": null,
-    "closedDays": null,
-    "openedAt": null,
-    "status": "open",
-    "statusChangedAt": null,
-    "forms": [
-      "ramen",
-      "mazesoba"
-    ],
-    "primaryForm": "ramen",
-    "soups": [
-      "tonkotsu",
-      "tantanmen",
-      "tomato"
-    ],
-    "primarySoup": "tonkotsu",
-    "soupDetail": [
-      "영업 확인",
-      "장르 미확인"
-    ],
-    "lineages": [],
-    "amenities": [],
-    "confidence": "estimated",
-    "menus": [],
-    "photos": [],
-    "seats": null,
-    "tagline": null,
-    "instagram": null,
-    "naverPlace": null,
-    "waitingLink": null,
-    "verification": "pending",
-    "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 라벨 부여(다음검색) — '구래동·한강신도시'로 표기, 구래 상권 통칭 채택; 라벨 부여(다음검색) — '사남'으로 표기; 정보수집(다음검색); 정보수집(다음검색); 경기 디깅(다음검색); 경기 디깅(다음검색); 강원 디깅(다음검색, 뉴스 언급) · 춘천; 2차 디깅(다음검색) · 사천시 사남면 유천리; 동명 재검증(다음검색);",
-    "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
     "id": "ramendeobeulpeulleoseu",
@@ -17769,49 +17502,6 @@
     "note": null
   },
   {
-    "id": "ajji-ajjiramen-2",
-    "name": "아찌;아찌라멘",
-    "branch": null,
-    "address": "경기도 부천시 원미구 길주로 300",
-    "city": "경기",
-    "district": "부천시",
-    "areaLabel": "중동",
-    "lat": 37.502542,
-    "lng": 126.775317,
-    "coordSource": "sanggwon",
-    "hours": null,
-    "breakTime": null,
-    "closedDays": null,
-    "openedAt": null,
-    "status": "open",
-    "statusChangedAt": null,
-    "forms": [
-      "ramen"
-    ],
-    "primaryForm": "ramen",
-    "soups": [
-      "etc-soup"
-    ],
-    "primarySoup": "etc-soup",
-    "soupDetail": [
-      "가츠동 병행(스타필드시티 옥길)"
-    ],
-    "lineages": [],
-    "amenities": [],
-    "confidence": "estimated",
-    "menus": [],
-    "photos": [],
-    "seats": null,
-    "tagline": null,
-    "instagram": null,
-    "naverPlace": null,
-    "waitingLink": null,
-    "verification": "pending",
-    "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 라벨 부여(다음검색) — '옥길·옥길지구'로 다수 표기; 정보 보강 — 상세 미확인; 정보 보강 — 상세 미확인; 경기 조사(다음검색); 경기 조사(다음검색) — 롯데백화점 중동 푸드코트 입점 흔적(블로그), 영업 상태 미확정",
-    "note": "I20303 발굴 — 라멘 여부 확인 필요"
-  },
-  {
     "id": "migaramenmokgamjeom",
     "name": "미가라멘목감점",
     "branch": null,
@@ -17912,7 +17602,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303+상가+상가); 라벨 부여(다음검색) — '부곡'으로 표기; 2차 디깅(다음검색) · 아산 배방; 2차 디깅(다음검색) · 군포 부곡동; 정보 보강(다음검색); 정보 보강 — 상세 미확인; 경기 조사(다음검색) — 영업중; 경기 조사(다음검색); 2026-11-01 인스타 2차 검수 — branch 프로필 '쇼부라멘 평촌점 (@sho",
+    "source": "시딩v2(상가I20303+상가+상가); 라벨 부여(다음검색) — '부곡'으로 표기; 2차 디깅(다음검색) · 아산 배방; 2차 디깅(다음검색) · 군포 부곡동; 2026-11-02 존재 재검증 — 웹 근거(영업시간·메뉴·인스타) 없음, LOCALDATA 2026-11 최신본 미발견·폐업, Daum·라멘갤 검색에서 최근 12개월 근거 없음(마지막 근거 202",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -18603,7 +18293,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303+상가+상가); 2차 디깅(다음검색) · 아산 배방; 정보 보강(다음검색); 정보 보강 — 상세 미확인; 정보 보강 — 상세 미확인; 경기 조사(다음검색) — 영업중; 경기 조사(다음검색); 2026-11-01 인스타 2차 검수 — branch 프로필 '쇼부라멘 평촌점 (@shoubu_ramen)'; 지역 조사(다음검색) — 블로그",
+    "source": "시딩v2(상가I20303+상가+상가); 2차 디깅(다음검색) · 아산 배방; 2026-11-02 존재 재검증 — 웹 근거(영업시간·메뉴·인스타) 없음, LOCALDATA 2026-11 최신본 미발견·폐업, Daum·라멘갤 검색에서 최근 12개월 근거 없음(마지막 근거 2020.03.22). 근거가 생기면 다시 게재; 정보 보강(다음검색); 정보 보강 — 상",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -22514,7 +22204,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303+상가); 라벨 부여(다음검색) — '목포대'로 표기(목포대 앞 상권); 정보수집(다음검색); 대구경북 디깅(다음검색) · 안동; 2차 디깅(다음검색) · 안동 옥동; 2차 디깅(다음검색) · 문경; 정보 보강(다음검색); 정보 보강 — 상세 미확인; 정보 보강 — 상세 미확인; 정보 보강 — 상세 미확인; 경기 조사(다음검색); 확",
+    "source": "시딩v2(상가I20303+상가); 라벨 부여(다음검색) — '목포대'로 표기(목포대 앞 상권); 정보수집(다음검색); 대구경북 디깅(다음검색) · 안동; 2차 디깅(다음검색) · 안동 옥동; 2차 디깅(다음검색) · 문경; 2026-11-02 존재 재검증 — 웹 근거(영업시간·메뉴·인스타) 없음, LOCALDATA 2026-11 최신본 미발견·폐업, Dau",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -23711,7 +23401,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303+상가); 2차 디깅(다음검색) · 창원시 의창구 사림동; 2차 디깅(다음검색) · 아산 배방; 정보 보강(다음검색); 정보 보강 — 상세 미확인; 경기 조사(다음검색) — 영업중; 2026-11-01 인스타 2차 검수 — branch 프로필 '쇼부라멘 평촌점 (@shoubu_ramen)'; 지역 조사(다음검색) — 블로그 다수, 진",
+    "source": "시딩v2(상가I20303+상가); 2차 디깅(다음검색) · 창원시 의창구 사림동; 2차 디깅(다음검색) · 아산 배방; 2026-11-02 존재 재검증 — 웹 근거(영업시간·메뉴·인스타) 없음, LOCALDATA 2026-11 최신본 미발견·폐업, Daum·라멘갤 검색에서 최근 12개월 근거 없음(마지막 근거 2020.03.22). 근거가 생기면 다시 게재",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -23943,47 +23633,6 @@
     "verification": "pending",
     "lastVerifiedAt": null,
     "source": "시딩v2(상가I20303+상가); 2차 디깅(다음검색) · 포항 양덕; 2026-10-27 인스타 전수 검수(shop) — 프로필 '라멘구루마 (@ramen_goorooma) · Pohang'; 지역 조사(다음검색)",
-    "note": "I20303 발굴 — 라멘 여부 확인 필요"
-  },
-  {
-    "id": "dokyoramengimcheonsineumjeom",
-    "name": "도쿄라멘김천신음점",
-    "branch": null,
-    "address": "경상북도 김천시 부거리길 25",
-    "city": "경북",
-    "district": "김천시",
-    "areaLabel": "신음",
-    "lat": 36.133761,
-    "lng": 128.116229,
-    "coordSource": "sanggwon",
-    "hours": null,
-    "breakTime": null,
-    "closedDays": null,
-    "openedAt": null,
-    "status": "open",
-    "statusChangedAt": null,
-    "forms": [
-      "ramen"
-    ],
-    "primaryForm": "ramen",
-    "soups": [
-      "etc-soup"
-    ],
-    "primarySoup": "etc-soup",
-    "soupDetail": [],
-    "lineages": [],
-    "amenities": [],
-    "confidence": "estimated",
-    "menus": [],
-    "photos": [],
-    "seats": null,
-    "tagline": null,
-    "instagram": null,
-    "naverPlace": null,
-    "waitingLink": null,
-    "verification": "pending",
-    "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 라벨 부여(다음검색) — '김천 신음'으로 표기; 2차 디깅(다음검색) · 문경; 정보 보강 — 상세 미확인; 확인 불가 — 도쿄라멘3900 체인(돈코츠·미소 등 취급)으로 확인되나, 검색 캡션에 '[폐업]' 표기가 있고 김천역점·신음점 중 어느 지점인지 구분 불가. 영업 여부 재확인 필요",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -24375,7 +24024,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303+상가); 라벨 부여(다음검색) — '문화의거리·안동 시내'로 표기; 라벨 부여(다음검색) — '목포대'로 표기(목포대 앞 상권); 정보수집(다음검색); 대구경북 디깅(다음검색) · 안동; 2차 디깅(다음검색) · 안동 옥동; 정보 보강(다음검색); 정보 보강 — 상세 미확인; 정보 보강 — 상세 미확인; 정보 보강 — 상세 미확인;",
+    "source": "시딩v2(상가I20303+상가); 라벨 부여(다음검색) — '문화의거리·안동 시내'로 표기; 라벨 부여(다음검색) — '목포대'로 표기(목포대 앞 상권); 정보수집(다음검색); 대구경북 디깅(다음검색) · 안동; 2차 디깅(다음검색) · 안동 옥동; 2026-11-02 존재 재검증 — 웹 근거(영업시간·메뉴·인스타) 없음, LOCALDATA 2026-11",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -25368,48 +25017,6 @@
     "verification": "pending",
     "lastVerifiedAt": null,
     "source": "시딩v2(상가I20303+상가I20303+상가); 라벨 부여(다음검색) — '황성'으로 표기; 대구경북 디깅(다음검색) · 경산 영남대; 2차 디깅(다음검색) · 삼덕동; 2차 디깅(다음검색) · 상인동; 2차 디깅(다음검색) · 율하; 2차 디깅(다음검색) · 강북; 2차 디깅(다음검색) · 계명대; 2차 디깅(다음검색) · 경산 영남대; 정보 보강(다음",
-    "note": "I20303 발굴 — 라멘 여부 확인 필요"
-  },
-  {
-    "id": "hondaramendeopbap",
-    "name": "혼다라멘덮밥",
-    "branch": null,
-    "address": "대구광역시 중구 동성로3길 20",
-    "city": "대구",
-    "district": "중구",
-    "areaLabel": "동성로",
-    "lat": 35.866231,
-    "lng": 128.597785,
-    "coordSource": "sanggwon",
-    "hours": null,
-    "breakTime": null,
-    "closedDays": null,
-    "openedAt": null,
-    "status": "open",
-    "statusChangedAt": null,
-    "forms": [
-      "ramen"
-    ],
-    "primaryForm": "ramen",
-    "soups": [
-      "tonkotsu",
-      "tantanmen"
-    ],
-    "primarySoup": "tonkotsu",
-    "soupDetail": [],
-    "lineages": [],
-    "amenities": [],
-    "confidence": "estimated",
-    "menus": [],
-    "photos": [],
-    "seats": null,
-    "tagline": null,
-    "instagram": null,
-    "naverPlace": null,
-    "waitingLink": null,
-    "verification": "pending",
-    "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 정보 보강(다음검색); 2026-10-27 승계 규칙 재검증(다음검색) — '혼다 라멘 동성로디스퀘어점' 후기(2022-06), 상가 목록 2026-07 '혼다 라멘 덮밥'. 혼다라멘 체인 지점(이름 표기만 다름); 확인 불가 — 다음검색에서 브랜드 타지역 지점만 확인, 대구 동성로 지점 흔적 없음",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -27492,50 +27099,6 @@
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
-    "id": "syoburamen-2",
-    "name": "쇼부라멘",
-    "branch": null,
-    "address": "대전광역시 동구 동대전로 172",
-    "city": "대전",
-    "district": "동구",
-    "areaLabel": "우송대",
-    "lat": 36.336991,
-    "lng": 127.447856,
-    "coordSource": "sanggwon",
-    "hours": null,
-    "breakTime": null,
-    "closedDays": null,
-    "openedAt": null,
-    "status": "open",
-    "statusChangedAt": null,
-    "forms": [
-      "ramen"
-    ],
-    "primaryForm": "ramen",
-    "soups": [
-      "shoyu",
-      "tonkotsu",
-      "miso",
-      "tantanmen"
-    ],
-    "primarySoup": "tonkotsu",
-    "soupDetail": [],
-    "lineages": [],
-    "amenities": [],
-    "confidence": "certain",
-    "menus": [],
-    "photos": [],
-    "seats": null,
-    "tagline": null,
-    "instagram": null,
-    "naverPlace": null,
-    "waitingLink": null,
-    "verification": "pending",
-    "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 정보수집(다음검색); 정보수집(다음검색); 정보수집(다음검색); 경기 디깅(다음검색); 2차 디깅(다음검색) · 창원시 의창구 사림동; 2차 디깅(다음검색) · 아산 배방; 2차 디깅(다음검색) · 안양 관양동; 2차 디깅(다음검색) · 군포 부곡동; 2차 디깅(다음검색) · 안산 이동; 2차 디깅(다음검색) · 수서동; 정보",
-    "note": "I20303 발굴 — 라멘 여부 확인 필요"
-  },
-  {
     "id": "ramenuemura",
     "name": "라멘우에무라",
     "branch": null,
@@ -28225,7 +27788,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 라벨 부여(다음검색) — 검색결과가 '대관령'으로 표기(횡계 일대 통칭); 라벨 부여(다음검색) — '영통·영통역'으로 다수 표기; 부산 조사(다음검색) — 영업중, 센트럴스퀘어 지하2층, 간장·돈코츠·된장 차슈라멘 확인(가격·주력 미확인); 서울 디깅(다음검색); 정보 보강 — 상세 미확인; 정보 보강(다음검색); 정보 보강",
+    "source": "시딩v2(상가I20303); 라벨 부여(다음검색) — 검색결과가 '대관령'으로 표기(횡계 일대 통칭); 라벨 부여(다음검색) — '영통·영통역'으로 다수 표기; 부산 조사(다음검색) — 영업중, 센트럴스퀘어 지하2층, 간장·돈코츠·된장 차슈라멘 확인(가격·주력 미확인); 서울 디깅(다음검색); 2026-11-02 존재 재검증 — 웹 근거(영업시간·메뉴·인스",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -28916,49 +28479,6 @@
     "note": "I20303 발굴 — 라멘 여부 확인 필요 / LOCALDATA 2026-10 폐업 전이(폐업일 2024-10-29, 관리번호 3330000-101-2020-00039)"
   },
   {
-    "id": "kanairamen",
-    "name": "카나이라멘",
-    "branch": null,
-    "address": "부산광역시 부산진구 서전로38번길 43-13",
-    "city": "부산",
-    "district": "부산진구",
-    "areaLabel": "전포",
-    "lat": 35.155946,
-    "lng": 129.064566,
-    "coordSource": "sanggwon",
-    "hours": null,
-    "breakTime": null,
-    "closedDays": "화요일",
-    "openedAt": null,
-    "status": "open",
-    "statusChangedAt": null,
-    "forms": [
-      "ramen"
-    ],
-    "primaryForm": "ramen",
-    "soups": [
-      "etc-soup"
-    ],
-    "primarySoup": "etc-soup",
-    "soupDetail": [
-      "닭육수 베이스"
-    ],
-    "lineages": [],
-    "amenities": [],
-    "confidence": "estimated",
-    "menus": [],
-    "photos": [],
-    "seats": null,
-    "tagline": null,
-    "instagram": null,
-    "naverPlace": null,
-    "waitingLink": null,
-    "verification": "pending",
-    "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 부산 조사(다음검색) — 영업중, 전포 카페거리, 진한 닭육수 국물 언급(장르 세부 미확정); 2026-10-28 휴무 조사 — 블로그 후기 2건 일치(2020.02.27), 장소 카드 제외; 정보 보강 — 상세 미확인",
-    "note": "I20303 발굴 — 라멘 여부 확인 필요"
-  },
-  {
     "id": "jenpudeuhinoaji-jeonggwanjeom",
     "name": "젠푸드히노아지",
     "branch": "정관점",
@@ -29110,7 +28630,7 @@
     "breakTime": null,
     "closedDays": null,
     "openedAt": null,
-    "status": "open",
+    "status": "closed",
     "statusChangedAt": null,
     "forms": [
       "ramen"
@@ -29134,7 +28654,7 @@
     "verification": "pending",
     "lastVerifiedAt": null,
     "source": "시딩v2(상가I20303); 부산 조사(다음검색) — 동래시장점 존재는 블로그에서 확인되나 플레이스 패널 부재로 영업상태 미확정. 브랜드는 쇼유라멘 전문(부산대점·해운대 본점 확인), 한우대창라멘 등 판매; 부산 조사(다음검색); 부산 조사(다음검색); 2026-11-02 데이터 정리 — 해운대구 주소인데 '동래시장' 라벨(동래점 라벨 번짐). 인스타 프로",
-    "note": "I20303 발굴 — 라멘 여부 확인 필요"
+    "note": "I20303 발굴 — 라멘 여부 확인 필요 / 2026-11-02 폐업 확정: 같은 자리(동래시장길 14) 멘초비 영업, 블로그 2026-03-11 '멘초비 전에 상생라멘 있었을 때도'"
   },
   {
     "id": "mennyasandaime-haeundaejeom",
@@ -29292,7 +28812,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303+상가); 부산 조사(다음검색) — 영업중, 연중무휴; 2차 디깅(다음검색) · 부산 중구 남포동3가; 정보 보강 — 상세 미확인; 경기 조사(다음검색) — 블로그 확인(금촌동·금릉, 사골 장시간 육수의 하카다 라멘), 플레이스 패널 없음·영업시간 미확인",
+    "source": "시딩v2(상가I20303+상가); 부산 조사(다음검색) — 영업중, 연중무휴; 2차 디깅(다음검색) · 부산 중구 남포동3가; 2026-11-02 존재 재검증 — 웹 근거(영업시간·메뉴·인스타) 없음, LOCALDATA 2026-11 최신본 미발견·폐업, Daum·라멘갤 검색에서 최근 12개월 근거 없음(마지막 근거 2022.10.10). 근거가 생기면 다",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -31547,53 +31067,6 @@
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
-    "id": "sanjjomeboramae-dillibeorijeom",
-    "name": "산쪼메보라매",
-    "branch": "딜리버리점",
-    "address": "서울특별시 동작구 보라매로5길 5",
-    "city": "서울",
-    "district": "동작구",
-    "areaLabel": "서울대입구",
-    "lat": 37.492353,
-    "lng": 126.925154,
-    "coordSource": "sanggwon",
-    "hours": null,
-    "breakTime": null,
-    "closedDays": null,
-    "openedAt": null,
-    "status": "open",
-    "statusChangedAt": null,
-    "forms": [
-      "ramen",
-      "tsukemen",
-      "aburasoba"
-    ],
-    "primaryForm": "ramen",
-    "soups": [
-      "tonkotsu",
-      "shoyu",
-      "shio",
-      "miso",
-      "gyokai"
-    ],
-    "primarySoup": "tonkotsu",
-    "soupDetail": [],
-    "lineages": [],
-    "amenities": [],
-    "confidence": "certain",
-    "menus": [],
-    "photos": [],
-    "seats": null,
-    "tagline": null,
-    "instagram": null,
-    "naverPlace": null,
-    "waitingLink": null,
-    "verification": "pending",
-    "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 라벨 부여(다음검색) — 검색결과가 '원통'으로 표기(인제 북면 상권 통칭); 부산 조사(다음검색) — 영업중, 초량점 표기; 2026-10-28 휴무 조사 — 블로그 후기 2건 일치(2026.06.02), 장소 카드 제외; 2026-10-28 휴무 조사 — 블로그 후기 4건 일치(2026.07.04·2026.03.10), 장소",
-    "note": "I20303 발굴 — 라멘 여부 확인 필요"
-  },
-  {
     "id": "jenpudeuhinoajirotdemiajeom-baekwajeom",
     "name": "젠푸드히노아지롯데미아점",
     "branch": "백화점",
@@ -31690,48 +31163,6 @@
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
-    "id": "koiramen-sincheonjeom",
-    "name": "코이라멘",
-    "branch": "신천점",
-    "address": "서울특별시 송파구 백제고분로7길 8-12",
-    "city": "서울",
-    "district": "송파구",
-    "areaLabel": "석촌",
-    "lat": 37.509883,
-    "lng": 127.079716,
-    "coordSource": "sanggwon",
-    "hours": null,
-    "breakTime": null,
-    "closedDays": null,
-    "openedAt": null,
-    "status": "open",
-    "statusChangedAt": null,
-    "forms": [
-      "ramen",
-      "mazesoba"
-    ],
-    "primaryForm": "ramen",
-    "soups": [
-      "tonkotsu"
-    ],
-    "primarySoup": "tonkotsu",
-    "soupDetail": [],
-    "lineages": [],
-    "amenities": [],
-    "confidence": "certain",
-    "menus": [],
-    "photos": [],
-    "seats": null,
-    "tagline": null,
-    "instagram": null,
-    "naverPlace": null,
-    "waitingLink": null,
-    "verification": "pending",
-    "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 라벨 규칙 — 디깅라벨 '방이동'과 동일 동네, 행정동 표기 대신 상권 통칭 '방이' 채택; 2026-11-02 데이터 정리 — 성남 분당구 야탑로인데 '신중동' 라벨(#52); 정보수집(다음검색); 정보수집(다음검색); 발굴 2차 조사(다음검색); 충청 디깅(다음검색) · 천안; 인천 디깅(다음검색); 서울 디깅(다음검색);",
-    "note": "I20303 발굴 — 라멘 여부 확인 필요"
-  },
-  {
     "id": "jenpudeuhinoajirotdegwanakjeom-baekwajeo",
     "name": "젠푸드히노아지롯데관악점",
     "branch": "백화점",
@@ -31772,53 +31203,6 @@
     "verification": "pending",
     "lastVerifiedAt": null,
     "source": "시딩v2(상가I20303); 정보 보강(다음검색); 재검증(다음검색); 웹 조사",
-    "note": "I20303 발굴 — 라멘 여부 확인 필요"
-  },
-  {
-    "id": "miseuteoramen-6",
-    "name": "미스터라멘",
-    "branch": null,
-    "address": "서울특별시 마포구 독막로3길 33",
-    "city": "서울",
-    "district": "마포구",
-    "areaLabel": "합정",
-    "lat": 37.549759,
-    "lng": 126.917231,
-    "coordSource": "sanggwon",
-    "hours": null,
-    "breakTime": null,
-    "closedDays": null,
-    "openedAt": null,
-    "status": "open",
-    "statusChangedAt": null,
-    "forms": [
-      "ramen"
-    ],
-    "primaryForm": "ramen",
-    "soups": [
-      "tonkotsu",
-      "shoyu",
-      "shio",
-      "tantanmen"
-    ],
-    "primarySoup": "tonkotsu",
-    "soupDetail": [
-      "저녁 이자카야 병행",
-      "나가사키"
-    ],
-    "lineages": [],
-    "amenities": [],
-    "confidence": "certain",
-    "menus": [],
-    "photos": [],
-    "seats": null,
-    "tagline": null,
-    "instagram": null,
-    "naverPlace": null,
-    "waitingLink": null,
-    "verification": "pending",
-    "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 라벨 부여(다음검색) — '천북'으로 표기; 2026-11-02 데이터 정리 — 마포구 독막로3길(합정역 인근)인데 강서 '방화동' 라벨이 붙어 있었음; 발굴 2차 조사(다음검색); 발굴 2차 조사(다음검색); 발굴 2차 조사(다음검색); 강원 디깅(다음검색) · 원주; 2차 디깅(다음검색) · 원주 명륜동; 2차 디깅(다음검색",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -32225,47 +31609,6 @@
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
-    "id": "korallamen-sillimjeom",
-    "name": "코란라멘",
-    "branch": "신림점",
-    "address": "서울특별시 관악구 조원로 170",
-    "city": "서울",
-    "district": "관악구",
-    "areaLabel": "서울대입구",
-    "lat": 37.485989,
-    "lng": 126.921169,
-    "coordSource": "sanggwon",
-    "hours": null,
-    "breakTime": null,
-    "closedDays": null,
-    "openedAt": null,
-    "status": "open",
-    "statusChangedAt": null,
-    "forms": [
-      "ramen"
-    ],
-    "primaryForm": "ramen",
-    "soups": [
-      "etc-soup"
-    ],
-    "primarySoup": "etc-soup",
-    "soupDetail": [],
-    "lineages": [],
-    "amenities": [],
-    "confidence": "estimated",
-    "menus": [],
-    "photos": [],
-    "seats": null,
-    "tagline": null,
-    "instagram": null,
-    "naverPlace": null,
-    "waitingLink": null,
-    "verification": "pending",
-    "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 서울 디깅(다음검색); 정보 보강 — 상세 미확인; 보류 재심사(다음검색); 재검증(다음검색); 웹 조사",
-    "note": "I20303 발굴 — 라멘 여부 확인 필요"
-  },
-  {
     "id": "jeongnamen-2",
     "name": "정라멘",
     "branch": null,
@@ -32312,52 +31655,6 @@
     "lastVerifiedAt": null,
     "source": "시딩v2(상가I20303); 발굴 2차 조사(다음검색); 2차 디깅(다음검색) · 문래동; 동명 재검증(다음검색) — 토요일은 11:00-15:00; 확인 불가; 원 조사 폐업 판정 + 재검증 플레이스 부재 → 보류; 2차 조사에서 영업 확인 — 보류 해제; 정보 보강 — 상세 미확인; 미디어(하입비스트·GQ 외); 웹 조사; 웹 조사",
     "note": "I20303 발굴 — 라멘 여부 확인 필요 / LOCALDATA 2026-10 폐업 전이(폐업일 2022-11-29, 관리번호 3230000-101-2019-00693)"
-  },
-  {
-    "id": "miseuteoramen-gwanghwamunjeom",
-    "name": "미스터라멘",
-    "branch": "광화문점",
-    "address": "서울특별시 종로구 새문안로 92",
-    "city": "서울",
-    "district": "종로구",
-    "areaLabel": "광화문",
-    "lat": 37.569734,
-    "lng": 126.974882,
-    "coordSource": "sanggwon",
-    "hours": null,
-    "breakTime": null,
-    "closedDays": null,
-    "openedAt": null,
-    "status": "open",
-    "statusChangedAt": null,
-    "forms": [
-      "ramen"
-    ],
-    "primaryForm": "ramen",
-    "soups": [
-      "tonkotsu",
-      "shoyu",
-      "shio",
-      "tantanmen"
-    ],
-    "primarySoup": "tonkotsu",
-    "soupDetail": [
-      "나가사키"
-    ],
-    "lineages": [],
-    "amenities": [],
-    "confidence": "certain",
-    "menus": [],
-    "photos": [],
-    "seats": null,
-    "tagline": null,
-    "instagram": null,
-    "naverPlace": null,
-    "waitingLink": null,
-    "verification": "pending",
-    "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 라벨 부여(다음검색) — '천북'으로 표기; 2026-11-02 데이터 정리 — 마포구 독막로3길(합정역 인근)인데 강서 '방화동' 라벨이 붙어 있었음; 발굴 2차 조사(다음검색); 발굴 2차 조사(다음검색); 발굴 2차 조사(다음검색); 동명 재검증(다음검색) — 미스터라멘 서교점; 확인 불가; 원 조사 폐업 판정 + 재검증",
-    "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
     "id": "choiramen-2",
@@ -32518,48 +31815,6 @@
     "verification": "pending",
     "lastVerifiedAt": null,
     "source": "시딩v2(상가I20303+상가I20303); 정보수집(다음검색); 인천 디깅(다음검색); 서울 디깅(다음검색); 2026-11-01 인스타 2차 검수 — branch 프로필 '아오리라멘 여의도점 (@aori_yeouido)'; 재검증(다음검색); 재검증(다음검색); 재검증(다음검색); 웹 조사; 웹 조사; 웹 조사",
-    "note": "I20303 발굴 — 라멘 여부 확인 필요"
-  },
-  {
-    "id": "koiramen-cheonhojeom",
-    "name": "코이라멘",
-    "branch": "천호점",
-    "address": "서울특별시 강동구 천호옛14길 23-5",
-    "city": "서울",
-    "district": "강동구",
-    "areaLabel": "천호",
-    "lat": 37.536313,
-    "lng": 127.126699,
-    "coordSource": "sanggwon",
-    "hours": null,
-    "breakTime": null,
-    "closedDays": "일요일",
-    "openedAt": null,
-    "status": "open",
-    "statusChangedAt": null,
-    "forms": [
-      "ramen",
-      "mazesoba"
-    ],
-    "primaryForm": "ramen",
-    "soups": [
-      "tonkotsu"
-    ],
-    "primarySoup": "tonkotsu",
-    "soupDetail": [],
-    "lineages": [],
-    "amenities": [],
-    "confidence": "certain",
-    "menus": [],
-    "photos": [],
-    "seats": null,
-    "tagline": null,
-    "instagram": null,
-    "naverPlace": null,
-    "waitingLink": null,
-    "verification": "pending",
-    "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 라벨 규칙 — 디깅라벨 '방이동'과 동일 동네, 행정동 표기 대신 상권 통칭 '방이' 채택; 2026-11-02 데이터 정리 — 성남 분당구 야탑로인데 '신중동' 라벨(#52); 2026-10-28 휴무 조사 — 블로그 후기 3건 일치(2022.12.09·2022.05.11), 장소 카드 제외; 정보수집(다음검색); 정보수집(다",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -33277,47 +32532,6 @@
     "note": "LOCALDATA 2026-10 폐업 전이(폐업일 2021-03-25, 관리번호 3230000-101-2019-00636)"
   },
   {
-    "id": "gureumnamen",
-    "name": "구름라멘",
-    "branch": null,
-    "address": "서울특별시 영등포구 선유서로30길 23",
-    "city": "서울",
-    "district": "영등포구",
-    "areaLabel": "당산",
-    "lat": 37.524832,
-    "lng": 126.888728,
-    "coordSource": "sanggwon",
-    "hours": null,
-    "breakTime": null,
-    "closedDays": null,
-    "openedAt": null,
-    "status": "open",
-    "statusChangedAt": null,
-    "forms": [
-      "ramen"
-    ],
-    "primaryForm": "ramen",
-    "soups": [
-      "etc-soup"
-    ],
-    "primarySoup": "etc-soup",
-    "soupDetail": [],
-    "lineages": [],
-    "amenities": [],
-    "confidence": "estimated",
-    "menus": [],
-    "photos": [],
-    "seats": null,
-    "tagline": null,
-    "instagram": null,
-    "naverPlace": null,
-    "waitingLink": null,
-    "verification": "pending",
-    "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 정보 보강 — 상세 미확인; 보류 재심사(다음검색); 웹 조사",
-    "note": "I20303 발굴 — 라멘 여부 확인 필요"
-  },
-  {
     "id": "aoriuihaengbangbulmyeonggwanghwamun-sent",
     "name": "아오리의행방불명광화문",
     "branch": "센트럴점",
@@ -33496,90 +32710,6 @@
     "verification": "pending",
     "lastVerifiedAt": null,
     "source": "시딩v2(상가I20303); 정보 보강(다음검색); 발굴분 조사 — 플레이스 동대문구 제기로2길 23 업종 일식으로 확인되나 메뉴 미확인, 라멘 취급 확정 불가; 웹 조사; 웹 조사; 웹 조사; 웹 조사; 웹 조사; 웹 조사",
-    "note": "I20303 발굴 — 라멘 여부 확인 필요"
-  },
-  {
-    "id": "minburiramen",
-    "name": "민부리라멘",
-    "branch": null,
-    "address": "서울특별시 송파구 백제고분로19길 32",
-    "city": "서울",
-    "district": "송파구",
-    "areaLabel": "석촌",
-    "lat": 37.507427,
-    "lng": 127.087732,
-    "coordSource": "sanggwon",
-    "hours": null,
-    "breakTime": null,
-    "closedDays": null,
-    "openedAt": null,
-    "status": "open",
-    "statusChangedAt": null,
-    "forms": [
-      "ramen"
-    ],
-    "primaryForm": "ramen",
-    "soups": [
-      "tonkotsu"
-    ],
-    "primarySoup": "tonkotsu",
-    "soupDetail": [],
-    "lineages": [
-      "jikaseimen"
-    ],
-    "amenities": [],
-    "confidence": "estimated",
-    "menus": [],
-    "photos": [],
-    "seats": null,
-    "tagline": null,
-    "instagram": null,
-    "naverPlace": null,
-    "waitingLink": null,
-    "verification": "pending",
-    "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 정보수집(다음검색); 정보 보강 — 상세 미확인; 재검증(다음검색); 웹 조사",
-    "note": "I20303 발굴 — 라멘 여부 확인 필요"
-  },
-  {
-    "id": "kacheuaellamen-dongdaemun",
-    "name": "카츠앤라멘",
-    "branch": "동대문",
-    "address": "서울특별시 중구 장충단로 249-28",
-    "city": "서울",
-    "district": "중구",
-    "areaLabel": "동대문",
-    "lat": 37.567339,
-    "lng": 127.007561,
-    "coordSource": "sanggwon",
-    "hours": null,
-    "breakTime": null,
-    "closedDays": null,
-    "openedAt": null,
-    "status": "open",
-    "statusChangedAt": null,
-    "forms": [
-      "ramen"
-    ],
-    "primaryForm": "ramen",
-    "soups": [
-      "tonkotsu"
-    ],
-    "primarySoup": "tonkotsu",
-    "soupDetail": [],
-    "lineages": [],
-    "amenities": [],
-    "confidence": "estimated",
-    "menus": [],
-    "photos": [],
-    "seats": null,
-    "tagline": null,
-    "instagram": null,
-    "naverPlace": null,
-    "waitingLink": null,
-    "verification": "pending",
-    "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 정보 보강 — 상세 미확인; 2026-10-27 승계 규칙 재검증(다음검색) — 블로그 2026-07-01 DDP 돈코츠 라멘·돈까스 '카츠 앤 라멘'",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -34863,47 +33993,6 @@
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
-    "id": "ramenseonsaengaensujedonkkaseu",
-    "name": "라멘선생앤수제돈까스",
-    "branch": null,
-    "address": "울산광역시 동구 월봉로 12",
-    "city": "울산",
-    "district": "동구",
-    "areaLabel": "일산동",
-    "lat": 35.495223,
-    "lng": 129.419939,
-    "coordSource": "sanggwon",
-    "hours": null,
-    "breakTime": null,
-    "closedDays": null,
-    "openedAt": null,
-    "status": "open",
-    "statusChangedAt": null,
-    "forms": [
-      "ramen"
-    ],
-    "primaryForm": "ramen",
-    "soups": [
-      "etc-soup"
-    ],
-    "primarySoup": "etc-soup",
-    "soupDetail": [],
-    "lineages": [],
-    "amenities": [],
-    "confidence": "estimated",
-    "menus": [],
-    "photos": [],
-    "seats": null,
-    "tagline": null,
-    "instagram": null,
-    "naverPlace": null,
-    "waitingLink": null,
-    "verification": "pending",
-    "lastVerifiedAt": null,
-    "source": "시딩v2(상가); 정보 보강 — 상세 미확인; 지역 조사(다음검색) — 블로그 이미지 언급만 확인, 상세 미노출",
-    "note": null
-  },
-  {
     "id": "ramennyongguso",
     "name": "라멘용구소",
     "branch": null,
@@ -36177,53 +35266,6 @@
     "verification": "pending",
     "lastVerifiedAt": null,
     "source": "시딩v2(상가I20303); 라벨 부여(다음검색) — '대구스타디움·칼라스퀘어'로 표기; 정보수집(다음검색); 정보수집(다음검색); 대구경북 디깅(다음검색, 블로그 제목) · 경주; 인천 디깅(다음검색); 2차 디깅(다음검색) · 상주; 동명 재검증(다음검색); 동명 재검증(다음검색) — 서울식물원마곡나루역점; 정보 보강(다음검색); 인천 조사(다음검색)",
-    "note": "I20303 발굴 — 라멘 여부 확인 필요"
-  },
-  {
-    "id": "gyorecheuramensinpo",
-    "name": "교레츠라멘신포",
-    "branch": null,
-    "address": "인천광역시 제물포구 신포로35번길 13",
-    "city": "인천",
-    "district": "제물포구",
-    "areaLabel": "신포",
-    "lat": 37.472274,
-    "lng": 126.624998,
-    "coordSource": "sanggwon",
-    "hours": null,
-    "breakTime": null,
-    "closedDays": null,
-    "openedAt": null,
-    "status": "open",
-    "statusChangedAt": null,
-    "forms": [
-      "ramen",
-      "mazesoba"
-    ],
-    "primaryForm": "ramen",
-    "soups": [
-      "tonkotsu",
-      "tantanmen"
-    ],
-    "primarySoup": "tonkotsu",
-    "soupDetail": [
-      "청탕"
-    ],
-    "lineages": [
-      "iekei"
-    ],
-    "amenities": [],
-    "confidence": "certain",
-    "menus": [],
-    "photos": [],
-    "seats": null,
-    "tagline": null,
-    "instagram": null,
-    "naverPlace": null,
-    "waitingLink": null,
-    "verification": "pending",
-    "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303); 인천 디깅(다음검색); 2차 디깅(다음검색) · 인천 부평; 2차 디깅(다음검색) · 인천 신포동; 정보 보강(다음검색); 정보 보강(다음검색); 인천 조사(다음검색); 인천 조사(다음검색) — 일본 청탕 라멘집으로 소개, 세부 장르 미확인; 2026-10-27 인스타 전수 검수(branch) — 프로필 '교레츠라멘_본점 (@k",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -38607,52 +37649,6 @@
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
-    "id": "ramenseonsaengsujedonkkaseu",
-    "name": "라멘선생수제돈까스",
-    "branch": null,
-    "address": "충청남도 천안시 동남구 목천읍 신계5길 38-1",
-    "city": "충남",
-    "district": "천안시",
-    "areaLabel": "목천",
-    "lat": 36.773125,
-    "lng": 127.215188,
-    "coordSource": "sanggwon",
-    "hours": null,
-    "breakTime": null,
-    "closedDays": null,
-    "openedAt": null,
-    "status": "open",
-    "statusChangedAt": null,
-    "forms": [
-      "ramen"
-    ],
-    "primaryForm": "ramen",
-    "soups": [
-      "tonkotsu",
-      "shoyu",
-      "miso",
-      "tantanmen"
-    ],
-    "primarySoup": "tonkotsu",
-    "soupDetail": [
-      "돈까스 병행"
-    ],
-    "lineages": [],
-    "amenities": [],
-    "confidence": "certain",
-    "menus": [],
-    "photos": [],
-    "seats": null,
-    "tagline": null,
-    "instagram": null,
-    "naverPlace": null,
-    "waitingLink": null,
-    "verification": "pending",
-    "lastVerifiedAt": null,
-    "source": "시딩v2(상가); 라벨 부여(다음검색) — '목천'으로 표기; 정보 보강(다음검색); 정보 보강 — 상세 미확인; 정보 보강 — 상세 미확인; 경기 조사(다음검색); 지역 조사(다음검색) — 영업 확인, 상세 정보 미기재; 지역 조사(다음검색) — 라멘·수제돈까스 겸영, 24시간, 장르 미확인",
-    "note": null
-  },
-  {
     "id": "masitaramen",
     "name": "마시타라멘",
     "branch": null,
@@ -40543,7 +39539,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가I20303+상가); 라벨 부여(다음검색) — '목포대'로 표기(목포대 앞 상권); 정보수집(다음검색); 대구경북 디깅(다음검색) · 안동; 2차 디깅(다음검색) · 안동 옥동; 2차 디깅(다음검색) · 문경; 정보 보강(다음검색); 정보 보강 — 상세 미확인; 정보 보강 — 상세 미확인; 정보 보강 — 상세 미확인; 경기 조사(다음검색); 확",
+    "source": "시딩v2(상가I20303+상가); 라벨 부여(다음검색) — '목포대'로 표기(목포대 앞 상권); 정보수집(다음검색); 대구경북 디깅(다음검색) · 안동; 2차 디깅(다음검색) · 안동 옥동; 2차 디깅(다음검색) · 문경; 2026-11-02 존재 재검증 — 웹 근거(영업시간·메뉴·인스타) 없음, LOCALDATA 2026-11 최신본 미발견·폐업, Dau",
     "note": "I20303 발굴 — 라멘 여부 확인 필요"
   },
   {
@@ -41594,7 +40590,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가+상가); 라벨 부여(다음검색) — '목천'으로 표기; 정보 보강(다음검색); 정보 보강 — 상세 미확인; 경기 조사(다음검색); 지역 조사(다음검색) — 영업 확인, 상세 정보 미기재; 지역 조사(다음검색) — 라멘·수제돈까스 겸영, 24시간, 장르 미확인",
+    "source": "시딩v2(상가+상가); 라벨 부여(다음검색) — '목천'으로 표기; 2026-11-02 존재 재검증 — 웹 근거(영업시간·메뉴·인스타) 없음, LOCALDATA 2026-11 최신본 미발견·폐업, Daum·라멘갤 검색에서 최근 12개월 근거 없음(마지막 근거 2023.03.03). 근거가 생기면 다시 게재; 정보 보강(다음검색); 정보 보강 — 상세 미확인",
     "note": null
   },
   {
@@ -43560,7 +42556,7 @@
     "address": "울산광역시 동구 양지5길 12-15, 1층 101-2호 (화정동, 상아비취맨션)",
     "city": "울산",
     "district": "동구",
-    "areaLabel": "일산동",
+    "areaLabel": null,
     "lat": 35.496243,
     "lng": 129.421103,
     "coordSource": "sanggwon",
@@ -46276,7 +45272,7 @@
     "address": "경상북도 김천시 김천로 103 (평화동)",
     "city": "경북",
     "district": "김천시",
-    "areaLabel": "신음",
+    "areaLabel": null,
     "lat": 36.123906,
     "lng": 128.113539,
     "coordSource": "sanggwon",
@@ -47363,7 +46359,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(상가); 라벨 부여(다음검색) — '목천'으로 표기; 정보 보강(다음검색); 정보 보강 — 상세 미확인; 정보 보강 — 상세 미확인; 경기 조사(다음검색); 지역 조사(다음검색) — 영업 확인, 상세 정보 미기재",
+    "source": "시딩v2(상가); 라벨 부여(다음검색) — '목천'으로 표기; 2026-11-02 존재 재검증 — 웹 근거(영업시간·메뉴·인스타) 없음, LOCALDATA 2026-11 최신본 미발견·폐업, Daum·라멘갤 검색에서 최근 12개월 근거 없음(마지막 근거 2023.03.03). 근거가 생기면 다시 게재; 정보 보강(다음검색); 정보 보강 — 상세 미확인; 정",
     "note": null
   },
   {
@@ -49887,7 +48883,7 @@
     "waitingLink": null,
     "verification": "pending",
     "lastVerifiedAt": null,
-    "source": "시딩v2(디깅발굴); 라벨 검수(다음검색) — 상호가 '후타츠 홍대점', 블로그 '홍대' 7회 vs '상수' 3회. 주소판정 유지; 2026-10-28 휴무 조사 — 블로그 후기 3건 일치(2025.07.29), 장소 카드 제외; 디깅 발굴 조사(다음검색); 서울 디깅(다음검색); 2차 디깅(다음검색) · 구리 돌다리; 2차 디깅(다음검색) · 구로동; 발",
+    "source": "시딩v2(디깅발굴); 라벨 검수(다음검색) — 상호가 '후타츠 홍대점', 블로그 '홍대' 7회 vs '상수' 3회. 주소판정 유지; 2026-10-28 휴무 조사 — 블로그 후기 3건 일치(2025.07.29), 장소 카드 제외; 디깅 발굴 조사(다음검색); 서울 디깅(다음검색); 2차 디깅(다음검색) · 구리 돌다리; 2차 디깅(다음검색) · 구로동; 2",
     "note": "LOCALDATA 2026-10 폐업 전이(폐업일 2026-06-30, 관리번호 3130000-101-2023-00001)"
   },
   {
@@ -54329,47 +53325,6 @@
     "note": null
   },
   {
-    "id": "rullun",
-    "name": "룬룬",
-    "branch": null,
-    "address": "경기도 광명시 오리로856번길 21",
-    "city": "경기",
-    "district": "광명시",
-    "areaLabel": "철산",
-    "lat": 37.475617,
-    "lng": 126.869028,
-    "coordSource": "sanggwon",
-    "hours": null,
-    "breakTime": null,
-    "closedDays": null,
-    "openedAt": null,
-    "status": "open",
-    "statusChangedAt": null,
-    "forms": [
-      "ramen"
-    ],
-    "primaryForm": "ramen",
-    "soups": [
-      "etc-soup"
-    ],
-    "primarySoup": "etc-soup",
-    "soupDetail": [],
-    "lineages": [],
-    "amenities": [],
-    "confidence": "estimated",
-    "menus": [],
-    "photos": [],
-    "seats": null,
-    "tagline": null,
-    "instagram": null,
-    "naverPlace": null,
-    "waitingLink": null,
-    "verification": "pending",
-    "lastVerifiedAt": null,
-    "source": "시딩v2(디깅발굴(상가)); 2차 디깅(다음검색) · 광명 철산동; 발굴분 조사(다음검색) — 플레이스 패널 미확인, 블로그 '광명 철산 일본식 라멘 파는 집 룬룬'·'철산역라멘 룬룬' 등 복수 출처로 광명 철산 라멘집 확인",
-    "note": null
-  },
-  {
     "id": "kyusyuulteuraamengiheungtera-tawojeom",
     "name": "큐슈울트라아멘기흥테라",
     "branch": "타워점",
@@ -55021,49 +53976,6 @@
     "verification": "pending",
     "lastVerifiedAt": null,
     "source": "시딩v2(디깅발굴(상가)); 경기 디깅(다음검색); 인천 디깅(다음검색); 2차 디깅(다음검색) · 구미 인동; 2차 디깅(다음검색) · 김포 구래; 정보 보강 — 상세 미확인; 발굴분 조사(다음검색) — 플레이스 김포시 김포한강9로75번길 180, 업종 일본식라면",
-    "note": null
-  },
-  {
-    "id": "hutacheu-gurijeom",
-    "name": "후타츠",
-    "branch": "구리점",
-    "address": "경기도 구리시 경춘로227번길 6-15",
-    "city": "경기",
-    "district": "구리시",
-    "areaLabel": null,
-    "lat": 37.601693,
-    "lng": 127.140014,
-    "coordSource": "sanggwon",
-    "hours": null,
-    "breakTime": null,
-    "closedDays": "월요일",
-    "openedAt": null,
-    "status": "open",
-    "statusChangedAt": null,
-    "forms": [
-      "mazesoba",
-      "aburasoba",
-      "ramen"
-    ],
-    "primaryForm": "mazesoba",
-    "soups": [
-      "etc-soup"
-    ],
-    "primarySoup": "etc-soup",
-    "soupDetail": [],
-    "lineages": [],
-    "amenities": [],
-    "confidence": "estimated",
-    "menus": [],
-    "photos": [],
-    "seats": null,
-    "tagline": null,
-    "instagram": null,
-    "naverPlace": null,
-    "waitingLink": null,
-    "verification": "pending",
-    "lastVerifiedAt": null,
-    "source": "시딩v2(디깅발굴(상가)); 라벨 검수(다음검색) — 상호가 '후타츠 홍대점', 블로그 '홍대' 7회 vs '상수' 3회. 주소판정 유지; 2026-10-28 휴무 조사 — 블로그 후기 3건 일치(2025.07.29), 장소 카드 제외; 디깅 발굴 조사(다음검색); 서울 디깅(다음검색); 2차 디깅(다음검색) · 구리 돌다리; 발굴분 조사(다음검색) — 플",
     "note": null
   },
   {
@@ -62741,47 +61653,6 @@
     "verification": "pending",
     "lastVerifiedAt": null,
     "source": "시딩v2(디깅발굴(상가)); 2026-10-28 휴무 조사 — 블로그 후기 2건 일치(2026.04.29), 장소 카드 제외; 호남제주 디깅(다음검색) · 양림동; 2차 디깅(다음검색) · 광주 남구 양림동; 정보 보강(다음검색); 보류 재검증(다음검색) — 플레이스 남구 제중로46번길 13(양림동 111-37) 일치, 업종 일본식라면, 리뷰 148건; 2",
-    "note": null
-  },
-  {
-    "id": "ikemenseu",
-    "name": "이케멘스",
-    "branch": null,
-    "address": "전남광주통합특별시 순천시 왕지2길 9-11",
-    "city": "전남광주",
-    "district": null,
-    "areaLabel": "조례호수공원",
-    "lat": 34.969036,
-    "lng": 127.523702,
-    "coordSource": "sanggwon",
-    "hours": null,
-    "breakTime": null,
-    "closedDays": null,
-    "openedAt": null,
-    "status": "open",
-    "statusChangedAt": null,
-    "forms": [
-      "ramen"
-    ],
-    "primaryForm": "ramen",
-    "soups": [
-      "etc-soup"
-    ],
-    "primarySoup": "etc-soup",
-    "soupDetail": [],
-    "lineages": [],
-    "amenities": [],
-    "confidence": "estimated",
-    "menus": [],
-    "photos": [],
-    "seats": null,
-    "tagline": null,
-    "instagram": null,
-    "naverPlace": null,
-    "waitingLink": null,
-    "verification": "pending",
-    "lastVerifiedAt": null,
-    "source": "시딩v2(디깅발굴(상가)); 경남울산 디깅(다음검색) · 창원; 2차 디깅(다음검색) · 창원시 성산구 중앙동; 정보 보강 — 상세 미확인; 보류 재검증(다음검색 2회) — 플레이스 패널 미노출. 블로그 4건 이상이 '이케멘스 순천점' 순천 호수공원 인근 라멘집 방문기로 실존 뒷받침(도로명 확인은 안 됨)",
     "note": null
   },
   {
