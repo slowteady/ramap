@@ -405,6 +405,29 @@ export function isSameChain(
   return false;
 }
 
+export function hasOwnEvidence(
+  name: string,
+  branch: string,
+  matches: Enrichment[],
+  opts: { ambiguous?: boolean; address?: string } = {},
+): boolean {
+  const norm = normalizeShopName(name + branch);
+  return matches.some(
+    (m) =>
+      normalizeShopName(m.name) === norm &&
+      (!m.addrHint || (opts.address ?? "").includes(m.addrHint)) &&
+      (!opts.ambiguous || Boolean(m.addrHint)) &&
+      ((m.soups?.length ?? 0) > 0 ||
+        (m.forms?.length ?? 0) > 0 ||
+        (m.lineages?.length ?? 0) > 0 ||
+        Boolean(m.instagram) ||
+        Boolean(m.naverPlace) ||
+        Boolean(m.hours) ||
+        (m.menus?.length ?? 0) > 0 ||
+        /디시|미디어/.test(m.sourceNote ?? "")),
+  );
+}
+
 /* 위치 종속 필드는 정확 일치에서만 — 접두 매칭은 본점 정보가 지점에 전파되는 오염원
    (부탄츄 잠실점에 홍대 본점 상권·영업시간이 붙는 사고, 2026-09-02 실측).
    동명 행이 여럿(ambiguous)이면 정확 일치조차 어느 지점인지 모르므로
