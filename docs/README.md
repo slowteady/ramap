@@ -23,6 +23,7 @@
 | [0002-third-party-data-boundary](decisions/0002-third-party-data-boundary.md) | 좌표·타사 데이터·사진·링크를 다룰 때 |
 | [0005-issue-based-workflow](decisions/0005-issue-based-workflow.md) | 작업 단위·머지·배포 권한을 확인할 때 |
 | [0009-no-live-open-status](decisions/0009-no-live-open-status.md) | 영업 상태·"영업중" 필터를 넣자는 얘기가 나올 때 |
+| [0031-user-photo-contribution](decisions/0031-user-photo-contribution.md) | 라멘집 사진·메뉴판 사진을 받거나 보여 주거나 검수할 때 |
 
 ## 공통 조사
 
@@ -34,3 +35,4 @@
 | [2026-10-29-ui-copy-audit](research/2026-10-29-ui-copy-audit.md) | 화면 문구·배치를 고치거나 ui.md 위반 목록이 필요할 때 |
 | [2026-11-01-area-curation-candidates](research/2026-11-01-area-curation-candidates.md) | 지역 페이지에 "라맵 추천"을 붙이거나, 평판 근거·영업·지역 배정 데이터 정리가 필요할 때 |
 | [2026-11-01-area-recommendation-display](research/2026-11-01-area-recommendation-display.md) | "라맵 추천"을 지역 페이지에 어떤 정보·배치로 보여 줄지 정할 때 |
+| [2026-11-02-photo-contribution](research/2026-11-02-photo-contribution.md) | 사진 확보 방법·사용자 기여 UX·기프티콘 보상의 근거가 필요할 때 |
