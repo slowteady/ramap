@@ -15,6 +15,10 @@ description: Use when regenerating ramap shop data (enrich-candidates → sync-s
 
 **원칙: 같은 가게·같은 체인이라는 근거가 있을 때만 정보를 나눈다. 모르면 비워 둔다.** 틀린 정보보다 빈 정보가 낫다(폐업 검증과 같은 원칙 — `.claude/skills/closure-verification`).
 
+## 존재가 확실하지 않으면 게재하지 않는다 (2026-11-02 PO)
+
+폐업 표시(직접 증거만, closure-verification)와 게재(존재 근거 필요)는 별개다. 존재 근거가 최근 12개월 안에 없으면 폐업이라 쓰지 않고 `실존 미확인`으로 보류한다 — "틀린 데이터보다 안 보이는 게 낫다". 기준·절차는 `docs/modules/data/design.md` "존재 재검증", 도구는 `npm run check-existence`. 체인 승계 장르만으로 게재된 신규 지점도 그 지점 근거가 생길 때까지 보류한다.
+
 ## 승계 규칙 (코드로 강제 — `scripts/lib/enrich.ts` `isSameChain`·`mergeMatched`)
 
 | 정보                                  | 정확 일치(같은 이름)                                              | 접두 일치(이름이 더 길거나 짧음)                        |
