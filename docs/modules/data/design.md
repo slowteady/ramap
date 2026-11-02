@@ -1,6 +1,6 @@
 ---
 status: 유효
-updated: 2026-10-28
+updated: 2026-11-02
 ---
 
 # data 설계
@@ -36,7 +36,7 @@ data/enrichment/*.json (조사 결과)
 | `data/shops.json` | 게재 매장 배열(`Shop` 타입) | 앱이 읽는다 |
 | `data/shop-lastmod.json` | `{id: {date, hash}}` — 내용 해시가 바뀐 매장만 날짜 갱신 | 사이트맵 lastmod |
 | `data/closure-verification.json` | 폐업·이전 장부 `{id: {verdict, checkedAt, evidence[], movedTo?}}` | 폐업·이전 페이지 공개 여부 |
-| `data/shop-redirects.json` | `{지운 id: 남긴 id}` — 같은 가게 중복 행을 합칠 때 | `next.config.ts`가 `/shop/<from>` → `/shop/<to>` 영구 리다이렉트 |
+| `data/shop-redirects.json` | `{지운 id: 남긴 id}` — 같은 가게 중복 행을 합칠 때 | `next.config.ts`가 `/shop/<from>` → `/shop/<to>` 영구 리다이렉트. 지운 id는 `enrich-candidates`가 예약해 새 매장에 다시 주지 않는다 |
 | `data/refresh-exclusions.tsv` | `상호 주소 사유` — 사람이 중복 인허가·비라멘·임시 영업으로 판정한 행 | 갱신 라운드 신규에서 자동 제외 |
 | `data/review/<TAG>/` | 갱신 라운드 검토 자료(아래) | PR 리뷰·반영 근거 |
 | `data/review/instagram-2026-11/pending.tsv` | 인스타 검수 대기열 | [인스타 검수 라운드](#인스타-검수-라운드) |
@@ -298,6 +298,7 @@ npm test
 | 신규 미확인 | candidates에 넣고 `실존 미확인` 항목으로 보류(다음 라운드 재등장 방지) |
 | 신규 중복·라멘집 아님·임시 영업 | `data/refresh-exclusions.tsv`에 한 줄 |
 | 같은 가게 중복 행 | 정보 많은 행(기록 있는 id 우선)을 남기고 지운 id를 `shop-redirects.json`에, 재유입은 exclusions로 차단 |
+| 행을 지우면 같은 이름 다른 지점 id가 밀릴 때(`…-2` → `…`) | 그 지점 후보 행의 `id` 칸에 기존 id를 적어 고정한다. `id` 칸이 채워진 행은 그 값을 그대로 쓰고, 고정 id와 `shop-redirects.json`의 지운 id는 새 슬러그가 다시 쓰지 않는다(`assignShopId`·`reservedShopIds`) |
 
 enrichment를 쓸 때(스킬의 "항목을 추가·수정할 때"에 더해):
 
