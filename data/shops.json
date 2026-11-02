@@ -63651,6 +63651,52 @@
     "note": null
   },
   {
+    "id": "yugiramen",
+    "name": "유기라멘",
+    "branch": null,
+    "address": "경기도 안양시 동안구 동편로27번길 25, 1층 일부호 (관양동)",
+    "city": "경기",
+    "district": "안양시",
+    "areaLabel": "인덕원",
+    "lat": 37.407326,
+    "lng": 126.971496,
+    "coordSource": "localdata",
+    "hours": null,
+    "breakTime": null,
+    "closedDays": null,
+    "openedAt": "2026-10-28",
+    "status": "open",
+    "statusChangedAt": null,
+    "forms": [
+      "ramen"
+    ],
+    "primaryForm": "ramen",
+    "soups": [
+      "miso"
+    ],
+    "primarySoup": "miso",
+    "soupDetail": [],
+    "lineages": [],
+    "amenities": [],
+    "confidence": "certain",
+    "menus": [
+      {
+        "name": "특선미소라멘",
+        "price": 14000
+      }
+    ],
+    "photos": [],
+    "seats": null,
+    "tagline": null,
+    "instagram": null,
+    "naverPlace": null,
+    "waitingLink": null,
+    "verification": "pending",
+    "lastVerifiedAt": null,
+    "source": "LOCALDATA 시딩 2026-10; 2026-11-01 #7 오픈 확인(다음검색·라멘갤) — 라멘갤 2026-10-28 오픈 당일 후기 '특선미소라멘 14,000'(no=126854), 2026-11-01 '첫날 먹었다, 미소 단일 메뉴, 매일 조기 마감'(no=127439), Daum 장소 카드 '유기 라멘' 일본식라면 동편로27번길 25. 동네 라벨",
+    "note": "2026-11-01 #7 오픈 확인: 라멘갤 2026-10-28 오픈 당일 후기(goodramen no=126854), 2026-11-01 '첫날 먹었다·미소 단일 메뉴·매일 조기 마감'(no=127439), Daum 장소 카드 '유기 라멘' 일본식라면(동편로27번길 25, 평점 2건). 인허가 상호 '유기라멘Yugi Ramen'"
+  },
+  {
     "id": "ramennya-sammidang",
     "name": "라멘야 삼미당",
     "branch": null,
