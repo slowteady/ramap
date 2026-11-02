@@ -191,7 +191,7 @@ function record(reviewDir: string, today: string) {
 const [command, reviewDir, ...rest] = process.argv.slice(2);
 const today = dayjs().format("YYYY-MM-DD");
 if (command === "targets" && reviewDir)
-  targets(reviewDir, Number(rest[0] ?? 30));
+  targets(reviewDir, Number(rest[0] ?? 20));
 else if (command === "classify" && reviewDir && rest[0])
   classify(reviewDir, rest[0], rest[1] ?? today);
 else if (command === "record" && reviewDir) record(reviewDir, rest[0] ?? today);
@@ -199,7 +199,7 @@ else {
   console.error(
     [
       "사용법:",
-      "  npm run check-existence -- targets <리뷰폴더> [순환 수=30]",
+      "  npm run check-existence -- targets <리뷰폴더> [순환 수=20]",
       "  npm run check-existence -- classify <리뷰폴더> <증거.json> [기준일]",
       "  npm run check-existence -- record <리뷰폴더> [확인일]",
     ].join("\n"),

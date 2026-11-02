@@ -12,7 +12,7 @@ updated: 2026-11-02
 ```
 공공데이터 원본(레포 밖)
   ├─ seed-candidates ──────────────▶ data/out/candidates.tsv  ◀── 갱신 라운드 반영(사람)
-  └─ refresh-localdata(격주) ──▶ data/out/refresh-*.tsv → data/review/<TAG>/ (검토 자료)
+  └─ refresh-localdata(매주) ──▶ data/out/refresh-*.tsv → data/review/<TAG>/ (검토 자료)
 data/enrichment/*.json (조사 결과)
   └─ enrich-candidates(candidates.tsv + enrichment) ─▶ data/out/seed.tsv(게재) · held.tsv(보류)
        └─ sync-sheet(seed.tsv) ─▶ data/shops.json · data/shop-lastmod.json
@@ -52,7 +52,7 @@ data/enrichment/*.json (조사 결과)
 | `npm run refresh-localdata -- <전국인허가.csv> [TAG=YYYY-MM]` | → `data/out/refresh-{new,closed,unmatched,moves,excluded}.tsv` | 갱신 라운드 대조 |
 | `npm run diff-localdata -- <이전.csv> <최신.csv>` | 콘솔 리포트(신규·폐업 전이) | 두 스냅샷 단순 비교. 키 = 상호+도로명 |
 | `npm run collect-evidence -- data/review/<TAG> [출력.json]` | → `<출력>.json` + `<출력>.txt` 요약 | 2차 검수 증거 수집. 기본 출력 `/tmp/refresh-evidence.json`. 종료코드 2 = 검수 소스 접속 차단 |
-| `npm run check-existence -- targets data/review/<TAG> [순환 수=30]` | → `data/review/<TAG>/existence/refresh-closed.tsv`·`targets.json` | 존재 재검증 대상: 근거 약함(영업시간·메뉴·인스타 없음) ∩ 인허가 미발견·폐업 전이(180일 안에 확인한 곳 제외) + 확인이 가장 오래된 게재 매장 N곳 |
+| `npm run check-existence -- targets data/review/<TAG> [순환 수=20]` | → `data/review/<TAG>/existence/refresh-closed.tsv`·`targets.json` | 존재 재검증 대상: 근거 약함(영업시간·메뉴·인스타 없음) ∩ 인허가 미발견·폐업 전이(180일 안에 확인한 곳 제외) + 확인이 가장 오래된 게재 매장 N곳 |
 | `npm run check-existence -- classify data/review/<TAG> <증거.json> [기준일]` | → `data/review/<TAG>/existence-verify.tsv` | 기계 판정(장소 카드 / 최근 후기 / 옛 후기만 / 근거 없음). 보류 권고 행은 사람이 원문을 읽고 확정 |
 | `npm run check-existence -- record data/review/<TAG> [확인일]` | → `data/existence-checks.json` | 반영 때 최종 판정을 장부에 기록 |
 | `npm run enrich-candidates -- data/out/candidates.tsv data/enrichment/*.json` | → `seed.tsv` · `held.tsv` · `area-review.tsv` | 병합·게재 판정 |
@@ -247,7 +247,7 @@ curl -L --retry 6 --retry-all-errors --retry-delay 15 --max-time 900 \
 npm run refresh-localdata -- /tmp/general_restaurants.csv <TAG>     # data/out/refresh-*.tsv
 # refresh-*.tsv 를 data/review/<TAG>/ 로 복사
 npm run collect-evidence -- data/review/<TAG> /tmp/refresh-evidence.json
-# 2차 검수 → data/review/<TAG>/ 산출물 → PR (여기까지가 격주 루틴)
+# 2차 검수 → data/review/<TAG>/ 산출물 → PR (여기까지가 정기 루틴)
 # ── 이하 사람이 반영 ──
 # candidates.tsv 반영, enrichment 추가(data/enrichment/refresh-<TAG>.json 등)
 npm run enrich-candidates -- data/out/candidates.tsv data/enrichment/*.json
@@ -322,14 +322,14 @@ enrichment를 쓸 때(스킬의 "항목을 추가·수정할 때"에 더해):
 - 신규 행이 기존 상호와 접두로 겹치면 같은 체인인지 다른 가게인지 `sourceNote`에 근거를 적는다. 동명 체인 항목 덕에 조사 전 자동 게재된 신규 행은 눈으로 검토한다.
 - 체인 승계는 `primarySoup`·스프 순서까지 형제 지점에 번진다 → 신규 항목은 `primarySoup`를 비우고 스프 순서를 기존과 맞춘다. 범용 접두어 항목에는 `기타` 스프를 넣지 않는다.
 
-### 격주 루틴
+### 정기 루틴
 
 루틴은 대조·2차 검수·존재 재검증을 돌려 **검토 자료만** 커밋하고 PR로 올린다. `candidates.tsv`·enrichment 반영과 재생성은 사람이 [절차](#절차)대로 하고, main 머지도 사람이 한다([공통 결정](../../decisions/0005-issue-based-workflow.md)). 폐업·신규 판정에 사람 확인이 필요해서다([폐업 결정](decisions/0024-closure-direct-evidence-only.md)) — 자동 반영하면 오판이 그대로 공개되고, 반대로 매번 사람이 시작하면 갱신이 밀린다.
 
 | 항목 | 값 |
 |---|---|
-| 루틴 | claude.ai/code Routines `trig_01KPE7yfxcDBr9ZWYJhC69oA` "라맵 데이터 갱신 검토 자료 (격주)" |
-| 주기 | cron `0 0 1,15 * *`(UTC) |
+| 루틴 | claude.ai/code Routines `trig_01KPE7yfxcDBr9ZWYJhC69oA` "라맵 데이터 갱신 검토 자료 (매주)" |
+| 주기 | cron `0 0 * * 1`(UTC, 매주 월요일 한국 09시) — 2026-11-02 격주에서 변경(반영 지연 단축·라운드 분량 축소). 존재 재검증 순환 20곳/주 |
 | 모델·환경 | `claude-sonnet-5-5` · `env_01H1EdNEezDifbixJfgAAPSd`(이름 Default) |
 | 산출 | `data/review/<날짜>/` 커밋 → `chore/data-refresh-<날짜>` 브랜치 PR |
 | 푸시 실패 대비 | push·PR이 막히면 판정 요약 전체(반영 권고 표·보류 권고 목록)를 실행 결과와 알림에 담고 첫 줄에 "GitHub 권한 확인 필요" — 2026-11-01 실행이 403으로 결과를 잃었다 |
