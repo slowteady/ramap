@@ -7,6 +7,9 @@ import {
   lineageFromName,
   promoteSoups,
   toSlug,
+  assignShopId,
+  hasOwnEvidence,
+  reservedShopIds,
   type Enrichment,
 } from "./enrich";
 
@@ -20,6 +23,64 @@ describe("toSlug", () => {
   it("지점명을 포함한다", () => {
     const taken = new Set<string>();
     expect(toSlug("역전우동", "서울역점", taken)).toMatch(/^yeokjeonudong-/);
+  });
+});
+
+describe("assignShopId — 고정 id", () => {
+  it("후보 행에 id가 있으면 그대로 쓴다", () => {
+    const taken = reservedShopIds(["mainichiramen-2"], []);
+    expect(assignShopId("mainichiramen-2", "마이니치라멘", "", taken)).toBe(
+      "mainichiramen-2",
+    );
+  });
+
+  it("id가 비어 있으면 슬러그를 만들되 예약된 id는 피한다", () => {
+    const taken = reservedShopIds(["mainichiramen-2"], ["mainichiramen"]);
+    expect(assignShopId("", "마이니치라멘", "", taken)).toBe("mainichiramen-3");
+  });
+
+  it("리다이렉트로 은퇴한 id는 새 매장에 다시 쓰지 않는다", () => {
+    const taken = reservedShopIds([], ["ramenijakayakujan"]);
+    expect(assignShopId("", "라멘이자카야쿠잔", "", taken)).toBe(
+      "ramenijakayakujan-2",
+    );
+  });
+
+  it("형식이 틀린 고정 id는 무시하고 슬러그를 만든다", () => {
+    const taken = reservedShopIds([], []);
+    expect(assignShopId("Bad Id", "멘야준", "", taken)).toBe("mennyajun");
+  });
+});
+
+describe("hasOwnEvidence — 그 매장 이름으로 조사한 근거가 있는가", () => {
+  const chain: Enrichment = { name: "와다라멘", soups: ["돈코츠"] };
+
+  it("체인 항목만 있으면 false", () => {
+    expect(hasOwnEvidence("와다라멘", "칠곡점", [chain], {})).toBe(false);
+  });
+
+  it("같은 이름 항목에 장르·영업시간·메뉴·인스타 중 하나가 있으면 true", () => {
+    const own: Enrichment = { name: "와다라멘 칠곡점", hours: "11:00-21:00" };
+    expect(hasOwnEvidence("와다라멘", "칠곡점", [chain, own], {})).toBe(true);
+  });
+
+  it("같은 이름이어도 동네 라벨뿐이면 false", () => {
+    const own: Enrichment = { name: "와다라멘 칠곡점", area: "구암동" };
+    expect(hasOwnEvidence("와다라멘", "칠곡점", [chain, own], {})).toBe(false);
+  });
+
+  it("동명 행이 여럿이면 주소 힌트가 맞는 항목만 친다", () => {
+    const other: Enrichment = {
+      name: "미스터라멘",
+      addrHint: "새문안로 92",
+      soups: ["돈코츠"],
+    };
+    expect(
+      hasOwnEvidence("미스터라멘", "", [other], {
+        ambiguous: true,
+        address: "서울 강서구 금낭화로 91-2",
+      }),
+    ).toBe(false);
   });
 });
 

@@ -34,4 +34,43 @@ describe("updateLastmod — 매장별 실제 변경일 장부", () => {
     const next = updateLastmod(first, ba, "2026-10-19");
     expect(next.a.date).toBe("2026-10-05");
   });
+
+  it("화면에 안 쓰는 내부 메모(source·note)만 바뀌면 날짜를 유지한다", () => {
+    type Row = {
+      id: string;
+      hours: string;
+      source: string;
+      note: string | null;
+    };
+    const before: Row[] = [
+      { id: "a", hours: "11:00", source: "조사 1", note: null },
+    ];
+    const after: Row[] = [
+      { id: "a", hours: "11:00", source: "조사 1; 조사 2", note: "메모" },
+    ];
+    const first = updateLastmod({}, before, "2026-10-05");
+    const next = updateLastmod(first, after, "2026-11-02", before);
+    expect(next.a.date).toBe("2026-10-05");
+  });
+
+  it("장부 해시 방식이 달라도 이전 매장과 보이는 내용이 같으면 날짜를 유지하고 해시만 새로 쓴다", () => {
+    const prevShops = [{ id: "a", hours: "11:00", source: "옛 메모" }];
+    const legacy = { a: { date: "2026-10-05", hash: "legacyhash000000" } };
+    const shops = [{ id: "a", hours: "11:00", source: "새 메모" }];
+    const next = updateLastmod(legacy, shops, "2026-11-02", prevShops);
+    expect(next.a.date).toBe("2026-10-05");
+    expect(next.a.hash).not.toBe("legacyhash000000");
+  });
+
+  it("보이는 내용이 바뀌면 이전 매장 데이터가 있어도 오늘로 갱신한다", () => {
+    const prevShops = [{ id: "a", hours: "11:00" }];
+    const legacy = { a: { date: "2026-10-05", hash: "legacyhash000000" } };
+    const next = updateLastmod(
+      legacy,
+      [{ id: "a", hours: "12:00" }],
+      "2026-11-02",
+      prevShops,
+    );
+    expect(next.a.date).toBe("2026-11-02");
+  });
 });

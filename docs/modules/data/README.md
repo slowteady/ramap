@@ -16,6 +16,7 @@
 | [decisions/0025-secondary-review-collect-evidence.md](decisions/0025-secondary-review-collect-evidence.md) | 갱신 라운드 근거 수집 수단을 바꿀 때 |
 | [decisions/0027-instagram-link-priority.md](decisions/0027-instagram-link-priority.md) | 인스타 링크를 넣거나 고칠 때 |
 | [decisions/0029-instagram-brand-small-chains.md](decisions/0029-instagram-brand-small-chains.md) | 체인 지점에 브랜드 공식 계정을 붙일지 정할 때(3곳 이하만) |
+| [decisions/0030-hide-unverified-existence.md](decisions/0030-hide-unverified-existence.md) | 근거가 약한 매장을 게재할지, 존재 재검증·보류 기준을 정할 때 |
 | [decisions/0028-closed-days-two-reviews.md](decisions/0028-closed-days-two-reviews.md) | 휴무 정보를 수집·채택할 때 |
 | [research/2026-08-26-ramendb-structure-korean-terms.md](research/2026-08-26-ramendb-structure-korean-terms.md) | ramendb 원본 구조나 니보시·어패계 용어 실측 수치가 필요할 때 |
 | [research/2026-09-02-seed-source-deep-research.md](research/2026-09-02-seed-source-deep-research.md) | 공공데이터 소스 실측·지도사 약관·판례 근거가 필요할 때 |

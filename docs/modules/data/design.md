@@ -1,6 +1,6 @@
 ---
 status: 유효
-updated: 2026-10-28
+updated: 2026-11-02
 ---
 
 # data 설계
@@ -12,7 +12,7 @@ updated: 2026-10-28
 ```
 공공데이터 원본(레포 밖)
   ├─ seed-candidates ──────────────▶ data/out/candidates.tsv  ◀── 갱신 라운드 반영(사람)
-  └─ refresh-localdata(격주) ──▶ data/out/refresh-*.tsv → data/review/<TAG>/ (검토 자료)
+  └─ refresh-localdata(매주) ──▶ data/out/refresh-*.tsv → data/review/<TAG>/ (검토 자료)
 data/enrichment/*.json (조사 결과)
   └─ enrich-candidates(candidates.tsv + enrichment) ─▶ data/out/seed.tsv(게재) · held.tsv(보류)
        └─ sync-sheet(seed.tsv) ─▶ data/shops.json · data/shop-lastmod.json
@@ -34,9 +34,10 @@ data/enrichment/*.json (조사 결과)
 | `data/enrichment/<주제>-<YYYY-MM[-DD]>.json` | 조사 결과 배열. 파일명 날짜 = 조사일 | 원천. `enrich-candidates` 입력 |
 | `data/out/seed.tsv` · `held.tsv` · `area-review.tsv` | 게재분 · 보류분 · 동네라벨 충돌 검수 큐 | 재생성 산출물(미추적) |
 | `data/shops.json` | 게재 매장 배열(`Shop` 타입) | 앱이 읽는다 |
-| `data/shop-lastmod.json` | `{id: {date, hash}}` — 내용 해시가 바뀐 매장만 날짜 갱신 | 사이트맵 lastmod |
+| `data/shop-lastmod.json` | `{id: {date, hash}}` — 화면에 쓰는 내용의 해시가 바뀐 매장만 날짜 갱신. 내부 메모 `source`·`note`는 해시에서 뺀다(조사 메모만 쌓여도 날짜가 오르던 문제). 장부 해시와 다르면 직전 `shops.json`의 같은 매장과 비교해 보이는 내용이 같으면 날짜 유지 | 사이트맵 lastmod |
 | `data/closure-verification.json` | 폐업·이전 장부 `{id: {verdict, checkedAt, evidence[], movedTo?}}` | 폐업·이전 페이지 공개 여부 |
-| `data/shop-redirects.json` | `{지운 id: 남긴 id}` — 같은 가게 중복 행을 합칠 때 | `next.config.ts`가 `/shop/<from>` → `/shop/<to>` 영구 리다이렉트 |
+| `data/existence-checks.json` | 존재 확인 장부 `{id: {checkedAt, verdict, lastEvidence}}` — 매장별 마지막 확인일·판정·마지막 근거일 | 갱신 라운드 순환 재확인 대상 선정(`check-existence targets`) |
+| `data/shop-redirects.json` | `{지운 id: 남긴 id}` — 같은 가게 중복 행을 합칠 때 | `next.config.ts`가 `/shop/<from>` → `/shop/<to>` 영구 리다이렉트. 지운 id는 `enrich-candidates`가 예약해 새 매장에 다시 주지 않는다 |
 | `data/refresh-exclusions.tsv` | `상호 주소 사유` — 사람이 중복 인허가·비라멘·임시 영업으로 판정한 행 | 갱신 라운드 신규에서 자동 제외 |
 | `data/review/<TAG>/` | 갱신 라운드 검토 자료(아래) | PR 리뷰·반영 근거 |
 | `data/review/instagram-2026-11/pending.tsv` | 인스타 검수 대기열 | [인스타 검수 라운드](#인스타-검수-라운드) |
@@ -51,6 +52,9 @@ data/enrichment/*.json (조사 결과)
 | `npm run refresh-localdata -- <전국인허가.csv> [TAG=YYYY-MM]` | → `data/out/refresh-{new,closed,unmatched,moves,excluded}.tsv` | 갱신 라운드 대조 |
 | `npm run diff-localdata -- <이전.csv> <최신.csv>` | 콘솔 리포트(신규·폐업 전이) | 두 스냅샷 단순 비교. 키 = 상호+도로명 |
 | `npm run collect-evidence -- data/review/<TAG> [출력.json]` | → `<출력>.json` + `<출력>.txt` 요약 | 2차 검수 증거 수집. 기본 출력 `/tmp/refresh-evidence.json`. 종료코드 2 = 검수 소스 접속 차단 |
+| `npm run check-existence -- targets data/review/<TAG> [순환 수=20]` | → `data/review/<TAG>/existence/refresh-closed.tsv`·`targets.json` | 존재 재검증 대상: 근거 약함(영업시간·메뉴·인스타 없음) ∩ 인허가 미발견·폐업 전이(180일 안에 확인한 곳 제외) + 확인이 가장 오래된 게재 매장 N곳 |
+| `npm run check-existence -- classify data/review/<TAG> <증거.json> [기준일]` | → `data/review/<TAG>/existence-verify.tsv` | 기계 판정(장소 카드 / 최근 후기 / 옛 후기만 / 근거 없음). 보류 권고 행은 사람이 원문을 읽고 확정 |
+| `npm run check-existence -- record data/review/<TAG> [확인일]` | → `data/existence-checks.json` | 반영 때 최종 판정을 장부에 기록 |
 | `npm run enrich-candidates -- data/out/candidates.tsv data/enrichment/*.json` | → `seed.tsv` · `held.tsv` · `area-review.tsv` | 병합·게재 판정 |
 | `npm run sync-sheet -- data/out/seed.tsv` | → `data/shops.json` · `data/shop-lastmod.json` | 검증 실패 시 행 단위 리포트, exit 1, 파일 미변경 |
 | `npm run audit-integrity [-- <기준 shops.json>]` | → `data/out/integrity-report.md` | 기준 기본값 = `git show HEAD:data/shops.json` |
@@ -207,6 +211,8 @@ data/enrichment/*.json (조사 결과)
 
 [결정](decisions/0019-publish-gate-web-presence.md). 콘솔에 `후보 N → 게재 / 보류 / 제외` 건수를 찍는다.
 
+- 영업 행(`상태=영업`)은 웹 실존 신호에 더해 **그 매장 이름으로 조사한 근거**가 있어야 게재한다(`hasOwnEvidence`: 정확 일치 항목에 장르·형태·계보·인스타·네이버플레이스·영업시간·메뉴 중 하나, 또는 라멘갤·미디어 출처. 동명 다지점은 addrHint가 맞는 항목만). 없으면 `data/existence-checks.json` 판정이 `존재…`일 때만 게재 — 체인 승계 장르만으로 게재되던 빈틈 차단([결정](decisions/0030-hide-unverified-existence.md)). 폐업 행은 장부가 공개를 정하므로 이 조건을 적용하지 않는다
+
 ## 동기화 (sync-sheet)
 
 - 헤더가 `SHEET_HEADER`와 다르면 즉시 실패.
@@ -243,7 +249,7 @@ curl -L --retry 6 --retry-all-errors --retry-delay 15 --max-time 900 \
 npm run refresh-localdata -- /tmp/general_restaurants.csv <TAG>     # data/out/refresh-*.tsv
 # refresh-*.tsv 를 data/review/<TAG>/ 로 복사
 npm run collect-evidence -- data/review/<TAG> /tmp/refresh-evidence.json
-# 2차 검수 → data/review/<TAG>/ 산출물 → PR (여기까지가 격주 루틴)
+# 2차 검수 → data/review/<TAG>/ 산출물 → PR (여기까지가 정기 루틴)
 # ── 이하 사람이 반영 ──
 # candidates.tsv 반영, enrichment 추가(data/enrichment/refresh-<TAG>.json 등)
 npm run enrich-candidates -- data/out/candidates.tsv data/enrichment/*.json
@@ -287,6 +293,15 @@ npm test
 - 직전 라운드 판정과 달라지면 근거에 "MM/DD 판정 정정"을 적는다.
 - 산출 `data/review/<TAG>/`: refresh-*.tsv 사본 · `new-verify.tsv`(상호·주소·인허가일·판정·근거) · `closed-verify.tsv`(상호·지점명·주소·폐업일자·판정·근거(날짜 포함 1문장)) · `gallery-sync.md`(우리 데이터와 어긋난 갤러리 사건만) · `SUMMARY.md`(대조 결과·반영 권고 표·판정별 건수)
 
+### 존재 재검증
+
+[결정](decisions/0030-hide-unverified-existence.md) — 존재가 확실하지 않은 곳은 폐업이라 쓰지 않고 지도에서 뺀다(보류).
+
+- 대상: `check-existence targets`(위 명령 표). 수집은 대상 폴더 `existence/`에 `collect-evidence`를 따로 돌린다.
+- 존재 근거(`scripts/lib/existence.ts` `classifyExistence`): 같은 주소(도로명+번호, `roadCore`) 장소 카드의 영업 표기(영업중·영업종료·영업전·오늘쉼), 또는 디렉터리(`DIRECTORY_PATTERN`)가 아닌 조각 중 **주소가 들어 있고** 기준일(12개월 전) 이후 날짜인 것. 주소 없는 조각은 다른 지점일 수 있어 치지 않는다
+- 기계 판정 `보류 권고(옛 후기만·근거 없음)` 행은 수집 원문을 처음부터 읽어 채용 공고·공식 안내·지점명이 특정된 최근 후기가 있으면 `존재(직접 확인)`으로 바꾸고 근거를 적는다. 같은 자리에 다른 가게가 영업 중이라는 서술은 폐업 직접 증거라 closure-verification 절차로 넘긴다
+- 산출 `existence-verify.tsv`(id·상호·주소·대상 사유·기계 판정·마지막 근거일·최종 판정·근거(직접 확인))
+
 ### 반영
 
 | 판정 | 반영 |
@@ -296,8 +311,12 @@ npm test
 | 미확정 | 장부에 넣지 않음 — 비공개 유지, 다음 라운드 재검증 |
 | 신규 라멘 영업 확인 | `refresh-new.tsv` 행을 candidates에 추가 + 조사 항목 |
 | 신규 미확인 | candidates에 넣고 `실존 미확인` 항목으로 보류(다음 라운드 재등장 방지) |
+| 신규 체인 지점이 승계 장르만으로 게재됨 | 그 지점 자체 근거가 생길 때까지 `실존 미확인` 항목(addrHint)으로 보류 |
+| 존재 보류 확정 | `실존 미확인` 항목(addrHint·observedAt·마지막 근거일). Supabase `records`·`record_photos`에 그 id 기록이 있으면 PO에게 먼저 보고 |
+| 존재 재검증 전부 | `check-existence record`로 장부 기록 |
 | 신규 중복·라멘집 아님·임시 영업 | `data/refresh-exclusions.tsv`에 한 줄 |
 | 같은 가게 중복 행 | 정보 많은 행(기록 있는 id 우선)을 남기고 지운 id를 `shop-redirects.json`에, 재유입은 exclusions로 차단 |
+| 행을 지우면 같은 이름 다른 지점 id가 밀릴 때(`…-2` → `…`) | 그 지점 후보 행의 `id` 칸에 기존 id를 적어 고정한다. `id` 칸이 채워진 행은 그 값을 그대로 쓰고, 고정 id와 `shop-redirects.json`의 지운 id는 새 슬러그가 다시 쓰지 않는다(`assignShopId`·`reservedShopIds`) |
 
 enrichment를 쓸 때(스킬의 "항목을 추가·수정할 때"에 더해):
 
@@ -305,18 +324,19 @@ enrichment를 쓸 때(스킬의 "항목을 추가·수정할 때"에 더해):
 - 신규 행이 기존 상호와 접두로 겹치면 같은 체인인지 다른 가게인지 `sourceNote`에 근거를 적는다. 동명 체인 항목 덕에 조사 전 자동 게재된 신규 행은 눈으로 검토한다.
 - 체인 승계는 `primarySoup`·스프 순서까지 형제 지점에 번진다 → 신규 항목은 `primarySoup`를 비우고 스프 순서를 기존과 맞춘다. 범용 접두어 항목에는 `기타` 스프를 넣지 않는다.
 
-### 격주 루틴
+### 정기 루틴
 
-루틴은 대조와 2차 검수를 돌려 **검토 자료만** 커밋하고 PR로 올린다. `candidates.tsv`·enrichment 반영과 재생성은 사람이 [절차](#절차)대로 하고, main 머지도 사람이 한다([공통 결정](../../decisions/0005-issue-based-workflow.md)). 폐업·신규 판정에 사람 확인이 필요해서다([폐업 결정](decisions/0024-closure-direct-evidence-only.md)) — 자동 반영하면 오판이 그대로 공개되고, 반대로 매번 사람이 시작하면 갱신이 밀린다.
+루틴은 대조·2차 검수·존재 재검증을 돌려 **검토 자료만** 커밋하고 PR로 올린다. `candidates.tsv`·enrichment 반영과 재생성은 사람이 [절차](#절차)대로 하고, main 머지도 사람이 한다([공통 결정](../../decisions/0005-issue-based-workflow.md)). 폐업·신규 판정에 사람 확인이 필요해서다([폐업 결정](decisions/0024-closure-direct-evidence-only.md)) — 자동 반영하면 오판이 그대로 공개되고, 반대로 매번 사람이 시작하면 갱신이 밀린다.
 
 | 항목 | 값 |
 |---|---|
-| 루틴 | claude.ai/code Routines `trig_01KPE7yfxcDBr9ZWYJhC69oA` "라맵 데이터 갱신 검토 자료 (격주)" |
-| 주기 | cron `0 0 1,15 * *`(UTC) |
+| 루틴 | claude.ai/code Routines `trig_01KPE7yfxcDBr9ZWYJhC69oA` "라맵 데이터 갱신 검토 자료 (매주)" |
+| 주기 | cron `0 0 * * 1`(UTC, 매주 월요일 한국 09시) — 2026-11-02 격주에서 변경(반영 지연 단축·라운드 분량 축소). 존재 재검증 순환 20곳/주 |
 | 모델·환경 | `claude-sonnet-5-5` · `env_01H1EdNEezDifbixJfgAAPSd`(이름 Default) |
 | 산출 | `data/review/<날짜>/` 커밋 → `chore/data-refresh-<날짜>` 브랜치 PR |
+| 푸시 실패 대비 | push·PR이 막히면 판정 요약 전체(반영 권고 표·보류 권고 목록)를 실행 결과와 알림에 담고 첫 줄에 "GitHub 권한 확인 필요" — 2026-11-01 실행이 403으로 결과를 잃었다 |
 | 네트워크 전제 | 환경 Network access **사용자 지정** + Allowed domains `file.localdata.go.kr`·`search.daum.net`·`gall.dcinside.com` + "패키지 매니저 기본 목록 포함". 미등록 시 `CONNECT tunnel failed, response 403`. 편집: claude.ai/code 하단 환경 선택 → 클라우드 → 환경 행 호버 → 톱니바퀴 |
-| GitHub 전제 | Claude GitHub App이 `slowteady/ramap`에 contents·issues 쓰기 권한으로 설치(https://github.com/apps/claude/installations/select_target) |
+| GitHub 전제 | Claude GitHub App이 `slowteady/ramap`에 contents·issues 쓰기 권한으로 설치(https://github.com/settings/installations). 2026-11-01 "선택한 레포"에 ramap이 빠져 403 → 2026-11-02 PO가 전체 레포로 변경 |
 | 수정 경로 | 루틴은 생성 주체(RemoteTrigger http_api)로만 수정 가능, 루틴 자신의 세션은 비활성화만. effort 필드는 API에 없어 무시됨 |
 
 ## 폐업 장부
