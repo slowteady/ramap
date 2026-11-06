@@ -222,7 +222,7 @@ vaul Drawer, 비모달·`dismissible=false`. 제스처 규율은 `ramap-ui` 스�
 
 ## 신규 오픈 표시
 
-기준: 오픈일(인허가일) 90일 이내, 빌드 시 계산(`isNewOpen`). 90일은 네이버·배민·Google 신규 배지와 같은 기준이다. 오픈일은 절대일로 표기한다(상대 표기 "3일 전"을 쓰는 서비스가 없다). 전용 페이지는 없다 → [shop-pages 요구사항](../shop-pages/requirements.md). 라멘집 상세의 "새로 오픈" 칩·"문 연 날 YYYY.M" 행은 [shop-pages 설계](../shop-pages/design.md).
+기준: 오픈일(인허가일) 90일 이내, 빌드 시 계산(`isNewOpen`). 90일은 네이버·배민·Google 신규 배지와 같은 기준이다. 오픈일은 절대일로 표기한다(상대 표기 "3일 전"을 쓰는 서비스가 없다). 전용 페이지는 없다 → [shop-pages 요구사항](../shop-pages/prd.md). 라멘집 상세의 "새로 오픈" 칩·"문 연 날 YYYY.M" 행은 [shop-pages 설계](../shop-pages/design.md).
 
 | 위치 | 표시 |
 |---|---|

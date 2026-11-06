@@ -127,7 +127,7 @@ updated: 2026-11-01
 
 - 매장 집합: `shopsByArea`(동네라벨 일치, 폐업 제외), `shopsByAreaGenre`(+ 국물 또는 계보 slug 포함)
 - 추천 데이터: `getAreaPicks`(`entities/shop/api`, `unknown` 내로잉 `toAreaPicks`) → `splitAreaPicks`(`views/area-list/model/area-picks.ts`) — 지역 리스트에 없는 추천 id(폐업·지역 변경)는 건너뛴다. 지역×장르 페이지에는 추천·미쉐린 표시를 쓰지 않는다
-- 생성: 지역은 `listAreaPages`(동네라벨 기준 클러스터 중 영업 매장이 있는 것 — 지도 클러스터의 구 폴백 묶음은 제외), 지역×장르는 `listAreaGenrePages(shops, 3)`(3곳 기준의 이유는 [요구사항](requirements.md)). 그 밖의 조합 요청은 `notFound()`. 모든 조합을 만들고 noindex하는 방식은 쓰지 않는다 — 크롤 표면만 늘고 사이트맵·내부 링크 정합이 깨진다
+- 생성: 지역은 `listAreaPages`(동네라벨 기준 클러스터 중 영업 매장이 있는 것 — 지도 클러스터의 구 폴백 묶음은 제외), 지역×장르는 `listAreaGenrePages(shops, 3)`(3곳 기준의 이유는 [요구사항](prd.md)). 그 밖의 조합 요청은 `notFound()`. 모든 조합을 만들고 noindex하는 방식은 쓰지 않는다 — 크롤 표면만 늘고 사이트맵·내부 링크 정합이 깨진다
 - 색인 제외 → [결정](decisions/0008-noindex-criteria.md)
 
 ## 계보 랜딩 `/style/{계보}`
@@ -141,7 +141,7 @@ updated: 2026-11-01
 | 리스트 | 상호 + 완식 ✓(`ui/visited-check.tsx`, `useRecords().visitedIds`) / 계보·라멘 외 형태·동네 / 영업 줄. 영업 매장만 |
 | 더 알아보기 | "{계보} 가이드" + 다른 taste 계보 링크 |
 
-- 진행률 바 없음 → [records 요구사항](../records/requirements.md#1단-소목록-진행률-보류)
+- 진행률 바 없음 → [records 요구사항](../records/prd.md#1단-소목록-진행률-보류)
 - 메타: title `{계보} 라멘 지도`, description `{계보} — {설명}. 전국 {계보} 라멘집 {N}곳을 라맵에서 확인하세요.`, canonical `/style/{slug}`. JSON-LD 없음
 - trait 계보 slug 요청은 404
 

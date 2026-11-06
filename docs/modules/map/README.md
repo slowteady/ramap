@@ -4,7 +4,7 @@
 
 | 문서 | 언제 읽나 |
 |---|---|
-| [requirements.md](requirements.md) | 지도 홈이 해야 할 일·제약·아직 없는 명세를 확인할 때 |
+| [prd.md](prd.md) | 지도 홈이 해야 할 일·제약·아직 없는 명세를 확인할 때 |
 | [design.md](design.md) | 화면 구성, URL 쿼리, 필터·마커·시트·검색 동작과 코드 위치를 확인할 때. 홈 코드 수정 전 필독 |
 | [decisions/0001-full-map-nonmodal-sheet.md](decisions/0001-full-map-nonmodal-sheet.md) | 홈 구조(풀맵 + 상시 시트)를 바꾸자는 얘기가 나올 때 |
 | [decisions/0005-area-clusters-zoom-tiers.md](decisions/0005-area-clusters-zoom-tiers.md) | 클러스터 모양·줌 레벨을 바꿀 때 |

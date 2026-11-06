@@ -4,7 +4,7 @@
 
 | 문서 | 언제 읽나 |
 |---|---|
-| [requirements.md](requirements.md) | 데이터 원칙·수집 필드·게재·폐업 요구를 확인할 때 |
+| [prd.md](prd.md) | 데이터 원칙·수집 필드·게재·폐업 요구를 확인할 때 |
 | [design.md](design.md) | 파이프라인 명령·파일·시트 열·택소노미 값·동네라벨·검증상태·갱신 라운드 매칭 규칙·인스타 검수 절차를 볼 때 |
 | [decisions/0001-taxonomy-axes-localization.md](decisions/0001-taxonomy-axes-localization.md) | 분류 축이나 한국화 원칙(5곳 실효성·커뮤니티 용어·겸업)을 바꿀 때 |
 | [decisions/0002-taxonomy-values.md](decisions/0002-taxonomy-values.md) | 형태·스프 값(대표값·니보시·토마토·아부라소바 등), 이에케 표기, 본토직영·편의 태그를 추가·삭제·승격하거나 다시 논의할 때 |

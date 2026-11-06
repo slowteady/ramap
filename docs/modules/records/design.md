@@ -52,7 +52,7 @@ updated: 2026-10-28
 
 `records` 테이블: PK `(user_id, shop_id)`, `visited`·`saved`·`count`·`first_at`·`last_at`·`updated_at`, 제약 `visited or saved`. RLS: 본인 행만 조회·삭제, 추가·수정은 본인 + `profiles.agreed_at is not null`.
 
-- 완식·저장은 배타 상태(가고 싶다 → 완식 전이)가 아니라 두 불리언이다. 완식한 가게도 다시 가려고 저장해 둘 수 있어야 해서다. 완식해도 저장은 풀리지 않고, 저장을 풀어도 완식은 남는다. "가고 싶다"의 이름은 "저장"이다 → [요구사항](requirements.md#기록)
+- 완식·저장은 배타 상태(가고 싶다 → 완식 전이)가 아니라 두 불리언이다. 완식한 가게도 다시 가려고 저장해 둘 수 있어야 해서다. 완식해도 저장은 풀리지 않고, 저장을 풀어도 완식은 남는다. "가고 싶다"의 이름은 "저장"이다 → [요구사항](prd.md#기록)
 - `first_at`·`last_at`은 화면 노출과 무관하게 저장한다. 날짜가 쌓여야 2단 연말 정산(Year in 라멘)이 가능하다(Letterboxd 다이어리). 별점 필드는 없다 → [금지 목록](decisions/0002-gamification-ban-list.md)
 
 ## 저장소와 로그인 전환
@@ -80,7 +80,7 @@ updated: 2026-10-28
 
 로그아웃: 이관 중단, 로컬 스토어(빈 상태)로 복귀. 서버 기록은 그대로. 이관 뒤 로컬 스토리지를 비우는 것은, 로컬이 남아 있으면 로그아웃할 때 옛 기록이 되살아나기 때문이다.
 
-요구: [기록](requirements.md#기록), [계정](requirements.md#계정)
+요구: [기록](prd.md#기록), [계정](prd.md#계정)
 
 ## 완식 흐름
 
@@ -162,7 +162,7 @@ SSG 껍데기(`getShops()`를 서버에서 `toMeShops`로 화면에 쓰는 6칸�
 - 탭 [완식][저장][제보] — sticky, URL `?tab=saved`·`?tab=reports`(기본 완식), `replace`로 전환.
 - 완식 탭: 3열 정사각 그리드. 내 사진 중 첫 장, 사진이 여러 장이면 겹침 아이콘. 사진 없으면 라멘 아이콘 타일 + 상호. 탭 → 기록 뷰어.
 - 저장 탭: 리스트 — 상호 · 지역 · 기록 날짜(`YYYY.M.D`) + 장르 칩 → 매장 상세.
-- 제보 탭: 내 제보를 최신순 리스트로 — "새 라멘집 · YYYY.M.D"/"정보 수정 · …" + 우측 상태, 상호, 결과 문장, (반영된 정보 수정만) [라멘집 보기 ›]. 상태·문장은 `views/me/model/report-result.ts`의 `reportResult`(규칙은 [report 설계](../report/design.md#내-제보-결과)). 데이터는 RPC `my_reports()`(`model/my-reports-api.ts`, 응답은 `parseMyReports`로 내로잉). 빈 상태: "라멘집을 알려 주면 결과가 여기에 모여요" + [라멘집 등록하기](`/?report=new`). 탭을 열면 `my_reports_viewed {count, new_results}`(새 결과 = `profiles.reports_seen_at` 이후 처리된 수)
+- 제보 탭: 내 제보를 최신순 리스트로 — "새 라멘집 · YYYY.M.D"/"정보 수정 · …" + 우측 상태, 상호, 결과 문장, (반영된 정보 수정만) [라멘집 보기 ›]. 상태·문장은 `views/me/model/report-result.ts`의 `reportResult`(규칙은 [report 설계](../report/design.md#내-제보-결과)). 데이터는 RPC `my_reports()`(`model/my-reports-api.ts`, 응답은 `parseMyReports`로 내로잉). 빈 상태: "라멘집을 알려 주면 결과가 여기에 모여요" + [라멘집 등록하기] → `/?report=new`. 탭을 열면 `my_reports_viewed {count, new_results}`(새 결과 = `profiles.reports_seen_at` 이후 처리된 수)
 - 정렬: 최근순(`lastAt ?? firstAt`, 날짜 없으면 뒤로).
 - 완식·저장 탭은 20개씩, [{남은 수}개 더 보기]. 무한 스크롤은 목록 아래 요소에 닿을 수 없게 만들어 쓰지 않는다. 수백 개 규모가 실증되면 목록 전용 페이지 + 서버 페이지네이션으로 바꾼다.
 - 빈 상태: "지도에서 완식(저장)을 누르면 여기에 모여요" + [지도 보기].
@@ -193,7 +193,7 @@ noindex. 헤더 [←](마이) + "설정". 시트가 아닌 전용 페이지다(�
 - 탈퇴는 Edge Function 없이 security definer RPC로 본인 `auth.users` 행을 지운다(profiles·records·record_photos는 cascade). 서버 코드 없이 충분하다(Supabase discussion #1066 패턴).
 - 스토리지 객체를 가진 사용자는 계정 삭제가 막혀서(Supabase 문서) 본인 `record-photos` 파일을 먼저 지운다.
 
-요구: [계정](requirements.md#계정)
+요구: [계정](prd.md#계정)
 
 ## 로그인·약관 동의·프로필
 

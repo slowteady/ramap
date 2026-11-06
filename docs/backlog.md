@@ -13,7 +13,7 @@
 | backlog §N | [전국 확장 후 잔여 작업](research/2026-09-03-post-nationwide-remaining-work.md) |
 | data-refresh | [data 설계](modules/data/design.md) |
 | product/research 라멘갤 | [라멘갤 페인포인트 조사](modules/product/research/2026-10-28-ramengal-pain-points.md) |
-| 14번 | [records 요구사항](modules/records/requirements.md) |
+| 14번 | [records 요구사항](modules/records/prd.md) |
 | 그 외 모듈명/design | `docs/modules/<모듈>/design.md` |
 
 ## 1. 제품 기능

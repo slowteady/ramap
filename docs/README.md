@@ -1,6 +1,6 @@
 # 라맵 문서 색인
 
-문서 규칙은 `.claude/rules/docs.md`. 옛 `docs/planning`·`docs/plans`(2026-10-28 이관 전)는 git 이력에 있다. 지금 유효한 사실은 각 모듈의 `requirements.md`·`design.md`에만 있다. 할지 말지 정할 후보는 [백로그](backlog.md).
+문서 규칙은 `.claude/rules/docs.md`. 옛 `docs/planning`·`docs/plans`(2026-10-28 이관 전)는 git 이력에 있다. 지금 유효한 사실은 각 모듈의 `prd.md`·`design.md`에만 있다. 할지 말지 정할 후보는 [백로그](backlog.md).
 
 ## 모듈
 

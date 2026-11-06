@@ -30,7 +30,7 @@ def kind(rel):
         return 'record', root / 'docs/README.md'
     if len(parts) >= 4 and parts[:2] == ('docs', 'modules'):
         index = root / 'docs/modules' / parts[2] / 'README.md'
-        if len(parts) == 4 and parts[3] in ('requirements.md', 'design.md'):
+        if len(parts) == 4 and parts[3] in ('prd.md', 'design.md'):
             return 'spec', index
         if len(parts) == 5 and parts[3] in ('decisions', 'research'):
             return 'record', index

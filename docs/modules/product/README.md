@@ -4,7 +4,7 @@
 
 | 문서 | 언제 읽나 |
 |---|---|
-| [requirements.md](requirements.md) | 라맵이 무엇이고 누구를 위해 무엇을 해야 하는지, 범위(MUST·SHOULD·범위 밖)·성장 전략·성공 지표를 확인할 때 |
+| [prd.md](prd.md) | 라맵이 무엇이고 누구를 위해 무엇을 해야 하는지, 범위(MUST·SHOULD·범위 밖)·성장 전략·성공 지표를 확인할 때 |
 | [0001 라멘 장르 지도 선정](decisions/0001-ramen-genre-map.md) | 왜 라멘이고 왜 이 서비스인지 설명해야 할 때 |
 | [0004 초기 타겟 코어 라오타](decisions/0004-core-ramen-otaku-target.md) | 기능·문구를 누구 기준으로 맞출지 정할 때 |
 | [0009 라멘 투데이 제휴와 갤러리 공개 플레이북](decisions/0009-ramen-today-and-gallery-launch.md) | 영업 변동·이벤트 정보 기능이나 커뮤니티 도구와의 관계를 다룰 때, 라멘갤 소개 글을 준비할 때 |
