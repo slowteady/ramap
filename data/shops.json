@@ -64667,5 +64667,60 @@
     "lastVerifiedAt": null,
     "source": "라멘갤 대조 2026-11-02; 2026-11-02 라멘갤 대조 조사(다음검색·라멘갤) — 블로그 2026-09-28 '후레쉬 2호점 연남로1길 37 호산나빌 1층 101호, 11:30~다음날 1시, 브레이크 15~17시 반, 1호점은 없어짐', 2026-09-30·10-17 주소 일치 후기. 라멘갤 2026-10-20 '후레쉬2호점 쇼유'(no=1253",
     "note": "2026-11-02 라멘갤 대조: 인허가 상호 '후레쉬'(2013-09-24, 오픈일 비움). 1호점은 폐점(블로그), 이 자리가 유일한 영업점"
+  },
+  {
+    "id": "ramen-moeuda",
+    "name": "라멘 모으다",
+    "branch": null,
+    "address": "경기도 김포시 김포한강1로 247, 김포운양헤리움타운 113호 (운양동)",
+    "city": "경기",
+    "district": "김포시",
+    "areaLabel": "운양",
+    "lat": 37.654259,
+    "lng": 126.684862,
+    "coordSource": "localdata",
+    "hours": "11:00-21:00 (토·일 11:30-20:30)",
+    "breakTime": null,
+    "closedDays": "연중무휴",
+    "openedAt": "2025-06-17",
+    "status": "open",
+    "statusChangedAt": null,
+    "forms": [
+      "ramen",
+      "mazesoba"
+    ],
+    "primaryForm": "ramen",
+    "soups": [
+      "tonkotsu"
+    ],
+    "primarySoup": "tonkotsu",
+    "soupDetail": [],
+    "lineages": [],
+    "amenities": [],
+    "confidence": "certain",
+    "menus": [
+      {
+        "name": "돈코츠라멘",
+        "price": 10000
+      },
+      {
+        "name": "적신라멘",
+        "price": 10500
+      },
+      {
+        "name": "마제소바",
+        "price": 9500
+      }
+    ],
+    "photos": [],
+    "seats": null,
+    "tagline": null,
+    "instagram": null,
+    "naverPlace": null,
+    "waitingLink": null,
+    "verification": "pending",
+    "lastVerifiedAt": null,
+    "source": "사용자 제보 #7 2026-11-02; 경기 디깅(다음검색); 2차 디깅(다음검색) · 김포 구래; 2026-11-06 사용자 제보 #7 확인(다음검색) — Daum 장소 카드 '라멘, 모으다' 일본식라면 김포한강1로 247 헤리움타운 B동 113호 '영업중', 월~금 11:00~21:00·토·일 11:30~20:30, 메뉴 돈코츠라멘 10,000·적신라멘",
+    "note": "2026-11-06 제보 #7 확인: 인허가 상호 '모으다'(2025-06-17), Daum 장소 카드 '라멘, 모으다' 일본식라면 같은 주소"
   }
 ]
