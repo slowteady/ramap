@@ -10,7 +10,7 @@ paths:
 
 이 파일은 보일러플레이트가 원본이다. 프로젝트에서 고치지 말고 보일러플레이트에서 고친 뒤 복사한다.
 
-화면 문구와 배치는 토스를 따른다. 근거: https://developers-apps-in-toss.toss.im/design/consumer-ux-guide.md , https://toss.tech/article/8-writing-principles-of-toss , https://toss.tech/article/21021
+화면 문구와 배치는 토스를 따른다. 근거: https://developers-apps-in-toss.toss.im/design/consumer-ux-guide.md , https://toss.tech/article/8-writing-principles-of-toss , https://toss.tech/article/21021 , https://tossmini-docs.toss.im/tds-mobile/foundation/typography/
 
 ## 문구
 - 모든 문구는 해요체로 쓴다. "되어요"는 "돼요"로 쓴다.
@@ -27,6 +27,8 @@ paths:
 ## 배치
 - 필요한 것만 둔다. 정보는 빠짐없이, 말은 군더더기 없이.
 - 굵고 크게 쓴다. 본문은 16px 아래로 내리지 않고, 제목과 버튼은 한눈에 들어오게 키운다.
+- 날짜, 칩, 숫자 라벨 같은 보조 정보는 13px 아래로 내리지 않는다. 12px 이하는 쓰지 않는다.
+- 글자 크기와 색은 숫자로 적지 않고 디자인 토큰으로 쓴다.
 - 한 화면에 주 버튼(채운 버튼)은 하나만 둔다. 나머지는 보조 버튼으로 둔다.
 - 같은 줄이나 같은 카드 안의 조작 요소는 높이를 맞춘다.
 - 사용자가 먼저 정해야 하는 것(설정)은 그것을 쓰는 동작(시작 버튼)보다 위에 둔다.

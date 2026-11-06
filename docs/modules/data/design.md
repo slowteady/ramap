@@ -126,7 +126,7 @@ data/enrichment/*.json (조사 결과)
 | 최종확인일 / 정보출처 / 메모 | 날짜 / 텍스트(예 `시딩v2(인허가+상가)`, 조사 근거 누적 최대 200자) / 자유 | `lastVerifiedAt` / `source` / `note` |
 
 - `Shop`·`ShopList` 타입은 `src/entities/shop/model/types.ts`. `photos`는 시트 열이 없어 항상 `[]`이다(매장 사진은 아직 없음).
-- `ShopList`(소목록)는 타입만 있고 데이터·시트는 없다 → [요구사항](requirements.md#범위-밖-아직-안-함)
+- `ShopList`(소목록)는 타입만 있고 데이터·시트는 없다 → [기획서 하지 않는 것](prd.md#하지-않는-것)
 
 ### 검증상태와 태깅확신도
 

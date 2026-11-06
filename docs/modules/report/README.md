@@ -4,7 +4,7 @@
 
 | 문서 | 언제 읽나 |
 |---|---|
-| [requirements.md](requirements.md) | 제보·검수가 지켜야 할 원칙과 운영 리듬을 확인할 때 |
+| [prd.md](prd.md) | 제보·검수가 지켜야 할 원칙과 운영 리듬을 확인할 때 |
 | [design.md](design.md) | 제보 시트·핀 피커·/admin 코드를 고치거나 reports 스키마를 바꿀 때 |
 | [decisions/0001-open-intake-full-review.md](decisions/0001-open-intake-full-review.md) | 검수 없이 반영하자는 제안이 나왔을 때 |
 | [decisions/0002-anonymous-reports.md](decisions/0002-anonymous-reports.md) | 제보에 로그인을 요구하거나 스팸 대책을 바꿀 때 |

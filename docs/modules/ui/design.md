@@ -37,13 +37,13 @@ updated: 2026-10-28
 
 - 규칙 전체: 흰 배경 + 그레이 + 유채 1색, 색 = 누를 수 있는 곳, 카드 구획은 여백([결정](decisions/0001-design-token-rules.md))
 - shadcn `accent`는 호버 서피스(그레이)이지 브랜드색이 아니다
-- 다크모드 없음 — `.dark` 블록 없음(이유는 [요구사항](requirements.md))
+- 다크모드 없음 — `.dark` 블록 없음(이유는 [요구사항](prd.md))
 - 클릭 요소는 `<button>`/`<a>`만. 커서는 base 레이어가 `button`·`[role="button"]`에 일괄 pointer
 - 그라데이션은 가로 스크롤 에지 페이드 마스크 `mask-fade-r` 한 곳만 예외
 
 ## 플랫폼과 앱 셸
 
-- 모바일웹 퍼스트 — 이유는 [요구사항](requirements.md). 모든 화면이 `max-w-app` 폭의 흰 중앙 컬럼 안에 그려지고, 바깥 여백은 `gray-050`
+- 모바일웹 퍼스트 — 이유는 [요구사항](prd.md). 모든 화면이 `max-w-app` 폭의 흰 중앙 컬럼 안에 그려지고, 바깥 여백은 `gray-050`
 - 데스크톱은 같은 단일 컬럼(무붕괴). 스플릿 뷰 없음
 
 ## 정보 구조
@@ -79,7 +79,7 @@ updated: 2026-10-28
 
 - 각 화면 명세: 홈·검색 = [map design](../map/design.md), 등록 시트 = [report design](../report/design.md), 상세·지역·계보·가이드 = [shop-pages design](../shop-pages/design.md), 마이·설정 = [records design](../records/design.md)
 - SEO 착지 페이지(상세·지역·계보·가이드)는 내비에 없다. 검색이 입구이고, 크롤러 발견은 `sitemap.xml`·`robots.txt`와 랜딩 간 상호 크로스링크가 담당
-- 신규 오픈 전용 페이지는 없다 — "새로 오픈" 칩과 필터로 대신한다([shop-pages 요구사항](../shop-pages/requirements.md), 표시 규칙은 [map design](../map/design.md#신규-오픈-표시))
+- 신규 오픈 전용 페이지는 없다 — "새로 오픈" 칩과 필터로 대신한다([shop-pages 요구사항](../shop-pages/prd.md), 표시 규칙은 [map design](../map/design.md#신규-오픈-표시))
 - 홈 아래 SSR 콘텐츠 섹션은 없다 — [map design](../map/design.md)
 
 ### 헤더

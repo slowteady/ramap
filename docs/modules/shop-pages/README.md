@@ -4,7 +4,7 @@
 
 | 문서 | 언제 읽나 |
 |---|---|
-| [requirements.md](requirements.md) | 이 페이지들이 무엇을 해야 하는지, 목표 검색 쿼리와 제약·범위 밖을 확인할 때 |
+| [prd.md](prd.md) | 이 페이지들이 무엇을 해야 하는지, 목표 검색 쿼리와 제약·범위 밖을 확인할 때 |
 | [design.md](design.md) | 화면 구성·메타데이터·JSON-LD·사이트맵을 고치거나 코드 위치를 찾을 때 |
 | [0001 SEO 하이브리드 구조](decisions/0001-seo-hybrid-structure.md) | 왜 지도와 별도로 SSG 랜딩망을 두는지, SSR 페이지에 지도를 넣으려 할 때 |
 | [0003 매장 상세 구조](decisions/0003-shop-detail-structure.md) | 상세 블록 순서·액션·사진 없는 화면을 바꾸려 할 때 |

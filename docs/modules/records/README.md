@@ -4,7 +4,7 @@
 
 | 문서 | 언제 읽나 |
 |---|---|
-| [requirements.md](requirements.md) | 기록·계정이 지켜야 할 조건과 단계별 범위를 확인할 때 |
+| [prd.md](prd.md) | 기록·계정이 지켜야 할 조건과 단계별 범위를 확인할 때 |
 | [design.md](design.md) | 기록 흐름·시트·마이·로그인 코드를 고치거나 스키마를 바꿀 때 |
 | [decisions/0002-gamification-ban-list.md](decisions/0002-gamification-ban-list.md) | 배지·랭킹·스트릭 같은 제안이 나왔을 때 |
 | [decisions/0003-visit-unit-one-bowl.md](decisions/0003-visit-unit-one-bowl.md) | 완식 횟수의 의미를 확인할 때 |
