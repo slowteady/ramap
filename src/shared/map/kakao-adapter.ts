@@ -127,7 +127,7 @@ function clusterEl(
   const el = document.createElement("button");
   el.type = "button";
   el.style.cssText =
-    "display:flex;align-items:center;gap:4px;padding:6px 11px;border-radius:9999px;border:2px solid #e23c36;cursor:pointer;background:#fff;font:700 12px Pretendard,-apple-system,sans-serif;color:#1a1b1f;box-shadow:0 1px 4px rgba(26,27,31,.15)";
+    "display:flex;align-items:center;gap:4px;padding:6px 11px;border-radius:9999px;border:2px solid #e23c36;cursor:pointer;background:#fff;font:700 var(--text-caption) Pretendard,-apple-system,sans-serif;color:#1a1b1f;box-shadow:0 1px 4px rgba(26,27,31,.15)";
   const [name, count] = [
     cluster.label.replace(/ \d+$/, ""),
     cluster.label.match(/\d+$/)?.[0],

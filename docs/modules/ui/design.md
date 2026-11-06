@@ -1,6 +1,6 @@
 ---
 status: 유효
-updated: 2026-10-28
+updated: 2026-11-06
 ---
 
 # UI 설계
@@ -31,7 +31,7 @@ updated: 2026-10-28
 | 그레이 | `gray-050` ~ `gray-500` | 배경·구분선·보조 텍스트·비활성. 상태 표현은 이 단계 차로 |
 | 시맨틱 | `open` | 그린. 영업 정보 전용 |
 | radius | `rounded-card`·`rounded-card-lg` / `rounded-pill` / `rounded-chip` | 카드 / 컨트롤 / 태그 배지. 그 외 금지. 콘텐츠는 각지게, 컨트롤은 pill([결정](decisions/0001-design-token-rules.md)) |
-| 타이포 | `text-caption`·`text-secondary`·`text-body`·`text-title`·`text-heading`·`text-display` | 6단 고정. 위계는 굵기(400/600/700)와 그레이 단계로 |
+| 타이포 | `text-caption`(13px)·`text-secondary`(14px)·`text-body`(16px)·`text-title`(18px)·`text-heading`(22px)·`text-display`(26px) | 6단 고정. 13px 아래는 쓰지 않는다(ui.md). 위계는 굵기(400/600/700)와 그레이 단계로 |
 | 폰트 | `font-sans` | Pretendard Variable. 기본 폰트(Inter·Roboto) 흔적 금지 |
 | 레이아웃 | `max-w-app`, `h-sheet-card` | 앱 셸 최대 폭(시트·오버레이 포함 전 화면 공통), 지도 홈 매장 카드 높이 |
 
